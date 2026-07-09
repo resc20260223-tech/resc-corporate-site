@@ -169,11 +169,30 @@
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
   }
   .feature {
+    position: relative;
     padding: 26px; border: 1px solid var(--line-light); border-radius: 6px; background: var(--panel-light);
+    overflow: hidden;
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .feature.visible { opacity: 1; transform: translateY(0); }
+  .feature::before {
+    content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--blue), var(--violet), transparent);
+    animation: sweep 3.2s linear infinite;
+  }
+  @keyframes sweep { to { left: 100%; } }
+  .feature:hover {
+    box-shadow: 0 10px 30px rgba(61,139,253,0.12); border-color: rgba(61,139,253,0.35);
   }
   .feature .ftag {
     font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--blue);
     margin-bottom: 14px; letter-spacing: 0.5px;
+  }
+  .feature .ftag .fcursor {
+    display: inline-block; width: 6px; height: 11px; background: var(--blue);
+    margin-left: 3px; vertical-align: -1px;
+    animation: blink 1.1s step-end infinite;
   }
   .feature h3 { font-size: 16.5px; margin-bottom: 10px; font-weight: 700; }
   .feature p { font-size: 13px; color: var(--muted); }
@@ -385,17 +404,17 @@
 
   <div class="features">
     <div class="feature">
-      <div class="ftag">FEATURE_01</div>
+      <div class="ftag">FEATURE_01<span class="fcursor"></span></div>
       <h3>サボらず働く、専属担当</h3>
       <p>お知らせ・ブログの更新も担当が黙々とこなし、日々の運用の手間をなくします。</p>
     </div>
     <div class="feature">
-      <div class="ftag">FEATURE_02</div>
+      <div class="ftag">FEATURE_02<span class="fcursor"></span></div>
       <h3>36ヶ月で無償譲渡</h3>
       <p>長期契約後は、ホームページをそのままお客様に無償でお渡しします。</p>
     </div>
     <div class="feature">
-      <div class="ftag">FEATURE_03</div>
+      <div class="ftag">FEATURE_03<span class="fcursor"></span></div>
       <h3>地域+オンラインの両対応</h3>
       <p>福岡近郊は直接訪問、遠方はオンラインで、同じ丁寧さのサポートを。</p>
     </div>
@@ -644,6 +663,20 @@
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') sendBtn.click();
   });
+
+  // ---- Feature cards: scroll reveal ----
+  (function () {
+    const cards = document.querySelectorAll('.feature');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 120);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    cards.forEach((c) => observer.observe(c));
+  })();
 
   // ---- Matrix-style digital rain (hero background) ----
   (function () {
