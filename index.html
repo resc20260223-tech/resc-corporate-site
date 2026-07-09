@@ -221,7 +221,10 @@
   .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .price-card {
     background: var(--panel-light); border: 1px solid var(--line-light); border-radius: 8px; padding: 30px 26px;
+    opacity: 0; transform: translateY(32px) scale(0.97);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
+  .price-card.visible { opacity: 1; transform: translateY(0) scale(1); }
   .price-card.highlight { background: var(--ink); border-color: var(--ink); color: var(--text-hi); }
   .price-tag {
     font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--muted);
@@ -672,13 +675,15 @@
     if (e.key === 'Enter') sendBtn.click();
   });
 
-  // ---- Feature cards: scroll reveal ----
+  // ---- Feature cards & price cards: scroll reveal ----
   (function () {
-    const cards = document.querySelectorAll('.feature');
+    const cards = document.querySelectorAll('.feature, .price-card');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 120);
+          const siblings = Array.from(entry.target.parentElement.children);
+          const idx = siblings.indexOf(entry.target);
+          setTimeout(() => entry.target.classList.add('visible'), idx * 120);
           observer.unobserve(entry.target);
         }
       });
