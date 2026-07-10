@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社NextGrid｜IT・オフィス</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #3D8BFD;
+    --primary-dark: #1E3A5F;
+    --bg: #F5F7FA;
+    --accent: #8B5CF6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Zen Kaku Gothic New', sans-serif; background: var(--bg); color: #2B2420; line-height: 1.8; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .notice {
+    background: var(--primary-dark); color: #fff; text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: #fff; text-decoration: underline; }
+  .hero { position: relative; height: 60vh; min-height: 380px; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
+  .hero-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
+  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; }
+  .hero-text p { font-size: 14px; max-width: 480px; }
+  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
+  .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
+  .about p { font-size: 14.5px; color: #4A4238; }
+  .menu-list { list-style: none; margin-top: 20px; }
+  .menu-list li { padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.08); font-size: 15px; display: flex; justify-content: space-between; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .gallery img { border-radius: 6px; height: 220px; object-fit: cover; }
+  .contact { background: var(--primary); color: #fff; text-align: center; }
+  .contact .section-title { color: #fff; }
+  .contact p { font-size: 14px; margin-bottom: 8px; }
+  .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
+  @media (max-width: 700px) { .gallery { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../index.html">RESCのサイトに戻る</a></div>
+
+<div class="hero">
+  <img src="images/tech/tech_hero.png" alt="株式会社NextGrid">
+  <div class="hero-text">
+    <div class="label">IT・オフィス</div>
+    <h1>小さなチームで、大きな価値を。</h1>
+    <p>株式会社NextGrid</p>
+  </div>
+</div>
+
+<section class="about">
+  <div class="section-title">こだわり</div>
+  <p>業務システムの受託開発から、社内向けツールの構築まで。少人数チームだからこそできる、柔軟でスピード感のある開発をお約束します。</p>
+</section>
+
+<section style="background:#fff;">
+  <div class="section-title">メニュー・サービス</div>
+  <ul class="menu-list">
+    <li>業務システム受託開発</li>
+    <li>社内ツール構築</li>
+    <li>技術顧問・保守サポート</li>
+  </ul>
+</section>
+
+<section>
+  <div class="section-title">ギャラリー</div>
+  <div class="gallery">
+    <img src="images/tech/tech_gallery1.png">
+    <img src="images/tech/tech_gallery2.png">
+    <img src="images/tech/tech_gallery3.png">
+  </div>
+</section>
+
+<section class="contact">
+  <div class="section-title">アクセス・お問い合わせ</div>
+  <p>福岡県福岡市〇〇区〇〇8-6-2</p>
+  <p>営業時間:9:30〜18:30（土日祝休み）</p>
+  <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+</section>
+
+<footer>株式会社NextGrid（RESC制作サンプル）</footer>
+
+</body>
+</html>

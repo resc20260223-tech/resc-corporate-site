@@ -269,7 +269,10 @@
   .work-card {
     position: relative;
     border: 1px solid var(--line-light); border-radius: 6px; overflow: hidden; background: var(--panel-light);
+    display: block; text-decoration: none; color: inherit; cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
+  .work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
   .work-card img { height: 140px; object-fit: cover; width: 100%; }
   .work-card .work-tag {
     position: absolute; top: 8px; left: 8px;
@@ -438,7 +441,7 @@
   <div class="features">
     <div class="feature">
       <div class="ftag">FEATURE_01<span class="fcursor"></span></div>
-      <h3>サボらず働く、専属担当</h3>
+      <h3>手を抜かず、こなす専属担当</h3>
       <p>お知らせ・ブログの更新も担当が黙々とこなし、日々の運用の手間をなくします。</p>
     </div>
     <div class="feature">
@@ -508,14 +511,14 @@
     <h2 class="section-title">制作事例(サンプル)</h2>
     <p class="section-lead">ホームページ担当が実際に作成したサンプルです。8つの業種でイメージをご用意しています。※ご契約いただいたお客様の実績・お客様の声は、今後こちらに追加していく予定です。</p>
     <div class="works-grid">
-      <div class="work-card"><div class="work-tag">cafe</div><img src="cafe_hero.png"><div class="work-label">カフェ</div></div>
-      <div class="work-card"><div class="work-tag">salon</div><img src="salon_hero.png"><div class="work-label">美容室</div></div>
-      <div class="work-card"><div class="work-tag">clinic</div><img src="clinic_hero.png"><div class="work-label">医療・クリニック</div></div>
-      <div class="work-card"><div class="work-tag">legal</div><img src="professional_hero.png"><div class="work-label">士業</div></div>
-      <div class="work-card"><div class="work-tag">build</div><img src="construction_hero.png"><div class="work-label">工務店</div></div>
-      <div class="work-card"><div class="work-tag">retail</div><img src="retail_hero.png"><div class="work-label">小売</div></div>
-      <div class="work-card"><div class="work-tag">nail</div><img src="nail_hero.png"><div class="work-label">ネイルサロン</div></div>
-      <div class="work-card"><div class="work-tag">tech</div><img src="tech_hero.png"><div class="work-label">IT・オフィス</div></div>
+      <a class="work-card" href="samples/cafe.html" target="_blank" rel="noopener"><div class="work-tag">cafe</div><img src="cafe_hero.png"><div class="work-label">カフェ</div></a>
+      <a class="work-card" href="samples/salon.html" target="_blank" rel="noopener"><div class="work-tag">salon</div><img src="salon_hero.png"><div class="work-label">美容室</div></a>
+      <a class="work-card" href="samples/clinic.html" target="_blank" rel="noopener"><div class="work-tag">clinic</div><img src="clinic_hero.png"><div class="work-label">医療・クリニック</div></a>
+      <a class="work-card" href="samples/professional.html" target="_blank" rel="noopener"><div class="work-tag">legal</div><img src="professional_hero.png"><div class="work-label">士業</div></a>
+      <a class="work-card" href="samples/construction.html" target="_blank" rel="noopener"><div class="work-tag">build</div><img src="construction_hero.png"><div class="work-label">工務店</div></a>
+      <a class="work-card" href="samples/retail.html" target="_blank" rel="noopener"><div class="work-tag">retail</div><img src="retail_hero.png"><div class="work-label">小売</div></a>
+      <a class="work-card" href="samples/nail.html" target="_blank" rel="noopener"><div class="work-tag">nail</div><img src="nail_hero.png"><div class="work-label">ネイルサロン</div></a>
+      <a class="work-card" href="samples/tech.html" target="_blank" rel="noopener"><div class="work-tag">tech</div><img src="tech_hero.png"><div class="work-label">IT・オフィス</div></a>
     </div>
   </div>
 </section>
@@ -530,7 +533,7 @@
       <tr><th>事業内容</th><td>ホームページ制作サブスク型事業</td></tr>
       <tr><th>所在地</th><td>福岡県福岡市西区姪浜2-14-11-307</td></tr>
       <tr><th>設立</th><td>2026年2月23日</td></tr>
-      <tr><th>メールアドレス</th><td>resc.toiawase@gmail.com</td></tr>
+      <tr><th>メールアドレス</th><td>resc.inquiry@resc-inc.com</td></tr>
     </table>
   </div>
 </section>
@@ -540,8 +543,8 @@
     <div class="section-eyebrow">CONTACT</div>
     <h2 class="section-title">お問い合わせ</h2>
     <p class="section-lead">ホームページ制作・料金プランについてのご相談は、お気軽にこちらからお問い合わせください。</p>
-    <div class="form-note">※初回送信時、FormSubmit.coから resc.toiawase@gmail.com 宛に確認メールが届きます。メール内のリンクをクリックして有効化すると、以降のお問い合わせが届くようになります。</div>
-    <form class="contact-form" action="https://formsubmit.co/resc.toiawase@gmail.com" method="POST">
+    <div class="form-note">※初回送信時、FormSubmit.coから resc.inquiry@resc-inc.com 宛に確認メールが届きます。メール内のリンクをクリックして有効化すると、以降のお問い合わせが届くようになります。</div>
+    <form class="contact-form" action="https://formsubmit.co/resc.inquiry@resc-inc.com" method="POST">
       <input type="hidden" name="_subject" value="【株式会社RESC】お問い合わせを受け付けました">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_autoresponse" value="お問い合わせいただきありがとうございます。株式会社RESCです。内容を確認のうえ、2営業日以内に担当よりご連絡いたします。今しばらくお待ちくださいませ。">
