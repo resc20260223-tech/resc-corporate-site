@@ -22,26 +22,96 @@
     font-size: 12.5px; padding: 8px 16px;
   }
   .notice a { color: #fff; text-decoration: underline; }
-  .hero { position: relative; height: 60vh; min-height: 380px; }
-  .hero img { width: 100%; height: 100%; object-fit: cover; }
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; transform-origin: 60% 35%; animation: hero-kenburns 20s ease-out infinite alternate; }
   .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
   .hero-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
   .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
-  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; }
-  .hero-text p { font-size: 14px; max-width: 480px; }
+  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+
+  @keyframes hero-kenburns {
+    from { transform: scale(1) translate(0, 0); }
+    to { transform: scale(1.08) translate(-1.5%, -1.5%); }
+  }
+  @keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero img,
+    .hero-text h1,
+    .hero-text p {
+      animation: none;
+    }
+  }
+
+  /* ---- ヒーロー オープニング演出(ハサミが横切り、切り込みラインで開く) ---- */
+  .hero-opening { position: absolute; inset: 0; z-index: 50; pointer-events: none; }
+  .hero-opening-panel { position: absolute; left: 0; width: 100%; height: 50%; background: var(--bg); }
+  .hero-opening-panel.top { top: 0; animation: hero-open-top 0.9s ease-in 1.65s forwards; }
+  .hero-opening-panel.bottom { bottom: 0; animation: hero-open-bottom 0.9s ease-in 1.65s forwards; }
+  .hero-opening-scissors {
+    position: absolute; top: 50%; left: -8%; width: 46px; height: 46px;
+    color: var(--primary-dark); transform: translateY(-50%);
+    animation: hero-scissors-sweep 1.8s ease-in-out forwards;
+  }
+  @keyframes hero-scissors-sweep {
+    0% { left: -8%; opacity: 1; }
+    85% { left: 100%; opacity: 1; }
+    100% { left: 108%; opacity: 0; }
+  }
+  @keyframes hero-open-top {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+  }
+  @keyframes hero-open-bottom {
+    from { transform: translateY(0); }
+    to { transform: translateY(100%); }
+  }
+  @media (max-width: 480px) {
+    .hero-opening-scissors { width: 36px; height: 36px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-opening { display: none; }
+  }
   section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
   .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
   .about p { font-size: 14.5px; color: #4A4238; }
-  .menu-list { list-style: none; margin-top: 20px; }
-  .menu-list li { padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.08); font-size: 15px; display: flex; justify-content: space-between; }
-  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .gallery img { border-radius: 6px; height: 220px; object-fit: cover; }
+  .menu-category { margin-top: 40px; }
+  .menu-category:first-child { margin-top: 0; }
+  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; text-align: center; }
+  .menu-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .menu-card { text-align: center; width: calc(25% - 15px); }
+  .menu-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; object-position: center; }
+  .menu-card img[src*="salon_menu_cut.png"] { object-position: 62% 35%; }
+  .menu-card img[src*="salon_menu_color.png"] { object-position: 58% 40%; }
+  .menu-card img[src*="salon_menu_treatment.png"] { object-position: 45% 50%; }
+  .menu-card img[src*="salon_menu_perm.png"] { object-position: 45% 35%; }
+  .menu-card img[src*="salon_menu_bridal.png"] { object-position: 68% 30%; }
+  .menu-card img[src*="salon_menu_headspa.png"] { object-position: 45% 45%; }
+  .menu-card .menu-name { margin-top: 12px; font-size: 14px; font-weight: 700; color: #2B2420; }
+  .menu-card .menu-price { margin-top: 4px; font-size: 13px; color: var(--primary); }
+  @media (max-width: 900px) { .menu-card { width: calc(33.333% - 14px); } }
+  @media (max-width: 700px) { .menu-card { width: calc(50% - 10px); } }
+  @media (max-width: 420px) { .menu-card { width: 100%; } }
+  .gallery-marquee { overflow: hidden; }
+  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
+  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; object-fit: cover; border-radius: 6px; margin-right: 16px; }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-marquee { overflow-x: auto; }
+  }
   .contact { background: var(--primary); color: #fff; text-align: center; }
   .contact .section-title { color: #fff; }
   .contact p { font-size: 14px; margin-bottom: 8px; }
   .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
   footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
-  @media (max-width: 700px) { .gallery { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -55,7 +125,36 @@
     <h1>髪と心に、静かなひとときを。</h1>
     <p>Salon Ren</p>
   </div>
+  <div class="hero-opening">
+    <div class="hero-opening-panel top"></div>
+    <div class="hero-opening-panel bottom"></div>
+    <div class="hero-opening-scissors" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="6" cy="6" r="3"></circle>
+        <circle cx="6" cy="18" r="3"></circle>
+        <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+        <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+        <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+      </svg>
+    </div>
+  </div>
 </div>
+<script>
+(function () {
+  var openingEl = document.querySelector('.hero-opening');
+  if (!openingEl) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    openingEl.remove();
+    return;
+  }
+  var bottomPanel = openingEl.querySelector('.hero-opening-panel.bottom');
+  if (bottomPanel) {
+    bottomPanel.addEventListener('animationend', function () {
+      openingEl.remove();
+    });
+  }
+})();
+</script>
 
 <section class="about">
   <div class="section-title">こだわり</div>
@@ -63,20 +162,68 @@
 </section>
 
 <section style="background:#fff;">
-  <div class="section-title">メニュー・サービス</div>
-  <ul class="menu-list">
-    <li>カット　￥6,000〜</li>
-    <li>カラー＋トリートメント　￥12,000〜</li>
-    <li>ヘッドスパ　￥4,500〜</li>
-  </ul>
+  <div class="section-title">メニュー</div>
+
+  <div class="menu-category">
+    <div class="menu-category-title">カット&スタイリング</div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img src="images/salon/salon_menu_cut.png" alt="カット">
+        <div class="menu-name">カット</div>
+        <div class="menu-price">¥4,400</div>
+      </div>
+      <div class="menu-card">
+        <img src="images/salon/salon_menu_color.png" alt="カラー">
+        <div class="menu-name">カラー</div>
+        <div class="menu-price">¥6,600</div>
+      </div>
+      <div class="menu-card">
+        <img src="images/salon/salon_menu_treatment.png" alt="トリートメント">
+        <div class="menu-name">トリートメント</div>
+        <div class="menu-price">¥3,300</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-category">
+    <div class="menu-category-title">スペシャルメニュー</div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img src="images/salon/salon_menu_perm.png" alt="デジタルパーマ">
+        <div class="menu-name">デジタルパーマ</div>
+        <div class="menu-price">¥8,800</div>
+      </div>
+      <div class="menu-card">
+        <img src="images/salon/salon_menu_bridal.png" alt="ブライダルヘア&メイク">
+        <div class="menu-name">ブライダルヘア&メイク</div>
+        <div class="menu-price">¥16,500</div>
+      </div>
+      <div class="menu-card">
+        <img src="images/salon/salon_menu_headspa.png" alt="ヘッドスパ">
+        <div class="menu-name">ヘッドスパ</div>
+        <div class="menu-price">¥4,400</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section>
   <div class="section-title">ギャラリー</div>
-  <div class="gallery">
-    <img src="images/salon/salon_gallery1.png">
-    <img src="images/salon/salon_gallery2.png">
-    <img src="images/salon/salon_gallery3.png">
+  <div class="gallery-marquee">
+    <div class="gallery-track">
+      <img class="gallery-item" src="images/salon/salon_gallery1.png" alt="サロン内観・スタイリング風景">
+      <img class="gallery-item" src="images/salon/salon_gallery2.png" alt="待合ラウンジ">
+      <img class="gallery-item" src="images/salon/salon_gallery3.png" alt="ヘッドスパ・シャンプー台">
+      <img class="gallery-item" src="images/salon/salon_gallery4.png" alt="スタイリングツール">
+      <img class="gallery-item" src="images/salon/salon_gallery5.png" alt="スタイリストの様子">
+      <img class="gallery-item" src="images/salon/salon_gallery6.png" alt="アップスタイルの仕上がり">
+      <img class="gallery-item" src="images/salon/salon_gallery1.png" alt="" aria-hidden="true">
+      <img class="gallery-item" src="images/salon/salon_gallery2.png" alt="" aria-hidden="true">
+      <img class="gallery-item" src="images/salon/salon_gallery3.png" alt="" aria-hidden="true">
+      <img class="gallery-item" src="images/salon/salon_gallery4.png" alt="" aria-hidden="true">
+      <img class="gallery-item" src="images/salon/salon_gallery5.png" alt="" aria-hidden="true">
+      <img class="gallery-item" src="images/salon/salon_gallery6.png" alt="" aria-hidden="true">
+    </div>
   </div>
 </section>
 
@@ -88,6 +235,164 @@
 </section>
 
 <footer>Salon Ren（RESC制作サンプル）</footer>
+
+<style>
+  /* ---- FAQ Chatbot(キーワードマッチ式) ---- */
+  .faq-chatbot-toggle {
+    position: fixed; bottom: 26px; right: 26px; z-index: 200;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--primary); border: 1px solid rgba(255,255,255,0.25);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; box-shadow: 0 10px 30px rgba(42,42,42,0.35);
+    transition: transform 0.15s ease;
+  }
+  .faq-chatbot-toggle:hover { transform: translateY(-2px); }
+  .faq-chatbot-toggle svg { width: 26px; height: 26px; }
+  .faq-chatbot-panel {
+    position: fixed; bottom: 94px; right: 26px; z-index: 200;
+    width: 340px; max-width: calc(100vw - 40px); max-height: 70vh;
+    background: #fff; border: 1px solid rgba(42,42,42,0.15); border-radius: 14px;
+    box-shadow: 0 24px 48px rgba(42,42,42,0.25);
+    display: flex; flex-direction: column; overflow: hidden;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+  }
+  .faq-chatbot-panel.open {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .faq-cb-header {
+    background: var(--primary-dark); color: #fff; padding: 14px 16px;
+    display: flex; align-items: center; justify-content: space-between; font-size: 13.5px; font-weight: 700;
+  }
+  .faq-cb-close { cursor: pointer; font-size: 18px; line-height: 1; opacity: 0.8; }
+  .faq-cb-close:hover { opacity: 1; }
+  .faq-cb-messages {
+    flex: 1; overflow-y: auto; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
+    max-height: 320px; background: var(--bg);
+  }
+  .faq-cb-msg { font-size: 13px; line-height: 1.7; padding: 10px 13px; border-radius: 10px; max-width: 85%; white-space: pre-line; }
+  .faq-cb-msg.bot { background: #fff; color: #2B2420; align-self: flex-start; border: 1px solid rgba(42,42,42,0.12); }
+  .faq-cb-msg.user { background: var(--primary); color: #fff; align-self: flex-end; }
+  .faq-cb-msg a { color: var(--accent); }
+  .faq-cb-inputrow { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid rgba(42,42,42,0.12); background: #fff; }
+  .faq-cb-inputrow input {
+    flex: 1; min-width: 0; border: 1px solid rgba(42,42,42,0.2); border-radius: 20px;
+    padding: 9px 14px; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 13px; color: #2B2420;
+  }
+  .faq-cb-inputrow input:focus { outline: none; border-color: var(--accent); }
+  .faq-cb-send {
+    background: var(--primary); color: #fff; border: none; border-radius: 20px;
+    padding: 0 18px; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;
+  }
+  .faq-cb-send:hover { background: var(--primary-dark); }
+  @media (max-width: 480px) {
+    .faq-chatbot-toggle { right: 16px; bottom: 16px; }
+    .faq-chatbot-panel { right: 16px; bottom: 82px; }
+  }
+</style>
+
+<div class="faq-chatbot-toggle" id="faq-cb-toggle" role="button" aria-label="チャットを開く">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+  </svg>
+</div>
+
+<div class="faq-chatbot-panel" id="faq-cb-panel">
+  <div class="faq-cb-header">
+    <span>Salon Ren チャット</span>
+    <span class="faq-cb-close" id="faq-cb-close">×</span>
+  </div>
+  <div class="faq-cb-messages" id="faq-cb-messages">
+    <div class="faq-cb-msg bot">こんにちは!Salon Renです。ご質問をどうぞ(営業時間・アクセス・メニューなど)</div>
+  </div>
+  <div class="faq-cb-inputrow">
+    <input type="text" id="faq-cb-input" placeholder="質問を入力...">
+    <button class="faq-cb-send" id="faq-cb-send">送信</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  const FAQ = {
+    hours: { match: ["営業時間", "時間"], answer: "営業時間は10:00〜19:00です。定休日は毎週月曜日です。" },
+    closed: { match: ["定休日", "休み"], answer: "定休日は毎週月曜日です。" },
+    access: { match: ["場所", "アクセス", "住所"], answer: "福岡県福岡市○○区○○1-2-3にございます。詳しくは下部のアクセス欄をご覧ください。" },
+    menu: { match: ["メニュー", "おすすめ", "料金"], answer: "カット・カラー・トリートメント・ヘッドスパなどをご用意しています。メニュー欄もご覧ください。" },
+    reserve: { match: ["予約"], answer: "ご予約を承っております。お問い合わせフォームよりご連絡ください。" },
+    parking: { match: ["駐車場", "車"], answer: "近隣にコインパーキングがございます。" },
+    payment: { match: ["クレジット", "支払い", "カード"], answer: "各種クレジットカード・電子マネーがご利用いただけます。" }
+  };
+  const FALLBACK = "お問い合わせフォームからご連絡ください。ページ下部のアクセス欄もご覧いただけます。";
+
+  const toggle = document.getElementById('faq-cb-toggle');
+  const panel = document.getElementById('faq-cb-panel');
+  const closeBtn = document.getElementById('faq-cb-close');
+  const messages = document.getElementById('faq-cb-messages');
+  const input = document.getElementById('faq-cb-input');
+  const sendBtn = document.getElementById('faq-cb-send');
+
+  function addMsg(text, who) {
+    const div = document.createElement('div');
+    div.className = 'faq-cb-msg ' + who;
+    div.textContent = text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function addFallback() {
+    const div = document.createElement('div');
+    div.className = 'faq-cb-msg bot';
+    div.innerHTML = FALLBACK + '<br><a href="mailto:info@example.com">お問い合わせフォームへ</a>';
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function respond(text) {
+    const lower = text.toLowerCase();
+    let hit = null;
+    for (const key in FAQ) {
+      if (FAQ[key].match.some(k => lower.includes(k.toLowerCase()))) { hit = FAQ[key]; break; }
+    }
+    setTimeout(() => {
+      if (hit) addMsg(hit.answer, 'bot');
+      else addFallback();
+    }, 350);
+  }
+
+  let userClosed = false;
+
+  toggle.addEventListener('click', () => { panel.classList.add('open'); toggle.style.display = 'none'; });
+  closeBtn.addEventListener('click', () => {
+    panel.classList.remove('open');
+    toggle.style.display = 'flex';
+    userClosed = true;
+  });
+
+  // ページ読み込み後、少し間を置いて自動的にチャットを開く(スマホ幅では邪魔になるため無効)
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (userClosed || window.innerWidth <= 480) return;
+      panel.classList.add('open');
+      toggle.style.display = 'none';
+    }, 900);
+  });
+
+  sendBtn.addEventListener('click', () => {
+    const val = input.value.trim();
+    if (!val) return;
+    addMsg(val, 'user');
+    respond(val);
+    input.value = '';
+  });
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') sendBtn.click();
+  });
+})();
+</script>
 
 </body>
 </html>
