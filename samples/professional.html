@@ -25,9 +25,18 @@
   .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
   .hero img { width: 100%; height: 100%; object-fit: cover; transform-origin: 60% 35%; animation: hero-kenburns 20s ease-out infinite alternate; }
   .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
-  .hero-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
+  .hero-text { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
   .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
   .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
+  .hero-text h1::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #C0A062;
+    margin: 14px auto 0;
+    animation: hero-gold-line 0.8s ease-out 0.8s both;
+  }
   .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
 
   @keyframes hero-kenburns {
@@ -38,11 +47,19 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
+  @keyframes hero-gold-line {
+    from { width: 0; }
+    to { width: 55%; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .hero img,
     .hero-text h1,
     .hero-text p {
       animation: none;
+    }
+    .hero-text h1::after {
+      animation: none;
+      width: 55%;
     }
   }
   section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
