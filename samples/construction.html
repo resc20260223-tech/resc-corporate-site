@@ -24,8 +24,9 @@
   .notice a { color: #fff; text-decoration: underline; }
   .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
   .hero-video { width: 100%; height: 100%; object-fit: contain; background: var(--primary-dark); }
+  .hero-mask-top { position: absolute; top: 0; left: 0; right: 0; height: 46px; background: var(--primary-dark); z-index: 1; }
   .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
-  .hero-text { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
+  .hero-text { display: none; }
   .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
   .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
   .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
@@ -77,9 +78,10 @@
 <div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../index.html">RESCのサイトに戻る</a></div>
 
 <div class="hero">
-  <video class="hero-video" id="hero-video" autoplay muted playsinline poster="images/construction/construction_hero.png">
+  <video class="hero-video" id="hero-video" autoplay muted playsinline>
     <source src="images/construction/construction_hero.mp4" type="video/mp4">
   </video>
+  <div class="hero-mask-top"></div>
   <div class="hero-text">
     <div class="label">工務店</div>
     <h1>家族の時間を、長く支える家づくり。</h1>
