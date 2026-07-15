@@ -5,43 +5,107 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>株式会社NextGrid｜IT・オフィス</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --primary: #3D8BFD;
-    --primary-dark: #1E3A5F;
-    --bg: #F5F7FA;
-    --accent: #8B5CF6;
+    --navy-deep: #0F1B2E;
+    --slate-blue: #2D4059;
+    --base-light: #F7F9FC;
+    --white: #FFFFFF;
+    --text-dark: #1A2B42;
+    --text-muted: #5A6B80;
+    --accent: #00D4FF;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Zen Kaku Gothic New', sans-serif; background: var(--bg); color: #2B2420; line-height: 1.8; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--base-light); color: var(--text-dark); line-height: 1.8; }
   img { max-width: 100%; display: block; }
   a { color: inherit; }
   .notice {
-    background: var(--primary-dark); color: #fff; text-align: center;
+    background: var(--navy-deep); color: #fff; text-align: center;
     font-size: 12.5px; padding: 8px 16px;
   }
   .notice a { color: #fff; text-decoration: underline; }
-  .hero { position: relative; height: 60vh; min-height: 380px; }
-  .hero img { width: 100%; height: 100%; object-fit: cover; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
-  .hero-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
-  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
-  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; }
-  .hero-text p { font-size: 14px; max-width: 480px; }
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero-video, .hero-video-fallback { width: 100%; height: 100%; object-fit: cover; }
+  .hero-video-fallback { display: none; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.18); }
+  .hero-text { display: none; }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.9; margin-bottom: 14px; }
+  .hero-text h1 {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif; font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px;
+    animation: hero-fade-in 0.9s ease-out both;
+  }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-in 0.9s ease-out both; animation-delay: 0.3s; }
+  @keyframes hero-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video { display: none; }
+    .hero-video-fallback { display: block; }
+    .hero-text h1, .hero-text p { animation: none; }
+  }
   section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
-  .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
-  .about p { font-size: 14.5px; color: #4A4238; }
-  .menu-list { list-style: none; margin-top: 20px; }
-  .menu-list li { padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.08); font-size: 15px; display: flex; justify-content: space-between; }
-  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .gallery img { border-radius: 6px; height: 220px; object-fit: cover; }
-  .contact { background: var(--primary); color: #fff; text-align: center; }
-  .contact .section-title { color: #fff; }
-  .contact p { font-size: 14px; margin-bottom: 8px; }
-  .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
-  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
-  @media (max-width: 700px) { .gallery { grid-template-columns: 1fr; } }
+  .section-title { font-family: 'Inter', 'Noto Sans JP', sans-serif; font-size: 26px; font-weight: 700; color: var(--navy-deep); margin-bottom: 24px; text-align: center; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; box-shadow: 0 16px 36px rgba(15,27,46,0.15); }
+  .about-content { text-align: left; }
+  .about-content .section-title { text-align: left; }
+  .about p { font-size: 14.5px; color: var(--text-dark); margin-bottom: 14px; }
+  .about p:last-child { margin-bottom: 0; }
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about-content, .about-content .section-title { text-align: center; }
+  }
+  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .menu-card {
+    display: flex; flex-direction: column; text-align: center;
+    background: #fff; border: 1px solid var(--accent); border-radius: 12px; padding: 18px 18px 22px;
+  }
+  .menu-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
+  .menu-card .menu-name { margin-top: 14px; font-size: 15px; font-weight: 700; color: var(--navy-deep); }
+  .menu-card .menu-copy { margin-top: 8px; font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.6; flex: 1; }
+  .menu-card .menu-price { margin-top: 16px; font-size: 15px; font-weight: 700; color: var(--slate-blue); }
+  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .menu-grid { grid-template-columns: 1fr; } }
+  .gallery-marquee { overflow: hidden; }
+  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
+  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+  .gallery-item { flex: 0 0 auto; width: 320px; aspect-ratio: 16 / 9; border-radius: 6px; margin-right: 16px; overflow: hidden; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-marquee { overflow-x: auto; }
+  }
+  .contact { background: var(--base-light); color: var(--navy-deep); text-align: center; }
+  .contact .section-title { color: var(--navy-deep); }
+  .contact-box {
+    width: fit-content; margin: 0 auto 24px; padding: 26px 42px;
+    background: #fff; border: 1px solid var(--accent); border-radius: 12px;
+  }
+  .contact p { font-size: 14px; margin-bottom: 8px; color: var(--navy-deep); }
+  .contact p:last-of-type { margin-bottom: 0; }
+  .contact .btn {
+    display: inline-block; margin-top: 24px; background: var(--accent); color: var(--navy-deep);
+    border: 1px solid var(--accent); padding: 12px 34px; border-radius: 999px;
+    font-weight: 700; font-size: 13.5px; transition: background 0.25s ease, color 0.25s ease;
+  }
+  .contact .btn:hover { background: var(--navy-deep); color: var(--accent); }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); background: var(--base-light); }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .menu-grid .menu-card:nth-child(3n+1) { transition-delay: 0s; }
+  .menu-grid .menu-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .menu-grid .menu-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
 </style>
 </head>
 <body>
@@ -49,45 +113,134 @@
 <div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../index.html">RESCのサイトに戻る</a></div>
 
 <div class="hero">
-  <img src="images/tech/tech_hero.png" alt="株式会社NextGrid">
+  <video class="hero-video" id="hero-video" autoplay muted playsinline preload="metadata" poster="images/tech/tech_hero_last.png">
+    <source src="images/tech/tech_hero.mp4" type="video/mp4">
+  </video>
+  <img class="hero-video-fallback" src="images/tech/tech_hero_last.png" alt="株式会社NextGrid">
   <div class="hero-text">
     <div class="label">IT・オフィス</div>
-    <h1>小さなチームで、大きな価値を。</h1>
-    <p>株式会社NextGrid</p>
+    <h1>株式会社NextGrid</h1>
+    <p>業務システムの開発から運用まで、伴走するITパートナー。</p>
   </div>
 </div>
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var v = document.getElementById('hero-video');
+    if (v) { v.pause(); v.removeAttribute('autoplay'); }
+  }
+})();
+</script>
 
-<section class="about">
-  <div class="section-title">こだわり</div>
-  <p>業務システムの受託開発から、社内向けツールの構築まで。少人数チームだからこそできる、柔軟でスピード感のある開発をお約束します。</p>
+<section class="about reveal">
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="images/tech/tech_gallery1.png" alt="株式会社NextGridの開放的なオフィス全景">
+    </div>
+    <div class="about-content">
+      <div class="section-title">こだわり</div>
+      <p>少人数精鋭のチームだからこそ、意思決定はスピーディーに、要件のすり合わせはきめ細かく。無駄な工程を省き、本当に必要な機能に集中して開発を進めます。</p>
+      <p>業務システムの新規開発からWebサイト・Webアプリの制作、既存システムの改善まで、企業の"ちょうどいいIT"を一緒に形にしていきます。</p>
+      <p>納品して終わりにはしません。リリース後の運用・保守まで見据えたご提案と、長くお付き合いできる伴走型のサポート体制を大切にしています。</p>
+    </div>
+  </div>
 </section>
 
 <section style="background:#fff;">
   <div class="section-title">メニュー・サービス</div>
-  <ul class="menu-list">
-    <li>業務システム受託開発</li>
-    <li>社内ツール構築</li>
-    <li>技術顧問・保守サポート</li>
-  </ul>
-</section>
-
-<section>
-  <div class="section-title">ギャラリー</div>
-  <div class="gallery">
-    <img src="images/tech/tech_gallery1.png">
-    <img src="images/tech/tech_gallery2.png">
-    <img src="images/tech/tech_gallery3.png">
+  <div class="menu-grid">
+    <div class="menu-card reveal">
+      <img src="images/tech/tech_menu_web.png" alt="Webサイト制作">
+      <div class="menu-name">Webサイト制作</div>
+      <div class="menu-copy">会社の"顔"となる、伝わるWebサイトを。</div>
+      <div class="menu-price">要相談</div>
+    </div>
+    <div class="menu-card reveal">
+      <img src="images/tech/tech_menu_app.png" alt="Webアプリ開発">
+      <div class="menu-name">Webアプリ開発</div>
+      <div class="menu-copy">業務にフィットする、使われ続けるアプリを。</div>
+      <div class="menu-price">要相談</div>
+    </div>
+    <div class="menu-card reveal">
+      <img src="images/tech/tech_menu_system.png" alt="システム開発">
+      <div class="menu-name">システム開発</div>
+      <div class="menu-copy">自社の業務に合わせた、オーダーメイドの仕組みを。</div>
+      <div class="menu-price">要相談</div>
+    </div>
+    <div class="menu-card reveal">
+      <img src="images/tech/tech_menu_dx.png" alt="DXコンサルティング">
+      <div class="menu-name">DXコンサルティング</div>
+      <div class="menu-copy">何から始めるか、から一緒に整理します。</div>
+      <div class="menu-price">要相談</div>
+    </div>
+    <div class="menu-card reveal">
+      <img src="images/tech/tech_menu_improve.png" alt="業務システム改善">
+      <div class="menu-name">業務システム改善</div>
+      <div class="menu-copy">使いにくさの原因を見つけ、丁寧に直す。</div>
+      <div class="menu-price">要相談</div>
+    </div>
+    <div class="menu-card reveal">
+      <img src="images/tech/tech_menu_support.png" alt="保守・運用サポート">
+      <div class="menu-name">保守・運用サポート</div>
+      <div class="menu-copy">リリース後も、安心して任せられる体制を。</div>
+      <div class="menu-price">要相談</div>
+    </div>
   </div>
 </section>
 
-<section class="contact">
+<section>
+  <div class="section-title reveal">ギャラリー</div>
+  <div class="gallery-marquee">
+    <div class="gallery-track">
+      <div class="gallery-item"><img src="images/tech/tech_gallery1.png" alt="オフィス風景1"></div>
+      <div class="gallery-item"><img src="images/tech/tech_gallery2.png" alt="オフィス風景2"></div>
+      <div class="gallery-item"><img src="images/tech/tech_gallery3.png" alt="オフィス風景3"></div>
+      <div class="gallery-item"><img src="images/tech/tech_gallery4.png" alt="オフィス風景4"></div>
+      <div class="gallery-item"><img src="images/tech/tech_gallery5.png" alt="オフィス風景5"></div>
+      <div class="gallery-item"><img src="images/tech/tech_gallery6.png" alt="オフィス風景6"></div>
+      <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery1.png" alt=""></div>
+      <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery2.png" alt=""></div>
+      <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery3.png" alt=""></div>
+      <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery4.png" alt=""></div>
+      <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery5.png" alt=""></div>
+      <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery6.png" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact reveal">
   <div class="section-title">アクセス・お問い合わせ</div>
-  <p>福岡県福岡市〇〇区〇〇8-6-2</p>
-  <p>営業時間:9:30〜18:30（土日祝休み）</p>
+  <div class="contact-box">
+    <p>福岡県福岡市〇〇区〇〇8-6-2</p>
+    <p>営業時間:9:30〜18:30（土日祝休み）</p>
+  </div>
   <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
 </section>
 
-<footer>株式会社NextGrid（RESC制作サンプル）</footer>
+<footer class="reveal">株式会社NextGrid（RESC制作サンプル）</footer>
+
+<script>
+(function () {
+  const targets = document.querySelectorAll('.reveal');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach(el => observer.observe(el));
+})();
+</script>
 
 </body>
 </html>
