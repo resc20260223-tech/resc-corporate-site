@@ -1,795 +1,1052 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>株式会社RESC | 月5,000円〜、ホームページ担当者を1人雇う</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #0B0F14;
-    --panel-dark: #141B22;
-    --line-dark: #2A3440;
-    --paper: #F5F7FA;
-    --panel-light: #FFFFFF;
-    --line-light: #DEE3E9;
-    --text-hi: #E8EDF2;
-    --text-lo: #10151B;
-    --muted: #6B7686;
-    --blue: #3D8BFD;
-    --violet: #8B5CF6;
-    --amber: #F5A623;
-    --green: #34D399;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: "Zen Kaku Gothic New", sans-serif;
-    color: var(--text-lo);
-    background: var(--paper);
-    line-height: 1.75;
-  }
-  .mono { font-family: "JetBrains Mono", monospace; }
-  a { text-decoration: none; color: inherit; }
-  ul { list-style: none; }
-  img { max-width: 100%; display: block; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>株式会社RESC | セールスプロモーション</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ---- Nav ---- */
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(11,15,20,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line-dark);
-  }
-  .nav-inner {
-    max-width: 1140px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 24px;
-  }
-  .logo {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 17px; font-weight: 700; color: var(--text-hi); letter-spacing: 0.5px;
-  }
-  .logo .cursor {
-    display: inline-block; width: 8px; height: 16px; background: var(--blue);
-    margin-left: 4px; vertical-align: -2px;
-    animation: blink 1.1s step-end infinite;
-  }
-  @keyframes blink { 0%, 45% { opacity: 1; } 50%, 95% { opacity: 0; } 100% { opacity: 1; } }
-  .nav-links { display: flex; gap: 30px; }
-  .nav-links a {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12.5px; color: var(--muted); letter-spacing: 0.3px;
-    transition: color 0.15s ease;
-  }
-  .nav-links a:hover { color: var(--blue); }
+    :root {
+      --navy:   #0B0F14;
+      --blue:   #3D8BFD;
+      --gold:   #8B5CF6;
+      --bg:     #0B0F14;
+      --bg2:    #141B22;
+      --text:   #E8EDF2;
+      --sub:    #6B7686;
+      --light:  #2A3440;
+    }
 
-  /* ---- Hero (dark canvas) ---- */
-  .hero {
-    background: var(--ink);
-    color: var(--text-hi);
-    padding: 100px 24px 80px 24px;
-    position: relative;
-    overflow: hidden;
-    background-image:
-      linear-gradient(var(--line-dark) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line-dark) 1px, transparent 1px);
-    background-size: 44px 44px;
-    background-position: center top;
-  }
-  .hero::before {
-    content: "";
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 700px 500px at 20% 20%, rgba(61,139,253,0.18), transparent 60%),
-                radial-gradient(ellipse 600px 500px at 85% 60%, rgba(139,92,246,0.15), transparent 60%),
-                linear-gradient(180deg, rgba(11,15,20,0.2), var(--ink) 85%);
-    pointer-events: none;
-  }
-  .hero-inner {
-    max-width: 1140px; margin: 0 auto; position: relative;
-    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px;
-    align-items: center;
-  }
-  #matrix-rain {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    opacity: 0.4; pointer-events: none;
-  }
-  .hero-eyebrow {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12px; letter-spacing: 2px; color: var(--blue); margin-bottom: 20px;
-  }
-  .hero-eyebrow::before { content: "// "; color: var(--muted); }
-  .hero h1 {
-    font-size: 40px; font-weight: 900; line-height: 1.5; margin-bottom: 22px; letter-spacing: -0.5px;
-  }
-  .hero h1 .accent {
-    background: linear-gradient(90deg, var(--blue), var(--violet));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .hero p.lead { font-size: 14.5px; color: #A9B4C2; max-width: 480px; margin-bottom: 36px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 30px; border-radius: 3px;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 13.5px; font-weight: 700; letter-spacing: 0.3px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    border: none; cursor: pointer;
-  }
-  .btn-primary { background: var(--blue); color: #06121F; }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(61,139,253,0.35); }
+    html { scroll-behavior: smooth; }
 
-  /* ---- Signature: canvas / editor frame ---- */
-  .canvas-frame {
-    position: relative;
-    background: #0F151C;
-    border: 1px solid var(--line-dark);
-    border-radius: 8px;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-  }
-  .canvas-frame::before, .canvas-frame::after,
-  .canvas-frame .cf-br1, .canvas-frame .cf-br2 {
-    content: ""; position: absolute; width: 14px; height: 14px;
-    border-color: var(--blue); border-style: solid; opacity: 0.7;
-  }
-  .canvas-frame::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-  .canvas-frame::after { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-  .canvas-frame .cf-br1 { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
-  .canvas-frame .cf-br2 { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
-  .cf-toolbar {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 16px; border-bottom: 1px solid var(--line-dark);
-  }
-  .cf-filename { font-family: "JetBrains Mono", monospace; font-size: 11.5px; color: #8B96A5; }
-  .cf-status { display: flex; align-items: center; gap: 6px; font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--green); }
-  .cf-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 1.6s ease-in-out infinite; }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-  .cf-imgwrap { position: relative; height: 250px; overflow: hidden; }
-  .cf-imgwrap img {
-    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-    opacity: 0; transition: opacity 1.2s ease;
-  }
-  .cf-imgwrap img.active { opacity: 1; }
-  .cf-imgwrap::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(15,21,28,0.75) 100%);
-  }
-  .cf-caption {
-    padding: 12px 16px; display: flex; justify-content: space-between; align-items: center;
-    font-family: "JetBrains Mono", monospace; font-size: 11px; color: #8B96A5;
-  }
-  .cf-caption .tag {
-    background: rgba(61,139,253,0.15); color: var(--blue); font-weight: 700;
-    padding: 3px 10px; border-radius: 3px; font-size: 10.5px;
-  }
+    body {
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
 
-  /* ---- Features ---- */
-  .features {
-    max-width: 1140px; margin: 0 auto; padding: 64px 24px;
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
-  }
-  .feature {
-    position: relative;
-    padding: 26px; border: 1px solid var(--line-light); border-radius: 6px; background: var(--panel-light);
-    overflow: hidden;
-    opacity: 0; transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-  .feature.visible { opacity: 1; animation: float 4.5s ease-in-out infinite; }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  .feature::before {
-    content: ""; position: absolute; top: 0; left: -60%; width: 60%; height: 3px;
-    background: linear-gradient(90deg, transparent, var(--blue), var(--violet), transparent);
-    box-shadow: 0 0 12px 1px rgba(61,139,253,0.7);
-    animation: sweep 2.4s linear infinite;
-  }
-  @keyframes sweep { to { left: 100%; } }
-  .feature:hover {
-    box-shadow: 0 10px 30px rgba(61,139,253,0.12); border-color: rgba(61,139,253,0.35);
-  }
-  .feature .ftag {
-    font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--blue);
-    margin-bottom: 14px; letter-spacing: 0.5px;
-    white-space: nowrap; overflow: hidden; display: inline-block; width: 0;
-  }
-  .feature.visible .ftag { animation: typing 0.6s steps(11) 0.15s forwards; }
-  @keyframes typing { to { width: 78px; } }
-  .feature .ftag .fcursor {
-    display: inline-block; width: 6px; height: 11px; background: var(--blue);
-    margin-left: 3px; vertical-align: -1px;
-    animation: blink 1.1s step-end infinite;
-  }
-  .feature h3 { font-size: 16.5px; margin-bottom: 10px; font-weight: 700; }
-  .feature p { font-size: 13px; color: var(--muted); }
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+    }
 
-  /* ---- Section shared ---- */
-  section.page { padding: 90px 24px; }
-  .section-inner { max-width: 1140px; margin: 0 auto; }
-  .section-eyebrow {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12px; color: var(--blue); font-weight: 700; margin-bottom: 14px; letter-spacing: 0.3px;
-  }
-  .section-eyebrow::before { content: "// "; color: #B9C8DC; }
-  .section-title { font-size: 30px; margin-bottom: 18px; font-weight: 900; }
-  .section-lead { font-size: 14px; color: var(--muted); max-width: 640px; margin-bottom: 50px; }
-  .bg-alt { background: #EEF1F5; }
 
-  /* ---- Pricing ---- */
-  .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .price-card {
-    position: relative;
-    background: var(--panel-light); border: 1px solid var(--line-light); border-radius: 8px; padding: 30px 26px;
-    opacity: 0; transform: translateY(32px) scale(0.97);
-    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  @property --angle { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
-  .price-card.highlight { isolation: isolate; }
-  .price-card.highlight::after {
-    content: ""; position: absolute; inset: -2px; border-radius: 10px; padding: 2px;
-    background: conic-gradient(from var(--angle), var(--blue), var(--violet), var(--blue));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-    z-index: -1;
-  }
-  .price-card.highlight.visible::after { animation: rotateBorder 3.5s linear infinite; }
-  @keyframes rotateBorder { to { --angle: 360deg; } }
-  .price-card.visible {
-    opacity: 1;
-    animation: priceFloat 5s ease-in-out infinite;
-  }
-  .price-card.visible:nth-child(2) { animation-delay: 0.4s; }
-  .price-card.visible:nth-child(3) { animation-delay: 0.8s; }
-  @keyframes priceFloat {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-10px) scale(1); }
-  }
-  .price-card.highlight { background: var(--ink); border-color: var(--ink); color: var(--text-hi); }
-  .price-tag {
-    font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--muted);
-    margin-bottom: 8px; letter-spacing: 0.5px;
-  }
-  .price-card.highlight .price-tag { color: #8B96A5; }
-  .price-name { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
-  .price-value { font-family: "JetBrains Mono", monospace; font-size: 32px; font-weight: 700; margin-bottom: 4px; }
-  .price-value span { font-size: 12.5px; font-weight: 400; color: var(--muted); }
-  .price-value .price-num { font-size: 1em; font-weight: 700; color: inherit; }
-  .price-card.highlight .price-value span { color: #8B96A5; }
-  .price-list { margin-top: 20px; font-size: 13px; font-family: "Zen Kaku Gothic New", sans-serif; }
-  .price-list div { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--line-light); }
-  .price-card.highlight .price-list div { border-bottom: 1px dashed var(--line-dark); }
-  .price-list .lbl { color: var(--muted); }
-  .price-card.highlight .price-list .lbl { color: #8B96A5; }
-  .price-note { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 26px; font-family: "Zen Kaku Gothic New", sans-serif; }
+    /* ── Logo watermark for sub-pages ── */
+    .logo-bg-overlay {
+      position: relative;
+    }
+    .logo-bg-overlay::after {
+      content: '';
+      position: absolute;
+      right: -60px;
+      bottom: -60px;
+      width: 420px;
+      height: 420px;
+      background-image: url("images/resc-logo-mark.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .logo-bg-overlay > * { position: relative; z-index: 1; }
 
-  /* ---- Works ---- */
-  .works-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .work-card {
-    position: relative;
-    border: 1px solid var(--line-light); border-radius: 6px; overflow: hidden; background: var(--panel-light);
-    display: block; text-decoration: none; color: inherit; cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
-  .work-card img { height: 140px; object-fit: cover; width: 100%; }
-  .work-card .work-tag {
-    position: absolute; top: 8px; left: 8px;
-    font-family: "JetBrains Mono", monospace; font-size: 9.5px; color: #fff;
-    background: rgba(11,15,20,0.55); padding: 2px 7px; border-radius: 3px;
-  }
-  .work-card .work-label { padding: 12px; font-size: 13px; font-weight: 700; text-align: center; }
+    /* hero section watermark */
+    .cp-hero {
+      position: relative; overflow: hidden;
+    }
+    .cp-hero::after {
+      content: '';
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 380px;
+      height: 380px;
+      background-image: url("images/resc-logo-mark.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.10;
+      pointer-events: none;
+    }
 
-  /* ---- About table ---- */
-  .about-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  .about-table tr { border-bottom: 1px solid var(--line-light); }
-  .about-table th {
-    text-align: left; padding: 18px 20px 18px 0; width: 170px;
-    color: var(--muted); font-weight: 500; vertical-align: top;
-    font-family: "JetBrains Mono", monospace; font-size: 12px;
-  }
-  .about-table td { padding: 18px 0; }
-  .placeholder { color: var(--amber); font-family: "JetBrains Mono", monospace; font-size: 13px; }
+    /* ── Logo ── */
+    .nav-logo {
+      display: flex; align-items: center; gap: .6rem;
+      text-decoration: none;
+    }
+    .nav-logo-img {
+      height: 38px;
+      width: auto;
+      border-radius: 4px;
+      /* white bg logo on dark nav: mix-blend to knock out white */
 
-  /* ---- Contact ---- */
-  .contact-form { max-width: 560px; }
-  .form-row { margin-bottom: 20px; }
-  .form-row label {
-    display: block; font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700; margin-bottom: 8px; color: var(--muted);
-  }
-  .form-row input, .form-row textarea, .form-row select {
-    width: 100%; padding: 12px 14px; font-size: 14px;
-    border: 1px solid var(--line-light); border-radius: 4px;
-    font-family: "Zen Kaku Gothic New", sans-serif;
-    background: var(--panel-light);
-  }
-  .form-row input:focus, .form-row textarea:focus, .form-row select:focus {
-    outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(61,139,253,0.15);
-  }
-  .form-row textarea { min-height: 130px; resize: vertical; }
-  .form-note {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 11.5px; color: #8A5A00; background: #FFF3DA;
-    padding: 12px 16px; border-radius: 6px; margin-bottom: 26px; border: 1px solid #F0DDB0;
-  }
-  .btn-submit { background: var(--ink); color: var(--text-hi); }
-  .btn-submit:hover { box-shadow: 0 10px 26px rgba(11,15,20,0.25); }
+    }
+    .nav-logo-text {
+      color: #fff;
+      font-weight: 900;
+      font-size: .88rem;
+      letter-spacing: .06em;
+      line-height: 1.2;
+    }
+    .nav-logo-text em {
+      font-style: normal;
+      color: #f0c060;
+      display: block;
+      font-size: 1rem;
+    }
+    .hero-logo {
+      width: clamp(280px, 40vw, 480px);
+      height: auto;
+      display: block;
+      opacity: 0.18;
+    }
 
-  footer {
-    background: var(--ink); color: #8B96A5;
-    text-align: center; padding: 34px 24px; font-size: 12px;
-    font-family: "JetBrains Mono", monospace;
-    border-top: 1px solid var(--line-dark);
-  }
+    .nav-tel { display: none; }
+    .nav-about {
+      color: rgba(255,255,255,.85);
+      font-size: .85rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: .4em .8em;
+      border-radius: 4px;
+      transition: color .2s;
+    }
+    .nav-about:hover { color: #f0c060; }
+    .nav-cta {
+      background: #f0c060;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: .85rem;
+      padding: .55em 1.5em;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
 
-  /* ---- FAQ Chatbot ---- */
-  .chatbot-toggle {
-    position: fixed; bottom: 26px; right: 26px; z-index: 200;
-    width: 56px; height: 56px; border-radius: 50%;
-    background: var(--ink); border: 1px solid var(--line-dark);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: transform 0.15s ease;
-  }
-  .chatbot-toggle:hover { transform: translateY(-2px); }
-  .chatbot-toggle svg { width: 24px; height: 24px; }
-  .chatbot-toggle .dot {
-    position: absolute; top: 8px; right: 8px; width: 9px; height: 9px;
-    border-radius: 50%; background: var(--green); border: 2px solid var(--ink);
-  }
-  .chatbot-panel {
-    position: fixed; bottom: 94px; right: 26px; z-index: 200;
-    width: 340px; max-height: 480px;
-    background: var(--ink); border: 1px solid var(--line-dark); border-radius: 10px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
-    display: none; flex-direction: column; overflow: hidden;
-  }
-  .chatbot-panel.open { display: flex; }
-  .cb-header {
-    padding: 14px 16px; border-bottom: 1px solid var(--line-dark);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .cb-header-title {
-    font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--text-hi);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .cb-header-title .dot2 { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 1.6s ease-in-out infinite; }
-  .cb-close { color: #8B96A5; cursor: pointer; font-family: "JetBrains Mono", monospace; font-size: 16px; }
-  .cb-messages {
-    flex: 1; overflow-y: auto; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
-    max-height: 260px;
-  }
-  .cb-msg { font-size: 13px; line-height: 1.6; padding: 10px 12px; border-radius: 8px; max-width: 88%; white-space: pre-line; }
-  .cb-msg.bot { background: var(--panel-dark); color: var(--text-hi); align-self: flex-start; border: 1px solid var(--line-dark); }
-  .cb-msg.user { background: var(--blue); color: #06121F; align-self: flex-end; font-weight: 500; }
-  .cb-quick { padding: 0 16px 10px 16px; display: flex; flex-wrap: wrap; gap: 6px; }
-  .cb-chip {
-    font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--blue);
-    border: 1px solid rgba(61,139,253,0.4); background: rgba(61,139,253,0.08);
-    padding: 6px 10px; border-radius: 20px; cursor: pointer; transition: background 0.15s ease;
-  }
-  .cb-chip:hover { background: rgba(61,139,253,0.18); }
-  .cb-inputrow {
-    display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--line-dark);
-  }
-  .cb-inputrow input {
-    flex: 1; min-width: 0; background: var(--panel-dark); border: 1px solid var(--line-dark); border-radius: 5px;
-    color: var(--text-hi); font-family: "Zen Kaku Gothic New", sans-serif; font-size: 13px; padding: 9px 12px;
-  }
-  .cb-inputrow input:focus { outline: none; border-color: var(--blue); }
-  .cb-send {
-    background: var(--blue); color: #06121F; border: none; border-radius: 5px;
-    padding: 0 16px; font-family: "Zen Kaku Gothic New", sans-serif; font-size: 13px; font-weight: 700;
-    cursor: pointer; white-space: nowrap; flex-shrink: 0;
-  }
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--blue) 60%, var(--bg) 100%);
+      min-height: 100svh;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 100px 40px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-inner { flex: 1; max-width: 600px; position: relative; z-index: 1; }
+    .hero-logo-wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(240,192,96,.15);
+      border: 1px solid rgba(240,192,96,.5);
+      color: #f0c060;
+      font-size: .78rem;
+      letter-spacing: .18em;
+      padding: .35em 1em;
+      border-radius: 2px;
+      margin-bottom: 1.8rem;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.8rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.22;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: #f0c060;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,.85);
+      margin-bottom: 2.5rem;
+      line-height: 1.9;
+      max-width: 480px;
+    }
+    .hero-btn {
+      display: inline-block;
+      background: var(--blue);
+      color: var(--bg);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: .9em 2.4em;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s, background .2s;
+    }
+    .hero-btn:hover {
+      background: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(139,92,246,.3);
+    }
 
-  @media (max-width: 800px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .features { grid-template-columns: 1fr; }
-    .price-grid { grid-template-columns: 1fr; }
-    .works-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-</style>
+    /* ── Sections ── */
+    .sec { padding: 80px 40px; }
+    .sec-alt { background: var(--bg2); }
+
+    .sec-label {
+      font-size: .72rem;
+      letter-spacing: .22em;
+      color: var(--gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: .7rem;
+    }
+    .sec-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    .sec-lead {
+      font-size: 1rem;
+      color: var(--sub);
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Stats row ── */
+    .stats-row {
+      display: flex;
+      gap: 1px;
+      background: #dde3f0;
+      border: 1px solid #dde3f0;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .stat-box {
+      flex: 1;
+      background: #fff;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .stat-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: .4rem;
+    }
+    .stat-val small {
+      font-size: .5em;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .stat-desc { font-size: .82rem; color: var(--sub); }
+
+    /* ── Feature cards ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2.2rem 2rem;
+      border-left: 5px solid var(--gold);
+      box-shadow: 0 2px 16px rgba(13,35,83,.08);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 32px rgba(13,35,83,.14);
+    }
+    .card-icon {
+      width: 48px; height: 48px;
+      background: var(--light);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .6rem;
+    }
+    .card p { font-size: .88rem; color: var(--sub); line-height: 1.85; }
+
+    /* ── Contact ── */
+    .contact-sec {
+      background: var(--bg2);
+      padding: 80px 40px;
+    }
+    .contact-sec .sec-label { color: var(--gold); }
+    .contact-sec .sec-title { color: var(--navy); margin-bottom: .5rem; }
+    .contact-sec .sec-lead { color: var(--sub); margin-bottom: 2.5rem; }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* left cards */
+    .contact-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.8rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(13,35,83,.06);
+    }
+    .contact-card-blob {
+      position: absolute; right: -20px; top: -20px;
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      opacity: .25;
+    }
+    .contact-card-blob.blue  { background: #93c5fd; }
+    .contact-card-blob.green { background: #86efac; }
+    .contact-card-blob.yellow{ background: #fde68a; }
+    .contact-card-tag {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: .6rem;
+    }
+    .contact-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .5rem;
+      padding-bottom: .5rem;
+      border-bottom: 2px solid var(--navy);
+      display: inline-block;
+    }
+    .contact-card p { font-size: .85rem; color: var(--sub); margin-top: .6rem; line-height: 1.75; }
+
+    /* right form */
+    .contact-form-wrap {
+      background: var(--bg2);
+      border-radius: 16px;
+      padding: 2.4rem 2rem;
+      box-shadow: 0 4px 24px rgba(13,35,83,.09);
+    }
+    .form-group { margin-bottom: 1.4rem; }
+    .form-label {
+      display: flex; align-items: center; gap: .5rem;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: .5rem;
+    }
+    .badge-req {
+      background: #eab308;
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: .15em .55em;
+      border-radius: 20px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      border: 1px solid var(--light);
+      border-radius: 8px;
+      padding: .8em 1em;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      font-size: .92rem;
+      color: var(--text);
+      background: var(--bg2);
+      transition: border-color .2s, background .2s;
+      outline: none;
+      appearance: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--sub); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--blue);
+      background: var(--bg2);
+    }
+    .form-textarea { min-height: 160px; resize: vertical; }
+    .form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1em center; padding-right: 2.5em; cursor: pointer; }
+
+    .form-check {
+      display: flex; align-items: center; gap: .7rem;
+      font-size: .88rem; color: var(--sub);
+      margin-bottom: 1.6rem;
+    }
+    .form-check input[type="checkbox"] {
+      width: 20px; height: 20px;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      cursor: pointer;
+      accent-color: var(--blue);
+      flex-shrink: 0;
+    }
+    .form-check a { color: var(--blue); text-decoration: underline; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--navy);
+      color: #fff;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 1em;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      transition: background .2s, transform .2s;
+      box-shadow: 0 4px 0 #f0c060;
+    }
+    .form-submit:hover { background: var(--blue); transform: translateY(-2px); }
+    .form-submit:active { transform: translateY(0); box-shadow: none; }
+
+    .form-notice {
+      font-size: .8rem;
+      color: var(--sub);
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #091a3e;
+      color: rgba(255,255,255,.4);
+      text-align: center;
+      padding: 1.4rem 40px;
+      font-size: .78rem;
+    }
+
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; }
+      .hero-logo { width: clamp(220px, 55vw, 360px); }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 90px 20px 60px; }
+      .sec { padding: 60px 20px; }
+      .contact-sec { padding: 60px 20px; }
+      .stats-row { flex-direction: column; gap: 1px; }
+      footer { padding: 1.2rem 20px; }
+    }
+    /* ── Page switching ── */
+    #page-home     { display: block; }
+    #page-company  { display: none; }
+    #page-contact  { display: none; }
+    #page-business { display: none; }
+    body.company-page  #page-home     { display: none; }
+    body.company-page  #page-company  { display: block; }
+    body.contact-page  #page-home     { display: none; }
+    body.contact-page  #page-contact  { display: block; }
+    body.business-page #page-home     { display: none; }
+    body.business-page #page-business { display: block; }
+
+    /* ── Company page ── */
+    .cp-hero {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--blue) 60%, var(--bg) 100%);
+      padding: 140px 40px 80px;
+    }
+    .cp-hero-eyebrow {
+      font-size: .72rem;
+      letter-spacing: .22em;
+      color: #f0c060;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .cp-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: .5rem;
+    }
+    .cp-hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,.7);
+    }
+
+    /* intro */
+    .cp-intro {
+      padding: 80px 40px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .cp-intro .sec-label { margin-bottom: .5rem; }
+    .cp-intro-text {
+      font-size: 1rem;
+      color: var(--sub);
+      line-height: 2;
+      margin-top: 1.2rem;
+    }
+
+    /* RESC meaning */
+    .cp-resc {
+      background: var(--navy);
+      padding: 80px 40px;
+    }
+    .cp-resc .sec-label { color: #f0c060; }
+    .cp-resc .sec-title { color: #fff; margin-bottom: 2.5rem; }
+    .resc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 860px;
+    }
+    .resc-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 2rem 1.5rem;
+      transition: background .2s;
+    }
+    .resc-card:hover { background: rgba(255,255,255,.1); }
+    .resc-letter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 3rem;
+      font-weight: 900;
+      color: #f0c060;
+      line-height: 1;
+      margin-bottom: .6rem;
+    }
+    .resc-word {
+      font-size: .78rem;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .08em;
+      margin-bottom: .8rem;
+    }
+    .resc-desc {
+      font-size: .9rem;
+      color: rgba(255,255,255,.85);
+      line-height: 1.7;
+    }
+    .cp-resc-footer {
+      max-width: 860px;
+      margin-top: 2.5rem;
+      color: rgba(255,255,255,.65);
+      font-size: .92rem;
+      line-height: 2;
+    }
+
+    /* philosophy */
+    .cp-philosophy {
+      background: var(--bg2);
+      padding: 80px 40px;
+    }
+    .cp-philosophy-inner {
+      max-width: 860px;
+    }
+    .cp-philosophy blockquote {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.6;
+      border-left: 4px solid #f0c060;
+      padding-left: 1.4rem;
+      margin: 1.5rem 0 1.5rem;
+    }
+    .cp-philosophy p {
+      font-size: .95rem;
+      color: var(--sub);
+      line-height: 2;
+    }
+
+    /* table */
+    .cp-table-sec {
+      padding: 80px 40px;
+    }
+    .cp-table-inner { max-width: 860px; }
+    .cp-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    .cp-table tr {
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .cp-table tr:first-child { border-top: 1px solid #e5e7eb; }
+    .cp-table th {
+      width: 180px;
+      padding: 1.2rem 1rem;
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-align: left;
+      vertical-align: top;
+      background: var(--bg2);
+      white-space: nowrap;
+    }
+    .cp-table td {
+      padding: 1.2rem 1rem;
+      font-size: .92rem;
+      color: var(--sub);
+      line-height: 1.8;
+    }
+    .cp-table td a { color: var(--blue); text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .cp-hero { padding: 120px 20px 60px; }
+      .cp-intro, .cp-resc, .cp-philosophy, .cp-table-sec { padding: 60px 20px; }
+      .cp-table th { width: 100px; font-size: .8rem; padding: 1rem .6rem; }
+      .cp-table td { padding: 1rem .6rem; font-size: .85rem; }
+    }
+
+    /* ── Greeting ── */
+    .greeting-sec { background: var(--bg); }
+    .greeting-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+    .greeting-photo-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    .greeting-photo {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 8px 32px rgba(13,35,83,.14);
+    }
+    .greeting-name-plate {
+      text-align: center;
+    }
+    .greeting-title-txt {
+      display: block;
+      font-size: .75rem;
+      color: var(--sub);
+      letter-spacing: .1em;
+      margin-bottom: .2rem;
+    }
+    .greeting-name-txt {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: .08em;
+    }
+    .greeting-text {
+      display: flex; flex-direction: column; gap: 1.2rem;
+    }
+    .greeting-text p {
+      font-size: .97rem;
+      color: var(--sub);
+      line-height: 2;
+    }
+    .greeting-motto {
+      border-left: 4px solid var(--gold);
+      padding: .8rem 1.2rem;
+      background: var(--bg2);
+      border-radius: 0 6px 6px 0;
+    }
+    .greeting-motto span {
+      font-size: .97rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.8;
+    }
+    @media (max-width: 768px) {
+      .greeting-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .greeting-photo { max-width: 260px; margin: 0 auto; }
+    }
+  </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <div class="logo">RESC<span class="cursor"></span></div>
-    <ul class="nav-links">
-      <li><a href="#home">HOME</a></li>
-      <li><a href="#business">事業内容</a></li>
-      <li><a href="#works">制作事例</a></li>
-      <li><a href="#about">会社概要</a></li>
-      <li><a href="#contact">お問い合わせ</a></li>
-    </ul>
+<!-- Nav -->
+<nav>
+  <a class="nav-logo" href="#" onclick="showPage('home');return false;"><img src="images/resc-logo-nav.png" alt="株式会社RESC" class="nav-logo-img" /><span class="nav-logo-text">株式会社<em>RESC</em></span></a>
+  <div style="display:flex;align-items:center;gap:.5rem;">
+    <a class="nav-about" href="#" onclick="showPage('business');return false;">事業内容</a>
+    <a class="nav-about" href="#" onclick="showPage('company');return false;">会社概要</a>
+    <a class="nav-about" href="#" onclick="showPage('contact');return false;">お問い合わせ</a>
   </div>
+  <a class="nav-cta" href="#" onclick="showPage('contact');return false;">無料相談</a>
 </nav>
 
-<section id="home">
-  <div class="hero">
-    <canvas id="matrix-rain"></canvas>
-    <div class="hero-inner">
-      <div>
-        <div class="hero-eyebrow">HP_STAFF_SUBSCRIPTION</div>
-        <h1>月5,000円〜、<br>ホームページ担当者を<br><span class="accent">1人雇う</span>。</h1>
-        <p class="lead">初期費用10,000円・月額4,980円から。採用も教育もいらない、あなたの会社専属のホームページ担当。制作はもちろん、公開後の更新・修正まで丸ごとお任せください。</p>
-        <a href="#contact" class="btn btn-primary">&gt; お問い合わせ</a>
-      </div>
-      <div class="canvas-frame">
-        <div class="cf-br1"></div><div class="cf-br2"></div>
-        <div class="cf-toolbar">
-          <div class="cf-filename" id="cf-filename">sample/cafe.html</div>
-          <div class="cf-status"><div class="cf-dot"></div>GENERATING</div>
-        </div>
-        <div class="cf-imgwrap" id="showcase-imgwrap">
-          <img src="cafe_hero.png" class="active" data-label="cafe">
-          <img src="salon_hero.png" data-label="salon">
-          <img src="clinic_hero.png" data-label="clinic">
-          <img src="construction_hero.png" data-label="construction">
-        </div>
-        <div class="cf-caption">
-          <span id="showcase-label">industry: cafe</span>
-          <span class="tag">STAFF_ASSIGNED</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- ════ HOME PAGE ════ -->
+<div id="page-home">
 
-  <div class="features">
-    <div class="feature">
-      <div class="ftag">FEATURE_01<span class="fcursor"></span></div>
-      <h3>手を抜かず、こなす専属担当</h3>
-      <p>お知らせ・ブログの更新も担当が黙々とこなし、日々の運用の手間をなくします。</p>
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-badge">Sales Promotion</span>
+    <h1>豊かさと信頼を、<br /><em>未来へつなぐ。</em></h1>
+    <p class="hero-desc">
+      株式会社RESCは、スマートフォン販売イベントの企画・運営を軸に、パートナー企業様とともに現場密着型のプロモーションを展開します。
+    </p>
+    <a class="hero-btn" href="#" onclick="showPage('contact');return false;">お問い合わせはこちら →</a>
+  </div>
+  <div class="hero-logo-wrap">
+    <img src="images/resc-logo-mark.png" alt="株式会社RESC" class="hero-logo" />
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section class="sec" id="about">
+  <p class="sec-label">Philosophy</p>
+  <h2 class="sec-title">企業理念</h2>
+  <p class="sec-lead">
+    誠実さと継続性を大切にしながら、<br />お客様にとって本当に必要とされる価値を追求します。
+  </p>
+  <div class="cards" style="margin-top:0;">
+    <div class="card">
+      <div class="card-icon">🌱</div>
+      <h3>Rich — 豊かさを創造する</h3>
+      <p>関わるすべての人に豊かさをもたらすビジネスを展開します。一時的な利益ではなく、持続する価値の創出を大切にしています。</p>
     </div>
-    <div class="feature">
-      <div class="ftag">FEATURE_02<span class="fcursor"></span></div>
-      <h3>36ヶ月で無償譲渡</h3>
-      <p>長期契約後は、ホームページをそのままお客様に無償でお渡しします。</p>
+    <div class="card">
+      <div class="card-icon">♾️</div>
+      <h3>Eternally — 永続的な価値を届ける</h3>
+      <p>変化の激しい時代だからこそ、お客様・取引先・社会とのつながりを大切にし、長く信頼される存在であり続けることを重視します。</p>
     </div>
-    <div class="feature">
-      <div class="ftag">FEATURE_03<span class="fcursor"></span></div>
-      <h3>地域+オンラインの両対応</h3>
-      <p>福岡近郊は直接訪問、遠方はオンラインで、同じ丁寧さのサポートを。</p>
+    <div class="card">
+      <div class="card-icon">✨</div>
+      <h3>Shining — 輝き続ける存在である</h3>
+      <p>誠実な姿勢と確かな価値提供を通じて、どんな環境においても輝き続ける企業を目指します。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏯</div>
+      <h3>Castle — 信頼と安定の基盤を築く</h3>
+      <p>信頼を積み重ねることで、揺るぎない企業基盤を構築。パートナー企業様にとって、安心して頼れる存在であり続けます。</p>
     </div>
   </div>
 </section>
 
-<section id="business" class="page bg-alt">
-  <div class="section-inner">
-    <div class="section-eyebrow">OUR_BUSINESS</div>
-    <h2 class="section-title">事業内容</h2>
-    <p class="section-lead">中小企業・個人店向けに、ホームページ担当者を月々5,000円から雇える感覚で提供するサブスクリプションサービスです。ヒアリング内容をもとに専属担当がデザイン・文章を作成し、公開後の運用まで一貫してサポートします。</p>
-
-    <div class="price-grid">
-      <div class="price-card">
-        <div class="price-tag">plan/light</div>
-        <div class="price-name">ライト</div>
-        <div class="price-value">¥<span class="price-num" data-target="4980">0</span><span> /月</span></div>
-        <div class="price-list">
-          <div><span class="lbl">ページ数</span><span>1ページ</span></div>
-          <div><span class="lbl">修正対応</span><span>月1回</span></div>
-          <div><span class="lbl">更新対応</span><span>月2回</span></div>
-          <div><span class="lbl">掲載写真</span><span>〜5枚</span></div>
-          <div><span class="lbl">自動応答チャット</span><span>なし</span></div>
-        </div>
-      </div>
-      <div class="price-card highlight">
-        <div class="price-tag">plan/standard</div>
-        <div class="price-name">スタンダード</div>
-        <div class="price-value">¥<span class="price-num" data-target="7500">0</span><span> /月</span></div>
-        <div class="price-list">
-          <div><span class="lbl">ページ数</span><span>2〜6ページ</span></div>
-          <div><span class="lbl">修正対応</span><span>月3回</span></div>
-          <div><span class="lbl">更新対応</span><span>週1回</span></div>
-          <div><span class="lbl">掲載写真</span><span>〜15枚</span></div>
-          <div><span class="lbl">自動応答チャット</span><span>定型FAQ対応</span></div>
-        </div>
-      </div>
-      <div class="price-card">
-        <div class="price-tag">plan/advance</div>
-        <div class="price-name">アドバンス</div>
-        <div class="price-value">¥<span class="price-num" data-target="12000">0</span><span> /月</span></div>
-        <div class="price-list">
-          <div><span class="lbl">ページ数</span><span>7〜12ページ</span></div>
-          <div><span class="lbl">修正対応</span><span>月6回</span></div>
-          <div><span class="lbl">更新対応</span><span>週2回</span></div>
-          <div><span class="lbl">掲載写真</span><span>〜30枚</span></div>
-          <div><span class="lbl">自動応答チャット</span><span>カスタムFAQ対応</span></div>
-        </div>
+<!-- Greeting -->
+<section class="sec greeting-sec" id="greeting">
+  <p class="sec-label">Message</p>
+  <h2 class="sec-title">代表挨拶</h2>
+  <div class="greeting-layout">
+    <div class="greeting-photo-wrap">
+      <img class="greeting-photo" src="images/ceo-photo.jpg" alt="代表取締役 豊永 光城" />
+      <div class="greeting-name-plate">
+        <span class="greeting-title-txt">代表取締役</span>
+        <span class="greeting-name-txt">豊永 光城</span>
       </div>
     </div>
-    <p class="price-note">初期費用:¥10,000(全プラン共通) / 36ヶ月契約でサイト無償譲渡</p>
-  </div>
-</section>
-
-<section id="works" class="page">
-  <div class="section-inner">
-    <div class="section-eyebrow">SAMPLE_WORKS</div>
-    <h2 class="section-title">制作事例(サンプル)</h2>
-    <p class="section-lead">ホームページ担当が実際に作成したサンプルです。8つの業種でイメージをご用意しています。※ご契約いただいたお客様の実績・お客様の声は、今後こちらに追加していく予定です。</p>
-    <div class="works-grid">
-      <a class="work-card" href="samples/cafe.html" target="_blank" rel="noopener"><div class="work-tag">cafe</div><img src="cafe_hero.png"><div class="work-label">カフェ</div></a>
-      <a class="work-card" href="samples/salon.html" target="_blank" rel="noopener"><div class="work-tag">salon</div><img src="salon_hero.png"><div class="work-label">美容室</div></a>
-      <a class="work-card" href="samples/clinic.html" target="_blank" rel="noopener"><div class="work-tag">clinic</div><img src="clinic_hero.png"><div class="work-label">医療・クリニック</div></a>
-      <a class="work-card" href="samples/professional.html" target="_blank" rel="noopener"><div class="work-tag">legal</div><img src="professional_hero.png"><div class="work-label">士業</div></a>
-      <a class="work-card" href="samples/construction.html" target="_blank" rel="noopener"><div class="work-tag">build</div><img src="construction_hero.png"><div class="work-label">工務店</div></a>
-      <a class="work-card" href="samples/retail.html" target="_blank" rel="noopener"><div class="work-tag">retail</div><img src="retail_hero.png"><div class="work-label">小売</div></a>
-      <a class="work-card" href="samples/nail.html" target="_blank" rel="noopener"><div class="work-tag">nail</div><img src="nail_hero.png"><div class="work-label">ネイルサロン</div></a>
-      <a class="work-card" href="samples/tech.html" target="_blank" rel="noopener"><div class="work-tag">tech</div><img src="tech_hero.png"><div class="work-label">IT・オフィス</div></a>
+    <div class="greeting-text">
+      <p>変化の激しい時代の中でも、変わらず大切にしたいものがあります。<br />それは、人と人とのコミュニケーションです。</p>
+      <p>対話を重ね、相手を理解し、想いを分かち合うことで、信頼は生まれていくものだと私は考えています。そして、その信頼の積み重ねが、より良い関係を築き、より良い社会へとつながっていくと信じています。</p>
+      <p>株式会社RESCは、Rich・Eternally・Shining・Castle という想いを社名に込め、豊かさを創造し、永続的な価値を届け、輝き続ける信頼の基盤を築く企業を目指しています。</p>
+      <p>年齢や性別、立場を問わず、当社と関わるすべての皆さまの心・時間・生活に、少しでも豊かさをお届けできる存在でありたいと考えております。</p>
+      <p>「自分がしてもらって嬉しいことを相手にする。自分がされて嫌なことはしない。」これは、私自身が人生の中で大切にしているモットーであり、事業に向き合ううえでの原点でもあります。</p>
+      <p>これからも、一つひとつのご縁に感謝しながら、誠実に人と向き合い、信頼される企業として歩み続けてまいります。そして、皆さまとともに、より豊かでより良い社会の実現に貢献してまいります。</p>
     </div>
   </div>
 </section>
 
-<section id="about" class="page bg-alt">
-  <div class="section-inner">
-    <div class="section-eyebrow">COMPANY</div>
-    <h2 class="section-title">会社概要</h2>
-    <table class="about-table">
-      <tr><th>会社名</th><td>株式会社RESC</td></tr>
-      <tr><th>代表者</th><td>豊永 光城</td></tr>
-      <tr><th>事業内容</th><td>ホームページ制作サブスク型事業</td></tr>
-      <tr><th>所在地</th><td>福岡県福岡市西区姪浜2-14-11-307</td></tr>
-      <tr><th>設立</th><td>2026年2月23日</td></tr>
-      <tr><th>メールアドレス</th><td>resc.inquiry@resc-inc.com</td></tr>
-    </table>
+<!-- Business -->
+<section class="sec sec-alt" id="business-home">
+  <p class="sec-label">Business</p>
+  <h2 class="sec-title">事業内容</h2>
+  <p class="sec-lead">現場密着型のプロモーションで、モバイル市場の最前線を支えます。</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <h3>販売イベントの企画・運営</h3>
+      <p>スマートフォン販売イベントの企画から当日の運営まで一括対応。集客・接客・クロージングをトータルサポートします。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📡</div>
+      <h3>携帯端末・通信サービスのご案内</h3>
+      <p>最新機種や通信プランをわかりやすくご案内。お客様のニーズに合った提案で、納得感の高い購買体験を実現します。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">👥</div>
+      <h3>スタッフ派遣・現場サポート</h3>
+      <p>経験豊富なスタッフを現場へ派遣。パートナー企業様の販促活動を現場目線で支援し、成果につながる体制を構築します。</p>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:2.5rem;">
+    <a class="hero-btn" href="#" onclick="showPage('business');return false;" style="display:inline-block;">事業内容を詳しく見る →</a>
   </div>
 </section>
 
-<section id="contact" class="page">
-  <div class="section-inner">
-    <div class="section-eyebrow">CONTACT</div>
-    <h2 class="section-title">お問い合わせ</h2>
-    <p class="section-lead">ホームページ制作・料金プランについてのご相談は、お気軽にこちらからお問い合わせください。</p>
-    <div class="form-note">※初回送信時、FormSubmit.coから resc.inquiry@resc-inc.com 宛に確認メールが届きます。メール内のリンクをクリックして有効化すると、以降のお問い合わせが届くようになります。</div>
-    <form class="contact-form" action="https://formsubmit.co/resc.inquiry@resc-inc.com" method="POST">
-      <input type="hidden" name="_subject" value="【株式会社RESC】お問い合わせを受け付けました">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_autoresponse" value="お問い合わせいただきありがとうございます。株式会社RESCです。内容を確認のうえ、2営業日以内に担当よりご連絡いたします。今しばらくお待ちくださいませ。">
-      <div class="form-row">
-        <label>会社名・お名前</label>
-        <input type="text" name="name" required>
-      </div>
-      <div class="form-row">
-        <label>メールアドレス</label>
-        <input type="email" name="email" required>
-      </div>
-      <div class="form-row">
-        <label>電話番号</label>
-        <input type="tel" name="phone">
-      </div>
-      <div class="form-row">
-        <label>ご希望プラン</label>
-        <select name="plan">
-          <option value="ライト">ライト(4,980円/月)</option>
-          <option value="スタンダード">スタンダード(7,500円/月)</option>
-          <option value="アドバンス">アドバンス(12,000円/月)</option>
-          <option value="相談したい">まだ決めていない・相談したい</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <label>お問い合わせ内容</label>
-        <textarea name="message" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-submit">&gt; 送信する</button>
-    </form>
-  </div>
+<!-- CTA -->
+<section class="sec" style="background:var(--navy); text-align:center;">
+  <p class="sec-label" style="color:#f0c060;">Contact</p>
+  <h2 class="sec-title" style="color:#fff; margin-bottom:1rem;">ご相談から、次の一歩を。</h2>
+  <p style="color:rgba(255,255,255,.75); font-size:.95rem; max-width:500px; margin:0 auto 2rem; line-height:1.9;">
+    サービスの詳細やご依頼など、どんなことでもお気軽にお問い合わせください。
+  </p>
+  <a class="hero-btn" href="#" onclick="showPage('contact');return false;">お問い合わせへ →</a>
 </section>
 
+</div><!-- /page-home -->
+
+<!-- ════ CONTACT PAGE ════ -->
+<div id="page-contact">
+
+  <!-- Hero -->
+  <div class="cp-hero logo-bg-overlay">
+    <p class="cp-hero-eyebrow">Contact</p>
+    <h1>お問い合わせ</h1>
+    <p>ご相談から、次の一歩を。</p>
+  </div>
+
+  <!-- Form section -->
+  <div class="logo-bg-overlay" style="background:var(--bg2); padding:60px 40px; overflow:hidden;">
+    <div style="max-width:1000px; margin:0 auto;">
+      <div class="contact-layout">
+        <!-- 左：カテゴリカード -->
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-card-blob blue"></div>
+            <p class="contact-card-tag">Service</p>
+            <h3>サービスについて</h3>
+            <p>営業代行・支援サービスの詳細や料金など、お気軽にご相談ください。</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-blob green"></div>
+            <p class="contact-card-tag">Recruit</p>
+            <h3>採用について</h3>
+            <p>募集要項や働き方、選考についてのお問い合わせにも対応しています。</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-blob yellow"></div>
+            <p class="contact-card-tag">Privacy</p>
+            <h3>個人情報について</h3>
+            <p>送信前にプライバシーポリシーをご確認のうえ、同意して送信してください。</p>
+          </div>
+        </div>
+
+        <!-- 右：フォーム -->
+        <div class="contact-form-wrap">
+          <form action="https://formsubmit.co/resc.20260223@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="【株式会社RESC】お問い合わせ" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="about:blank" />
+
+            <div class="form-group">
+              <label class="form-label">お名前 <span class="badge-req">必須</span></label>
+              <input class="form-input" type="text" name="お名前" placeholder="山田 太郎" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">メールアドレス <span class="badge-req">必須</span></label>
+              <input class="form-input" type="email" name="メールアドレス" placeholder="sample@example.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">電話番号 <span class="badge-req">必須</span></label>
+              <input class="form-input" type="tel" name="電話番号" placeholder="000-0000-0000" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">お問い合わせ種別 <span class="badge-req">必須</span></label>
+              <select class="form-select form-input" name="お問い合わせ種別" required>
+                <option value="" disabled selected>選択してください</option>
+                <option>サービスについて</option>
+                <option>採用について</option>
+                <option>その他</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">お問い合わせ内容 <span class="badge-req">必須</span></label>
+              <textarea class="form-textarea" name="お問い合わせ内容" placeholder="お問い合わせ内容をご入力ください" required></textarea>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="privacy2" required />
+              <label for="privacy2"><a href="#" target="_blank">プライバシーポリシー</a>に同意する</label>
+            </div>
+            <button class="form-submit" type="submit">送信する</button>
+            <p class="form-notice">送信後、確認メールをお送りします。</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-contact -->
+
+<!-- ════ COMPANY PAGE ════ -->
+<div id="page-company">
+
+  <!-- Hero -->
+  <div class="cp-hero logo-bg-overlay">
+    <p class="cp-hero-eyebrow">Company</p>
+    <h1>会社概要</h1>
+    <p>株式会社RESC について</p>
+  </div>
+
+  <!-- 会社紹介文 -->
+  <div class="cp-intro">
+    <p class="sec-label">About Us</p>
+    <h2 class="sec-title">株式会社RESCとは</h2>
+    <p class="cp-intro-text">
+      株式会社RESCは、Rich・Eternally・Shining・Castle という4つの言葉に込めた想いを大切にし、豊かさを生み出し、永続的な価値を提供しながら、輝き続ける信頼の基盤を築く企業を目指しています。<br /><br />
+      変化の激しい時代だからこそ、私たちは一時的な成果ではなく、お客様・取引先・社会とのつながりを大切にし、長く信頼される存在であり続けることを重視しています。<br /><br />
+      誠実な姿勢と確かな価値提供を通じて、未来へつながる企業活動を続けてまいります。
+    </p>
+  </div>
+
+  <!-- 社名の想い -->
+  <div class="cp-resc">
+    <p class="sec-label">Our Name</p>
+    <h2 class="sec-title">社名に込めた想い</h2>
+    <div class="resc-grid">
+      <div class="resc-card">
+        <div class="resc-letter">R</div>
+        <div class="resc-word">Rich</div>
+        <div class="resc-desc">豊かさを創造する</div>
+      </div>
+      <div class="resc-card">
+        <div class="resc-letter">E</div>
+        <div class="resc-word">Eternally</div>
+        <div class="resc-desc">永続的な価値を届ける</div>
+      </div>
+      <div class="resc-card">
+        <div class="resc-letter">S</div>
+        <div class="resc-word">Shining</div>
+        <div class="resc-desc">常に輝き続ける存在である</div>
+      </div>
+      <div class="resc-card">
+        <div class="resc-letter">C</div>
+        <div class="resc-word">Castle</div>
+        <div class="resc-desc">信頼と安定の基盤を築く</div>
+      </div>
+    </div>
+    <p class="cp-resc-footer">
+      この4つの想いを軸に、株式会社RESCは、関わるすべての人にとって価値ある存在であり続けることを目指しています。
+    </p>
+  </div>
+
+  <!-- 企業理念 -->
+  <div class="cp-philosophy">
+    <div class="cp-philosophy-inner">
+      <p class="sec-label">Philosophy</p>
+      <h2 class="sec-title">企業理念</h2>
+      <blockquote>豊かさを創造し、永続する価値を届け、<br />輝き続ける信頼の基盤を築く。</blockquote>
+      <p>
+        株式会社RESCは、誠実さと継続性を大切にしながら、お客様にとって本当に必要とされる価値を追求します。<br />
+        社会や時代の変化に柔軟に対応し、信頼される企業として持続的な成長を目指します。
+      </p>
+    </div>
+  </div>
+
+  <!-- 会社概要テーブル -->
+  <div class="cp-table-sec">
+    <div class="cp-table-inner">
+      <p class="sec-label">Overview</p>
+      <h2 class="sec-title">会社概要</h2>
+      <table class="cp-table">
+        <tr>
+          <th>会社名</th>
+          <td>株式会社RESC</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>〒819-0002<br />福岡県福岡市西区姪浜2-14-11-307</td>
+        </tr>
+        <tr>
+          <th>設立</th>
+          <td>2026年2月23日</td>
+        </tr>
+        <tr>
+          <th>代表者</th>
+          <td>代表取締役　豊永 光城</td>
+        </tr>
+        <tr>
+          <th>事業内容</th>
+          <td>セールスプロモーション</td>
+        </tr>
+        <tr>
+          <th>メール</th>
+          <td><a href="mailto:resc.toiawase@gmail.com">resc.toiawase@gmail.com</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /page-company -->
+
+<!-- Footer -->
 <footer>
-  © 株式会社RESC — all systems operational
+  <p>&copy; 2026 株式会社RESC. All Rights Reserved.</p>
 </footer>
 
-<div class="chatbot-toggle" id="cb-toggle">
-  <div class="dot"></div>
-  <svg viewBox="0 0 24 24" fill="none" stroke="#3D8BFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-  </svg>
-</div>
+<!-- ════ BUSINESS PAGE ════ -->
+<div id="page-business">
 
-<div class="chatbot-panel" id="cb-panel">
-  <div class="cb-header">
-    <div class="cb-header-title"><div class="dot2"></div>RESC_BOT — よくある質問</div>
-    <div class="cb-close" id="cb-close">×</div>
+  <!-- Hero -->
+  <div class="cp-hero logo-bg-overlay">
+    <p class="cp-hero-eyebrow">Business</p>
+    <h1>事業内容</h1>
+    <p>株式会社RESCの事業について</p>
   </div>
-  <div class="cb-messages" id="cb-messages">
-    <div class="cb-msg bot">こんにちは!RESCです。よくある質問はこちらから選べます。詳しく相談したい場合はお問い合わせフォームをご案内します。</div>
+
+  <!-- 事業紹介 -->
+  <div style="padding:80px 40px; max-width:900px; margin:0 auto;">
+    <p class="sec-label">Our Business</p>
+    <h2 class="sec-title">セールスプロモーション事業</h2>
+
+    <p style="font-size:1.05rem; color:var(--sub); line-height:2.1; margin-top:1.5rem; margin-bottom:3rem;">
+      当社は、スマートフォン販売イベントの企画・運営を軸に、パートナー企業様と連携した販促支援を行っています。
+      携帯端末や通信サービスのご案内、スタッフ派遣などを通じて、現場密着型のサポートを提供。
+      信頼関係を大切にしながら、変化するモバイル市場にも柔軟に対応し、効果的なプロモーションを実現します。
+    </p>
+
+    <!-- サービス詳細カード -->
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h3>販売イベントの企画・運営</h3>
+        <p>スマートフォン販売イベントの企画から当日の運営まで一括対応。集客・接客・クロージングまでをトータルサポートします。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📡</div>
+        <h3>携帯端末・通信サービスのご案内</h3>
+        <p>最新機種や通信プランをわかりやすくご案内。お客様のニーズに合った提案で、納得感の高い購買体験を実現します。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">👥</div>
+        <h3>スタッフ派遣・現場サポート</h3>
+        <p>経験豊富なスタッフを現場へ派遣。パートナー企業様の販促活動を現場目線で支援し、成果につながる体制を構築します。</p>
+      </div>
+    </div>
   </div>
-  <div class="cb-quick" id="cb-quick">
-    <div class="cb-chip" data-q="price">料金プランは?</div>
-    <div class="cb-chip" data-q="flow">導入の流れは?</div>
-    <div class="cb-chip" data-q="area">対応エリアは?</div>
-    <div class="cb-chip" data-q="edit">修正対応の回数は?</div>
-    <div class="cb-chip" data-q="contract">契約期間は?</div>
+
+  <!-- CTA -->
+  <div style="background:var(--navy); padding:80px 40px; text-align:center;">
+    <p class="sec-label" style="color:#f0c060;">Contact</p>
+    <h2 class="sec-title" style="color:#fff; margin-bottom:1rem;">事業についてのご相談はこちら</h2>
+    <p style="color:rgba(255,255,255,.75); margin-bottom:2rem; font-size:.95rem;">
+      サービスの詳細やご依頼について、お気軽にお問い合わせください。
+    </p>
+    <a class="hero-btn" href="#" onclick="showPage('contact');return false;">お問い合わせへ →</a>
   </div>
-  <div class="cb-inputrow">
-    <input type="text" id="cb-input" placeholder="質問を入力...">
-    <button class="cb-send" id="cb-send">送信</button>
-  </div>
-</div>
+
+</div><!-- /page-business -->
 
 <script>
-  const FAQ = {
-    price: {
-      match: ["料金","値段","価格","いくら","月額","プラン"],
-      answer: "料金プランは3つあります。\n・ライト:4,980円/月(1ページ)\n・スタンダード:7,500円/月(2〜6ページ)\n・アドバンス:12,000円/月(7〜12ページ)\n※初期費用は全プラン10,000円、36ヶ月契約でサイト無償譲渡です。"
-    },
-    flow: {
-      match: ["流れ","導入","手順","どうやって","始め方"],
-      answer: "ご導入までの流れは4ステップです。\n1. ヒアリング\n2. 担当がサイト作成\n3. 確認・公開\n4. 運用サポート開始"
-    },
-    area: {
-      match: ["エリア","対応地域","福岡","出張","訪問","全国"],
-      answer: "福岡近郊は直接訪問、遠方のお客様にはオンラインで同じ丁寧さのサポートを行っています。"
-    },
-    edit: {
-      match: ["修正","変更","更新","直し"],
-      answer: "修正対応の回数はプランで異なります。\n・ライト:月1回\n・スタンダード:月3回\n・アドバンス:月6回\nお知らせ・ブログの更新も担当が行います。"
-    },
-    contract: {
-      match: ["契約","解約","期間","譲渡"],
-      answer: "36ヶ月継続してご契約いただくと、ホームページをそのまま無償で譲渡いたします。"
-    }
-  };
-  const FALLBACK = "ご質問ありがとうございます。担当より詳しくご案内しますので、下記の「お問い合わせ」フォームからご連絡ください。";
-
-  const toggle = document.getElementById('cb-toggle');
-  const panel = document.getElementById('cb-panel');
-  const closeBtn = document.getElementById('cb-close');
-  const messages = document.getElementById('cb-messages');
-  const input = document.getElementById('cb-input');
-  const sendBtn = document.getElementById('cb-send');
-  const quick = document.getElementById('cb-quick');
-
-  function addMsg(text, who) {
-    const div = document.createElement('div');
-    div.className = 'cb-msg ' + who;
-    div.textContent = text;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
+  function showPage(page) {
+    document.body.classList.remove('company-page', 'contact-page', 'business-page');
+    if (page === 'company')  document.body.classList.add('company-page');
+    if (page === 'contact')  document.body.classList.add('contact-page');
+    if (page === 'business') document.body.classList.add('business-page');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
-  function addFallbackWithLink() {
-    const div = document.createElement('div');
-    div.className = 'cb-msg bot';
-    div.innerHTML = FALLBACK + '<br><a href="#contact" style="color:#3D8BFD;text-decoration:underline;">お問い合わせフォームへ</a>';
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function respond(text) {
-    const lower = text;
-    let hit = null;
-    for (const key in FAQ) {
-      if (FAQ[key].match.some(k => lower.includes(k))) { hit = FAQ[key]; break; }
-    }
-    setTimeout(() => {
-      if (hit) addMsg(hit.answer, 'bot');
-      else addFallbackWithLink();
-    }, 350);
-  }
-
-  toggle.addEventListener('click', () => { panel.classList.add('open'); toggle.style.display = 'none'; });
-  closeBtn.addEventListener('click', () => { panel.classList.remove('open'); toggle.style.display = 'flex'; });
-
-  // ページ読み込み後、少し間を置いて自動的にチャットを開く
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      panel.classList.add('open');
-      toggle.style.display = 'none';
-    }, 900);
-  });
-
-  quick.addEventListener('click', (e) => {
-    const key = e.target.dataset.q;
-    if (!key) return;
-    addMsg(e.target.textContent, 'user');
-    setTimeout(() => addMsg(FAQ[key].answer, 'bot'), 350);
-  });
-
-  sendBtn.addEventListener('click', () => {
-    const val = input.value.trim();
-    if (!val) return;
-    addMsg(val, 'user');
-    respond(val);
-    input.value = '';
-  });
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') sendBtn.click();
-  });
-
-  // ---- Feature cards & price cards: scroll reveal ----
-  function animateCount(el) {
-    const target = parseInt(el.dataset.target, 10);
-    const duration = 900;
-    const start = performance.now();
-    function tick(now) {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased).toLocaleString('ja-JP');
-      if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-  (function () {
-    const cards = document.querySelectorAll('.feature, .price-card');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const siblings = Array.from(entry.target.parentElement.children);
-          const idx = siblings.indexOf(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-            entry.target.querySelectorAll('.price-num').forEach(animateCount);
-          }, idx * 120);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    cards.forEach((c) => observer.observe(c));
-  })();
-
-  // ---- Matrix-style digital rain (hero background) ----
-  (function () {
-    const canvas = document.getElementById('matrix-rain');
-    const hero = document.querySelector('.hero');
-    const ctx = canvas.getContext('2d');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const chars = "0123456789<>/{}[]=+*-_#$%&ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const fontSize = 15;
-    let columns, drops;
-    let colColor = [];
-
-    function resize() {
-      canvas.width = hero.offsetWidth;
-      canvas.height = hero.offsetHeight;
-      columns = Math.floor(canvas.width / fontSize);
-      drops = new Array(columns).fill(0).map(() => Math.random() * -40);
-      colColor = new Array(columns).fill(0).map(() => (Math.random() < 0.12 ? "#8B5CF6" : "#3D8BFD"));
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    if (reduceMotion) {
-      // Static faint pass, no animation loop, for users who prefer reduced motion
-      ctx.fillStyle = "#0B0F14";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      return;
-    }
-
-    function draw() {
-      ctx.fillStyle = "rgba(11,15,20,0.16)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.font = fontSize + "px 'JetBrains Mono', monospace";
-      for (let i = 0; i < columns; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        const x = i * fontSize;
-        const y = drops[i] * fontSize;
-        ctx.fillStyle = colColor[i];
-        ctx.fillText(text, x, y);
-        if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
-      }
-    }
-    setInterval(draw, 60);
-  })();
-</script>
-
-<script>
-  const imgs = document.querySelectorAll('#showcase-imgwrap img');
-  const label = document.getElementById('showcase-label');
-  const filename = document.getElementById('cf-filename');
-  let idx = 0;
-  setInterval(() => {
-    imgs[idx].classList.remove('active');
-    idx = (idx + 1) % imgs.length;
-    imgs[idx].classList.add('active');
-    label.textContent = 'industry: ' + imgs[idx].dataset.label;
-    filename.textContent = 'sample/' + imgs[idx].dataset.label + '.html';
-  }, 3200);
 </script>
 
 </body>
