@@ -9,6 +9,11 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* 日本語本文の孤立行対策（Chrome/Edge: 文節単位で折り返し。Safari非対応だが無害） */
+    p, td, label, .resc-desc { word-break: auto-phrase; }
+    /* Safari/iOS Safari向け：文節単位のspanで折り返し位置を制御 */
+    .nobr { display: inline-block; }
+
     :root {
       --navy:   #0d2353;
       --blue:   #1F6FE0;
@@ -102,7 +107,7 @@
     }
     .nav-logo-text em {
       font-style: normal;
-      color: #f0c060;
+      color: var(--gold);
       display: block;
       font-size: 1rem;
     }
@@ -133,9 +138,9 @@
       border-radius: 4px;
       transition: color .2s;
     }
-    .nav-about:hover { color: #f0c060; }
+    .nav-about:hover { color: var(--gold); }
     .nav-cta {
-      background: #f0c060;
+      background: var(--gold);
       color: var(--navy);
       font-weight: 700;
       font-size: .85rem;
@@ -230,7 +235,6 @@
 
     /* ── Sections ── */
     .sec { padding: 80px 40px; }
-    .sec-alt { background: var(--bg2); }
 
     .sec-label {
       font-size: .72rem;
@@ -254,36 +258,6 @@
       margin-bottom: 3rem;
     }
 
-    /* ── Stats row ── */
-    .stats-row {
-      display: flex;
-      gap: 1px;
-      background: #dde3f0;
-      border: 1px solid #dde3f0;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-top: 3rem;
-    }
-    .stat-box {
-      flex: 1;
-      background: #fff;
-      padding: 2rem 1.5rem;
-      text-align: center;
-    }
-    .stat-val {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1;
-      margin-bottom: .4rem;
-    }
-    .stat-val small {
-      font-size: .5em;
-      color: var(--gold);
-      font-weight: 700;
-    }
-    .stat-desc { font-size: .82rem; color: var(--sub); }
 
     /* ── Feature cards ── */
     .cards {
@@ -318,6 +292,9 @@
       margin-bottom: .6rem;
     }
     .card p { font-size: .88rem; color: var(--sub); line-height: 1.85; }
+    #page-business .cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
     .entry-card {
       display: block;
       text-decoration: none;
@@ -399,7 +376,7 @@
     }
     .badge-req {
       background: #eab308;
-      color: #fff;
+      color: var(--navy);
       font-size: .65rem;
       font-weight: 700;
       padding: .15em .55em;
@@ -454,7 +431,7 @@
       cursor: pointer;
       position: relative;
       transition: background .2s, transform .2s;
-      box-shadow: 0 4px 0 #f0c060;
+      box-shadow: 0 4px 0 var(--gold);
     }
     .form-submit:hover { background: var(--blue); transform: translateY(-2px); }
     .form-submit:active { transform: translateY(0); box-shadow: none; }
@@ -469,14 +446,21 @@
     /* ── Footer ── */
     footer {
       background: #091a3e;
-      color: rgba(255,255,255,.4);
+      color: rgba(255,255,255,.5);
       text-align: center;
       padding: 1.4rem 40px;
       font-size: .78rem;
     }
+    .footer-links { margin-top: .5rem; }
+    .footer-links a {
+      color: rgba(255,255,255,.75);
+      text-decoration: underline;
+    }
+    .footer-links a:hover { color: #fff; }
 
     @media (max-width: 768px) {
       .contact-layout { grid-template-columns: 1fr; }
+      #page-business .cards { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       .hero { flex-direction: column; }
@@ -485,36 +469,40 @@
         0%, 100% { background-position: 20% 0%; }
         50% { background-position: 80% 8%; }
       }
+      .cp-hero { background: linear-gradient(135deg, var(--bg) 0%, var(--bg) 75%, var(--blue) 85%, var(--bg) 100%); }
     }
     @media (max-width: 640px) {
       nav { padding: 0 20px; }
       .hero { padding: 90px 20px 60px; }
       .sec { padding: 60px 20px; }
       .contact-sec { padding: 60px 20px; }
-      .stats-row { flex-direction: column; gap: 1px; }
       footer { padding: 1.2rem 20px; }
+      #page-business .cards { grid-template-columns: 1fr; }
     }
     /* ── Page switching ── */
     #page-home     { display: block; }
     #page-company  { display: none; }
     #page-contact  { display: none; }
     #page-business { display: none; }
+    #page-privacy  { display: none; }
     body.company-page  #page-home     { display: none; }
     body.company-page  #page-company  { display: block; }
     body.contact-page  #page-home     { display: none; }
     body.contact-page  #page-contact  { display: block; }
     body.business-page #page-home     { display: none; }
     body.business-page #page-business { display: block; }
+    body.privacy-page  #page-home     { display: none; }
+    body.privacy-page  #page-privacy  { display: block; }
 
     /* ── Company page ── */
     .cp-hero {
-      background: linear-gradient(135deg, var(--bg) 0%, var(--blue) 60%, var(--bg) 100%);
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg) 45%, var(--blue) 75%, var(--bg) 100%);
       padding: 140px 40px 80px;
     }
     .cp-hero-eyebrow {
       font-size: .72rem;
       letter-spacing: .22em;
-      color: #f0c060;
+      color: var(--sub);
       font-weight: 700;
       text-transform: uppercase;
       margin-bottom: 1rem;
@@ -522,12 +510,12 @@
     .cp-hero h1 {
       font-size: clamp(1.8rem, 4vw, 3rem);
       font-weight: 900;
-      color: #fff;
+      color: var(--navy);
       margin-bottom: .5rem;
     }
     .cp-hero p {
       font-size: 1rem;
-      color: rgba(255,255,255,.7);
+      color: var(--sub);
     }
 
     /* intro */
@@ -549,13 +537,19 @@
       background: var(--navy);
       padding: 80px 40px;
     }
-    .cp-resc .sec-label { color: #f0c060; }
+    .cp-resc .sec-label { color: var(--gold); }
     .cp-resc .sec-title { color: #fff; margin-bottom: 2.5rem; }
     .resc-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
-      max-width: 860px;
+      max-width: 1040px;
+    }
+    @media (max-width: 768px) {
+      .resc-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .resc-grid { grid-template-columns: 1fr; }
     }
     .resc-card {
       background: rgba(255,255,255,.06);
@@ -569,7 +563,7 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 3rem;
       font-weight: 900;
-      color: #f0c060;
+      color: var(--gold);
       line-height: 1;
       margin-bottom: .6rem;
     }
@@ -605,7 +599,7 @@
       font-weight: 700;
       color: var(--navy);
       line-height: 1.6;
-      border-left: 4px solid #f0c060;
+      border-left: 4px solid var(--gold);
       padding-left: 1.4rem;
       margin: 1.5rem 0 1.5rem;
     }
@@ -648,9 +642,44 @@
     }
     .cp-table td a { color: var(--blue); text-decoration: underline; }
 
+    /* privacy policy */
+    .cp-privacy {
+      padding: 80px 40px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .cp-privacy-date {
+      font-size: .85rem;
+      color: var(--sub);
+      margin-top: 1rem;
+    }
+    .cp-privacy-lead {
+      font-size: .95rem;
+      color: var(--sub);
+      line-height: 2;
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+    }
+    .cp-privacy-item { margin-bottom: 2.6rem; }
+    .cp-privacy-item h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .9rem;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid var(--light);
+    }
+    .cp-privacy-item p,
+    .cp-privacy-item ul {
+      font-size: .92rem;
+      color: var(--sub);
+      line-height: 2;
+    }
+    .cp-privacy-item ul { padding-left: 1.4em; }
+
     @media (max-width: 640px) {
       .cp-hero { padding: 120px 20px 60px; }
-      .cp-intro, .cp-resc, .cp-philosophy, .cp-table-sec { padding: 60px 20px; }
+      .cp-intro, .cp-resc, .cp-philosophy, .cp-table-sec, .cp-privacy { padding: 60px 20px; }
       .cp-table th { width: 100px; font-size: .8rem; padding: 1rem .6rem; }
       .cp-table td { padding: 1rem .6rem; font-size: .85rem; }
     }
@@ -813,39 +842,12 @@
   </div>
 </section>
 
-<!-- Business -->
-<section class="sec sec-alt" id="business-home">
-  <p class="sec-label">Business</p>
-  <h2 class="sec-title">事業内容</h2>
-  <p class="sec-lead">現場密着型のプロモーションで、モバイル市場の最前線を支えます。</p>
-  <div class="cards">
-    <div class="card">
-      <div class="card-icon">📱</div>
-      <h3>販売イベントの企画・運営</h3>
-      <p>スマートフォン販売イベントの企画から当日の運営まで一括対応。集客・接客・クロージングをトータルサポートします。</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">📡</div>
-      <h3>携帯端末・通信サービスのご案内</h3>
-      <p>最新機種や通信プランをわかりやすくご案内。お客様のニーズに合った提案で、納得感の高い購買体験を実現します。</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">👥</div>
-      <h3>スタッフ派遣・現場サポート</h3>
-      <p>経験豊富なスタッフを現場へ派遣。パートナー企業様の販促活動を現場目線で支援し、成果につながる体制を構築します。</p>
-    </div>
-  </div>
-  <div style="text-align:center; margin-top:2.5rem;">
-    <a class="hero-btn" href="#" onclick="showPage('business');return false;" style="display:inline-block;">事業内容を詳しく見る →</a>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="sec" style="background:var(--navy); text-align:center;">
-  <p class="sec-label" style="color:#f0c060;">Contact</p>
+  <p class="sec-label" style="color:var(--gold);">Contact</p>
   <h2 class="sec-title" style="color:#fff; margin-bottom:1rem;">ご相談から、次の一歩を。</h2>
   <p style="color:rgba(255,255,255,.75); font-size:.95rem; max-width:500px; margin:0 auto 2rem; line-height:1.9;">
-    サービスの詳細やご依頼など、どんなことでもお気軽にお問い合わせください。
+    <span class="nobr">サービスの詳細やご依頼など、</span><span class="nobr">どんなことでもお気軽に</span><span class="nobr">お問い合わせください。</span>
   </p>
   <a class="hero-btn" href="#" onclick="showPage('contact');return false;">お問い合わせへ →</a>
 </section>
@@ -890,7 +892,7 @@
 
         <!-- 右：フォーム -->
         <div class="contact-form-wrap">
-          <form action="https://formsubmit.co/resc.20260223@gmail.com" method="POST">
+          <form action="https://formsubmit.co/resc.inquiry@resc-inc.com" method="POST">
             <input type="hidden" name="_subject" value="【株式会社RESC】お問い合わせ" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
@@ -912,7 +914,8 @@
               <label class="form-label">お問い合わせ種別 <span class="badge-req">必須</span></label>
               <select class="form-select form-input" name="お問い合わせ種別" required>
                 <option value="" disabled selected>選択してください</option>
-                <option>サービスについて</option>
+                <option>ホームページ制作について</option>
+                <option>セールスプロモーションについて</option>
                 <option>採用について</option>
                 <option>その他</option>
               </select>
@@ -923,7 +926,7 @@
             </div>
             <div class="form-check">
               <input type="checkbox" id="privacy2" required />
-              <label for="privacy2"><a href="#" target="_blank">プライバシーポリシー</a>に同意する</label>
+              <label for="privacy2"><a href="#" onclick="showPage('privacy');return false;">プライバシーポリシー</a>に同意する</label>
             </div>
             <button class="form-submit" type="submit">送信する</button>
             <p class="form-notice">送信後、確認メールをお送りします。</p>
@@ -1024,11 +1027,11 @@
         </tr>
         <tr>
           <th>事業内容</th>
-          <td>セールスプロモーション</td>
+          <td>ホームページ制作事業／セールスプロモーション事業</td>
         </tr>
         <tr>
           <th>メール</th>
-          <td><a href="mailto:resc.toiawase@gmail.com">resc.toiawase@gmail.com</a></td>
+          <td><a href="mailto:resc.inquiry@resc-inc.com">resc.inquiry@resc-inc.com</a></td>
         </tr>
       </table>
     </div>
@@ -1036,9 +1039,83 @@
 
 </div><!-- /page-company -->
 
+<!-- ════ PRIVACY POLICY PAGE ════ -->
+<div id="page-privacy">
+
+  <!-- Hero -->
+  <div class="cp-hero logo-bg-overlay">
+    <p class="cp-hero-eyebrow">Privacy</p>
+    <h1>プライバシーポリシー</h1>
+    <p>個人情報の取り扱いについて</p>
+  </div>
+
+  <div class="cp-privacy">
+    <p class="cp-privacy-date">制定日：2026年7月18日</p>
+    <p class="cp-privacy-lead">
+      株式会社RESC（以下「当社」）は、お客様の個人情報を以下の方針に基づき、適切に取り扱います。
+    </p>
+
+    <div class="cp-privacy-item">
+      <h3>1. 事業者名・お問い合わせ窓口</h3>
+      <p>
+        事業者名：株式会社RESC<br />
+        所在地：〒819-0002　福岡県福岡市西区姪浜2-14-11-307<br />
+        代表者：代表取締役　豊永 光城<br />
+        お問い合わせ窓口：resc.inquiry@resc-inc.com
+      </p>
+    </div>
+
+    <div class="cp-privacy-item">
+      <h3>2. 取得する個人情報の項目</h3>
+      <p>本サイトのお問い合わせフォームでは、以下の情報を取得します。</p>
+      <ul>
+        <li>お名前</li>
+        <li>メールアドレス</li>
+        <li>電話番号</li>
+        <li>お問い合わせ内容</li>
+      </ul>
+    </div>
+
+    <div class="cp-privacy-item">
+      <h3>3. 利用目的</h3>
+      <p>取得した個人情報は、以下の目的にのみ利用します。</p>
+      <ul>
+        <li>お問い合わせへの回答のため</li>
+        <li>ご相談内容に関するご案内のため</li>
+      </ul>
+    </div>
+
+    <div class="cp-privacy-item">
+      <h3>4. 第三者提供について</h3>
+      <p>取得した個人情報は、上記の利用目的の達成に必要な範囲を超えて第三者に提供することはありません。</p>
+    </div>
+
+    <div class="cp-privacy-item">
+      <h3>5. 外部サービスの利用について</h3>
+      <p>
+        お問い合わせフォームの送信処理には、外部サービス「formsubmit.co」を利用しています。フォームにご入力いただいた内容は、同サービスを経由して当社の受信メールアドレスに届きます。また、本サイトのフォント表示には「Google Fonts」を利用しており、ページ閲覧時にお使いのブラウザから Google 社のサーバーへ通信が行われます。
+      </p>
+    </div>
+
+    <div class="cp-privacy-item">
+      <h3>6. 保管期間・開示等のご請求</h3>
+      <p>
+        取得した個人情報は、お問い合わせ対応の目的達成に必要な期間保管し、その後は適切な方法で廃棄いたします。保有する個人情報の開示・訂正・利用停止等をご希望の場合は、上記お問い合わせ窓口までご連絡ください。
+      </p>
+    </div>
+
+    <div class="cp-privacy-item">
+      <h3>7. Cookie・アクセス解析について</h3>
+      <p>本サイトでは、独自のCookieやアクセス解析ツール（Google Analytics等）は使用していません。</p>
+    </div>
+  </div>
+
+</div><!-- /page-privacy -->
+
 <!-- Footer -->
 <footer>
   <p>&copy; 2026 株式会社RESC. All Rights Reserved.</p>
+  <p class="footer-links"><a href="#" onclick="showPage('privacy');return false;">プライバシーポリシー</a></p>
 </footer>
 
 <!-- ════ BUSINESS PAGE ════ -->
@@ -1052,8 +1129,46 @@
   </div>
 
   <!-- 事業紹介 -->
-  <div style="padding:80px 40px; max-width:900px; margin:0 auto;">
+  <div style="padding:80px 40px; max-width:1040px; margin:0 auto;">
     <p class="sec-label">Our Business</p>
+
+    <!-- ① ホームページ制作事業 -->
+    <p class="sec-label" style="color:var(--sub); margin-top:1.5rem;">Web</p>
+    <h2 class="sec-title">ホームページ制作事業</h2>
+
+    <p style="font-size:1.05rem; color:var(--sub); line-height:2.1; margin-top:1.5rem; margin-bottom:3rem;">
+      月額4,980円〜のサブスクリプションで、専属担当がホームページを制作・運用します。
+      ヒアリングをもとにデザインから文章まで作成し、公開後の更新・修正まで一貫して対応。
+      採用も教育も不要で、ホームページ担当者を1人雇う感覚でご利用いただけます。
+      36ヶ月継続後は、サイトをそのまま無償でお譲りします。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">💳</div>
+        <h3>月額制のサブスク</h3>
+        <p>初期費用10,000円（税込11,000円）＋月額4,980円〜。まとまった初期投資なしで始められます。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>専属担当がつく</h3>
+        <p>制作から公開後の更新・修正まで、専属担当が一貫して対応。採用も教育も必要ありません。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎁</div>
+        <h3>36ヶ月で無償譲渡</h3>
+        <p>長期契約後は、ホームページをそのままお客様に無償でお渡しします。</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a class="hero-btn" href="hp-service/index.html" style="display:inline-block;">詳しく見る →</a>
+    </div>
+
+    <div style="border-top:1px solid var(--light); margin:4rem 0;"></div>
+
+    <!-- ② セールスプロモーション事業 -->
+    <p class="sec-label" style="color:var(--sub);">Promotion</p>
     <h2 class="sec-title">セールスプロモーション事業</h2>
 
     <p style="font-size:1.05rem; color:var(--sub); line-height:2.1; margin-top:1.5rem; margin-bottom:3rem;">
@@ -1084,7 +1199,7 @@
 
   <!-- CTA -->
   <div style="background:var(--navy); padding:80px 40px; text-align:center;">
-    <p class="sec-label" style="color:#f0c060;">Contact</p>
+    <p class="sec-label" style="color:var(--gold);">Contact</p>
     <h2 class="sec-title" style="color:#fff; margin-bottom:1rem;">事業についてのご相談はこちら</h2>
     <p style="color:rgba(255,255,255,.75); margin-bottom:2rem; font-size:.95rem;">
       サービスの詳細やご依頼について、お気軽にお問い合わせください。
@@ -1096,10 +1211,11 @@
 
 <script>
   function showPage(page) {
-    document.body.classList.remove('company-page', 'contact-page', 'business-page');
+    document.body.classList.remove('company-page', 'contact-page', 'business-page', 'privacy-page');
     if (page === 'company')  document.body.classList.add('company-page');
     if (page === 'contact')  document.body.classList.add('contact-page');
     if (page === 'business') document.body.classList.add('business-page');
+    if (page === 'privacy')  document.body.classList.add('privacy-page');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
