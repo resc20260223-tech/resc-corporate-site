@@ -310,6 +310,15 @@
     outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(61,139,253,0.15);
   }
   .form-row textarea { min-height: 130px; resize: vertical; }
+  .form-privacy-check { margin-bottom: 20px; }
+  .form-privacy-check label {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 13px; color: var(--muted); line-height: 1.6; cursor: pointer;
+  }
+  .form-privacy-check input[type="checkbox"] {
+    width: 16px; height: 16px; margin-top: 2px; accent-color: var(--blue); flex-shrink: 0;
+  }
+  .form-privacy-check a { color: var(--blue); text-decoration: underline; }
   .form-note {
     font-family: "JetBrains Mono", monospace;
     font-size: 11.5px; color: #8A5A00; background: #FFF3DA;
@@ -548,11 +557,9 @@
     <div class="section-eyebrow">CONTACT</div>
     <h2 class="section-title">お問い合わせ</h2>
     <p class="section-lead">ホームページ制作・料金プランについてのご相談は、お気軽にこちらからお問い合わせください。</p>
-    <div class="form-note">※初回送信時、FormSubmit.coから resc.inquiry@resc-inc.com 宛に確認メールが届きます。メール内のリンクをクリックして有効化すると、以降のお問い合わせが届くようになります。</div>
-    <form class="contact-form" action="https://formsubmit.co/resc.inquiry@resc-inc.com" method="POST">
-      <input type="hidden" name="_subject" value="【株式会社RESC】お問い合わせを受け付けました">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_autoresponse" value="お問い合わせいただきありがとうございます。株式会社RESCです。内容を確認のうえ、2営業日以内に担当よりご連絡いたします。今しばらくお待ちくださいませ。">
+    <div class="form-note">※ご入力内容は送信後、担当者にメールで通知されます。</div>
+    <form class="contact-form" action="https://formspree.io/f/xaqroqvg" method="POST">
+      <input type="hidden" name="_お問い合わせ元" value="HP制作事業LP">
       <div class="form-row">
         <label>会社名・お名前</label>
         <input type="text" name="name" required>
@@ -577,6 +584,12 @@
       <div class="form-row">
         <label>お問い合わせ内容</label>
         <textarea name="message" required></textarea>
+      </div>
+      <div class="form-privacy-check">
+        <label>
+          <input type="checkbox" name="プライバシーポリシー同意" required>
+          <span><a href="../index.html#page-privacy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意する</span>
+        </label>
       </div>
       <button type="submit" class="btn btn-submit">&gt; 送信する</button>
     </form>
