@@ -27,6 +27,7 @@
     }
 
     html { scroll-behavior: smooth; }
+    #webservice, #promotion { scroll-margin-top: 88px; }
 
     body {
       font-family: 'Zen Kaku Gothic New', sans-serif;
@@ -775,7 +776,7 @@
         <h3>ホームページ制作事業</h3>
         <p>月4,980円〜。専属担当がデザインから公開後の運用まで。</p>
       </a>
-      <a class="card entry-card" href="#" onclick="showPage('business');return false;">
+      <a class="card entry-card" href="#" onclick="showPage('business','promotion');return false;">
         <p class="sec-label">Promotion</p>
         <h3>セールスプロモーション事業</h3>
         <p>販売イベントの企画・運営、通信サービスのご案内、スタッフ派遣。</p>
@@ -1129,7 +1130,7 @@
 
     <!-- ① ホームページ制作事業 -->
     <p class="sec-label" style="color:var(--sub); margin-top:1.5rem;">Web</p>
-    <h2 class="sec-title">ホームページ制作事業</h2>
+    <h2 class="sec-title" id="webservice">ホームページ制作事業</h2>
 
     <p style="font-size:1.05rem; color:var(--sub); line-height:2.1; margin-top:1.5rem; margin-bottom:3rem;">
       月額4,980円〜のサブスクリプションで、専属担当がホームページを制作・運用します。
@@ -1164,7 +1165,7 @@
 
     <!-- ② セールスプロモーション事業 -->
     <p class="sec-label" style="color:var(--sub);">Promotion</p>
-    <h2 class="sec-title">セールスプロモーション事業</h2>
+    <h2 class="sec-title" id="promotion">セールスプロモーション事業</h2>
 
     <p style="font-size:1.05rem; color:var(--sub); line-height:2.1; margin-top:1.5rem; margin-bottom:3rem;">
       当社は、スマートフォン販売イベントの企画・運営を軸に、パートナー企業様と連携した販促支援を行っています。
@@ -1205,12 +1206,16 @@
 </div><!-- /page-business -->
 
 <script>
-  function showPage(page) {
+  function showPage(page, targetId) {
     document.body.classList.remove('company-page', 'contact-page', 'business-page', 'privacy-page');
     if (page === 'company')  document.body.classList.add('company-page');
     if (page === 'contact')  document.body.classList.add('contact-page');
     if (page === 'business') document.body.classList.add('business-page');
     if (page === 'privacy')  document.body.classList.add('privacy-page');
+    if (targetId) {
+      var el = document.getElementById(targetId);
+      if (el) { el.scrollIntoView({ behavior: 'smooth' }); return; }
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
