@@ -2,813 +2,480 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>株式会社RESC | 月4,980円〜、ホームページ担当者を1人雇う</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ホームページ担当者を月額で｜株式会社RESC</title>
+<meta name="description" content="月4,980円〜。専属の担当者がホームページの制作から更新・修正まで一貫対応。発注して作って終わりではなく、毎月つくって・更新して・相談できる、ホームページ制作の月額サブスクです。">
+<meta property="og:title" content="ホームページ担当者を月額で｜株式会社RESC">
+<meta property="og:description" content="月4,980円〜。専属の担当者がホームページの制作から更新・修正まで一貫対応する月額サブスク。">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #0B0F14;
-    --panel-dark: #141B22;
-    --line-dark: #2A3440;
-    --paper: #F5F7FA;
-    --panel-light: #FFFFFF;
-    --line-light: #DEE3E9;
-    --text-hi: #E8EDF2;
-    --text-lo: #10151B;
-    --muted: #6B7686;
-    --blue: #3D8BFD;
-    --violet: #8B5CF6;
-    --amber: #F5A623;
-    --green: #34D399;
+  :root{
+    --navy:#172A4E;--navy-2:#22406E;--gold:#AC842B;--gold-bright:#C6A24C;
+    --ink:#1C2434;--muted:#6E7684;--line:#E7E2D5;--cream:#FAF8F2;--white:#FFFFFF;
+    --maxw:1120px;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: "Zen Kaku Gothic New", sans-serif;
-    color: var(--text-lo);
-    background: var(--paper);
-    line-height: 1.75;
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--white);
+    line-height:1.8;word-break:normal;overflow-wrap:anywhere;line-break:strict;-webkit-font-smoothing:antialiased;
+    overflow-x:clip;
   }
-  .mono { font-family: "JetBrains Mono", monospace; }
-  a { text-decoration: none; color: inherit; }
-  ul { list-style: none; }
-  img { max-width: 100%; display: block; }
+  .serif{font-family:"Noto Serif JP",serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  section{scroll-margin-top:76px;}
+  .eyebrow{font-size:12px;letter-spacing:.18em;color:var(--gold);font-weight:600;display:inline-flex;align-items:center;gap:8px;}
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);}
+  .sec-head{text-align:center;margin-bottom:44px;}
+  .sec-head h2{font-size:30px;font-weight:600;color:var(--navy);letter-spacing:.02em;margin-top:10px;line-height:1.5;}
+  .sec-head p{color:var(--muted);font-size:14.5px;margin-top:14px;}
 
-  /* ---- Nav ---- */
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(11,15,20,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line-dark);
-  }
-  .nav-inner {
-    max-width: 1140px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 24px;
-  }
-  .logo {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 17px; font-weight: 700; color: var(--text-hi); letter-spacing: 0.5px;
-  }
-  .logo .cursor {
-    display: inline-block; width: 8px; height: 16px; background: var(--blue);
-    margin-left: 4px; vertical-align: -2px;
-    animation: blink 1.1s step-end infinite;
-  }
-  @keyframes blink { 0%, 45% { opacity: 1; } 50%, 95% { opacity: 0; } 100% { opacity: 1; } }
-  .nav-links { display: flex; gap: 30px; }
-  .nav-links a {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12.5px; color: var(--muted); letter-spacing: 0.3px;
-    transition: color 0.15s ease;
-  }
-  .nav-links a:hover { color: var(--blue); }
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .brand{display:flex;align-items:baseline;gap:10px;}
+  .brand .logo{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:700;letter-spacing:.14em;color:var(--navy);}
+  .brand .logo span{color:var(--gold);}
+  .brand .tag{font-size:11.5px;color:var(--muted);letter-spacing:.04em;}
+  .nav-links{display:flex;align-items:center;gap:28px;}
+  .nav-links a{font-size:13.5px;font-weight:500;color:var(--ink);}
+  .nav-links a.btn{background:var(--navy);color:#fff;padding:9px 18px;border-radius:4px;font-weight:600;}
+  .nav-toggle{display:none;background:none;border:none;font-size:22px;color:var(--navy);cursor:pointer;}
 
-  /* ---- Hero (dark canvas) ---- */
-  .hero {
-    background: var(--ink);
-    color: var(--text-hi);
-    padding: 100px 24px 80px 24px;
-    position: relative;
-    overflow: hidden;
-    background-image:
-      linear-gradient(var(--line-dark) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line-dark) 1px, transparent 1px);
-    background-size: 44px 44px;
-    background-position: center top;
-  }
-  .hero::before {
-    content: "";
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 700px 500px at 20% 20%, rgba(61,139,253,0.18), transparent 60%),
-                radial-gradient(ellipse 600px 500px at 85% 60%, rgba(139,92,246,0.15), transparent 60%),
-                linear-gradient(180deg, rgba(11,15,20,0.2), var(--ink) 85%);
-    pointer-events: none;
-  }
-  .hero-inner {
-    max-width: 1140px; margin: 0 auto; position: relative;
-    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px;
-    align-items: center;
-  }
-  #matrix-rain {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    opacity: 0.4; pointer-events: none;
-  }
-  .hero-eyebrow {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12px; letter-spacing: 2px; color: var(--blue); margin-bottom: 20px;
-  }
-  .hero-eyebrow::before { content: "// "; color: var(--muted); }
-  .hero h1 {
-    font-size: 40px; font-weight: 900; line-height: 1.5; margin-bottom: 22px; letter-spacing: -0.5px;
-  }
-  .hero h1 .accent {
-    background: linear-gradient(90deg, var(--blue), var(--violet));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .hero p.lead { font-size: 14.5px; color: #A9B4C2; max-width: 480px; margin-bottom: 36px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 30px; border-radius: 3px;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 13.5px; font-weight: 700; letter-spacing: 0.3px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    border: none; cursor: pointer;
-  }
-  .btn-primary { background: var(--blue); color: #06121F; }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(61,139,253,0.35); }
+  .btn-primary{display:inline-block;background:var(--navy);color:#fff;padding:14px 30px;border-radius:4px;font-weight:600;font-size:15px;letter-spacing:.02em;transition:background .2s;}
+  .btn-primary:hover{background:var(--navy-2);}
+  .btn-ghost{display:inline-block;border:1px solid var(--navy);color:var(--navy);padding:13px 28px;border-radius:4px;font-weight:600;font-size:15px;}
+  .btn-gold{display:inline-block;background:linear-gradient(90deg,var(--gold),var(--gold-bright));color:var(--navy);padding:13px 26px;border-radius:4px;font-weight:700;font-size:14.5px;}
 
-  /* ---- Signature: canvas / editor frame ---- */
-  .canvas-frame {
-    position: relative;
-    background: #0F151C;
-    border: 1px solid var(--line-dark);
-    border-radius: 8px;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-  }
-  .canvas-frame::before, .canvas-frame::after,
-  .canvas-frame .cf-br1, .canvas-frame .cf-br2 {
-    content: ""; position: absolute; width: 14px; height: 14px;
-    border-color: var(--blue); border-style: solid; opacity: 0.7;
-  }
-  .canvas-frame::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-  .canvas-frame::after { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-  .canvas-frame .cf-br1 { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
-  .canvas-frame .cf-br2 { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
-  .cf-toolbar {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 16px; border-bottom: 1px solid var(--line-dark);
-  }
-  .cf-filename { font-family: "JetBrains Mono", monospace; font-size: 11.5px; color: #8B96A5; }
-  .cf-status { display: flex; align-items: center; gap: 6px; font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--green); }
-  .cf-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 1.6s ease-in-out infinite; }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-  .cf-imgwrap { position: relative; height: 250px; overflow: hidden; }
-  .cf-imgwrap img {
-    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-    opacity: 0; transition: opacity 1.2s ease;
-  }
-  .cf-imgwrap img.active { opacity: 1; }
-  .cf-imgwrap::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(15,21,28,0.75) 100%);
-  }
-  .cf-caption {
-    padding: 12px 16px; display: flex; justify-content: space-between; align-items: center;
-    font-family: "JetBrains Mono", monospace; font-size: 11px; color: #8B96A5;
-  }
-  .cf-caption .tag {
-    background: rgba(61,139,253,0.15); color: var(--blue); font-weight: 700;
-    padding: 3px 10px; border-radius: 3px; font-size: 10.5px;
-  }
+  /* HERO */
+  .hero{background:radial-gradient(130% 110% at 82% 0%,#284a7d 0%,#1b3157 45%,#131f3a 100%);padding:74px 0 82px;position:relative;overflow:hidden;}
+  .hero .eyebrow{color:var(--gold-bright);}
+  .hero .eyebrow::before{background:var(--gold-bright);}
+  .hero-grid{display:flex;gap:56px;align-items:center;justify-content:space-between;}
+  .hero-grid>div:first-child{flex:1 1 0;min-width:0;max-width:560px;}
+  .hero-grid>.idcard{flex:0 0 440px;}
+  .svc-grid>*,.plans>*{min-width:0;}
+  .hero h1{font-size:46px;line-height:1.42;font-weight:700;color:#fff;letter-spacing:.01em;margin:18px 0 22px;}
+  .hero h1 .amt{color:var(--gold-bright);}
+  .hero p.lead{font-size:15px;line-height:2;color:#D3DAE6;max-width:30em;}
+  .hero p.lead,.contact-info p{word-break:normal;overflow-wrap:anywhere;}
+  .hero-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .hero-cta .btn-primary{background:linear-gradient(90deg,var(--gold),var(--gold-bright));color:var(--navy);}
+  .hero-cta .btn-primary:hover{filter:brightness(1.06);background:linear-gradient(90deg,var(--gold),var(--gold-bright));}
+  .hero-cta .btn-ghost{border-color:rgba(255,255,255,.55);color:#fff;}
+  .hero-cta .btn-ghost:hover{background:rgba(255,255,255,.08);}
+  /* STAFF ID card */
+  .idcard{background:#fff;border-radius:10px;padding:26px 26px 22px;color:var(--ink);position:relative;box-shadow:0 26px 60px rgba(0,0,0,.32);overflow:hidden;}
+  .idcard::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-bright));}
+  .id-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
+  .id-top .lbl{font-size:12px;letter-spacing:.22em;color:var(--gold);font-weight:700;}
+  .id-top .co{font-size:11px;color:var(--muted);letter-spacing:.1em;text-align:right;}
+  .stamp{position:absolute;top:16px;right:20px;width:64px;height:64px;border:2px solid var(--gold-bright);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-bright);font-family:"Noto Serif JP",serif;font-size:22px;font-weight:700;transform:rotate(-12deg);letter-spacing:.06em;opacity:.92;}
+  .id-body{display:flex;gap:16px;align-items:flex-start;margin-bottom:18px;}
+  .id-photo{width:74px;height:88px;border-radius:6px;background:repeating-linear-gradient(135deg,#22406E 0 8px,#1d3760 8px 16px);flex:0 0 auto;}
+  .id-fields{flex:1;}
+  .id-row{margin-bottom:11px;}
+  .id-row .k{font-size:10.5px;color:var(--muted);letter-spacing:.08em;margin-bottom:2px;}
+  .id-row .v{font-size:15px;font-weight:600;color:var(--navy);}
+  .id-row .v.small{font-size:13px;font-weight:500;color:var(--ink);}
+  .id-foot{border-top:1px solid var(--line);padding-top:14px;display:flex;justify-content:space-between;align-items:baseline;}
+  .id-foot .price{font-size:13px;color:var(--muted);}
+  .id-foot .price b{font-size:22px;color:var(--gold);font-weight:700;}
+  .id-foot .no{font-size:11px;color:#9aa1ad;letter-spacing:.1em;}
 
-  /* ---- Features ---- */
-  .features {
-    max-width: 1140px; margin: 0 auto; padding: 64px 24px;
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
-  }
-  .feature {
-    position: relative;
-    padding: 26px; border: 1px solid var(--line-light); border-radius: 6px; background: var(--panel-light);
-    overflow: hidden;
-    opacity: 0; transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-  .feature.visible { opacity: 1; animation: float 4.5s ease-in-out infinite; }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  .feature::before {
-    content: ""; position: absolute; top: 0; left: -60%; width: 60%; height: 3px;
-    background: linear-gradient(90deg, transparent, var(--blue), var(--violet), transparent);
-    box-shadow: 0 0 12px 1px rgba(61,139,253,0.7);
-    animation: sweep 2.4s linear infinite;
-  }
-  @keyframes sweep { to { left: 100%; } }
-  .feature:hover {
-    box-shadow: 0 10px 30px rgba(61,139,253,0.12); border-color: rgba(61,139,253,0.35);
-  }
-  .feature .ftag {
-    font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--blue);
-    margin-bottom: 14px; letter-spacing: 0.5px;
-    white-space: nowrap; overflow: hidden; display: inline-block; width: 0;
-  }
-  .feature.visible .ftag { animation: typing 0.6s steps(11) 0.15s forwards; }
-  @keyframes typing { to { width: 78px; } }
-  .feature .ftag .fcursor {
-    display: inline-block; width: 6px; height: 11px; background: var(--blue);
-    margin-left: 3px; vertical-align: -1px;
-    animation: blink 1.1s step-end infinite;
-  }
-  .feature h3 { font-size: 16.5px; margin-bottom: 10px; font-weight: 700; }
-  .feature p { font-size: 13px; color: var(--muted); }
+  /* PROBLEM */
+  .problem{padding:76px 0;}
+  .problem h2{font-size:29px;font-weight:600;color:var(--navy);line-height:1.5;text-align:center;}
+  .problem .desc{text-align:center;color:var(--ink);font-size:15px;line-height:2;max-width:40em;margin:20px auto 40px;}
+  .cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .cost-card{border:1px solid #D9D2C0;border-top:3px solid var(--gold);border-radius:8px;padding:26px 30px 28px;background:#fff;text-align:center;box-shadow:0 6px 18px rgba(23,42,78,.06);}
+  .cost-card .k{font-size:12.5px;color:var(--muted);letter-spacing:.04em;margin-bottom:10px;}
+  .cost-card .amt{font-family:"Noto Serif JP",serif;font-size:34px;font-weight:600;color:var(--navy);}
+  .cost-card .sub{font-size:12px;color:var(--muted);margin-top:10px;}
+  .cost-navy{grid-column:1 / -1;background:var(--navy);color:#fff;border:none;border-radius:8px;padding:30px 34px;margin-top:4px;text-align:center;}
+  .cost-navy .k{color:var(--gold-bright);font-size:13px;letter-spacing:.1em;font-weight:600;margin-bottom:10px;}
+  .cost-navy .big{font-family:"Noto Serif JP",serif;font-size:24px;font-weight:600;line-height:1.6;}
+  .relnote{font-size:11.5px;color:var(--muted);margin-top:22px;text-align:center;}
 
-  /* ---- Section shared ---- */
-  section.page { padding: 90px 24px; }
-  .section-inner { max-width: 1140px; margin: 0 auto; }
-  .section-eyebrow {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12px; color: var(--blue); font-weight: 700; margin-bottom: 14px; letter-spacing: 0.3px;
-  }
-  .section-eyebrow::before { content: "// "; color: #B9C8DC; }
-  .section-title { font-size: 30px; margin-bottom: 18px; font-weight: 900; }
-  .section-lead { font-size: 14px; color: var(--muted); max-width: 640px; margin-bottom: 50px; }
-  .bg-alt { background: #EEF1F5; }
+  /* SERVICE */
+  .service{padding:76px 0;background:var(--cream);}
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .svc-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:30px 32px;}
+  .svc-card .num{font-family:"Noto Serif JP",serif;font-size:13px;color:var(--gold);font-weight:700;letter-spacing:.1em;}
+  .svc-card h3{font-size:19px;font-weight:600;color:var(--navy);margin:6px 0 12px;}
+  .svc-card p{font-size:14px;line-height:1.95;color:var(--ink);}
+  .svc-card .rule{width:34px;height:2px;background:var(--gold);margin-bottom:16px;}
 
-  /* ---- Pricing ---- */
-  .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .price-card {
-    position: relative;
-    background: var(--panel-light); border: 1px solid var(--line-light); border-radius: 8px; padding: 30px 26px;
-    opacity: 0; transform: translateY(32px) scale(0.97);
-    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  @property --angle { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
-  .price-card.highlight { isolation: isolate; }
-  .price-card.highlight::after {
-    content: ""; position: absolute; inset: -2px; border-radius: 10px; padding: 2px;
-    background: conic-gradient(from var(--angle), var(--blue), var(--violet), var(--blue));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-    z-index: -1;
-  }
-  .price-card.highlight.visible::after { animation: rotateBorder 3.5s linear infinite; }
-  @keyframes rotateBorder { to { --angle: 360deg; } }
-  .price-card.visible {
-    opacity: 1;
-    animation: priceFloat 5s ease-in-out infinite;
-  }
-  .price-card.visible:nth-child(2) { animation-delay: 0.4s; }
-  .price-card.visible:nth-child(3) { animation-delay: 0.8s; }
-  @keyframes priceFloat {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-10px) scale(1); }
-  }
-  .price-card.highlight { background: var(--ink); border-color: var(--ink); color: var(--text-hi); }
-  .price-tag {
-    font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--muted);
-    margin-bottom: 8px; letter-spacing: 0.5px;
-  }
-  .price-card.highlight .price-tag { color: #8B96A5; }
-  .price-name { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
-  .price-value { font-family: "JetBrains Mono", monospace; font-size: 32px; font-weight: 700; margin-bottom: 4px; }
-  .price-value span { font-size: 12.5px; font-weight: 400; color: var(--muted); }
-  .price-value .price-num { font-size: 1em; font-weight: 700; color: inherit; }
-  .price-card.highlight .price-value span { color: #8B96A5; }
-  .price-tax { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
-  .price-card.highlight .price-tax { color: #8B96A5; }
-  .price-list { margin-top: 20px; font-size: 13px; font-family: "Zen Kaku Gothic New", sans-serif; }
-  .price-list div { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--line-light); }
-  .price-card.highlight .price-list div { border-bottom: 1px dashed var(--line-dark); }
-  .price-list .lbl { color: var(--muted); }
-  .price-card.highlight .price-list .lbl { color: #8B96A5; }
-  .price-note { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 26px; font-family: "Zen Kaku Gothic New", sans-serif; }
+  /* PRICING */
+  .pricing{padding:80px 0;}
+  .price-lead{text-align:center;color:var(--ink);font-size:14.5px;line-height:1.9;max-width:38em;margin:0 auto 44px;}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;}
+  .plan{border:1px solid #D9D2C0;border-radius:10px;padding:30px 26px;display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;position:relative;box-shadow:0 6px 18px rgba(23,42,78,.06);}
+  .plan.feat{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 14px 34px rgba(23,42,78,.2);}
+  .plan .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--gold),var(--gold-bright));color:var(--navy);font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 16px;border-radius:20px;white-space:nowrap;}
+  .plan .pname{font-family:"Noto Serif JP",serif;font-size:21px;font-weight:600;color:var(--navy);letter-spacing:.08em;}
+  .plan.feat .pname{color:var(--gold-bright);}
+  .plan .pfor{font-size:12.5px;color:var(--muted);margin:6px 0 20px;min-height:2.6em;}
+  .plan.feat .pfor{color:#C6CEDC;}
+  .plan .price{display:flex;align-items:baseline;justify-content:center;gap:3px;}
+  .plan .price .yen{font-size:17px;font-weight:600;align-self:flex-start;margin-top:5px;}
+  .plan .price .num{font-size:40px;font-weight:700;line-height:1;color:var(--navy);}
+  .plan.feat .price .num,.plan.feat .price .yen{color:#fff;}
+  .plan .price .tax{font-size:12px;color:var(--muted);align-self:flex-end;margin-left:2px;}
+  .plan.feat .price .tax{color:#C6CEDC;}
+  .plan .taxin{font-size:11.5px;color:var(--muted);margin:6px 0 22px;}
+  .plan.feat .taxin{color:#AEB8C9;}
+  .plan .pcta{margin-top:auto;align-self:stretch;text-align:center;padding:12px;border-radius:4px;font-weight:600;font-size:14px;border:1px solid var(--navy);color:var(--navy);}
+  .plan.feat .pcta{background:linear-gradient(90deg,var(--gold),var(--gold-bright));color:var(--navy);border:none;}
 
-  /* ---- Works ---- */
-  .works-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .work-card {
-    position: relative;
-    border: 1px solid var(--line-light); border-radius: 6px; overflow: hidden; background: var(--panel-light);
-    display: block; text-decoration: none; color: inherit; cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
-  .work-card img { height: 140px; object-fit: cover; width: 100%; }
-  .work-card .work-tag {
-    position: absolute; top: 8px; left: 8px;
-    font-family: "JetBrains Mono", monospace; font-size: 9.5px; color: #fff;
-    background: rgba(11,15,20,0.55); padding: 2px 7px; border-radius: 3px;
-  }
-  .work-card .work-label { padding: 12px; font-size: 13px; font-weight: 700; text-align: center; }
+  /* comparison table */
+  .cmp{margin-top:44px;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch;}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px;}
+  thead th{font-size:12.5px;color:var(--muted);font-weight:500;padding:12px;border-bottom:2px solid var(--navy);text-align:center;}
+  thead th.mid{color:var(--navy);font-weight:700;}
+  tbody th{text-align:left;font-weight:500;color:var(--ink);padding:13px 12px;font-size:13.5px;border-bottom:1px solid var(--line);width:26%;}
+  tbody td{text-align:center;padding:13px 12px;border-bottom:1px solid var(--line);}
+  td.mid{background:var(--cream);color:var(--navy);font-weight:600;}
+  .sns-on{color:var(--gold);font-weight:700;}
+  .pricenote{font-size:11.5px;color:var(--muted);margin-top:22px;line-height:1.8;}
 
-  /* ---- About table ---- */
-  .about-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  .about-table tr { border-bottom: 1px solid var(--line-light); }
-  .about-table th {
-    text-align: left; padding: 18px 20px 18px 0; width: 170px;
-    color: var(--muted); font-weight: 500; vertical-align: top;
-    font-family: "JetBrains Mono", monospace; font-size: 12px;
-  }
-  .about-table td { padding: 18px 0; }
-  .placeholder { color: var(--amber); font-family: "JetBrains Mono", monospace; font-size: 13px; }
+  /* FAQ */
+  .faq{padding:76px 0;background:var(--cream);}
+  .faq-list{max-width:760px;margin:0 auto;}
+  details{background:#fff;border:1px solid var(--line);border-radius:8px;margin-bottom:12px;overflow:hidden;}
+  summary{list-style:none;cursor:pointer;padding:20px 24px;font-weight:600;font-size:15px;color:var(--navy);display:flex;justify-content:space-between;align-items:center;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";color:var(--gold);font-size:20px;font-weight:400;}
+  details[open] summary::after{content:"−";}
+  details .a{padding:0 24px 20px;font-size:14px;line-height:1.9;color:var(--ink);}
 
-  /* ---- Contact ---- */
-  .contact-form { max-width: 560px; }
-  .form-row { margin-bottom: 20px; }
-  .form-row label {
-    display: block; font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700; margin-bottom: 8px; color: var(--muted);
-  }
-  .form-row input, .form-row textarea, .form-row select {
-    width: 100%; padding: 12px 14px; font-size: 14px;
-    border: 1px solid var(--line-light); border-radius: 4px;
-    font-family: "Zen Kaku Gothic New", sans-serif;
-    background: var(--panel-light);
-  }
-  .form-row input:focus, .form-row textarea:focus, .form-row select:focus {
-    outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(61,139,253,0.15);
-  }
-  .form-row textarea { min-height: 130px; resize: vertical; }
-  .form-privacy-check { margin-bottom: 20px; }
-  .form-privacy-check label {
-    display: flex; align-items: flex-start; gap: 8px;
-    font-size: 13px; color: var(--muted); line-height: 1.6; cursor: pointer;
-  }
-  .form-privacy-check input[type="checkbox"] {
-    width: 16px; height: 16px; margin-top: 2px; accent-color: var(--blue); flex-shrink: 0;
-  }
-  .form-privacy-check a { color: var(--blue); text-decoration: underline; }
-  .form-note {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 11.5px; color: #8A5A00; background: #FFF3DA;
-    padding: 12px 16px; border-radius: 6px; margin-bottom: 26px; border: 1px solid #F0DDB0;
-  }
-  .btn-submit { background: var(--ink); color: var(--text-hi); }
-  .btn-submit:hover { box-shadow: 0 10px 26px rgba(11,15,20,0.25); }
+  /* CONTACT */
+  .contact{padding:80px 0;}
+  .contact-grid{display:flex;gap:48px;align-items:flex-start;}
+  .contact-grid>.contact-info{flex:0 1 400px;max-width:440px;}
+  .contact-grid>form{flex:1 1 0;min-width:0;}
+  .contact-info h2{font-size:28px;font-weight:600;color:var(--navy);line-height:1.5;}
+  .contact-info p{font-size:14.5px;color:var(--ink);line-height:1.9;margin-top:16px;}
+  .contact-info .mail{margin-top:22px;font-size:15px;color:var(--navy);font-weight:600;}
+  form{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:30px 30px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:7px;}
+  .field label .req{color:var(--gold);font-size:11px;margin-left:6px;}
+  .field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:5px;padding:11px 13px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink);}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--gold-bright);border-color:transparent;}
+  .field textarea{min-height:110px;resize:vertical;}
+  .consent{display:flex;align-items:flex-start;gap:10px;font-size:12.5px;color:var(--ink);margin:6px 0 20px;line-height:1.7;}
+  .consent input{width:16px;height:16px;margin-top:3px;flex:0 0 auto;}
+  .consent a{color:var(--navy);text-decoration:underline;}
+  .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0;}
+  form button[type=submit]{width:100%;background:var(--navy);color:#fff;border:none;border-radius:5px;padding:15px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:background .2s;}
+  form button[type=submit]:hover{background:var(--navy-2);}
 
-  footer {
-    background: var(--ink); color: #8B96A5;
-    text-align: center; padding: 34px 24px; font-size: 12px;
-    font-family: "JetBrains Mono", monospace;
-    border-top: 1px solid var(--line-dark);
-  }
+  /* FOOTER */
+  footer.ft{background:var(--navy);color:#fff;padding:52px 0 32px;}
+  .ft-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .ft .logo{font-family:"Noto Serif JP",serif;font-size:20px;font-weight:700;letter-spacing:.14em;}
+  .ft .logo span{color:var(--gold-bright);}
+  .ft .addr{font-size:12.5px;color:#AEB8C9;line-height:1.9;margin-top:14px;}
+  .ft-links{display:flex;flex-direction:column;gap:10px;font-size:13px;}
+  .ft-links a{color:#DCE1EA;}
+  .ft-links a:hover{color:var(--gold-bright);}
+  .ft-copy{border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-top:20px;font-size:11.5px;color:#8f9bb0;text-align:center;}
 
-  /* ---- FAQ Chatbot ---- */
-  .chatbot-toggle {
-    position: fixed; bottom: 26px; right: 26px; z-index: 200;
-    width: 56px; height: 56px; border-radius: 50%;
-    background: var(--ink); border: 1px solid var(--line-dark);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: transform 0.15s ease;
-  }
-  .chatbot-toggle:hover { transform: translateY(-2px); }
-  .chatbot-toggle svg { width: 24px; height: 24px; }
-  .chatbot-toggle .dot {
-    position: absolute; top: 8px; right: 8px; width: 9px; height: 9px;
-    border-radius: 50%; background: var(--green); border: 2px solid var(--ink);
-  }
-  .chatbot-panel {
-    position: fixed; bottom: 94px; right: 26px; z-index: 200;
-    width: 340px; max-height: 480px;
-    background: var(--ink); border: 1px solid var(--line-dark); border-radius: 10px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
-    display: none; flex-direction: column; overflow: hidden;
-  }
-  .chatbot-panel.open { display: flex; }
-  .cb-header {
-    padding: 14px 16px; border-bottom: 1px solid var(--line-dark);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .cb-header-title {
-    font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--text-hi);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .cb-header-title .dot2 { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 1.6s ease-in-out infinite; }
-  .cb-close { color: #8B96A5; cursor: pointer; font-family: "JetBrains Mono", monospace; font-size: 16px; }
-  .cb-messages {
-    flex: 1; overflow-y: auto; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
-    max-height: 260px;
-  }
-  .cb-msg { font-size: 13px; line-height: 1.6; padding: 10px 12px; border-radius: 8px; max-width: 88%; white-space: pre-line; }
-  .cb-msg.bot { background: var(--panel-dark); color: var(--text-hi); align-self: flex-start; border: 1px solid var(--line-dark); }
-  .cb-msg.user { background: var(--blue); color: #06121F; align-self: flex-end; font-weight: 500; }
-  .cb-quick { padding: 0 16px 10px 16px; display: flex; flex-wrap: wrap; gap: 6px; }
-  .cb-chip {
-    font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--blue);
-    border: 1px solid rgba(61,139,253,0.4); background: rgba(61,139,253,0.08);
-    padding: 6px 10px; border-radius: 20px; cursor: pointer; transition: background 0.15s ease;
-  }
-  .cb-chip:hover { background: rgba(61,139,253,0.18); }
-  .cb-inputrow {
-    display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--line-dark);
-  }
-  .cb-inputrow input {
-    flex: 1; min-width: 0; background: var(--panel-dark); border: 1px solid var(--line-dark); border-radius: 5px;
-    color: var(--text-hi); font-family: "Zen Kaku Gothic New", sans-serif; font-size: 13px; padding: 9px 12px;
-  }
-  .cb-inputrow input:focus { outline: none; border-color: var(--blue); }
-  .cb-send {
-    background: var(--blue); color: #06121F; border: none; border-radius: 5px;
-    padding: 0 16px; font-family: "Zen Kaku Gothic New", sans-serif; font-size: 13px; font-weight: 700;
-    cursor: pointer; white-space: nowrap; flex-shrink: 0;
-  }
-
-  @media (max-width: 800px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .features { grid-template-columns: 1fr; }
-    .price-grid { grid-template-columns: 1fr; }
-    .works-grid { grid-template-columns: repeat(2, 1fr); }
+  /* RESPONSIVE */
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .nav-toggle{display:block;}
+    .nav-links.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:16px 24px;gap:16px;align-items:flex-start;}
+    .hero-grid{flex-direction:column;align-items:flex-start;gap:36px;}
+    .hero{padding:44px 0 56px;}
+    .hero h1{font-size:33px;}
+    .hero-grid>.idcard{flex:0 0 auto;width:100%;max-width:400px;}
+    .cost-grid{grid-template-columns:1fr;}
+    .svc-grid{grid-template-columns:1fr;}
+    .plans{grid-template-columns:1fr;gap:34px;}
+    .plan .ribbon{top:-13px;}
+    .contact-grid{flex-direction:column;gap:32px;}
+    .contact-grid>.contact-info{flex:none;max-width:none;}
+    .sec-head h2,.problem h2{font-size:24px;}
+    .hero h1{font-size:30px;}
+    table{min-width:0;font-size:11px;table-layout:fixed;}
+    thead th{padding:9px 4px;font-size:10.5px;}
+    tbody th{width:26%;padding:10px 5px;font-size:10.5px;}
+    tbody td{padding:10px 4px;}
+    table th,table td{word-break:normal;overflow-wrap:anywhere;line-break:auto;}
   }
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <div class="logo">RESC<span class="cursor"></span></div>
-    <ul class="nav-links">
-      <li><a href="#home">HOME</a></li>
-      <li><a href="#business">事業内容</a></li>
-      <li><a href="#works">制作事例</a></li>
-      <li><a href="#about">会社概要</a></li>
-      <li><a href="#contact">お問い合わせ</a></li>
-    </ul>
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand">
+      <span class="logo">RE<span>S</span>C</span>
+      <span class="tag">ホームページ担当者</span>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#pricing">料金プラン</a>
+      <a href="#service">サービス内容</a>
+      <a href="#contact" class="btn">お問い合わせ</a>
+    </nav>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
   </div>
-</nav>
+</header>
 
-<section id="home">
-  <div class="hero">
-    <canvas id="matrix-rain"></canvas>
-    <div class="hero-inner">
-      <div>
-        <div class="hero-eyebrow">HP_STAFF_SUBSCRIPTION</div>
-        <h1>月4,980円〜、<br>ホームページ担当者を<br><span class="accent">1人雇う</span>。</h1>
-        <p class="lead">初期費用10,000円(税込11,000円)・月額4,980円から。採用も教育もいらない、あなたの会社専属のホームページ担当。制作はもちろん、公開後の更新・修正まで丸ごとお任せください。</p>
-        <a href="#contact" class="btn btn-primary">&gt; お問い合わせ</a>
-      </div>
-      <div class="canvas-frame">
-        <div class="cf-br1"></div><div class="cf-br2"></div>
-        <div class="cf-toolbar">
-          <div class="cf-filename" id="cf-filename">sample/cafe.html</div>
-          <div class="cf-status"><div class="cf-dot"></div>GENERATING</div>
-        </div>
-        <div class="cf-imgwrap" id="showcase-imgwrap">
-          <img src="cafe_hero.png" class="active" data-label="cafe">
-          <img src="salon_hero.png" data-label="salon">
-          <img src="clinic_hero.png" data-label="clinic">
-          <img src="construction_hero.png" data-label="construction">
-        </div>
-        <div class="cf-caption">
-          <span id="showcase-label">industry: cafe</span>
-          <span class="tag">STAFF_ASSIGNED</span>
-        </div>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">ホームページ制作の月額サブスク</span>
+      <h1 class="serif">月<span class="amt">4,980</span>円〜、<br>ホームページ担当者を<br>1人雇う。</h1>
+      <p class="lead">制作会社に「発注」して作って終わり、ではありません。<br>毎月つくって、更新して、相談できる。<br>あなたのお店のホームページ担当者を、<br>月額で雇うという選択です。</p>
+      <div class="hero-cta">
+        <a href="#pricing" class="btn-primary">料金プランを見る</a>
+        <a href="#contact" class="btn-ghost">お問い合わせ</a>
       </div>
     </div>
-  </div>
-
-  <div class="features">
-    <div class="feature">
-      <div class="ftag">FEATURE_01<span class="fcursor"></span></div>
-      <h3>手を抜かず、こなす専属担当</h3>
-      <p>お知らせ・ブログの更新も担当が黙々とこなし、日々の運用の手間をなくします。</p>
-    </div>
-    <div class="feature">
-      <div class="ftag">FEATURE_02<span class="fcursor"></span></div>
-      <h3>36ヶ月で無償譲渡</h3>
-      <p>長期契約後は、ホームページをそのままお客様に無償でお渡しします。</p>
-    </div>
-    <div class="feature">
-      <div class="ftag">FEATURE_03<span class="fcursor"></span></div>
-      <h3>地域+オンラインの両対応</h3>
-      <p>福岡近郊は直接訪問、遠方はオンラインで、同じ丁寧さのサポートを。</p>
+    <div class="idcard">
+      <div class="stamp serif">採用</div>
+      <div class="id-top">
+        <div class="lbl">STAFF ID</div>
+        <div class="co">株式会社RESC</div>
+      </div>
+      <div class="id-body">
+        <div class="id-photo"></div>
+        <div class="id-fields">
+          <div class="id-row"><div class="k">役職</div><div class="v">ホームページ担当者</div></div>
+          <div class="id-row"><div class="k">担当</div><div class="v small">つくる ／ 更新する ／ 相談する</div></div>
+        </div>
+      </div>
+      <div class="id-foot">
+        <div class="price">月額 <b>¥4,980</b> 〜（税抜）</div>
+        <div class="no">No. 04980</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="business" class="page bg-alt">
-  <div class="section-inner">
-    <div class="section-eyebrow">OUR_BUSINESS</div>
-    <h2 class="section-title">事業内容</h2>
-    <p class="section-lead">中小企業・個人店向けに、ホームページ担当者を月々4,980円から雇える感覚で提供するサブスクリプションサービスです。ヒアリング内容をもとに専属担当がデザイン・文章を作成し、公開後の運用まで一貫してサポートします。</p>
-
-    <div class="price-grid">
-      <div class="price-card">
-        <div class="price-tag">plan/light</div>
-        <div class="price-name">ライト</div>
-        <div class="price-value">¥<span class="price-num" data-target="4980">0</span><span> /月</span></div>
-        <div class="price-tax">税込 ¥5,478</div>
-        <div class="price-list">
-          <div><span class="lbl">ページ数</span><span>1ページ</span></div>
-          <div><span class="lbl">修正対応</span><span>月1回</span></div>
-          <div><span class="lbl">更新対応</span><span>月2回</span></div>
-          <div><span class="lbl">掲載写真</span><span>〜5枚</span></div>
-          <div><span class="lbl">自動応答チャット</span><span>なし</span></div>
-        </div>
+<!-- ============ PROBLEM ============ -->
+<section class="problem">
+  <div class="wrap">
+    <h2 class="serif">「作って終わり」の<br>ホームページになっていませんか。</h2>
+    <p class="desc">高いお金をかけて作ったのに、情報は古いまま。写真も去年のまま。直したいけれど、どこに頼めばいいか分からない。そして制作費は、けっして安くありません。</p>
+    <div class="cost-grid">
+      <div class="cost-card">
+        <div class="k">目安／相場・フリーランスに依頼</div>
+        <div class="amt serif">10万〜50万円</div>
+        <div class="sub">一般的なコーポレートサイト（5〜10ページ）</div>
       </div>
-      <div class="price-card highlight">
-        <div class="price-tag">plan/standard</div>
-        <div class="price-name">スタンダード</div>
-        <div class="price-value">¥<span class="price-num" data-target="7500">0</span><span> /月</span></div>
-        <div class="price-tax">税込 ¥8,250</div>
-        <div class="price-list">
-          <div><span class="lbl">ページ数</span><span>2〜6ページ</span></div>
-          <div><span class="lbl">修正対応</span><span>月3回</span></div>
-          <div><span class="lbl">更新対応</span><span>週1回</span></div>
-          <div><span class="lbl">掲載写真</span><span>〜15枚</span></div>
-          <div><span class="lbl">自動応答チャット</span><span>定型FAQ対応</span></div>
-        </div>
+      <div class="cost-card">
+        <div class="k">目安／相場・Web制作会社に依頼</div>
+        <div class="amt serif">50万〜300万円</div>
+        <div class="sub">一般的なコーポレートサイト（5〜10ページ）</div>
       </div>
-      <div class="price-card">
-        <div class="price-tag">plan/advance</div>
-        <div class="price-name">アドバンス</div>
-        <div class="price-value">¥<span class="price-num" data-target="12000">0</span><span> /月</span></div>
-        <div class="price-tax">税込 ¥13,200</div>
-        <div class="price-list">
-          <div><span class="lbl">ページ数</span><span>7〜12ページ</span></div>
-          <div><span class="lbl">修正対応</span><span>月6回</span></div>
-          <div><span class="lbl">更新対応</span><span>週2回</span></div>
-          <div><span class="lbl">掲載写真</span><span>〜30枚</span></div>
-          <div><span class="lbl">自動応答チャット</span><span>カスタムFAQ対応</span></div>
-        </div>
+      <div class="cost-navy">
+        <div class="k">しかも、それは「作る」だけの費用</div>
+        <div class="big serif">更新も、修正も、相談も。<br>その後は誰がやる？</div>
       </div>
     </div>
-    <p class="price-note">表示は税抜価格です<br>初期費用:¥10,000(税込¥11,000／全プラン共通) / 36ヶ月契約でサイト無償譲渡</p>
+    <p class="relnote">※金額はいずれも一般的な相場・目安です。実際の費用は依頼先・仕様により異なります。</p>
   </div>
 </section>
 
-<section id="works" class="page">
-  <div class="section-inner">
-    <div class="section-eyebrow">SAMPLE_WORKS</div>
-    <h2 class="section-title">制作事例(サンプル)</h2>
-    <p class="section-lead">ホームページ担当が実際に作成したサンプルです。8つの業種でイメージをご用意しています。※ご契約いただいたお客様の実績・お客様の声は、今後こちらに追加していく予定です。</p>
-    <div class="works-grid">
-      <a class="work-card" href="../samples/cafe.html" target="_blank" rel="noopener"><div class="work-tag">cafe</div><img src="cafe_hero.png"><div class="work-label">カフェ</div></a>
-      <a class="work-card" href="../samples/salon.html" target="_blank" rel="noopener"><div class="work-tag">salon</div><img src="salon_hero.png"><div class="work-label">美容室</div></a>
-      <a class="work-card" href="../samples/clinic.html" target="_blank" rel="noopener"><div class="work-tag">clinic</div><img src="clinic_hero.png"><div class="work-label">医療・クリニック</div></a>
-      <a class="work-card" href="../samples/professional.html" target="_blank" rel="noopener"><div class="work-tag">legal</div><img src="professional_hero.png"><div class="work-label">士業</div></a>
-      <a class="work-card" href="../samples/construction.html" target="_blank" rel="noopener"><div class="work-tag">build</div><img src="construction_hero.png"><div class="work-label">工務店</div></a>
-      <a class="work-card" href="../samples/retail.html" target="_blank" rel="noopener"><div class="work-tag">retail</div><img src="retail_hero.png"><div class="work-label">小売</div></a>
-      <a class="work-card" href="../samples/nail.html" target="_blank" rel="noopener"><div class="work-tag">nail</div><img src="nail_hero.png"><div class="work-label">ネイルサロン</div></a>
-      <a class="work-card" href="../samples/tech.html" target="_blank" rel="noopener"><div class="work-tag">tech</div><img src="tech_hero.png"><div class="work-label">IT・オフィス</div></a>
+<!-- ============ SERVICE ============ -->
+<section class="service" id="service">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">サービス内容</span>
+      <h2 class="serif">やりたいことを伝えるだけ。<br>あとは担当者が形にします。</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="rule"></div>
+        <div class="num">01</div>
+        <h3 class="serif">デザインと文章</h3>
+        <p>お店の雰囲気に合わせたデザインと、伝わる文章を担当者が用意します。</p>
+      </div>
+      <div class="svc-card">
+        <div class="rule"></div>
+        <div class="num">02</div>
+        <h3 class="serif">更新と修正</h3>
+        <p>新メニューや営業時間の変更、写真の差し替えも、担当者が反映します。</p>
+      </div>
+      <div class="svc-card">
+        <div class="rule"></div>
+        <div class="num">03</div>
+        <h3 class="serif">自動応答チャット</h3>
+        <p>よくある質問への応答を用意。お客様の疑問にその場で答えます。（プランにより対応範囲が異なります）</p>
+      </div>
+      <div class="svc-card">
+        <div class="rule"></div>
+        <div class="num">04</div>
+        <h3 class="serif">SNS連携</h3>
+        <p>Instagramに投稿すると、ホームページの写真も新しく。二重の手間なく、お店の「今」が伝わります。</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="about" class="page bg-alt">
-  <div class="section-inner">
-    <div class="section-eyebrow">COMPANY</div>
-    <h2 class="section-title">会社概要</h2>
-    <table class="about-table">
-      <tr><th>会社名</th><td>株式会社RESC</td></tr>
-      <tr><th>代表者</th><td>豊永 光城</td></tr>
-      <tr><th>事業内容</th><td>ホームページ制作サブスク型事業</td></tr>
-      <tr><th>所在地</th><td>福岡県福岡市西区姪浜2-14-11-307</td></tr>
-      <tr><th>設立</th><td>2026年2月23日</td></tr>
-      <tr><th>メールアドレス</th><td>resc.inquiry@resc-inc.com</td></tr>
-    </table>
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">料金プラン</span>
+      <h2 class="serif">お店の規模に合わせて、3つのプラン。</h2>
+    </div>
+    <p class="price-lead">初期費用は全プラン共通で¥10,000（税込¥11,000）、制作開始時に一度だけ。月額はいつでも見直せます。</p>
+
+    <div class="plans">
+      <div class="plan">
+        <div class="pname">ライト</div>
+        <div class="pfor">1ページ・まずはじめたい方に</div>
+        <div class="price"><span class="yen">¥</span><span class="num">4,980</span><span class="tax">（税抜）</span></div>
+        <div class="taxin">税込 ¥5,478 / 月</div>
+        <a href="#contact" class="pcta">このプランで相談する</a>
+      </div>
+      <div class="plan feat">
+        <div class="ribbon">いちばん選ばれています</div>
+        <div class="pname">スタンダード</div>
+        <div class="pfor">2〜6ページ・多くのお店に</div>
+        <div class="price"><span class="yen">¥</span><span class="num">7,500</span><span class="tax">（税抜）</span></div>
+        <div class="taxin">税込 ¥8,250 / 月</div>
+        <a href="#contact" class="pcta">このプランで相談する</a>
+      </div>
+      <div class="plan">
+        <div class="pname">アドバンス</div>
+        <div class="pfor">7〜12ページ・しっかり見せたい方に</div>
+        <div class="price"><span class="yen">¥</span><span class="num">12,000</span><span class="tax">（税抜）</span></div>
+        <div class="taxin">税込 ¥13,200 / 月</div>
+        <a href="#contact" class="pcta">このプランで相談する</a>
+      </div>
+    </div>
+
+    <div class="cmp">
+      <table>
+        <thead>
+          <tr><th></th><th>ライト</th><th class="mid">スタンダード</th><th>アドバンス</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>ページ数</th><td>1</td><td class="mid">2〜6</td><td>7〜12</td></tr>
+          <tr><th>修正対応</th><td>月1回</td><td class="mid">月3回</td><td>月6回</td></tr>
+          <tr><th>更新対応</th><td>月2回</td><td class="mid">週1回</td><td>週2回</td></tr>
+          <tr><th>掲載写真</th><td>〜5枚</td><td class="mid">〜15枚</td><td>〜30枚</td></tr>
+          <tr><th>自動応答チャット</th><td>なし</td><td class="mid">定型FAQ対応</td><td>カスタムFAQ対応</td></tr>
+          <tr><th>SNS連携</th><td>なし</td><td class="mid sns-on">Instagram</td><td class="sns-on">Instagram・X・Facebook</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricenote">※初期費用¥10,000（税込¥11,000）は全プラン共通、制作開始時に一度だけ。SNS連携のうち「投稿するとホームページの写真も新しくなる」体験は、Instagramを主役にご案内しています。</p>
   </div>
 </section>
 
-<section id="contact" class="page">
-  <div class="section-inner">
-    <div class="section-eyebrow">CONTACT</div>
-    <h2 class="section-title">お問い合わせ</h2>
-    <p class="section-lead">ホームページ制作・料金プランについてのご相談は、お気軽にこちらからお問い合わせください。</p>
-    <div class="form-note">※ご入力内容は送信後、担当者にメールで通知されます。</div>
-    <form class="contact-form" action="https://formspree.io/f/xaqroqvg" method="POST">
-      <input type="hidden" name="_お問い合わせ元" value="HP制作事業LP">
-      <div class="form-row">
-        <label>会社名・お名前</label>
-        <input type="text" name="name" required>
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">よくあるご質問</span>
+      <h2 class="serif">FAQ</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>自分でもAIで作れますか？</summary>
+        <div class="a">はい、ご自身でAIを使って作ることもできます。ただ実際には、ツールの使い方やプロンプトの工夫、デザインの調整、SNS連携や公開後の更新まで、覚えることと手を動かす時間が続きます。各種AIツールの月額（数千円〜数万円程度／目安）もかかります。RESCは、その「費用をかけ、作り方を覚えて、毎月手を動かす」部分を担当者にまるごと任せられるサービスです。浮いた時間を、本業に使ってください。</div>
+      </details>
+      <details>
+        <summary>初期費用はいくらですか？</summary>
+        <div class="a">全プラン共通で¥10,000（税込¥11,000）、制作開始時に一度だけです。以降は月額料金のみとなります。</div>
+      </details>
+      <details>
+        <summary>途中でプランは変えられますか？</summary>
+        <div class="a">月額はいつでも見直せます。お店の状況に合わせて、上位・下位プランへの変更をご相談いただけます。</div>
+      </details>
+      <details>
+        <summary>続けるとホームページはもらえますか？</summary>
+        <div class="a">36ヶ月ご継続いただくと、ホームページをそのまま無償譲渡いたします。3年続けたサイトは、あなたの資産になります。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">お問い合わせ</span>
+      <h2 class="serif" style="margin-top:12px;">まずは、お気軽に<br>ご相談ください。</h2>
+      <p>プラン選びのご相談だけでも大丈夫です。お店のことをお聞かせいただければ、担当者が最適なプランをご提案します。</p>
+      <div class="mail">resc.inquiry@resc-inc.com</div>
+    </div>
+
+    <!-- ▼▼ Formspree 送信先は本番稼働中の hp-service フォームと一致させること（下記は当プロジェクトの記録値／移植時に要検証） ▼▼ -->
+    <form action="https://formspree.io/f/xaqroqvg" method="POST">
+      <input type="hidden" name="_お問い合わせ元" value="ホームページ制作事業LP">
+      <input type="hidden" name="_subject" value="【RESC】ホームページ制作事業LPからのお問い合わせ">
+      <!-- honeypot（スパム対策・触らない） -->
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="field">
+        <label for="name">お名前 <span class="req">必須</span></label>
+        <input id="name" type="text" name="お名前" required autocomplete="name">
       </div>
-      <div class="form-row">
-        <label>メールアドレス</label>
-        <input type="email" name="email" required>
+      <div class="field">
+        <label for="email">メールアドレス <span class="req">必須</span></label>
+        <input id="email" type="email" name="メールアドレス" required autocomplete="email">
       </div>
-      <div class="form-row">
-        <label>電話番号</label>
-        <input type="tel" name="phone">
+      <div class="field">
+        <label for="tel">電話番号</label>
+        <input id="tel" type="tel" name="電話番号" autocomplete="tel">
       </div>
-      <div class="form-row">
-        <label>ご希望プラン</label>
-        <select name="plan">
-          <option value="ライト">ライト(4,980円/月)</option>
-          <option value="スタンダード">スタンダード(7,500円/月)</option>
-          <option value="アドバンス">アドバンス(12,000円/月)</option>
-          <option value="相談したい">まだ決めていない・相談したい</option>
+      <div class="field">
+        <label for="kind">お問い合わせ種別</label>
+        <select id="kind" name="お問い合わせ種別">
+          <option value="料金・プランについて">料金・プランについて</option>
+          <option value="サービス内容について">サービス内容について</option>
+          <option value="お申し込み">お申し込み</option>
+          <option value="その他">その他</option>
         </select>
       </div>
-      <div class="form-row">
-        <label>お問い合わせ内容</label>
-        <textarea name="message" required></textarea>
+      <div class="field">
+        <label for="msg">お問い合わせ内容</label>
+        <textarea id="msg" name="お問い合わせ内容" placeholder="お店の業種や、お困りごとなどをご記入ください。"></textarea>
       </div>
-      <div class="form-privacy-check">
-        <label>
-          <input type="checkbox" name="プライバシーポリシー同意" required>
-          <span><a href="../index.html#page-privacy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意する</span>
-        </label>
-      </div>
-      <button type="submit" class="btn btn-submit">&gt; 送信する</button>
+      <label class="consent">
+        <input type="checkbox" name="プライバシーポリシー同意" value="同意する" required>
+        <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意します。</span>
+      </label>
+      <button type="submit">この内容で送信する</button>
     </form>
   </div>
 </section>
 
-<footer>
-  © 株式会社RESC — all systems operational
+<!-- ============ FOOTER ============ -->
+<footer class="ft">
+  <div class="wrap ft-grid">
+    <div>
+      <div class="logo">RE<span>S</span>C</div>
+      <div class="addr">
+        株式会社RESC<br>
+        〒819-0002 福岡県福岡市西区姪浜2-14-11-307<br>
+        resc.inquiry@resc-inc.com
+      </div>
+    </div>
+    <div class="ft-links">
+      <a href="#service">サービス内容</a>
+      <a href="#pricing">料金プラン</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="../index.html">株式会社RESC コーポレートサイト</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </div>
+  </div>
+  <div class="wrap"><div class="ft-copy">© 2026 株式会社RESC. All rights reserved.</div></div>
 </footer>
-
-<div class="chatbot-toggle" id="cb-toggle">
-  <div class="dot"></div>
-  <svg viewBox="0 0 24 24" fill="none" stroke="#3D8BFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-  </svg>
-</div>
-
-<div class="chatbot-panel" id="cb-panel">
-  <div class="cb-header">
-    <div class="cb-header-title"><div class="dot2"></div>RESC_BOT — よくある質問</div>
-    <div class="cb-close" id="cb-close">×</div>
-  </div>
-  <div class="cb-messages" id="cb-messages">
-    <div class="cb-msg bot">こんにちは!RESCです。よくある質問はこちらから選べます。詳しく相談したい場合はお問い合わせフォームをご案内します。</div>
-  </div>
-  <div class="cb-quick" id="cb-quick">
-    <div class="cb-chip" data-q="price">料金プランは?</div>
-    <div class="cb-chip" data-q="flow">導入の流れは?</div>
-    <div class="cb-chip" data-q="area">対応エリアは?</div>
-    <div class="cb-chip" data-q="edit">修正対応の回数は?</div>
-    <div class="cb-chip" data-q="contract">契約期間は?</div>
-  </div>
-  <div class="cb-inputrow">
-    <input type="text" id="cb-input" placeholder="質問を入力...">
-    <button class="cb-send" id="cb-send">送信</button>
-  </div>
-</div>
-
-<script>
-  const FAQ = {
-    price: {
-      match: ["料金","値段","価格","いくら","月額","プラン"],
-      answer: "料金プランは3つあります(表示は税抜)。\n・ライト:4,980円/月(税込5,478円・1ページ)\n・スタンダード:7,500円/月(税込8,250円・2〜6ページ)\n・アドバンス:12,000円/月(税込13,200円・7〜12ページ)\n※初期費用は全プラン10,000円(税込11,000円)、36ヶ月契約でサイト無償譲渡です。"
-    },
-    flow: {
-      match: ["流れ","導入","手順","どうやって","始め方"],
-      answer: "ご導入までの流れは4ステップです。\n1. ヒアリング\n2. 担当がサイト作成\n3. 確認・公開\n4. 運用サポート開始"
-    },
-    area: {
-      match: ["エリア","対応地域","福岡","出張","訪問","全国"],
-      answer: "福岡近郊は直接訪問、遠方のお客様にはオンラインで同じ丁寧さのサポートを行っています。"
-    },
-    edit: {
-      match: ["修正","変更","更新","直し"],
-      answer: "修正対応の回数はプランで異なります。\n・ライト:月1回\n・スタンダード:月3回\n・アドバンス:月6回\nお知らせ・ブログの更新も担当が行います。"
-    },
-    contract: {
-      match: ["契約","解約","期間","譲渡"],
-      answer: "36ヶ月継続してご契約いただくと、ホームページをそのまま無償で譲渡いたします。"
-    }
-  };
-  const FALLBACK = "ご質問ありがとうございます。担当より詳しくご案内しますので、下記の「お問い合わせ」フォームからご連絡ください。";
-
-  const toggle = document.getElementById('cb-toggle');
-  const panel = document.getElementById('cb-panel');
-  const closeBtn = document.getElementById('cb-close');
-  const messages = document.getElementById('cb-messages');
-  const input = document.getElementById('cb-input');
-  const sendBtn = document.getElementById('cb-send');
-  const quick = document.getElementById('cb-quick');
-
-  function addMsg(text, who) {
-    const div = document.createElement('div');
-    div.className = 'cb-msg ' + who;
-    div.textContent = text;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function addFallbackWithLink() {
-    const div = document.createElement('div');
-    div.className = 'cb-msg bot';
-    div.innerHTML = FALLBACK + '<br><a href="#contact" style="color:#3D8BFD;text-decoration:underline;">お問い合わせフォームへ</a>';
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function respond(text) {
-    const lower = text;
-    let hit = null;
-    for (const key in FAQ) {
-      if (FAQ[key].match.some(k => lower.includes(k))) { hit = FAQ[key]; break; }
-    }
-    setTimeout(() => {
-      if (hit) addMsg(hit.answer, 'bot');
-      else addFallbackWithLink();
-    }, 350);
-  }
-
-  toggle.addEventListener('click', () => { panel.classList.add('open'); toggle.style.display = 'none'; });
-  closeBtn.addEventListener('click', () => { panel.classList.remove('open'); toggle.style.display = 'flex'; });
-
-  // ページ読み込み後、少し間を置いて自動的にチャットを開く
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      panel.classList.add('open');
-      toggle.style.display = 'none';
-    }, 900);
-  });
-
-  quick.addEventListener('click', (e) => {
-    const key = e.target.dataset.q;
-    if (!key) return;
-    addMsg(e.target.textContent, 'user');
-    setTimeout(() => addMsg(FAQ[key].answer, 'bot'), 350);
-  });
-
-  sendBtn.addEventListener('click', () => {
-    const val = input.value.trim();
-    if (!val) return;
-    addMsg(val, 'user');
-    respond(val);
-    input.value = '';
-  });
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') sendBtn.click();
-  });
-
-  // ---- Feature cards & price cards: scroll reveal ----
-  function animateCount(el) {
-    const target = parseInt(el.dataset.target, 10);
-    const duration = 900;
-    const start = performance.now();
-    function tick(now) {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased).toLocaleString('ja-JP');
-      if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-  (function () {
-    const cards = document.querySelectorAll('.feature, .price-card');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const siblings = Array.from(entry.target.parentElement.children);
-          const idx = siblings.indexOf(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-            entry.target.querySelectorAll('.price-num').forEach(animateCount);
-          }, idx * 120);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    cards.forEach((c) => observer.observe(c));
-  })();
-
-  // ---- Matrix-style digital rain (hero background) ----
-  (function () {
-    const canvas = document.getElementById('matrix-rain');
-    const hero = document.querySelector('.hero');
-    const ctx = canvas.getContext('2d');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const chars = "0123456789<>/{}[]=+*-_#$%&ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const fontSize = 15;
-    let columns, drops;
-    let colColor = [];
-
-    function resize() {
-      canvas.width = hero.offsetWidth;
-      canvas.height = hero.offsetHeight;
-      columns = Math.floor(canvas.width / fontSize);
-      drops = new Array(columns).fill(0).map(() => Math.random() * -40);
-      colColor = new Array(columns).fill(0).map(() => (Math.random() < 0.12 ? "#8B5CF6" : "#3D8BFD"));
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    if (reduceMotion) {
-      // Static faint pass, no animation loop, for users who prefer reduced motion
-      ctx.fillStyle = "#0B0F14";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      return;
-    }
-
-    function draw() {
-      ctx.fillStyle = "rgba(11,15,20,0.16)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.font = fontSize + "px 'JetBrains Mono', monospace";
-      for (let i = 0; i < columns; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        const x = i * fontSize;
-        const y = drops[i] * fontSize;
-        ctx.fillStyle = colColor[i];
-        ctx.fillText(text, x, y);
-        if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
-      }
-    }
-    setInterval(draw, 60);
-  })();
-</script>
-
-<script>
-  const imgs = document.querySelectorAll('#showcase-imgwrap img');
-  const label = document.getElementById('showcase-label');
-  const filename = document.getElementById('cf-filename');
-  let idx = 0;
-  setInterval(() => {
-    imgs[idx].classList.remove('active');
-    idx = (idx + 1) % imgs.length;
-    imgs[idx].classList.add('active');
-    label.textContent = 'industry: ' + imgs[idx].dataset.label;
-    filename.textContent = 'sample/' + imgs[idx].dataset.label + '.html';
-  }, 3200);
-</script>
 
 </body>
 </html>
