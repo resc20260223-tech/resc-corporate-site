@@ -83,7 +83,7 @@
     display: inline-block; border: 1px solid rgba(255,255,255,.4); color: #fff; font-weight: 700; font-size: 14.5px;
     padding: 13px 28px; border-radius: 4px; text-decoration: none;
   }
-  .hero-visual { aspect-ratio: 4/3; border-radius: 8px; }
+  .hero-visual { aspect-ratio: 4/3; border-radius: 8px; width: 100%; object-fit: cover; }
 
   /* ── Sections common ── */
   .sec { max-width: 1120px; margin: 0 auto; padding: 76px 24px; }
@@ -120,7 +120,7 @@
   /* ── トレーナー ── */
   .trainer-sec { background: var(--white); }
   .trainer-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: center; }
-  .trainer-photo { aspect-ratio: 3/4; border-radius: 8px; }
+  .trainer-photo { aspect-ratio: 3/4; border-radius: 8px; width: 100%; object-fit: cover; }
   .trainer-name { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 22px; font-weight: 900; margin-bottom: 6px; }
   .trainer-role { font-size: 13px; color: var(--accent); font-weight: 700; margin-bottom: 18px; letter-spacing: .04em; }
   .trainer-bio { font-size: 14.5px; color: var(--text-muted); line-height: 2; }
@@ -217,7 +217,7 @@
       <a class="btn-ghost" href="#pricing">料金を見る</a>
     </div>
   </div>
-  <div class="ph hero-visual"><span>画像</span></div>
+  <img class="hero-visual" src="images/gym/gym_hero.webp" alt="パーソナルジムFORGEのトレーニング風景" width="1376" height="768">
 </section>
 
 <!-- 選ばれる理由 -->
@@ -289,7 +289,7 @@
   <p class="sec-eyebrow">Trainer</p>
   <h2 class="sec-title">担当トレーナー</h2>
   <div class="trainer-layout">
-    <div class="ph trainer-photo"><span>画像</span></div>
+    <img class="trainer-photo" src="images/gym/gym_trainer_1.webp" alt="トレーナー 佐藤healthy太郎の写真" width="1200" height="670" loading="lazy">
     <div>
       <div class="trainer-name">佐藤 healthy太郎</div>
       <div class="trainer-role">NSCA認定パーソナルトレーナー</div>
