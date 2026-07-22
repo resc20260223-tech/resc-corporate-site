@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORGE（フォージ）｜福岡中央区のパーソナルジム</title>
+<meta name="description" content="福岡市中央区のパーソナルジムFORGE（フォージ）。完全予約制のマンツーマン指導で、初心者も安心。料金プラン・トレーナー紹介・アクセスなど詳しくご案内します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16181B;
+    --ink-2: #2A2D31;
+    --bg: #F5F3F0;
+    --white: #FFFFFF;
+    --accent: #E4572E;
+    --text-dark: #201D1A;
+    --text-muted: #6B6560;
+    --line: #E2DED8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text-dark); line-height: 1.8; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  .notice {
+    background: var(--ink); color: #fff; text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: #fff; text-decoration: underline; }
+
+  /* ── 画像プレースホルダー ── */
+  .ph {
+    background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 55%, var(--ink) 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(245,243,240,.4);
+    font-size: 12.5px; letter-spacing: .28em; font-weight: 700;
+  }
+
+  /* ── Nav ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(22,24,27,.95); backdrop-filter: blur(6px);
+    height: 64px;
+  }
+  .nav-in {
+    max-width: 1120px; margin: 0 auto; height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+  }
+  .logo { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 20px; letter-spacing: .1em; color: #fff; cursor: pointer; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: rgba(255,255,255,.82); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.btn { background: var(--accent); color: #fff; padding: 9px 18px; border-radius: 4px; }
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    background: transparent; border: none; cursor: pointer;
+  }
+  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--ink);
+    display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 40px;
+    max-width: 1120px; margin: 0 auto; padding: 90px 24px 80px;
+  }
+  .hero-eyebrow { font-size: 12px; letter-spacing: .24em; color: var(--accent); font-weight: 700; margin-bottom: 16px; }
+  .hero h1 { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: clamp(28px, 4.6vw, 46px); font-weight: 900; color: #fff; line-height: 1.4; margin-bottom: 20px; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p.lead { color: rgba(255,255,255,.72); font-size: 15px; max-width: 32em; margin-bottom: 32px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-main {
+    display: inline-block; background: var(--accent); color: #fff; font-weight: 700; font-size: 14.5px;
+    padding: 14px 30px; border-radius: 4px; text-decoration: none; transition: transform .15s ease; cursor: pointer; border: none;
+  }
+  .btn-main:hover { transform: translateY(-2px); }
+  .btn-ghost {
+    display: inline-block; border: 1px solid rgba(255,255,255,.4); color: #fff; font-weight: 700; font-size: 14.5px;
+    padding: 13px 28px; border-radius: 4px; text-decoration: none; cursor: pointer; background: transparent;
+  }
+  .hero-visual { aspect-ratio: 4/3; border-radius: 8px; }
+
+  /* ── Sections common ── */
+  .sec { max-width: 1120px; margin: 0 auto; padding: 76px 24px; }
+  .sec-eyebrow { font-size: 12px; letter-spacing: .22em; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+  .sec-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: clamp(22px, 3.2vw, 30px); font-weight: 900; color: var(--ink); margin-bottom: 36px; }
+  .sec-lead { color: var(--text-muted); font-size: 14px; max-width: 40em; margin-top: -20px; margin-bottom: 34px; }
+
+  /* ── 選ばれる理由 ── */
+  .reasons { background: var(--white); }
+  .reason-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .reason-card { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .reason-card .ph { aspect-ratio: 16/10; }
+  .reason-card-body { padding: 22px 22px 26px; }
+  .reason-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 13px; font-weight: 900; color: var(--accent); letter-spacing: .1em; margin-bottom: 14px; }
+  .reason-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .reason-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.85; }
+
+  /* ── Instagram（プレースホルダー） ── */
+  .insta-sec { background: var(--bg); }
+  .insta-note {
+    display: inline-block; font-size: 11.5px; color: var(--text-muted);
+    border: 1px dashed var(--line); border-radius: 4px; padding: 6px 12px; margin-bottom: 24px;
+  }
+  .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .insta-item { aspect-ratio: 1/1; border-radius: 6px; }
+  .insta-item span { font-size: 9.5px; letter-spacing: .1em; }
+
+  /* ── 各ページへの導線（TOPのみ） ── */
+  .link-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .link-card {
+    display: block; background: var(--white); border: 1px solid var(--line); border-radius: 8px;
+    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.08); }
+  .link-card .tag { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
+  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .link-card p { font-size: 13px; color: var(--text-muted); }
+  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--accent); }
+
+  /* ── 料金（表形式） ── */
+  .price-table-wrap { overflow-x: auto; background: var(--white); border: 1px solid var(--line); border-radius: 8px; }
+  table.price-table { width: 100%; border-collapse: collapse; min-width: 620px; }
+  .price-table th, .price-table td { padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+  .price-table thead th {
+    background: var(--ink); color: #fff; font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 14px;
+  }
+  .price-table thead th:first-child { color: rgba(255,255,255,.6); font-weight: 500; font-size: 12px; }
+  .price-table tbody th { color: var(--text-muted); font-weight: 700; white-space: nowrap; background: var(--bg); }
+  .price-table tbody tr:last-child td, .price-table tbody tr:last-child th { border-bottom: none; }
+  .price-table .plan-col.highlight { background: rgba(228,87,46,.06); }
+  .price-table thead th.highlight { background: var(--accent); }
+  .price-note { font-size: 12px; color: var(--text-muted); margin-top: 18px; }
+
+  /* ── トレーナー（複数名） ── */
+  .trainer-sec { background: var(--white); }
+  .trainer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .trainer-card .ph { aspect-ratio: 3/4; border-radius: 8px; margin-bottom: 18px; }
+  .trainer-name { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 18px; font-weight: 900; margin-bottom: 4px; }
+  .trainer-role { font-size: 12px; color: var(--accent); font-weight: 700; margin-bottom: 12px; letter-spacing: .04em; }
+  .trainer-bio { font-size: 13px; color: var(--text-muted); line-height: 1.9; }
+
+  /* ── アクセス ── */
+  .access-sec { background: var(--white); }
+  .access-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .access-table div { display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
+  .access-table dt { flex: 0 0 90px; color: var(--text-muted); font-weight: 700; }
+  .access-media { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .access-media .ph { aspect-ratio: 1/1; border-radius: 8px; }
+
+  /* ── お問い合わせ（見た目のみ） ── */
+  .contact-sec { background: var(--ink); }
+  .contact-sec .sec-title, .contact-sec .sec-eyebrow { color: #fff; }
+  .contact-sec .sec-eyebrow { color: var(--accent); }
+  .contact-lead { color: rgba(255,255,255,.7); font-size: 14px; margin-bottom: 34px; max-width: 34em; }
+  .form-grid { display: grid; gap: 18px; max-width: 560px; }
+  .form-row label { display: block; font-size: 12.5px; font-weight: 700; color: rgba(255,255,255,.85); margin-bottom: 8px; }
+  .form-row input, .form-row textarea {
+    width: 100%; font-family: inherit; font-size: 14.5px; color: var(--text-dark);
+    background: #fff; border: none; border-radius: 4px; padding: 12px 14px;
+  }
+  .form-row textarea { min-height: 120px; resize: vertical; }
+  .form-submit {
+    justify-self: start; background: var(--accent); color: #fff; font-weight: 700; font-size: 14px;
+    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer;
+  }
+  .form-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 14px; }
+
+  footer { text-align: center; padding: 26px 24px; font-size: 12px; color: var(--text-muted); background: var(--white); }
+
+  /* ── ページ切り替え ── */
+  #page-top      { display: block; }
+  #page-pricing  { display: none; }
+  #page-trainer  { display: none; }
+  #page-access   { display: none; }
+  body.pricing-page #page-top     { display: none; }
+  body.pricing-page #page-pricing { display: block; }
+  body.trainer-page #page-top     { display: none; }
+  body.trainer-page #page-trainer { display: block; }
+  body.access-page  #page-top     { display: none; }
+  body.access-page  #page-access  { display: block; }
+
+  /* ── 自動応答チャット ── */
+  .cb-toggle {
+    position: fixed; right: 22px; bottom: 22px; z-index: 200;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    border: none; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  }
+  .cb-panel {
+    position: fixed; right: 22px; bottom: 90px; z-index: 200;
+    width: 320px; max-width: calc(100vw - 44px); max-height: 440px;
+    background: #fff; border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,.22);
+    display: none; flex-direction: column; overflow: hidden;
+  }
+  .cb-panel.open { display: flex; }
+  .cb-header {
+    background: var(--ink); color: #fff; padding: 14px 16px;
+    display: flex; align-items: center; justify-content: space-between; font-size: 13px; font-weight: 700;
+  }
+  .cb-close { cursor: pointer; font-size: 16px; color: rgba(255,255,255,.7); }
+  .cb-messages { padding: 14px 16px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  .cb-msg { font-size: 13px; line-height: 1.7; padding: 10px 12px; border-radius: 8px; max-width: 88%; white-space: pre-line; }
+  .cb-msg.bot { background: var(--bg); align-self: flex-start; }
+  .cb-msg.user { background: var(--accent); color: #fff; align-self: flex-end; }
+  .cb-quick { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 14px; }
+  .cb-chip {
+    font-size: 12px; border: 1px solid var(--line); border-radius: 20px; padding: 6px 12px;
+    cursor: pointer; background: var(--white);
+  }
+  .cb-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── レスポンシブ ── */
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav.open .nav-links {
+      display: flex; flex-direction: column; align-items: stretch; gap: 4px;
+      position: absolute; top: 64px; left: 0; right: 0;
+      background: var(--ink); padding: 12px 24px 20px;
+    }
+    .nav.open .nav-links a { padding: .8em .2em; }
+    .nav.open .nav-links a.btn { margin-top: 10px; text-align: center; }
+    .hero { grid-template-columns: 1fr; padding: 56px 20px 60px; }
+    .hero-visual { order: -1; aspect-ratio: 16/9; }
+    .reason-grid { grid-template-columns: 1fr; }
+    .insta-grid { grid-template-columns: repeat(3, 1fr); }
+    .link-grid { grid-template-columns: 1fr; }
+    .trainer-grid { grid-template-columns: 1fr; }
+    .access-layout { grid-template-columns: 1fr; }
+    .access-media { grid-template-columns: 1fr 1fr; }
+    .sec { padding: 56px 20px; }
+    .cb-panel { right: 12px; bottom: 82px; }
+    .cb-toggle { right: 12px; bottom: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" onclick="showPage('top')">FOR<span>GE</span></a>
+    <div class="nav-links">
+      <a onclick="showPage('top')">TOP</a>
+      <a onclick="showPage('pricing')">料金プラン</a>
+      <a onclick="showPage('trainer')">トレーナー紹介</a>
+      <a class="btn" onclick="showPage('access')">アクセス・お問い合わせ</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" aria-expanded="false" onclick="toggleNav()">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════ PAGE: TOP ════ -->
+<div id="page-top">
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div>
+      <p class="hero-eyebrow">パーソナルジム</p>
+      <h1>本気になった日から、<br><em>変わりはじめる。</em></h1>
+      <p class="lead">福岡市中央区、完全予約制のマンツーマン指導。トレーニング経験がない方も、無理なく確実に。シャワー・ウェアは無料でご用意しています。</p>
+      <div class="hero-cta">
+        <button class="btn-main" onclick="showPage('access')">無料カウンセリングへ</button>
+        <button class="btn-ghost" onclick="showPage('pricing')">料金を見る</button>
+      </div>
+    </div>
+    <div class="ph hero-visual"><span>画像</span></div>
+  </section>
+
+  <!-- 選ばれる理由 -->
+  <section class="sec reasons">
+    <p class="sec-eyebrow">Reason</p>
+    <h2 class="sec-title">FORGEが選ばれる理由</h2>
+    <div class="reason-grid">
+      <div class="reason-card">
+        <div class="ph"><span>画像</span></div>
+        <div class="reason-card-body">
+          <div class="reason-num">01</div>
+          <h3>完全予約制のマンツーマン</h3>
+          <p>他のお客様と時間が重なることはありません。専属トレーナーが、あなたの体だけを見て指導します。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <div class="ph"><span>画像</span></div>
+        <div class="reason-card-body">
+          <div class="reason-num">02</div>
+          <h3>初心者歓迎</h3>
+          <p>運動経験がなくても大丈夫。フォームの作り方から、無理のないペース配分まで丁寧にお伝えします。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <div class="ph"><span>画像</span></div>
+        <div class="reason-card-body">
+          <div class="reason-num">03</div>
+          <h3>シャワー・ウェア無料</h3>
+          <p>お仕事帰りでも手ぶらで通えます。タオル・シャワーウェアはすべて無料でご用意しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram（埋め込みプレースホルダー） -->
+  <section class="sec insta-sec">
+    <p class="sec-eyebrow">Instagram</p>
+    <h2 class="sec-title">最新情報はInstagramで</h2>
+    <span class="insta-note">Instagramの投稿がここに自動表示されます（デモ表示中）</span>
+    <div class="insta-grid">
+      <div class="ph insta-item"><span>画像</span></div>
+      <div class="ph insta-item"><span>画像</span></div>
+      <div class="ph insta-item"><span>画像</span></div>
+      <div class="ph insta-item"><span>画像</span></div>
+      <div class="ph insta-item"><span>画像</span></div>
+      <div class="ph insta-item"><span>画像</span></div>
+    </div>
+  </section>
+
+  <!-- 各ページへの導線 -->
+  <section class="sec">
+    <p class="sec-eyebrow">Guide</p>
+    <h2 class="sec-title">詳しく見る</h2>
+    <div class="link-grid">
+      <button class="link-card" onclick="showPage('pricing')">
+        <div class="tag">Pricing</div>
+        <h3>料金プラン</h3>
+        <p>体験セッションから継続プランまで、3つのコースを表でご案内します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('trainer')">
+        <div class="tag">Trainer</div>
+        <h3>トレーナー紹介</h3>
+        <p>在籍する3名のトレーナーの経歴・得意分野をご紹介します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('access')">
+        <div class="tag">Access</div>
+        <h3>アクセス・お問い合わせ</h3>
+        <p>営業時間・所在地のご案内と、お問い合わせフォームです。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+    </div>
+  </section>
+
+</div><!-- /page-top -->
+
+<!-- ════ PAGE: 料金プラン ════ -->
+<div id="page-pricing">
+  <section class="sec">
+    <p class="sec-eyebrow">Pricing</p>
+    <h2 class="sec-title">料金プラン</h2>
+    <p class="sec-lead">目的とペースに合わせて3つのコースからお選びいただけます。表示は税抜価格です。</p>
+    <div class="price-table-wrap">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>体験セッション</th>
+            <th class="highlight">スタンダード</th>
+            <th>プレミアム</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>料金</th>
+            <td>¥5,000／回</td>
+            <td class="plan-col highlight">¥28,000／月</td>
+            <td>¥52,000／月</td>
+          </tr>
+          <tr>
+            <th>回数・頻度</th>
+            <td>1回のみ</td>
+            <td class="plan-col highlight">月4回（週1回）</td>
+            <td>月8回（週2回）</td>
+          </tr>
+          <tr>
+            <th>セッション時間</th>
+            <td>60分（カウンセリング込み）</td>
+            <td class="plan-col highlight">60分</td>
+            <td>60分</td>
+          </tr>
+          <tr>
+            <th>食事アドバイス</th>
+            <td>なし</td>
+            <td class="plan-col highlight">あり</td>
+            <td>あり（LINE相談つき）</td>
+          </tr>
+          <tr>
+            <th>シャワー・ウェア</th>
+            <td>無料</td>
+            <td class="plan-col highlight">無料</td>
+            <td>無料</td>
+          </tr>
+          <tr>
+            <th>おすすめの方</th>
+            <td>まず試してみたい方</td>
+            <td class="plan-col highlight">無理なく継続したい方</td>
+            <td>しっかり結果を出したい方</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="price-note">※入会金・初期費用はいただいておりません。プラン変更はいつでも可能です。</p>
+  </section>
+</div><!-- /page-pricing -->
+
+<!-- ════ PAGE: トレーナー紹介 ════ -->
+<div id="page-trainer">
+  <section class="sec trainer-sec">
+    <p class="sec-eyebrow">Trainer</p>
+    <h2 class="sec-title">担当トレーナー</h2>
+    <div class="trainer-grid">
+      <div class="trainer-card">
+        <div class="ph"><span>画像</span></div>
+        <div class="trainer-name">佐藤 healthy太郎</div>
+        <div class="trainer-role">NSCA認定パーソナルトレーナー</div>
+        <p class="trainer-bio">大手フィットネスクラブでの指導経験を経てFORGEを開業。「無理な追い込みより、続けられる負荷」がモットー。ボディメイク・姿勢改善が得意分野。</p>
+      </div>
+      <div class="trainer-card">
+        <div class="ph"><span>画像</span></div>
+        <div class="trainer-name">田中 りな</div>
+        <div class="trainer-role">JATI認定トレーニング指導者</div>
+        <p class="trainer-bio">女性・シニア層の指導を得意とし、関節への負担が少ないメニュー作りに定評。産後のボディケア相談も対応しています。</p>
+      </div>
+      <div class="trainer-card">
+        <div class="ph"><span>画像</span></div>
+        <div class="trainer-name">山本 剛</div>
+        <div class="trainer-role">元実業団アスリート</div>
+        <p class="trainer-bio">競技経験を活かし、スポーツパフォーマンス向上を目的とした指導が専門。学生アスリートの指導実績も豊富です。</p>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-trainer -->
+
+<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
+<div id="page-access">
+
+  <section class="sec access-sec">
+    <p class="sec-eyebrow">Access</p>
+    <h2 class="sec-title">アクセス・営業時間</h2>
+    <div class="access-layout">
+      <div class="access-table">
+        <div><dt>店舗名</dt><dd>FORGE（フォージ）</dd></div>
+        <div><dt>所在地</dt><dd>〒810-0001<br>福岡県福岡市中央区天神4丁目2-10 天神フォージビル3F</dd></div>
+        <div><dt>営業時間</dt><dd>平日 7:00〜22:00<br>土日 9:00〜20:00</dd></div>
+        <div><dt>定休日</dt><dd>水曜日</dd></div>
+        <div><dt>予約方法</dt><dd>完全予約制（お問い合わせフォームより）</dd></div>
+      </div>
+      <div class="access-media">
+        <div class="ph"><span>画像</span></div>
+        <div class="ph"><span>画像</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec contact-sec">
+    <p class="sec-eyebrow">Contact</p>
+    <h2 class="sec-title">お問い合わせ・無料カウンセリング予約</h2>
+    <p class="contact-lead">まずはお気軽にご相談ください。体験セッションのご予約も、こちらから承っております。</p>
+    <form class="form-grid" onsubmit="event.preventDefault();">
+      <div class="form-row">
+        <label for="g-name">お名前</label>
+        <input id="g-name" type="text" placeholder="山田 太郎">
+      </div>
+      <div class="form-row">
+        <label for="g-mail">メールアドレス</label>
+        <input id="g-mail" type="email" placeholder="example@example.com">
+      </div>
+      <div class="form-row">
+        <label for="g-tel">電話番号</label>
+        <input id="g-tel" type="tel" placeholder="000-0000-0000">
+      </div>
+      <div class="form-row">
+        <label for="g-msg">お問い合わせ内容</label>
+        <textarea id="g-msg" placeholder="体験セッション希望、ご質問など"></textarea>
+      </div>
+      <button class="form-submit" type="submit">この内容で送る</button>
+    </form>
+    <p class="form-note">※このページはRESCの営業用サンプルです。実際の送信機能はありません。</p>
+  </section>
+
+</div><!-- /page-access -->
+
+<footer>FORGE（RESC制作サンプル）</footer>
+
+<!-- 自動応答チャット -->
+<button class="cb-toggle" id="cbToggle" type="button" aria-label="チャットを開く" onclick="toggleChat()">💬</button>
+<div class="cb-panel" id="cbPanel">
+  <div class="cb-header">
+    <span>FORGE_BOT — よくある質問</span>
+    <span class="cb-close" onclick="toggleChat()">×</span>
+  </div>
+  <div class="cb-messages" id="cbMessages">
+    <div class="cb-msg bot">こんにちは！FORGEです。よくある質問はこちらから選べます。</div>
+  </div>
+  <div class="cb-quick" id="cbQuick">
+    <div class="cb-chip" data-q="price">料金は？</div>
+    <div class="cb-chip" data-q="reserve">予約方法は？</div>
+    <div class="cb-chip" data-q="trial">体験はできますか？</div>
+    <div class="cb-chip" data-q="closed">定休日は？</div>
+  </div>
+</div>
+
+<script>
+  /* ── ページ切り替え ── */
+  function showPage(page) {
+    closeNav();
+    document.body.classList.remove('pricing-page', 'trainer-page', 'access-page');
+    if (page === 'pricing') document.body.classList.add('pricing-page');
+    if (page === 'trainer') document.body.classList.add('trainer-page');
+    if (page === 'access')  document.body.classList.add('access-page');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── ハンバーガーメニュー ── */
+  function toggleNav() {
+    var nav = document.getElementById('nav');
+    var isOpen = nav.classList.toggle('open');
+    document.getElementById('navToggle').setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+  function closeNav() {
+    document.getElementById('nav').classList.remove('open');
+    document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
+  }
+
+  /* ── 自動応答チャット（定型FAQ対応・外部API不使用） ── */
+  var FAQ = {
+    price:   "料金プランは3つあります（表示は税抜）。\n・体験セッション：¥5,000／回\n・スタンダード：¥28,000／月4回\n・プレミアム：¥52,000／月8回",
+    reserve: "完全予約制です。お問い合わせフォームからご希望の日時をお知らせください。",
+    trial:   "はい、体験セッションをご用意しています。カウンセリング込み60分で¥5,000です。",
+    closed:  "定休日は水曜日です。営業時間は平日7:00〜22:00、土日9:00〜20:00です。"
+  };
+  function toggleChat() {
+    document.getElementById('cbPanel').classList.toggle('open');
+  }
+  document.getElementById('cbQuick').addEventListener('click', function (e) {
+    var key = e.target.dataset.q;
+    if (!key) return;
+    var messages = document.getElementById('cbMessages');
+    var userMsg = document.createElement('div');
+    userMsg.className = 'cb-msg user';
+    userMsg.textContent = e.target.textContent;
+    messages.appendChild(userMsg);
+    setTimeout(function () {
+      var botMsg = document.createElement('div');
+      botMsg.className = 'cb-msg bot';
+      botMsg.textContent = FAQ[key];
+      messages.appendChild(botMsg);
+      messages.scrollTop = messages.scrollHeight;
+    }, 350);
+    messages.scrollTop = messages.scrollHeight;
+  });
+</script>
+
+</body>
+</html>
