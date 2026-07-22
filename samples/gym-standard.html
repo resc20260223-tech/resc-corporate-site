@@ -83,10 +83,10 @@
     display: inline-block; border: 1px solid rgba(255,255,255,.4); color: #fff; font-weight: 700; font-size: 14.5px;
     padding: 13px 28px; border-radius: 4px; text-decoration: none; cursor: pointer; background: transparent;
   }
-  .hero-visual { aspect-ratio: 4/3; border-radius: 8px; }
+  .hero-visual { aspect-ratio: 4/3; border-radius: 8px; width: 100%; height: auto; object-fit: cover; }
 
   /* ── Sections common ── */
-  .sec { max-width: 1120px; margin: 0 auto; padding: 76px 24px; }
+  .sec { max-width: 1100px; margin: 0 auto; padding: 76px 24px; }
   .sec-eyebrow { font-size: 12px; letter-spacing: .22em; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
   .sec-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: clamp(22px, 3.2vw, 30px); font-weight: 900; color: var(--ink); margin-bottom: 36px; }
   .sec-lead { color: var(--text-muted); font-size: 14px; max-width: 40em; margin-top: -20px; margin-bottom: 34px; }
@@ -95,7 +95,7 @@
   .reasons { background: var(--white); }
   .reason-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .reason-card { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-  .reason-card .ph { aspect-ratio: 16/10; }
+  .reason-card .ph { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
   .reason-card-body { padding: 22px 22px 26px; }
   .reason-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 13px; font-weight: 900; color: var(--accent); letter-spacing: .1em; margin-bottom: 14px; }
   .reason-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
@@ -107,8 +107,8 @@
     display: inline-block; font-size: 11.5px; color: var(--text-muted);
     border: 1px dashed var(--line); border-radius: 4px; padding: 6px 12px; margin-bottom: 24px;
   }
-  .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
-  .insta-item { aspect-ratio: 1/1; border-radius: 6px; }
+  .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .insta-item { aspect-ratio: 1/1; border-radius: 6px; width: 100%; height: auto; object-fit: cover; }
   .insta-item span { font-size: 9.5px; letter-spacing: .1em; }
 
   /* ── 各ページへの導線（TOPのみ） ── */
@@ -141,7 +141,7 @@
   /* ── トレーナー（複数名） ── */
   .trainer-sec { background: var(--white); }
   .trainer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
-  .trainer-card .ph { aspect-ratio: 3/4; border-radius: 8px; margin-bottom: 18px; }
+  .trainer-card .ph { aspect-ratio: 3/4; border-radius: 8px; margin-bottom: 18px; width: 100%; height: auto; object-fit: cover; }
   .trainer-name { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 18px; font-weight: 900; margin-bottom: 4px; }
   .trainer-role { font-size: 12px; color: var(--accent); font-weight: 700; margin-bottom: 12px; letter-spacing: .04em; }
   .trainer-bio { font-size: 13px; color: var(--text-muted); line-height: 1.9; }
@@ -152,7 +152,17 @@
   .access-table div { display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
   .access-table dt { flex: 0 0 90px; color: var(--text-muted); font-weight: 700; }
   .access-media { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .access-media .ph { aspect-ratio: 1/1; border-radius: 8px; }
+  .access-media .ph { aspect-ratio: 4/3; border-radius: 8px; width: 100%; height: auto; object-fit: cover; min-width: 0; }
+
+  /* ── FAQ ── */
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-item summary {
+    list-style: none; cursor: pointer; padding: 22px 4px; font-size: 15px; font-weight: 700;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before { content: "Q"; color: var(--accent); font-weight: 900; flex: 0 0 auto; }
+  .faq-item p { padding: 0 4px 22px 24px; font-size: 13.5px; color: var(--text-muted); line-height: 1.9; }
 
   /* ── お問い合わせ（見た目のみ） ── */
   .contact-sec { background: var(--ink); }
@@ -231,7 +241,7 @@
     .hero { grid-template-columns: 1fr; padding: 56px 20px 60px; }
     .hero-visual { order: -1; aspect-ratio: 16/9; }
     .reason-grid { grid-template-columns: 1fr; }
-    .insta-grid { grid-template-columns: repeat(3, 1fr); }
+    .insta-grid { grid-template-columns: repeat(2, 1fr); }
     .link-grid { grid-template-columns: 1fr; }
     .trainer-grid { grid-template-columns: 1fr; }
     .access-layout { grid-template-columns: 1fr; }
@@ -277,7 +287,7 @@
         <button class="btn-ghost" onclick="showPage('pricing')">料金を見る</button>
       </div>
     </div>
-    <div class="ph hero-visual"><span>画像</span></div>
+    <img class="hero-visual" src="images/gym/gym_hero.webp" alt="パーソナルジムFORGEのトレーニング風景" width="1376" height="768">
   </section>
 
   <!-- 選ばれる理由 -->
@@ -286,7 +296,7 @@
     <h2 class="sec-title">FORGEが選ばれる理由</h2>
     <div class="reason-grid">
       <div class="reason-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_training_1.webp" alt="ダンベルラックが並ぶトレーニングエリア" width="1200" height="670" loading="lazy">
         <div class="reason-card-body">
           <div class="reason-num">01</div>
           <h3>完全予約制のマンツーマン</h3>
@@ -294,7 +304,7 @@
         </div>
       </div>
       <div class="reason-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_facility_2.webp" alt="スクワットラックとミラーを備えたトレーニングエリア" width="1200" height="670" loading="lazy">
         <div class="reason-card-body">
           <div class="reason-num">02</div>
           <h3>初心者歓迎</h3>
@@ -302,7 +312,7 @@
         </div>
       </div>
       <div class="reason-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_misc_1.webp" alt="シェイカーボトルとタオルが置かれたベンチ" width="1200" height="670" loading="lazy">
         <div class="reason-card-body">
           <div class="reason-num">03</div>
           <h3>シャワー・ウェア無料</h3>
@@ -318,12 +328,12 @@
     <h2 class="sec-title">最新情報はInstagramで</h2>
     <span class="insta-note">Instagramの投稿がここに自動表示されます（デモ表示中）</span>
     <div class="insta-grid">
-      <div class="ph insta-item"><span>画像</span></div>
-      <div class="ph insta-item"><span>画像</span></div>
-      <div class="ph insta-item"><span>画像</span></div>
-      <div class="ph insta-item"><span>画像</span></div>
-      <div class="ph insta-item"><span>画像</span></div>
-      <div class="ph insta-item"><span>画像</span></div>
+      <img class="insta-item" src="images/gym/gym_training_2.webp" alt="トレーナーがクライアントのデッドリフトを指導する様子" width="1200" height="670" loading="lazy">
+      <img class="insta-item" src="images/gym/gym_training_3.webp" alt="バーベルにプレートを装着する手元のクローズアップ" width="1200" height="670" loading="lazy">
+      <img class="insta-item" src="images/gym/gym_training_4.webp" alt="トレーニング風景" width="1200" height="670" loading="lazy">
+      <img class="insta-item" src="images/gym/gym_training_5.webp" alt="ケトルベルとチューブが並んだトレーニングスペース" width="1200" height="670" loading="lazy">
+      <img class="insta-item" src="images/gym/gym_facility_1.webp" alt="観葉植物が置かれた店内の受付エリア" width="1200" height="670" loading="lazy">
+      <img class="insta-item" src="images/gym/gym_facility_3.webp" alt="タオルが用意されたシャワールーム" width="1200" height="670" loading="lazy">
     </div>
   </section>
 
@@ -422,19 +432,19 @@
     <h2 class="sec-title">担当トレーナー</h2>
     <div class="trainer-grid">
       <div class="trainer-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_trainer_1.webp" alt="トレーナー 佐藤healthy太郎がケトルベルトレーニングを行う様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">佐藤 healthy太郎</div>
         <div class="trainer-role">NSCA認定パーソナルトレーナー</div>
         <p class="trainer-bio">大手フィットネスクラブでの指導経験を経てFORGEを開業。「無理な追い込みより、続けられる負荷」がモットー。ボディメイク・姿勢改善が得意分野。</p>
       </div>
       <div class="trainer-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_trainer_2.webp" alt="トレーナー 田中りながクライアントの指導メモを取る様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">田中 りな</div>
         <div class="trainer-role">JATI認定トレーニング指導者</div>
         <p class="trainer-bio">女性・シニア層の指導を得意とし、関節への負担が少ないメニュー作りに定評。産後のボディケア相談も対応しています。</p>
       </div>
       <div class="trainer-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_trainer_3.webp" alt="トレーナー 山本剛がバーベルにプレートを装着する様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">山本 剛</div>
         <div class="trainer-role">元実業団アスリート</div>
         <p class="trainer-bio">競技経験を活かし、スポーツパフォーマンス向上を目的とした指導が専門。学生アスリートの指導実績も豊富です。</p>
@@ -458,9 +468,51 @@
         <div><dt>予約方法</dt><dd>完全予約制（お問い合わせフォームより）</dd></div>
       </div>
       <div class="access-media">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_misc_2.webp" alt="パーソナルジムFORGEの店舗外観（夜間・看板点灯時）" width="1200" height="670" loading="lazy">
         <div class="ph"><span>画像</span></div>
       </div>
+    </div>
+  </section>
+
+  <!-- よくある質問 -->
+  <section class="sec" id="faq">
+    <p class="sec-eyebrow">FAQ</p>
+    <h2 class="sec-title">よくある質問</h2>
+    <div class="faq-item">
+      <details>
+        <summary>運動経験がなくても大丈夫ですか？</summary>
+        <p>はい、全く問題ありません。現在の体力や運動経験をお伺いした上で、無理のない負荷から始めます。実際に会員様の多くが未経験からのスタートです。</p>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary>体験セッションはありますか？</summary>
+        <p>はい、ご入会前に体験セッションをご用意しています。実際のトレーニング内容や店内の雰囲気を確認いただいてからご検討いただけます。まずは無料カウンセリングよりお申し込みください。</p>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary>持ち物は何が必要ですか？</summary>
+        <p>特にご用意いただくものはありません。シャワー・ウェア・タオルはすべて無料でご準備しています。手ぶらでお越しください。</p>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary>キャンセルはいつまで可能ですか？</summary>
+        <p>予約の前日20時までのご連絡でキャンセル料はかかりません。それ以降のキャンセル・無断欠席は所定のキャンセル料を頂戴する場合がございます。</p>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary>シャワー・ウェアの貸し出しはありますか？</summary>
+        <p>はい、シャワールームとトレーニングウェアの貸し出しはすべて無料です。お仕事帰りでも手ぶらで通っていただけます。</p>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary>支払い方法は何がありますか？</summary>
+        <p>クレジットカード決済、口座振替のほか、店頭での現金・電子マネー決済にも対応しています。詳しくはカウンセリング時にご案内いたします。</p>
+      </details>
     </div>
   </section>
 
