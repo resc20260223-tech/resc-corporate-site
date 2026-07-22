@@ -210,7 +210,11 @@
     background: #fff; border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,.22);
     display: none; flex-direction: column; overflow: hidden;
   }
-  .cb-panel.open { display: flex; }
+  .cb-panel.open { display: flex; animation: cbFadeIn .35s ease; }
+  @keyframes cbFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
   .cb-header {
     background: var(--ink); color: #fff; padding: 14px 16px;
     display: flex; align-items: center; justify-content: space-between; font-size: 13px; font-weight: 700;
@@ -594,8 +598,24 @@
     closed:  "定休日は水曜日です。営業時間は平日7:00〜22:00、土日9:00〜20:00です。"
   };
   function toggleChat() {
-    document.getElementById('cbPanel').classList.toggle('open');
+    var panel = document.getElementById('cbPanel');
+    var willOpen = !panel.classList.contains('open');
+    panel.classList.toggle('open');
+    if (!willOpen) {
+      chatAutoOpenDismissed = true;
+    }
   }
+
+  /* ── チャット自動オープン（PCのみ・初回1回・ユーザーが閉じたら以後表示中は再オープンしない） ── */
+  var chatAutoOpenDismissed = false;
+  var CHAT_AUTO_OPEN_MQ = '(min-width: 861px)'; /* 既存のレスポンシブ切替 @media (max-width: 860px) に合わせた境界値 */
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      if (chatAutoOpenDismissed) return;
+      if (!window.matchMedia(CHAT_AUTO_OPEN_MQ).matches) return;
+      document.getElementById('cbPanel').classList.add('open');
+    }, 2500);
+  });
   document.getElementById('cbQuick').addEventListener('click', function (e) {
     var key = e.target.dataset.q;
     if (!key) return;
