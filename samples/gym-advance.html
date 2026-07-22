@@ -102,7 +102,7 @@
   .btn-main { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; font-size: 14.5px; padding: 14px 30px; border-radius: 4px; text-decoration: none; cursor: pointer; border: none; transition: transform .15s ease; }
   .btn-main:hover { transform: translateY(-2px); }
   .btn-ghost { display: inline-block; border: 1px solid rgba(255,255,255,.4); color: #fff; font-weight: 700; font-size: 14.5px; padding: 13px 28px; border-radius: 4px; text-decoration: none; cursor: pointer; background: transparent; }
-  .hero-visual { aspect-ratio: 4/3; border-radius: 8px; }
+  .hero-visual { aspect-ratio: 4/3; border-radius: 8px; width: 100%; height: auto; object-fit: cover; }
 
   /* ── Stats row（TOP） ── */
   .stat-row { background: var(--white); display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1120px; margin: 0 auto; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
@@ -112,7 +112,7 @@
   .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
 
   /* ── Sections common ── */
-  .sec { max-width: 1120px; margin: 0 auto; padding: 76px 24px; }
+  .sec { max-width: 1100px; margin: 0 auto; padding: 76px 24px; }
   .sec-eyebrow { font-size: 12px; letter-spacing: .22em; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
   .sec-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: clamp(22px, 3.2vw, 30px); font-weight: 900; color: var(--ink); margin-bottom: 36px; }
   .sec-lead { color: var(--text-muted); font-size: 14px; max-width: 42em; margin-top: -20px; margin-bottom: 34px; }
@@ -129,7 +129,7 @@
   /* ── SNS（3媒体） ── */
   .sns-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .sns-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-  .sns-card .ph { aspect-ratio: 16/10; }
+  .sns-card .ph { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
   .sns-card-head { display: flex; align-items: center; gap: 8px; padding: 14px 16px; font-size: 13px; font-weight: 700; }
   .sns-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
   .sns-note { font-size: 11px; color: var(--text-muted); padding: 0 16px 16px; }
@@ -137,7 +137,7 @@
   /* ── 選ばれる理由（4項目） ── */
   .reason-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .reason-card { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--white); }
-  .reason-card .ph { aspect-ratio: 4/3; }
+  .reason-card .ph { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
   .reason-card-body { padding: 18px 18px 22px; }
   .reason-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 12px; font-weight: 900; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
   .reason-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
@@ -147,7 +147,7 @@
   .about-block { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: center; margin-bottom: 50px; }
   .about-block:nth-child(even) { grid-template-columns: 1.2fr .8fr; }
   .about-block:nth-child(even) .ph { order: 2; }
-  .about-block .ph { aspect-ratio: 4/3; border-radius: 8px; }
+  .about-block .ph { aspect-ratio: 4/3; border-radius: 8px; width: 100%; height: auto; object-fit: cover; min-width: 0; }
   .about-block h3 { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 19px; font-weight: 900; margin-bottom: 14px; }
   .about-block p { font-size: 14px; color: var(--text-muted); line-height: 2; }
 
@@ -188,7 +188,7 @@
 
   /* ── トレーナー（5名） ── */
   .trainer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .trainer-card .ph { aspect-ratio: 3/4; border-radius: 8px; margin-bottom: 16px; }
+  .trainer-card .ph { aspect-ratio: 3/4; border-radius: 8px; margin-bottom: 16px; width: 100%; height: auto; object-fit: cover; }
   .trainer-name { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px; font-weight: 900; margin-bottom: 4px; }
   .trainer-role { font-size: 11.5px; color: var(--accent); font-weight: 700; margin-bottom: 10px; letter-spacing: .04em; }
   .trainer-bio { font-size: 12.5px; color: var(--text-muted); line-height: 1.85; margin-bottom: 10px; }
@@ -198,7 +198,7 @@
   .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .testi-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 22px 20px; }
   .testi-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-  .testi-head .ph { width: 52px; height: 52px; border-radius: 50%; font-size: 8px; flex: 0 0 auto; }
+  .testi-head .ph { width: 52px; height: 52px; border-radius: 50%; font-size: 8px; flex: 0 0 auto; object-fit: cover; }
   .testi-name { font-size: 13.5px; font-weight: 700; }
   .testi-meta { font-size: 11.5px; color: var(--text-muted); }
   .testi-card p.comment { font-size: 13px; color: var(--text-muted); line-height: 1.85; }
@@ -206,14 +206,14 @@
 
   /* ── 施設紹介 ── */
   .facility-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .facility-card .ph { aspect-ratio: 4/3; border-radius: 8px; margin-bottom: 14px; }
+  .facility-card .ph { aspect-ratio: 4/3; border-radius: 8px; margin-bottom: 14px; width: 100%; height: auto; object-fit: cover; }
   .facility-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
   .facility-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.8; }
 
   /* ── ブログ・コラム ── */
   .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .blog-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-  .blog-card .ph { aspect-ratio: 16/10; }
+  .blog-card .ph { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
   .blog-card-body { padding: 18px 18px 20px; }
   .blog-date { font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
   .blog-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 8px; line-height: 1.6; }
@@ -224,7 +224,7 @@
   .access-table div { display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
   .access-table dt { flex: 0 0 90px; color: var(--text-muted); font-weight: 700; }
   .access-media { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .access-media .ph { aspect-ratio: 1/1; border-radius: 8px; }
+  .access-media .ph { aspect-ratio: 1/1; border-radius: 8px; width: 100%; height: auto; object-fit: cover; min-width: 0; }
 
   /* ── お問い合わせ（高度化フォーム・見た目のみ） ── */
   .contact-sec { background: var(--ink); }
@@ -279,7 +279,11 @@
     background: #fff; border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,.22);
     display: none; flex-direction: column; overflow: hidden;
   }
-  .cb-panel.open { display: flex; }
+  .cb-panel.open { display: flex; animation: cbFadeIn .35s ease; }
+  @keyframes cbFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
   .cb-header { background: var(--ink); color: #fff; padding: 14px 16px; display: flex; align-items: center; gap: 10px; }
   .cb-avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 15px; flex: 0 0 auto; }
   .cb-header-text { flex: 1; }
@@ -401,7 +405,7 @@
         <button class="btn-ghost" onclick="showPage('pricing')">料金を見る</button>
       </div>
     </div>
-    <div class="ph hero-visual"><span>画像</span></div>
+    <img class="hero-visual" src="images/gym/gym_hero.webp" alt="パーソナルジムFORGEのトレーニング風景" width="1376" height="768">
   </section>
 
   <section class="sec" style="padding-top:50px; padding-bottom:50px;">
@@ -446,17 +450,17 @@
     <div class="sns-grid">
       <div class="sns-card">
         <div class="sns-card-head"><span class="sns-dot"></span>Instagram</div>
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_training_2.webp" alt="トレーナーがクライアントのデッドリフトを指導する様子" width="1200" height="670" loading="lazy">
         <p class="sns-note">最新の投稿がここに自動表示されます（デモ表示中）</p>
       </div>
       <div class="sns-card">
         <div class="sns-card-head"><span class="sns-dot"></span>X（旧Twitter）</div>
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_facility_3.webp" alt="タオルが用意されたシャワールーム" width="1200" height="670" loading="lazy">
         <p class="sns-note">最新のポストがここに自動表示されます（デモ表示中）</p>
       </div>
       <div class="sns-card">
         <div class="sns-card-head"><span class="sns-dot"></span>Facebook</div>
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_misc_1.webp" alt="シェイカーボトルとタオルが置かれたベンチ" width="1200" height="670" loading="lazy">
         <p class="sns-note">ページの投稿がここに自動表示されます（デモ表示中）</p>
       </div>
     </div>
@@ -470,14 +474,14 @@
     <p class="sec-eyebrow">About</p>
     <h2 class="sec-title">FORGEについて</h2>
     <div class="about-block">
-      <div class="ph"><span>画像</span></div>
+      <img class="ph" src="images/gym/gym_facility_1.webp" alt="観葉植物が置かれた店内の受付エリア" width="1200" height="670" loading="lazy">
       <div>
         <h3>代表メッセージ</h3>
         <p>「続けられないダイエットに意味はない」——これは私自身が何度も挫折した経験から辿り着いた結論です。FORGEは、一時的な追い込みではなく、生活の一部として無理なく続けられるトレーニングを届けるために立ち上げました。運動が苦手だった方こそ、ぜひ一度お越しください。</p>
       </div>
     </div>
     <div class="about-block">
-      <div class="ph"><span>画像</span></div>
+      <img class="ph" src="images/gym/gym_facility_2.webp" alt="スクワットラックとミラーを備えたトレーニングエリア" width="1200" height="670" loading="lazy">
       <div>
         <h3>FORGEという名前に込めた想い</h3>
         <p>FORGE（フォージ）は英語で「鍛冶場」を意味します。鉄が熱と鍛錬によって強くしなやかな形になるように、お一人おひとりの身体も、正しい負荷と継続によって理想の状態へ近づいていく——そんな想いを店名に込めています。</p>
@@ -493,7 +497,7 @@
     <h2 class="sec-title">FORGEが選ばれる理由</h2>
     <div class="reason-grid">
       <div class="reason-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_training_1.webp" alt="ダンベルラックが並ぶトレーニングエリア" width="1200" height="670" loading="lazy">
         <div class="reason-card-body">
           <div class="reason-num">01</div>
           <h3>完全予約制のマンツーマン</h3>
@@ -501,7 +505,7 @@
         </div>
       </div>
       <div class="reason-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_misc_1.webp" alt="シェイカーボトルとタオルが置かれたベンチ" width="1200" height="670" loading="lazy">
         <div class="reason-card-body">
           <div class="reason-num">02</div>
           <h3>初心者歓迎</h3>
@@ -509,7 +513,7 @@
         </div>
       </div>
       <div class="reason-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_facility_3.webp" alt="タオルが用意されたシャワールーム" width="1200" height="670" loading="lazy">
         <div class="reason-card-body">
           <div class="reason-num">03</div>
           <h3>シャワー・ウェア無料</h3>
@@ -517,7 +521,7 @@
         </div>
       </div>
       <div class="reason-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_training_5.webp" alt="ケトルベルとチューブが並んだトレーニングスペース" width="1200" height="670" loading="lazy">
         <div class="reason-card-body">
           <div class="reason-num">04</div>
           <h3>食事・生活サポートも充実</h3>
@@ -615,35 +619,35 @@
     <h2 class="sec-title">担当トレーナー</h2>
     <div class="trainer-grid">
       <div class="trainer-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_trainer_1.webp" alt="トレーナー 佐藤healthy太郎がケトルベルトレーニングを行う様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">佐藤 healthy太郎</div>
         <div class="trainer-role">NSCA認定パーソナルトレーナー</div>
         <p class="trainer-bio">大手フィットネスクラブでの指導経験を経てFORGEを開業。ボディメイク・姿勢改善が得意分野。</p>
         <p class="trainer-quote">「無理な追い込みより、続けられる負荷を。」</p>
       </div>
       <div class="trainer-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_trainer_2.webp" alt="トレーナー 田中りなが指導メモを取る様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">田中 りな</div>
         <div class="trainer-role">JATI認定トレーニング指導者</div>
         <p class="trainer-bio">女性・シニア層の指導を得意とし、関節への負担が少ないメニュー作りに定評。産後のケアも対応。</p>
         <p class="trainer-quote">「小さな変化を、一緒に喜べるトレーナーでありたい。」</p>
       </div>
       <div class="trainer-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_trainer_3.webp" alt="トレーナー 山本剛がバーベルにプレートを装着する様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">山本 剛</div>
         <div class="trainer-role">元実業団アスリート</div>
         <p class="trainer-bio">競技経験を活かし、スポーツパフォーマンス向上を目的とした指導が専門。学生アスリートの指導実績も豊富。</p>
         <p class="trainer-quote">「限界は、自分で決めるものじゃない。」</p>
       </div>
       <div class="trainer-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_trainer_2.webp" alt="トレーナー 鈴木まゆが指導メモを取る様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">鈴木 まゆ</div>
         <div class="trainer-role">管理栄養士 兼 トレーナー</div>
         <p class="trainer-bio">栄養学の知見を活かした食事指導が強み。トレーニングと食事の両面から結果につなげます。</p>
         <p class="trainer-quote">「体は、食べたものでできている。」</p>
       </div>
       <div class="trainer-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_trainer_1.webp" alt="トレーナー 高橋亮がケトルベルトレーニングを行う様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">高橋 亮</div>
         <div class="trainer-role">理学療法士 兼 トレーナー</div>
         <p class="trainer-bio">医療系の知識を活かし、ケガの予防や身体の使い方の指導を得意とします。腰痛・肩こりの相談も多数。</p>
@@ -665,17 +669,17 @@
     </div>
     <div class="testi-grid">
       <div class="testi-card">
-        <div class="testi-head"><div class="ph"><span>画像</span></div><div><div class="testi-name">M.Kさん（30代・女性）</div><div class="testi-meta">スタンダードプラン・利用歴8ヶ月</div></div></div>
+        <div class="testi-head"><img class="ph" src="images/gym/gym_training_3.webp" alt="バーベルにプレートを装着する手元のクローズアップ" width="1200" height="670" loading="lazy"><div><div class="testi-name">M.Kさん（30代・女性）</div><div class="testi-meta">スタンダードプラン・利用歴8ヶ月</div></div></div>
         <p class="comment">運動が大の苦手でしたが、無理のないペースで進めてもらえたおかげで続けられています。食事のアドバイスも具体的で助かりました。</p>
         <div class="testi-result">体重 -5.2kg／体脂肪率 -4.8%</div>
       </div>
       <div class="testi-card">
-        <div class="testi-head"><div class="ph"><span>画像</span></div><div><div class="testi-name">T.Sさん（40代・男性）</div><div class="testi-meta">プレミアムプラン・利用歴1年</div></div></div>
+        <div class="testi-head"><img class="ph" src="images/gym/gym_training_4.webp" alt="トレーニング風景" width="1200" height="670" loading="lazy"><div><div class="testi-name">T.Sさん（40代・男性）</div><div class="testi-meta">プレミアムプラン・利用歴1年</div></div></div>
         <p class="comment">腰の不安があったのですが、理学療法士の知識を持つトレーナーさんのおかげで、痛みなく続けられています。</p>
         <div class="testi-result">体重 -8.1kg／腰痛の改善</div>
       </div>
       <div class="testi-card">
-        <div class="testi-head"><div class="ph"><span>画像</span></div><div><div class="testi-name">A.Yさん（20代・女性）</div><div class="testi-meta">スタンダードプラン・利用歴5ヶ月</div></div></div>
+        <div class="testi-head"><img class="ph" src="images/gym/gym_training_2.webp" alt="トレーナーがクライアントのデッドリフトを指導する様子" width="1200" height="670" loading="lazy"><div><div class="testi-name">A.Yさん（20代・女性）</div><div class="testi-meta">スタンダードプラン・利用歴5ヶ月</div></div></div>
         <p class="comment">完全予約制で他の人の目を気にせず通えるのが自分に合っていました。姿勢もかなり良くなったと言われます。</p>
         <div class="testi-result">体脂肪率 -6.0%／姿勢改善</div>
       </div>
@@ -690,17 +694,17 @@
     <h2 class="sec-title">施設紹介</h2>
     <div class="facility-grid">
       <div class="facility-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_facility_2.webp" alt="スクワットラックとミラーを備えたトレーニングエリア" width="1200" height="670" loading="lazy">
         <h3>トレーニングエリア</h3>
         <p>マンツーマン指導に特化した、ゆとりのあるプライベート空間です。</p>
       </div>
       <div class="facility-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_facility_4.webp" alt="照明を施した更衣室・シャワールームの通路" width="1200" height="670" loading="lazy">
         <h3>更衣室・シャワールーム</h3>
         <p>清潔な個室シャワーとウェアを無料でご用意。手ぶらで通えます。</p>
       </div>
       <div class="facility-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_misc_3.webp" alt="観葉植物とソファが置かれたカウンセリングスペース" width="1200" height="670" loading="lazy">
         <h3>受付・カウンセリングスペース</h3>
         <p>落ち着いた雰囲気の中で、カウンセリングやご相談を承ります。</p>
       </div>
@@ -715,7 +719,7 @@
     <h2 class="sec-title">ブログ・コラム</h2>
     <div class="blog-grid">
       <div class="blog-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_training_1.webp" alt="ダンベルラックが並ぶトレーニングエリア" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.06.02</div>
           <h3>初心者が最初につまずくポイントとは</h3>
@@ -723,7 +727,7 @@
         </div>
       </div>
       <div class="blog-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_training_2.webp" alt="トレーナーがクライアントのデッドリフトを指導する様子" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.06.15</div>
           <h3>食事制限より大切な「食べる順番」</h3>
@@ -731,7 +735,7 @@
         </div>
       </div>
       <div class="blog-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_training_3.webp" alt="バーベルにプレートを装着する手元のクローズアップ" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.06.28</div>
           <h3>デスクワークの肩こり・腰痛対策</h3>
@@ -739,7 +743,7 @@
         </div>
       </div>
       <div class="blog-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_training_4.webp" alt="トレーニング風景" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.07.05</div>
           <h3>睡眠とトレーニング効果の関係</h3>
@@ -747,7 +751,7 @@
         </div>
       </div>
       <div class="blog-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_training_5.webp" alt="ケトルベルとチューブが並んだトレーニングスペース" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.07.12</div>
           <h3>40代からの体づくりで意識したいこと</h3>
@@ -755,7 +759,7 @@
         </div>
       </div>
       <div class="blog-card">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_misc_1.webp" alt="シェイカーボトルとタオルが置かれたベンチ" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.07.18</div>
           <h3>体験セッション、当日の流れを解説</h3>
@@ -781,7 +785,7 @@
         <div><dt>予約方法</dt><dd>完全予約制（お問い合わせフォームより）</dd></div>
       </div>
       <div class="access-media">
-        <div class="ph"><span>画像</span></div>
+        <img class="ph" src="images/gym/gym_misc_2.webp" alt="パーソナルジムFORGEの店舗外観（夜間・看板点灯時）" width="1200" height="670" loading="lazy">
         <div class="ph"><span>画像</span></div>
       </div>
     </div>
@@ -925,7 +929,25 @@
     if (!wasOpen && cbMessages.children.length === 0) {
       renderNode('root');
     }
+    if (wasOpen) {
+      chatAutoOpenDismissed = true;
+    }
   }
+
+  /* ── チャット自動オープン（PCのみ・初回1回・ユーザーが閉じたら以後表示中は再オープンしない） ── */
+  var chatAutoOpenDismissed = false;
+  var CHAT_AUTO_OPEN_MQ = '(min-width: 861px)'; /* 既存のレスポンシブ切替 @media (max-width: 860px) に合わせた境界値 */
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      if (chatAutoOpenDismissed) return;
+      if (!window.matchMedia(CHAT_AUTO_OPEN_MQ).matches) return;
+      var panel = document.getElementById('cbPanel');
+      panel.classList.add('open');
+      if (cbMessages.children.length === 0) {
+        renderNode('root');
+      }
+    }, 2500);
+  });
 
   function addMsg(text, who) {
     var div = document.createElement('div');
