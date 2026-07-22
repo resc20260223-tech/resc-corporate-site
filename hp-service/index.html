@@ -267,6 +267,12 @@
   }
   .work-card .work-label { padding: 12px; font-size: 13px; font-weight: 700; text-align: center; }
 
+  /* ---- Plan samples (text-only work-card variant) ---- */
+  #plan-samples .works-grid { grid-template-columns: repeat(3, 1fr); }
+  .plan-work-body { padding: 18px 16px; }
+  .plan-work-body .work-label { text-align: left; padding: 0; margin-bottom: 8px; }
+  .plan-work-body p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
   /* ---- About table ---- */
   .about-table { width: 100%; border-collapse: collapse; font-size: 14px; }
   .about-table tr { border-bottom: 1px solid var(--line-light); }
@@ -385,6 +391,7 @@
     .features { grid-template-columns: 1fr; }
     .price-grid { grid-template-columns: 1fr; }
     .works-grid { grid-template-columns: repeat(2, 1fr); }
+    #plan-samples .works-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -503,6 +510,37 @@
       </div>
     </div>
     <p class="price-note">表示は税抜価格です<br>初期費用:¥10,000(税込¥11,000／全プラン共通) / 36ヶ月契約でサイト無償譲渡</p>
+  </div>
+</section>
+
+<section id="plan-samples" class="page bg-alt">
+  <div class="section-inner">
+    <div class="section-eyebrow">PLAN_SAMPLES</div>
+    <h2 class="section-title">プラン別サンプルサイト</h2>
+    <p class="section-lead">同じ店舗を3つのプランで制作した実例です。ページ数と機能の違いをご確認いただけます。</p>
+    <div class="works-grid">
+      <a class="work-card" href="../samples/gym-light.html" target="_blank" rel="noopener">
+        <div class="plan-work-body">
+          <div class="price-tag">sample/light</div>
+          <div class="work-label">ライトプラン</div>
+          <p>FORGE｜パーソナルジム<br>1ページ／SNS連携なし／チャットなし</p>
+        </div>
+      </a>
+      <a class="work-card" href="../samples/gym-standard.html" target="_blank" rel="noopener">
+        <div class="plan-work-body">
+          <div class="price-tag">sample/standard</div>
+          <div class="work-label">スタンダードプラン</div>
+          <p>FORGE｜パーソナルジム<br>4ページ／Instagram連携／定型FAQチャット</p>
+        </div>
+      </a>
+      <a class="work-card" href="../samples/gym-advance.html" target="_blank" rel="noopener">
+        <div class="plan-work-body">
+          <div class="price-tag">sample/advance</div>
+          <div class="work-label">アドバンスプラン</div>
+          <p>FORGE｜パーソナルジム<br>11ページ／SNS3媒体／カスタムFAQチャット</p>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
