@@ -138,6 +138,7 @@
       padding: .4em .8em;
       border-radius: 4px;
       transition: color .2s;
+      white-space: nowrap;
     }
     .nav-about:hover { color: var(--gold); }
     .nav-cta {
@@ -149,8 +150,50 @@
       border-radius: 4px;
       text-decoration: none;
       transition: opacity .2s;
+      white-space: nowrap;
     }
     .nav-cta:hover { opacity: .85; }
+
+    /* ── Nav mobile menu ── */
+    .nav-menu { display: contents; }
+    .nav-links {
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .nav-toggle {
+      display: none;
+      width: 44px; height: 44px;
+      flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+      background: transparent; border: none; padding: 0; cursor: pointer;
+    }
+    .nav-toggle-bar {
+      display: block; width: 24px; height: 2px;
+      background: #fff; border-radius: 2px;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    nav.nav-open .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.nav-open .nav-toggle-bar:nth-child(2) { opacity: 0; }
+    nav.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        flex-direction: column;
+        background: var(--navy);
+        padding: .6rem 20px 1.4rem;
+        box-shadow: 0 12px 20px rgba(0,0,0,.18);
+      }
+      nav.nav-open .nav-menu { display: flex; }
+      .nav-links {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .2rem;
+      }
+      .nav-about { padding: .9em 1rem; }
+      .nav-cta { margin-top: .7rem; text-align: center; }
+    }
 
     /* ── Hero ── */
     .hero {
@@ -751,13 +794,20 @@
 <!-- Nav -->
 <nav>
   <a class="nav-logo" href="#" onclick="showPage('home');return false;"><img src="images/resc-logo-nav.png" alt="株式会社RESC" class="nav-logo-img" /><span class="nav-logo-text">株式会社<em>RESC</em></span></a>
-  <div style="display:flex;align-items:center;gap:.5rem;">
-    <a class="nav-about" href="#" onclick="showPage('home');return false;">HOME</a>
-    <a class="nav-about" href="#" onclick="showPage('business');return false;">事業内容</a>
-    <a class="nav-about" href="#" onclick="showPage('company');return false;">会社概要</a>
-    <a class="nav-about" href="#" onclick="showPage('contact');return false;">お問い合わせ</a>
+  <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" aria-expanded="false" onclick="toggleNavMenu()">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+  </button>
+  <div class="nav-menu">
+    <div class="nav-links">
+      <a class="nav-about" href="#" onclick="showPage('home');return false;">HOME</a>
+      <a class="nav-about" href="#" onclick="showPage('business');return false;">事業内容</a>
+      <a class="nav-about" href="#" onclick="showPage('company');return false;">会社概要</a>
+      <a class="nav-about" href="#" onclick="showPage('contact');return false;">お問い合わせ</a>
+    </div>
+    <a class="nav-cta" href="#" onclick="showPage('contact');return false;">無料相談</a>
   </div>
-  <a class="nav-cta" href="#" onclick="showPage('contact');return false;">無料相談</a>
 </nav>
 
 <!-- ════ HOME PAGE ════ -->
@@ -1206,7 +1256,17 @@
 </div><!-- /page-business -->
 
 <script>
+  function toggleNavMenu() {
+    var nav = document.querySelector('nav');
+    var isOpen = nav.classList.toggle('nav-open');
+    document.getElementById('navToggle').setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+  function closeNavMenu() {
+    document.querySelector('nav').classList.remove('nav-open');
+    document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
+  }
   function showPage(page, targetId) {
+    closeNavMenu();
     document.body.classList.remove('company-page', 'contact-page', 'business-page', 'privacy-page');
     if (page === 'company')  document.body.classList.add('company-page');
     if (page === 'contact')  document.body.classList.add('contact-page');
