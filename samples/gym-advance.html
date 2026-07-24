@@ -266,7 +266,7 @@
   body.blog-page #page-blog { display: block; }
   body.access-page #page-access { display: block; }
 
-  /* ── カスタムFAQチャット ── */
+  /* ── 定型FAQチャット ── */
   .cb-toggle {
     position: fixed; right: 22px; bottom: 22px; z-index: 200;
     width: 58px; height: 58px; border-radius: 50%; background: var(--accent); color: #fff;
@@ -843,7 +843,7 @@
 
 <footer>FORGE（RESC制作サンプル）</footer>
 
-<!-- カスタムFAQチャット（多段階分岐・外部API不使用） -->
+<!-- 定型FAQチャット（多段階分岐・外部API不使用） -->
 <button class="cb-toggle" id="cbToggle" type="button" aria-label="チャットを開く" onclick="toggleChat()">💬</button>
 <div class="cb-panel" id="cbPanel">
   <div class="cb-header">
@@ -874,7 +874,7 @@
     if (e.target.id === 'menuOverlay') closeMenu();
   });
 
-  /* ── カスタムFAQチャット：多段階分岐 ── */
+  /* ── 定型FAQチャット：多段階分岐 ── */
   var FAQ_TREE = {
     root: {
       prompt: "こんにちは！FORGEの専属カウンセラーです。どんなことでお困りですか？",
