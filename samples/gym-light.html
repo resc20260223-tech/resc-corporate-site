@@ -85,6 +85,16 @@
   }
   .hero-visual { aspect-ratio: 4/3; border-radius: 8px; width: 100%; height: auto; object-fit: cover; }
 
+  /* ── Scroll reveal ── */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
+  }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
   /* ── Sections common ── */
   .sec { max-width: 1120px; margin: 0 auto; padding: 76px 24px; }
   .sec-eyebrow { font-size: 12px; letter-spacing: .22em; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
@@ -229,19 +239,19 @@
 <!-- 選ばれる理由 -->
 <section class="sec reasons" id="reasons">
   <p class="sec-eyebrow">Reason</p>
-  <h2 class="sec-title">FORGEが選ばれる理由</h2>
+  <h2 class="sec-title reveal">FORGEが選ばれる理由</h2>
   <div class="reason-grid">
-    <div class="reason-card">
+    <div class="reason-card reveal">
       <div class="reason-num">01</div>
       <h3>完全予約制のマンツーマン</h3>
       <p>他のお客様と時間が重なることはありません。専属トレーナーが、あなたの体だけを見て指導します。</p>
     </div>
-    <div class="reason-card">
+    <div class="reason-card reveal">
       <div class="reason-num">02</div>
       <h3>初心者歓迎</h3>
       <p>運動経験がなくても大丈夫。フォームの作り方から、無理のないペース配分まで丁寧にお伝えします。</p>
     </div>
-    <div class="reason-card">
+    <div class="reason-card reveal">
       <div class="reason-num">03</div>
       <h3>シャワー・ウェア無料</h3>
       <p>お仕事帰りでも手ぶらで通えます。タオル・シャワーウェアはすべて無料でご用意しています。</p>
@@ -252,9 +262,9 @@
 <!-- 料金 -->
 <section class="sec" id="pricing">
   <p class="sec-eyebrow">Pricing</p>
-  <h2 class="sec-title">料金プラン</h2>
+  <h2 class="sec-title reveal">料金プラン</h2>
   <div class="plan-grid">
-    <div class="plan-card">
+    <div class="plan-card reveal">
       <div class="plan-name">体験セッション</div>
       <div class="plan-price">¥5,000<span> ／回</span></div>
       <div class="plan-desc">初めての方へ。カウンセリング込み60分。</div>
@@ -265,7 +275,7 @@
       </ul>
       <a class="plan-cta" href="#contact">この内容で相談する</a>
     </div>
-    <div class="plan-card highlight">
+    <div class="plan-card highlight reveal">
       <div class="plan-name">スタンダード</div>
       <div class="plan-price">¥28,000<span> ／月4回</span></div>
       <div class="plan-desc">週1回のペースでじっくり。継続しやすい標準プラン。</div>
@@ -276,7 +286,7 @@
       </ul>
       <a class="plan-cta" href="#contact">この内容で相談する</a>
     </div>
-    <div class="plan-card">
+    <div class="plan-card reveal">
       <div class="plan-name">プレミアム</div>
       <div class="plan-price">¥52,000<span> ／月8回</span></div>
       <div class="plan-desc">週2回でしっかり結果を出したい方に。</div>
@@ -293,8 +303,8 @@
 <!-- トレーナー紹介 -->
 <section class="sec trainer-sec" id="trainer">
   <p class="sec-eyebrow">Trainer</p>
-  <h2 class="sec-title">担当トレーナー</h2>
-  <div class="trainer-layout">
+  <h2 class="sec-title reveal">担当トレーナー</h2>
+  <div class="trainer-layout reveal">
     <img class="trainer-photo" src="images/gym/gym_trainer_1.webp" alt="トレーナー 佐藤healthy太郎の写真" width="1200" height="670" loading="lazy">
     <div>
       <div class="trainer-name">佐藤 healthy太郎</div>
@@ -310,20 +320,20 @@
 <!-- よくある質問 -->
 <section class="sec" id="faq">
   <p class="sec-eyebrow">FAQ</p>
-  <h2 class="sec-title">よくある質問</h2>
-  <div class="faq-item">
+  <h2 class="sec-title reveal">よくある質問</h2>
+  <div class="faq-item reveal">
     <details>
       <summary>運動経験がなくても大丈夫ですか？</summary>
       <p>はい、全く問題ありません。現在の体力や運動経験をお伺いした上で、無理のない負荷から始めます。実際に会員様の多くが未経験からのスタートです。</p>
     </details>
   </div>
-  <div class="faq-item">
+  <div class="faq-item reveal">
     <details>
       <summary>持ち物は何が必要ですか？</summary>
       <p>特にご用意いただくものはありません。シャワー・ウェア・タオルはすべて無料でご準備しています。手ぶらでお越しください。</p>
     </details>
   </div>
-  <div class="faq-item">
+  <div class="faq-item reveal">
     <details>
       <summary>予約はどのくらい前に取ればよいですか？</summary>
       <p>完全予約制のため、事前のご予約をお願いしております。目安として3日前までのご連絡がスムーズですが、空き状況によっては当日のご案内も可能です。</p>
@@ -334,27 +344,27 @@
 <!-- アクセス・営業時間 -->
 <section class="sec access-sec" id="access">
   <p class="sec-eyebrow">Access</p>
-  <h2 class="sec-title">アクセス・営業時間</h2>
+  <h2 class="sec-title reveal">アクセス・営業時間</h2>
   <div class="access-layout">
-    <div class="access-table">
+    <div class="access-table reveal">
       <div><dt>店舗名</dt><dd>FORGE（フォージ）</dd></div>
       <div><dt>所在地</dt><dd>〒810-0001<br>福岡県福岡市中央区天神4丁目2-10 天神フォージビル3F</dd></div>
       <div><dt>営業時間</dt><dd>平日 7:00〜22:00<br>土日 9:00〜20:00</dd></div>
       <div><dt>定休日</dt><dd>水曜日</dd></div>
       <div><dt>予約方法</dt><dd>完全予約制（お問い合わせフォームより）</dd></div>
     </div>
-    <div class="ph access-map"><span>画像</span></div>
+    <div class="ph access-map reveal"><span>画像</span></div>
   </div>
 </section>
 
 <!-- お問い合わせ（見た目のみ） -->
 <section class="sec contact-sec" id="contact">
   <p class="sec-eyebrow">Contact</p>
-  <h2 class="sec-title">お問い合わせ・無料カウンセリング予約</h2>
+  <h2 class="sec-title reveal">お問い合わせ・無料カウンセリング予約</h2>
   <p class="contact-lead">まずはお気軽にご相談ください。体験セッションのご予約も、こちらから承っております。</p>
   <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
   <p class="line-note">LINEでのご相談も承っています。</p>
-  <form class="form-grid" onsubmit="event.preventDefault();">
+  <form class="form-grid reveal" onsubmit="event.preventDefault();">
     <div class="form-row">
       <label for="g-name">お名前</label>
       <input id="g-name" type="text" placeholder="山田 太郎">
@@ -390,6 +400,35 @@
       document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
     });
   });
+
+  /* ── Scroll reveal ── */
+  (function () {
+    var revealEls = document.querySelectorAll('.reveal');
+    var groups = [];
+    revealEls.forEach(function (el) {
+      var parent = el.parentElement;
+      var group = groups.find(function (g) { return g.parent === parent; });
+      if (!group) { group = { parent: parent, items: [] }; groups.push(group); }
+      group.items.push(el);
+    });
+    groups.forEach(function (group) {
+      var parentDisplay = getComputedStyle(group.parent).display;
+      if (parentDisplay === 'grid' || parentDisplay === 'flex') {
+        group.items.forEach(function (el, i) {
+          el.style.transitionDelay = (i * 80) + 'ms';
+        });
+      }
+    });
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  })();
 </script>
 
 </body>

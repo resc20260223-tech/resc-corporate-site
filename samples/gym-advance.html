@@ -104,6 +104,16 @@
   .btn-ghost { display: inline-block; border: 1px solid rgba(255,255,255,.4); color: #fff; font-weight: 700; font-size: 14.5px; padding: 13px 28px; border-radius: 4px; text-decoration: none; cursor: pointer; background: transparent; }
   .hero-visual { aspect-ratio: 4/3; border-radius: 8px; width: 100%; height: auto; object-fit: cover; }
 
+  /* ── Scroll reveal ── */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
+  }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
   /* ── Stats row（TOP） ── */
   .stat-row { background: var(--white); display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1120px; margin: 0 auto; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
   .stat-box { text-align: center; padding: 30px 20px; border-right: 1px solid var(--line); }
@@ -416,15 +426,15 @@
 
   <section class="sec" style="padding-top:50px; padding-bottom:50px;">
     <div class="stat-row">
-      <div class="stat-box"><div class="stat-num">320<small style="font-size:14px;">名</small></div><div class="stat-label">累計会員数</div></div>
-      <div class="stat-box"><div class="stat-num">92<small style="font-size:14px;">%</small></div><div class="stat-label">継続率</div></div>
-      <div class="stat-box"><div class="stat-num">4.8</div><div class="stat-label">満足度（5点満点）</div></div>
+      <div class="stat-box reveal"><div class="stat-num">320<small style="font-size:14px;">名</small></div><div class="stat-label">累計会員数</div></div>
+      <div class="stat-box reveal"><div class="stat-num">92<small style="font-size:14px;">%</small></div><div class="stat-label">継続率</div></div>
+      <div class="stat-box reveal"><div class="stat-num">4.8</div><div class="stat-label">満足度（5点満点）</div></div>
     </div>
   </section>
 
   <section class="sec">
     <p class="sec-eyebrow">Guide</p>
-    <h2 class="sec-title">FORGEを知る</h2>
+    <h2 class="sec-title reveal">FORGEを知る</h2>
     <div class="cat-grid">
       <button class="cat-card" onclick="showPage('about')">
         <div class="tag">About</div>
@@ -452,19 +462,19 @@
   <!-- SNS（3媒体） -->
   <section class="sec sec-alt">
     <p class="sec-eyebrow">Social</p>
-    <h2 class="sec-title">SNSでも発信しています</h2>
+    <h2 class="sec-title reveal">SNSでも発信しています</h2>
     <div class="sns-grid">
-      <div class="sns-card">
+      <div class="sns-card reveal">
         <div class="sns-card-head"><span class="sns-dot"></span>Instagram</div>
         <img class="ph" src="images/gym/gym_training_2.webp" alt="トレーナーがクライアントのデッドリフトを指導する様子" width="1200" height="670" loading="lazy">
         <p class="sns-note">最新の投稿がここに自動表示されます（デモ表示中）</p>
       </div>
-      <div class="sns-card">
+      <div class="sns-card reveal">
         <div class="sns-card-head"><span class="sns-dot"></span>X（旧Twitter）</div>
         <img class="ph" src="images/gym/gym_facility_3.webp" alt="タオルが用意されたシャワールーム" width="1200" height="670" loading="lazy">
         <p class="sns-note">最新のポストがここに自動表示されます（デモ表示中）</p>
       </div>
-      <div class="sns-card">
+      <div class="sns-card reveal">
         <div class="sns-card-head"><span class="sns-dot"></span>Facebook</div>
         <img class="ph" src="images/gym/gym_misc_1.webp" alt="シェイカーボトルとタオルが置かれたベンチ" width="1200" height="670" loading="lazy">
         <p class="sns-note">ページの投稿がここに自動表示されます（デモ表示中）</p>
@@ -478,15 +488,15 @@
 <div id="page-about">
   <section class="sec">
     <p class="sec-eyebrow">About</p>
-    <h2 class="sec-title">FORGEについて</h2>
-    <div class="about-block">
+    <h2 class="sec-title reveal">FORGEについて</h2>
+    <div class="about-block reveal">
       <img class="ph" src="images/gym/gym_facility_1.webp" alt="観葉植物が置かれた店内の受付エリア" width="1200" height="670" loading="lazy">
       <div>
         <h3>代表メッセージ</h3>
         <p>「続けられないダイエットに意味はない」——これは私自身が何度も挫折した経験から辿り着いた結論です。FORGEは、一時的な追い込みではなく、生活の一部として無理なく続けられるトレーニングを届けるために立ち上げました。運動が苦手だった方こそ、ぜひ一度お越しください。</p>
       </div>
     </div>
-    <div class="about-block">
+    <div class="about-block reveal">
       <img class="ph" src="images/gym/gym_facility_2.webp" alt="スクワットラックとミラーを備えたトレーニングエリア" width="1200" height="670" loading="lazy">
       <div>
         <h3>FORGEという名前に込めた想い</h3>
@@ -500,9 +510,9 @@
 <div id="page-reasons">
   <section class="sec sec-alt">
     <p class="sec-eyebrow">Reason</p>
-    <h2 class="sec-title">FORGEが選ばれる理由</h2>
+    <h2 class="sec-title reveal">FORGEが選ばれる理由</h2>
     <div class="reason-grid">
-      <div class="reason-card">
+      <div class="reason-card reveal">
         <img class="ph" src="images/gym/gym_training_1.webp" alt="ダンベルラックが並ぶトレーニングエリア" width="1200" height="670" loading="lazy">
         <div class="reason-card-body">
           <div class="reason-num">01</div>
@@ -510,7 +520,7 @@
           <p>他のお客様と時間が重なることはありません。専属トレーナーが、あなたの体だけを見て指導します。</p>
         </div>
       </div>
-      <div class="reason-card">
+      <div class="reason-card reveal">
         <img class="ph" src="images/gym/gym_misc_1.webp" alt="シェイカーボトルとタオルが置かれたベンチ" width="1200" height="670" loading="lazy">
         <div class="reason-card-body">
           <div class="reason-num">02</div>
@@ -518,7 +528,7 @@
           <p>運動経験がなくても大丈夫。フォームの作り方から、無理のないペース配分まで丁寧にお伝えします。</p>
         </div>
       </div>
-      <div class="reason-card">
+      <div class="reason-card reveal">
         <img class="ph" src="images/gym/gym_facility_3.webp" alt="タオルが用意されたシャワールーム" width="1200" height="670" loading="lazy">
         <div class="reason-card-body">
           <div class="reason-num">03</div>
@@ -526,7 +536,7 @@
           <p>お仕事帰りでも手ぶらで通えます。タオル・シャワーウェアはすべて無料でご用意しています。</p>
         </div>
       </div>
-      <div class="reason-card">
+      <div class="reason-card reveal">
         <img class="ph" src="images/gym/gym_training_5.webp" alt="ケトルベルとチューブが並んだトレーニングスペース" width="1200" height="670" loading="lazy">
         <div class="reason-card-body">
           <div class="reason-num">04</div>
@@ -542,9 +552,9 @@
 <div id="page-pricing">
   <section class="sec">
     <p class="sec-eyebrow">Pricing</p>
-    <h2 class="sec-title">料金プラン</h2>
+    <h2 class="sec-title reveal">料金プラン</h2>
     <p class="sec-lead">目的とペースに合わせて3つのコースからお選びいただけます。表示は税抜価格です。</p>
-    <div class="price-table-wrap">
+    <div class="price-table-wrap reveal">
       <table class="price-table">
         <thead>
           <tr><th></th><th>体験セッション</th><th class="highlight">スタンダード</th><th>プレミアム</th></tr>
@@ -558,19 +568,19 @@
         </tbody>
       </table>
     </div>
-    <h2 class="sec-title" style="font-size:20px; margin-bottom:20px;">オプションメニュー</h2>
+    <h2 class="sec-title reveal" style="font-size:20px; margin-bottom:20px;">オプションメニュー</h2>
     <div class="option-grid">
-      <div class="option-card">
+      <div class="option-card reveal">
         <h4>追加回数券</h4>
         <p>プラン継続中の方向け、1回単位でセッションを追加できます。</p>
         <div class="price">¥7,000／回</div>
       </div>
-      <div class="option-card">
+      <div class="option-card reveal">
         <h4>食事指導プラン拡張</h4>
         <p>写真での食事チェック＋週1回の詳細フィードバック。</p>
         <div class="price">¥5,000／月</div>
       </div>
-      <div class="option-card">
+      <div class="option-card reveal">
         <h4>姿勢・動作分析</h4>
         <p>専用機器での姿勢分析と改善プログラムのご提案。</p>
         <div class="price">¥8,000／回</div>
@@ -584,13 +594,13 @@
 <div id="page-flow">
   <section class="sec sec-alt">
     <p class="sec-eyebrow">Flow</p>
-    <h2 class="sec-title">入会までの流れ</h2>
+    <h2 class="sec-title reveal">入会までの流れ</h2>
     <div class="flow-list">
-      <div class="flow-step"><div class="flow-num"></div><div><h3>お問い合わせ</h3><p>フォームまたはお電話でお気軽にご連絡ください。</p></div></div>
-      <div class="flow-step"><div class="flow-num"></div><div><h3>無料カウンセリング</h3><p>目的・お悩み・生活リズムをヒアリングします（所要30分）。</p></div></div>
-      <div class="flow-step"><div class="flow-num"></div><div><h3>体験セッション</h3><p>実際のトレーニングを60分体験。強度や進め方をご確認いただけます。</p></div></div>
-      <div class="flow-step"><div class="flow-num"></div><div><h3>ご契約</h3><p>ご納得いただいた上で、プランをお選びいただきます。</p></div></div>
-      <div class="flow-step"><div class="flow-num"></div><div><h3>通い始め</h3><p>専属トレーナーと二人三脚で、無理のないペースで進めていきます。</p></div></div>
+      <div class="flow-step reveal"><div class="flow-num"></div><div><h3>お問い合わせ</h3><p>フォームまたはお電話でお気軽にご連絡ください。</p></div></div>
+      <div class="flow-step reveal"><div class="flow-num"></div><div><h3>無料カウンセリング</h3><p>目的・お悩み・生活リズムをヒアリングします（所要30分）。</p></div></div>
+      <div class="flow-step reveal"><div class="flow-num"></div><div><h3>体験セッション</h3><p>実際のトレーニングを60分体験。強度や進め方をご確認いただけます。</p></div></div>
+      <div class="flow-step reveal"><div class="flow-num"></div><div><h3>ご契約</h3><p>ご納得いただいた上で、プランをお選びいただきます。</p></div></div>
+      <div class="flow-step reveal"><div class="flow-num"></div><div><h3>通い始め</h3><p>専属トレーナーと二人三脚で、無理のないペースで進めていきます。</p></div></div>
     </div>
   </section>
 </div><!-- /page-flow -->
@@ -599,22 +609,22 @@
 <div id="page-faq">
   <section class="sec">
     <p class="sec-eyebrow">FAQ</p>
-    <h2 class="sec-title">よくある質問</h2>
+    <h2 class="sec-title reveal">よくある質問</h2>
 
     <div class="faq-cat-title">料金について</div>
-    <div class="faq-item"><details><summary>入会金はかかりますか？</summary><p>いただいておりません。表示の月額・回数料金のみでご利用いただけます。</p></details></div>
-    <div class="faq-item"><details><summary>プランはあとから変更できますか？</summary><p>はい、いつでも変更可能です。担当トレーナーまたはお問い合わせフォームよりご相談ください。</p></details></div>
-    <div class="faq-item"><details><summary>支払い方法は何がありますか？</summary><p>クレジットカード・銀行振込に対応しています。詳細はカウンセリング時にご案内します。</p></details></div>
+    <div class="faq-item reveal"><details><summary>入会金はかかりますか？</summary><p>いただいておりません。表示の月額・回数料金のみでご利用いただけます。</p></details></div>
+    <div class="faq-item reveal"><details><summary>プランはあとから変更できますか？</summary><p>はい、いつでも変更可能です。担当トレーナーまたはお問い合わせフォームよりご相談ください。</p></details></div>
+    <div class="faq-item reveal"><details><summary>支払い方法は何がありますか？</summary><p>クレジットカード・銀行振込に対応しています。詳細はカウンセリング時にご案内します。</p></details></div>
 
     <div class="faq-cat-title">通い方について</div>
-    <div class="faq-item"><details><summary>予約はどのくらい前に取ればよいですか？</summary><p>目安として3日前までのご連絡がスムーズですが、空き状況によっては当日のご案内も可能です。</p></details></div>
-    <div class="faq-item"><details><summary>持ち物は何が必要ですか？</summary><p>特にご用意いただくものはありません。シャワー・ウェア・タオルはすべて無料でご準備しています。</p></details></div>
-    <div class="faq-item"><details><summary>トレーナーの指名はできますか？</summary><p>可能です。カウンセリング時、またはお問い合わせフォームでご希望をお知らせください。</p></details></div>
+    <div class="faq-item reveal"><details><summary>予約はどのくらい前に取ればよいですか？</summary><p>目安として3日前までのご連絡がスムーズですが、空き状況によっては当日のご案内も可能です。</p></details></div>
+    <div class="faq-item reveal"><details><summary>持ち物は何が必要ですか？</summary><p>特にご用意いただくものはありません。シャワー・ウェア・タオルはすべて無料でご準備しています。</p></details></div>
+    <div class="faq-item reveal"><details><summary>トレーナーの指名はできますか？</summary><p>可能です。カウンセリング時、またはお問い合わせフォームでご希望をお知らせください。</p></details></div>
 
     <div class="faq-cat-title">身体面について</div>
-    <div class="faq-item"><details><summary>運動経験がなくても大丈夫ですか？</summary><p>はい、全く問題ありません。現在の体力や運動経験をお伺いした上で、無理のない負荷から始めます。</p></details></div>
-    <div class="faq-item"><details><summary>持病がある場合も相談できますか？</summary><p>可能な範囲でご相談に応じます。カウンセリング時に必ずお伝えください。内容によっては主治医の許可確認をお願いする場合があります。</p></details></div>
-    <div class="faq-item"><details><summary>効果はどのくらいで出ますか？</summary><p>個人差はありますが、多くの会員様が1〜2ヶ月ほどで体の変化を実感されています。</p></details></div>
+    <div class="faq-item reveal"><details><summary>運動経験がなくても大丈夫ですか？</summary><p>はい、全く問題ありません。現在の体力や運動経験をお伺いした上で、無理のない負荷から始めます。</p></details></div>
+    <div class="faq-item reveal"><details><summary>持病がある場合も相談できますか？</summary><p>可能な範囲でご相談に応じます。カウンセリング時に必ずお伝えください。内容によっては主治医の許可確認をお願いする場合があります。</p></details></div>
+    <div class="faq-item reveal"><details><summary>効果はどのくらいで出ますか？</summary><p>個人差はありますが、多くの会員様が1〜2ヶ月ほどで体の変化を実感されています。</p></details></div>
   </section>
 </div><!-- /page-faq -->
 
@@ -622,37 +632,37 @@
 <div id="page-trainer">
   <section class="sec trainer-sec sec-alt">
     <p class="sec-eyebrow">Trainer</p>
-    <h2 class="sec-title">担当トレーナー</h2>
+    <h2 class="sec-title reveal">担当トレーナー</h2>
     <div class="trainer-grid">
-      <div class="trainer-card">
+      <div class="trainer-card reveal">
         <img class="ph" src="images/gym/gym_trainer_1.webp" alt="トレーナー 佐藤healthy太郎がケトルベルトレーニングを行う様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">佐藤 healthy太郎</div>
         <div class="trainer-role">NSCA認定パーソナルトレーナー</div>
         <p class="trainer-bio">大手フィットネスクラブでの指導経験を経てFORGEを開業。ボディメイク・姿勢改善が得意分野。</p>
         <p class="trainer-quote">「無理な追い込みより、続けられる負荷を。」</p>
       </div>
-      <div class="trainer-card">
+      <div class="trainer-card reveal">
         <img class="ph" src="images/gym/gym_trainer_2.webp" alt="トレーナー 田中りなが指導メモを取る様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">田中 りな</div>
         <div class="trainer-role">JATI認定トレーニング指導者</div>
         <p class="trainer-bio">女性・シニア層の指導を得意とし、関節への負担が少ないメニュー作りに定評。産後のケアも対応。</p>
         <p class="trainer-quote">「小さな変化を、一緒に喜べるトレーナーでありたい。」</p>
       </div>
-      <div class="trainer-card">
+      <div class="trainer-card reveal">
         <img class="ph" src="images/gym/gym_trainer_3.webp" alt="トレーナー 山本剛がバーベルにプレートを装着する様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">山本 剛</div>
         <div class="trainer-role">元実業団アスリート</div>
         <p class="trainer-bio">競技経験を活かし、スポーツパフォーマンス向上を目的とした指導が専門。学生アスリートの指導実績も豊富。</p>
         <p class="trainer-quote">「限界は、自分で決めるものじゃない。」</p>
       </div>
-      <div class="trainer-card">
+      <div class="trainer-card reveal">
         <img class="ph" src="images/gym/gym_trainer_2.webp" alt="トレーナー 鈴木まゆが指導メモを取る様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">鈴木 まゆ</div>
         <div class="trainer-role">管理栄養士 兼 トレーナー</div>
         <p class="trainer-bio">栄養学の知見を活かした食事指導が強み。トレーニングと食事の両面から結果につなげます。</p>
         <p class="trainer-quote">「体は、食べたものでできている。」</p>
       </div>
-      <div class="trainer-card">
+      <div class="trainer-card reveal">
         <img class="ph" src="images/gym/gym_trainer_1.webp" alt="トレーナー 高橋亮がケトルベルトレーニングを行う様子" width="1200" height="670" loading="lazy">
         <div class="trainer-name">高橋 亮</div>
         <div class="trainer-role">理学療法士 兼 トレーナー</div>
@@ -667,24 +677,24 @@
 <div id="page-testimonials">
   <section class="sec">
     <p class="sec-eyebrow">Testimonials</p>
-    <h2 class="sec-title">お客様の声・実績</h2>
+    <h2 class="sec-title reveal">お客様の声・実績</h2>
     <div class="stat-row" style="margin-bottom:44px;">
-      <div class="stat-box"><div class="stat-num">320<small style="font-size:14px;">名</small></div><div class="stat-label">累計会員数</div></div>
-      <div class="stat-box"><div class="stat-num">92<small style="font-size:14px;">%</small></div><div class="stat-label">継続率</div></div>
-      <div class="stat-box"><div class="stat-num">-6.4<small style="font-size:14px;">kg</small></div><div class="stat-label">平均体重変化（3ヶ月）</div></div>
+      <div class="stat-box reveal"><div class="stat-num">320<small style="font-size:14px;">名</small></div><div class="stat-label">累計会員数</div></div>
+      <div class="stat-box reveal"><div class="stat-num">92<small style="font-size:14px;">%</small></div><div class="stat-label">継続率</div></div>
+      <div class="stat-box reveal"><div class="stat-num">-6.4<small style="font-size:14px;">kg</small></div><div class="stat-label">平均体重変化（3ヶ月）</div></div>
     </div>
     <div class="testi-grid">
-      <div class="testi-card">
+      <div class="testi-card reveal">
         <div class="testi-head"><img class="ph" src="images/gym/gym_training_3.webp" alt="バーベルにプレートを装着する手元のクローズアップ" width="1200" height="670" loading="lazy"><div><div class="testi-name">M.Kさん（30代・女性）</div><div class="testi-meta">スタンダードプラン・利用歴8ヶ月</div></div></div>
         <p class="comment">運動が大の苦手でしたが、無理のないペースで進めてもらえたおかげで続けられています。食事のアドバイスも具体的で助かりました。</p>
         <div class="testi-result">体重 -5.2kg／体脂肪率 -4.8%</div>
       </div>
-      <div class="testi-card">
+      <div class="testi-card reveal">
         <div class="testi-head"><img class="ph" src="images/gym/gym_training_4.webp" alt="トレーニング風景" width="1200" height="670" loading="lazy"><div><div class="testi-name">T.Sさん（40代・男性）</div><div class="testi-meta">プレミアムプラン・利用歴1年</div></div></div>
         <p class="comment">腰の不安があったのですが、理学療法士の知識を持つトレーナーさんのおかげで、痛みなく続けられています。</p>
         <div class="testi-result">体重 -8.1kg／腰痛の改善</div>
       </div>
-      <div class="testi-card">
+      <div class="testi-card reveal">
         <div class="testi-head"><img class="ph" src="images/gym/gym_training_2.webp" alt="トレーナーがクライアントのデッドリフトを指導する様子" width="1200" height="670" loading="lazy"><div><div class="testi-name">A.Yさん（20代・女性）</div><div class="testi-meta">スタンダードプラン・利用歴5ヶ月</div></div></div>
         <p class="comment">完全予約制で他の人の目を気にせず通えるのが自分に合っていました。姿勢もかなり良くなったと言われます。</p>
         <div class="testi-result">体脂肪率 -6.0%／姿勢改善</div>
@@ -697,19 +707,19 @@
 <div id="page-facility">
   <section class="sec sec-alt">
     <p class="sec-eyebrow">Facility</p>
-    <h2 class="sec-title">施設紹介</h2>
+    <h2 class="sec-title reveal">施設紹介</h2>
     <div class="facility-grid">
-      <div class="facility-card">
+      <div class="facility-card reveal">
         <img class="ph" src="images/gym/gym_facility_2.webp" alt="スクワットラックとミラーを備えたトレーニングエリア" width="1200" height="670" loading="lazy">
         <h3>トレーニングエリア</h3>
         <p>マンツーマン指導に特化した、ゆとりのあるプライベート空間です。</p>
       </div>
-      <div class="facility-card">
+      <div class="facility-card reveal">
         <img class="ph" src="images/gym/gym_facility_4.webp" alt="照明を施した更衣室・シャワールームの通路" width="1200" height="670" loading="lazy">
         <h3>更衣室・シャワールーム</h3>
         <p>清潔な個室シャワーとウェアを無料でご用意。手ぶらで通えます。</p>
       </div>
-      <div class="facility-card">
+      <div class="facility-card reveal">
         <img class="ph" src="images/gym/gym_misc_3.webp" alt="観葉植物とソファが置かれたカウンセリングスペース" width="1200" height="670" loading="lazy">
         <h3>受付・カウンセリングスペース</h3>
         <p>落ち着いた雰囲気の中で、カウンセリングやご相談を承ります。</p>
@@ -722,9 +732,9 @@
 <div id="page-blog">
   <section class="sec">
     <p class="sec-eyebrow">Column</p>
-    <h2 class="sec-title">ブログ・コラム</h2>
+    <h2 class="sec-title reveal">ブログ・コラム</h2>
     <div class="blog-grid">
-      <div class="blog-card">
+      <div class="blog-card reveal">
         <img class="ph" src="images/gym/gym_training_1.webp" alt="ダンベルラックが並ぶトレーニングエリア" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.06.02</div>
@@ -732,7 +742,7 @@
           <p>トレーニング開始1〜2週間で挫折しやすい理由と、続けるための工夫を解説します。</p>
         </div>
       </div>
-      <div class="blog-card">
+      <div class="blog-card reveal">
         <img class="ph" src="images/gym/gym_training_2.webp" alt="トレーナーがクライアントのデッドリフトを指導する様子" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.06.15</div>
@@ -740,7 +750,7 @@
           <p>無理な糖質制限をしなくても、食べる順番を変えるだけで変わることがあります。</p>
         </div>
       </div>
-      <div class="blog-card">
+      <div class="blog-card reveal">
         <img class="ph" src="images/gym/gym_training_3.webp" alt="バーベルにプレートを装着する手元のクローズアップ" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.06.28</div>
@@ -748,7 +758,7 @@
           <p>理学療法士トレーナーが教える、オフィスでもできる簡単なセルフケア。</p>
         </div>
       </div>
-      <div class="blog-card">
+      <div class="blog-card reveal">
         <img class="ph" src="images/gym/gym_training_4.webp" alt="トレーニング風景" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.07.05</div>
@@ -756,7 +766,7 @@
           <p>睡眠の質が筋肉の回復と結果にどう影響するか、データを交えて紹介します。</p>
         </div>
       </div>
-      <div class="blog-card">
+      <div class="blog-card reveal">
         <img class="ph" src="images/gym/gym_training_5.webp" alt="ケトルベルとチューブが並んだトレーニングスペース" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.07.12</div>
@@ -764,7 +774,7 @@
           <p>代謝の変化を踏まえた、無理のないトレーニング頻度と負荷の考え方。</p>
         </div>
       </div>
-      <div class="blog-card">
+      <div class="blog-card reveal">
         <img class="ph" src="images/gym/gym_misc_1.webp" alt="シェイカーボトルとタオルが置かれたベンチ" width="1200" height="670" loading="lazy">
         <div class="blog-card-body">
           <div class="blog-date">2026.07.18</div>
@@ -781,16 +791,16 @@
 
   <section class="sec sec-alt">
     <p class="sec-eyebrow">Access</p>
-    <h2 class="sec-title">アクセス・営業時間</h2>
+    <h2 class="sec-title reveal">アクセス・営業時間</h2>
     <div class="access-layout">
-      <div class="access-table">
+      <div class="access-table reveal">
         <div><dt>店舗名</dt><dd>FORGE（フォージ）</dd></div>
         <div><dt>所在地</dt><dd>〒810-0001<br>福岡県福岡市中央区天神4丁目2-10 天神フォージビル3F</dd></div>
         <div><dt>営業時間</dt><dd>平日 7:00〜22:00<br>土日 9:00〜20:00</dd></div>
         <div><dt>定休日</dt><dd>水曜日</dd></div>
         <div><dt>予約方法</dt><dd>完全予約制（お問い合わせフォームより）</dd></div>
       </div>
-      <div class="access-media">
+      <div class="access-media reveal">
         <img class="ph" src="images/gym/gym_misc_2.webp" alt="パーソナルジムFORGEの店舗外観（夜間・看板点灯時）" width="1200" height="670" loading="lazy">
         <div class="ph"><span>画像</span></div>
       </div>
@@ -799,11 +809,11 @@
 
   <section class="sec contact-sec">
     <p class="sec-eyebrow">Contact</p>
-    <h2 class="sec-title">お問い合わせ・無料カウンセリング予約</h2>
+    <h2 class="sec-title reveal">お問い合わせ・無料カウンセリング予約</h2>
     <p class="contact-lead">まずはお気軽にご相談ください。ご希望のトレーナー・お日にちも合わせてお知らせいただけます。</p>
     <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
     <p class="line-note">LINEでのご相談も承っています。</p>
-    <form class="form-grid" onsubmit="event.preventDefault();">
+    <form class="form-grid reveal" onsubmit="event.preventDefault();">
       <div class="form-row"><label for="g-name">お名前</label><input id="g-name" type="text" placeholder="山田 太郎"></div>
       <div class="form-row"><label for="g-mail">メールアドレス</label><input id="g-mail" type="email" placeholder="example@example.com"></div>
       <div class="form-row"><label for="g-tel">電話番号</label><input id="g-tel" type="tel" placeholder="000-0000-0000"></div>
@@ -1001,6 +1011,35 @@
       cbQuick.appendChild(chip);
     });
   }
+
+  /* ── Scroll reveal ── */
+  (function () {
+    var revealEls = document.querySelectorAll('.reveal');
+    var groups = [];
+    revealEls.forEach(function (el) {
+      var parent = el.parentElement;
+      var group = groups.find(function (g) { return g.parent === parent; });
+      if (!group) { group = { parent: parent, items: [] }; groups.push(group); }
+      group.items.push(el);
+    });
+    groups.forEach(function (group) {
+      var parentDisplay = getComputedStyle(group.parent).display;
+      if (parentDisplay === 'grid' || parentDisplay === 'flex') {
+        group.items.forEach(function (el, i) {
+          el.style.transitionDelay = (i * 80) + 'ms';
+        });
+      }
+    });
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  })();
 </script>
 
 </body>
