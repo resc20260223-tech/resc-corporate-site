@@ -909,7 +909,52 @@
         drops[i]++;
       }
     }
-    setInterval(draw, 60);
+
+    // setInterval(60ms固定)ではなくrequestAnimationFrameでループを回す。
+    // rAFは約16msごとに呼ばれるため、経過時間で間引いて元の体感速度
+    // （約60ms間隔）を維持する。ヒーローが画面外にスクロールされた時、
+    // または他のタブに切り替わった時はループ自体を止め、常時描画し続ける
+    // ことによるCPU負荷やスクロール中の描画競合を防ぐ。
+    const frameInterval = 60;
+    let rafId = null;
+    let lastDrawTime = 0;
+    let heroIntersecting = true; // IntersectionObserver発火前は「見えている」前提で開始する
+
+    function loop(now) {
+      rafId = requestAnimationFrame(loop);
+      if (now - lastDrawTime < frameInterval) return;
+      lastDrawTime = now;
+      draw();
+    }
+
+    function startLoop() {
+      if (rafId !== null) return; // 二重起動防止
+      lastDrawTime = 0;
+      rafId = requestAnimationFrame(loop);
+    }
+
+    function stopLoop() {
+      if (rafId === null) return;
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+
+    function syncLoopState() {
+      const shouldRun = heroIntersecting && document.visibilityState === 'visible';
+      if (shouldRun) startLoop(); else stopLoop();
+    }
+
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        heroIntersecting = entry.isIntersecting;
+        syncLoopState();
+      });
+    }, { threshold: 0 });
+    heroObserver.observe(hero);
+
+    document.addEventListener('visibilitychange', syncLoopState);
+
+    syncLoopState();
   })();
 </script>
 
@@ -917,14 +962,50 @@
   const imgs = document.querySelectorAll('#showcase-imgwrap img');
   const label = document.getElementById('showcase-label');
   const filename = document.getElementById('cf-filename');
+  const showcaseHero = document.querySelector('.hero');
   let idx = 0;
-  setInterval(() => {
+  let carouselTimer = null;
+
+  function tickShowcase() {
     imgs[idx].classList.remove('active');
     idx = (idx + 1) % imgs.length;
     imgs[idx].classList.add('active');
     label.textContent = 'industry: ' + imgs[idx].dataset.label;
     filename.textContent = 'sample/' + imgs[idx].dataset.label + '.html';
-  }, 3200);
+  }
+
+  // ヒーローが画面外、またはタブが非アクティブな間はタイマーを止める
+  // （matrix-rainと同じ理由。こちらは元々軽い処理だがsetIntervalのままでよい）。
+  function startCarousel() {
+    if (carouselTimer !== null) return;
+    carouselTimer = setInterval(tickShowcase, 3200);
+  }
+  function stopCarousel() {
+    if (carouselTimer === null) return;
+    clearInterval(carouselTimer);
+    carouselTimer = null;
+  }
+
+  const carouselObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && document.visibilityState === 'visible') {
+        startCarousel();
+      } else {
+        stopCarousel();
+      }
+    });
+  }, { threshold: 0 });
+  carouselObserver.observe(showcaseHero);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState !== 'visible') {
+      stopCarousel();
+      return;
+    }
+    const rect = showcaseHero.getBoundingClientRect();
+    const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+    if (inView) startCarousel();
+  });
 </script>
 
 </body>
