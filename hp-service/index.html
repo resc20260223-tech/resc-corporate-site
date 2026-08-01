@@ -341,6 +341,22 @@
   .btn-submit { background: var(--ink); color: var(--text-hi); }
   .btn-submit:hover { box-shadow: 0 10px 26px rgba(11,15,20,0.25); }
 
+  /* ---- Contact: form + LINE panel ---- */
+  .contact-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; align-items: start; }
+  .contact-line {
+    background: var(--panel-light); border: 1px solid var(--line-light); border-radius: 4px;
+    padding: 32px 28px; text-align: center;
+  }
+  .contact-line-title {
+    font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700;
+    margin-bottom: 20px; color: var(--text-lo);
+  }
+  .btn-line { background: #06C755; color: #fff; }
+  .btn-line:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(6,199,85,0.35); }
+  .contact-line-qr { display: block; width: 140px; height: 140px; margin: 20px auto; border-radius: 4px; }
+  .contact-line-note { font-size: 12.5px; color: var(--muted); line-height: 1.9; }
+  .contact-line-note p { margin: 0; }
+
   footer {
     background: var(--ink); color: #8B96A5;
     text-align: center; padding: 34px 24px; font-size: 12px;
@@ -419,6 +435,7 @@
     .price-grid { grid-template-columns: 1fr; }
     .works-grid { grid-template-columns: repeat(2, 1fr); }
     #plan-samples .works-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
   }
 </style>
 <script type="application/ld+json">
@@ -674,41 +691,53 @@
     <h2 class="section-title">お問い合わせ</h2>
     <p class="section-lead">ホームページ制作・料金プランについてのご相談は、お気軽にこちらからお問い合わせください。</p>
     <div class="form-note">※ご入力内容は送信後、担当者にメールで通知されます。</div>
-    <form class="contact-form" action="https://formspree.io/f/xaqroqvg" method="POST">
-      <input type="hidden" name="_お問い合わせ元" value="HP制作事業LP">
-      <div class="form-row">
-        <label>会社名・お名前</label>
-        <input type="text" name="name" required>
+    <div class="contact-grid">
+      <form class="contact-form" action="https://formspree.io/f/xaqroqvg" method="POST">
+        <input type="hidden" name="_お問い合わせ元" value="HP制作事業LP">
+        <div class="form-row">
+          <label>会社名・お名前</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-row">
+          <label>メールアドレス</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label>電話番号</label>
+          <input type="tel" name="phone">
+        </div>
+        <div class="form-row">
+          <label>ご希望プラン</label>
+          <select name="plan">
+            <option value="ライト">ライト(4,980円/月)</option>
+            <option value="スタンダード">スタンダード(7,500円/月)</option>
+            <option value="アドバンス">アドバンス(12,000円/月)</option>
+            <option value="相談したい">まだ決めていない・相談したい</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>お問い合わせ内容</label>
+          <textarea name="message" required></textarea>
+        </div>
+        <div class="form-privacy-check">
+          <label>
+            <input type="checkbox" name="プライバシーポリシー同意" required>
+            <span><a href="../index.html#page-privacy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意する</span>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-submit">&gt; 送信する</button>
+      </form>
+      <div class="contact-line">
+        <h3 class="contact-line-title">LINEでもご相談いただけます</h3>
+        <a class="btn btn-line" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINE友だち追加</a>
+        <img class="contact-line-qr" src="../images/line-qr.png" alt="LINE友だち追加QRコード">
+        <div class="contact-line-note">
+          <p>ご相談だけでも大丈夫です</p>
+          <p>対応時間：平日10:00〜18:00</p>
+          <p>最低契約期間なし／解約金なし</p>
+        </div>
       </div>
-      <div class="form-row">
-        <label>メールアドレス</label>
-        <input type="email" name="email" required>
-      </div>
-      <div class="form-row">
-        <label>電話番号</label>
-        <input type="tel" name="phone">
-      </div>
-      <div class="form-row">
-        <label>ご希望プラン</label>
-        <select name="plan">
-          <option value="ライト">ライト(4,980円/月)</option>
-          <option value="スタンダード">スタンダード(7,500円/月)</option>
-          <option value="アドバンス">アドバンス(12,000円/月)</option>
-          <option value="相談したい">まだ決めていない・相談したい</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <label>お問い合わせ内容</label>
-        <textarea name="message" required></textarea>
-      </div>
-      <div class="form-privacy-check">
-        <label>
-          <input type="checkbox" name="プライバシーポリシー同意" required>
-          <span><a href="../index.html#page-privacy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意する</span>
-        </label>
-      </div>
-      <button type="submit" class="btn btn-submit">&gt; 送信する</button>
-    </form>
+    </div>
   </div>
 </section>
 
