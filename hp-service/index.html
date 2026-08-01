@@ -296,6 +296,19 @@
   .plan-work-body { padding: 18px 16px; }
   .plan-work-body .work-label { text-align: left; padding: 0; margin-bottom: 8px; }
   .plan-work-body p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+  .work-card-media { position: relative; aspect-ratio: 16 / 9; }
+  .work-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .work-card-media-overlay {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.55);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; color: #fff;
+  }
+  .work-card-plan-name {
+    font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 22px; letter-spacing: 0.05em;
+  }
+  .work-card-plan-pages {
+    font-family: "JetBrains Mono", monospace; font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 6px;
+  }
 
   /* ---- About table ---- */
   .about-table { width: 100%; border-collapse: collapse; font-size: 14px; }
@@ -628,6 +641,13 @@
     <p class="section-lead">同じ店舗を3つのプランで制作した実例です。ページ数と機能の違いをご確認いただけます。</p>
     <div class="works-grid">
       <a class="work-card" href="../samples/gym-light.html" target="_blank" rel="noopener">
+        <div class="work-card-media">
+          <img src="../images/sample-card-gym.webp" alt="">
+          <div class="work-card-media-overlay">
+            <div class="work-card-plan-name">LIGHT</div>
+            <div class="work-card-plan-pages">1ページ</div>
+          </div>
+        </div>
         <div class="plan-work-body">
           <div class="price-tag">sample/light</div>
           <div class="work-label">ライトプラン</div>
@@ -635,6 +655,13 @@
         </div>
       </a>
       <a class="work-card" href="../samples/gym-standard.html" target="_blank" rel="noopener">
+        <div class="work-card-media">
+          <img src="../images/sample-card-gym.webp" alt="">
+          <div class="work-card-media-overlay">
+            <div class="work-card-plan-name">STANDARD</div>
+            <div class="work-card-plan-pages">2〜6ページ</div>
+          </div>
+        </div>
         <div class="plan-work-body">
           <div class="price-tag">sample/standard</div>
           <div class="work-label">スタンダードプラン</div>
@@ -642,6 +669,13 @@
         </div>
       </a>
       <a class="work-card" href="../samples/gym-advance.html" target="_blank" rel="noopener">
+        <div class="work-card-media">
+          <img src="../images/sample-card-gym.webp" alt="">
+          <div class="work-card-media-overlay">
+            <div class="work-card-plan-name">ADVANCE</div>
+            <div class="work-card-plan-pages">7〜12ページ</div>
+          </div>
+        </div>
         <div class="plan-work-body">
           <div class="price-tag">sample/advance</div>
           <div class="work-label">アドバンスプラン</div>
