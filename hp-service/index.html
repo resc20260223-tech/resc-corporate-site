@@ -288,6 +288,10 @@
   .work-card .work-label { padding: 12px; font-size: 13px; font-weight: 700; text-align: center; }
 
   /* ---- Plan samples (text-only work-card variant) ---- */
+  /* 前セクション(#business)と同じbg-altが続き、section.pageの90pxが両側で
+     積み重なって180pxの空白になっていたため、この境界だけpadding-topを縮小
+     （前セクションの90px + ここの20px = 合計110px程度を狙う）。 */
+  #plan-samples { padding-top: 20px; }
   #plan-samples .works-grid { grid-template-columns: repeat(3, 1fr); }
   .plan-work-body { padding: 18px 16px; }
   .plan-work-body .work-label { text-align: left; padding: 0; margin-bottom: 8px; }
