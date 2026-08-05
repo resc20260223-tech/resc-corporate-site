@@ -1360,6 +1360,18 @@
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // URLフラグメント（#page-xxx）からのページ切り替え。
+  // hp-service/index.html のプライバシーポリシーリンク（../index.html#page-privacy）等、
+  // 別ページから showPage() を直接呼べない箇所からの遷移を成立させるための初期化処理。
+  // "#page-" に続く文字列をそのまま showPage() の引数に渡すため、
+  // id="page-xxx" の命名規則さえ守れば、将来ページが増えても個別対応は不要。
+  function applyHashRoute() {
+    var match = window.location.hash.match(/^#page-(.+)$/);
+    if (match) showPage(match[1]);
+  }
+  window.addEventListener('hashchange', applyHashRoute);
+  applyHashRoute();
 </script>
 
 </body>
