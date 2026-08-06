@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>福岡匠建｜工務店</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #6B4423;
+    --primary-dark: #472C16;
+    --bg: #F7F4EF;
+    --accent: #8A9A5B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Zen Kaku Gothic New', sans-serif; background: var(--bg); color: #2B2420; line-height: 1.8; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .notice {
+    background: var(--primary-dark); color: #fff; text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: #fff; text-decoration: underline; }
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero-video { width: 100%; height: 100%; object-fit: contain; background: var(--primary-dark); }
+  .hero-mask-top { position: absolute; top: 0; left: 0; right: 0; height: 46px; background: var(--primary-dark); z-index: 1; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
+  .hero-text { display: none; }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
+  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+
+  @keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-text h1,
+    .hero-text p {
+      animation: none;
+    }
+  }
+  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
+  .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
+  .about p { font-size: 14.5px; color: #4A4238; }
+  .menu-category { margin-top: 40px; }
+  .menu-category:first-child { margin-top: 0; }
+  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; text-align: center; }
+  .menu-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .menu-card { text-align: center; width: calc(25% - 15px); }
+  .menu-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
+  .menu-card .menu-name { margin-top: 12px; font-size: 14px; font-weight: 700; color: #2B2420; }
+  @media (max-width: 900px) { .menu-card { width: calc(33.333% - 14px); } }
+  @media (max-width: 700px) { .menu-card { width: calc(50% - 10px); } }
+  @media (max-width: 420px) { .menu-card { width: 100%; } }
+  .gallery-marquee { overflow: hidden; }
+  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
+  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; object-fit: cover; border-radius: 6px; margin-right: 16px; }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-marquee { overflow-x: auto; }
+  }
+  .contact { background: var(--primary); color: #fff; text-align: center; }
+  .contact .section-title { color: #fff; }
+  .contact p { font-size: 14px; margin-bottom: 8px; }
+  .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
+
+  /* ---- LINE連携ボタン（cafe-light.html と同一実装） ---- */
+  .line-btn {
+    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
+    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
+    line-height: 21px;
+  }
+  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
+  .contact .line-wrap { margin-top: 18px; }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+
+<div class="hero">
+  <video class="hero-video" id="hero-video" autoplay muted playsinline>
+    <source src="images/construction/construction_hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-mask-top"></div>
+  <div class="hero-text">
+    <div class="label">工務店</div>
+    <h1>家族の時間を、長く支える家づくり。</h1>
+    <p>福岡匠建</p>
+  </div>
+</div>
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var v = document.getElementById('hero-video');
+    if (v) { v.pause(); v.removeAttribute('autoplay'); }
+  }
+})();
+</script>
+
+<section class="about">
+  <div class="section-title">こだわり</div>
+  <p>新築・リフォームともに、地域の気候と暮らし方に合わせた設計をご提案します。完成後のメンテナンスまで、長いお付き合いを大切にしています。</p>
+</section>
+
+<section style="background:#fff;">
+  <div class="section-title">施工事例</div>
+
+  <div class="menu-category">
+    <div class="menu-category-title">注文住宅</div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img src="images/construction/construction_menu_modern.webp" alt="モダン住宅">
+        <div class="menu-name">モダン住宅</div>
+      </div>
+      <div class="menu-card">
+        <img src="images/construction/construction_menu_wamodern.webp" alt="和モダン住宅">
+        <div class="menu-name">和モダン住宅</div>
+      </div>
+      <div class="menu-card">
+        <img src="images/construction/construction_menu_hiraya.webp" alt="平屋住宅">
+        <div class="menu-name">平屋住宅</div>
+      </div>
+      <div class="menu-card">
+        <img src="images/construction/construction_menu_nisetai.webp" alt="二世帯住宅">
+        <div class="menu-name">二世帯住宅</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-category">
+    <div class="menu-category-title">リノベーション・その他</div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img src="images/construction/construction_menu_renovation.webp" alt="リノベーション">
+        <div class="menu-name">リノベーション</div>
+      </div>
+      <div class="menu-card">
+        <img src="images/construction/construction_menu_shop.webp" alt="店舗・オフィス">
+        <div class="menu-name">店舗・オフィス</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">ギャラリー</div>
+  <div class="gallery-marquee">
+    <div class="gallery-track">
+      <img class="gallery-item" src="images/construction/construction_gallery1.webp" alt="大工の手仕事（継手加工）">
+      <img class="gallery-item" src="images/construction/construction_gallery2.webp" alt="和モダンなリビング・ダイニング">
+      <img class="gallery-item" src="images/construction/construction_gallery3.webp" alt="庭を望む応接空間">
+      <img class="gallery-item" src="images/construction/construction_gallery4.webp" alt="お客様との打ち合わせ風景">
+      <img class="gallery-item" src="images/construction/construction_gallery5.webp" alt="ご家族との打ち合わせ風景">
+      <img class="gallery-item" src="images/construction/construction_gallery6.webp" alt="木材と職人道具">
+      <img class="gallery-item" src="images/construction/construction_gallery1.webp" alt="" aria-hidden="true">
+      <img class="gallery-item" src="images/construction/construction_gallery2.webp" alt="" aria-hidden="true">
+      <img class="gallery-item" src="images/construction/construction_gallery3.webp" alt="" aria-hidden="true">
+      <img class="gallery-item" src="images/construction/construction_gallery4.webp" alt="" aria-hidden="true">
+      <img class="gallery-item" src="images/construction/construction_gallery5.webp" alt="" aria-hidden="true">
+      <img class="gallery-item" src="images/construction/construction_gallery6.webp" alt="" aria-hidden="true">
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="section-title">アクセス・お問い合わせ</div>
+  <p>福岡県福岡市〇〇区〇〇5-3-1</p>
+  <p>営業時間:8:30〜17:30（定休日:日曜日）</p>
+  <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+  <div class="line-wrap">
+    <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
+    <p class="line-note">LINEでのお問い合わせも承っています。</p>
+  </div>
+</section>
+
+<footer>福岡匠建（RESC制作サンプル）</footer>
+
+</body>
+</html>
