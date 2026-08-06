@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafe Hana｜カフェ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #8B5E3C;
+    --primary-dark: #5C3B24;
+    --bg: #FBF6EE;
+    --accent: #C97B3E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Zen Old Mincho', serif; background: var(--bg); color: #2B2420; line-height: 1.8; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .notice {
+    background: var(--primary-dark); color: #fff; text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: #fff; text-decoration: underline; }
+
+  /* ---- Nav（gym-standard.html のナビ実装を移植し、cafeの配色に変更） ---- */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(92,59,36,.95); backdrop-filter: blur(6px);
+    height: 64px;
+  }
+  .nav-in {
+    max-width: 900px; margin: 0 auto; height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+  }
+  .logo { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 19px; letter-spacing: .05em; color: #fff; cursor: pointer; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: rgba(255,255,255,.85); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.nav-cta { background: var(--accent); color: #fff; padding: 9px 18px; border-radius: 4px; }
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    background: transparent; border: none; cursor: pointer;
+  }
+  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; transform-origin: 60% 35%; animation: hero-kenburns 20s ease-out infinite alternate; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
+  .hero-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
+  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+
+  @keyframes hero-kenburns {
+    from { transform: scale(1) translate(0, 0); }
+    to { transform: scale(1.08) translate(-1.5%, -1.5%); }
+  }
+  @keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero img,
+    .hero-text h1,
+    .hero-text p {
+      animation: none;
+    }
+  }
+  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
+  .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
+  .about p { font-size: 14.5px; color: #4A4238; }
+
+  /* ---- about抜粋（page-top） ---- */
+  .about-excerpt p { font-size: 14.5px; color: #4A4238; margin-bottom: 22px; }
+  .about-excerpt .more-link {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent);
+    border-bottom: 1px solid var(--accent); padding-bottom: 2px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
+  }
+
+  .menu-category { margin-top: 40px; }
+  .menu-category:first-child { margin-top: 0; }
+  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; text-align: center; }
+  .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .menu-card { text-align: center; }
+  .menu-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
+  .menu-card .menu-name { margin-top: 12px; font-size: 14px; font-weight: 700; color: #2B2420; }
+  .menu-card .menu-price { margin-top: 4px; font-size: 13px; color: var(--primary); }
+  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px) { .menu-grid { grid-template-columns: 1fr; } }
+  .gallery-marquee { overflow: hidden; }
+  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
+  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; object-fit: cover; border-radius: 6px; margin-right: 16px; }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-marquee { overflow-x: auto; }
+  }
+  .contact { background: var(--primary); color: #fff; text-align: center; }
+  .contact .section-title { color: #fff; }
+  .contact p { font-size: 14px; margin-bottom: 8px; }
+  .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
+
+  /* ---- LINE連携ボタン（cafe-light.html と同一実装） ---- */
+  .line-btn {
+    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
+    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
+    line-height: 21px;
+  }
+  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
+  .contact .line-wrap { margin-top: 18px; }
+
+  /* ---- 地図プレースホルダー（page-access・insta-note の作法を踏襲。色はcontact内で既存の rgba(255,255,255,.5) を再利用） ---- */
+  .map-placeholder {
+    width: 100%; height: 280px; margin-top: 22px; margin-bottom: 4px;
+    border: 1px dashed rgba(255,255,255,.5); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .map-placeholder span { font-size: 11.5px; color: rgba(255,255,255,.5); }
+
+  /* ---- Instagram（デモ表示・gym-standard.html 345〜358行目の insta-sec を移植） ---- */
+  .insta-note {
+    display: inline-block; font-size: 11.5px; color: #8A8272;
+    border: 1px dashed rgba(0,0,0,0.15); border-radius: 4px; padding: 6px 12px; margin-bottom: 24px;
+  }
+  .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .insta-item { aspect-ratio: 1/1; border-radius: 6px; width: 100%; height: auto; object-fit: cover; }
+  @media (max-width: 700px) { .insta-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---- 各ページへの導線カード（page-top） ---- */
+  .link-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .link-card {
+    display: block; background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px;
+    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.08); }
+  .link-card .tag { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
+  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); }
+  .link-card p { font-size: 13px; color: #8A8272; }
+  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--accent); }
+  @media (max-width: 700px) { .link-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ページ切り替え（gym-advance.html のCSSパターンを移植） ---- */
+  #page-top { display: block; }
+  #page-menu, #page-about, #page-access { display: none; }
+  body[class*="-page"] #page-top { display: none; }
+  body.menu-page #page-menu { display: block; }
+  body.about-page #page-about { display: block; }
+  body.access-page #page-access { display: block; }
+
+  /* ---- レスポンシブ ---- */
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav.open .nav-links {
+      display: flex; flex-direction: column; align-items: stretch; gap: 4px;
+      position: absolute; top: 64px; left: 0; right: 0;
+      background: var(--primary-dark); padding: 12px 24px 20px;
+    }
+    .nav.open .nav-links a { padding: .8em .2em; }
+    .nav.open .nav-links a.nav-cta { margin-top: 10px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" onclick="showPage('top')">Cafe <span>Hana</span></a>
+    <div class="nav-links">
+      <a onclick="showPage('top')">TOP</a>
+      <a onclick="showPage('menu')">メニュー</a>
+      <a onclick="showPage('about')">こだわり</a>
+      <a class="nav-cta" onclick="showPage('access')">アクセス・お問い合わせ</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" aria-expanded="false" onclick="toggleNav()">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════ PAGE: TOP ════ -->
+<div id="page-top">
+
+  <div class="hero">
+    <img src="images/cafe/cafe_hero.webp" alt="Cafe Hana">
+    <div class="hero-text">
+      <div class="label">カフェ</div>
+      <h1>丁寧に淹れる一杯と、ほっとできる時間を。</h1>
+      <p>Cafe Hana</p>
+    </div>
+  </div>
+
+  <section class="about-excerpt">
+    <div class="section-title">こだわり</div>
+    <p>自家焙煎のコーヒーと、地元農家から届く旬のフルーツを使ったタルトをご提供するカフェです。</p>
+    <a class="more-link" onclick="showPage('about')">こだわりをもっと見る →</a>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title">Instagram</div>
+    <div style="text-align:center;">
+      <span class="insta-note">Instagramの投稿がここに自動表示されます（デモ表示中）</span>
+    </div>
+    <div class="insta-grid">
+      <img class="insta-item" src="images/cafe/cafe_gallery1.webp" alt="店内の様子">
+      <img class="insta-item" src="images/cafe/cafe_gallery2.webp" alt="コーヒー豆の焙煎">
+      <img class="insta-item" src="images/cafe/cafe_gallery3.webp" alt="テラス席">
+      <img class="insta-item" src="images/cafe/cafe_gallery4.webp" alt="バリスタがラテアートを注ぐ様子">
+      <img class="insta-item" src="images/cafe/cafe_gallery5.webp" alt="窓際の読書スペース">
+      <img class="insta-item" src="images/cafe/cafe_gallery6.webp" alt="本棚のある読書コーナー">
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">詳しく見る</div>
+    <div class="link-grid">
+      <button class="link-card" onclick="showPage('menu')">
+        <div class="tag">Menu</div>
+        <h3>メニュー</h3>
+        <p>ドリンク・フードのメニューを写真つきでご紹介します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('about')">
+        <div class="tag">About</div>
+        <h3>こだわり・ギャラリー</h3>
+        <p>お店のこだわりと、店内の様子をご覧いただけます。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('access')">
+        <div class="tag">Access</div>
+        <h3>アクセス・お問い合わせ</h3>
+        <p>営業時間・所在地のご案内と、お問い合わせ先です。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+    </div>
+  </section>
+
+</div><!-- /page-top -->
+
+<!-- ════ PAGE: メニュー ════ -->
+<div id="page-menu">
+  <section style="background:#fff;">
+    <div class="section-title">メニュー</div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">ドリンク</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_latte.webp" alt="カフェラテ">
+          <div class="menu-name">カフェラテ</div>
+          <div class="menu-price">¥550</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_icecoffee.webp" alt="アイスコーヒー">
+          <div class="menu-name">アイスコーヒー</div>
+          <div class="menu-price">¥500</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_lemonade.webp" alt="自家製レモネード">
+          <div class="menu-name">自家製レモネード</div>
+          <div class="menu-price">¥580</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_matcha.webp" alt="抹茶ラテ">
+          <div class="menu-name">抹茶ラテ</div>
+          <div class="menu-price">¥600</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">フード</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_pancake.webp" alt="ふわふわパンケーキ">
+          <div class="menu-name">ふわふわパンケーキ</div>
+          <div class="menu-price">¥880</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_sandwich.webp" alt="クラブサンドイッチ">
+          <div class="menu-name">クラブサンドイッチ</div>
+          <div class="menu-price">¥850</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_frenchtoast.webp" alt="フレンチトースト">
+          <div class="menu-name">フレンチトースト</div>
+          <div class="menu-price">¥780</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_cheesecake.webp" alt="ニューヨークチーズケーキ">
+          <div class="menu-name">ニューヨークチーズケーキ</div>
+          <div class="menu-price">¥600</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_pasta.webp" alt="トマトバジルパスタ">
+          <div class="menu-name">トマトバジルパスタ</div>
+          <div class="menu-price">¥1,180</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_croissant.webp" alt="焼きたてクロワッサン">
+          <div class="menu-name">焼きたてクロワッサン</div>
+          <div class="menu-price">¥380</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-menu -->
+
+<!-- ════ PAGE: こだわり ════ -->
+<div id="page-about">
+  <section class="about">
+    <div class="section-title">こだわり</div>
+    <p>自家焙煎のコーヒーと、地元農家から届く旬のフルーツを使ったタルトをご提供するカフェです。日常のなかにほっとできる場所を、地域の皆さまにお届けします。</p>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <img class="gallery-item" src="images/cafe/cafe_gallery1.webp" alt="店内の様子">
+        <img class="gallery-item" src="images/cafe/cafe_gallery2.webp" alt="コーヒー豆の焙煎">
+        <img class="gallery-item" src="images/cafe/cafe_gallery3.webp" alt="テラス席">
+        <img class="gallery-item" src="images/cafe/cafe_gallery4.webp" alt="バリスタがラテアートを注ぐ様子">
+        <img class="gallery-item" src="images/cafe/cafe_gallery5.webp" alt="窓際の読書スペース">
+        <img class="gallery-item" src="images/cafe/cafe_gallery6.webp" alt="本棚のある読書コーナー">
+        <img class="gallery-item" src="images/cafe/cafe_gallery1.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/cafe/cafe_gallery2.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/cafe/cafe_gallery3.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/cafe/cafe_gallery4.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/cafe/cafe_gallery5.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/cafe/cafe_gallery6.webp" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </section>
+</div><!-- /page-about -->
+
+<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
+<div id="page-access">
+  <section class="contact">
+    <div class="section-title">アクセス・お問い合わせ</div>
+    <p>福岡県福岡市〇〇区〇〇1-2-3</p>
+    <p>営業時間:10:00〜19:00（定休日:水曜日）</p>
+    <div class="map-placeholder">
+      <span>地図がここに表示されます（デモ表示中）</span>
+    </div>
+    <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+    <div class="line-wrap">
+      <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
+      <p class="line-note">LINEでのお問い合わせも承っています。</p>
+    </div>
+  </section>
+</div><!-- /page-access -->
+
+<footer>Cafe Hana（RESC制作サンプル）</footer>
+
+<script>
+  /* ── ページ切り替え（gym-advance.html 881〜885行目より移植） ── */
+  function showPage(page) {
+    closeNav(); closeMenu();
+    document.body.className = (page === 'top') ? '' : (page + '-page');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── ハンバーガーメニュー（gym-standard.html のナビ実装を移植） ── */
+  function toggleNav() {
+    var nav = document.getElementById('nav');
+    var isOpen = nav.classList.toggle('open');
+    document.getElementById('navToggle').setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+  function closeNav() {
+    document.getElementById('nav').classList.remove('open');
+    document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
+  }
+  /* cafe-standardにはメニューオーバーレイを実装していないため何もしない（showPageからの呼び出し用スタブ） */
+  function closeMenu() {}
+</script>
+
+</body>
+</html>
