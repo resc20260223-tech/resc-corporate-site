@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafe Hana｜カフェ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #8B5E3C;
+    --primary-dark: #5C3B24;
+    --bg: #FBF6EE;
+    --accent: #C97B3E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Zen Old Mincho', serif; background: var(--bg); color: #2B2420; line-height: 1.8; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .notice {
+    background: var(--primary-dark); color: #fff; text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: #fff; text-decoration: underline; }
+
+  /* ---- Nav（cafe-standard.html のナビ実装をベースに、gym-advance.html のメニューオーバーレイを追加移植） ---- */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(92,59,36,.95); backdrop-filter: blur(6px);
+    height: 64px;
+  }
+  .nav-in {
+    max-width: 1100px; margin: 0 auto; height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+  }
+  .logo { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 19px; letter-spacing: .05em; color: #fff; cursor: pointer; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: rgba(255,255,255,.85); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.nav-cta { background: var(--accent); color: #fff; padding: 9px 18px; border-radius: 4px; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .menu-btn {
+    display: inline-flex; align-items: center; gap: 8px; background: transparent;
+    border: 1px solid rgba(255,255,255,.35); color: #fff; font-size: 13px; font-weight: 700;
+    padding: 9px 16px; border-radius: 4px; cursor: pointer;
+  }
+  .menu-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    background: transparent; border: none; cursor: pointer;
+  }
+  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+
+  /* ---- メニューオーバーレイ（gym-advance.html 61〜93/379〜409行目を移植し、cafeの配色に変更） ---- */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(43,36,32,.72); backdrop-filter: blur(3px);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 90px 24px 40px; overflow-y: auto;
+  }
+  .menu-overlay.open { display: flex; }
+  .menu-overlay-inner {
+    background: #fff; border-radius: 12px; width: 100%; max-width: 780px;
+    padding: 36px 36px 30px; position: relative;
+  }
+  .menu-close {
+    position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%;
+    border: none; background: var(--bg); font-size: 18px; cursor: pointer; color: #2B2420;
+  }
+  .menu-top-link {
+    display: inline-block; font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 20px;
+    color: var(--primary-dark); margin-bottom: 26px; cursor: pointer;
+  }
+  .menu-top-link:hover { color: var(--accent); }
+  .menu-cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 26px; }
+  .menu-cat-title {
+    font-size: 11.5px; letter-spacing: .18em; color: var(--accent); font-weight: 700; margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .menu-cat a { display: block; font-size: 14.5px; font-weight: 700; padding: 8px 0; cursor: pointer; color: #2B2420; }
+  .menu-cat a:hover { color: var(--accent); }
+  .menu-access-link {
+    display: block; text-align: center; background: var(--primary-dark); color: #fff; font-weight: 700; font-size: 14px;
+    padding: 14px; border-radius: 6px; cursor: pointer;
+  }
+  .menu-access-link:hover { background: var(--accent); }
+
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; transform-origin: 60% 35%; animation: hero-kenburns 20s ease-out infinite alternate; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
+  .hero-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
+  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+
+  @keyframes hero-kenburns {
+    from { transform: scale(1) translate(0, 0); }
+    to { transform: scale(1.08) translate(-1.5%, -1.5%); }
+  }
+  @keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero img,
+    .hero-text h1,
+    .hero-text p {
+      animation: none;
+    }
+  }
+  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
+  .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
+  .about p { font-size: 14.5px; color: #4A4238; }
+
+  /* ---- about抜粋（page-top） ---- */
+  .about-excerpt p { font-size: 14.5px; color: #4A4238; margin-bottom: 22px; }
+  .about-excerpt .more-link {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent);
+    border-bottom: 1px solid var(--accent); padding-bottom: 2px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
+  }
+
+  .menu-category { margin-top: 40px; }
+  .menu-category:first-child { margin-top: 0; }
+  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; text-align: center; }
+  .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .menu-card { text-align: center; }
+  .menu-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
+  .menu-card .menu-name { margin-top: 12px; font-size: 14px; font-weight: 700; color: #2B2420; }
+  .menu-card .menu-price { margin-top: 4px; font-size: 13px; color: var(--primary); }
+  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px) { .menu-grid { grid-template-columns: 1fr; } }
+  .gallery-marquee { overflow: hidden; }
+  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
+  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; object-fit: cover; border-radius: 6px; margin-right: 16px; }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-marquee { overflow-x: auto; }
+  }
+  .contact { background: var(--primary); color: #fff; text-align: center; }
+  .contact .section-title { color: #fff; }
+  .contact p { font-size: 14px; margin-bottom: 8px; }
+  .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
+
+  /* ---- LINE連携ボタン（cafe-light.html と同一実装） ---- */
+  .line-btn {
+    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
+    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
+    line-height: 21px;
+  }
+  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
+  .contact .line-wrap { margin-top: 18px; }
+
+  /* ---- 地図プレースホルダー（cafe-standard.html の page-access 実装をそのまま移植） ---- */
+  .map-placeholder {
+    border: 1px dashed rgba(255,255,255,.5); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    align-self: stretch; min-height: 300px;
+  }
+  .map-placeholder span { font-size: 11.5px; color: rgba(255,255,255,.5); }
+
+  /* ---- page-access 2カラムレイアウト（cafe-standard.html を移植） ---- */
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
+  }
+  .contact-info { min-height: 300px; }
+  @media (max-width: 800px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-info { min-height: 0; }
+  }
+
+  /* ---- SNS（3媒体・デモ表示。gym-advance.html 139〜145行目の sns-grid を移植し、cafeの配色に変更） ---- */
+  .sns-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .sns-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; }
+  .sns-card .sns-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .sns-card-head { display: flex; align-items: center; gap: 8px; padding: 14px 16px; font-size: 13px; font-weight: 700; }
+  .sns-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .sns-note { font-size: 11px; color: #8A8272; padding: 0 16px 16px; }
+  @media (max-width: 700px) { .sns-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 各ページへの導線カード（page-top。cafe-standard.html を移植） ---- */
+  .link-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .link-card {
+    display: block; background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px;
+    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.08); }
+  .link-card .tag { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
+  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); }
+  .link-card p { font-size: 13px; color: #8A8272; }
+  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--accent); }
+  @media (max-width: 900px) { .link-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .link-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 選ばれる理由（page-reasons。gym-advance.html の reason-grid を移植） ---- */
+  .reason-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .reason-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; background: #fff; }
+  .reason-card .reason-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .reason-card-body { padding: 18px 18px 22px; }
+  .reason-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .reason-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #2B2420; }
+  .reason-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 900px) { .reason-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ご利用の流れ（page-flow。reason-card と同じ見た目でcafe_flow画像を使うための新規コンポーネント。
+       gym-advance.html の flow-list は画像を持たないため、reason-card の構造を流用した） ---- */
+  .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .flow-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; background: #fff; }
+  .flow-card .flow-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .flow-card-body { padding: 18px 18px 22px; }
+  .flow-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .flow-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #2B2420; }
+  .flow-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 900px) { .flow-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .flow-grid { grid-template-columns: 1fr; } }
+
+  /* ---- よくある質問（page-faq。gym-advance.html の faq-item を移植） ---- */
+  .faq-cat-title { font-family: 'Zen Old Mincho', serif; font-size: 15px; font-weight: 700; color: var(--accent); margin: 34px 0 12px; }
+  .faq-cat-title:first-child { margin-top: 0; }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: 18px 4px; font-size: 14.5px; font-weight: 700; display: flex; gap: 14px; align-items: flex-start; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before { content: "Q"; color: var(--accent); font-weight: 900; flex: 0 0 auto; }
+  .faq-item p { padding: 0 4px 18px 24px; font-size: 13px; color: #8A8272; line-height: 1.9; }
+
+  /* ---- スタッフ紹介（page-staff。gym-advance.html の trainer-grid を移植) ---- */
+  .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .staff-card .staff-photo { aspect-ratio: 4/5; border-radius: 8px; margin-bottom: 16px; width: 100%; height: auto; object-fit: cover; }
+  .staff-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; color: #2B2420; }
+  .staff-role { font-size: 11.5px; color: var(--accent); font-weight: 700; margin-bottom: 10px; letter-spacing: .04em; }
+  .staff-bio { font-size: 12.5px; color: #8A8272; line-height: 1.85; }
+  @media (max-width: 700px) { .staff-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .staff-grid { grid-template-columns: 1fr; } }
+
+  /* ---- お客様の声（page-voice。gym-advance.html の testi-grid を移植） ---- */
+  .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .voice-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 22px 20px; }
+  .voice-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .voice-head .voice-photo { width: 52px; height: 52px; border-radius: 50%; flex: 0 0 auto; object-fit: cover; }
+  .voice-name { font-size: 13.5px; font-weight: 700; color: #2B2420; }
+  .voice-meta { font-size: 11.5px; color: #8A8272; }
+  .voice-card p.comment { font-size: 13px; color: #8A8272; line-height: 1.85; }
+  .voice-favorite { margin-top: 12px; font-size: 12px; color: var(--accent); font-weight: 700; }
+  @media (max-width: 700px) { .voice-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 店内紹介（page-facility。gym-advance.html の facility-grid を移植。新規画像2枚のため2カラム） ---- */
+  .facility-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .facility-card .facility-photo { aspect-ratio: 4/3; border-radius: 8px; margin-bottom: 14px; width: 100%; height: auto; object-fit: cover; }
+  .facility-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #2B2420; }
+  .facility-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 700px) { .facility-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ブログ・お知らせ（page-blog。gym-advance.html の blog-grid を移植） ---- */
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .blog-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; }
+  .blog-card .blog-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .blog-card-body { padding: 18px 18px 20px; }
+  .blog-date { font-size: 11px; color: #8A8272; margin-bottom: 8px; }
+  .blog-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 8px; line-height: 1.6; color: #2B2420; }
+  .blog-card p { font-size: 12.5px; color: #8A8272; line-height: 1.75; }
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .blog-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ページ切り替え（11ページ分。cafe-standard.html のCSSパターンを拡張） ---- */
+  #page-top { display: block; }
+  #page-about, #page-reasons, #page-menu, #page-flow, #page-faq,
+  #page-staff, #page-voice, #page-facility, #page-blog, #page-access { display: none; }
+  body[class*="-page"] #page-top { display: none; }
+  body.about-page #page-about { display: block; }
+  body.reasons-page #page-reasons { display: block; }
+  body.menu-page #page-menu { display: block; }
+  body.flow-page #page-flow { display: block; }
+  body.faq-page #page-faq { display: block; }
+  body.staff-page #page-staff { display: block; }
+  body.voice-page #page-voice { display: block; }
+  body.facility-page #page-facility { display: block; }
+  body.blog-page #page-blog { display: block; }
+  body.access-page #page-access { display: block; }
+
+  /* ---- レスポンシブ（gym-advance.html のナビ関連レスポンシブを移植） ---- */
+  @media (max-width: 860px) {
+    .nav-links, .menu-btn { display: none; }
+    .nav-toggle { display: flex; }
+    .menu-overlay { padding: 78px 14px 30px; }
+    .menu-overlay-inner { padding: 28px 20px 24px; }
+    .menu-cats { grid-template-columns: 1fr; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" onclick="showPage('top')">Cafe <span>Hana</span></a>
+    <div class="nav-links">
+      <a onclick="showPage('top')">TOP</a>
+      <a onclick="showPage('menu')">メニュー</a>
+      <a onclick="showPage('staff')">スタッフ紹介</a>
+      <a class="nav-cta" onclick="showPage('access')">お問い合わせ</a>
+    </div>
+    <div class="nav-right">
+      <button class="menu-btn" type="button" onclick="openMenu()">☰ メニュー</button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" onclick="openMenu()">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- メニューオーバーレイ（全11ページの導線・gym-advance.html を移植） -->
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-overlay-inner">
+    <button class="menu-close" type="button" aria-label="閉じる" onclick="closeMenu()">×</button>
+    <a class="menu-top-link" onclick="showPage('top')">Cafe <span style="color:var(--accent);">Hana</span> TOP</a>
+    <div class="menu-cats">
+      <div class="menu-cat">
+        <div class="menu-cat-title">Cafe Hanaについて</div>
+        <a onclick="showPage('about')">こだわり</a>
+        <a onclick="showPage('reasons')">選ばれる理由</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">ご利用案内</div>
+        <a onclick="showPage('menu')">メニュー・料金</a>
+        <a onclick="showPage('flow')">ご利用の流れ</a>
+        <a onclick="showPage('faq')">よくある質問</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">スタッフ・店内</div>
+        <a onclick="showPage('staff')">スタッフ紹介</a>
+        <a onclick="showPage('voice')">お客様の声</a>
+        <a onclick="showPage('facility')">店内紹介</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">お知らせ</div>
+        <a onclick="showPage('blog')">ブログ・お知らせ</a>
+      </div>
+    </div>
+    <a class="menu-access-link" onclick="showPage('access')">アクセス・お問い合わせ →</a>
+  </div>
+</div>
+
+<!-- ════ PAGE: TOP ════ -->
+<div id="page-top">
+
+  <div class="hero">
+    <img src="images/cafe/cafe_hero.webp" alt="Cafe Hana">
+    <div class="hero-text">
+      <div class="label">カフェ</div>
+      <h1>丁寧に淹れる一杯と、ほっとできる時間を。</h1>
+      <p>Cafe Hana</p>
+    </div>
+  </div>
+
+  <section class="about-excerpt">
+    <div class="section-title">こだわり</div>
+    <p>自家焙煎のコーヒーと、地元農家から届く旬のフルーツを使ったタルトをご提供するカフェです。</p>
+    <a class="more-link" onclick="showPage('about')">こだわりをもっと見る →</a>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title">SNSでも発信しています</div>
+    <div class="sns-grid">
+      <div class="sns-card">
+        <div class="sns-card-head"><span class="sns-dot"></span>Instagram</div>
+        <img class="sns-photo" src="images/cafe/cafe_gallery1.webp" alt="店内の様子">
+        <p class="sns-note">最新の投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card">
+        <div class="sns-card-head"><span class="sns-dot"></span>X（旧Twitter）</div>
+        <img class="sns-photo" src="images/cafe/cafe_gallery2.webp" alt="コーヒー豆の焙煎">
+        <p class="sns-note">最新のポストがここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card">
+        <div class="sns-card-head"><span class="sns-dot"></span>Facebook</div>
+        <img class="sns-photo" src="images/cafe/cafe_gallery5.webp" alt="窓際の読書スペース">
+        <p class="sns-note">ページの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">詳しく見る</div>
+    <div class="link-grid">
+      <button class="link-card" onclick="showPage('about')">
+        <div class="tag">About</div>
+        <h3>こだわり・選ばれる理由</h3>
+        <p>お店のこだわりと選ばれる理由をご紹介します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('menu')">
+        <div class="tag">Guide</div>
+        <h3>メニュー・ご利用案内</h3>
+        <p>メニュー・料金、ご利用の流れ、よくある質問をご案内します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('staff')">
+        <div class="tag">Staff</div>
+        <h3>スタッフ・店内紹介</h3>
+        <p>スタッフ紹介、お客様の声、店内の様子をご覧いただけます。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('blog')">
+        <div class="tag">Column</div>
+        <h3>ブログ・お知らせ</h3>
+        <p>最新のお知らせやコラムをお届けします。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+    </div>
+  </section>
+
+</div><!-- /page-top -->
+
+<!-- ════ PAGE: こだわり ════ -->
+<div id="page-about">
+  <section class="about">
+    <div class="section-title">こだわり</div>
+    <p>自家焙煎のコーヒーと、地元農家から届く旬のフルーツを使ったタルトをご提供するカフェです。日常のなかにほっとできる場所を、地域の皆さまにお届けします。</p>
+  </section>
+</div><!-- /page-about -->
+
+<!-- ════ PAGE: 選ばれる理由 ════ -->
+<div id="page-reasons">
+  <section style="background:#fff;">
+    <div class="section-title">選ばれる理由</div>
+    <div class="reason-grid">
+      <div class="reason-card">
+        <img class="reason-photo" src="images/cafe/cafe_gallery2.webp" alt="コーヒー豆の焙煎">
+        <div class="reason-card-body">
+          <div class="reason-num">01</div>
+          <h3>自家焙煎のこだわり</h3>
+          <p>豆の状態を毎日確かめながら、店内の焙煎機で少量ずつ丁寧に焼き上げています。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <img class="reason-photo" src="images/cafe/cafe_menu_pancake.webp" alt="ふわふわパンケーキ">
+        <div class="reason-card-body">
+          <div class="reason-num">02</div>
+          <h3>地元の恵みを使ったフード</h3>
+          <p>地元農家から届く旬のフルーツや野菜を使い、季節ごとのメニューをご用意しています。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <img class="reason-photo" src="images/cafe/cafe_gallery5.webp" alt="窓際の読書スペース">
+        <div class="reason-card-body">
+          <div class="reason-num">03</div>
+          <h3>居心地のよい店内</h3>
+          <p>窓際の読書スペースやテラス席など、思い思いに過ごせる席をご用意しています。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <img class="reason-photo" src="images/cafe/cafe_gallery4.webp" alt="バリスタがラテアートを注ぐ様子">
+        <div class="reason-card-body">
+          <div class="reason-num">04</div>
+          <h3>一杯ずつ丁寧な接客</h3>
+          <p>バリスタが一杯ずつ心を込めてラテアートを仕上げ、お渡ししています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-reasons -->
+
+<!-- ════ PAGE: メニュー ════ -->
+<div id="page-menu">
+  <section style="background:#fff;">
+    <div class="section-title">メニュー</div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">ドリンク</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_latte.webp" alt="カフェラテ">
+          <div class="menu-name">カフェラテ</div>
+          <div class="menu-price">¥550</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_icecoffee.webp" alt="アイスコーヒー">
+          <div class="menu-name">アイスコーヒー</div>
+          <div class="menu-price">¥500</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_lemonade.webp" alt="自家製レモネード">
+          <div class="menu-name">自家製レモネード</div>
+          <div class="menu-price">¥580</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_matcha.webp" alt="抹茶ラテ">
+          <div class="menu-name">抹茶ラテ</div>
+          <div class="menu-price">¥600</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">フード</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_pancake.webp" alt="ふわふわパンケーキ">
+          <div class="menu-name">ふわふわパンケーキ</div>
+          <div class="menu-price">¥880</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_sandwich.webp" alt="クラブサンドイッチ">
+          <div class="menu-name">クラブサンドイッチ</div>
+          <div class="menu-price">¥850</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_frenchtoast.webp" alt="フレンチトースト">
+          <div class="menu-name">フレンチトースト</div>
+          <div class="menu-price">¥780</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_cheesecake.webp" alt="ニューヨークチーズケーキ">
+          <div class="menu-name">ニューヨークチーズケーキ</div>
+          <div class="menu-price">¥600</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_pasta.webp" alt="トマトバジルパスタ">
+          <div class="menu-name">トマトバジルパスタ</div>
+          <div class="menu-price">¥1,180</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/cafe/cafe_menu_croissant.webp" alt="焼きたてクロワッサン">
+          <div class="menu-name">焼きたてクロワッサン</div>
+          <div class="menu-price">¥380</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-menu -->
+
+<!-- ════ PAGE: ご利用の流れ ════ -->
+<div id="page-flow">
+  <section style="background:#fff;">
+    <div class="section-title">ご利用の流れ</div>
+    <div class="flow-grid">
+      <div class="flow-card">
+        <img class="flow-photo" src="images/cafe/cafe_flow1.webp" alt="ご入店の様子">
+        <div class="flow-card-body">
+          <div class="flow-num">01</div>
+          <h3>ご入店</h3>
+          <p>店内へどうぞお入りください。カウンターでスタッフがお出迎えします。</p>
+        </div>
+      </div>
+      <div class="flow-card">
+        <img class="flow-photo" src="images/cafe/cafe_flow2.webp" alt="ご注文の様子">
+        <div class="flow-card-body">
+          <div class="flow-num">02</div>
+          <h3>ご注文</h3>
+          <p>メニューからお好きな一杯やフードをお選びください。</p>
+        </div>
+      </div>
+      <div class="flow-card">
+        <img class="flow-photo" src="images/cafe/cafe_flow3.webp" alt="お受け取りの様子">
+        <div class="flow-card-body">
+          <div class="flow-num">03</div>
+          <h3>お受け取り</h3>
+          <p>番号札をお呼びしましたら、カウンターまでお越しください。</p>
+        </div>
+      </div>
+      <div class="flow-card">
+        <img class="flow-photo" src="images/cafe/cafe_flow4.webp" alt="ご着席の様子">
+        <div class="flow-card-body">
+          <div class="flow-num">04</div>
+          <h3>ご着席</h3>
+          <p>お好きな席で、ごゆっくりお過ごしください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-flow -->
+
+<!-- ════ PAGE: よくある質問 ════ -->
+<div id="page-faq">
+  <section>
+    <div class="section-title">よくある質問</div>
+
+    <div class="faq-cat-title">ご来店について</div>
+    <div class="faq-item"><details><summary>予約は必要ですか？</summary><p>予約不要でご利用いただけます。混雑時は少々お待ちいただく場合がございます。</p></details></div>
+    <div class="faq-item"><details><summary>駐車場はありますか？</summary><p>近隣にコインパーキングがございます。</p></details></div>
+
+    <div class="faq-cat-title">メニューについて</div>
+    <div class="faq-item"><details><summary>テイクアウトはできますか？</summary><p>一部メニューを除き、テイクアウトも承っております。</p></details></div>
+    <div class="faq-item"><details><summary>アレルギー対応はできますか？</summary><p>使用食材について、スタッフまでお気軽にお尋ねください。</p></details></div>
+
+    <div class="faq-cat-title">お店について</div>
+    <div class="faq-item"><details><summary>Wi-Fiや電源はありますか？</summary><p>店内全席でWi-Fiと電源をご利用いただけます。</p></details></div>
+    <div class="faq-item"><details><summary>定休日はいつですか？</summary><p>毎週水曜日が定休日です。詳しい営業時間はアクセスページをご確認ください。</p></details></div>
+  </section>
+</div><!-- /page-faq -->
+
+<!-- ════ PAGE: スタッフ紹介 ════ -->
+<div id="page-staff">
+  <section style="background:#fff;">
+    <div class="section-title">スタッフ紹介</div>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <img class="staff-photo" src="images/cafe/cafe_staff1.webp" alt="店主・バリスタ 田中">
+        <div class="staff-name">店主・バリスタ 田中</div>
+        <div class="staff-role">Cafe Hana 店主</div>
+        <p class="staff-bio">「一杯ごとに、お客様の一日が少しでも豊かになるように。」焙煎からラテアートまで、すべての工程を大切にしています。</p>
+      </div>
+      <div class="staff-card">
+        <img class="staff-photo" src="images/cafe/cafe_staff2.webp" alt="ホール担当 佐藤">
+        <div class="staff-name">スタッフ 佐藤</div>
+        <div class="staff-role">ホール担当</div>
+        <p class="staff-bio">「お客様との会話も、Cafe Hanaの大切な時間です。」笑顔でのお出迎えを心がけています。</p>
+      </div>
+      <div class="staff-card">
+        <img class="staff-photo" src="images/cafe/cafe_staff3.webp" alt="パティシエ 山本">
+        <div class="staff-name">パティシエ 山本</div>
+        <div class="staff-role">パティシエ</div>
+        <p class="staff-bio">「旬の果物を使ったタルトや焼き菓子を、毎日少しずつ手作りしています。」季節ごとの味わいをお楽しみください。</p>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-staff -->
+
+<!-- ════ PAGE: お客様の声 ════ -->
+<div id="page-voice">
+  <section>
+    <div class="section-title">お客様の声</div>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/cafe/cafe_voice1.webp" alt="お客様の声1">
+          <div>
+            <div class="voice-name">M.Sさん（30代・女性）</div>
+            <div class="voice-meta">近所にお住まい・週2で来店</div>
+          </div>
+        </div>
+        <p class="comment">焙煎の香りに誘われて、気づけば毎週通うようになりました。</p>
+        <div class="voice-favorite">お気に入り：カフェラテ</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/cafe/cafe_voice2.webp" alt="お客様の声2">
+          <div>
+            <div class="voice-name">K.Tさん（40代・男性）</div>
+            <div class="voice-meta">テレワークの合間に利用</div>
+          </div>
+        </div>
+        <p class="comment">Wi-Fiも電源もあるので、仕事の合間に立ち寄っています。</p>
+        <div class="voice-favorite">お気に入り：アイスコーヒー</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/cafe/cafe_voice3.webp" alt="お客様の声3">
+          <div>
+            <div class="voice-name">R.Nさん（20代・女性）</div>
+            <div class="voice-meta">友人と月1で来店</div>
+          </div>
+        </div>
+        <p class="comment">季節のタルトが楽しみで、来るたびに新しい発見があります。</p>
+        <div class="voice-favorite">お気に入り：ふわふわパンケーキ</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-voice -->
+
+<!-- ════ PAGE: 店内紹介 ════ -->
+<div id="page-facility">
+  <section>
+    <div class="section-title">店内紹介</div>
+    <div class="facility-grid">
+      <div class="facility-card">
+        <img class="facility-photo" src="images/cafe/cafe_facility1.webp" alt="カウンター席">
+        <h3>カウンター席</h3>
+        <p>バリスタの手元を眺めながら過ごせる、カウンター席をご用意しています。</p>
+      </div>
+      <div class="facility-card">
+        <img class="facility-photo" src="images/cafe/cafe_facility2.webp" alt="外観">
+        <h3>外観</h3>
+        <p>通りに面した、あたたかみのある外観が目印です。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <img class="gallery-item" src="images/cafe/cafe_gallery1.webp" alt="店内の様子">
+        <img class="gallery-item" src="images/cafe/cafe_gallery2.webp" alt="コーヒー豆の焙煎">
+        <img class="gallery-item" src="images/cafe/cafe_gallery3.webp" alt="テラス席">
+        <img class="gallery-item" src="images/cafe/cafe_gallery4.webp" alt="バリスタがラテアートを注ぐ様子">
+        <img class="gallery-item" src="images/cafe/cafe_gallery5.webp" alt="窓際の読書スペース">
+        <img class="gallery-item" src="images/cafe/cafe_gallery6.webp" alt="本棚のある読書コーナー">
+        <img class="gallery-item" src="images/cafe/cafe_gallery1.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/cafe/cafe_gallery2.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/cafe/cafe_gallery3.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/cafe/cafe_gallery4.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/cafe/cafe_gallery5.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/cafe/cafe_gallery6.webp" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </section>
+</div><!-- /page-facility -->
+
+<!-- ════ PAGE: ブログ・お知らせ ════ -->
+<div id="page-blog">
+  <section>
+    <div class="section-title">ブログ・お知らせ</div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img class="blog-photo" src="images/cafe/cafe_menu_matcha.webp" alt="抹茶ラテ">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.05</div>
+          <h3>抹茶ラテ、はじめました</h3>
+          <p>石臼挽きの抹茶を使った新メニューが仲間入りしました。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/cafe/cafe_gallery3.webp" alt="テラス席">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.18</div>
+          <h3>テラス席がオープンしました</h3>
+          <p>天気のいい日は、外の空気を感じながらどうぞ。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/cafe/cafe_menu_croissant.webp" alt="焼きたてクロワッサン">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.30</div>
+          <h3>クロワッサンの焼きたて時間について</h3>
+          <p>毎朝2回、焼きたてをご用意しています。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/cafe/cafe_gallery6.webp" alt="本棚のある読書コーナー">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.10</div>
+          <h3>読書コーナーをリニューアルしました</h3>
+          <p>本棚の蔵書を少し増やしました。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/cafe/cafe_menu_pasta.webp" alt="トマトバジルパスタ">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.20</div>
+          <h3>ランチタイムのご案内</h3>
+          <p>平日11:00〜14:00は軽食メニューもご用意しています。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/cafe/cafe_hero.webp" alt="Cafe Hana">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.08.01</div>
+          <h3>夏季営業時間のお知らせ</h3>
+          <p>8月中は営業時間を変更しております。詳しくはアクセスページをご覧ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-blog -->
+
+<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
+<div id="page-access">
+  <section class="contact">
+    <div class="section-title">アクセス・お問い合わせ</div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <p>福岡県福岡市〇〇区〇〇1-2-3</p>
+        <p>営業時間:10:00〜19:00（定休日:水曜日）</p>
+        <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+        <div class="line-wrap">
+          <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
+          <p class="line-note">LINEでのお問い合わせも承っています。</p>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <span>地図がここに表示されます（デモ表示中）</span>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-access -->
+
+<footer>Cafe Hana（RESC制作サンプル）</footer>
+
+<script>
+  /* ── ページ切り替え（gym-advance.html 881〜885行目より移植） ── */
+  function showPage(page) {
+    closeNav(); closeMenu();
+    document.body.className = (page === 'top') ? '' : (page + '-page');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── ナビ／メニューオーバーレイ（gym-advance.html 887〜893行目より移植） ── */
+  function openMenu() { document.getElementById('menuOverlay').classList.add('open'); }
+  function closeMenu() { document.getElementById('menuOverlay').classList.remove('open'); }
+  function closeNav() { /* モバイル単体ドロップダウンは無いためメニュー閉じるのみ（gym-advance.html を踏襲） */ }
+  document.getElementById('menuOverlay').addEventListener('click', function (e) {
+    if (e.target.id === 'menuOverlay') closeMenu();
+  });
+</script>
+
+</body>
+</html>
