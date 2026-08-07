@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みなと接骨院｜医療・クリニック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #5C7A6D;
+    --primary-dark: #3E5449;
+    --bg: #F4F7F5;
+    --accent: #8FA88C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Zen Kaku Gothic New', sans-serif; background: var(--bg); color: #2B2420; line-height: 1.8; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .notice {
+    background: var(--primary-dark); color: #fff; text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: #fff; text-decoration: underline; }
+
+  /* ---- Nav（clinic-standard.html のナビ実装をベースに、salon-advance.html のメニューオーバーレイを追加移植） ---- */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(62,84,73,.95); backdrop-filter: blur(6px);
+    height: 64px;
+  }
+  .nav-in {
+    max-width: 900px; margin: 0 auto; height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+  }
+  .logo { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: .05em; color: #fff; cursor: pointer; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: rgba(255,255,255,.85); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.nav-cta { background: var(--accent); color: #fff; padding: 9px 18px; border-radius: 4px; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .menu-btn {
+    display: inline-flex; align-items: center; gap: 8px; background: transparent;
+    border: 1px solid rgba(255,255,255,.35); color: #fff; font-size: 13px; font-weight: 700;
+    padding: 9px 16px; border-radius: 4px; cursor: pointer;
+  }
+  .menu-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    background: transparent; border: none; cursor: pointer;
+  }
+  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+
+  /* ---- メニューオーバーレイ（salon-advance.html を移植し、clinicの配色に変更） ---- */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(62,84,73,.72); backdrop-filter: blur(3px);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 90px 24px 40px; overflow-y: auto;
+  }
+  .menu-overlay.open { display: flex; }
+  .menu-overlay-inner {
+    background: #fff; border-radius: 12px; width: 100%; max-width: 780px;
+    padding: 36px 36px 30px; position: relative;
+  }
+  .menu-close {
+    position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%;
+    border: none; background: var(--bg); font-size: 18px; cursor: pointer; color: #2B2420;
+  }
+  .menu-top-link {
+    display: inline-block; font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 20px;
+    color: var(--primary-dark); margin-bottom: 26px; cursor: pointer;
+  }
+  .menu-top-link:hover { color: var(--accent); }
+  .menu-cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 26px; }
+  .menu-cat-title {
+    font-size: 11.5px; letter-spacing: .18em; color: var(--accent); font-weight: 700; margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .menu-cat a { display: block; font-size: 14.5px; font-weight: 700; padding: 8px 0; cursor: pointer; color: #2B2420; }
+  .menu-cat a:hover { color: var(--accent); }
+  .menu-access-link {
+    display: block; text-align: center; background: var(--primary-dark); color: #fff; font-weight: 700; font-size: 14px;
+    padding: 14px; border-radius: 6px; cursor: pointer;
+  }
+  .menu-access-link:hover { background: var(--accent); }
+
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; transform-origin: 60% 35%; animation: hero-kenburns 20s ease-out infinite alternate; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
+  .hero-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
+  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+
+  @keyframes hero-kenburns {
+    from { transform: scale(1) translate(0, 0); }
+    to { transform: scale(1.08) translate(-1.5%, -1.5%); }
+  }
+  @keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero img,
+    .hero-text h1,
+    .hero-text p {
+      animation: none;
+    }
+  }
+
+  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
+  .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
+  .about p { font-size: 14.5px; color: #4A4238; }
+
+  /* ---- about抜粋（page-top） ---- */
+  .about-excerpt p { font-size: 14.5px; color: #4A4238; margin-bottom: 22px; }
+  .about-excerpt .more-link {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent);
+    border-bottom: 1px solid var(--accent); padding-bottom: 2px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
+  }
+
+  /* ---- メニュー（clinic-standard.html の flex 実装を踏襲。画像ごとの object-position 指定はclinicには存在しないため未使用） ---- */
+  .menu-category { margin-top: 40px; }
+  .menu-category:first-child { margin-top: 0; }
+  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; text-align: center; }
+  .menu-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .menu-card { text-align: center; width: calc(25% - 15px); }
+  .menu-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
+  .menu-card .menu-name { margin-top: 12px; font-size: 14px; font-weight: 700; color: #2B2420; }
+  .menu-card .menu-price { margin-top: 4px; font-size: 13px; color: var(--primary); }
+  @media (max-width: 900px) { .menu-card { width: calc(33.333% - 14px); } }
+  @media (max-width: 700px) { .menu-card { width: calc(50% - 10px); } }
+  @media (max-width: 420px) { .menu-card { width: 100%; } }
+
+  .gallery-marquee { overflow: hidden; }
+  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
+  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; object-fit: cover; border-radius: 6px; margin-right: 16px; }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-marquee { overflow-x: auto; }
+  }
+  .contact { background: var(--primary); color: #fff; text-align: center; }
+  .contact .section-title { color: #fff; }
+  .contact p { font-size: 14px; margin-bottom: 8px; }
+  .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
+
+  /* ---- LINE連携ボタン（clinic-standard.html と同一実装） ---- */
+  .line-btn {
+    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
+    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
+    line-height: 21px;
+  }
+  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
+  .contact .line-wrap { margin-top: 18px; }
+
+  /* ---- 地図プレースホルダー（clinic-standard.html の page-access 実装をそのまま移植） ---- */
+  .map-placeholder {
+    border: 1px dashed rgba(255,255,255,.5); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    align-self: stretch; min-height: 300px;
+  }
+  .map-placeholder span { font-size: 11.5px; color: rgba(255,255,255,.5); }
+
+  /* ---- page-access 2カラムレイアウト（clinic-standard.html を移植。旧系統のため .contact-info に min-height:300px を付与） ---- */
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
+  }
+  .contact-info { min-height: 300px; }
+  @media (max-width: 800px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-info { min-height: 0; }
+  }
+
+  /* ---- SNS（3媒体・デモ表示。salon-advance.html の sns-grid を移植し、clinicの配色に変更） ---- */
+  .sns-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .sns-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; }
+  .sns-card .sns-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .sns-card-head { display: flex; align-items: center; gap: 8px; padding: 14px 16px; font-size: 13px; font-weight: 700; }
+  .sns-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .sns-note { font-size: 11px; color: #8A8272; padding: 0 16px 16px; }
+  @media (max-width: 700px) { .sns-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 各ページへの導線カード（page-top。salon-advance.html を移植） ---- */
+  .link-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .link-card {
+    display: block; background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px;
+    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.08); }
+  .link-card .tag { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
+  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); }
+  .link-card p { font-size: 13px; color: #8A8272; }
+  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--accent); }
+  @media (max-width: 900px) { .link-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .link-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 選ばれる理由（page-reasons。salon-advance.html の reason-grid を移植） ---- */
+  .reason-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .reason-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; background: #fff; }
+  .reason-card .reason-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .reason-card-body { padding: 18px 18px 22px; }
+  .reason-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .reason-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #2B2420; }
+  .reason-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 900px) { .reason-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ご利用の流れ（page-flow。salon-advance.html の flow-card を移植） ---- */
+  .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .flow-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; background: #fff; }
+  .flow-card .flow-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .flow-card-body { padding: 18px 18px 22px; }
+  .flow-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .flow-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #2B2420; }
+  .flow-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 900px) { .flow-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .flow-grid { grid-template-columns: 1fr; } }
+
+  /* ---- よくある質問（page-faq。salon-advance.html の faq-item を移植） ---- */
+  .faq-cat-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 15px; font-weight: 700; color: var(--accent); margin: 34px 0 12px; }
+  .faq-cat-title:first-child { margin-top: 0; }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: 18px 4px; font-size: 14.5px; font-weight: 700; display: flex; gap: 14px; align-items: flex-start; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before { content: "Q"; color: var(--accent); font-weight: 900; flex: 0 0 auto; }
+  .faq-item p { padding: 0 4px 18px 24px; font-size: 13px; color: #8A8272; line-height: 1.9; }
+
+  /* ---- スタッフ紹介（page-staff。salon-advance.html の staff-grid を移植） ---- */
+  .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .staff-card .staff-photo { aspect-ratio: 4/5; border-radius: 8px; margin-bottom: 16px; width: 100%; height: auto; object-fit: cover; }
+  .staff-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; color: #2B2420; }
+  .staff-role { font-size: 11.5px; color: var(--accent); font-weight: 700; margin-bottom: 10px; letter-spacing: .04em; }
+  .staff-bio { font-size: 12.5px; color: #8A8272; line-height: 1.85; }
+  @media (max-width: 700px) { .staff-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .staff-grid { grid-template-columns: 1fr; } }
+
+  /* ---- お客様の声（page-voice。salon-advance.html の voice-grid を移植） ---- */
+  .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .voice-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 22px 20px; }
+  .voice-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .voice-head .voice-photo { width: 52px; height: 52px; border-radius: 50%; flex: 0 0 auto; object-fit: cover; }
+  .voice-name { font-size: 13.5px; font-weight: 700; color: #2B2420; }
+  .voice-meta { font-size: 11.5px; color: #8A8272; }
+  .voice-card p.comment { font-size: 13px; color: #8A8272; line-height: 1.85; }
+  .voice-favorite { margin-top: 12px; font-size: 12px; color: var(--accent); font-weight: 700; }
+  @media (max-width: 700px) { .voice-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 院内紹介（page-facility。salon-advance.html の facility-grid を移植。新規画像2枚のため2カラム） ---- */
+  .facility-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .facility-card .facility-photo { aspect-ratio: 4/3; border-radius: 8px; margin-bottom: 14px; width: 100%; height: auto; object-fit: cover; }
+  .facility-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #2B2420; }
+  .facility-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 700px) { .facility-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ブログ・お知らせ（page-blog。salon-advance.html の blog-grid を移植） ---- */
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .blog-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; }
+  .blog-card .blog-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .blog-card-body { padding: 18px 18px 20px; }
+  .blog-date { font-size: 11px; color: #8A8272; margin-bottom: 8px; }
+  .blog-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 8px; line-height: 1.6; color: #2B2420; }
+  .blog-card p { font-size: 12.5px; color: #8A8272; line-height: 1.75; }
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .blog-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ページ切り替え（11ページ分。salon-advance.html のCSSパターンをそのまま移植） ---- */
+  #page-top { display: block; }
+  #page-about, #page-reasons, #page-menu, #page-flow, #page-faq,
+  #page-staff, #page-voice, #page-facility, #page-blog, #page-access { display: none; }
+  body[class*="-page"] #page-top { display: none; }
+  body.about-page #page-about { display: block; }
+  body.reasons-page #page-reasons { display: block; }
+  body.menu-page #page-menu { display: block; }
+  body.flow-page #page-flow { display: block; }
+  body.faq-page #page-faq { display: block; }
+  body.staff-page #page-staff { display: block; }
+  body.voice-page #page-voice { display: block; }
+  body.facility-page #page-facility { display: block; }
+  body.blog-page #page-blog { display: block; }
+  body.access-page #page-access { display: block; }
+
+  /* ---- レスポンシブ（salon-advance.html のナビ関連レスポンシブを移植） ---- */
+  @media (max-width: 860px) {
+    .nav-links, .menu-btn { display: none; }
+    .nav-toggle { display: flex; }
+    .menu-overlay { padding: 78px 14px 30px; }
+    .menu-overlay-inner { padding: 28px 20px 24px; }
+    .menu-cats { grid-template-columns: 1fr; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" onclick="showPage('top')">みなと<span>接骨院</span></a>
+    <div class="nav-links">
+      <a onclick="showPage('top')">TOP</a>
+      <a onclick="showPage('menu')">メニュー</a>
+      <a onclick="showPage('staff')">スタッフ紹介</a>
+      <a class="nav-cta" onclick="showPage('access')">アクセス・お問い合わせ</a>
+    </div>
+    <div class="nav-right">
+      <button class="menu-btn" type="button" onclick="openMenu()">☰ メニュー</button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" onclick="openMenu()">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- メニューオーバーレイ（全11ページの導線・salon-advance.html を移植） -->
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-overlay-inner">
+    <button class="menu-close" type="button" aria-label="閉じる" onclick="closeMenu()">×</button>
+    <a class="menu-top-link" onclick="showPage('top')">みなと<span style="color:var(--accent);">接骨院</span> TOP</a>
+    <div class="menu-cats">
+      <div class="menu-cat">
+        <div class="menu-cat-title">みなと接骨院について</div>
+        <a onclick="showPage('about')">こだわり</a>
+        <a onclick="showPage('reasons')">選ばれる理由</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">ご利用案内</div>
+        <a onclick="showPage('menu')">メニュー・料金</a>
+        <a onclick="showPage('flow')">ご利用の流れ</a>
+        <a onclick="showPage('faq')">よくある質問</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">スタッフ・院内</div>
+        <a onclick="showPage('staff')">スタッフ紹介</a>
+        <a onclick="showPage('voice')">お客様の声</a>
+        <a onclick="showPage('facility')">院内紹介</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">お知らせ</div>
+        <a onclick="showPage('blog')">ブログ・お知らせ</a>
+      </div>
+    </div>
+    <a class="menu-access-link" onclick="showPage('access')">アクセス・お問い合わせ →</a>
+  </div>
+</div>
+
+<!-- ════ PAGE: TOP ════ -->
+<div id="page-top">
+
+  <div class="hero">
+    <img src="images/clinic/clinic_hero.webp" alt="みなと接骨院">
+    <div class="hero-text">
+      <div class="label">医療・クリニック</div>
+      <h1>からだの声に、ちゃんと向き合う。</h1>
+      <p>みなと接骨院</p>
+    </div>
+  </div>
+
+  <section class="about-excerpt">
+    <div class="section-title">こだわり</div>
+    <p>肩こり・腰痛・スポーツ外傷など、一人ひとりの症状に合わせた施術を行っています。</p>
+    <a class="more-link" onclick="showPage('about')">こだわりをもっと見る →</a>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title">SNSでも発信しています</div>
+    <div class="sns-grid">
+      <div class="sns-card">
+        <div class="sns-card-head"><span class="sns-dot"></span>Instagram</div>
+        <img class="sns-photo" src="images/clinic/clinic_gallery1.webp" alt="受付・待合スペース">
+        <p class="sns-note">Instagramの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card">
+        <div class="sns-card-head"><span class="sns-dot"></span>X（旧Twitter）</div>
+        <img class="sns-photo" src="images/clinic/clinic_gallery3.webp" alt="施術スタッフの様子">
+        <p class="sns-note">最新のポストがここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card">
+        <div class="sns-card-head"><span class="sns-dot"></span>Facebook</div>
+        <img class="sns-photo" src="images/clinic/clinic_gallery5.webp" alt="コンディショニングルーム">
+        <p class="sns-note">ページの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">詳しく見る</div>
+    <div class="link-grid">
+      <button class="link-card" onclick="showPage('about')">
+        <div class="tag">About</div>
+        <h3>こだわり・選ばれる理由</h3>
+        <p>みなと接骨院のこだわりと選ばれる理由をご紹介します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('menu')">
+        <div class="tag">Guide</div>
+        <h3>メニュー・ご利用案内</h3>
+        <p>メニュー・料金、ご利用の流れ、よくある質問をご案内します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('staff')">
+        <div class="tag">Staff</div>
+        <h3>スタッフ・院内紹介</h3>
+        <p>スタッフ紹介、お客様の声、院内の様子をご覧いただけます。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('blog')">
+        <div class="tag">Column</div>
+        <h3>ブログ・お知らせ</h3>
+        <p>最新のお知らせやコラムをお届けします。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+    </div>
+  </section>
+
+</div><!-- /page-top -->
+
+<!-- ════ PAGE: こだわり ════ -->
+<div id="page-about">
+  <section class="about">
+    <div class="section-title">こだわり</div>
+    <p>肩こり・腰痛・スポーツ外傷など、一人ひとりの症状に合わせた施術を行っています。初めての方も安心して通っていただけるよう、丁寧なカウンセリングを心がけています。</p>
+  </section>
+</div><!-- /page-about -->
+
+<!-- ════ PAGE: 選ばれる理由 ════ -->
+<div id="page-reasons">
+  <section style="background:#fff;">
+    <div class="section-title">選ばれる理由</div>
+    <div class="reason-grid">
+      <div class="reason-card">
+        <img class="reason-photo" src="images/clinic/clinic_gallery2.webp" alt="施術ルーム">
+        <div class="reason-card-body">
+          <div class="reason-num">01</div>
+          <h3>一人ひとりの症状に合わせた施術</h3>
+          <p>肩こり・腰痛・スポーツ外傷など、お一人おひとりの症状やお悩みに合わせた施術を行っています。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <img class="reason-photo" src="images/clinic/clinic_gallery4.webp" alt="施術用品・タオル">
+        <div class="reason-card-body">
+          <div class="reason-num">02</div>
+          <h3>清潔で丁寧な施術環境</h3>
+          <p>施術用品やタオルを清潔に整え、安心してご利用いただける環境づくりを心がけています。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <img class="reason-photo" src="images/clinic/clinic_gallery6.webp" alt="エントランス・受付">
+        <div class="reason-card-body">
+          <div class="reason-num">03</div>
+          <h3>通いやすい明るい院内</h3>
+          <p>住宅街にあり、地域の方が気軽に通いやすい明るい雰囲気の院内です。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <img class="reason-photo" src="images/clinic/clinic_gallery5.webp" alt="コンディショニングルーム">
+        <div class="reason-card-body">
+          <div class="reason-num">04</div>
+          <h3>スポーツコンディショニングにも対応</h3>
+          <p>スポーツによる痛みや不調のケアなど、幅広いコンディショニングに対応しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-reasons -->
+
+<!-- ════ PAGE: メニュー ════ -->
+<div id="page-menu">
+  <section style="background:#fff;">
+    <div class="section-title">メニュー</div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">基本メニュー</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="images/clinic/clinic_menu_consultation.webp" alt="初診カウンセリング＋施術">
+          <div class="menu-name">初診カウンセリング＋施術</div>
+          <div class="menu-price">¥3,000</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/clinic/clinic_menu_treatment.webp" alt="再診施術">
+          <div class="menu-name">再診施術</div>
+          <div class="menu-price">¥1,500</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/clinic/clinic_menu_care.webp" alt="保険適用施術">
+          <div class="menu-name">保険適用施術</div>
+          <div class="menu-price">¥500〜</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">ケアメニュー</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="images/clinic/clinic_menu_pelvic.webp" alt="骨盤矯正ケア">
+          <div class="menu-name">骨盤矯正ケア</div>
+          <div class="menu-price">¥2,500</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/clinic/clinic_menu_sports.webp" alt="スポーツコンディショニング">
+          <div class="menu-name">スポーツコンディショニング</div>
+          <div class="menu-price">¥2,500</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/clinic/clinic_menu_stretch.webp" alt="姿勢ケア・ストレッチ">
+          <div class="menu-name">姿勢ケア・ストレッチ</div>
+          <div class="menu-price">¥2,000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-menu -->
+
+<!-- ════ PAGE: ご利用の流れ ════ -->
+<div id="page-flow">
+  <section style="background:#fff;">
+    <div class="section-title">ご利用の流れ</div>
+    <div class="flow-grid">
+      <div class="flow-card">
+        <img class="flow-photo" src="images/clinic/clinic_flow1.webp" alt="受付で問診票を記入する来院者とスタッフ">
+        <div class="flow-card-body">
+          <div class="flow-num">01</div>
+          <h3>ご来院・受付</h3>
+          <p>ご来院後、受付にて問診票のご記入をお願いしています。スタッフが丁寧にご案内いたします。</p>
+        </div>
+      </div>
+      <div class="flow-card">
+        <img class="flow-photo" src="images/clinic/clinic_flow2.webp" alt="人体図を使って症状を説明する施術者">
+        <div class="flow-card-body">
+          <div class="flow-num">02</div>
+          <h3>カウンセリング・検査</h3>
+          <p>人体図なども使いながら、症状や痛みの原因についてわかりやすくご説明します。</p>
+        </div>
+      </div>
+      <div class="flow-card">
+        <img class="flow-photo" src="images/clinic/clinic_flow3.webp" alt="施術ベッドで手技を行う施術者">
+        <div class="flow-card-body">
+          <div class="flow-num">03</div>
+          <h3>施術</h3>
+          <p>検査結果をもとに、肩や首まわりなど気になる部位へ丁寧に手技を行います。</p>
+        </div>
+      </div>
+      <div class="flow-card">
+        <img class="flow-photo" src="images/clinic/clinic_flow4.webp" alt="施術後に姿勢を確認する施術者">
+        <div class="flow-card-body">
+          <div class="flow-num">04</div>
+          <h3>姿勢チェック・アフターケア</h3>
+          <p>施術後の姿勢や体の変化を確認し、日常生活でのアドバイスもお伝えします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-flow -->
+
+<!-- ════ PAGE: よくある質問 ════ -->
+<div id="page-faq">
+  <section>
+    <div class="section-title">よくある質問</div>
+
+    <div class="faq-cat-title">ご来院について</div>
+    <div class="faq-item"><details><summary>予約は必要ですか？</summary><p>ご予約優先で承っております。空き状況によっては当日のご案内も可能です。</p></details></div>
+    <div class="faq-item"><details><summary>保険は使えますか？</summary><p>症状により保険適用施術も承っております。詳しくは受付までお尋ねください。</p></details></div>
+
+    <div class="faq-cat-title">メニューについて</div>
+    <div class="faq-item"><details><summary>施術時間はどれくらいですか？</summary><p>初診は問診・検査を含め40〜50分程度、再診は20〜30分程度が目安です。</p></details></div>
+    <div class="faq-item"><details><summary>子供でも施術を受けられますか？</summary><p>お子様の成長期の姿勢ケアなども承っております。</p></details></div>
+
+    <div class="faq-cat-title">院について</div>
+    <div class="faq-item"><details><summary>駐車場はありますか？</summary><p>院の前に専用駐車場をご用意しております。</p></details></div>
+    <div class="faq-item"><details><summary>休診日はいつですか？</summary><p>日曜・祝日が休診日です。詳しい受付時間はアクセスページをご確認ください。</p></details></div>
+  </section>
+</div><!-- /page-faq -->
+
+<!-- ════ PAGE: スタッフ紹介 ════ -->
+<div id="page-staff">
+  <section style="background:#fff;">
+    <div class="section-title">スタッフ紹介</div>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <img class="staff-photo" src="images/clinic/clinic_staff1.webp" alt="院長・柔道整復師 田中">
+        <div class="staff-name">院長・柔道整復師 田中</div>
+        <div class="staff-role">みなと接骨院 院長</div>
+        <p class="staff-bio">「一人ひとりの症状としっかり向き合い、根本的な改善を目指した施術を行っています。」お客様が安心して通える接骨院を目指しています。</p>
+      </div>
+      <div class="staff-card">
+        <img class="staff-photo" src="images/clinic/clinic_staff2.webp" alt="柔道整復師 佐々木">
+        <div class="staff-name">柔道整復師 佐々木</div>
+        <div class="staff-role">柔道整復師</div>
+        <p class="staff-bio">「検査で原因を見極め、丁寧な手技でお身体の状態を整えます。」スポーツ外傷のケアも得意としています。</p>
+      </div>
+      <div class="staff-card">
+        <img class="staff-photo" src="images/clinic/clinic_staff3.webp" alt="受付 森">
+        <div class="staff-name">受付 森</div>
+        <div class="staff-role">受付</div>
+        <p class="staff-bio">「皆さまが気持ちよく通院できるよう、笑顔でお迎えしています。」お困りごとがあればお気軽にお声がけください。</p>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-staff -->
+
+<!-- ════ PAGE: お客様の声 ════ -->
+<div id="page-voice">
+  <section>
+    <div class="section-title">お客様の声</div>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/clinic/clinic_voice1.webp" alt="お客様の声1">
+          <div>
+            <div class="voice-name">S.Kさん（50代・女性）</div>
+            <div class="voice-meta">肩こりで定期的に通院</div>
+          </div>
+        </div>
+        <p class="comment">いつも丁寧に施術していただき、来院するたびに体が楽になります。待合室も落ち着いた雰囲気で安心して過ごせます。</p>
+        <div class="voice-favorite">お気に入り：再診施術</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/clinic/clinic_voice2.webp" alt="お客様の声2">
+          <div>
+            <div class="voice-name">T.Iさん（30代・男性）</div>
+            <div class="voice-meta">デスクワークによる腰痛で来院</div>
+          </div>
+        </div>
+        <p class="comment">初めての来院でしたが、受付で問診票の記入から丁寧にご案内いただき安心できました。</p>
+        <div class="voice-favorite">お気に入り：初診カウンセリング＋施術</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/clinic/clinic_voice3.webp" alt="お客様の声3">
+          <div>
+            <div class="voice-name">M.Yさん（40代・女性）</div>
+            <div class="voice-meta">姿勢改善のため通院</div>
+          </div>
+        </div>
+        <p class="comment">教えていただいたストレッチを自宅でも続けています。姿勢が良くなった気がします。</p>
+        <div class="voice-favorite">お気に入り：姿勢ケア・ストレッチ</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-voice -->
+
+<!-- ════ PAGE: 院内紹介 ════ -->
+<div id="page-facility">
+  <section>
+    <div class="section-title">院内・外観のご紹介</div>
+    <div class="facility-grid">
+      <div class="facility-card">
+        <img class="facility-photo" src="images/clinic/clinic_facility1.webp" alt="施術ベッドが並ぶ施術室">
+        <h3>施術室</h3>
+        <p>施術ベッドを3台備え、ゆとりを持って施術を受けていただけます。</p>
+      </div>
+      <div class="facility-card">
+        <img class="facility-photo" src="images/clinic/clinic_facility2.webp" alt="外観">
+        <h3>外観</h3>
+        <p>住宅街に建つ、白を基調とした明るい佇まいの外観です。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <img class="gallery-item" src="images/clinic/clinic_gallery1.webp" alt="受付・待合スペース">
+        <img class="gallery-item" src="images/clinic/clinic_gallery2.webp" alt="施術ルーム">
+        <img class="gallery-item" src="images/clinic/clinic_gallery3.webp" alt="施術スタッフの様子">
+        <img class="gallery-item" src="images/clinic/clinic_gallery4.webp" alt="施術用品・タオル">
+        <img class="gallery-item" src="images/clinic/clinic_gallery5.webp" alt="コンディショニングルーム">
+        <img class="gallery-item" src="images/clinic/clinic_gallery6.webp" alt="エントランス・受付">
+        <img class="gallery-item" src="images/clinic/clinic_gallery1.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/clinic/clinic_gallery2.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/clinic/clinic_gallery3.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/clinic/clinic_gallery4.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/clinic/clinic_gallery5.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/clinic/clinic_gallery6.webp" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </section>
+</div><!-- /page-facility -->
+
+<!-- ════ PAGE: ブログ・お知らせ ════ -->
+<div id="page-blog">
+  <section>
+    <div class="section-title">ブログ・お知らせ</div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img class="blog-photo" src="images/clinic/clinic_menu_pelvic.webp" alt="骨盤矯正ケア">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.05</div>
+          <h3>骨盤矯正ケア、はじめました</h3>
+          <p>産後や姿勢の歪みが気になる方向けの骨盤矯正ケアメニューが加わりました。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/clinic/clinic_gallery3.webp" alt="施術スタッフの様子">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.18</div>
+          <h3>スタッフが増えました</h3>
+          <p>新しいスタッフが加わり、より多くの方にご来院いただけるようになりました。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/clinic/clinic_menu_sports.webp" alt="スポーツコンディショニング">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.30</div>
+          <h3>スポーツコンディショニングのご案内</h3>
+          <p>部活動やスポーツでのお怪我・不調のケアも承っております。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/clinic/clinic_gallery4.webp" alt="施術用品・タオル">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.10</div>
+          <h3>衛生管理を強化しました</h3>
+          <p>タオル・施術用品の管理体制を見直し、より安心してご利用いただけるようになりました。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/clinic/clinic_menu_stretch.webp" alt="姿勢ケア・ストレッチ">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.20</div>
+          <h3>姿勢ケア・ストレッチメニューについて</h3>
+          <p>デスクワークによる姿勢の崩れが気になる方に人気のメニューです。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/clinic/clinic_hero.webp" alt="みなと接骨院">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.08.01</div>
+          <h3>夏季の受付時間について</h3>
+          <p>8月中は受付時間を変更しております。詳しくはアクセスページをご覧ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-blog -->
+
+<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
+<div id="page-access">
+  <section class="contact">
+    <div class="section-title">アクセス・お問い合わせ</div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <p>福岡県福岡市〇〇区〇〇3-1-8</p>
+        <p>受付時間:9:00〜19:00（休診日:日曜・祝日）</p>
+        <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+        <div class="line-wrap">
+          <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
+          <p class="line-note">LINEでのお問い合わせも承っています。</p>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <span>地図がここに表示されます（デモ表示中）</span>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-access -->
+
+<footer>みなと接骨院（RESC制作サンプル）</footer>
+
+<script>
+  /* ── ページ切り替え（salon-advance.html より移植） ── */
+  function showPage(page) {
+    closeNav(); closeMenu();
+    document.body.className = (page === 'top') ? '' : (page + '-page');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── ナビ／メニューオーバーレイ（salon-advance.html より移植） ── */
+  function openMenu() { document.getElementById('menuOverlay').classList.add('open'); }
+  function closeMenu() { document.getElementById('menuOverlay').classList.remove('open'); }
+  function closeNav() { /* モバイル単体ドロップダウンは無いためメニュー閉じるのみ（salon-advance.html を踏襲） */ }
+  document.getElementById('menuOverlay').addEventListener('click', function (e) {
+    if (e.target.id === 'menuOverlay') closeMenu();
+  });
+</script>
+
+</body>
+</html>
