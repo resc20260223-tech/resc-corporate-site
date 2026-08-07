@@ -158,11 +158,21 @@
 
   /* ---- 地図プレースホルダー（page-access・insta-note の作法を踏襲。色はcontact内で既存の rgba(255,255,255,.5) を再利用） ---- */
   .map-placeholder {
-    width: 100%; height: 280px; margin-top: 22px; margin-bottom: 4px;
     border: 1px dashed rgba(255,255,255,.5); border-radius: 4px;
     display: flex; align-items: center; justify-content: center;
+    align-self: stretch; min-height: 300px;
   }
   .map-placeholder span { font-size: 11.5px; color: rgba(255,255,255,.5); }
+
+  /* ---- page-access 2カラムレイアウト（左:情報 / 右:地図・retail-standard.html を移植） ---- */
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
+  }
+  .contact-info { min-height: 300px; }
+  @media (max-width: 800px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-info { min-height: 0; }
+  }
 
   /* ---- Instagram（デモ表示・cafe-standard.html の insta-sec を移植） ---- */
   .insta-note {
@@ -399,15 +409,19 @@
 <div id="page-access">
   <section class="contact">
     <div class="section-title">アクセス・お問い合わせ</div>
-    <p>福岡県福岡市〇〇区〇〇2-4-6</p>
-    <p>営業時間:10:00〜20:00（定休日:火曜日）</p>
-    <div class="map-placeholder">
-      <span>地図がここに表示されます（デモ表示中）</span>
-    </div>
-    <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
-    <div class="line-wrap">
-      <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
-      <p class="line-note">LINEでのお問い合わせも承っています。</p>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <p>福岡県福岡市〇〇区〇〇2-4-6</p>
+        <p>営業時間:10:00〜20:00（定休日:火曜日）</p>
+        <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+        <div class="line-wrap">
+          <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
+          <p class="line-note">LINEでのお問い合わせも承っています。</p>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <span>地図がここに表示されます（デモ表示中）</span>
+      </div>
     </div>
   </section>
 </div><!-- /page-access -->
