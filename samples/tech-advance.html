@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社NextGrid｜IT・オフィス</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-deep: #0F1B2E;
+    --slate-blue: #2D4059;
+    --base-light: #F7F9FC;
+    --white: #FFFFFF;
+    --text-dark: #1A2B42;
+    --text-muted: #5A6B80;
+    --accent: #00D4FF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--base-light); color: var(--text-dark); line-height: 1.8; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .notice {
+    background: var(--navy-deep); color: #fff; text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: #fff; text-decoration: underline; }
+
+  /* ---- Nav（retail-advance.html のナビ実装をベースに、techの配色に変更） ---- */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(15,27,46,.95); backdrop-filter: blur(6px);
+    height: 64px;
+  }
+  .nav-in {
+    max-width: 900px; margin: 0 auto; height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+  }
+  .logo { font-family: 'Inter', 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: .02em; color: #fff; cursor: pointer; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: rgba(255,255,255,.85); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.nav-cta { background: var(--accent); color: var(--navy-deep); padding: 9px 18px; border-radius: 4px; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .menu-btn {
+    display: inline-flex; align-items: center; gap: 8px; background: transparent;
+    border: 1px solid rgba(255,255,255,.35); color: #fff; font-size: 13px; font-weight: 700;
+    padding: 9px 16px; border-radius: 4px; cursor: pointer;
+  }
+  .menu-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    background: transparent; border: none; cursor: pointer;
+  }
+  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+
+  /* ---- メニューオーバーレイ（retail-advance.html を移植し、techの配色に変更） ---- */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(15,27,46,.72); backdrop-filter: blur(3px);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 90px 24px 40px; overflow-y: auto;
+  }
+  .menu-overlay.open { display: flex; }
+  .menu-overlay-inner {
+    background: #fff; border-radius: 12px; width: 100%; max-width: 780px;
+    padding: 36px 36px 30px; position: relative;
+  }
+  .menu-close {
+    position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%;
+    border: none; background: var(--base-light); font-size: 18px; cursor: pointer; color: var(--text-dark);
+  }
+  .menu-top-link {
+    display: inline-block; font-family: 'Inter', 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 20px;
+    color: var(--navy-deep); margin-bottom: 26px; cursor: pointer;
+  }
+  .menu-top-link:hover { color: var(--accent); }
+  .menu-cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 26px; }
+  .menu-cat-title {
+    font-size: 11.5px; letter-spacing: .18em; color: var(--accent); font-weight: 700; margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .menu-cat a { display: block; font-size: 14.5px; font-weight: 700; padding: 8px 0; cursor: pointer; color: var(--text-dark); }
+  .menu-cat a:hover { color: var(--accent); }
+  .menu-access-link {
+    display: block; text-align: center; background: var(--navy-deep); color: #fff; font-weight: 700; font-size: 14px;
+    padding: 14px; border-radius: 6px; cursor: pointer;
+  }
+  .menu-access-link:hover { background: var(--accent); color: var(--navy-deep); }
+
+  /* ---- ヒーロー（動画・construction方式。tech-standard.html の実装を原文のまま踏襲） ---- */
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero-video, .hero-video-fallback { width: 100%; height: 100%; object-fit: cover; }
+  .hero-video-fallback { display: none; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.18); }
+  .hero-text { display: none; }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.9; margin-bottom: 14px; }
+  .hero-text h1 {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif; font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px;
+    animation: hero-fade-in 0.9s ease-out both;
+  }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-in 0.9s ease-out both; animation-delay: 0.3s; }
+  @keyframes hero-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video { display: none; }
+    .hero-video-fallback { display: block; }
+    .hero-text h1, .hero-text p { animation: none; }
+  }
+
+  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
+  .section-title { font-family: 'Inter', 'Noto Sans JP', sans-serif; font-size: 26px; font-weight: 700; color: var(--navy-deep); margin-bottom: 24px; text-align: center; }
+
+  /* ---- .about-grid（写真＋テキストの2カラム。tech-standard.html の実装を原文のまま踏襲） ---- */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; box-shadow: 0 16px 36px rgba(15,27,46,0.15); }
+  .about-content { text-align: left; }
+  .about-content .section-title { text-align: left; }
+  .about p { font-size: 14.5px; color: var(--text-dark); margin-bottom: 14px; }
+  .about p:last-child { margin-bottom: 0; }
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about-content, .about-content .section-title { text-align: center; }
+  }
+
+  /* ---- about抜粋（page-top） ---- */
+  .about-excerpt p { font-size: 14.5px; color: var(--text-dark); margin-bottom: 22px; }
+  .about-excerpt .more-link {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent);
+    border-bottom: 1px solid var(--accent); padding-bottom: 2px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
+  }
+
+  /* ---- サービス（menu-copy あり。tech-standard.html の実装を原文のまま踏襲） ---- */
+  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .menu-card {
+    display: flex; flex-direction: column; text-align: center;
+    background: #fff; border: 1px solid var(--accent); border-radius: 12px; padding: 18px 18px 22px;
+  }
+  .menu-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
+  .menu-card .menu-name { margin-top: 14px; font-size: 15px; font-weight: 700; color: var(--navy-deep); }
+  .menu-card .menu-copy { margin-top: 8px; font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.6; flex: 1; }
+  .menu-card .menu-price { margin-top: 16px; font-size: 15px; font-weight: 700; color: var(--slate-blue); }
+  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .menu-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ギャラリー（divラップの二重構造。tech-standard.html の実装を原文のまま踏襲） ---- */
+  .gallery-marquee { overflow: hidden; }
+  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
+  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+  .gallery-item { flex: 0 0 auto; width: 320px; aspect-ratio: 16 / 9; border-radius: 6px; margin-right: 16px; overflow: hidden; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-marquee { overflow-x: auto; }
+  }
+
+  .contact { background: var(--base-light); color: var(--navy-deep); text-align: center; }
+  .contact .section-title { color: var(--navy-deep); }
+  .contact-box {
+    width: fit-content; margin: 0 auto 24px; padding: 26px 42px;
+    background: #fff; border: 1px solid var(--accent); border-radius: 12px;
+  }
+  .contact p { font-size: 14px; margin-bottom: 8px; color: var(--navy-deep); }
+  .contact p:last-of-type { margin-bottom: 0; }
+  .contact .btn {
+    display: inline-block; margin-top: 24px; background: var(--accent); color: var(--navy-deep);
+    border: 1px solid var(--accent); padding: 12px 34px; border-radius: 999px;
+    font-weight: 700; font-size: 13.5px; transition: background 0.25s ease, color 0.25s ease;
+  }
+  .contact .btn:hover { background: var(--navy-deep); color: var(--accent); }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); background: var(--base-light); }
+
+  /* ---- .reveal スクロールフェードイン（tech-standard.html より原文のまま移植し、新規11ページ分のグリッドに拡張） ---- */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .menu-grid .menu-card:nth-child(3n+1) { transition-delay: 0s; }
+  .menu-grid .menu-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .menu-grid .menu-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  .reason-grid .reason-card:nth-child(4n+1) { transition-delay: 0s; }
+  .reason-grid .reason-card:nth-child(4n+2) { transition-delay: 0.1s; }
+  .reason-grid .reason-card:nth-child(4n+3) { transition-delay: 0.2s; }
+  .reason-grid .reason-card:nth-child(4n+4) { transition-delay: 0.3s; }
+  .flow-grid .flow-card:nth-child(4n+1) { transition-delay: 0s; }
+  .flow-grid .flow-card:nth-child(4n+2) { transition-delay: 0.1s; }
+  .flow-grid .flow-card:nth-child(4n+3) { transition-delay: 0.2s; }
+  .flow-grid .flow-card:nth-child(4n+4) { transition-delay: 0.3s; }
+  .staff-grid .staff-card:nth-child(3n+1) { transition-delay: 0s; }
+  .staff-grid .staff-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .staff-grid .staff-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  .voice-grid .voice-card:nth-child(3n+1) { transition-delay: 0s; }
+  .voice-grid .voice-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .voice-grid .voice-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  .facility-grid .facility-card:nth-child(2n+1) { transition-delay: 0s; }
+  .facility-grid .facility-card:nth-child(2n+2) { transition-delay: 0.1s; }
+  .blog-grid .blog-card:nth-child(3n+1) { transition-delay: 0s; }
+  .blog-grid .blog-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .blog-grid .blog-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---- LINE連携ボタン（tech-standard.html と同一実装） ---- */
+  .line-btn {
+    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
+    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
+    line-height: 21px;
+  }
+  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
+  .contact .line-wrap { margin-top: 18px; }
+
+  /* ---- 地図プレースホルダー（tech-standard.html の page-access 実装をそのまま踏襲） ---- */
+  .map-placeholder {
+    background: #fff; border: 1px dashed var(--accent); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    align-self: stretch; min-height: 300px;
+  }
+  .map-placeholder span { font-size: 11.5px; color: var(--text-muted); }
+
+  /* ---- page-access 2カラムレイアウト（tech-standard.html を原文のまま踏襲。.contact-info の min-height は不要） ---- */
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
+  }
+  @media (max-width: 800px) {
+    .contact-layout { grid-template-columns: 1fr; }
+  }
+
+  /* ---- SNS（3媒体・デモ表示。retail-advance.html の sns-grid を移植し、techのカード様式に変更） ---- */
+  .sns-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .sns-card { background: #fff; border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; }
+  .sns-card .sns-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .sns-card-head { display: flex; align-items: center; gap: 8px; padding: 14px 16px; font-size: 13px; font-weight: 700; }
+  .sns-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .sns-note { font-size: 11px; color: var(--text-muted); padding: 0 16px 16px; }
+  @media (max-width: 700px) { .sns-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 各ページへの導線カード（page-top。tech-standard.html を移植・4カードに拡張） ---- */
+  .link-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .link-card {
+    display: block; background: #fff; border: 1px solid var(--accent); border-radius: 12px;
+    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(15,27,46,.12); }
+  .link-card .tag { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
+  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--navy-deep); }
+  .link-card p { font-size: 13px; color: var(--text-muted); }
+  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--accent); }
+  @media (max-width: 900px) { .link-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .link-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 選ばれる理由（page-reasons。techのカード様式で新規実装） ---- */
+  .reason-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .reason-card { border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; background: #fff; }
+  .reason-card .reason-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .reason-card-body { padding: 18px 18px 22px; }
+  .reason-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .reason-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--navy-deep); }
+  .reason-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.8; }
+  @media (max-width: 900px) { .reason-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ご依頼の流れ（page-flow。techのカード様式で新規実装） ---- */
+  .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .flow-card { border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; background: #fff; }
+  .flow-card .flow-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .flow-card-body { padding: 18px 18px 22px; }
+  .flow-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .flow-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--navy-deep); }
+  .flow-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.8; }
+  @media (max-width: 900px) { .flow-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .flow-grid { grid-template-columns: 1fr; } }
+
+  /* ---- よくある質問（page-faq） ---- */
+  .faq-cat-title { font-family: 'Inter', 'Noto Sans JP', sans-serif; font-size: 15px; font-weight: 700; color: var(--accent); margin: 34px 0 12px; }
+  .faq-cat-title:first-child { margin-top: 0; }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: 18px 4px; font-size: 14.5px; font-weight: 700; display: flex; gap: 14px; align-items: flex-start; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before { content: "Q"; color: var(--accent); font-weight: 900; flex: 0 0 auto; }
+  .faq-item p { padding: 0 4px 18px 24px; font-size: 13px; color: var(--text-muted); line-height: 1.9; }
+
+  /* ---- メンバー紹介（page-staff。techのカード様式で新規実装） ---- */
+  .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .staff-card .staff-photo { aspect-ratio: 4/5; border-radius: 12px; margin-bottom: 16px; width: 100%; height: auto; object-fit: cover; }
+  .staff-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; color: var(--navy-deep); }
+  .staff-role { font-size: 11.5px; color: var(--accent); font-weight: 700; margin-bottom: 10px; letter-spacing: .04em; }
+  .staff-bio { font-size: 12.5px; color: var(--text-muted); line-height: 1.85; }
+  @media (max-width: 700px) { .staff-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .staff-grid { grid-template-columns: 1fr; } }
+
+  /* ---- お客様の声（page-voice。techのカード様式で新規実装） ---- */
+  .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .voice-card { background: #fff; border: 1px solid var(--accent); border-radius: 12px; padding: 22px 20px; }
+  .voice-head { margin-bottom: 14px; }
+  .voice-head .voice-photo { width: 100%; aspect-ratio: 16/10; border-radius: 8px; object-fit: cover; margin-bottom: 12px; }
+  .voice-name { font-size: 13.5px; font-weight: 700; color: var(--navy-deep); }
+  .voice-meta { font-size: 11.5px; color: var(--text-muted); }
+  .voice-card p.comment { font-size: 13px; color: var(--text-muted); line-height: 1.85; margin-top: 10px; }
+  .voice-favorite { margin-top: 12px; font-size: 12px; color: var(--accent); font-weight: 700; }
+  @media (max-width: 700px) { .voice-grid { grid-template-columns: 1fr; } }
+
+  /* ---- オフィスのご紹介（page-facility。techのカード様式で新規実装） ---- */
+  .facility-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .facility-card .facility-photo { aspect-ratio: 16/10; border-radius: 12px; margin-bottom: 14px; width: 100%; height: auto; object-fit: cover; }
+  .facility-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--navy-deep); }
+  .facility-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.8; }
+  @media (max-width: 700px) { .facility-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ブログ・お知らせ（page-blog。techのカード様式で新規実装） ---- */
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .blog-card { background: #fff; border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; }
+  .blog-card .blog-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .blog-card-body { padding: 18px 18px 20px; }
+  .blog-date { font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
+  .blog-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 8px; line-height: 1.6; color: var(--navy-deep); }
+  .blog-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.75; }
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .blog-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ページ切り替え（11ページ分。retail-advance.html のCSSパターンをそのまま移植） ---- */
+  #page-top { display: block; }
+  #page-about, #page-reasons, #page-menu, #page-flow, #page-faq,
+  #page-staff, #page-voice, #page-facility, #page-blog, #page-access { display: none; }
+  body[class*="-page"] #page-top { display: none; }
+  body.about-page #page-about { display: block; }
+  body.reasons-page #page-reasons { display: block; }
+  body.menu-page #page-menu { display: block; }
+  body.flow-page #page-flow { display: block; }
+  body.faq-page #page-faq { display: block; }
+  body.staff-page #page-staff { display: block; }
+  body.voice-page #page-voice { display: block; }
+  body.facility-page #page-facility { display: block; }
+  body.blog-page #page-blog { display: block; }
+  body.access-page #page-access { display: block; }
+
+  /* ---- レスポンシブ（retail-advance.html のナビ関連レスポンシブを移植） ---- */
+  @media (max-width: 860px) {
+    .nav-links, .menu-btn { display: none; }
+    .nav-toggle { display: flex; }
+    .menu-overlay { padding: 78px 14px 30px; }
+    .menu-overlay-inner { padding: 28px 20px 24px; }
+    .menu-cats { grid-template-columns: 1fr; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" onclick="showPage('top')">株式会社<span>NextGrid</span></a>
+    <div class="nav-links">
+      <a onclick="showPage('top')">TOP</a>
+      <a onclick="showPage('menu')">サービス</a>
+      <a onclick="showPage('staff')">メンバー紹介</a>
+      <a class="nav-cta" onclick="showPage('access')">アクセス・お問い合わせ</a>
+    </div>
+    <div class="nav-right">
+      <button class="menu-btn" type="button" onclick="openMenu()">☰ メニュー</button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" onclick="openMenu()">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- メニューオーバーレイ（全11ページの導線・retail-advance.html を移植） -->
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-overlay-inner">
+    <button class="menu-close" type="button" aria-label="閉じる" onclick="closeMenu()">×</button>
+    <a class="menu-top-link" onclick="showPage('top')">株式会社<span style="color:var(--accent);">NextGrid</span> TOP</a>
+    <div class="menu-cats">
+      <div class="menu-cat">
+        <div class="menu-cat-title">会社について</div>
+        <a onclick="showPage('about')">こだわり</a>
+        <a onclick="showPage('reasons')">選ばれる理由</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">サービス・ご依頼</div>
+        <a onclick="showPage('menu')">サービス</a>
+        <a onclick="showPage('flow')">ご依頼の流れ</a>
+        <a onclick="showPage('faq')">よくある質問</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">メンバー・オフィス</div>
+        <a onclick="showPage('staff')">メンバー紹介</a>
+        <a onclick="showPage('voice')">お客様の声</a>
+        <a onclick="showPage('facility')">オフィスのご紹介</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">お知らせ</div>
+        <a onclick="showPage('blog')">ブログ・お知らせ</a>
+      </div>
+    </div>
+    <a class="menu-access-link" onclick="showPage('access')">アクセス・お問い合わせ →</a>
+  </div>
+</div>
+
+<!-- ════ PAGE: TOP ════ -->
+<div id="page-top">
+
+  <div class="hero">
+    <video class="hero-video" id="hero-video" autoplay muted playsinline preload="metadata" poster="images/tech/tech_hero_last.webp">
+      <source src="images/tech/tech_hero.mp4" type="video/mp4">
+    </video>
+    <img class="hero-video-fallback" src="images/tech/tech_hero_last.webp" alt="株式会社NextGrid">
+    <div class="hero-text">
+      <div class="label">IT・オフィス</div>
+      <h1>株式会社NextGrid</h1>
+      <p>業務システムの開発から運用まで、伴走するITパートナー。</p>
+    </div>
+  </div>
+  <script>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var v = document.getElementById('hero-video');
+      if (v) { v.pause(); v.removeAttribute('autoplay'); }
+    }
+  })();
+  </script>
+
+  <section class="about-excerpt reveal">
+    <div class="section-title">こだわり</div>
+    <p>少人数精鋭のチームだからこそ、意思決定はスピーディーに、要件のすり合わせはきめ細かく。</p>
+    <a class="more-link" onclick="showPage('about')">こだわりをもっと見る →</a>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title reveal">SNSでも発信しています</div>
+    <div class="sns-grid">
+      <div class="sns-card reveal">
+        <div class="sns-card-head"><span class="sns-dot"></span>Instagram</div>
+        <img class="sns-photo" src="images/tech/tech_gallery3.webp" alt="オフィス風景3">
+        <p class="sns-note">Instagramの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card reveal">
+        <div class="sns-card-head"><span class="sns-dot"></span>X（旧Twitter）</div>
+        <img class="sns-photo" src="images/tech/tech_gallery5.webp" alt="オフィス風景5">
+        <p class="sns-note">Xの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card reveal">
+        <div class="sns-card-head"><span class="sns-dot"></span>Facebook</div>
+        <img class="sns-photo" src="images/tech/tech_gallery2.webp" alt="オフィス風景2">
+        <p class="sns-note">Facebookの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title reveal">詳しく見る</div>
+    <div class="link-grid">
+      <button class="link-card reveal" onclick="showPage('about')">
+        <div class="tag">About</div>
+        <h3>こだわり・選ばれる理由</h3>
+        <p>私たちのこだわりと、選ばれる理由をご紹介します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('menu')">
+        <div class="tag">Menu</div>
+        <h3>サービス・ご依頼の流れ</h3>
+        <p>サービス内容と、ご依頼の流れ、よくある質問をご案内します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('staff')">
+        <div class="tag">Staff</div>
+        <h3>メンバー・オフィス紹介</h3>
+        <p>メンバー紹介、お客様の声、オフィスの様子をご覧いただけます。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('blog')">
+        <div class="tag">Column</div>
+        <h3>ブログ・お知らせ</h3>
+        <p>最新のお知らせやコラムをお届けします。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+    </div>
+  </section>
+
+</div><!-- /page-top -->
+
+<!-- ════ PAGE: こだわり ════ -->
+<div id="page-about">
+  <section class="about reveal">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="images/tech/tech_gallery1.webp" alt="株式会社NextGridの開放的なオフィス全景">
+      </div>
+      <div class="about-content">
+        <div class="section-title">こだわり</div>
+        <p>少人数精鋭のチームだからこそ、意思決定はスピーディーに、要件のすり合わせはきめ細かく。無駄な工程を省き、本当に必要な機能に集中して開発を進めます。</p>
+        <p>業務システムの新規開発からWebサイト・Webアプリの制作、既存システムの改善まで、企業の"ちょうどいいIT"を一緒に形にしていきます。</p>
+        <p>納品して終わりにはしません。リリース後の運用・保守まで見据えたご提案と、長くお付き合いできる伴走型のサポート体制を大切にしています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title reveal">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <div class="gallery-item"><img src="images/tech/tech_gallery1.webp" alt="オフィス風景1"></div>
+        <div class="gallery-item"><img src="images/tech/tech_gallery2.webp" alt="オフィス風景2"></div>
+        <div class="gallery-item"><img src="images/tech/tech_gallery3.webp" alt="オフィス風景3"></div>
+        <div class="gallery-item"><img src="images/tech/tech_gallery4.webp" alt="オフィス風景4"></div>
+        <div class="gallery-item"><img src="images/tech/tech_gallery5.webp" alt="オフィス風景5"></div>
+        <div class="gallery-item"><img src="images/tech/tech_gallery6.webp" alt="オフィス風景6"></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery1.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery2.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery3.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery4.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery5.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery6.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-about -->
+
+<!-- ════ PAGE: 選ばれる理由 ════ -->
+<div id="page-reasons">
+  <section style="background:#fff;">
+    <div class="section-title reveal">選ばれる理由</div>
+    <div class="reason-grid">
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/tech/tech_gallery4.webp" alt="オフィス風景4">
+        <div class="reason-card-body">
+          <div class="reason-num">01</div>
+          <h3>少人数精鋭だからこそのスピード</h3>
+          <p>意思決定がスピーディーで、無駄な工程を省いた開発を進められます。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/tech/tech_gallery6.webp" alt="オフィス風景6">
+        <div class="reason-card-body">
+          <div class="reason-num">02</div>
+          <h3>要件のすり合わせもきめ細かく</h3>
+          <p>本当に必要な機能に集中し、丁寧に要件をすり合わせながら進めます。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/tech/tech_gallery2.webp" alt="オフィス風景2">
+        <div class="reason-card-body">
+          <div class="reason-num">03</div>
+          <h3>納品して終わりにしない伴走サポート</h3>
+          <p>リリース後の運用・保守まで見据えたご提案で、長くお付き合いできる体制を整えています。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/tech/tech_gallery3.webp" alt="オフィス風景3">
+        <div class="reason-card-body">
+          <div class="reason-num">04</div>
+          <h3>企業の"ちょうどいいIT"を一緒に</h3>
+          <p>新規開発から既存システムの改善まで、企業に合ったIT活用を一緒に形にします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-reasons -->
+
+<!-- ════ PAGE: サービス ════ -->
+<div id="page-menu">
+  <section style="background:#fff;">
+    <div class="section-title reveal">メニュー・サービス</div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <img src="images/tech/tech_menu_web.webp" alt="Webサイト制作">
+        <div class="menu-name">Webサイト制作</div>
+        <div class="menu-copy">会社の"顔"となる、伝わるWebサイトを。</div>
+        <div class="menu-price">要相談</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/tech/tech_menu_app.webp" alt="Webアプリ開発">
+        <div class="menu-name">Webアプリ開発</div>
+        <div class="menu-copy">業務にフィットする、使われ続けるアプリを。</div>
+        <div class="menu-price">要相談</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/tech/tech_menu_system.webp" alt="システム開発">
+        <div class="menu-name">システム開発</div>
+        <div class="menu-copy">自社の業務に合わせた、オーダーメイドの仕組みを。</div>
+        <div class="menu-price">要相談</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/tech/tech_menu_dx.webp" alt="DXコンサルティング">
+        <div class="menu-name">DXコンサルティング</div>
+        <div class="menu-copy">何から始めるか、から一緒に整理します。</div>
+        <div class="menu-price">要相談</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/tech/tech_menu_improve.webp" alt="業務システム改善">
+        <div class="menu-name">業務システム改善</div>
+        <div class="menu-copy">使いにくさの原因を見つけ、丁寧に直す。</div>
+        <div class="menu-price">要相談</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/tech/tech_menu_support.webp" alt="保守・運用サポート">
+        <div class="menu-name">保守・運用サポート</div>
+        <div class="menu-copy">リリース後も、安心して任せられる体制を。</div>
+        <div class="menu-price">要相談</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-menu -->
+
+<!-- ════ PAGE: ご依頼の流れ ════ -->
+<div id="page-flow">
+  <section style="background:#fff;">
+    <div class="section-title reveal">ご依頼の流れ</div>
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/tech/tech_flow1.webp" alt="会議スペースでお客様の話を聞くスタッフ">
+        <div class="flow-card-body">
+          <div class="flow-num">01</div>
+          <h3>ヒアリング・課題の整理</h3>
+          <p>現状の課題やご要望をうかがいながら、整理していきます。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/tech/tech_flow2.webp" alt="ホワイトボードの前で打ち合わせをする様子">
+        <div class="flow-card-body">
+          <div class="flow-num">02</div>
+          <h3>要件定義・設計</h3>
+          <p>ヒアリング内容をもとに、要件を定義し設計を進めます。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/tech/tech_flow3.webp" alt="キーボードを打つ手元">
+        <div class="flow-card-body">
+          <div class="flow-num">03</div>
+          <h3>開発・実装</h3>
+          <p>設計にもとづいて、丁寧に開発・実装を進めます。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/tech/tech_flow4.webp" alt="ノートPCを見ながら話すスタッフとお客様">
+        <div class="flow-card-body">
+          <div class="flow-num">04</div>
+          <h3>納品・運用サポート</h3>
+          <p>納品後も運用・保守まで見据えて、継続してサポートします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-flow -->
+
+<!-- ════ PAGE: よくある質問 ════ -->
+<div id="page-faq">
+  <section class="reveal">
+    <div class="section-title">よくある質問</div>
+
+    <div class="faq-cat-title">ご依頼について</div>
+    <div class="faq-item"><details><summary>個人事業主でも依頼できますか？</summary><p>はい、法人・個人事業主を問わずご依頼いただけます。</p></details></div>
+    <div class="faq-item"><details><summary>遠方からでも依頼できますか？</summary><p>オンライン打ち合わせに対応しておりますので、全国からご依頼いただけます。</p></details></div>
+
+    <div class="faq-cat-title">料金について</div>
+    <div class="faq-item"><details><summary>見積もりは無料ですか？</summary><p>はい、お見積もりは無料で承っております。</p></details></div>
+    <div class="faq-item"><details><summary>予算に応じた提案は可能ですか？</summary><p>ご予算に応じて、優先順位をつけたご提案も可能です。</p></details></div>
+
+    <div class="faq-cat-title">運用・保守について</div>
+    <div class="faq-item"><details><summary>納品後の修正には対応してもらえますか？</summary><p>保守・運用サポートのメニューにて、納品後の修正にも対応しております。</p></details></div>
+    <div class="faq-item"><details><summary>システムの引き継ぎはできますか？</summary><p>ドキュメントを整備し、スムーズな引き継ぎができるようご対応します。</p></details></div>
+  </section>
+</div><!-- /page-faq -->
+
+<!-- ════ PAGE: メンバー紹介 ════ -->
+<div id="page-staff">
+  <section style="background:#fff;">
+    <div class="section-title reveal">メンバー紹介</div>
+    <div class="staff-grid">
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/tech/tech_staff1.webp" alt="代表 佐々木">
+        <div class="staff-name">代表 佐々木</div>
+        <div class="staff-role">代表</div>
+        <p class="staff-bio">「意思決定はスピーディーに、要件のすり合わせはきめ細かく。」を大切にしています。</p>
+      </div>
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/tech/tech_staff2.webp" alt="エンジニア 松本">
+        <div class="staff-name">エンジニア 松本</div>
+        <div class="staff-role">エンジニア</div>
+        <p class="staff-bio">「業務にフィットする、使われ続けるアプリを。」を目指して開発しています。</p>
+      </div>
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/tech/tech_staff3.webp" alt="デザイナー 大川">
+        <div class="staff-name">デザイナー 大川</div>
+        <div class="staff-role">デザイナー</div>
+        <p class="staff-bio">「会社の"顔"となる、伝わるデザインを。」を意識して制作しています。</p>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-staff -->
+
+<!-- ════ PAGE: お客様の声 ════ -->
+<div id="page-voice">
+  <section>
+    <div class="section-title reveal">お客様の声</div>
+    <div class="voice-grid">
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/tech/tech_voice1.webp" alt="工場でタブレットを操作する担当者">
+          <div class="voice-name">K.Tさん（製造業）</div>
+          <div class="voice-meta">業務システムの導入</div>
+        </div>
+        <p class="comment">工場の稼働状況をタブレットで一目で確認できるようになり、現場の負担が大きく減りました。</p>
+        <div class="voice-favorite">お気に入り：システム開発</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/tech/tech_voice2.webp" alt="倉庫でタブレットを持つ担当者">
+          <div class="voice-name">Y.Mさん（小売業）</div>
+          <div class="voice-meta">在庫管理システムの導入</div>
+        </div>
+        <p class="comment">在庫の状況をその場で確認できるようになり、確認作業がぐっと楽になりました。</p>
+        <div class="voice-favorite">お気に入り：業務システム改善</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/tech/tech_voice3.webp" alt="オフィスでモニターを見る二人">
+          <div class="voice-name">T.Sさん（総務部）</div>
+          <div class="voice-meta">社内システムの使いやすさ改善</div>
+        </div>
+        <p class="comment">操作画面が分かりやすくなり、社内での問い合わせも減りました。導入後のフォローも安心です。</p>
+        <div class="voice-favorite">お気に入り：保守・運用サポート</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-voice -->
+
+<!-- ════ PAGE: オフィスのご紹介 ════ -->
+<div id="page-facility">
+  <section>
+    <div class="section-title reveal">オフィスのご紹介</div>
+    <div class="facility-grid">
+      <div class="facility-card reveal">
+        <img class="facility-photo" src="images/tech/tech_facility1.webp" alt="木のデスクが並ぶ執務スペース">
+        <h3>執務スペース</h3>
+        <p>木のデスクとグレーのチェアが並ぶ、落ち着いた執務スペースです。</p>
+      </div>
+      <div class="facility-card reveal">
+        <img class="facility-photo" src="images/tech/tech_facility2.webp" alt="白い壁とガラスドアのエントランス">
+        <h3>エントランス</h3>
+        <p>白い壁とガラスドア、木のカウンターが迎える、ミニマルなエントランスです。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title reveal">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <div class="gallery-item"><img src="images/tech/tech_gallery1.webp" alt="オフィス風景1"></div>
+        <div class="gallery-item"><img src="images/tech/tech_gallery2.webp" alt="オフィス風景2"></div>
+        <div class="gallery-item"><img src="images/tech/tech_gallery3.webp" alt="オフィス風景3"></div>
+        <div class="gallery-item"><img src="images/tech/tech_gallery4.webp" alt="オフィス風景4"></div>
+        <div class="gallery-item"><img src="images/tech/tech_gallery5.webp" alt="オフィス風景5"></div>
+        <div class="gallery-item"><img src="images/tech/tech_gallery6.webp" alt="オフィス風景6"></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery1.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery2.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery3.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery4.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery5.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery6.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-facility -->
+
+<!-- ════ PAGE: ブログ・お知らせ ════ -->
+<div id="page-blog">
+  <section>
+    <div class="section-title reveal">ブログ・お知らせ</div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/tech/tech_menu_web.webp" alt="Webサイト制作">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.05</div>
+          <h3>コーポレートサイトのリニューアル事例</h3>
+          <p>お客様のコーポレートサイトをリニューアルいたしました。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/tech/tech_gallery3.webp" alt="オフィス風景3">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.18</div>
+          <h3>新しいオフィスでの取り組み</h3>
+          <p>オフィスでの日々の取り組みについてご紹介します。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/tech/tech_menu_system.webp" alt="システム開発">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.30</div>
+          <h3>業務システム開発の進め方</h3>
+          <p>ヒアリングから納品までの、業務システム開発の流れをご紹介します。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/tech/tech_menu_dx.webp" alt="DXコンサルティング">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.10</div>
+          <h3>DXコンサルティングのご相談が増えています</h3>
+          <p>何から始めればよいか分からないというご相談を多くいただいています。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/tech/tech_gallery5.webp" alt="オフィス風景5">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.20</div>
+          <h3>チームメンバーが増えました</h3>
+          <p>新しいメンバーが加わり、より手厚いサポート体制になりました。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/tech/tech_menu_support.webp" alt="保守・運用サポート">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.08.01</div>
+          <h3>夏季の営業時間について</h3>
+          <p>8月中は営業時間を変更しております。詳しくはアクセスページをご覧ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-blog -->
+
+<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
+<div id="page-access">
+  <section class="contact reveal">
+    <div class="section-title">アクセス・お問い合わせ</div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="contact-box">
+          <p>福岡県福岡市〇〇区〇〇8-6-2</p>
+          <p>営業時間:9:30〜18:30（土日祝休み）</p>
+        </div>
+        <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+        <div class="line-wrap">
+          <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
+          <p class="line-note">LINEでのお問い合わせも承っています。</p>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <span>地図がここに表示されます（デモ表示中）</span>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-access -->
+
+<footer class="reveal">株式会社NextGrid（RESC制作サンプル）</footer>
+
+<script>
+  /* ── ページ切り替え（retail-advance.html より移植） ── */
+  function showPage(page) {
+    closeNav(); closeMenu();
+    document.body.className = (page === 'top') ? '' : (page + '-page');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── ナビ／メニューオーバーレイ（retail-advance.html より移植） ── */
+  function openMenu() { document.getElementById('menuOverlay').classList.add('open'); }
+  function closeMenu() { document.getElementById('menuOverlay').classList.remove('open'); }
+  function closeNav() { /* モバイル単体ドロップダウンは無いためメニュー閉じるのみ（retail-advance.html を踏襲） */ }
+  document.getElementById('menuOverlay').addEventListener('click', function (e) {
+    if (e.target.id === 'menuOverlay') closeMenu();
+  });
+
+  /* ── .reveal スクロールフェードイン（tech-standard.html より移植・無変更） ── */
+  (function () {
+    const targets = document.querySelectorAll('.reveal');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      targets.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    targets.forEach(el => observer.observe(el));
+  })();
+</script>
+
+</body>
+</html>
