@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>田中司法書士事務所｜士業</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #2C3E5C;
+    --primary-dark: #1C283D;
+    --bg: #F5F6F8;
+    --accent: #B08A4E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Shippori Mincho', serif; background: var(--bg); color: #2B2420; line-height: 1.8; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .notice {
+    background: var(--primary-dark); color: #fff; text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: #fff; text-decoration: underline; }
+
+  /* ---- Nav（professional-standard.html のナビ実装をベースに、construction-advance.html のメニューオーバーレイを追加移植） ---- */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(28,40,61,.95); backdrop-filter: blur(6px);
+    height: 64px;
+  }
+  .nav-in {
+    max-width: 900px; margin: 0 auto; height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+  }
+  .logo { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 19px; letter-spacing: .05em; color: #fff; cursor: pointer; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: rgba(255,255,255,.85); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.nav-cta { background: var(--accent); color: #fff; padding: 9px 18px; border-radius: 4px; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .menu-btn {
+    display: inline-flex; align-items: center; gap: 8px; background: transparent;
+    border: 1px solid rgba(255,255,255,.35); color: #fff; font-size: 13px; font-weight: 700;
+    padding: 9px 16px; border-radius: 4px; cursor: pointer;
+  }
+  .menu-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    background: transparent; border: none; cursor: pointer;
+  }
+  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+
+  /* ---- メニューオーバーレイ（construction-advance.html を移植し、professionalの配色に変更） ---- */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(28,40,61,.72); backdrop-filter: blur(3px);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 90px 24px 40px; overflow-y: auto;
+  }
+  .menu-overlay.open { display: flex; }
+  .menu-overlay-inner {
+    background: #fff; border-radius: 12px; width: 100%; max-width: 780px;
+    padding: 36px 36px 30px; position: relative;
+  }
+  .menu-close {
+    position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%;
+    border: none; background: var(--bg); font-size: 18px; cursor: pointer; color: #2B2420;
+  }
+  .menu-top-link {
+    display: inline-block; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 20px;
+    color: var(--primary-dark); margin-bottom: 26px; cursor: pointer;
+  }
+  .menu-top-link:hover { color: var(--accent); }
+  .menu-cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 26px; }
+  .menu-cat-title {
+    font-size: 11.5px; letter-spacing: .18em; color: var(--accent); font-weight: 700; margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .menu-cat a { display: block; font-size: 14.5px; font-weight: 700; padding: 8px 0; cursor: pointer; color: #2B2420; }
+  .menu-cat a:hover { color: var(--accent); }
+  .menu-access-link {
+    display: block; text-align: center; background: var(--primary-dark); color: #fff; font-weight: 700; font-size: 14px;
+    padding: 14px; border-radius: 6px; cursor: pointer;
+  }
+  .menu-access-link:hover { background: var(--accent); }
+
+  /* ---- ヒーロー（静止画。professional-standard.html の実装を原文のまま踏襲。construction固有の動画・マスクは使用しない） ---- */
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; transform-origin: 60% 35%; animation: hero-kenburns 20s ease-out infinite alternate; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
+  .hero-text { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
+  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
+  .hero-text h1::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #C0A062;
+    margin: 14px auto 0;
+    animation: hero-gold-line 0.8s ease-out 0.8s both;
+  }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+
+  @keyframes hero-kenburns {
+    from { transform: scale(1) translate(0, 0); }
+    to { transform: scale(1.08) translate(-1.5%, -1.5%); }
+  }
+  @keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes hero-gold-line {
+    from { width: 0; }
+    to { width: 55%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero img,
+    .hero-text h1,
+    .hero-text p {
+      animation: none;
+    }
+    .hero-text h1::after {
+      animation: none;
+      width: 55%;
+    }
+  }
+
+  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
+  .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
+  .about p { font-size: 14.5px; color: #4A4238; }
+
+  /* ---- about抜粋（page-top） ---- */
+  .about-excerpt p { font-size: 14.5px; color: #4A4238; margin-bottom: 22px; }
+  .about-excerpt .more-link {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent);
+    border-bottom: 1px solid var(--accent); padding-bottom: 2px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
+  }
+
+  /* ---- 業務内容・料金（professional-standard.html の flex 実装＋価格表記を踏襲） ---- */
+  .menu-category { margin-top: 40px; }
+  .menu-category:first-child { margin-top: 0; }
+  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; text-align: center; }
+  .menu-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .menu-card { text-align: center; width: calc(25% - 15px); }
+  .menu-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
+  .menu-card .menu-name { margin-top: 12px; font-size: 14px; font-weight: 700; color: #2B2420; }
+  .menu-card .menu-price { margin-top: 4px; font-size: 13px; color: var(--primary); }
+  @media (max-width: 900px) { .menu-card { width: calc(33.333% - 14px); } }
+  @media (max-width: 700px) { .menu-card { width: calc(50% - 10px); } }
+  @media (max-width: 420px) { .menu-card { width: 100%; } }
+
+  .gallery-marquee { overflow: hidden; }
+  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
+  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; object-fit: cover; border-radius: 6px; margin-right: 16px; }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-marquee { overflow-x: auto; }
+  }
+  .contact { background: var(--primary); color: #fff; text-align: center; }
+  .contact .section-title { color: #fff; }
+  .contact p { font-size: 14px; margin-bottom: 8px; }
+  .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
+
+  /* ---- LINE連携ボタン（professional-standard.html と同一実装） ---- */
+  .line-btn {
+    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
+    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
+    line-height: 21px;
+  }
+  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
+  .contact .line-wrap { margin-top: 18px; }
+
+  /* ---- 地図プレースホルダー（professional-standard.html の page-access 実装をそのまま移植） ---- */
+  .map-placeholder {
+    border: 1px dashed rgba(255,255,255,.5); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    align-self: stretch; min-height: 300px;
+  }
+  .map-placeholder span { font-size: 11.5px; color: rgba(255,255,255,.5); }
+
+  /* ---- page-access 2カラムレイアウト（professional-standard.html を移植。旧系統のため .contact-info に min-height:300px を付与） ---- */
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
+  }
+  .contact-info { min-height: 300px; }
+  @media (max-width: 800px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-info { min-height: 0; }
+  }
+
+  /* ---- SNS（3媒体・デモ表示。construction-advance.html の sns-grid を移植し、professionalの配色に変更） ---- */
+  .sns-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .sns-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; }
+  .sns-card .sns-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .sns-card-head { display: flex; align-items: center; gap: 8px; padding: 14px 16px; font-size: 13px; font-weight: 700; }
+  .sns-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .sns-note { font-size: 11px; color: #8A8272; padding: 0 16px 16px; }
+  @media (max-width: 700px) { .sns-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 各ページへの導線カード（page-top。construction-advance.html を移植） ---- */
+  .link-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .link-card {
+    display: block; background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px;
+    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.08); }
+  .link-card .tag { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
+  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); }
+  .link-card p { font-size: 13px; color: #8A8272; }
+  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--accent); }
+  @media (max-width: 900px) { .link-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .link-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 選ばれる理由（page-reasons。construction-advance.html の reason-grid を移植） ---- */
+  .reason-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .reason-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; background: #fff; }
+  .reason-card .reason-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .reason-card-body { padding: 18px 18px 22px; }
+  .reason-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .reason-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #2B2420; }
+  .reason-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 900px) { .reason-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ご依頼の流れ（page-flow。construction-advance.html の flow-card を移植） ---- */
+  .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .flow-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; background: #fff; }
+  .flow-card .flow-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .flow-card-body { padding: 18px 18px 22px; }
+  .flow-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .flow-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #2B2420; }
+  .flow-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 900px) { .flow-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .flow-grid { grid-template-columns: 1fr; } }
+
+  /* ---- よくある質問（page-faq。construction-advance.html の faq-item を移植） ---- */
+  .faq-cat-title { font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 700; color: var(--accent); margin: 34px 0 12px; }
+  .faq-cat-title:first-child { margin-top: 0; }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: 18px 4px; font-size: 14.5px; font-weight: 700; display: flex; gap: 14px; align-items: flex-start; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before { content: "Q"; color: var(--accent); font-weight: 900; flex: 0 0 auto; }
+  .faq-item p { padding: 0 4px 18px 24px; font-size: 13px; color: #8A8272; line-height: 1.9; }
+
+  /* ---- スタッフ紹介（page-staff。construction-advance.html の staff-grid を移植） ---- */
+  .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .staff-card .staff-photo { aspect-ratio: 4/5; border-radius: 8px; margin-bottom: 16px; width: 100%; height: auto; object-fit: cover; }
+  .staff-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; color: #2B2420; }
+  .staff-role { font-size: 11.5px; color: var(--accent); font-weight: 700; margin-bottom: 10px; letter-spacing: .04em; }
+  .staff-bio { font-size: 12.5px; color: #8A8272; line-height: 1.85; }
+  @media (max-width: 700px) { .staff-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .staff-grid { grid-template-columns: 1fr; } }
+
+  /* ---- お客様の声（page-voice。construction-advance.html の voice-grid を移植） ---- */
+  .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .voice-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 22px 20px; }
+  .voice-head { margin-bottom: 14px; }
+  .voice-head .voice-photo { width: 100%; aspect-ratio: 16/10; border-radius: 6px; object-fit: cover; margin-bottom: 12px; }
+  .voice-name { font-size: 13.5px; font-weight: 700; color: #2B2420; }
+  .voice-meta { font-size: 11.5px; color: #8A8272; }
+  .voice-card p.comment { font-size: 13px; color: #8A8272; line-height: 1.85; margin-top: 10px; }
+  .voice-favorite { margin-top: 12px; font-size: 12px; color: var(--accent); font-weight: 700; }
+  @media (max-width: 700px) { .voice-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 事務所のご紹介（page-facility。construction-advance.html の facility-grid を移植。新規画像2枚のため2カラム） ---- */
+  .facility-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .facility-card .facility-photo { aspect-ratio: 16/10; border-radius: 8px; margin-bottom: 14px; width: 100%; height: auto; object-fit: cover; }
+  .facility-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #2B2420; }
+  .facility-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 700px) { .facility-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ブログ・お知らせ（page-blog。construction-advance.html の blog-grid を移植） ---- */
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .blog-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; }
+  .blog-card .blog-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .blog-card-body { padding: 18px 18px 20px; }
+  .blog-date { font-size: 11px; color: #8A8272; margin-bottom: 8px; }
+  .blog-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 8px; line-height: 1.6; color: #2B2420; }
+  .blog-card p { font-size: 12.5px; color: #8A8272; line-height: 1.75; }
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .blog-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ページ切り替え（11ページ分。construction-advance.html のCSSパターンをそのまま移植） ---- */
+  #page-top { display: block; }
+  #page-about, #page-reasons, #page-menu, #page-flow, #page-faq,
+  #page-staff, #page-voice, #page-facility, #page-blog, #page-access { display: none; }
+  body[class*="-page"] #page-top { display: none; }
+  body.about-page #page-about { display: block; }
+  body.reasons-page #page-reasons { display: block; }
+  body.menu-page #page-menu { display: block; }
+  body.flow-page #page-flow { display: block; }
+  body.faq-page #page-faq { display: block; }
+  body.staff-page #page-staff { display: block; }
+  body.voice-page #page-voice { display: block; }
+  body.facility-page #page-facility { display: block; }
+  body.blog-page #page-blog { display: block; }
+  body.access-page #page-access { display: block; }
+
+  /* ---- レスポンシブ（construction-advance.html のナビ関連レスポンシブを移植） ---- */
+  @media (max-width: 860px) {
+    .nav-links, .menu-btn { display: none; }
+    .nav-toggle { display: flex; }
+    .menu-overlay { padding: 78px 14px 30px; }
+    .menu-overlay-inner { padding: 28px 20px 24px; }
+    .menu-cats { grid-template-columns: 1fr; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" onclick="showPage('top')">田中<span>司法書士事務所</span></a>
+    <div class="nav-links">
+      <a onclick="showPage('top')">TOP</a>
+      <a onclick="showPage('menu')">業務内容</a>
+      <a onclick="showPage('staff')">スタッフ紹介</a>
+      <a class="nav-cta" onclick="showPage('access')">アクセス・お問い合わせ</a>
+    </div>
+    <div class="nav-right">
+      <button class="menu-btn" type="button" onclick="openMenu()">☰ メニュー</button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" onclick="openMenu()">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- メニューオーバーレイ（全11ページの導線・construction-advance.html を移植） -->
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-overlay-inner">
+    <button class="menu-close" type="button" aria-label="閉じる" onclick="closeMenu()">×</button>
+    <a class="menu-top-link" onclick="showPage('top')">田中<span style="color:var(--accent);">司法書士事務所</span> TOP</a>
+    <div class="menu-cats">
+      <div class="menu-cat">
+        <div class="menu-cat-title">田中司法書士事務所について</div>
+        <a onclick="showPage('about')">こだわり</a>
+        <a onclick="showPage('reasons')">選ばれる理由</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">ご利用案内</div>
+        <a onclick="showPage('menu')">業務内容・料金</a>
+        <a onclick="showPage('flow')">ご依頼の流れ</a>
+        <a onclick="showPage('faq')">よくある質問</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">スタッフ・事務所</div>
+        <a onclick="showPage('staff')">スタッフ紹介</a>
+        <a onclick="showPage('voice')">お客様の声</a>
+        <a onclick="showPage('facility')">事務所紹介</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">お知らせ</div>
+        <a onclick="showPage('blog')">ブログ・お知らせ</a>
+      </div>
+    </div>
+    <a class="menu-access-link" onclick="showPage('access')">アクセス・お問い合わせ →</a>
+  </div>
+</div>
+
+<!-- ════ PAGE: TOP ════ -->
+<div id="page-top">
+
+  <div class="hero">
+    <img src="images/professional/professional_hero.webp" alt="田中司法書士事務所">
+    <div class="hero-text">
+      <div class="label">士業</div>
+      <h1>一生に一度の手続きを、不安なく。</h1>
+      <p>田中司法書士事務所</p>
+    </div>
+  </div>
+
+  <section class="about-excerpt">
+    <div class="section-title">こだわり</div>
+    <p>相続・不動産登記を専門に15年、専門用語を使わないわかりやすい説明を心がけています。</p>
+    <a class="more-link" onclick="showPage('about')">こだわりをもっと見る →</a>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title">SNSでも発信しています</div>
+    <div class="sns-grid">
+      <div class="sns-card">
+        <div class="sns-card-head"><span class="sns-dot"></span>Instagram</div>
+        <img class="sns-photo" src="images/professional/professional_gallery1.webp" alt="応接ロビー">
+        <p class="sns-note">Instagramの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card">
+        <div class="sns-card-head"><span class="sns-dot"></span>X（旧Twitter）</div>
+        <img class="sns-photo" src="images/professional/professional_gallery4.webp" alt="執務デスク・書類">
+        <p class="sns-note">Xの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card">
+        <div class="sns-card-head"><span class="sns-dot"></span>Facebook</div>
+        <img class="sns-photo" src="images/professional/professional_gallery2.webp" alt="会議室">
+        <p class="sns-note">Facebookの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">詳しく見る</div>
+    <div class="link-grid">
+      <button class="link-card" onclick="showPage('about')">
+        <div class="tag">About</div>
+        <h3>こだわり・選ばれる理由</h3>
+        <p>田中司法書士事務所のこだわりと選ばれる理由をご紹介します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('menu')">
+        <div class="tag">Works</div>
+        <h3>業務内容・ご依頼の流れ</h3>
+        <p>業務内容と、ご依頼の流れ、よくある質問をご案内します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('staff')">
+        <div class="tag">Staff</div>
+        <h3>スタッフ・事務所紹介</h3>
+        <p>スタッフ紹介、お客様の声、事務所の様子をご覧いただけます。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card" onclick="showPage('blog')">
+        <div class="tag">Column</div>
+        <h3>ブログ・お知らせ</h3>
+        <p>最新のお知らせやコラムをお届けします。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+    </div>
+  </section>
+
+</div><!-- /page-top -->
+
+<!-- ════ PAGE: こだわり ════ -->
+<div id="page-about">
+  <section class="about">
+    <div class="section-title">こだわり</div>
+    <p>相続・不動産登記を専門に15年、専門用語を使わないわかりやすい説明を心がけています。初回のご相談は無料です。まずはお気軽にお問い合わせください。</p>
+  </section>
+</div><!-- /page-about -->
+
+<!-- ════ PAGE: 選ばれる理由 ════ -->
+<div id="page-reasons">
+  <section style="background:#fff;">
+    <div class="section-title">選ばれる理由</div>
+    <div class="reason-grid">
+      <div class="reason-card">
+        <img class="reason-photo" src="images/professional/professional_gallery3.webp" alt="代表の様子">
+        <div class="reason-card-body">
+          <div class="reason-num">01</div>
+          <h3>専門用語を使わないわかりやすい説明</h3>
+          <p>相続・不動産登記を専門に15年、どなたにも分かりやすい説明を心がけています。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <img class="reason-photo" src="images/professional/professional_gallery6.webp" alt="エントランス">
+        <div class="reason-card-body">
+          <div class="reason-num">02</div>
+          <h3>初回相談無料・気軽に相談できる窓口</h3>
+          <p>初めての方も安心してご相談いただけるよう、初回のご相談は無料で承っております。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <img class="reason-photo" src="images/professional/professional_gallery5.webp" alt="受付カウンター">
+        <div class="reason-card-body">
+          <div class="reason-num">03</div>
+          <h3>丁寧な対応とアフターフォロー</h3>
+          <p>手続き完了後のご相談にも、丁寧に対応いたします。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <img class="reason-photo" src="images/professional/professional_gallery1.webp" alt="応接ロビー">
+        <div class="reason-card-body">
+          <div class="reason-num">04</div>
+          <h3>落ち着いた空間でのご相談</h3>
+          <p>落ち着いた応接スペースで、じっくりとお話をお伺いします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-reasons -->
+
+<!-- ════ PAGE: 業務内容・料金 ════ -->
+<div id="page-menu">
+  <section style="background:#fff;">
+    <div class="section-title">メニュー</div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">相談・手続き</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="images/professional/professional_menu_consultation.webp" alt="登記相談（初回）">
+          <div class="menu-name">登記相談（初回）</div>
+          <div class="menu-price">¥0〜</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/professional/professional_menu_realestate.webp" alt="不動産登記手続き">
+          <div class="menu-name">不動産登記手続き</div>
+          <div class="menu-price">¥30,000〜</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/professional/professional_menu_corporate.webp" alt="商業・法人登記手続き">
+          <div class="menu-name">商業・法人登記手続き</div>
+          <div class="menu-price">¥40,000〜</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">専門サポート</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="images/professional/professional_menu_inheritance.webp" alt="相続手続きサポート">
+          <div class="menu-name">相続手続きサポート</div>
+          <div class="menu-price">¥50,000〜</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/professional/professional_menu_will.webp" alt="遺言書作成サポート">
+          <div class="menu-name">遺言書作成サポート</div>
+          <div class="menu-price">¥40,000〜</div>
+        </div>
+        <div class="menu-card">
+          <img src="images/professional/professional_menu_guardianship.webp" alt="成年後見サポート">
+          <div class="menu-name">成年後見サポート</div>
+          <div class="menu-price">要相談</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-menu -->
+
+<!-- ════ PAGE: ご依頼の流れ ════ -->
+<div id="page-flow">
+  <section style="background:#fff;">
+    <div class="section-title">ご依頼の流れ</div>
+    <div class="flow-grid">
+      <div class="flow-card">
+        <img class="flow-photo" src="images/professional/professional_flow1.webp" alt="書類を広げてご夫婦に説明する司法書士">
+        <div class="flow-card-body">
+          <div class="flow-num">01</div>
+          <h3>ご相談（初回無料）</h3>
+          <p>書類を交えながら、状況やご希望を丁寧にお伺いします。初回のご相談は無料です。</p>
+        </div>
+      </div>
+      <div class="flow-card">
+        <img class="flow-photo" src="images/professional/professional_flow2.webp" alt="登記申請書を確認する様子">
+        <div class="flow-card-body">
+          <div class="flow-num">02</div>
+          <h3>必要書類の確認・お預かり</h3>
+          <p>登記に必要な書類を一つひとつ確認しながら、お預かりいたします。</p>
+        </div>
+      </div>
+      <div class="flow-card">
+        <img class="flow-photo" src="images/professional/professional_flow3.webp" alt="登記申請書類を作成するスタッフ">
+        <div class="flow-card-body">
+          <div class="flow-num">03</div>
+          <h3>書類作成・申請手続き</h3>
+          <p>確認した内容をもとに、登記申請書類を正確に作成し、手続きを進めます。</p>
+        </div>
+      </div>
+      <div class="flow-card">
+        <img class="flow-photo" src="images/professional/professional_flow4.webp" alt="完了書類をお客様に手渡す司法書士">
+        <div class="flow-card-body">
+          <div class="flow-num">04</div>
+          <h3>完了書類のお渡し</h3>
+          <p>手続きが完了しましたら、書類一式をお渡しし、内容をご説明いたします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-flow -->
+
+<!-- ════ PAGE: よくある質問 ════ -->
+<div id="page-faq">
+  <section>
+    <div class="section-title">よくある質問</div>
+
+    <div class="faq-cat-title">ご相談について</div>
+    <div class="faq-item"><details><summary>相談は無料ですか？</summary><p>初回のご相談は無料です。お気軽にお問い合わせください。</p></details></div>
+    <div class="faq-item"><details><summary>土日祝の相談は可能ですか？</summary><p>土日祝は要予約にて対応しております。</p></details></div>
+
+    <div class="faq-cat-title">費用について</div>
+    <div class="faq-item"><details><summary>費用はいつ支払えばよいですか？</summary><p>手続き完了時にご精算いただいております。</p></details></div>
+    <div class="faq-item"><details><summary>見積りは出してもらえますか？</summary><p>ご相談時に概算のお見積りをご案内しております。</p></details></div>
+
+    <div class="faq-cat-title">手続きについて</div>
+    <div class="faq-item"><details><summary>遠方でも依頼できますか？</summary><p>郵送でのやり取りにも対応しております。</p></details></div>
+    <div class="faq-item"><details><summary>手続きにはどのくらい時間がかかりますか？</summary><p>内容により異なりますが、登記完了まで2週間〜1ヶ月程度が目安です。</p></details></div>
+  </section>
+</div><!-- /page-faq -->
+
+<!-- ════ PAGE: スタッフ紹介 ════ -->
+<div id="page-staff">
+  <section style="background:#fff;">
+    <div class="section-title">スタッフ紹介</div>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <img class="staff-photo" src="images/professional/professional_staff1.webp" alt="所長・司法書士 田中">
+        <div class="staff-name">所長・司法書士 田中</div>
+        <div class="staff-role">田中司法書士事務所 所長</div>
+        <p class="staff-bio">「相続・不動産登記を専門に15年、専門用語を使わないわかりやすい説明を心がけています。」お客様の不安に寄り添った手続きを大切にしています。</p>
+      </div>
+      <div class="staff-card">
+        <img class="staff-photo" src="images/professional/professional_staff2.webp" alt="司法書士 鈴木">
+        <div class="staff-name">司法書士 鈴木</div>
+        <div class="staff-role">司法書士</div>
+        <p class="staff-bio">「登記申請書類の作成を担当しています。」正確かつ丁寧な手続きを心がけています。</p>
+      </div>
+      <div class="staff-card">
+        <img class="staff-photo" src="images/professional/professional_staff3.webp" alt="事務 伊藤">
+        <div class="staff-name">事務 伊藤</div>
+        <div class="staff-role">事務</div>
+        <p class="staff-bio">「受付や書類のご案内を担当しています。」皆さまが安心してご相談いただけるよう対応しています。</p>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-staff -->
+
+<!-- ════ PAGE: お客様の声 ════ -->
+<div id="page-voice">
+  <section>
+    <div class="section-title">お客様の声</div>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/professional/professional_voice1.webp" alt="報告書を一緒に見るご夫婦">
+          <div class="voice-name">S.Tさん（ご夫婦）</div>
+          <div class="voice-meta">相続登記でご依頼</div>
+        </div>
+        <p class="comment">難しい相続の手続きを、専門用語を使わずに分かりやすく説明していただき、安心して任せることができました。</p>
+        <div class="voice-favorite">ご依頼内容：相続登記</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/professional/professional_voice2.webp" alt="書類を確認するご夫婦">
+          <div class="voice-name">K.Mさん（ご夫婦）</div>
+          <div class="voice-meta">不動産登記でご依頼</div>
+        </div>
+        <p class="comment">住宅購入に伴う登記手続きを、スケジュールに合わせて迅速に対応していただきました。</p>
+        <div class="voice-favorite">ご依頼内容：不動産登記</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/professional/professional_voice3.webp" alt="登記事項証明書を持つ男性">
+          <div class="voice-name">Y.Nさん（会社経営）</div>
+          <div class="voice-meta">会社設立の登記でご依頼</div>
+        </div>
+        <p class="comment">会社設立の登記もスムーズに進めていただき、安心して開業準備に専念できました。</p>
+        <div class="voice-favorite">ご依頼内容：会社設立登記</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-voice -->
+
+<!-- ════ PAGE: 事務所のご紹介 ════ -->
+<div id="page-facility">
+  <section>
+    <div class="section-title">事務所のご紹介</div>
+    <div class="facility-grid">
+      <div class="facility-card">
+        <img class="facility-photo" src="images/professional/professional_facility1.webp" alt="テーブルと書棚のある相談室">
+        <h3>相談室</h3>
+        <p>落ち着いた雰囲気の相談室で、じっくりとお話をお伺いします。</p>
+      </div>
+      <div class="facility-card">
+        <img class="facility-photo" src="images/professional/professional_facility2.webp" alt="白壁と黒瓦屋根の事務所外観">
+        <h3>事務所外観</h3>
+        <p>住宅街の静かな一角にある、和風の趣を残した事務所です。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <img class="gallery-item" src="images/professional/professional_gallery1.webp" alt="応接ロビー">
+        <img class="gallery-item" src="images/professional/professional_gallery2.webp" alt="会議室">
+        <img class="gallery-item" src="images/professional/professional_gallery3.webp" alt="代表の様子">
+        <img class="gallery-item" src="images/professional/professional_gallery4.webp" alt="執務デスク・書類">
+        <img class="gallery-item" src="images/professional/professional_gallery5.webp" alt="受付カウンター">
+        <img class="gallery-item" src="images/professional/professional_gallery6.webp" alt="エントランス">
+        <img class="gallery-item" src="images/professional/professional_gallery1.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/professional/professional_gallery2.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/professional/professional_gallery3.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/professional/professional_gallery4.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/professional/professional_gallery5.webp" alt="" aria-hidden="true">
+        <img class="gallery-item" src="images/professional/professional_gallery6.webp" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </section>
+</div><!-- /page-facility -->
+
+<!-- ════ PAGE: ブログ・お知らせ ════ -->
+<div id="page-blog">
+  <section>
+    <div class="section-title">ブログ・お知らせ</div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img class="blog-photo" src="images/professional/professional_menu_inheritance.webp" alt="相続手続きサポート">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.05</div>
+          <h3>相続登記の義務化について</h3>
+          <p>相続登記の義務化に関するご相談が増えています。お早めにご相談ください。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/professional/professional_gallery3.webp" alt="代表の様子">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.18</div>
+          <h3>無料相談会を開催しました</h3>
+          <p>多くの方にご参加いただき、登記に関するご相談をお受けしました。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/professional/professional_menu_will.webp" alt="遺言書作成サポート">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.30</div>
+          <h3>遺言書作成のすすめ</h3>
+          <p>将来に備えた遺言書作成についてのご相談を承っています。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/professional/professional_gallery4.webp" alt="執務デスク・書類">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.10</div>
+          <h3>事務所の受付体制について</h3>
+          <p>お客様がスムーズにご相談いただけるよう、受付体制を整えております。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/professional/professional_menu_corporate.webp" alt="商業・法人登記手続き">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.20</div>
+          <h3>会社設立登記のご相談が増えています</h3>
+          <p>新規開業に伴う法人登記のご相談を多数いただいております。</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-photo" src="images/professional/professional_menu_realestate.webp" alt="不動産登記手続き">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.08.01</div>
+          <h3>夏季の受付時間について</h3>
+          <p>8月中は受付時間を変更しております。詳しくはアクセスページをご覧ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-blog -->
+
+<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
+<div id="page-access">
+  <section class="contact">
+    <div class="section-title">アクセス・お問い合わせ</div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <p>福岡県福岡市〇〇区〇〇4-5-2</p>
+        <p>受付時間:9:00〜18:00（土日祝は要予約）</p>
+        <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+        <div class="line-wrap">
+          <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
+          <p class="line-note">LINEでのお問い合わせも承っています。</p>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <span>地図がここに表示されます（デモ表示中）</span>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-access -->
+
+<footer>田中司法書士事務所（RESC制作サンプル）</footer>
+
+<script>
+  /* ── ページ切り替え（construction-advance.html より移植） ── */
+  function showPage(page) {
+    closeNav(); closeMenu();
+    document.body.className = (page === 'top') ? '' : (page + '-page');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── ナビ／メニューオーバーレイ（construction-advance.html より移植） ── */
+  function openMenu() { document.getElementById('menuOverlay').classList.add('open'); }
+  function closeMenu() { document.getElementById('menuOverlay').classList.remove('open'); }
+  function closeNav() { /* モバイル単体ドロップダウンは無いためメニュー閉じるのみ（construction-advance.html を踏襲） */ }
+  document.getElementById('menuOverlay').addEventListener('click', function (e) {
+    if (e.target.id === 'menuOverlay') closeMenu();
+  });
+</script>
+
+</body>
+</html>
