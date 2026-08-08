@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手仕事雑貨店 つむぎ｜小売</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --kinari: #F5F1E8;
+    --ai-deep: #2C3E50;
+    --wakakusa: #7A8B6F;
+    --white: #FFFFFF;
+    --text-dark: #3D3630;
+    --text-muted: #6B6259;
+    --accent: #B5533C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--kinari); color: var(--text-dark); line-height: 1.8; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .notice {
+    background: var(--ai-deep); color: #fff; text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: #fff; text-decoration: underline; }
+
+  /* ---- Nav（retail-standard.html のナビ実装をベースに、construction-advance.html のメニューオーバーレイを追加移植） ---- */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(44,62,80,.95); backdrop-filter: blur(6px);
+    height: 64px;
+  }
+  .nav-in {
+    max-width: 900px; margin: 0 auto; height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+  }
+  .logo { font-family: 'Shippori Mincho', 'Cormorant Garamond', serif; font-weight: 700; font-size: 18px; letter-spacing: .03em; color: #fff; cursor: pointer; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: rgba(255,255,255,.85); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.nav-cta { background: var(--accent); color: #fff; padding: 9px 18px; border-radius: 4px; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .menu-btn {
+    display: inline-flex; align-items: center; gap: 8px; background: transparent;
+    border: 1px solid rgba(255,255,255,.35); color: #fff; font-size: 13px; font-weight: 700;
+    padding: 9px 16px; border-radius: 4px; cursor: pointer;
+  }
+  .menu-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    background: transparent; border: none; cursor: pointer;
+  }
+  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+
+  /* ---- メニューオーバーレイ（construction-advance.html を移植し、retailの配色に変更） ---- */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(44,62,80,.72); backdrop-filter: blur(3px);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 90px 24px 40px; overflow-y: auto;
+  }
+  .menu-overlay.open { display: flex; }
+  .menu-overlay-inner {
+    background: #fff; border-radius: 12px; width: 100%; max-width: 780px;
+    padding: 36px 36px 30px; position: relative;
+  }
+  .menu-close {
+    position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%;
+    border: none; background: var(--kinari); font-size: 18px; cursor: pointer; color: var(--text-dark);
+  }
+  .menu-top-link {
+    display: inline-block; font-family: 'Shippori Mincho', 'Cormorant Garamond', serif; font-weight: 700; font-size: 20px;
+    color: var(--ai-deep); margin-bottom: 26px; cursor: pointer;
+  }
+  .menu-top-link:hover { color: var(--accent); }
+  .menu-cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 26px; }
+  .menu-cat-title {
+    font-size: 11.5px; letter-spacing: .18em; color: var(--accent); font-weight: 700; margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .menu-cat a { display: block; font-size: 14.5px; font-weight: 700; padding: 8px 0; cursor: pointer; color: var(--text-dark); }
+  .menu-cat a:hover { color: var(--accent); }
+  .menu-access-link {
+    display: block; text-align: center; background: var(--ai-deep); color: #fff; font-weight: 700; font-size: 14px;
+    padding: 14px; border-radius: 6px; cursor: pointer;
+  }
+  .menu-access-link:hover { background: var(--accent); }
+
+  /* ---- ヒーロー（静止画・左揃え。retail-standard.html の実装を原文のまま踏襲） ---- */
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; animation: hero-kenburns 20s ease-out infinite alternate; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.40) 50%, rgba(0,0,0,0) 75%);
+  }
+  .hero-text {
+    position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+    text-align: left; color: #fff; padding: 24px 24px 24px 8%;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.9; margin-bottom: 14px; }
+  .hero-text h1 {
+    font-family: 'Shippori Mincho', 'Cormorant Garamond', serif; font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px;
+    animation: hero-fade-in 0.9s ease-out both;
+  }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-in 0.9s ease-out both; animation-delay: 0.3s; }
+  @media (max-width: 768px) {
+    .hero::after { background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.40) 50%, rgba(0,0,0,0.45) 100%); }
+    .hero-text { align-items: center; text-align: center; padding: 24px; }
+  }
+  @keyframes hero-kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+  }
+  @keyframes hero-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero img, .hero-text h1, .hero-text p { animation: none; }
+  }
+
+  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
+  .section-title { font-family: 'Shippori Mincho', 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; color: var(--ai-deep); margin-bottom: 24px; text-align: center; }
+
+  /* ---- .about-grid（写真＋テキストの2カラム。retail-standard.html の実装を原文のまま踏襲） ---- */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; box-shadow: 0 16px 36px rgba(44,62,80,0.15); }
+  .about-content { text-align: left; }
+  .about-content .section-title { text-align: left; }
+  .about p { font-size: 14.5px; color: var(--text-dark); margin-bottom: 14px; }
+  .about p:last-child { margin-bottom: 0; }
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about-content, .about-content .section-title { text-align: center; }
+  }
+
+  /* ---- about抜粋（page-top） ---- */
+  .about-excerpt p { font-size: 14.5px; color: var(--text-dark); margin-bottom: 22px; }
+  .about-excerpt .more-link {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent);
+    border-bottom: 1px solid var(--accent); padding-bottom: 2px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
+  }
+
+  /* ---- 取り扱い（menu-copy あり。retail-standard.html の実装を原文のまま踏襲） ---- */
+  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .menu-card {
+    display: flex; flex-direction: column; text-align: center;
+    background: #fff; border: 1px solid var(--accent); border-radius: 12px; padding: 18px 18px 22px;
+  }
+  .menu-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
+  .menu-card .menu-name { margin-top: 14px; font-size: 15px; font-weight: 700; color: var(--ai-deep); }
+  .menu-card .menu-copy { margin-top: 8px; font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.6; flex: 1; }
+  .menu-card .menu-price { margin-top: 16px; font-size: 15px; font-weight: 700; color: var(--accent); }
+  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .menu-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ギャラリー（divラップの二重構造。retail-standard.html の実装を原文のまま踏襲） ---- */
+  .gallery-marquee { overflow: hidden; }
+  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
+  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+  .gallery-item { flex: 0 0 auto; width: 320px; aspect-ratio: 16 / 9; border-radius: 6px; margin-right: 16px; overflow: hidden; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-marquee { overflow-x: auto; }
+  }
+
+  .contact { background: var(--kinari); color: var(--ai-deep); text-align: center; }
+  .contact .section-title { color: var(--ai-deep); }
+  .contact-box {
+    width: fit-content; margin: 0 auto 24px; padding: 26px 42px;
+    background: #fff; border: 1px solid var(--accent); border-radius: 12px;
+  }
+  .contact p { font-size: 14px; margin-bottom: 8px; color: var(--ai-deep); }
+  .contact p:last-of-type { margin-bottom: 0; }
+  .contact .btn {
+    display: inline-block; margin-top: 24px; background: #fff; color: var(--accent);
+    border: 1px solid var(--accent); padding: 12px 34px; border-radius: 999px;
+    font-weight: 700; font-size: 13.5px; transition: background 0.25s ease, color 0.25s ease;
+  }
+  .contact .btn:hover { background: var(--accent); color: #fff; }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); background: var(--kinari); }
+
+  /* ---- .reveal スクロールフェードイン（retail-standard.html より原文のまま移植） ---- */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .menu-grid .menu-card:nth-child(3n+1) { transition-delay: 0s; }
+  .menu-grid .menu-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .menu-grid .menu-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  .reason-grid .reason-card:nth-child(4n+1) { transition-delay: 0s; }
+  .reason-grid .reason-card:nth-child(4n+2) { transition-delay: 0.1s; }
+  .reason-grid .reason-card:nth-child(4n+3) { transition-delay: 0.2s; }
+  .reason-grid .reason-card:nth-child(4n+4) { transition-delay: 0.3s; }
+  .flow-grid .flow-card:nth-child(4n+1) { transition-delay: 0s; }
+  .flow-grid .flow-card:nth-child(4n+2) { transition-delay: 0.1s; }
+  .flow-grid .flow-card:nth-child(4n+3) { transition-delay: 0.2s; }
+  .flow-grid .flow-card:nth-child(4n+4) { transition-delay: 0.3s; }
+  .staff-grid .staff-card:nth-child(3n+1) { transition-delay: 0s; }
+  .staff-grid .staff-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .staff-grid .staff-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  .voice-grid .voice-card:nth-child(3n+1) { transition-delay: 0s; }
+  .voice-grid .voice-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .voice-grid .voice-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  .facility-grid .facility-card:nth-child(2n+1) { transition-delay: 0s; }
+  .facility-grid .facility-card:nth-child(2n+2) { transition-delay: 0.1s; }
+  .blog-grid .blog-card:nth-child(3n+1) { transition-delay: 0s; }
+  .blog-grid .blog-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .blog-grid .blog-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---- LINE連携ボタン（retail-standard.html と同一実装） ---- */
+  .line-btn {
+    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
+    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
+    line-height: 21px;
+  }
+  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
+  .contact .line-wrap { margin-top: 18px; }
+
+  /* ---- 地図プレースホルダー（retail-standard.html の page-access 実装をそのまま移植） ---- */
+  .map-placeholder {
+    background: #fff; border: 1px dashed var(--accent); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    align-self: stretch; min-height: 300px;
+  }
+  .map-placeholder span { font-size: 11.5px; color: var(--text-muted); }
+
+  /* ---- page-access 2カラムレイアウト（retail-standard.html を移植。新系統のため .contact-info の min-height は不要） ---- */
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
+  }
+  @media (max-width: 800px) {
+    .contact-layout { grid-template-columns: 1fr; }
+  }
+
+  /* ---- SNS（3媒体・デモ表示。construction-advance.html の sns-grid を移植し、retailのカード様式に変更） ---- */
+  .sns-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .sns-card { background: #fff; border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; }
+  .sns-card .sns-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .sns-card-head { display: flex; align-items: center; gap: 8px; padding: 14px 16px; font-size: 13px; font-weight: 700; }
+  .sns-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .sns-note { font-size: 11px; color: var(--text-muted); padding: 0 16px 16px; }
+  @media (max-width: 700px) { .sns-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 各ページへの導線カード（page-top。retail-standard.html を移植） ---- */
+  .link-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .link-card {
+    display: block; background: #fff; border: 1px solid var(--accent); border-radius: 12px;
+    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(44,62,80,.12); }
+  .link-card .tag { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
+  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--ai-deep); }
+  .link-card p { font-size: 13px; color: var(--text-muted); }
+  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--accent); }
+  @media (max-width: 900px) { .link-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .link-grid { grid-template-columns: 1fr; } }
+
+  /* ---- つむぎの選びかた（page-reasons。retailのカード様式で新規実装） ---- */
+  .reason-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .reason-card { border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; background: #fff; }
+  .reason-card .reason-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .reason-card-body { padding: 18px 18px 22px; }
+  .reason-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .reason-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--ai-deep); }
+  .reason-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.8; }
+  @media (max-width: 900px) { .reason-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+
+  /* ---- お買いものの流れ（page-flow。retailのカード様式で新規実装） ---- */
+  .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .flow-card { border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; background: #fff; }
+  .flow-card .flow-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .flow-card-body { padding: 18px 18px 22px; }
+  .flow-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .flow-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--ai-deep); }
+  .flow-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.8; }
+  @media (max-width: 900px) { .flow-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .flow-grid { grid-template-columns: 1fr; } }
+
+  /* ---- よくある質問（page-faq） ---- */
+  .faq-cat-title { font-family: 'Shippori Mincho', 'Cormorant Garamond', serif; font-size: 15px; font-weight: 700; color: var(--accent); margin: 34px 0 12px; }
+  .faq-cat-title:first-child { margin-top: 0; }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: 18px 4px; font-size: 14.5px; font-weight: 700; display: flex; gap: 14px; align-items: flex-start; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before { content: "Q"; color: var(--accent); font-weight: 900; flex: 0 0 auto; }
+  .faq-item p { padding: 0 4px 18px 24px; font-size: 13px; color: var(--text-muted); line-height: 1.9; }
+
+  /* ---- スタッフ紹介（page-staff。retailのカード様式で新規実装） ---- */
+  .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .staff-card .staff-photo { aspect-ratio: 4/5; border-radius: 12px; margin-bottom: 16px; width: 100%; height: auto; object-fit: cover; }
+  .staff-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; color: var(--ai-deep); }
+  .staff-role { font-size: 11.5px; color: var(--accent); font-weight: 700; margin-bottom: 10px; letter-spacing: .04em; }
+  .staff-bio { font-size: 12.5px; color: var(--text-muted); line-height: 1.85; }
+  @media (max-width: 700px) { .staff-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .staff-grid { grid-template-columns: 1fr; } }
+
+  /* ---- お客様の声（page-voice。retailのカード様式で新規実装） ---- */
+  .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .voice-card { background: #fff; border: 1px solid var(--accent); border-radius: 12px; padding: 22px 20px; }
+  .voice-head { margin-bottom: 14px; }
+  .voice-head .voice-photo { width: 100%; aspect-ratio: 16/10; border-radius: 8px; object-fit: cover; margin-bottom: 12px; }
+  .voice-name { font-size: 13.5px; font-weight: 700; color: var(--ai-deep); }
+  .voice-meta { font-size: 11.5px; color: var(--text-muted); }
+  .voice-card p.comment { font-size: 13px; color: var(--text-muted); line-height: 1.85; margin-top: 10px; }
+  .voice-favorite { margin-top: 12px; font-size: 12px; color: var(--accent); font-weight: 700; }
+  @media (max-width: 700px) { .voice-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 店内のご紹介（page-facility。retailのカード様式で新規実装） ---- */
+  .facility-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .facility-card .facility-photo { aspect-ratio: 16/10; border-radius: 12px; margin-bottom: 14px; width: 100%; height: auto; object-fit: cover; }
+  .facility-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--ai-deep); }
+  .facility-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.8; }
+  @media (max-width: 700px) { .facility-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ブログ・お知らせ（page-blog。retailのカード様式で新規実装） ---- */
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .blog-card { background: #fff; border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; }
+  .blog-card .blog-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .blog-card-body { padding: 18px 18px 20px; }
+  .blog-date { font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
+  .blog-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 8px; line-height: 1.6; color: var(--ai-deep); }
+  .blog-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.75; }
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .blog-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ページ切り替え（11ページ分。construction-advance.html のCSSパターンをそのまま移植） ---- */
+  #page-top { display: block; }
+  #page-about, #page-reasons, #page-menu, #page-flow, #page-faq,
+  #page-staff, #page-voice, #page-facility, #page-blog, #page-access { display: none; }
+  body[class*="-page"] #page-top { display: none; }
+  body.about-page #page-about { display: block; }
+  body.reasons-page #page-reasons { display: block; }
+  body.menu-page #page-menu { display: block; }
+  body.flow-page #page-flow { display: block; }
+  body.faq-page #page-faq { display: block; }
+  body.staff-page #page-staff { display: block; }
+  body.voice-page #page-voice { display: block; }
+  body.facility-page #page-facility { display: block; }
+  body.blog-page #page-blog { display: block; }
+  body.access-page #page-access { display: block; }
+
+  /* ---- レスポンシブ（construction-advance.html のナビ関連レスポンシブを移植） ---- */
+  @media (max-width: 860px) {
+    .nav-links, .menu-btn { display: none; }
+    .nav-toggle { display: flex; }
+    .menu-overlay { padding: 78px 14px 30px; }
+    .menu-overlay-inner { padding: 28px 20px 24px; }
+    .menu-cats { grid-template-columns: 1fr; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" onclick="showPage('top')">手仕事雑貨店 <span>つむぎ</span></a>
+    <div class="nav-links">
+      <a onclick="showPage('top')">TOP</a>
+      <a onclick="showPage('menu')">取り扱い</a>
+      <a onclick="showPage('staff')">スタッフ紹介</a>
+      <a class="nav-cta" onclick="showPage('access')">アクセス・お問い合わせ</a>
+    </div>
+    <div class="nav-right">
+      <button class="menu-btn" type="button" onclick="openMenu()">☰ メニュー</button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" onclick="openMenu()">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- メニューオーバーレイ（全11ページの導線・construction-advance.html を移植） -->
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-overlay-inner">
+    <button class="menu-close" type="button" aria-label="閉じる" onclick="closeMenu()">×</button>
+    <a class="menu-top-link" onclick="showPage('top')">手仕事雑貨店 <span style="color:var(--accent);">つむぎ</span> TOP</a>
+    <div class="menu-cats">
+      <div class="menu-cat">
+        <div class="menu-cat-title">つむぎについて</div>
+        <a onclick="showPage('about')">お店について</a>
+        <a onclick="showPage('reasons')">つむぎの選びかた</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">ご利用案内</div>
+        <a onclick="showPage('menu')">取り扱い</a>
+        <a onclick="showPage('flow')">お買いものの流れ</a>
+        <a onclick="showPage('faq')">よくある質問</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">スタッフ・店内</div>
+        <a onclick="showPage('staff')">スタッフ紹介</a>
+        <a onclick="showPage('voice')">お客様の声</a>
+        <a onclick="showPage('facility')">店内のご紹介</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">お知らせ</div>
+        <a onclick="showPage('blog')">ブログ・お知らせ</a>
+      </div>
+    </div>
+    <a class="menu-access-link" onclick="showPage('access')">アクセス・お問い合わせ →</a>
+  </div>
+</div>
+
+<!-- ════ PAGE: TOP ════ -->
+<div id="page-top">
+
+  <div class="hero">
+    <img src="images/retail/retail_hero.webp" alt="手仕事雑貨店 つむぎ">
+    <div class="hero-text">
+      <div class="label">暮らしの道具</div>
+      <h1>手仕事雑貨店 つむぎ</h1>
+      <p>つくり手の顔が見える、暮らしの道具を。</p>
+    </div>
+  </div>
+
+  <section class="about-excerpt reveal">
+    <div class="section-title">こだわり</div>
+    <p>全国の工房をたずねて、つくり手と話し、実際に使ってみたものだけを置いています。</p>
+    <a class="more-link" onclick="showPage('about')">こだわりをもっと見る →</a>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title reveal">SNSでも発信しています</div>
+    <div class="sns-grid">
+      <div class="sns-card reveal">
+        <div class="sns-card-head"><span class="sns-dot"></span>Instagram</div>
+        <img class="sns-photo" src="images/retail/retail_gallery2.webp" alt="陳列棚">
+        <p class="sns-note">Instagramの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card reveal">
+        <div class="sns-card-head"><span class="sns-dot"></span>X（旧Twitter）</div>
+        <img class="sns-photo" src="images/retail/retail_gallery5.webp" alt="俯瞰の皿">
+        <p class="sns-note">Xの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card reveal">
+        <div class="sns-card-head"><span class="sns-dot"></span>Facebook</div>
+        <img class="sns-photo" src="images/retail/retail_gallery1.webp" alt="店内全景">
+        <p class="sns-note">Facebookの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title reveal">詳しく見る</div>
+    <div class="link-grid">
+      <button class="link-card reveal" onclick="showPage('about')">
+        <div class="tag">About</div>
+        <h3>お店について・選びかた</h3>
+        <p>つむぎのこだわりと、つむぎの選びかたをご紹介します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('menu')">
+        <div class="tag">Menu</div>
+        <h3>取り扱い・お買いものの流れ</h3>
+        <p>取り扱い商品と、お買いものの流れ、よくある質問をご案内します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('staff')">
+        <div class="tag">Staff</div>
+        <h3>スタッフ・店内紹介</h3>
+        <p>スタッフ紹介、お客様の声、店内の様子をご覧いただけます。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('blog')">
+        <div class="tag">Column</div>
+        <h3>ブログ・お知らせ</h3>
+        <p>最新のお知らせやコラムをお届けします。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+    </div>
+  </section>
+
+</div><!-- /page-top -->
+
+<!-- ════ PAGE: お店について ════ -->
+<div id="page-about">
+  <section class="about reveal">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="images/retail/retail_gallery1.webp" alt="手仕事雑貨店 つむぎの店内全景">
+      </div>
+      <div class="about-content">
+        <div class="section-title">こだわり</div>
+        <p>全国の工房をたずねて、つくり手と話し、実際に使ってみたものだけを置いています。派手さはなくても、毎日の手にしっくりくるものを。</p>
+        <p>陶器、木の道具、手織りの布、ガラス、かご。素材も産地もばらばらですが、選ぶ基準はひとつ。「長く使えるか」だけです。</p>
+        <p>欠けたら直す、へたったら手入れする。売って終わりではなく、道具として使い続けていただくところまでがお店の仕事だと思っています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title reveal">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <div class="gallery-item"><img src="images/retail/retail_gallery1.webp" alt="店内全景"></div>
+        <div class="gallery-item"><img src="images/retail/retail_gallery2.webp" alt="陳列棚"></div>
+        <div class="gallery-item"><img src="images/retail/retail_gallery3.webp" alt="ろくろ・作り手の手元"></div>
+        <div class="gallery-item"><img src="images/retail/retail_gallery4.webp" alt="器の手入れ"></div>
+        <div class="gallery-item"><img src="images/retail/retail_gallery5.webp" alt="俯瞰の皿"></div>
+        <div class="gallery-item"><img src="images/retail/retail_gallery6.webp" alt="外観"></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery1.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery2.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery3.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery4.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery5.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery6.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-about -->
+
+<!-- ════ PAGE: つむぎの選びかた ════ -->
+<div id="page-reasons">
+  <section style="background:#fff;">
+    <div class="section-title reveal">つむぎの選びかた</div>
+    <div class="reason-grid">
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/retail/retail_gallery3.webp" alt="ろくろ・作り手の手元">
+        <div class="reason-card-body">
+          <div class="reason-num">01</div>
+          <h3>つくり手の顔が見える仕入れ</h3>
+          <p>全国の工房を訪ね、つくり手と直接話しながら、一つひとつ選んでいます。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/retail/retail_gallery4.webp" alt="器の手入れ">
+        <div class="reason-card-body">
+          <div class="reason-num">02</div>
+          <h3>長く使えるかだけを基準に</h3>
+          <p>素材や産地はさまざまでも、選ぶ基準は「長く使えるか」だけです。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/retail/retail_gallery6.webp" alt="外観">
+        <div class="reason-card-body">
+          <div class="reason-num">03</div>
+          <h3>欠けたら直す、へたったら手入れする</h3>
+          <p>売って終わりではなく、道具として使い続けていただくお手伝いをします。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/retail/retail_gallery2.webp" alt="陳列棚">
+        <div class="reason-card-body">
+          <div class="reason-num">04</div>
+          <h3>暮らしにしっくりくるものを</h3>
+          <p>派手さはなくても、毎日の手になじむものだけを店内に並べています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-reasons -->
+
+<!-- ════ PAGE: 取り扱い ════ -->
+<div id="page-menu">
+  <section style="background:#fff;">
+    <div class="section-title reveal">メニュー・サービス</div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <img src="images/retail/retail_menu_ceramic.webp" alt="陶器・うつわ">
+        <div class="menu-name">陶器・うつわ</div>
+        <div class="menu-copy">土の表情が、料理を引き立てる。</div>
+        <div class="menu-price">¥2,800〜</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/retail/retail_menu_wood.webp" alt="木の道具">
+        <div class="menu-name">木の道具</div>
+        <div class="menu-copy">使うほど、手になじむ。</div>
+        <div class="menu-price">¥1,800〜</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/retail/retail_menu_textile.webp" alt="手織りの布">
+        <div class="menu-name">手織りの布</div>
+        <div class="menu-copy">一枚ずつ、織り目がちがう。</div>
+        <div class="menu-price">¥3,500〜</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/retail/retail_menu_glass.webp" alt="ガラス">
+        <div class="menu-name">ガラス</div>
+        <div class="menu-copy">光を通して、食卓が涼しくなる。</div>
+        <div class="menu-price">¥2,400〜</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/retail/retail_menu_basket.webp" alt="かご・ほうき">
+        <div class="menu-name">かご・ほうき</div>
+        <div class="menu-copy">編み目の仕事を、暮らしの隅々に。</div>
+        <div class="menu-price">¥4,200〜</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/retail/retail_menu_gift.webp" alt="季節のギフト">
+        <div class="menu-name">季節のギフト</div>
+        <div class="menu-copy">贈る人を思って、包みます。</div>
+        <div class="menu-price">¥3,000〜</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-menu -->
+
+<!-- ════ PAGE: お買いものの流れ ════ -->
+<div id="page-flow">
+  <section style="background:#fff;">
+    <div class="section-title reveal">お買いものの流れ</div>
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/retail/retail_flow1.webp" alt="陶器の器をテーブルに並べる店主">
+        <div class="flow-card-body">
+          <div class="flow-num">01</div>
+          <h3>店内をご覧ください</h3>
+          <p>木の棚や古材のテーブルに並ぶ器や道具を、ゆっくりご覧いただけます。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/retail/retail_flow2.webp" alt="陶器の鉢を手に取って眺める様子">
+        <div class="flow-card-body">
+          <div class="flow-num">02</div>
+          <h3>手に取ってお選びください</h3>
+          <p>手に取って、重さや質感を確かめながらお選びいただけます。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/retail/retail_flow3.webp" alt="和紙と麻紐で器を包む様子">
+        <div class="flow-card-body">
+          <div class="flow-num">03</div>
+          <h3>一点ずつお包みします</h3>
+          <p>和紙と麻紐で、一点ずつ丁寧にお包みします。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/retail/retail_flow4.webp" alt="包みをお客様に手渡す店主">
+        <div class="flow-card-body">
+          <div class="flow-num">04</div>
+          <h3>お渡し・その後のお手入れも</h3>
+          <p>お渡しした後も、お手入れのご相談はいつでも承っています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-flow -->
+
+<!-- ════ PAGE: よくある質問 ════ -->
+<div id="page-faq">
+  <section class="reveal">
+    <div class="section-title">よくある質問</div>
+
+    <div class="faq-cat-title">ご来店について</div>
+    <div class="faq-item"><details><summary>定休日はいつですか？</summary><p>月曜日が定休日です。詳しい営業時間はアクセスページをご確認ください。</p></details></div>
+    <div class="faq-item"><details><summary>駐車場はありますか？</summary><p>近隣にコインパーキングがございます。</p></details></div>
+
+    <div class="faq-cat-title">お品物について</div>
+    <div class="faq-item"><details><summary>オンラインでの購入はできますか？</summary><p>現在は店頭でのお取り扱いのみとなっております。</p></details></div>
+    <div class="faq-item"><details><summary>一点ものはありますか？</summary><p>器や木工品など、一点ものの商品も多数取り扱っております。</p></details></div>
+
+    <div class="faq-cat-title">アフターケアについて</div>
+    <div class="faq-item"><details><summary>割れてしまった器は直せますか？</summary><p>金継ぎなど、修理のご相談も承っております。</p></details></div>
+    <div class="faq-item"><details><summary>贈り物包装はできますか？</summary><p>和紙と麻紐で一点ずつ丁寧にお包みいたします。</p></details></div>
+  </section>
+</div><!-- /page-faq -->
+
+<!-- ════ PAGE: スタッフ紹介 ════ -->
+<div id="page-staff">
+  <section style="background:#fff;">
+    <div class="section-title reveal">スタッフ紹介</div>
+    <div class="staff-grid">
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/retail/retail_staff1.webp" alt="店主 小川">
+        <div class="staff-name">店主 小川</div>
+        <div class="staff-role">店主</div>
+        <p class="staff-bio">「全国の工房を訪ね、つくり手と話しながら店に並べる品を選んでいます。」お客様に長く使っていただける道具をお届けしたいと思っています。</p>
+      </div>
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/retail/retail_staff2.webp" alt="スタッフ 山内">
+        <div class="staff-name">スタッフ 山内</div>
+        <div class="staff-role">スタッフ</div>
+        <p class="staff-bio">「布や小物のご案内を担当しています。」使い方やお手入れのご相談もお気軽にどうぞ。</p>
+      </div>
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/retail/retail_staff3.webp" alt="買い付け担当 大野">
+        <div class="staff-name">買い付け担当 大野</div>
+        <div class="staff-role">買い付け担当</div>
+        <p class="staff-bio">「ガラスや木工品の買い付けを担当しています。」つくり手の思いも一緒にお伝えできればと思っています。</p>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-staff -->
+
+<!-- ════ PAGE: お客様の声 ════ -->
+<div id="page-voice">
+  <section>
+    <div class="section-title reveal">お客様の声</div>
+    <div class="voice-grid">
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/retail/retail_voice1.webp" alt="キッチンで陶器の器を並べる様子">
+          <div class="voice-name">N.Yさん（30代・女性）</div>
+          <div class="voice-meta">陶器の器をご購入</div>
+        </div>
+        <p class="comment">毎日の食卓で使うたびに、選んでよかったと感じます。手に馴染む重さが気に入っています。</p>
+        <div class="voice-favorite">お気に入り：陶器・うつわ</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/retail/retail_voice2.webp" alt="かごとガラスのタンブラーが置かれたテーブル">
+          <div class="voice-name">かご・ガラスをご愛用のお客様</div>
+          <div class="voice-meta">暮らしの道具としてご購入</div>
+        </div>
+        <p class="comment">使うたびに、暮らしの中に道具があることの豊かさを感じます。テーブルに置くだけで気持ちが和みます。</p>
+        <div class="voice-favorite">お気に入り：ガラス</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/retail/retail_voice3.webp" alt="和室で湯呑みでお茶を飲むご夫婦">
+          <div class="voice-name">T.Kさん（ご夫婦）</div>
+          <div class="voice-meta">湯呑みをご購入（結婚祝いの贈り物にも）</div>
+        </div>
+        <p class="comment">長く使えるものをと選んだ湯呑みで、毎日のお茶の時間が楽しみになりました。友人への贈り物にも選んでいます。</p>
+        <div class="voice-favorite">お気に入り：陶器・うつわ</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-voice -->
+
+<!-- ════ PAGE: 店内のご紹介 ════ -->
+<div id="page-facility">
+  <section>
+    <div class="section-title reveal">店内のご紹介</div>
+    <div class="facility-grid">
+      <div class="facility-card reveal">
+        <img class="facility-photo" src="images/retail/retail_facility1.webp" alt="陶器や木の道具が並ぶ店内">
+        <h3>店内</h3>
+        <p>余白をとって並べられた器や道具を、ゆっくりお選びいただけます。</p>
+      </div>
+      <div class="facility-card reveal">
+        <img class="facility-photo" src="images/retail/retail_facility2.webp" alt="町家造りの外観">
+        <h3>外観</h3>
+        <p>白壁と木格子の、静かな路地に佇む町家です。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title reveal">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <div class="gallery-item"><img src="images/retail/retail_gallery1.webp" alt="店内全景"></div>
+        <div class="gallery-item"><img src="images/retail/retail_gallery2.webp" alt="陳列棚"></div>
+        <div class="gallery-item"><img src="images/retail/retail_gallery3.webp" alt="ろくろ・作り手の手元"></div>
+        <div class="gallery-item"><img src="images/retail/retail_gallery4.webp" alt="器の手入れ"></div>
+        <div class="gallery-item"><img src="images/retail/retail_gallery5.webp" alt="俯瞰の皿"></div>
+        <div class="gallery-item"><img src="images/retail/retail_gallery6.webp" alt="外観"></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery1.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery2.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery3.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery4.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery5.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/retail/retail_gallery6.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-facility -->
+
+<!-- ════ PAGE: ブログ・お知らせ ════ -->
+<div id="page-blog">
+  <section>
+    <div class="section-title reveal">ブログ・お知らせ</div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/retail/retail_menu_ceramic.webp" alt="陶器・うつわ">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.05</div>
+          <h3>新しい作家の器が入荷しました</h3>
+          <p>新しい工房の器が入荷しました。ぜひ店頭でご覧ください。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/retail/retail_gallery3.webp" alt="ろくろ・作り手の手元">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.18</div>
+          <h3>つくり手を訪ねる旅</h3>
+          <p>器のつくり手を訪ね、工房での様子をご紹介します。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/retail/retail_menu_textile.webp" alt="手織りの布">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.30</div>
+          <h3>手織りの布、新柄入荷</h3>
+          <p>季節に合わせた新しい柄の手織りの布が入荷しました。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/retail/retail_gallery4.webp" alt="器の手入れ">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.10</div>
+          <h3>器のお手入れ方法について</h3>
+          <p>長く使っていただくための、器のお手入れ方法をご紹介します。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/retail/retail_menu_gift.webp" alt="季節のギフト">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.20</div>
+          <h3>季節のギフトのご案内</h3>
+          <p>贈る人を思って選ぶ、季節のギフトをご用意しています。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/retail/retail_menu_basket.webp" alt="かご・ほうき">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.08.01</div>
+          <h3>夏季の営業時間について</h3>
+          <p>8月中は営業時間を変更しております。詳しくはアクセスページをご覧ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-blog -->
+
+<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
+<div id="page-access">
+  <section class="contact reveal">
+    <div class="section-title">アクセス・お問い合わせ</div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="contact-box">
+          <p>福岡県福岡市〇〇区〇〇6-2-9</p>
+          <p>営業時間:11:00〜18:00（定休日:月曜日）</p>
+        </div>
+        <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+        <div class="line-wrap">
+          <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
+          <p class="line-note">LINEでのお問い合わせも承っています。</p>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <span>地図がここに表示されます（デモ表示中）</span>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-access -->
+
+<footer class="reveal">手仕事雑貨店 つむぎ（RESC制作サンプル）</footer>
+
+<script>
+  /* ── ページ切り替え（construction-advance.html より移植） ── */
+  function showPage(page) {
+    closeNav(); closeMenu();
+    document.body.className = (page === 'top') ? '' : (page + '-page');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── ナビ／メニューオーバーレイ（construction-advance.html より移植） ── */
+  function openMenu() { document.getElementById('menuOverlay').classList.add('open'); }
+  function closeMenu() { document.getElementById('menuOverlay').classList.remove('open'); }
+  function closeNav() { /* モバイル単体ドロップダウンは無いためメニュー閉じるのみ（construction-advance.html を踏襲） */ }
+  document.getElementById('menuOverlay').addEventListener('click', function (e) {
+    if (e.target.id === 'menuOverlay') closeMenu();
+  });
+
+  /* ── .reveal スクロールフェードイン（retail-standard.html より移植・無変更） ── */
+  (function () {
+    const targets = document.querySelectorAll('.reveal');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      targets.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    targets.forEach(el => observer.observe(el));
+  })();
+</script>
+
+</body>
+</html>
