@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nail Salon Fleur｜ネイルサロン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #D8B2B2;
+    --primary-dark: #8B6363;
+    --primary-light: #E6C2C2;
+    --bg: #FDFBF7;
+    --accent: #D4AF37;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Cormorant Garamond', 'Shippori Mincho', serif; background: var(--bg); color: #2B2420; line-height: 1.8; letter-spacing: 0.02em; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .notice {
+    background: var(--primary-dark); color: #fff; text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: #fff; text-decoration: underline; }
+
+  /* ---- Nav（nail-standard.html のナビ実装をベースに、retail-advance.html のメニューオーバーレイを追加移植） ---- */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(139,99,99,.95); backdrop-filter: blur(6px);
+    height: 64px;
+  }
+  .nav-in {
+    max-width: 900px; margin: 0 auto; height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+  }
+  .logo { font-weight: 700; font-size: 19px; letter-spacing: .05em; color: #fff; cursor: pointer; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: rgba(255,255,255,.85); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.nav-cta { background: var(--accent); color: var(--primary-dark); padding: 9px 18px; border-radius: 4px; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .menu-btn {
+    display: inline-flex; align-items: center; gap: 8px; background: transparent;
+    border: 1px solid rgba(255,255,255,.35); color: #fff; font-size: 13px; font-weight: 700;
+    padding: 9px 16px; border-radius: 4px; cursor: pointer;
+  }
+  .menu-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    background: transparent; border: none; cursor: pointer;
+  }
+  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+
+  /* ---- メニューオーバーレイ（retail-advance.html を移植し、nailの配色に変更） ---- */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(139,99,99,.72); backdrop-filter: blur(3px);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 90px 24px 40px; overflow-y: auto;
+  }
+  .menu-overlay.open { display: flex; }
+  .menu-overlay-inner {
+    background: #fff; border-radius: 12px; width: 100%; max-width: 780px;
+    padding: 36px 36px 30px; position: relative;
+  }
+  .menu-close {
+    position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%;
+    border: none; background: var(--bg); font-size: 18px; cursor: pointer; color: #2B2420;
+  }
+  .menu-top-link {
+    display: inline-block; font-weight: 700; font-size: 20px;
+    color: var(--primary-dark); margin-bottom: 26px; cursor: pointer;
+  }
+  .menu-top-link:hover { color: var(--accent); }
+  .menu-cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 26px; }
+  .menu-cat-title {
+    font-size: 11.5px; letter-spacing: .18em; color: var(--accent); font-weight: 700; margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .menu-cat a { display: block; font-size: 14.5px; font-weight: 700; padding: 8px 0; cursor: pointer; color: #2B2420; }
+  .menu-cat a:hover { color: var(--accent); }
+  .menu-access-link {
+    display: block; text-align: center; background: var(--primary-dark); color: #fff; font-weight: 700; font-size: 14px;
+    padding: 14px; border-radius: 6px; cursor: pointer;
+  }
+  .menu-access-link:hover { background: var(--accent); }
+
+  /* ---- ヒーロー（静止画・中央揃え・単色オーバーレイ。nail-standard.html の実装を原文のまま踏襲） ---- */
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; transform-origin: 60% 35%; animation: hero-kenburns 20s ease-out infinite alternate; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.16); }
+  .hero-text {
+    position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; color: #fff; padding: 24px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25);
+  }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.9; margin-bottom: 14px; }
+  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; letter-spacing: 0.1em; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+
+  @keyframes hero-kenburns {
+    from { transform: scale(1) translate(0, 0); }
+    to { transform: scale(1.08) translate(-1.5%, -1.5%); }
+  }
+  @keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero img,
+    .hero-text h1,
+    .hero-text p {
+      animation: none;
+    }
+  }
+  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
+  .section-title { font-size: 26px; font-weight: 700; letter-spacing: 0.12em; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
+
+  /* ---- .about-grid（写真＋テキストの2カラム。nail-standard.html の実装を原文のまま踏襲） ---- */
+  .about { background: #F5EDE6; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; box-shadow: 0 16px 36px rgba(139,99,99,0.18); }
+  .about-content { text-align: left; }
+  .about-content .section-title { text-align: left; }
+  .about p { font-size: 14.5px; color: #4A4238; }
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about-content { text-align: center; }
+    .about-content .section-title { text-align: center; }
+    .about-photo img { aspect-ratio: 16 / 10; }
+  }
+
+  /* ---- about抜粋（page-top） ---- */
+  .about-excerpt p { font-size: 14.5px; color: #4A4238; margin-bottom: 22px; }
+  .about-excerpt .more-link {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent);
+    border-bottom: 1px solid var(--accent); padding-bottom: 2px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
+  }
+
+  /* ---- メニュー（menu-copy あり。nail-standard.html の実装を原文のまま踏襲） ---- */
+  .menu-category { margin-top: 48px; }
+  .menu-category:first-child { margin-top: 0; }
+  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 24px; text-align: center; }
+  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .menu-card {
+    display: flex; flex-direction: column; text-align: center;
+    background: #fff; border: 1px solid rgba(212,175,55,0.4); border-radius: 12px; padding: 18px 18px 22px;
+  }
+  .menu-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; }
+  .menu-card .menu-name { margin-top: 14px; font-size: 15px; font-weight: 700; color: #2B2420; }
+  .menu-card .menu-copy { margin-top: 8px; font-size: 12px; font-style: italic; letter-spacing: 0.02em; color: #8A8272; line-height: 1.6; flex: 1; }
+  .menu-card .menu-price { margin-top: 16px; font-size: 15px; font-weight: 700; color: var(--primary-dark); }
+  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .menu-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ギャラリー（divラップの二重構造。nail-standard.html の実装を原文のまま踏襲） ---- */
+  .gallery-marquee { overflow: hidden; }
+  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
+  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; border-radius: 6px; margin-right: 16px; overflow: hidden; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-marquee { overflow-x: auto; }
+  }
+
+  .contact { background: var(--bg); color: var(--primary-dark); text-align: center; }
+  .contact .section-title { color: var(--primary-dark); }
+  .contact-box {
+    width: fit-content; margin: 0 auto 24px; padding: 26px 42px;
+    background: #fff; border: 1px solid var(--accent); border-radius: 12px;
+  }
+  .contact p { font-size: 14px; margin-bottom: 8px; color: var(--primary-dark); }
+  .contact p:last-of-type { margin-bottom: 0; }
+  .contact .btn {
+    display: inline-block; margin-top: 24px; background: #fff; color: var(--accent);
+    border: 1px solid var(--accent); padding: 12px 34px; border-radius: 999px;
+    font-weight: 700; letter-spacing: 0.04em; font-size: 13.5px;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  .contact .btn:hover { background: var(--accent); color: #fff; }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; background: var(--bg); }
+
+  /* ---- .reveal スクロールフェードイン（nail-standard.html より原文のまま移植し、新規11ページ分のグリッドに拡張） ---- */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .menu-grid .menu-card:nth-child(1) { transition-delay: 0s; }
+  .menu-grid .menu-card:nth-child(2) { transition-delay: 0.1s; }
+  .menu-grid .menu-card:nth-child(3) { transition-delay: 0.2s; }
+  .reason-grid .reason-card:nth-child(4n+1) { transition-delay: 0s; }
+  .reason-grid .reason-card:nth-child(4n+2) { transition-delay: 0.1s; }
+  .reason-grid .reason-card:nth-child(4n+3) { transition-delay: 0.2s; }
+  .reason-grid .reason-card:nth-child(4n+4) { transition-delay: 0.3s; }
+  .flow-grid .flow-card:nth-child(4n+1) { transition-delay: 0s; }
+  .flow-grid .flow-card:nth-child(4n+2) { transition-delay: 0.1s; }
+  .flow-grid .flow-card:nth-child(4n+3) { transition-delay: 0.2s; }
+  .flow-grid .flow-card:nth-child(4n+4) { transition-delay: 0.3s; }
+  .staff-grid .staff-card:nth-child(3n+1) { transition-delay: 0s; }
+  .staff-grid .staff-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .staff-grid .staff-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  .voice-grid .voice-card:nth-child(3n+1) { transition-delay: 0s; }
+  .voice-grid .voice-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .voice-grid .voice-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  .facility-grid .facility-card:nth-child(2n+1) { transition-delay: 0s; }
+  .facility-grid .facility-card:nth-child(2n+2) { transition-delay: 0.1s; }
+  .blog-grid .blog-card:nth-child(3n+1) { transition-delay: 0s; }
+  .blog-grid .blog-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .blog-grid .blog-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---- LINE連携ボタン（nail-standard.html と同一実装） ---- */
+  .line-btn {
+    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
+    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
+    line-height: 21px;
+  }
+  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
+  .contact .line-wrap { margin-top: 18px; }
+
+  /* ---- 地図プレースホルダー（nail-standard.html の page-access 実装をそのまま踏襲） ---- */
+  .map-placeholder {
+    background: #fff; border: 1px dashed var(--accent); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    align-self: stretch; min-height: 300px;
+  }
+  .map-placeholder span { font-size: 11.5px; color: #8A8272; }
+
+  /* ---- page-access 2カラムレイアウト（nail-standard.html を原文のまま踏襲。.contact-info の min-height は不要） ---- */
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
+  }
+  @media (max-width: 800px) {
+    .contact-layout { grid-template-columns: 1fr; }
+  }
+
+  /* ---- SNS（3媒体・デモ表示。retail-advance.html の sns-grid を移植し、nailのカード様式に変更） ---- */
+  .sns-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .sns-card { background: #fff; border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; }
+  .sns-card .sns-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .sns-card-head { display: flex; align-items: center; gap: 8px; padding: 14px 16px; font-size: 13px; font-weight: 700; }
+  .sns-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .sns-note { font-size: 11px; color: #8A8272; padding: 0 16px 16px; }
+  @media (max-width: 700px) { .sns-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 各ページへの導線カード（page-top。nail-standard.html を原文のまま踏襲） ---- */
+  .link-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .link-card {
+    display: block; background: #fff; border: 1px solid var(--accent); border-radius: 12px;
+    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(139,99,99,.15); }
+  .link-card .tag { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
+  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); }
+  .link-card p { font-size: 13px; color: #8A8272; }
+  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--accent); }
+  @media (max-width: 900px) { .link-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .link-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 選ばれる理由（page-reasons。nailのカード様式で新規実装） ---- */
+  .reason-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .reason-card { border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; background: #fff; }
+  .reason-card .reason-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .reason-card-body { padding: 18px 18px 22px; }
+  .reason-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .reason-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); }
+  .reason-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 900px) { .reason-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ご来店の流れ（page-flow。nailのカード様式で新規実装） ---- */
+  .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .flow-card { border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; background: #fff; }
+  .flow-card .flow-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .flow-card-body { padding: 18px 18px 22px; }
+  .flow-num { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 10px; }
+  .flow-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); }
+  .flow-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 900px) { .flow-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .flow-grid { grid-template-columns: 1fr; } }
+
+  /* ---- よくある質問（page-faq） ---- */
+  .faq-cat-title { font-size: 15px; font-weight: 700; color: var(--accent); margin: 34px 0 12px; }
+  .faq-cat-title:first-child { margin-top: 0; }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: 18px 4px; font-size: 14.5px; font-weight: 700; display: flex; gap: 14px; align-items: flex-start; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before { content: "Q"; color: var(--accent); font-weight: 900; flex: 0 0 auto; }
+  .faq-item p { padding: 0 4px 18px 24px; font-size: 13px; color: #8A8272; line-height: 1.9; }
+
+  /* ---- スタッフ紹介（page-staff。nailのカード様式で新規実装） ---- */
+  .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .staff-card .staff-photo { aspect-ratio: 4/5; border-radius: 12px; margin-bottom: 16px; width: 100%; height: auto; object-fit: cover; }
+  .staff-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; color: var(--primary-dark); }
+  .staff-role { font-size: 11.5px; color: var(--accent); font-weight: 700; margin-bottom: 10px; letter-spacing: .04em; }
+  .staff-bio { font-size: 12.5px; color: #8A8272; line-height: 1.85; }
+  @media (max-width: 700px) { .staff-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .staff-grid { grid-template-columns: 1fr; } }
+
+  /* ---- お客様の声（page-voice。nailのカード様式で新規実装） ---- */
+  .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .voice-card { background: #fff; border: 1px solid var(--accent); border-radius: 12px; padding: 22px 20px; }
+  .voice-head { margin-bottom: 14px; }
+  .voice-head .voice-photo { width: 100%; aspect-ratio: 16/10; border-radius: 8px; object-fit: cover; margin-bottom: 12px; }
+  .voice-name { font-size: 13.5px; font-weight: 700; color: var(--primary-dark); }
+  .voice-meta { font-size: 11.5px; color: #8A8272; }
+  .voice-card p.comment { font-size: 13px; color: #8A8272; line-height: 1.85; margin-top: 10px; }
+  .voice-favorite { margin-top: 12px; font-size: 12px; color: var(--accent); font-weight: 700; }
+  @media (max-width: 700px) { .voice-grid { grid-template-columns: 1fr; } }
+
+  /* ---- サロンのご紹介（page-facility。nailのカード様式で新規実装） ---- */
+  .facility-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .facility-card .facility-photo { aspect-ratio: 16/10; border-radius: 12px; margin-bottom: 14px; width: 100%; height: auto; object-fit: cover; }
+  .facility-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); }
+  .facility-card p { font-size: 12.5px; color: #8A8272; line-height: 1.8; }
+  @media (max-width: 700px) { .facility-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ブログ・お知らせ（page-blog。nailのカード様式で新規実装） ---- */
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .blog-card { background: #fff; border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; }
+  .blog-card .blog-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .blog-card-body { padding: 18px 18px 20px; }
+  .blog-date { font-size: 11px; color: #8A8272; margin-bottom: 8px; }
+  .blog-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 8px; line-height: 1.6; color: var(--primary-dark); }
+  .blog-card p { font-size: 12.5px; color: #8A8272; line-height: 1.75; }
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .blog-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ページ切り替え（11ページ分。retail-advance.html のCSSパターンをそのまま移植） ---- */
+  #page-top { display: block; }
+  #page-about, #page-reasons, #page-menu, #page-flow, #page-faq,
+  #page-staff, #page-voice, #page-facility, #page-blog, #page-access { display: none; }
+  body[class*="-page"] #page-top { display: none; }
+  body.about-page #page-about { display: block; }
+  body.reasons-page #page-reasons { display: block; }
+  body.menu-page #page-menu { display: block; }
+  body.flow-page #page-flow { display: block; }
+  body.faq-page #page-faq { display: block; }
+  body.staff-page #page-staff { display: block; }
+  body.voice-page #page-voice { display: block; }
+  body.facility-page #page-facility { display: block; }
+  body.blog-page #page-blog { display: block; }
+  body.access-page #page-access { display: block; }
+
+  /* ---- レスポンシブ（retail-advance.html のナビ関連レスポンシブを移植） ---- */
+  @media (max-width: 860px) {
+    .nav-links, .menu-btn { display: none; }
+    .nav-toggle { display: flex; }
+    .menu-overlay { padding: 78px 14px 30px; }
+    .menu-overlay-inner { padding: 28px 20px 24px; }
+    .menu-cats { grid-template-columns: 1fr; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" onclick="showPage('top')">Nail Salon <span>Fleur</span></a>
+    <div class="nav-links">
+      <a onclick="showPage('top')">TOP</a>
+      <a onclick="showPage('menu')">メニュー・料金</a>
+      <a onclick="showPage('staff')">スタッフ紹介</a>
+      <a class="nav-cta" onclick="showPage('access')">アクセス・お問い合わせ</a>
+    </div>
+    <div class="nav-right">
+      <button class="menu-btn" type="button" onclick="openMenu()">☰ メニュー</button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" onclick="openMenu()">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- メニューオーバーレイ（全11ページの導線・retail-advance.html を移植） -->
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-overlay-inner">
+    <button class="menu-close" type="button" aria-label="閉じる" onclick="closeMenu()">×</button>
+    <a class="menu-top-link" onclick="showPage('top')">Nail Salon <span style="color:var(--accent);">Fleur</span> TOP</a>
+    <div class="menu-cats">
+      <div class="menu-cat">
+        <div class="menu-cat-title">サロンについて</div>
+        <a onclick="showPage('about')">お店について</a>
+        <a onclick="showPage('reasons')">選ばれる理由</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">メニュー・ご利用案内</div>
+        <a onclick="showPage('menu')">メニュー・料金</a>
+        <a onclick="showPage('flow')">ご来店の流れ</a>
+        <a onclick="showPage('faq')">よくある質問</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">スタッフ・サロン</div>
+        <a onclick="showPage('staff')">スタッフ紹介</a>
+        <a onclick="showPage('voice')">お客様の声</a>
+        <a onclick="showPage('facility')">サロンのご紹介</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">お知らせ</div>
+        <a onclick="showPage('blog')">ブログ・お知らせ</a>
+      </div>
+    </div>
+    <a class="menu-access-link" onclick="showPage('access')">アクセス・お問い合わせ →</a>
+  </div>
+</div>
+
+<!-- ════ PAGE: TOP ════ -->
+<div id="page-top">
+
+  <div class="hero">
+    <img src="images/nail/nail_hero.webp" alt="Nail Salon Fleur">
+    <div class="hero-text">
+      <div class="label">ネイルサロン</div>
+      <h1>指先から、じぶんを好きになる。</h1>
+      <p>Nail Salon Fleur</p>
+    </div>
+  </div>
+
+  <section class="about-excerpt reveal">
+    <div class="section-title">こだわり</div>
+    <p>一人ひとりの手の形や普段のライフスタイルに合わせたデザインをご提案。</p>
+    <a class="more-link" onclick="showPage('about')">こだわりをもっと見る →</a>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title reveal">SNSでも発信しています</div>
+    <div class="sns-grid">
+      <div class="sns-card reveal">
+        <div class="sns-card-head"><span class="sns-dot"></span>Instagram</div>
+        <img class="sns-photo" src="images/nail/nail_gallery1.webp" alt="ネイルチップのデザインサンプル一覧">
+        <p class="sns-note">Instagramの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card reveal">
+        <div class="sns-card-head"><span class="sns-dot"></span>X（旧Twitter）</div>
+        <img class="sns-photo" src="images/nail/nail_gallery5.webp" alt="カラフルなネイルカラーが並ぶ棚">
+        <p class="sns-note">Xの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+      <div class="sns-card reveal">
+        <div class="sns-card-head"><span class="sns-dot"></span>Facebook</div>
+        <img class="sns-photo" src="images/nail/nail_gallery3.webp" alt="花に囲まれた明るい待合スペース">
+        <p class="sns-note">Facebookの投稿がここに自動表示されます（デモ表示中）</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title reveal">詳しく見る</div>
+    <div class="link-grid">
+      <button class="link-card reveal" onclick="showPage('about')">
+        <div class="tag">About</div>
+        <h3>こだわり・選ばれる理由</h3>
+        <p>サロンのこだわりと、選ばれる理由をご紹介します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('menu')">
+        <div class="tag">Menu</div>
+        <h3>メニュー・ご来店の流れ</h3>
+        <p>メニュー・料金と、ご来店の流れ、よくある質問をご案内します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('staff')">
+        <div class="tag">Staff</div>
+        <h3>スタッフ・サロン紹介</h3>
+        <p>スタッフ紹介、お客様の声、サロンの様子をご覧いただけます。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('blog')">
+        <div class="tag">Column</div>
+        <h3>ブログ・お知らせ</h3>
+        <p>最新のお知らせやコラムをお届けします。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+    </div>
+  </section>
+
+</div><!-- /page-top -->
+
+<!-- ════ PAGE: お店について ════ -->
+<div id="page-about">
+  <section class="about reveal">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="images/nail/nail_menu_geloff.webp" alt="ネイリストが丁寧にジェルネイルを施術している様子">
+      </div>
+      <div class="about-content">
+        <div class="section-title">こだわり</div>
+        <p>一人ひとりの手の形や普段のライフスタイルに合わせたデザインをご提案。丁寧なケアと心地よい時間で、指先からリフレッシュしていただけます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title reveal">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <div class="gallery-item"><img src="images/nail/nail_gallery1.webp" alt="ネイルチップのデザインサンプル一覧"></div>
+        <div class="gallery-item"><img src="images/nail/nail_gallery2.webp" alt="ピンク基調のサロン内観・施術デスク"></div>
+        <div class="gallery-item"><img src="images/nail/nail_gallery3.webp" alt="花に囲まれた明るい待合スペース"></div>
+        <div class="gallery-item"><img src="images/nail/nail_gallery4.webp" alt="ネイルデザインのサンプルボード展示"></div>
+        <div class="gallery-item"><img src="images/nail/nail_gallery5.webp" alt="カラフルなネイルカラーが並ぶ棚"></div>
+        <div class="gallery-item"><img src="images/nail/nail_gallery6.webp" alt="受付・パウダールーム風のくつろぎスペース"></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery1.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery2.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery3.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery4.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery5.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery6.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-about -->
+
+<!-- ════ PAGE: 選ばれる理由 ════ -->
+<div id="page-reasons">
+  <section style="background:#fff;">
+    <div class="section-title reveal">選ばれる理由</div>
+    <div class="reason-grid">
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/nail/nail_gallery2.webp" alt="ピンク基調のサロン内観・施術デスク">
+        <div class="reason-card-body">
+          <div class="reason-num">01</div>
+          <h3>一人ひとりに合わせたデザインをご提案</h3>
+          <p>手の形や普段のライフスタイルに合わせて、お似合いのデザインをご提案します。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/nail/nail_gallery4.webp" alt="ネイルデザインのサンプルボード展示">
+        <div class="reason-card-body">
+          <div class="reason-num">02</div>
+          <h3>豊富なデザインサンプルからお選びいただけます</h3>
+          <p>季節や気分に合わせて、豊富なサンプルの中からじっくりお選びいただけます。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/nail/nail_gallery6.webp" alt="受付・パウダールーム風のくつろぎスペース">
+        <div class="reason-card-body">
+          <div class="reason-num">03</div>
+          <h3>心地よい時間をお過ごしいただけます</h3>
+          <p>丁寧なケアと落ち着いた空間で、指先からゆったりとリフレッシュしていただけます。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/nail/nail_gallery1.webp" alt="ネイルチップのデザインサンプル一覧">
+        <div class="reason-card-body">
+          <div class="reason-num">04</div>
+          <h3>見て選べる、多彩なデザイン</h3>
+          <p>定番のワンカラーからアートまで、幅広いデザインをご覧いただけます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-reasons -->
+
+<!-- ════ PAGE: メニュー ════ -->
+<div id="page-menu">
+  <section style="background:#fff;">
+    <div class="section-title reveal">メニュー</div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">ハンドネイル</div>
+      <div class="menu-grid">
+        <div class="menu-card reveal">
+          <img src="images/nail/nail_menu_hand.webp" alt="ハンドネイル">
+          <div class="menu-name">ハンドネイル</div>
+          <div class="menu-copy">シーンを選ばない、じぶん本来の美しさを引き出すワンカラー</div>
+          <div class="menu-price">¥6,600</div>
+        </div>
+        <div class="menu-card reveal">
+          <img src="images/nail/nail_menu_art.webp" alt="アートネイル">
+          <div class="menu-name">アートネイル</div>
+          <div class="menu-copy">季節や気分を、指先で自由に描く</div>
+          <div class="menu-price">¥8,800</div>
+        </div>
+        <div class="menu-card reveal">
+          <img src="images/nail/nail_menu_bridal.webp" alt="ブライダルネイル">
+          <div class="menu-name">ブライダルネイル</div>
+          <div class="menu-copy">一生に一度の特別な日を、極上の輝きで彩る</div>
+          <div class="menu-price">¥13,200</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">フット・ケア</div>
+      <div class="menu-grid">
+        <div class="menu-card reveal">
+          <img src="images/nail/nail_menu_foot.webp" alt="フットネイル">
+          <div class="menu-name">フットネイル</div>
+          <div class="menu-copy">サンダルの季節も、素足に自信を</div>
+          <div class="menu-price">¥7,700</div>
+        </div>
+        <div class="menu-card reveal">
+          <img src="images/nail/nail_menu_care.webp" alt="ネイルケア">
+          <div class="menu-name">ネイルケア</div>
+          <div class="menu-copy">素の爪から美しく。すべての土台を整える</div>
+          <div class="menu-price">¥3,300</div>
+        </div>
+        <div class="menu-card reveal">
+          <img src="images/nail/nail_menu_geloff.webp" alt="ジェルオフ">
+          <div class="menu-name">ジェルオフ</div>
+          <div class="menu-copy">爪をいたわりながら、丁寧にオフ</div>
+          <div class="menu-price">¥2,200</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-menu -->
+
+<!-- ════ PAGE: ご来店の流れ ════ -->
+<div id="page-flow">
+  <section style="background:#fff;">
+    <div class="section-title reveal">ご来店の流れ</div>
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/nail/nail_flow1.webp" alt="ネイリストが客にカラーチップの見本板を見せている様子">
+        <div class="flow-card-body">
+          <div class="flow-num">01</div>
+          <h3>カウンセリング・デザイン選び</h3>
+          <p>お好みの雰囲気やご要望をうかがいながら、見本板を見てデザインを一緒に選びます。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/nail/nail_flow2.webp" alt="道具を使って爪のケアをする手元">
+        <div class="flow-card-body">
+          <div class="flow-num">02</div>
+          <h3>爪のケア・下準備</h3>
+          <p>ニッパーやプッシャーなどの道具で、施術の土台となる爪を丁寧に整えます。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/nail/nail_flow3.webp" alt="ブラシでジェルを塗布している様子">
+        <div class="flow-card-body">
+          <div class="flow-num">03</div>
+          <h3>ジェルの塗布・硬化</h3>
+          <p>一色ずつ丁寧に塗り重ね、UVライトでしっかりと硬化させます。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/nail/nail_flow4.webp" alt="仕上がりを見て笑顔のお客様">
+        <div class="flow-card-body">
+          <div class="flow-num">04</div>
+          <h3>仕上がりのご確認</h3>
+          <p>仕上がりを一緒にご確認いただき、施術は完了です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-flow -->
+
+<!-- ════ PAGE: よくある質問 ════ -->
+<div id="page-faq">
+  <section class="reveal">
+    <div class="section-title">よくある質問</div>
+
+    <div class="faq-cat-title">ご来店について</div>
+    <div class="faq-item"><details><summary>予約は必要ですか？</summary><p>できるだけ事前のご予約をおすすめしております。空き状況によっては当日でもご案内可能です。</p></details></div>
+    <div class="faq-item"><details><summary>施術時間の目安を教えてください。</summary><p>メニューにより異なります。目安の時間はお問い合わせの際にご案内しております。</p></details></div>
+
+    <div class="faq-cat-title">メニューについて</div>
+    <div class="faq-item"><details><summary>オフのみの利用はできますか？</summary><p>他店で施術されたジェルのオフのみのご利用も承っております。</p></details></div>
+    <div class="faq-item"><details><summary>デザインの持ち込みはできますか？</summary><p>お好みの画像をお持ちいただければ、ご希望に近いデザインをご提案いたします。</p></details></div>
+
+    <div class="faq-cat-title">アフターケアについて</div>
+    <div class="faq-item"><details><summary>施術後にすぐ水仕事をしても大丈夫ですか？</summary><p>ジェルが完全に硬化していますので、施術直後からお使いいただけます。</p></details></div>
+    <div class="faq-item"><details><summary>次回のお手入れの目安はどれくらいですか？</summary><p>爪の伸び方には個人差がありますが、3〜4週間を目安にご来店いただくのがおすすめです。</p></details></div>
+  </section>
+</div><!-- /page-faq -->
+
+<!-- ════ PAGE: スタッフ紹介 ════ -->
+<div id="page-staff">
+  <section style="background:#fff;">
+    <div class="section-title reveal">スタッフ紹介</div>
+    <div class="staff-grid">
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/nail/nail_staff1.webp" alt="オーナー 高橋">
+        <div class="staff-name">オーナー 高橋</div>
+        <div class="staff-role">オーナーネイリスト</div>
+        <p class="staff-bio">「一人ひとりの手の形やライフスタイルに合わせたデザインをご提案しています。」お客様がリラックスできる時間を大切にしています。</p>
+      </div>
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/nail/nail_staff2.webp" alt="ネイリスト 中村">
+        <div class="staff-name">ネイリスト 中村</div>
+        <div class="staff-role">ネイリスト</div>
+        <p class="staff-bio">「豊富なデザインサンプルから、お好みに合うデザインをご案内します。」季節のデザインも豊富にご用意しています。</p>
+      </div>
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/nail/nail_staff3.webp" alt="ネイリスト 藤田">
+        <div class="staff-name">ネイリスト 藤田</div>
+        <div class="staff-role">ネイリスト</div>
+        <p class="staff-bio">「丁寧なケアで、指先から心地よいひとときをお届けします。」道具のお手入れにもこだわっています。</p>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-staff -->
+
+<!-- ════ PAGE: お客様の声 ════ -->
+<div id="page-voice">
+  <section>
+    <div class="section-title reveal">お客様の声</div>
+    <div class="voice-grid">
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/nail/nail_voice1.webp" alt="カフェの窓際でマグカップを持つ女性">
+          <div class="voice-name">M.Sさん（20代・女性）</div>
+          <div class="voice-meta">ワンカラーネイルをご利用</div>
+        </div>
+        <p class="comment">普段使いできる色味で、カフェでの時間もより楽しくなりました。爪先を見るたびに気分が上がります。</p>
+        <div class="voice-favorite">お気に入り：ハンドネイル</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/nail/nail_voice2.webp" alt="白いレースの上に置かれたブライダルネイルの手元">
+          <div class="voice-name">ブライダルネイルをご利用のお客様</div>
+          <div class="voice-meta">結婚式に向けてご利用</div>
+        </div>
+        <p class="comment">上品なパールのデザインが、当日の装いにとてもよく映えました。特別な一日にふさわしい仕上がりで大満足です。</p>
+        <div class="voice-favorite">お気に入り：ブライダルネイル</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/nail/nail_voice3.webp" alt="オフィスでノートPCを打つ女性">
+          <div class="voice-name">R.Nさん（40代・女性）</div>
+          <div class="voice-meta">ネイルケアをご利用</div>
+        </div>
+        <p class="comment">オフィスでも浮かない、控えめで上品な色を選んでいただきました。仕事中も気持ちが引き締まります。</p>
+        <div class="voice-favorite">お気に入り：ネイルケア</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-voice -->
+
+<!-- ════ PAGE: サロンのご紹介 ════ -->
+<div id="page-facility">
+  <section>
+    <div class="section-title reveal">サロンのご紹介</div>
+    <div class="facility-grid">
+      <div class="facility-card reveal">
+        <img class="facility-photo" src="images/nail/nail_facility1.webp" alt="白いテーブルと木の椅子が向かい合う施術スペース">
+        <h3>施術スペース</h3>
+        <p>白いテーブルと木の椅子が向かい合う、落ち着いた施術スペースです。</p>
+      </div>
+      <div class="facility-card reveal">
+        <img class="facility-photo" src="images/nail/nail_facility2.webp" alt="白壁とくすみピンクの日よけの外観">
+        <h3>外観</h3>
+        <p>白壁とくすみピンクの日よけが目印の、静かな住宅街にたたずむ外観です。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="section-title reveal">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <div class="gallery-item"><img src="images/nail/nail_gallery1.webp" alt="ネイルチップのデザインサンプル一覧"></div>
+        <div class="gallery-item"><img src="images/nail/nail_gallery2.webp" alt="ピンク基調のサロン内観・施術デスク"></div>
+        <div class="gallery-item"><img src="images/nail/nail_gallery3.webp" alt="花に囲まれた明るい待合スペース"></div>
+        <div class="gallery-item"><img src="images/nail/nail_gallery4.webp" alt="ネイルデザインのサンプルボード展示"></div>
+        <div class="gallery-item"><img src="images/nail/nail_gallery5.webp" alt="カラフルなネイルカラーが並ぶ棚"></div>
+        <div class="gallery-item"><img src="images/nail/nail_gallery6.webp" alt="受付・パウダールーム風のくつろぎスペース"></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery1.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery2.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery3.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery4.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery5.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery6.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-facility -->
+
+<!-- ════ PAGE: ブログ・お知らせ ════ -->
+<div id="page-blog">
+  <section>
+    <div class="section-title reveal">ブログ・お知らせ</div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/nail/nail_menu_bridal.webp" alt="ブライダルネイル">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.05</div>
+          <h3>夏のブライダルシーズンに向けて</h3>
+          <p>結婚式シーズンに向けて、上品なブライダルネイルのご相談を承っております。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/nail/nail_gallery5.webp" alt="カラフルなネイルカラーが並ぶ棚">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.18</div>
+          <h3>新しいカラーが入荷しました</h3>
+          <p>夏らしい新色のポリッシュが入荷しました。ぜひ店頭でご覧ください。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/nail/nail_menu_foot.webp" alt="フットネイル">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.30</div>
+          <h3>サンダルシーズンのフットネイルにおすすめ</h3>
+          <p>素足になる季節に向けて、フットネイルのメニューをご案内しています。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/nail/nail_menu_care.webp" alt="ネイルケア">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.10</div>
+          <h3>爪のお手入れ方法について</h3>
+          <p>日常でできる、爪と甘皮の簡単なお手入れ方法をご紹介します。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/nail/nail_gallery4.webp" alt="ネイルデザインのサンプルボード展示">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.20</div>
+          <h3>デザインサンプルを増やしました</h3>
+          <p>季節に合わせた新しいデザインサンプルをご用意しました。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/nail/nail_menu_art.webp" alt="アートネイル">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.08.01</div>
+          <h3>夏季の営業時間について</h3>
+          <p>8月中は営業時間を変更しております。詳しくはアクセスページをご覧ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-blog -->
+
+<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
+<div id="page-access">
+  <section class="contact reveal">
+    <div class="section-title">アクセス・お問い合わせ</div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="contact-box">
+          <p>福岡県福岡市〇〇区〇〇7-1-4</p>
+          <p>営業時間:10:00〜19:00（定休日:不定休）</p>
+        </div>
+        <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+        <div class="line-wrap">
+          <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
+          <p class="line-note">LINEでのお問い合わせも承っています。</p>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <span>地図がここに表示されます（デモ表示中）</span>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-access -->
+
+<footer class="reveal">Nail Salon Fleur（RESC制作サンプル）</footer>
+
+<script>
+  /* ── ページ切り替え（retail-advance.html より移植） ── */
+  function showPage(page) {
+    closeNav(); closeMenu();
+    document.body.className = (page === 'top') ? '' : (page + '-page');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── ナビ／メニューオーバーレイ（retail-advance.html より移植） ── */
+  function openMenu() { document.getElementById('menuOverlay').classList.add('open'); }
+  function closeMenu() { document.getElementById('menuOverlay').classList.remove('open'); }
+  function closeNav() { /* モバイル単体ドロップダウンは無いためメニュー閉じるのみ（retail-advance.html を踏襲） */ }
+  document.getElementById('menuOverlay').addEventListener('click', function (e) {
+    if (e.target.id === 'menuOverlay') closeMenu();
+  });
+
+  /* ── .reveal スクロールフェードイン（nail-standard.html より移植・無変更） ── */
+  (function () {
+    const targets = document.querySelectorAll('.reveal');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      targets.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    targets.forEach(el => observer.observe(el));
+  })();
+</script>
+
+</body>
+</html>
