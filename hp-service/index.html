@@ -310,6 +310,19 @@
     font-family: "JetBrains Mono", monospace; font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 6px;
   }
 
+  /* ---- #works 業種タブ×3プラン（追加） ---- */
+  .works-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .works-tab {
+    font-family: "JetBrains Mono", monospace; font-size: 12.5px; font-weight: 700;
+    padding: 8px 16px; border: 1px solid var(--line-light); border-radius: 999px;
+    background: var(--panel-light); color: var(--muted); cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .works-tab:hover { border-color: var(--blue); color: var(--blue); }
+  .works-tab.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+  #works .works-grid { grid-template-columns: repeat(3, 1fr); }
+  .work-spec { padding: 0 12px 14px; font-size: 11.5px; color: var(--muted); text-align: center; line-height: 1.6; }
+
   /* ---- About table ---- */
   .about-table { width: 100%; border-collapse: collapse; font-size: 14px; }
   .about-table tr { border-bottom: 1px solid var(--line-light); }
@@ -448,6 +461,7 @@
     .price-grid { grid-template-columns: 1fr; }
     .works-grid { grid-template-columns: repeat(2, 1fr); }
     #plan-samples .works-grid { grid-template-columns: repeat(2, 1fr); }
+    #works .works-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -690,17 +704,18 @@
   <div class="section-inner">
     <div class="section-eyebrow">SAMPLE_WORKS</div>
     <h2 class="section-title">制作事例(サンプル)</h2>
-    <p class="section-lead">ホームページ担当が実際に作成したサンプルです。8つの業種でイメージをご用意しています。※ご契約いただいたお客様の実績・お客様の声は、今後こちらに追加していく予定です。</p>
-    <div class="works-grid">
-      <a class="work-card" href="../samples/cafe.html" target="_blank" rel="noopener"><div class="work-tag">cafe</div><img src="cafe_hero.png"><div class="work-label">カフェ</div></a>
-      <a class="work-card" href="../samples/salon.html" target="_blank" rel="noopener"><div class="work-tag">salon</div><img src="salon_hero.png"><div class="work-label">美容室</div></a>
-      <a class="work-card" href="../samples/clinic.html" target="_blank" rel="noopener"><div class="work-tag">clinic</div><img src="clinic_hero.png"><div class="work-label">医療・クリニック</div></a>
-      <a class="work-card" href="../samples/professional.html" target="_blank" rel="noopener"><div class="work-tag">legal</div><img src="professional_hero.png"><div class="work-label">士業</div></a>
-      <a class="work-card" href="../samples/construction.html" target="_blank" rel="noopener"><div class="work-tag">build</div><img src="construction_hero.png"><div class="work-label">工務店</div></a>
-      <a class="work-card" href="../samples/retail.html" target="_blank" rel="noopener"><div class="work-tag">retail</div><img src="retail_hero.png"><div class="work-label">小売</div></a>
-      <a class="work-card" href="../samples/nail.html" target="_blank" rel="noopener"><div class="work-tag">nail</div><img src="nail_hero.png"><div class="work-label">ネイルサロン</div></a>
-      <a class="work-card" href="../samples/tech.html" target="_blank" rel="noopener"><div class="work-tag">tech</div><img src="tech_hero.png"><div class="work-label">IT・オフィス</div></a>
+    <p class="section-lead">ホームページ担当が実際に作成したサンプルです。8業種×3プラン、計24パターンをご用意しています。プランごとの違いを実際の画面でご確認いただけます。※ご契約いただいたお客様の実績・お客様の声は、今後こちらに追加していく予定です。</p>
+    <div class="works-tabs" id="works-tabs" role="tablist">
+      <button class="works-tab active" type="button" role="tab" aria-selected="true" data-industry="cafe">カフェ</button>
+      <button class="works-tab" type="button" role="tab" aria-selected="false" data-industry="salon">美容室</button>
+      <button class="works-tab" type="button" role="tab" aria-selected="false" data-industry="clinic">医療・クリニック</button>
+      <button class="works-tab" type="button" role="tab" aria-selected="false" data-industry="professional">士業</button>
+      <button class="works-tab" type="button" role="tab" aria-selected="false" data-industry="construction">工務店</button>
+      <button class="works-tab" type="button" role="tab" aria-selected="false" data-industry="retail">小売</button>
+      <button class="works-tab" type="button" role="tab" aria-selected="false" data-industry="nail">ネイルサロン</button>
+      <button class="works-tab" type="button" role="tab" aria-selected="false" data-industry="tech">IT・オフィス</button>
     </div>
+    <div class="works-grid" id="works-grid"></div>
   </div>
 </section>
 
@@ -1069,6 +1084,55 @@
     const inView = rect.bottom > 0 && rect.top < window.innerHeight;
     if (inView) startCarousel();
   });
+</script>
+
+<script>
+  /* ---- #works 業種タブ×3プラン（追加） ---- */
+  const WORKS_INDUSTRIES = [
+    { slug: 'cafe', label: 'カフェ', hero: 'cafe_hero.png' },
+    { slug: 'salon', label: '美容室', hero: 'salon_hero.png' },
+    { slug: 'clinic', label: '医療・クリニック', hero: 'clinic_hero.png' },
+    { slug: 'professional', label: '士業', hero: 'professional_hero.png' },
+    { slug: 'construction', label: '工務店', hero: 'construction_hero.png' },
+    { slug: 'retail', label: '小売', hero: 'retail_hero.png' },
+    { slug: 'nail', label: 'ネイルサロン', hero: 'nail_hero.png' },
+    { slug: 'tech', label: 'IT・オフィス', hero: 'tech_hero.png' }
+  ];
+  const WORKS_PLANS = [
+    { key: 'light', label: 'ライト', spec: '¥4,980／1ページ／チャットなし／SNS連携なし' },
+    { key: 'standard', label: 'スタンダード', spec: '¥7,500／2〜6ページ／定型FAQチャット／Instagram連携' },
+    { key: 'advance', label: 'アドバンス', spec: '¥12,000／7〜12ページ／定型FAQチャット／SNS3媒体' }
+  ];
+
+  const worksTabs = document.getElementById('works-tabs');
+  const worksGrid = document.getElementById('works-grid');
+
+  function renderWorksGrid(slug) {
+    const industry = WORKS_INDUSTRIES.find((i) => i.slug === slug);
+    if (!industry) return;
+    worksGrid.innerHTML = WORKS_PLANS.map((plan) => `
+      <a class="work-card" href="../samples/${industry.slug}-${plan.key}.html" target="_blank" rel="noopener">
+        <div class="work-tag">${plan.key}</div>
+        <img src="${industry.hero}">
+        <div class="work-label">${plan.label}</div>
+        <div class="work-spec">${plan.spec}</div>
+      </a>
+    `).join('');
+  }
+
+  worksTabs.addEventListener('click', (e) => {
+    const btn = e.target.closest('.works-tab');
+    if (!btn) return;
+    worksTabs.querySelectorAll('.works-tab').forEach((t) => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    renderWorksGrid(btn.dataset.industry);
+  });
+
+  renderWorksGrid('cafe');
 </script>
 
 </body>
