@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>炭火焼鳥 とりや｜焼き鳥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sumi: #1A1614;
+    --sumi-light: #2E2724;
+    --honoo: #D9622B;
+    --tomoshibi: #F0EBE3;
+    --text-muted: #A89C93;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--sumi); color: var(--tomoshibi); line-height: 1.8; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .notice {
+    background: var(--sumi-light); color: var(--tomoshibi); text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: var(--tomoshibi); text-decoration: underline; }
+
+  /* ---- Nav（retail-advance.html のナビ実装（menu-btn + menu-overlay）を移植し、yakitori-standard.html の配色に変更。
+       nav背景は yakitori-standard.html の --sumi-light 相当の rgba(46,39,36,.95) をそのまま使用） ---- */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(46,39,36,.95); backdrop-filter: blur(6px);
+    height: 64px;
+  }
+  .nav-in {
+    max-width: 900px; margin: 0 auto; height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+  }
+  .logo { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 18px; letter-spacing: .03em; color: var(--tomoshibi); cursor: pointer; }
+  .logo span { color: var(--honoo); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: rgba(240,235,227,.85); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+  .nav-links a:hover { color: var(--honoo); }
+  .nav-links a.nav-cta { background: var(--honoo); color: var(--tomoshibi); padding: 9px 18px; border-radius: 4px; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .menu-btn {
+    display: inline-flex; align-items: center; gap: 8px; background: transparent;
+    border: 1px solid rgba(255,255,255,.35); color: var(--tomoshibi); font-size: 13px; font-weight: 700;
+    padding: 9px 16px; border-radius: 4px; cursor: pointer;
+  }
+  .menu-btn:hover { border-color: var(--honoo); color: var(--honoo); }
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    background: transparent; border: none; cursor: pointer;
+  }
+  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: var(--tomoshibi); border-radius: 2px; }
+
+  /* ---- メニューオーバーレイ（retail-advance.html を移植し、yakitoriの配色に変更。
+       背景 rgba(44,62,80,.72) は var(--sumi) 相当の rgba(26,22,20,.72) に変更） ---- */
+  .menu-overlay {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(26,22,20,.72); backdrop-filter: blur(3px);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 90px 24px 40px; overflow-y: auto;
+  }
+  .menu-overlay.open { display: flex; }
+  .menu-overlay-inner {
+    background: var(--sumi-light); border-radius: 12px; width: 100%; max-width: 780px;
+    padding: 36px 36px 30px; position: relative;
+  }
+  .menu-close {
+    position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%;
+    border: none; background: var(--sumi); font-size: 18px; cursor: pointer; color: var(--tomoshibi);
+  }
+  .menu-top-link {
+    display: inline-block; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 20px;
+    color: var(--tomoshibi); margin-bottom: 26px; cursor: pointer;
+  }
+  .menu-top-link:hover { color: var(--honoo); }
+  .menu-cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 26px; }
+  .menu-cat-title {
+    font-size: 11.5px; letter-spacing: .18em; color: var(--honoo); font-weight: 700; margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .menu-cat a { display: block; font-size: 14.5px; font-weight: 700; padding: 8px 0; cursor: pointer; color: var(--tomoshibi); }
+  .menu-cat a:hover { color: var(--honoo); }
+  .menu-access-link {
+    display: block; text-align: center; background: var(--sumi); color: var(--tomoshibi); font-weight: 700; font-size: 14px;
+    padding: 14px; border-radius: 6px; cursor: pointer;
+  }
+  .menu-access-link:hover { background: var(--honoo); }
+
+  /* ---- ヒーロー（yakitori-standard.html の調整済みオーバーレイ値をそのまま使用） ---- */
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; animation: hero-kenburns 20s ease-out infinite alternate; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to right, rgba(26,22,20,0.30) 0%, rgba(26,22,20,0.22) 50%, rgba(26,22,20,0) 75%);
+  }
+  .hero-text {
+    position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+    text-align: left; color: var(--tomoshibi); padding: 24px 24px 24px 8%;
+    text-shadow: 0 2px 8px rgba(26,22,20,0.5);
+  }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.9; margin-bottom: 14px; }
+  .hero-text h1 {
+    font-family: 'Shippori Mincho', serif; font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px;
+    animation: hero-fade-in 0.9s ease-out both;
+  }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-in 0.9s ease-out both; animation-delay: 0.3s; }
+  @media (max-width: 768px) {
+    .hero::after { background: linear-gradient(to bottom, rgba(26,22,20,0) 0%, rgba(26,22,20,0.22) 50%, rgba(26,22,20,0.30) 100%); }
+    .hero-text { align-items: center; text-align: center; padding: 24px; }
+  }
+  @keyframes hero-kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+  }
+  @keyframes hero-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero img, .hero-text h1, .hero-text p { animation: none; }
+  }
+
+  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
+  .section-title { font-family: 'Shippori Mincho', serif; font-size: 26px; font-weight: 700; color: var(--tomoshibi); margin-bottom: 24px; text-align: center; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; box-shadow: 0 16px 36px rgba(0,0,0,0.35); }
+  .about-content { text-align: left; }
+  .about-content .section-title { text-align: left; }
+  .about p { font-size: 14.5px; color: var(--tomoshibi); margin-bottom: 14px; }
+  .about p:last-child { margin-bottom: 0; }
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about-content, .about-content .section-title { text-align: center; }
+  }
+
+  .about-excerpt p { font-size: 14.5px; color: var(--tomoshibi); margin-bottom: 22px; }
+  .about-excerpt .more-link {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--honoo);
+    border-bottom: 1px solid var(--honoo); padding-bottom: 2px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
+  }
+
+  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .menu-card {
+    display: flex; flex-direction: column; text-align: center;
+    background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px; padding: 18px 18px 22px;
+  }
+  .menu-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
+  .menu-card .menu-name { margin-top: 14px; font-size: 15px; font-weight: 700; color: var(--tomoshibi); }
+  .menu-card .menu-copy { margin-top: 8px; font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.6; flex: 1; }
+  .menu-card .menu-price { margin-top: 16px; font-size: 15px; font-weight: 700; color: var(--honoo); }
+  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .menu-grid { grid-template-columns: 1fr; } }
+
+  .gallery-marquee { overflow: hidden; }
+  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
+  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+  .gallery-item { flex: 0 0 auto; width: 320px; aspect-ratio: 16 / 9; border-radius: 6px; margin-right: 16px; overflow: hidden; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-marquee { overflow-x: auto; }
+  }
+
+  .contact { background: var(--sumi); color: var(--tomoshibi); text-align: center; }
+  .contact .section-title { color: var(--tomoshibi); }
+  .contact-box {
+    width: fit-content; margin: 0 auto 24px; padding: 26px 42px;
+    background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px;
+  }
+  .contact p { font-size: 14px; margin-bottom: 8px; color: var(--tomoshibi); }
+  .contact p:last-of-type { margin-bottom: 0; }
+  .contact .btn {
+    display: inline-block; margin-top: 24px; background: var(--sumi-light); color: var(--honoo);
+    border: 1px solid var(--honoo); padding: 12px 34px; border-radius: 999px;
+    font-weight: 700; font-size: 13.5px; transition: background 0.25s ease, color 0.25s ease;
+  }
+  .contact .btn:hover { background: var(--honoo); color: var(--tomoshibi); }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); background: var(--sumi); }
+
+  /* ---- .reveal スクロールフェードイン（retail-advance.html より移植・無変更） ---- */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .menu-grid .menu-card:nth-child(3n+1) { transition-delay: 0s; }
+  .menu-grid .menu-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .menu-grid .menu-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  .reason-grid .reason-card:nth-child(4n+1) { transition-delay: 0s; }
+  .reason-grid .reason-card:nth-child(4n+2) { transition-delay: 0.1s; }
+  .reason-grid .reason-card:nth-child(4n+3) { transition-delay: 0.2s; }
+  .reason-grid .reason-card:nth-child(4n+4) { transition-delay: 0.3s; }
+  .flow-grid .flow-card:nth-child(4n+1) { transition-delay: 0s; }
+  .flow-grid .flow-card:nth-child(4n+2) { transition-delay: 0.1s; }
+  .flow-grid .flow-card:nth-child(4n+3) { transition-delay: 0.2s; }
+  .flow-grid .flow-card:nth-child(4n+4) { transition-delay: 0.3s; }
+  .staff-grid .staff-card:nth-child(3n+1) { transition-delay: 0s; }
+  .staff-grid .staff-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .staff-grid .staff-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  .voice-grid .voice-card:nth-child(3n+1) { transition-delay: 0s; }
+  .voice-grid .voice-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .voice-grid .voice-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  .facility-grid .facility-card:nth-child(2n+1) { transition-delay: 0s; }
+  .facility-grid .facility-card:nth-child(2n+2) { transition-delay: 0.1s; }
+  .blog-grid .blog-card:nth-child(3n+1) { transition-delay: 0s; }
+  .blog-grid .blog-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .blog-grid .blog-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---- LINE連携ボタン（yakitori-standard.html と同一実装） ---- */
+  .line-btn {
+    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
+    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
+    line-height: 21px;
+  }
+  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
+  .contact .line-wrap { margin-top: 18px; }
+
+  .map-placeholder {
+    background: var(--sumi-light); border: 1px dashed var(--honoo); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    align-self: stretch; min-height: 300px;
+  }
+  .map-placeholder span { font-size: 11.5px; color: var(--text-muted); }
+
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
+  }
+  @media (max-width: 800px) {
+    .contact-layout { grid-template-columns: 1fr; }
+  }
+
+  /* ---- Instagram（デモ表示。yakitori-standard.html の insta-sec を移植） ---- */
+  .insta-note {
+    display: inline-block; font-size: 11.5px; color: var(--text-muted);
+    border: 1px dashed rgba(240,235,227,0.15); border-radius: 4px; padding: 6px 12px; margin-bottom: 24px;
+  }
+  .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .insta-item { aspect-ratio: 1/1; border-radius: 6px; width: 100%; height: auto; object-fit: cover; }
+  @media (max-width: 700px) { .insta-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---- 各ページへの導線カード（page-top。retail-advance.html の4カード構成を移植） ---- */
+  .link-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .link-card {
+    display: block; background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px;
+    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.30); }
+  .link-card .tag { font-size: 11px; color: var(--honoo); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
+  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--tomoshibi); }
+  .link-card p { font-size: 13px; color: var(--text-muted); }
+  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--honoo); }
+  @media (max-width: 900px) { .link-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .link-grid { grid-template-columns: 1fr; } }
+
+  /* ---- とりやのこだわり（page-reasons。retail-advance.html のカード様式で新規実装。中身は次回のプロンプトで追加） ---- */
+  .reason-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .reason-card { border: 1px solid var(--honoo); border-radius: 12px; overflow: hidden; background: var(--sumi-light); }
+  .reason-card .reason-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .reason-card-body { padding: 18px 18px 22px; }
+  .reason-num { font-size: 12px; font-weight: 700; color: var(--honoo); letter-spacing: .1em; margin-bottom: 10px; }
+  .reason-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--tomoshibi); }
+  .reason-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.8; }
+  @media (max-width: 900px) { .reason-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .reason-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ご来店の流れ（page-flow。retail-advance.html のカード様式で新規実装。中身は次回のプロンプトで追加） ---- */
+  .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .flow-card { border: 1px solid var(--honoo); border-radius: 12px; overflow: hidden; background: var(--sumi-light); }
+  .flow-card .flow-photo { aspect-ratio: 4/3; width: 100%; height: auto; object-fit: cover; }
+  .flow-card-body { padding: 18px 18px 22px; }
+  .flow-num { font-size: 12px; font-weight: 700; color: var(--honoo); letter-spacing: .1em; margin-bottom: 10px; }
+  .flow-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--tomoshibi); }
+  .flow-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.8; }
+  @media (max-width: 900px) { .flow-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .flow-grid { grid-template-columns: 1fr; } }
+
+  /* ---- よくある質問（page-faq。retail-advance.html を移植。中身は次回のプロンプトで追加。
+       .faq-item の border-bottom は rgba(0,0,0,0.08) → rgba(240,235,227,0.12) に変換） ---- */
+  .faq-cat-title { font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 700; color: var(--honoo); margin: 34px 0 12px; }
+  .faq-cat-title:first-child { margin-top: 0; }
+  .faq-item { border-bottom: 1px solid rgba(240,235,227,0.12); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: 18px 4px; font-size: 14.5px; font-weight: 700; display: flex; gap: 14px; align-items: flex-start; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::before { content: "Q"; color: var(--honoo); font-weight: 900; flex: 0 0 auto; }
+  .faq-item p { padding: 0 4px 18px 24px; font-size: 13px; color: var(--text-muted); line-height: 1.9; }
+
+  /* ---- スタッフ紹介（page-staff。retail-advance.html のカード様式で新規実装。中身は次回のプロンプトで追加） ---- */
+  .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .staff-card .staff-photo { aspect-ratio: 4/5; border-radius: 12px; margin-bottom: 16px; width: 100%; height: auto; object-fit: cover; }
+  .staff-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; color: var(--tomoshibi); }
+  .staff-role { font-size: 11.5px; color: var(--honoo); font-weight: 700; margin-bottom: 10px; letter-spacing: .04em; }
+  .staff-bio { font-size: 12.5px; color: var(--text-muted); line-height: 1.85; }
+  @media (max-width: 700px) { .staff-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .staff-grid { grid-template-columns: 1fr; } }
+
+  /* ---- お客様の声（page-voice。retail-advance.html のカード様式で新規実装。中身は次回のプロンプトで追加） ---- */
+  .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .voice-card { background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px; padding: 22px 20px; }
+  .voice-head { margin-bottom: 14px; }
+  .voice-head .voice-photo { width: 100%; aspect-ratio: 16/10; border-radius: 8px; object-fit: cover; margin-bottom: 12px; }
+  .voice-name { font-size: 13.5px; font-weight: 700; color: var(--tomoshibi); }
+  .voice-meta { font-size: 11.5px; color: var(--text-muted); }
+  .voice-card p.comment { font-size: 13px; color: var(--text-muted); line-height: 1.85; margin-top: 10px; }
+  .voice-favorite { margin-top: 12px; font-size: 12px; color: var(--honoo); font-weight: 700; }
+  @media (max-width: 700px) { .voice-grid { grid-template-columns: 1fr; } }
+
+  /* ---- 店内のご紹介（page-facility。retail-advance.html のカード様式で新規実装。中身は次回のプロンプトで追加） ---- */
+  .facility-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .facility-card .facility-photo { aspect-ratio: 16/10; border-radius: 12px; margin-bottom: 14px; width: 100%; height: auto; object-fit: cover; }
+  .facility-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--tomoshibi); }
+  .facility-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.8; }
+  @media (max-width: 700px) { .facility-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ブログ・お知らせ（page-blog。retail-advance.html のカード様式で新規実装。中身は次回のプロンプトで追加） ---- */
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .blog-card { background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px; overflow: hidden; }
+  .blog-card .blog-photo { aspect-ratio: 16/10; width: 100%; height: auto; object-fit: cover; }
+  .blog-card-body { padding: 18px 18px 20px; }
+  .blog-date { font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
+  .blog-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 8px; line-height: 1.6; color: var(--tomoshibi); }
+  .blog-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.75; }
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .blog-grid { grid-template-columns: 1fr; } }
+
+  /* ---- ページ切り替え（11ページ分。retail-advance.html のCSSパターンをそのまま移植） ---- */
+  #page-top { display: block; }
+  #page-about, #page-reasons, #page-menu, #page-flow, #page-faq,
+  #page-staff, #page-voice, #page-facility, #page-blog, #page-access { display: none; }
+  body[class*="-page"] #page-top { display: none; }
+  body.about-page #page-about { display: block; }
+  body.reasons-page #page-reasons { display: block; }
+  body.menu-page #page-menu { display: block; }
+  body.flow-page #page-flow { display: block; }
+  body.faq-page #page-faq { display: block; }
+  body.staff-page #page-staff { display: block; }
+  body.voice-page #page-voice { display: block; }
+  body.facility-page #page-facility { display: block; }
+  body.blog-page #page-blog { display: block; }
+  body.access-page #page-access { display: block; }
+
+  /* ---- レスポンシブ（retail-advance.html のナビ関連レスポンシブを移植） ---- */
+  @media (max-width: 860px) {
+    .nav-links, .menu-btn { display: none; }
+    .nav-toggle { display: flex; }
+    .menu-overlay { padding: 78px 14px 30px; }
+    .menu-overlay-inner { padding: 28px 20px 24px; }
+    .menu-cats { grid-template-columns: 1fr; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" onclick="showPage('top')">炭火焼鳥 <span>とりや</span></a>
+    <div class="nav-links">
+      <a onclick="showPage('top')">TOP</a>
+      <a onclick="showPage('menu')">メニュー</a>
+      <a onclick="showPage('staff')">スタッフ紹介</a>
+      <a class="nav-cta" onclick="showPage('access')">アクセス・お問い合わせ</a>
+    </div>
+    <div class="nav-right">
+      <button class="menu-btn" type="button" onclick="openMenu()">☰ メニュー</button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" onclick="openMenu()">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- メニューオーバーレイ（全11ページの導線・retail-advance.html を移植） -->
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-overlay-inner">
+    <button class="menu-close" type="button" aria-label="閉じる" onclick="closeMenu()">×</button>
+    <a class="menu-top-link" onclick="showPage('top')">炭火焼鳥 <span style="color:var(--honoo);">とりや</span> TOP</a>
+    <div class="menu-cats">
+      <div class="menu-cat">
+        <div class="menu-cat-title">とりやについて</div>
+        <a onclick="showPage('about')">こだわり</a>
+        <a onclick="showPage('reasons')">とりやのこだわり</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">ご利用案内</div>
+        <a onclick="showPage('menu')">メニュー</a>
+        <a onclick="showPage('flow')">ご来店の流れ</a>
+        <a onclick="showPage('faq')">よくある質問</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">スタッフ・店内</div>
+        <a onclick="showPage('staff')">スタッフ紹介</a>
+        <a onclick="showPage('voice')">お客様の声</a>
+        <a onclick="showPage('facility')">店内のご紹介</a>
+      </div>
+      <div class="menu-cat">
+        <div class="menu-cat-title">お知らせ</div>
+        <a onclick="showPage('blog')">ブログ・お知らせ</a>
+      </div>
+    </div>
+    <a class="menu-access-link" onclick="showPage('access')">アクセス・お問い合わせ →</a>
+  </div>
+</div>
+
+<!-- ════ PAGE: TOP ════ -->
+<div id="page-top">
+
+  <div class="hero">
+    <img src="images/yakitori/yakitori_hero.webp" alt="炭火焼鳥 とりや">
+    <div class="hero-text">
+      <div class="label">焼き鳥</div>
+      <h1>一本ずつ、炭に向き合う。</h1>
+      <p>炭火焼鳥 とりや</p>
+    </div>
+  </div>
+
+  <section class="about-excerpt reveal">
+    <div class="section-title">こだわり</div>
+    <p>備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。</p>
+    <a class="more-link" onclick="showPage('about')">こだわりをもっと見る →</a>
+  </section>
+
+  <section style="background:var(--sumi-light);">
+    <div class="section-title reveal">Instagram</div>
+    <div style="text-align:center;">
+      <span class="insta-note">Instagramの投稿がここに自動表示されます（デモ表示中）</span>
+    </div>
+    <div class="insta-grid">
+      <img class="insta-item" src="images/yakitori/yakitori_gallery1.webp" alt="炭火で焼く手元">
+      <img class="insta-item" src="images/yakitori/yakitori_gallery2.webp" alt="カウンター">
+      <img class="insta-item" src="images/yakitori/yakitori_gallery3.webp" alt="串打ちの手元">
+      <img class="insta-item" src="images/yakitori/yakitori_gallery4.webp" alt="外観（夜・赤提灯・暖簾）">
+      <img class="insta-item" src="images/yakitori/yakitori_gallery5.webp" alt="ビールと日本酒">
+      <img class="insta-item" src="images/yakitori/yakitori_gallery6.webp" alt="提灯">
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title reveal">詳しく見る</div>
+    <div class="link-grid">
+      <button class="link-card reveal" onclick="showPage('about')">
+        <div class="tag">About</div>
+        <h3>こだわり・とりやのこだわり</h3>
+        <p>炭火と向き合う焼き方へのこだわりをご紹介します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('menu')">
+        <div class="tag">Menu</div>
+        <h3>メニュー・ご来店の流れ</h3>
+        <p>メニューとご来店の流れ、よくある質問をご案内します。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('staff')">
+        <div class="tag">Staff</div>
+        <h3>スタッフ・店内紹介</h3>
+        <p>スタッフ紹介、お客様の声、店内の様子をご覧いただけます。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+      <button class="link-card reveal" onclick="showPage('blog')">
+        <div class="tag">Column</div>
+        <h3>ブログ・お知らせ</h3>
+        <p>最新のお知らせやコラムをお届けします。</p>
+        <span class="go">詳しく見る →</span>
+      </button>
+    </div>
+  </section>
+
+</div><!-- /page-top -->
+
+<!-- ════ PAGE: こだわり ════ -->
+<div id="page-about">
+  <section class="about reveal">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="images/yakitori/yakitori_gallery1.webp" alt="炭火で焼く手元">
+      </div>
+      <div class="about-content">
+        <div class="section-title">こだわり</div>
+        <p>備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。串と向き合う時間を大切にしています。</p>
+        <p>定番のもも・つくね・皮・レバーから、季節ごとに変わる一品まで。素材の状態を見ながら、その日の焼き加減を微調整しています。</p>
+        <p>カウンター越しに炭火の音と香りを感じながら、ゆっくりと過ごしていただける時間を。仕事帰りの一杯にも、ふらりと立ち寄る一軒としても。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--sumi-light);">
+    <div class="section-title reveal">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery1.webp" alt="炭火で焼く手元"></div>
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery2.webp" alt="カウンター"></div>
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery3.webp" alt="串打ちの手元"></div>
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery4.webp" alt="外観（夜・赤提灯・暖簾）"></div>
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery5.webp" alt="ビールと日本酒"></div>
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery6.webp" alt="提灯"></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery1.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery2.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery3.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery4.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery5.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery6.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-about -->
+
+<!-- ════ PAGE: とりやのこだわり ════ -->
+<div id="page-reasons">
+  <section style="background:var(--sumi-light);">
+    <div class="section-title reveal">とりやのこだわり</div>
+    <div class="reason-grid">
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/yakitori/yakitori_gallery1.webp" alt="炭火で焼く手元">
+        <div class="reason-card-body">
+          <div class="reason-num">01</div>
+          <h3>備長炭だけで焼く</h3>
+          <p>火力の立ち上がりと香りが違います。備長炭以外は使いません。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/yakitori/yakitori_gallery3.webp" alt="串打ちの手元">
+        <div class="reason-card-body">
+          <div class="reason-num">02</div>
+          <h3>串は毎日、店で打つ</h3>
+          <p>仕込みから焼きまで店内で行い、肉の厚みを揃えて一本ずつ打っています。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/yakitori/yakitori_facility1.webp" alt="カウンター">
+        <div class="reason-card-body">
+          <div class="reason-num">03</div>
+          <h3>焼き場の前にお席を</h3>
+          <p>炭の音と香りを感じられる距離でお召し上がりいただけます。</p>
+        </div>
+      </div>
+      <div class="reason-card reveal">
+        <img class="reason-photo" src="images/yakitori/yakitori_gallery5.webp" alt="ビールと日本酒">
+        <div class="reason-card-body">
+          <div class="reason-num">04</div>
+          <h3>串に合う酒を選ぶ</h3>
+          <p>脂の乗った串に合わせて、キレのある地酒を中心に揃えています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-reasons -->
+
+<!-- ════ PAGE: メニュー ════ -->
+<div id="page-menu">
+  <section style="background:var(--sumi-light);">
+    <div class="section-title">メニュー</div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <img src="images/yakitori/yakitori_menu_moriawase.webp" alt="おまかせ盛り合わせ（6本）">
+        <div class="menu-name">おまかせ盛り合わせ（6本）</div>
+        <div class="menu-copy">まずはこの一皿から、店の味を。</div>
+        <div class="menu-price">¥1,380</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/yakitori/yakitori_menu_momo.webp" alt="もも串">
+        <div class="menu-name">もも串</div>
+        <div class="menu-copy">旨みそのままの、ジューシーな一本。</div>
+        <div class="menu-price">¥260</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/yakitori/yakitori_menu_tsukune.webp" alt="つくね">
+        <div class="menu-name">つくね</div>
+        <div class="menu-copy">刻んで、練って、丁寧に一本。</div>
+        <div class="menu-price">¥280</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/yakitori/yakitori_menu_kawa.webp" alt="皮">
+        <div class="menu-name">皮</div>
+        <div class="menu-copy">パリッと香ばしく、じっくり焼く。</div>
+        <div class="menu-price">¥220</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/yakitori/yakitori_menu_lever.webp" alt="レバー">
+        <div class="menu-name">レバー</div>
+        <div class="menu-copy">臭みを抑え、しっとりと焼き上げる。</div>
+        <div class="menu-price">¥240</div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="images/yakitori/yakitori_menu_seasonal.webp" alt="季節の一品">
+        <div class="menu-name">季節の一品</div>
+        <div class="menu-copy">その時期だけの、旬をひと串に。</div>
+        <div class="menu-price">¥580</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-menu -->
+
+<!-- ════ PAGE: ご来店の流れ ════ -->
+<div id="page-flow">
+  <section style="background:var(--sumi-light);">
+    <div class="section-title reveal">ご来店の流れ</div>
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/yakitori/yakitori_flow1.webp" alt="暖簾をくぐって入店する様子">
+        <div class="flow-card-body">
+          <div class="flow-num">01</div>
+          <h3>暖簾をくぐって</h3>
+          <p>赤提灯を目印に、そのままお入りください。ご予約なしでも承ります。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/yakitori/yakitori_flow2.webp" alt="カウンターで注文する様子">
+        <div class="flow-card-body">
+          <div class="flow-num">02</div>
+          <h3>お好みをお聞かせください</h3>
+          <p>初めての方には、おまかせ盛り合わせからのご案内もしています。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/yakitori/yakitori_flow3.webp" alt="炭火で串を焼く手元">
+        <div class="flow-card-body">
+          <div class="flow-num">03</div>
+          <h3>一本ずつ焼き上げます</h3>
+          <p>ご注文をいただいてから焼きます。焼き上がりの順にお出しします。</p>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <img class="flow-photo" src="images/yakitori/yakitori_flow4.webp" alt="焼き上がった串を差し出す様子">
+        <div class="flow-card-body">
+          <div class="flow-num">04</div>
+          <h3>熱いうちにどうぞ</h3>
+          <p>焼きたてを一皿ずつ。次の一本は、頃合いを見てお声がけください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-flow -->
+
+<!-- ════ PAGE: よくある質問 ════ -->
+<div id="page-faq">
+  <section class="reveal">
+    <div class="section-title">よくある質問</div>
+
+    <div class="faq-cat-title">ご予約について</div>
+    <div class="faq-item"><details><summary>予約はできますか</summary><p>お電話またはLINEにて承っております。特に金曜・土曜は満席になることが多いため、お早めにご連絡ください。</p></details></div>
+    <div class="faq-item"><details><summary>何名まで対応できますか</summary><p>カウンターとお座敷を合わせて、最大20名程度まで承ります。人数が多い場合は事前にご相談ください。</p></details></div>
+
+    <div class="faq-cat-title">お食事について</div>
+    <div class="faq-item"><details><summary>コースはありますか</summary><p>ご予算に応じたコースをご用意しています。飲み放題を付けることもできますので、お問い合わせください。</p></details></div>
+    <div class="faq-item"><details><summary>苦手な食材があるのですが</summary><p>ご注文の際にお伝えください。串の内容を差し替えてご用意いたします。</p></details></div>
+
+    <div class="faq-cat-title">ご利用について</div>
+    <div class="faq-item"><details><summary>個室はありますか</summary><p>お座敷を1室ご用意しています。ご予約時にお申し付けください。</p></details></div>
+    <div class="faq-item"><details><summary>駐車場はありますか</summary><p>専用駐車場はございません。近隣のコインパーキングをご利用ください。</p></details></div>
+  </section>
+</div><!-- /page-faq -->
+
+<!-- ════ PAGE: スタッフ紹介 ════ -->
+<div id="page-staff">
+  <section style="background:var(--sumi-light);">
+    <div class="section-title reveal">スタッフ紹介</div>
+    <div class="staff-grid">
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/yakitori/yakitori_staff1.webp" alt="店主 中村">
+        <div class="staff-name">店主 中村</div>
+        <div class="staff-role">店主</div>
+        <p class="staff-bio">「焼き場に立って二十年、やっていることは変わりません。」一本ずつ、炭と向き合う時間を大切にしています。</p>
+      </div>
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/yakitori/yakitori_staff2.webp" alt="焼き方 井上">
+        <div class="staff-name">焼き方 井上</div>
+        <div class="staff-role">焼き方</div>
+        <p class="staff-bio">「大将の隣で、毎日火加減を教わっています。」お客様の顔を見ながら焼けるのが楽しいです。</p>
+      </div>
+      <div class="staff-card reveal">
+        <img class="staff-photo" src="images/yakitori/yakitori_staff3.webp" alt="ホール 森田">
+        <div class="staff-name">ホール 森田</div>
+        <div class="staff-role">ホール</div>
+        <p class="staff-bio">「お酒のご相談はお気軽にどうぞ。」串に合う一杯をご提案するのが好きです。</p>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-staff -->
+
+<!-- ════ PAGE: お客様の声 ════ -->
+<div id="page-voice">
+  <section>
+    <div class="section-title reveal">お客様の声</div>
+    <div class="voice-grid">
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/yakitori/yakitori_voice1.webp" alt="カウンターでビールを飲む男性">
+          <div class="voice-name">K.Tさん（40代・男性）</div>
+          <div class="voice-meta">仕事帰りにご来店</div>
+        </div>
+        <p class="comment">週に一度、カウンターで一杯やるのが楽しみです。焼き場の音を聞きながら飲む時間が、いい区切りになっています。</p>
+        <div class="voice-favorite">お気に入り：もも串</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/yakitori/yakitori_voice2.webp" alt="カウンターで談笑する女性2人">
+          <div class="voice-name">ご友人とご来店のお客様</div>
+          <div class="voice-meta">お仕事帰りに2名でご来店</div>
+        </div>
+        <p class="comment">気取らずに入れて、話しながらゆっくりできるのがいいです。つくねは必ず頼んでいます。</p>
+        <div class="voice-favorite">お気に入り：つくね</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-head">
+          <img class="voice-photo" src="images/yakitori/yakitori_voice3.webp" alt="お座敷で食事をするご夫婦">
+          <div class="voice-name">M.Sさん（ご夫婦）</div>
+          <div class="voice-meta">記念日にお座敷をご利用</div>
+        </div>
+        <p class="comment">お座敷を予約して、夫婦でゆっくりいただきました。落ち着いて過ごせるので、また利用したいと思います。</p>
+        <div class="voice-favorite">お気に入り：おまかせ盛り合わせ</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-voice -->
+
+<!-- ════ PAGE: 店内のご紹介 ════ -->
+<div id="page-facility">
+  <section>
+    <div class="section-title reveal">店内のご紹介</div>
+    <div class="facility-grid">
+      <div class="facility-card reveal">
+        <img class="facility-photo" src="images/yakitori/yakitori_facility1.webp" alt="焼き場に面したカウンター">
+        <h3>カウンター</h3>
+        <p>焼き場に面した一枚板のカウンター。おひとりでも気兼ねなくお過ごしいただけます。</p>
+      </div>
+      <div class="facility-card reveal">
+        <img class="facility-photo" src="images/yakitori/yakitori_facility2.webp" alt="お座敷">
+        <h3>お座敷</h3>
+        <p>ご家族やご友人とゆっくり過ごせる個室のお座敷を1室ご用意しています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--sumi-light);">
+    <div class="section-title reveal">ギャラリー</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery1.webp" alt="炭火で焼く手元"></div>
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery2.webp" alt="カウンター"></div>
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery3.webp" alt="串打ちの手元"></div>
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery4.webp" alt="外観（夜・赤提灯・暖簾）"></div>
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery5.webp" alt="ビールと日本酒"></div>
+        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery6.webp" alt="提灯"></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery1.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery2.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery3.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery4.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery5.webp" alt=""></div>
+        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery6.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-facility -->
+
+<!-- ════ PAGE: ブログ・お知らせ ════ -->
+<div id="page-blog">
+  <section>
+    <div class="section-title reveal">ブログ・お知らせ</div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/yakitori/yakitori_menu_seasonal.webp" alt="季節の一品">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.05</div>
+          <h3>夏の一品がはじまりました</h3>
+          <p>季節の一品を夏仕様に切り替えました。旬の野菜を炭で焼いてお出しします。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/yakitori/yakitori_gallery3.webp" alt="串打ちの手元">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.18</div>
+          <h3>串打ちのはなし</h3>
+          <p>毎朝の仕込みで、どのように串を打っているかをご紹介します。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/yakitori/yakitori_gallery5.webp" alt="ビールと日本酒">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.06.30</div>
+          <h3>夏の地酒が入りました</h3>
+          <p>暑い時期に飲みやすい、冷やして美味しい地酒を数種類ご用意しました。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/yakitori/yakitori_menu_tsukune.webp" alt="つくね">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.10</div>
+          <h3>つくねの卵黄について</h3>
+          <p>つくねに添える卵黄を、契約農家のものに変更しました。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/yakitori/yakitori_facility2.webp" alt="お座敷">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.07.20</div>
+          <h3>お座敷のご予約について</h3>
+          <p>お座敷は1室のみのため、ご予約をおすすめしています。お早めにご連絡ください。</p>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img class="blog-photo" src="images/yakitori/yakitori_gallery4.webp" alt="外観（夜・赤提灯・暖簾）">
+        <div class="blog-card-body">
+          <div class="blog-date">2026.08.01</div>
+          <h3>夏季の営業について</h3>
+          <p>8月も通常どおり17:00より営業いたします。定休日は日曜日です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-blog -->
+
+<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
+<div id="page-access">
+  <section class="contact reveal">
+    <div class="section-title">アクセス・お問い合わせ</div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="contact-box">
+          <p>福岡県福岡市〇〇区〇〇9-3-7</p>
+          <p>営業時間:17:00〜23:00（定休日:日曜日）</p>
+        </div>
+        <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+        <div class="line-wrap">
+          <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
+          <p class="line-note">LINEでのお問い合わせも承っています。</p>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <span>地図がここに表示されます（デモ表示中）</span>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-access -->
+
+<footer class="reveal">炭火焼鳥 とりや（RESC制作サンプル）</footer>
+
+<script>
+  /* ── ページ切り替え（retail-advance.html より移植） ── */
+  function showPage(page) {
+    closeNav(); closeMenu();
+    document.body.className = (page === 'top') ? '' : (page + '-page');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── ナビ／メニューオーバーレイ（retail-advance.html より移植） ── */
+  function openMenu() { document.getElementById('menuOverlay').classList.add('open'); }
+  function closeMenu() { document.getElementById('menuOverlay').classList.remove('open'); }
+  function closeNav() { /* モバイル単体ドロップダウンは無いためメニュー閉じるのみ（retail-advance.html を踏襲） */ }
+  document.getElementById('menuOverlay').addEventListener('click', function (e) {
+    if (e.target.id === 'menuOverlay') closeMenu();
+  });
+
+  /* ── .reveal スクロールフェードイン（retail-advance.html より移植・無変更） ── */
+  (function () {
+    const targets = document.querySelectorAll('.reveal');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      targets.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    targets.forEach(el => observer.observe(el));
+  })();
+</script>
+
+<style>
+  /* ---- FAQ Chatbot（yakitori-standard.html の実装をそのまま移植。配色・#2B2420修正・input背景の追加対応も含め無変更） ---- */
+  .faq-chatbot-toggle {
+    position: fixed; bottom: 26px; right: 26px; z-index: 200;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--honoo); border: 1px solid rgba(255,255,255,0.25);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    transition: transform 0.15s ease;
+  }
+  .faq-chatbot-toggle:hover { transform: translateY(-2px); }
+  .faq-chatbot-toggle svg { width: 26px; height: 26px; }
+  .faq-chatbot-panel {
+    position: fixed; bottom: 94px; right: 26px; z-index: 200;
+    width: 340px; max-width: calc(100vw - 40px); max-height: 70vh;
+    background: var(--sumi-light); border: 1px solid rgba(240,235,227,0.15); border-radius: 14px;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.45);
+    display: flex; flex-direction: column; overflow: hidden;
+    font-family: 'Noto Sans JP', sans-serif;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+  }
+  .faq-chatbot-panel.open {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .faq-cb-header {
+    background: var(--sumi-light); color: var(--tomoshibi); padding: 14px 16px;
+    display: flex; align-items: center; justify-content: space-between; font-size: 13.5px; font-weight: 700;
+    border-bottom: 1px solid rgba(240,235,227,0.12);
+  }
+  .faq-cb-close { cursor: pointer; font-size: 18px; line-height: 1; opacity: 0.8; }
+  .faq-cb-close:hover { opacity: 1; }
+  .faq-cb-messages {
+    flex: 1; overflow-y: auto; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
+    max-height: 320px; background: var(--sumi);
+  }
+  .faq-cb-msg { font-size: 13px; line-height: 1.7; padding: 10px 13px; border-radius: 10px; max-width: 85%; white-space: pre-line; }
+  .faq-cb-msg.bot { background: var(--sumi-light); color: var(--tomoshibi); align-self: flex-start; border: 1px solid rgba(240,235,227,0.12); }
+  .faq-cb-msg.user { background: var(--honoo); color: var(--tomoshibi); align-self: flex-end; }
+  .faq-cb-msg a { color: var(--honoo); }
+  .faq-cb-inputrow { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid rgba(240,235,227,0.12); background: var(--sumi-light); }
+  .faq-cb-inputrow input {
+    flex: 1; min-width: 0; background: var(--sumi); border: 1px solid rgba(240,235,227,0.2); border-radius: 20px;
+    padding: 9px 14px; font-family: 'Noto Sans JP', sans-serif; font-size: 13px; color: var(--tomoshibi);
+  }
+  .faq-cb-inputrow input:focus { outline: none; border-color: var(--honoo); }
+  .faq-cb-send {
+    background: var(--honoo); color: var(--tomoshibi); border: none; border-radius: 20px;
+    padding: 0 18px; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;
+  }
+  .faq-cb-send:hover { background: var(--sumi); }
+  @media (max-width: 480px) {
+    .faq-chatbot-toggle { right: 16px; bottom: 16px; }
+    .faq-chatbot-panel { right: 16px; bottom: 82px; }
+  }
+</style>
+
+<div class="faq-chatbot-toggle" id="faq-cb-toggle" role="button" aria-label="チャットを開く">
+  <svg viewBox="0 0 24 24" fill="none" stroke="var(--tomoshibi)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+  </svg>
+</div>
+
+<div class="faq-chatbot-panel" id="faq-cb-panel">
+  <div class="faq-cb-header">
+    <span>炭火焼鳥 とりや チャット</span>
+    <span class="faq-cb-close" id="faq-cb-close">×</span>
+  </div>
+  <div class="faq-cb-messages" id="faq-cb-messages">
+    <div class="faq-cb-msg bot">こんにちは！炭火焼鳥 とりやです。ご質問をどうぞ（営業時間・アクセス・メニューなど）</div>
+  </div>
+  <div class="faq-cb-inputrow">
+    <input type="text" id="faq-cb-input" placeholder="質問を入力...">
+    <button class="faq-cb-send" id="faq-cb-send">送信</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  const FAQ = {
+    hours: { match: ["営業時間", "何時"], answer: "営業時間は17:00〜23:00です。定休日は毎週日曜日です。" },
+    closed: { match: ["定休日", "休み"], answer: "定休日は毎週日曜日です。それ以外は営業しております。" },
+    access: { match: ["場所", "アクセス", "住所", "行き方"], answer: "福岡県福岡市〇〇区〇〇9-3-7にございます。詳しくは下部のアクセス欄をご覧ください。" },
+    course: { match: ["コース", "宴会", "飲み放題"], answer: "コース料理や宴会のご相談、飲み放題のご案内も承っております。内容やご予算に応じてご提案いたしますので、お気軽にお問い合わせください。" },
+    menu: { match: ["メニュー", "串", "おすすめ"], answer: "おまかせ盛り合わせをはじめ、もも・つくね・皮・レバーなどの定番串、季節の一品もご用意しております。詳しくはメニュー欄をご覧ください。" },
+    reserve: { match: ["予約"], answer: "ご予約はお問い合わせフォームより承っております。" },
+    smoking: { match: ["喫煙", "タバコ", "煙草"], answer: "喫煙に関するご案内は、お問い合わせフォームよりご確認いただけますと幸いです。" },
+    parking: { match: ["駐車"], answer: "駐車場に関するご案内は、お問い合わせフォームよりご確認いただけますと幸いです。" }
+  };
+  const FALLBACK = "お問い合わせフォームからご連絡ください。ページ下部のアクセス欄もご覧いただけます。";
+
+  const toggle = document.getElementById('faq-cb-toggle');
+  const panel = document.getElementById('faq-cb-panel');
+  const closeBtn = document.getElementById('faq-cb-close');
+  const messages = document.getElementById('faq-cb-messages');
+  const input = document.getElementById('faq-cb-input');
+  const sendBtn = document.getElementById('faq-cb-send');
+
+  function addMsg(text, who) {
+    const div = document.createElement('div');
+    div.className = 'faq-cb-msg ' + who;
+    div.textContent = text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function addFallback() {
+    const div = document.createElement('div');
+    div.className = 'faq-cb-msg bot';
+    div.innerHTML = FALLBACK + '<br><a href="mailto:info@example.com">お問い合わせフォームへ</a>';
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function respond(text) {
+    const lower = text.toLowerCase();
+    let hit = null;
+    for (const key in FAQ) {
+      if (FAQ[key].match.some(k => lower.includes(k.toLowerCase()))) { hit = FAQ[key]; break; }
+    }
+    setTimeout(() => {
+      if (hit) addMsg(hit.answer, 'bot');
+      else addFallback();
+    }, 350);
+  }
+
+  let userClosed = false;
+
+  toggle.addEventListener('click', () => { panel.classList.add('open'); toggle.style.display = 'none'; });
+  closeBtn.addEventListener('click', () => {
+    panel.classList.remove('open');
+    toggle.style.display = 'flex';
+    userClosed = true;
+  });
+
+  // ページ読み込み後、少し間を置いて自動的にチャットを開く(スマホ幅では邪魔になるため無効)
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (userClosed || window.innerWidth <= 480) return;
+      panel.classList.add('open');
+      toggle.style.display = 'none';
+    }, 900);
+  });
+
+  sendBtn.addEventListener('click', () => {
+    const val = input.value.trim();
+    if (!val) return;
+    addMsg(val, 'user');
+    respond(val);
+    input.value = '';
+  });
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') sendBtn.click();
+  });
+})();
+</script>
+
+</body>
+</html>
