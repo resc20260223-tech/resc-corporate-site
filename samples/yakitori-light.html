@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>炭火焼鳥 とりや｜焼き鳥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sumi: #1A1614;
+    --sumi-light: #2E2724;
+    --honoo: #D9622B;
+    --tomoshibi: #F0EBE3;
+    --text-muted: #A89C93;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--sumi); color: var(--tomoshibi); line-height: 1.8; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .notice {
+    background: var(--sumi-light); color: var(--tomoshibi); text-align: center;
+    font-size: 12.5px; padding: 8px 16px;
+  }
+  .notice a { color: var(--tomoshibi); text-decoration: underline; }
+
+  /* ---- ヒーロー（静止画・左揃え。yakitori-standard.html の実装をそのまま踏襲。
+       retail-light.html には nav が存在しないため、ナビ関連CSSは移植していない） ---- */
+  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; animation: hero-kenburns 20s ease-out infinite alternate; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to right, rgba(26,22,20,0.30) 0%, rgba(26,22,20,0.22) 50%, rgba(26,22,20,0) 75%);
+  }
+  .hero-text {
+    position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+    text-align: left; color: var(--tomoshibi); padding: 24px 24px 24px 8%;
+    text-shadow: 0 2px 8px rgba(26,22,20,0.5);
+  }
+  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.9; margin-bottom: 14px; }
+  .hero-text h1 {
+    font-family: 'Shippori Mincho', serif; font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px;
+    animation: hero-fade-in 0.9s ease-out both;
+  }
+  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-in 0.9s ease-out both; animation-delay: 0.3s; }
+  @media (max-width: 768px) {
+    .hero::after { background: linear-gradient(to bottom, rgba(26,22,20,0) 0%, rgba(26,22,20,0.22) 50%, rgba(26,22,20,0.30) 100%); }
+    .hero-text { align-items: center; text-align: center; padding: 24px; }
+  }
+  @keyframes hero-kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+  }
+  @keyframes hero-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero img, .hero-text h1, .hero-text p { animation: none; }
+  }
+  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
+  .section-title { font-family: 'Shippori Mincho', serif; font-size: 26px; font-weight: 700; color: var(--tomoshibi); margin-bottom: 24px; text-align: center; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .about-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; box-shadow: 0 16px 36px rgba(0,0,0,0.35); }
+  .about-content { text-align: left; }
+  .about-content .section-title { text-align: left; }
+  .about p { font-size: 14.5px; color: var(--tomoshibi); margin-bottom: 14px; }
+  .about p:last-child { margin-bottom: 0; }
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about-content, .about-content .section-title { text-align: center; }
+  }
+
+  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .menu-card {
+    display: flex; flex-direction: column; text-align: center;
+    background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px; padding: 18px 18px 22px;
+  }
+  .menu-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
+  .menu-card .menu-name { margin-top: 14px; font-size: 15px; font-weight: 700; color: var(--tomoshibi); }
+  .menu-card .menu-copy { margin-top: 8px; font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.6; flex: 1; }
+  .menu-card .menu-price { margin-top: 16px; font-size: 15px; font-weight: 700; color: var(--honoo); }
+  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .menu-grid { grid-template-columns: 1fr; } }
+
+  .contact { background: var(--sumi); color: var(--tomoshibi); text-align: center; }
+  .contact .section-title { color: var(--tomoshibi); }
+  .contact-box {
+    width: fit-content; margin: 0 auto 24px; padding: 26px 42px;
+    background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px;
+  }
+  .contact p { font-size: 14px; margin-bottom: 8px; color: var(--tomoshibi); }
+  .contact p:last-of-type { margin-bottom: 0; }
+  .contact .btn {
+    display: inline-block; margin-top: 24px; background: var(--sumi-light); color: var(--honoo);
+    border: 1px solid var(--honoo); padding: 12px 34px; border-radius: 999px;
+    font-weight: 700; font-size: 13.5px; transition: background 0.25s ease, color 0.25s ease;
+  }
+  .contact .btn:hover { background: var(--honoo); color: var(--tomoshibi); }
+  footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); background: var(--sumi); }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .menu-grid .menu-card:nth-child(3n+1) { transition-delay: 0s; }
+  .menu-grid .menu-card:nth-child(3n+2) { transition-delay: 0.1s; }
+  .menu-grid .menu-card:nth-child(3n+3) { transition-delay: 0.2s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---- LINE連携ボタン（yakitori-standard.html と同一実装。全プラン共通のため残す） ---- */
+  .line-btn {
+    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
+    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
+    line-height: 21px;
+  }
+  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
+  .contact .line-wrap { margin-top: 18px; }
+
+  /* ---- 地図プレースホルダー（仕様のステップ3指示により standard から変更せず維持。
+       retail-light.html 自体には map-placeholder が存在しないが、
+       本タスクの指示で明示的に「残すもの」とされているため踏襲） ---- */
+  .map-placeholder {
+    background: var(--sumi-light); border: 1px dashed var(--honoo); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    align-self: stretch; min-height: 300px;
+  }
+  .map-placeholder span { font-size: 11.5px; color: var(--text-muted); }
+
+  /* ---- アクセス 2カラムレイアウト（左:情報 / 右:地図） ---- */
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
+  }
+  @media (max-width: 800px) {
+    .contact-layout { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+
+<div class="hero">
+  <img src="images/yakitori/yakitori_hero.webp" alt="炭火焼鳥 とりや">
+  <div class="hero-text">
+    <div class="label">焼き鳥</div>
+    <h1>一本ずつ、炭に向き合う。</h1>
+    <p>炭火焼鳥 とりや</p>
+  </div>
+</div>
+
+<section class="about reveal">
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="images/yakitori/yakitori_gallery4.webp" alt="外観（夜・赤提灯・暖簾）">
+    </div>
+    <div class="about-content">
+      <div class="section-title">こだわり</div>
+      <p>備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。串と向き合う時間を大切にしています。</p>
+      <p>仕込みでは串一本ごとに肉の厚みや脂の乗り方を見極め、火からの距離と時間を細かく調整します。同じ串でも、その日の素材の状態によって焼き加減は変わります。</p>
+      <p>カウンター越しに炭火の音と香りを感じながら、ゆっくりと過ごしていただける時間を。仕事帰りの一杯にも、ふらりと立ち寄る一軒としても。</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--sumi-light);">
+  <div class="section-title">メニュー</div>
+  <div class="menu-grid">
+    <div class="menu-card reveal">
+      <img src="images/yakitori/yakitori_menu_moriawase.webp" alt="おまかせ盛り合わせ（6本）">
+      <div class="menu-name">おまかせ盛り合わせ（6本）</div>
+      <div class="menu-copy">まずはこの一皿から、店の味を。</div>
+      <div class="menu-price">¥1,380</div>
+    </div>
+    <div class="menu-card reveal">
+      <img src="images/yakitori/yakitori_menu_momo.webp" alt="もも串">
+      <div class="menu-name">もも串</div>
+      <div class="menu-copy">旨みそのままの、ジューシーな一本。</div>
+      <div class="menu-price">¥260</div>
+    </div>
+    <div class="menu-card reveal">
+      <img src="images/yakitori/yakitori_menu_tsukune.webp" alt="つくね">
+      <div class="menu-name">つくね</div>
+      <div class="menu-copy">刻んで、練って、丁寧に一本。</div>
+      <div class="menu-price">¥280</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact reveal">
+  <div class="section-title">アクセス・お問い合わせ</div>
+  <div class="contact-layout">
+    <div class="contact-info">
+      <div class="contact-box">
+        <p>福岡県福岡市〇〇区〇〇9-3-7</p>
+        <p>営業時間:17:00〜23:00（定休日:日曜日）</p>
+      </div>
+      <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
+      <div class="line-wrap">
+        <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
+        <p class="line-note">LINEでのお問い合わせも承っています。</p>
+      </div>
+    </div>
+    <div class="map-placeholder">
+      <span>地図がここに表示されます（デモ表示中）</span>
+    </div>
+  </div>
+</section>
+
+<footer class="reveal">炭火焼鳥 とりや（RESC制作サンプル）</footer>
+
+<script>
+(function () {
+  const targets = document.querySelectorAll('.reveal');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach(el => observer.observe(el));
+})();
+</script>
+
+</body>
+</html>
