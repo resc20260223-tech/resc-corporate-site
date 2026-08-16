@@ -2,204 +2,917 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>田中司法書士事務所｜士業</title>
+<meta name="description" content="福岡の田中司法書士事務所。相続・不動産登記を専門に15年、専門用語を使わないわかりやすい説明を心がけています。初回のご相談は無料です。登記相談・不動産登記・商業登記・相続・遺言・成年後見のご案内。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --primary: #2C3E5C;
-    --primary-dark: #1C283D;
-    --bg: #F5F6F8;
-    --accent: #B08A4E;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Shippori Mincho', serif; background: var(--bg); color: #2B2420; line-height: 1.8; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  .notice {
-    background: var(--primary-dark); color: #fff; text-align: center;
-    font-size: 12.5px; padding: 8px 16px;
-  }
-  .notice a { color: #fff; text-decoration: underline; }
-  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
-  .hero img { width: 100%; height: 100%; object-fit: cover; transform-origin: 60% 35%; animation: hero-kenburns 20s ease-out infinite alternate; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
-  .hero-text { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
-  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
-  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
-  .hero-text h1::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #C0A062;
-    margin: 14px auto 0;
-    animation: hero-gold-line 0.8s ease-out 0.8s both;
-  }
-  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+/* ============================================================
+   田中司法書士事務所 — 書類／条文のメタファー
+   ============================================================ */
+:root{
+  --navy:#1B2A4A;
+  --navy-mid:#3E4A66;
+  --navy-soft:#4A5570;
+  --paper:#F5F2EA;
+  --paper-hi:#FBF9F4;
+  --paper-dim:#EDE8DC;
+  --rule:#C7BFAD;
+  --rule-strong:#A79E88;
+  --shu:#9E2F27;
+  --shu-bright:#B5372C;
+  --shu-on-navy:#E8A79E;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --gothic:"Zen Kaku Gothic New","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --body:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --pad:clamp(18px,5vw,40px);
+  --maxw:1180px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--navy);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.95;
+  font-feature-settings:"palt" 1;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3,h4,p,ol,ul,dl,dd,figure,table{margin:0;padding:0}
+ol,ul{list-style:none}
+:focus-visible{outline:2px solid var(--shu-bright);outline-offset:3px}
+.notice a:focus-visible,.cta-btn:focus-visible,.mast-cta:focus-visible{outline-color:#F0B6AC}
 
-  @keyframes hero-kenburns {
-    from { transform: scale(1) translate(0, 0); }
-    to { transform: scale(1.08) translate(-1.5%, -1.5%); }
-  }
-  @keyframes hero-fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes hero-gold-line {
-    from { width: 0; }
-    to { width: 55%; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero img,
-    .hero-text h1,
-    .hero-text p {
-      animation: none;
-    }
-    .hero-text h1::after {
-      animation: none;
-      width: 55%;
-    }
-  }
-  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
-  .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
-  .about p { font-size: 14.5px; color: #4A4238; }
-  .menu-category { margin-top: 40px; }
-  .menu-category:first-child { margin-top: 0; }
-  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; text-align: center; }
-  .menu-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-  .menu-card { text-align: center; width: calc(25% - 15px); }
-  .menu-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
-  .menu-card .menu-name { margin-top: 12px; font-size: 14px; font-weight: 700; color: #2B2420; }
-  .menu-card .menu-price { margin-top: 4px; font-size: 13px; color: var(--primary); }
-  @media (max-width: 900px) { .menu-card { width: calc(33.333% - 14px); } }
-  @media (max-width: 700px) { .menu-card { width: calc(50% - 10px); } }
-  @media (max-width: 420px) { .menu-card { width: 100%; } }
-  .gallery-marquee { overflow: hidden; }
-  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
-  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
-  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; object-fit: cover; border-radius: 6px; margin-right: 16px; }
-  @keyframes gallery-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gallery-track { animation: none; }
-    .gallery-marquee { overflow-x: auto; }
-  }
-  .contact { background: var(--primary); color: #fff; text-align: center; }
-  .contact .section-title { color: #fff; }
-  .contact p { font-size: 14px; margin-bottom: 8px; }
-  .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
-  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 
-  /* ---- LINE連携ボタン（cafe-light.html と同一実装） ---- */
-  .line-btn {
-    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
-    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
-    line-height: 21px;
-  }
-  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
-  .contact .line-wrap { margin-top: 18px; }
+.skip{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.skip:focus{
+  position:fixed;left:8px;top:8px;z-index:99;width:auto;height:auto;margin:0;clip-path:none;
+  background:var(--navy);color:var(--paper);padding:10px 18px;font-size:14px;
+}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* ---------- 告知バー ---------- */
+.notice{
+  background:var(--navy);color:var(--paper);
+  font-size:12.5px;line-height:1.7;letter-spacing:.02em;
+  border-bottom:1px solid #33436A;
+}
+.notice-in{
+  max-width:var(--maxw);margin:0 auto;padding:9px var(--pad);
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;justify-content:space-between;
+}
+.notice a{color:#F0DED9;text-underline-offset:3px;white-space:nowrap}
+.notice a:hover{color:#fff}
+
+/* ---------- 事務所名（標題部） ---------- */
+.masthead{background:var(--navy);color:var(--paper)}
+.mast-in{
+  max-width:var(--maxw);margin:0 auto;padding:14px var(--pad);
+  display:flex;align-items:center;gap:14px 20px;flex-wrap:wrap;
+}
+.mast-name{font-family:var(--gothic);font-weight:700;font-size:clamp(15px,2.6vw,18px);letter-spacing:.16em;line-height:1.4}
+.mast-sub{font-size:11.5px;letter-spacing:.22em;color:#C6CEE0;border-left:1px solid #4B5B7E;padding-left:14px;line-height:1.5}
+.mast-cta{
+  margin-left:auto;font-size:12.5px;letter-spacing:.1em;text-decoration:none;
+  border:1px solid #6C7B9E;padding:7px 16px;color:#F0EEE6;white-space:nowrap;
+  transition:background .2s,border-color .2s;
+}
+.mast-cta:hover{background:#26365A;border-color:#94A2C2}
+
+/* ---------- 表紙（ヒーロー） ---------- */
+.cover{background:var(--navy);color:var(--paper);position:relative;overflow:hidden}
+.cover-in{
+  max-width:var(--maxw);margin:0 auto;padding:clamp(40px,7vw,84px) var(--pad) clamp(34px,5vw,60px);
+  position:relative;z-index:2;
+}
+/* 罫紙（自作SVG） */
+.ruled{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.38;pointer-events:none}
+.cover-label{
+  display:flex;align-items:center;gap:12px;
+  font-size:11.5px;letter-spacing:.34em;color:#B9C4DC;margin-bottom:26px;
+}
+.cover-label::after{content:"";flex:1;height:1px;background:#4A5B80}
+.tag-sq{width:8px;height:8px;background:var(--shu-bright);flex:none}
+
+.cover-grid{display:block}
+h1.cover-title{
+  font-family:var(--gothic);font-weight:900;
+  font-size:clamp(28px,6.4vw,50px);letter-spacing:.1em;line-height:1.42;
+}
+.cover-rule{height:1px;background:#5B6B90;margin:22px 0;position:relative}
+.cover-rule::after{content:"";position:absolute;left:0;top:3px;width:96px;height:1px;background:var(--shu-bright)}
+
+.catch-row{display:flex;align-items:flex-start;gap:clamp(16px,4vw,40px);flex-wrap:wrap}
+.catch{
+  font-family:var(--gothic);font-weight:700;
+  font-size:clamp(19px,3.9vw,31px);letter-spacing:.09em;line-height:1.72;
+  color:#FBF7EE;flex:0 1 auto;min-width:0;
+}
+.catch em{font-style:normal;color:var(--shu-on-navy)}
+.seal-slot{flex:none;padding-top:4px}
+
+.cover-lede{
+  margin-top:26px;max-width:44em;color:#D5DBE9;font-size:clamp(13.5px,1.6vw,15px);line-height:2.0;
+}
+.cover-meta{
+  margin-top:clamp(28px,4vw,44px);border-top:1px solid #45557A;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+}
+.cover-meta div{padding:16px 18px 14px 0;border-right:1px solid #45557A}
+.cover-meta div:last-child{border-right:0}
+.cover-meta dt{font-size:11px;letter-spacing:.24em;color:#A9B6D2;margin-bottom:5px}
+.cover-meta dd{font-size:13.5px;letter-spacing:.04em;line-height:1.75;color:#F1EFE7}
+
+/* ---------- 口絵 ---------- */
+.plate{background:var(--paper);padding:clamp(26px,4vw,44px) 0 0}
+.plate figure{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.plate-img{border:1px solid var(--rule);padding:8px;background:var(--paper-hi)}
+.plate-img img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.plate figcaption{
+  margin-top:10px;font-size:12px;letter-spacing:.14em;color:var(--navy-soft);
+  display:flex;gap:12px;align-items:center;
+}
+.plate figcaption b{font-family:var(--gothic);font-weight:700;color:var(--shu);letter-spacing:.2em;font-size:11.5px}
+.plate figcaption::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+/* ---------- 本文レイアウト ---------- */
+.doc{max-width:var(--maxw);margin:0 auto;padding:clamp(34px,5vw,64px) var(--pad) clamp(40px,6vw,80px)}
+.doc-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,4vw,44px)}
+.doc-grid > *{min-width:0}
+.doc-body{min-width:0}
+.article{min-width:0}
+
+/* ---------- 目次 ---------- */
+.toc{
+  border:1px solid var(--rule);background:var(--paper-hi);
+  padding:18px clamp(14px,2.4vw,20px) 16px;
+}
+.toc-h{
+  font-family:var(--gothic);font-weight:700;font-size:13px;letter-spacing:.4em;
+  color:var(--navy);padding-bottom:10px;margin-bottom:6px;
+  border-bottom:1px solid var(--navy);position:relative;
+}
+.toc-h::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:var(--rule)}
+.toc-list li{border-bottom:1px solid var(--paper-dim)}
+.toc-list li:last-child{border-bottom:0}
+.toc-list a{
+  display:flex;align-items:baseline;gap:10px;text-decoration:none;
+  padding:9px 4px 9px 12px;position:relative;line-height:1.6;
+  transition:background .18s,color .18s;
+}
+.toc-list a::before{
+  content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3px;height:0;background:var(--shu-bright);transition:height .25s ease;
+}
+.toc-no{
+  font-family:var(--gothic);font-weight:700;font-size:11px;letter-spacing:.14em;
+  color:var(--navy-soft);flex:none;width:2.6em;
+}
+.toc-t{font-size:13.5px;letter-spacing:.06em;color:var(--navy-mid)}
+.toc-list a:hover{background:var(--paper-dim)}
+.toc-list a:hover .toc-t{color:var(--navy)}
+.toc-list a.is-current::before{height:60%}
+.toc-list a.is-current .toc-no{color:var(--shu)}
+.toc-list a.is-current .toc-t{color:var(--navy);font-weight:700}
+.toc-foot{
+  margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);
+  font-size:11px;letter-spacing:.12em;color:var(--navy-soft);line-height:1.8;
+}
+
+/* ---------- セクション共通（条文組み） ---------- */
+.sec{scroll-margin-top:20px;padding-bottom:clamp(38px,5.5vw,66px)}
+.sec:last-of-type{padding-bottom:0}
+.sec-head{margin-bottom:clamp(20px,3vw,32px)}
+.sec-no{
+  display:inline-block;font-family:var(--gothic);font-weight:700;
+  font-size:11.5px;letter-spacing:.3em;color:var(--shu);
+  border:1px solid var(--shu);padding:3px 10px 3px 13px;margin-bottom:14px;
+}
+.sec-head h2{
+  font-family:var(--gothic);font-weight:700;
+  font-size:clamp(20px,3.4vw,27px);letter-spacing:.12em;line-height:1.5;
+}
+.sec-head .en{
+  display:block;margin-top:8px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.28em;color:var(--navy-soft);text-transform:uppercase;
+}
+.dbl-rule{margin-top:16px;border-top:2px solid var(--navy);border-bottom:1px solid var(--navy);height:4px}
+
+/* 左に細い罫 */
+.article{border-left:1px solid var(--rule);padding-left:clamp(16px,3vw,30px)}
+
+.lede{font-size:clamp(14.5px,1.7vw,16px);line-height:2.0;letter-spacing:.03em;color:var(--navy-mid);max-width:46em}
+.lede strong{font-weight:700;color:var(--navy)}
+.note{font-size:12.5px;line-height:1.9;color:var(--navy-soft);letter-spacing:.02em}
+
+/* 箇条（一、二、三） */
+.clauses{margin-top:clamp(22px,3vw,32px);border-top:1px solid var(--rule)}
+.clauses li{
+  display:flex;gap:clamp(12px,2.4vw,22px);align-items:baseline;
+  padding:15px 2px;border-bottom:1px solid var(--rule);
+}
+.cl-no{
+  font-family:var(--gothic);font-weight:700;font-size:12px;letter-spacing:.18em;
+  color:var(--shu);flex:none;width:3.1em;padding-top:.35em;
+}
+.cl-body h3{font-family:var(--gothic);font-weight:700;font-size:15px;letter-spacing:.08em;line-height:1.7;margin-bottom:2px}
+.cl-body p{font-size:13.5px;line-height:1.9;color:var(--navy-soft)}
+
+/* 図版（写真） */
+.fig{margin-top:clamp(24px,3.5vw,36px);max-width:600px}
+.fig .frame{border:1px solid var(--rule);padding:7px;background:var(--paper-hi)}
+.fig img{width:100%;object-fit:cover}
+.fig figcaption{margin-top:9px;font-size:11.5px;letter-spacing:.12em;color:var(--navy-soft);display:flex;gap:10px}
+.fig figcaption b{font-family:var(--gothic);color:var(--shu);font-weight:700;letter-spacing:.18em;flex:none}
+
+/* ---------- 料金（条文表） ---------- */
+.table-block{margin-top:clamp(24px,3.4vw,34px)}
+.table-cap{
+  display:flex;align-items:baseline;gap:14px;margin-bottom:10px;
+}
+.table-cap b{font-family:var(--gothic);font-weight:700;font-size:12px;letter-spacing:.26em;color:var(--shu);flex:none}
+.table-cap span{font-family:var(--gothic);font-weight:700;font-size:15.5px;letter-spacing:.12em}
+.table-cap::after{content:"";flex:1;height:1px;background:var(--rule)}
+.table-wrap{overflow-x:auto;border-top:2px solid var(--navy);border-bottom:2px solid var(--navy)}
+table.fee{width:100%;border-collapse:collapse;min-width:320px}
+table.fee thead th{
+  font-family:var(--gothic);font-weight:700;font-size:10.5px;letter-spacing:.22em;
+  color:var(--navy-soft);text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);
+  white-space:nowrap;
+}
+table.fee thead th:last-child{text-align:right}
+table.fee tbody tr{border-bottom:1px solid var(--rule)}
+table.fee tbody tr:last-child{border-bottom:0}
+table.fee th.fno{
+  font-family:var(--gothic);font-weight:700;font-size:12px;letter-spacing:.16em;
+  color:var(--shu);text-align:left;padding:16px 6px 16px 10px;vertical-align:top;
+  white-space:nowrap;width:3.4em;
+}
+table.fee td.fitem{padding:16px 14px 16px 0;vertical-align:top}
+table.fee td.fitem .it{display:block;font-family:var(--gothic);font-weight:700;font-size:15px;letter-spacing:.07em;line-height:1.7}
+table.fee td.fitem .de{display:block;font-size:12.5px;line-height:1.8;color:var(--navy-soft);margin-top:2px}
+table.fee td.famt{
+  padding:16px 10px 16px 0;vertical-align:top;text-align:right;white-space:nowrap;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;
+  font-size:16px;letter-spacing:.01em;color:var(--navy);
+}
+table.fee td.famt .tail{font-family:var(--body);font-size:13px;color:var(--navy-soft);margin-left:1px}
+table.fee td.famt .ask{font-family:var(--gothic);font-size:14px;letter-spacing:.1em;color:var(--shu);font-weight:700}
+.table-foot{
+  display:flex;align-items:center;justify-content:flex-end;gap:16px;
+  margin-top:14px;font-family:var(--gothic);font-size:12px;letter-spacing:.3em;color:var(--navy-soft);
+}
+
+/* ---------- 割印ディバイダ ---------- */
+.warihan{display:block;width:100%;max-width:340px;margin:clamp(26px,4vw,40px) auto;height:auto}
+
+/* ---------- 流れ ---------- */
+.flow{margin-top:clamp(20px,3vw,30px);border-top:1px solid var(--rule)}
+.flow > li{border-bottom:1px solid var(--rule);padding:clamp(20px,3vw,28px) 0}
+.flow-in{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.flow-no{
+  display:flex;align-items:baseline;gap:12px;margin-bottom:8px;
+}
+.flow-no b{
+  font-family:var(--gothic);font-weight:700;font-size:11.5px;letter-spacing:.26em;
+  color:var(--paper);background:var(--navy);padding:4px 11px 4px 14px;flex:none;
+}
+.flow-no i{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--navy-soft)}
+.flow h3{font-family:var(--gothic);font-weight:700;font-size:clamp(16px,2.2vw,18.5px);letter-spacing:.1em;line-height:1.6;margin-bottom:8px}
+.flow p{font-size:13.5px;line-height:1.95;color:var(--navy-soft);max-width:38em}
+.flow .frame{border:1px solid var(--rule);padding:6px;background:var(--paper-hi)}
+.flow .frame img{width:100%;aspect-ratio:16/9;object-fit:cover}
+
+/* ---------- ギャラリー ---------- */
+.gal{margin-top:clamp(20px,3vw,30px);display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(16px,2.6vw,26px)}
+.gal figure .frame{border:1px solid var(--rule);padding:6px;background:var(--paper-hi)}
+.gal img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.gal figcaption{margin-top:8px;font-size:11.5px;letter-spacing:.12em;color:var(--navy-soft);display:flex;gap:10px;align-items:baseline}
+.gal figcaption b{font-family:var(--gothic);font-weight:700;color:var(--shu);letter-spacing:.18em;flex:none;font-size:11px}
+
+/* ---------- アクセス ---------- */
+.spec{margin-top:clamp(20px,3vw,28px);border-top:2px solid var(--navy)}
+.spec dl{display:grid;grid-template-columns:minmax(0,1fr);margin:0}
+.spec .row{display:grid;grid-template-columns:minmax(0,1fr);border-bottom:1px solid var(--rule);padding:14px 0}
+.spec dt{
+  font-family:var(--gothic);font-weight:700;font-size:11.5px;letter-spacing:.24em;
+  color:var(--navy-soft);padding-bottom:4px;
+}
+.spec dd{font-size:14.5px;letter-spacing:.04em;line-height:1.85}
+.spec dd .sub{display:block;font-size:12.5px;color:var(--navy-soft);margin-top:2px}
+.spec dd a{text-decoration-thickness:1px;text-underline-offset:3px}
+.addendum{
+  margin-top:18px;border:1px solid var(--rule);background:var(--paper-hi);
+  padding:14px 16px;font-size:12.5px;line-height:1.9;color:var(--navy-soft);
+}
+.addendum b{font-family:var(--gothic);font-weight:700;color:var(--navy);letter-spacing:.2em;font-size:11.5px;display:block;margin-bottom:4px}
+
+/* ---------- 問い合わせ ---------- */
+.contact-box{
+  margin-top:clamp(20px,3vw,28px);background:var(--navy);color:var(--paper);
+  padding:clamp(24px,4vw,40px);position:relative;overflow:hidden;
+}
+.contact-box .ruled{opacity:.42}
+.contact-in{position:relative;z-index:2}
+.contact-box h3{font-family:var(--gothic);font-weight:700;font-size:clamp(17px,2.6vw,21px);letter-spacing:.11em;line-height:1.6}
+.contact-box p{margin-top:12px;font-size:13.5px;line-height:1.95;color:#D5DBE9;max-width:38em}
+.cta-row{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+  padding:14px 26px;font-family:var(--gothic);font-weight:700;font-size:14px;letter-spacing:.1em;
+  border:1px solid transparent;transition:background .2s,color .2s,border-color .2s;
+}
+.cta-mail{background:var(--paper);color:var(--navy);border-color:var(--paper)}
+.cta-mail:hover{background:#fff}
+.cta-line{background:transparent;color:#F1EFE7;border-color:#7A88AA}
+.cta-line:hover{background:#26365A;border-color:#B4C0DA}
+.cta-btn svg{flex:none}
+.contact-seal{position:absolute;right:clamp(10px,3vw,32px);bottom:clamp(10px,3vw,26px);z-index:2;opacity:.95}
+
+/* ---------- 奥付 ---------- */
+.colophon{border-top:1px solid var(--rule);background:var(--paper-hi)}
+.colo-in{
+  max-width:var(--maxw);margin:0 auto;padding:26px var(--pad) 34px;
+  display:flex;flex-wrap:wrap;gap:14px 28px;align-items:flex-end;justify-content:space-between;
+}
+.colo-name{font-family:var(--gothic);font-weight:700;font-size:14.5px;letter-spacing:.14em;line-height:1.7}
+.colo-sub{font-size:11.5px;letter-spacing:.1em;color:var(--navy-soft);margin-top:4px;line-height:1.8}
+.colo-links{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;letter-spacing:.08em}
+.colo-links a{color:var(--navy-mid);text-underline-offset:3px}
+.colo-links a:hover{color:var(--shu)}
+
+/* ---------- 朱印アニメーション ---------- */
+.seal{display:block;opacity:0;transform:scale(1.42) rotate(-11deg);transform-origin:center}
+.seal.pressed{opacity:1;transform:scale(1) rotate(-4deg);transition:opacity .34s ease-out,transform .52s cubic-bezier(.16,.9,.28,1)}
+
+/* ---------- セクション出現 ---------- */
+.rv{opacity:0;transform:translateY(14px)}
+.rv.shown{opacity:1;transform:none;transition:opacity .5s ease-out,transform .55s cubic-bezier(.2,.8,.3,1)}
+
+/* ============================================================
+   レスポンシブ
+   ============================================================ */
+@media (max-width:599px){
+  .mast-sub{display:none}
+  .cta-btn{width:100%;justify-content:center}
+  .contact-seal{top:14px;right:14px;bottom:auto;width:52px;height:52px}
+  .cover-meta div{border-right:0;border-bottom:1px solid #45557A;padding-right:0}
+  .cover-meta div:last-child{border-bottom:0}
+}
+@media (max-width:520px){
+  table.fee thead th{padding:9px 6px;font-size:10px}
+  table.fee th.fno{width:2.4em;font-size:11px;padding:14px 4px 14px 2px}
+  table.fee td.fitem{padding:14px 8px 14px 0}
+  table.fee td.fitem .it{font-size:14px}
+  table.fee td.fitem .de{font-size:11.5px;line-height:1.75}
+  table.fee td.famt{font-size:14px;padding:14px 2px 14px 0}
+  table.fee td.famt .tail{font-size:12px}
+  table.fee td.famt .ask{font-size:13px}
+}
+@media (min-width:600px){
+  .flow-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,32px);align-items:start}
+  .gal{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .spec .row{grid-template-columns:9.5em minmax(0,1fr);gap:0 20px;align-items:baseline}
+  .spec dt{padding-bottom:0;padding-top:2px}
+}
+@media (min-width:1024px){
+  .doc-grid{grid-template-columns:236px minmax(0,1fr);gap:clamp(38px,4.4vw,64px);align-items:start}
+  .toc{position:sticky;top:24px}
+  .sec{scroll-margin-top:28px}
+  .flow-in{grid-template-columns:minmax(0,1fr) minmax(0,1.06fr)}
+}
+@media (min-width:1240px){
+  .doc-grid{grid-template-columns:262px minmax(0,1fr)}
+}
+
+/* ============================================================
+   動きの抑制
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .seal{opacity:1!important;transform:scale(1) rotate(-4deg)!important}
+  .rv{opacity:1!important;transform:none!important}
+  .toc-list a::before{transition:none}
+}
 </style>
 </head>
 <body>
 
-<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+<a class="skip" href="#main">本文へスキップ</a>
 
-<div class="hero">
-  <img src="images/professional/professional_hero.webp" alt="田中司法書士事務所">
-  <div class="hero-text">
-    <div class="label">士業</div>
-    <h1>一生に一度の手続きを、不安なく。</h1>
-    <p>田中司法書士事務所</p>
+<!-- ===== 告知バー ===== -->
+<div class="notice">
+  <div class="notice-in">
+    <span>これはRESCが作成したサンプルサイトです。実店舗ではありません。</span>
+    <a href="../hp-service/index.html">RESCのサイトに戻る</a>
   </div>
 </div>
 
-<section class="about">
-  <div class="section-title">こだわり</div>
-  <p>相続・不動産登記を専門に15年、専門用語を使わないわかりやすい説明を心がけています。初回のご相談は無料です。まずはお気軽にお問い合わせください。</p>
-</section>
-
-<section style="background:#fff;">
-  <div class="section-title">メニュー</div>
-
-  <div class="menu-category">
-    <div class="menu-category-title">相談・手続き</div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="images/professional/professional_menu_consultation.webp" alt="登記相談（初回）">
-        <div class="menu-name">登記相談（初回）</div>
-        <div class="menu-price">¥0〜</div>
-      </div>
-      <div class="menu-card">
-        <img src="images/professional/professional_menu_realestate.webp" alt="不動産登記手続き">
-        <div class="menu-name">不動産登記手続き</div>
-        <div class="menu-price">¥30,000〜</div>
-      </div>
-      <div class="menu-card">
-        <img src="images/professional/professional_menu_corporate.webp" alt="商業・法人登記手続き">
-        <div class="menu-name">商業・法人登記手続き</div>
-        <div class="menu-price">¥40,000〜</div>
-      </div>
-    </div>
+<!-- ===== 標題部 ===== -->
+<header class="masthead">
+  <div class="mast-in">
+    <p class="mast-name">田中司法書士事務所</p>
+    <p class="mast-sub">相続・不動産登記</p>
+    <a class="mast-cta" href="mailto:info@example.com">お問い合わせ</a>
   </div>
+</header>
 
-  <div class="menu-category">
-    <div class="menu-category-title">専門サポート</div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="images/professional/professional_menu_inheritance.webp" alt="相続手続きサポート">
-        <div class="menu-name">相続手続きサポート</div>
-        <div class="menu-price">¥50,000〜</div>
+<!-- ===== 表紙 ===== -->
+<section class="cover">
+  <svg class="ruled" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 400">
+    <g stroke="#3C4C72" stroke-width="1">
+      <line x1="0" y1="32" x2="100" y2="32"/><line x1="0" y1="64" x2="100" y2="64"/>
+      <line x1="0" y1="96" x2="100" y2="96"/><line x1="0" y1="128" x2="100" y2="128"/>
+      <line x1="0" y1="160" x2="100" y2="160"/><line x1="0" y1="192" x2="100" y2="192"/>
+      <line x1="0" y1="224" x2="100" y2="224"/><line x1="0" y1="256" x2="100" y2="256"/>
+      <line x1="0" y1="288" x2="100" y2="288"/><line x1="0" y1="320" x2="100" y2="320"/>
+      <line x1="0" y1="352" x2="100" y2="352"/><line x1="0" y1="384" x2="100" y2="384"/>
+    </g>
+  </svg>
+  <div class="cover-in">
+    <p class="cover-label"><span class="tag-sq" aria-hidden="true"></span>事務所案内</p>
+    <div class="cover-grid">
+      <h1 class="cover-title">田中司法書士事務所</h1>
+      <div class="cover-rule" aria-hidden="true"></div>
+      <div class="catch-row">
+        <p class="catch">一生に一度の手続きを、<br>不安なく。</p>
+        <div class="seal-slot">
+          <!-- 角印 -->
+          <svg class="seal" width="96" height="96" viewBox="0 0 100 100" aria-hidden="true">
+            <rect x="4.5" y="4.5" width="91" height="91" rx="5" fill="none" stroke="#C0392B" stroke-width="6"/>
+            <line x1="50" y1="13" x2="50" y2="87" stroke="#C0392B" stroke-width="2.4"/>
+            <line x1="13" y1="50" x2="87" y2="50" stroke="#C0392B" stroke-width="2.4"/>
+            <g fill="#C0392B" font-family="'Zen Kaku Gothic New','Noto Sans JP',sans-serif" font-weight="700" font-size="25" text-anchor="middle">
+              <text x="71" y="41">田</text><text x="71" y="79">中</text>
+              <text x="29" y="41">之</text><text x="29" y="79">印</text>
+            </g>
+          </svg>
+        </div>
       </div>
-      <div class="menu-card">
-        <img src="images/professional/professional_menu_will.webp" alt="遺言書作成サポート">
-        <div class="menu-name">遺言書作成サポート</div>
-        <div class="menu-price">¥40,000〜</div>
-      </div>
-      <div class="menu-card">
-        <img src="images/professional/professional_menu_guardianship.webp" alt="成年後見サポート">
-        <div class="menu-name">成年後見サポート</div>
-        <div class="menu-price">要相談</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="section-title">ギャラリー</div>
-  <div class="gallery-marquee">
-    <div class="gallery-track">
-      <img class="gallery-item" src="images/professional/professional_gallery1.webp" alt="応接ロビー">
-      <img class="gallery-item" src="images/professional/professional_gallery2.webp" alt="会議室">
-      <img class="gallery-item" src="images/professional/professional_gallery3.webp" alt="代表の様子">
-      <img class="gallery-item" src="images/professional/professional_gallery4.webp" alt="執務デスク・書類">
-      <img class="gallery-item" src="images/professional/professional_gallery5.webp" alt="受付カウンター">
-      <img class="gallery-item" src="images/professional/professional_gallery6.webp" alt="エントランス">
-      <img class="gallery-item" src="images/professional/professional_gallery1.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/professional/professional_gallery2.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/professional/professional_gallery3.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/professional/professional_gallery4.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/professional/professional_gallery5.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/professional/professional_gallery6.webp" alt="" aria-hidden="true">
+      <p class="cover-lede">相続・不動産登記を専門に15年、専門用語を使わないわかりやすい説明を心がけています。初回のご相談は無料です。まずはお気軽にお問い合わせください。</p>
+      <dl class="cover-meta">
+        <div><dt>所在地</dt><dd>福岡県福岡市〇〇区〇〇4-5-2</dd></div>
+        <div><dt>受付時間</dt><dd><span class="mono">9:00</span>〜<span class="mono">18:00</span><br>土日祝は要予約</dd></div>
+        <div><dt>初回相談</dt><dd>登記相談（初回）<span class="mono">¥0</span>〜</dd></div>
+      </dl>
     </div>
   </div>
 </section>
 
-<section class="contact">
-  <div class="section-title">アクセス・お問い合わせ</div>
-  <p>福岡県福岡市〇〇区〇〇4-5-2</p>
-  <p>受付時間:9:00〜18:00（土日祝は要予約）</p>
-  <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
-  <div class="line-wrap">
-    <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
-    <p class="line-note">LINEでのお問い合わせも承っています。</p>
+<!-- ===== 口絵 ===== -->
+<div class="plate">
+  <figure>
+    <div class="plate-img">
+      <img src="images/professional/professional_hero.webp" width="1376" height="768" alt="書棚と執務机が並ぶ田中司法書士事務所の執務室">
+    </div>
+    <figcaption><b>口絵</b>執務室</figcaption>
+  </figure>
+</div>
+
+<!-- ===== 本文 ===== -->
+<div class="doc" id="main">
+  <div class="doc-grid">
+
+    <!-- 目次 -->
+    <nav class="toc" id="toc" aria-labelledby="toc-h">
+      <p class="toc-h" id="toc-h">目次</p>
+      <ol class="toc-list">
+        <li><a href="#s1"><span class="toc-no">第一</span><span class="toc-t">事務所について</span></a></li>
+        <li><a href="#s2"><span class="toc-no">第二</span><span class="toc-t">業務と費用</span></a></li>
+        <li><a href="#s3"><span class="toc-no">第三</span><span class="toc-t">ご相談の流れ</span></a></li>
+        <li><a href="#s4"><span class="toc-no">第四</span><span class="toc-t">事務所のご案内</span></a></li>
+        <li><a href="#s5"><span class="toc-no">第五</span><span class="toc-t">所在地・受付時間</span></a></li>
+        <li><a href="#s6"><span class="toc-no">第六</span><span class="toc-t">お問い合わせ</span></a></li>
+      </ol>
+      <p class="toc-foot">田中司法書士事務所<br>受付 <span class="mono">9:00</span>〜<span class="mono">18:00</span></p>
+    </nav>
+
+    <div class="doc-body">
+
+      <!-- 第一 -->
+      <section class="sec" id="s1" aria-labelledby="s1h">
+        <div class="sec-head rv">
+          <span class="sec-no">第一</span>
+          <h2 id="s1h">事務所について</h2>
+          <span class="en">About</span>
+          <div class="dbl-rule" aria-hidden="true"></div>
+        </div>
+        <div class="article">
+          <p class="lede rv">相続・不動産登記を専門に15年、専門用語を使わないわかりやすい説明を心がけています。初回のご相談は無料です。まずはお気軽にお問い合わせください。</p>
+          <ol class="clauses rv">
+            <li>
+              <span class="cl-no">一、</span>
+              <div class="cl-body">
+                <h3>相続・不動産登記を専門に15年</h3>
+                <p>相続と不動産登記を中心に、手続きの内容にあわせてお話をうかがいます。</p>
+              </div>
+            </li>
+            <li>
+              <span class="cl-no">二、</span>
+              <div class="cl-body">
+                <h3>専門用語を使わないわかりやすい説明</h3>
+                <p>書類の意味や進み方を、そのつど言葉をかみくだいてご説明します。</p>
+              </div>
+            </li>
+            <li>
+              <span class="cl-no">三、</span>
+              <div class="cl-body">
+                <h3>初回のご相談は無料</h3>
+                <p>「これは手続きが必要なのか」という段階のご相談から承ります。</p>
+              </div>
+            </li>
+          </ol>
+          <figure class="fig rv">
+            <div class="frame">
+              <img src="images/professional/professional_menu_consultation.webp" width="800" height="597" loading="lazy" alt="打ち合わせテーブルで書類を広げ、ご夫婦に説明する司法書士" style="aspect-ratio:4/3">
+            </div>
+            <figcaption><b>図一</b>ご相談の様子</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 第二 -->
+      <section class="sec" id="s2" aria-labelledby="s2h">
+        <div class="sec-head rv">
+          <span class="sec-no">第二</span>
+          <h2 id="s2h">業務と費用</h2>
+          <span class="en">Services &amp; Fees</span>
+          <div class="dbl-rule" aria-hidden="true"></div>
+        </div>
+        <div class="article">
+          <p class="lede rv">お取り扱いする業務と費用は、次の二表のとおりです。表示は税別・目安の金額で、手続きの内容によって変わります。金額のご確認だけのお問い合わせでも構いません。</p>
+
+          <div class="table-block rv">
+            <p class="table-cap"><b>表一</b><span>相談・手続き</span></p>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="表一 相談・手続きの費用">
+              <table class="fee">
+                <thead>
+                  <tr><th scope="col">号</th><th scope="col">項目</th><th scope="col">費用（目安）</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="fno">一、</th>
+                    <td class="fitem"><span class="it">登記相談（初回）</span><span class="de">手続きが必要かどうかの確認から承ります。</span></td>
+                    <td class="famt">¥0<span class="tail">〜</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="fno">二、</th>
+                    <td class="fitem"><span class="it">不動産登記手続き</span><span class="de">売買・贈与・抵当権抹消などの登記申請を承ります。</span></td>
+                    <td class="famt">¥30,000<span class="tail">〜</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="fno">三、</th>
+                    <td class="fitem"><span class="it">商業・法人登記手続き</span><span class="de">会社設立や役員変更など、法人の登記を承ります。</span></td>
+                    <td class="famt">¥40,000<span class="tail">〜</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="table-block rv">
+            <p class="table-cap"><b>表二</b><span>専門サポート</span></p>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="表二 専門サポートの費用">
+              <table class="fee">
+                <thead>
+                  <tr><th scope="col">号</th><th scope="col">項目</th><th scope="col">費用（目安）</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="fno">一、</th>
+                    <td class="fitem"><span class="it">相続手続きサポート</span><span class="de">相続に関する一連の手続きをまとめてお手伝いします。</span></td>
+                    <td class="famt">¥50,000<span class="tail">〜</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="fno">二、</th>
+                    <td class="fitem"><span class="it">遺言書作成サポート</span><span class="de">遺言書の形式や書き方についてご一緒に整理します。</span></td>
+                    <td class="famt">¥40,000<span class="tail">〜</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="fno">三、</th>
+                    <td class="fitem"><span class="it">成年後見サポート</span><span class="de">ご本人の状況をうかがったうえでご案内します。</span></td>
+                    <td class="famt"><span class="ask">要相談</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <p class="table-foot">
+            以上
+            <!-- 丸印 -->
+            <svg class="seal" width="46" height="46" viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#C0392B" stroke-width="5"/>
+              <circle cx="50" cy="50" r="31" fill="none" stroke="#C0392B" stroke-width="2"/>
+              <g fill="#C0392B" font-family="'Zen Kaku Gothic New','Noto Sans JP',sans-serif" font-weight="700" font-size="17" text-anchor="middle">
+                <text x="61" y="47">司</text><text x="61" y="70">法</text>
+                <text x="39" y="47">書</text><text x="39" y="70">士</text>
+              </g>
+            </svg>
+          </p>
+          <p class="note rv" style="margin-top:10px">※ 表示は目安です。登記に必要な登録免許税や実費は別途かかります。詳しい費用は、内容をうかがったうえでお見積りをお出しします。</p>
+        </div>
+      </section>
+
+      <!-- 割印 -->
+      <svg class="warihan" viewBox="0 0 340 44" aria-hidden="true">
+        <line x1="0" y1="22" x2="146" y2="22" stroke="#C7BFAD" stroke-width="1"/>
+        <line x1="194" y1="22" x2="340" y2="22" stroke="#C7BFAD" stroke-width="1"/>
+        <line x1="170" y1="0" x2="170" y2="44" stroke="#C7BFAD" stroke-width="1" stroke-dasharray="3 4"/>
+        <g fill="none" stroke="#9E2F27" stroke-width="2.2">
+          <path d="M164.5 7 A15.5 15.5 0 0 0 164.5 37"/>
+          <path d="M175.5 7 A15.5 15.5 0 0 1 175.5 37"/>
+          <path d="M164.5 15 A7.5 7.5 0 0 0 164.5 29"/>
+          <path d="M175.5 15 A7.5 7.5 0 0 1 175.5 29"/>
+        </g>
+      </svg>
+
+      <!-- 第三 -->
+      <section class="sec" id="s3" aria-labelledby="s3h">
+        <div class="sec-head rv">
+          <span class="sec-no">第三</span>
+          <h2 id="s3h">ご相談の流れ</h2>
+          <span class="en">Process</span>
+          <div class="dbl-rule" aria-hidden="true"></div>
+        </div>
+        <div class="article">
+          <p class="lede rv">お問い合わせから完了のご報告まで、次の四段でお手伝いします。段ごとに、いま何をしているのかをお伝えします。</p>
+          <ol class="flow">
+            <li class="rv">
+              <div class="flow-in">
+                <div>
+                  <p class="flow-no"><b>第一</b><i>01</i></p>
+                  <h3>ご相談</h3>
+                  <p>お困りごとと、いまの状況をうかがいます。初回のご相談は無料です。手続きが必要かどうかの確認だけでも構いません。</p>
+                </div>
+                <figure class="frame-wrap">
+                  <div class="frame"><img src="images/professional/professional_flow1.webp" width="1376" height="768" loading="lazy" alt="相談室でご夫婦の話を聞く司法書士"></div>
+                </figure>
+              </div>
+            </li>
+            <li class="rv">
+              <div class="flow-in">
+                <div>
+                  <p class="flow-no"><b>第二</b><i>02</i></p>
+                  <h3>書類の確認とお見積り</h3>
+                  <p>必要な書類を一つずつ確認し、手続きの範囲と費用をお見積りとしてお出しします。ご納得いただいてから先に進みます。</p>
+                </div>
+                <figure class="frame-wrap">
+                  <div class="frame"><img src="images/professional/professional_flow2.webp" width="1376" height="768" loading="lazy" alt="机の上で登記書類を指差して確認する手元"></div>
+                </figure>
+              </div>
+            </li>
+            <li class="rv">
+              <div class="flow-in">
+                <div>
+                  <p class="flow-no"><b>第三</b><i>03</i></p>
+                  <h3>書類の作成と申請</h3>
+                  <p>書類を作成し、法務局への申請まで進めます。手続きの進み具合は、そのつどご連絡します。</p>
+                </div>
+                <figure class="frame-wrap">
+                  <div class="frame"><img src="images/professional/professional_flow3.webp" width="1376" height="768" loading="lazy" alt="事務所で申請書類を作成する所員"></div>
+                </figure>
+              </div>
+            </li>
+            <li class="rv">
+              <div class="flow-in">
+                <div>
+                  <p class="flow-no"><b>第四</b><i>04</i></p>
+                  <h3>完了のご報告と書類のお渡し</h3>
+                  <p>手続きが終わりましたら内容をご報告し、書類をお渡しします。あとから見返せるよう、保管のしかたもお伝えします。</p>
+                </div>
+                <figure class="frame-wrap">
+                  <div class="frame"><img src="images/professional/professional_flow4.webp" width="1376" height="768" loading="lazy" alt="受付で完了した書類をお客様に手渡す司法書士"></div>
+                </figure>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 第四 -->
+      <section class="sec" id="s4" aria-labelledby="s4h">
+        <div class="sec-head rv">
+          <span class="sec-no">第四</span>
+          <h2 id="s4h">事務所のご案内</h2>
+          <span class="en">Office</span>
+          <div class="dbl-rule" aria-hidden="true"></div>
+        </div>
+        <div class="article">
+          <p class="lede rv">ご相談は、書類を広げてゆっくりお話しできる部屋でうかがいます。</p>
+          <div class="gal">
+            <figure class="rv">
+              <div class="frame"><img src="images/professional/professional_gallery1.webp" width="1200" height="670" loading="lazy" alt="観葉植物を置いた事務所の受付とソファ席"></div>
+              <figcaption><b>図二</b>受付・待合</figcaption>
+            </figure>
+            <figure class="rv">
+              <div class="frame"><img src="images/professional/professional_gallery2.webp" width="1200" height="670" loading="lazy" alt="長机と書棚が並ぶ相談室"></div>
+              <figcaption><b>図三</b>相談室</figcaption>
+            </figure>
+            <figure class="rv">
+              <div class="frame"><img src="images/professional/professional_gallery3.webp" width="1200" height="670" loading="lazy" alt="相談室で来客を迎える事務所の所員"></div>
+              <figcaption><b>図四</b>相談室・応対</figcaption>
+            </figure>
+            <figure class="rv">
+              <div class="frame"><img src="images/professional/professional_gallery4.webp" width="1200" height="670" loading="lazy" alt="机に広げた書類と筆記具、書棚の資料"></div>
+              <figcaption><b>図五</b>書類の作成机</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 第五 -->
+      <section class="sec" id="s5" aria-labelledby="s5h">
+        <div class="sec-head rv">
+          <span class="sec-no">第五</span>
+          <h2 id="s5h">所在地・受付時間</h2>
+          <span class="en">Access</span>
+          <div class="dbl-rule" aria-hidden="true"></div>
+        </div>
+        <div class="article">
+          <div class="spec rv">
+            <dl>
+              <div class="row"><dt>名称</dt><dd>田中司法書士事務所</dd></div>
+              <div class="row"><dt>所在地</dt><dd>福岡県福岡市〇〇区〇〇4-5-2</dd></div>
+              <div class="row"><dt>受付時間</dt><dd><span class="mono">9:00</span>〜<span class="mono">18:00</span><span class="sub">土日祝は要予約</span></dd></div>
+              <div class="row"><dt>連絡先</dt><dd><a href="mailto:info@example.com">info@example.com</a><span class="sub">LINEでもお問い合わせいただけます</span></dd></div>
+            </dl>
+          </div>
+          <div class="addendum rv">
+            <b>附記</b>
+            受付時間外のご相談をご希望の場合は、あらかじめご連絡ください。土日祝日は予約制で承ります。
+          </div>
+        </div>
+      </section>
+
+      <!-- 第六 -->
+      <section class="sec" id="s6" aria-labelledby="s6h">
+        <div class="sec-head rv">
+          <span class="sec-no">第六</span>
+          <h2 id="s6h">お問い合わせ</h2>
+          <span class="en">Contact</span>
+          <div class="dbl-rule" aria-hidden="true"></div>
+        </div>
+        <div class="article">
+          <div class="contact-box">
+            <svg class="ruled" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 200">
+              <g stroke="#3C4C72" stroke-width="1">
+                <line x1="0" y1="30" x2="100" y2="30"/><line x1="0" y1="60" x2="100" y2="60"/>
+                <line x1="0" y1="90" x2="100" y2="90"/><line x1="0" y1="120" x2="100" y2="120"/>
+                <line x1="0" y1="150" x2="100" y2="150"/><line x1="0" y1="180" x2="100" y2="180"/>
+              </g>
+            </svg>
+            <div class="contact-in">
+              <h3>初回のご相談は無料です</h3>
+              <p>「これは手続きが必要なのか」という段階でも構いません。メールまたはLINEからお気軽にお問い合わせください。受付は <span class="mono">9:00</span>〜<span class="mono">18:00</span>、土日祝は要予約です。</p>
+              <div class="cta-row">
+                <a class="cta-btn cta-mail" href="mailto:info@example.com">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="M3 6l9 6.5L21 6"/></svg>
+                  メールで問い合わせる
+                </a>
+                <a class="cta-btn cta-line" href="https://lin.ee/z3rP0hO">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 11c0 4.2-4 7.6-9 7.6-.9 0-1.8-.1-2.6-.3L4 21l1.3-3.6C3.8 16 3 13.6 3 11c0-4.2 4-7.6 9-7.6s9 3.4 9 7.6z"/></svg>
+                  LINEで問い合わせる
+                </a>
+              </div>
+            </div>
+            <!-- 角印（小） -->
+            <svg class="seal contact-seal" width="66" height="66" viewBox="0 0 100 100" aria-hidden="true">
+              <rect x="4.5" y="4.5" width="91" height="91" rx="5" fill="none" stroke="#D9584A" stroke-width="6"/>
+              <line x1="50" y1="13" x2="50" y2="87" stroke="#D9584A" stroke-width="2.4"/>
+              <line x1="13" y1="50" x2="87" y2="50" stroke="#D9584A" stroke-width="2.4"/>
+              <g fill="#D9584A" font-family="'Zen Kaku Gothic New','Noto Sans JP',sans-serif" font-weight="700" font-size="25" text-anchor="middle">
+                <text x="71" y="41">田</text><text x="71" y="79">中</text>
+                <text x="29" y="41">之</text><text x="29" y="79">印</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+    </div>
   </div>
-</section>
+</div>
 
-<footer>田中司法書士事務所（RESC制作サンプル）</footer>
+<!-- ===== 奥付 ===== -->
+<footer class="colophon">
+  <div class="colo-in">
+    <div>
+      <p class="colo-name">田中司法書士事務所（RESC制作サンプル）</p>
+      <p class="colo-sub">福岡県福岡市〇〇区〇〇4-5-2　／　受付 <span class="mono">9:00</span>〜<span class="mono">18:00</span>（土日祝は要予約）</p>
+    </div>
+    <div class="colo-links">
+      <a href="mailto:info@example.com">info@example.com</a>
+      <a href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a>
+      <a href="../hp-service/index.html">RESCのサイトに戻る</a>
+    </div>
+  </div>
+</footer>
 
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
+
+  /* ---- 目次ハイライト ---- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc-list a'));
+  var secs  = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+
+  function setCurrent(id){
+    links.forEach(function(a){
+      var on = a.getAttribute('href') === '#' + id;
+      a.classList.toggle('is-current', on);
+      if(on){ a.setAttribute('aria-current','true'); } else { a.removeAttribute('aria-current'); }
+    });
+  }
+
+  /* いま読んでいる条を決める：画面上部の帯に入っている最後のセクション。
+     ページ末尾まで来たときは最終条を採用する。 */
+  function pick(){
+    var line = Math.max(96, window.innerHeight * 0.34);
+    var atBottom = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 6);
+    if(atBottom){ return secs[secs.length - 1] ? secs[secs.length - 1].id : null; }
+    var id = secs[0] ? secs[0].id : null;
+    for(var i = 0; i < secs.length; i++){
+      var s = secs[i];
+      if(!s) continue;
+      var r = s.getBoundingClientRect();
+      if(r.top <= line && r.bottom > 80){ id = s.id; }
+    }
+    return id;
+  }
+  var ticking = false;
+  function update(){
+    if(ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function(){
+      ticking = false;
+      var id = pick();
+      if(id) setCurrent(id);
+    });
+  }
+
+  if(hasIO){
+    var tocObs = new IntersectionObserver(function(){ update(); },
+      { rootMargin: '-90px 0px -45% 0px', threshold: [0, 0.02, 0.15, 0.4, 0.75, 1] });
+    secs.forEach(function(s){ if(s) tocObs.observe(s); });
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  } else {
+    setCurrent('s1');
+  }
+
+  /* ---- 出現アニメーション & 朱印 ---- */
+  var animated = document.querySelectorAll('.rv, .seal');
+  if(reduce || !hasIO){
+    Array.prototype.forEach.call(animated, function(el){
+      el.classList.add(el.classList.contains('seal') ? 'pressed' : 'shown');
+    });
+  } else {
+    var obs = new IntersectionObserver(function(entries, o){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var el = e.target;
+        if(el.classList.contains('seal')){
+          setTimeout(function(){ el.classList.add('pressed'); }, 180);
+        } else {
+          el.classList.add('shown');
+        }
+        o.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    Array.prototype.forEach.call(animated, function(el){ obs.observe(el); });
+    // 表紙の朱印は読み込み直後に押す
+    window.setTimeout(function(){
+      var first = document.querySelector('.cover .seal');
+      if(first) first.classList.add('pressed');
+    }, 420);
+  }
+
+  /* ---- 目次リンクのフォーカス移動（キーボード操作） ---- */
+  links.forEach(function(a){
+    a.addEventListener('click', function(){
+      var t = document.getElementById(a.getAttribute('href').slice(1));
+      if(!t) return;
+      setCurrent(t.id);
+      window.setTimeout(function(){
+        t.setAttribute('tabindex','-1');
+        t.focus({ preventScroll: true });
+        setCurrent(t.id);
+      }, reduce ? 0 : 460);
+    });
+  });
+})();
+</script>
 </body>
 </html>
