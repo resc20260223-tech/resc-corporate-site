@@ -2,235 +2,803 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>炭火焼鳥 とりや｜焼き鳥</title>
+<meta name="description" content="福岡の炭火焼鳥 とりや。備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げる焼き鳥店。おまかせ盛り合わせ、もも串、つくね。営業時間17:00〜23:00（定休日:日曜日）。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --sumi: #1A1614;
-    --sumi-light: #2E2724;
-    --honoo: #D9622B;
-    --tomoshibi: #F0EBE3;
-    --text-muted: #A89C93;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans JP', sans-serif; background: var(--sumi); color: var(--tomoshibi); line-height: 1.8; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  .notice {
-    background: var(--sumi-light); color: var(--tomoshibi); text-align: center;
-    font-size: 12.5px; padding: 8px 16px;
-  }
-  .notice a { color: var(--tomoshibi); text-decoration: underline; }
+/* ==========================================================
+   炭火焼鳥 とりや — 「炭火と、夜のカウンター」
+   墨黒の画面／熾火の明滅／串の焼き上がり
+   ========================================================== */
+:root{
+  --sumi:#0A0807;
+  --sumi-1:#12100E;
+  --sumi-2:#1A1714;
+  --sumi-3:#241F1B;
+  --line:#3A322C;
+  --line-soft:#2A2420;
 
-  /* ---- ヒーロー（静止画・左揃え。yakitori-standard.html の実装をそのまま踏襲。
-       retail-light.html には nav が存在しないため、ナビ関連CSSは移植していない） ---- */
-  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
-  .hero img { width: 100%; height: 100%; object-fit: cover; animation: hero-kenburns 20s ease-out infinite alternate; }
-  .hero::after {
-    content: ""; position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(to right, rgba(26,22,20,0.30) 0%, rgba(26,22,20,0.22) 50%, rgba(26,22,20,0) 75%);
-  }
-  .hero-text {
-    position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
-    text-align: left; color: var(--tomoshibi); padding: 24px 24px 24px 8%;
-    text-shadow: 0 2px 8px rgba(26,22,20,0.5);
-  }
-  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.9; margin-bottom: 14px; }
-  .hero-text h1 {
-    font-family: 'Shippori Mincho', serif; font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px;
-    animation: hero-fade-in 0.9s ease-out both;
-  }
-  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-in 0.9s ease-out both; animation-delay: 0.3s; }
-  @media (max-width: 768px) {
-    .hero::after { background: linear-gradient(to bottom, rgba(26,22,20,0) 0%, rgba(26,22,20,0.22) 50%, rgba(26,22,20,0.30) 100%); }
-    .hero-text { align-items: center; text-align: center; padding: 24px; }
-  }
-  @keyframes hero-kenburns {
-    from { transform: scale(1); }
-    to { transform: scale(1.08); }
-  }
-  @keyframes hero-fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero img, .hero-text h1, .hero-text p { animation: none; }
-  }
-  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
-  .section-title { font-family: 'Shippori Mincho', serif; font-size: 26px; font-weight: 700; color: var(--tomoshibi); margin-bottom: 24px; text-align: center; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  .about-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; box-shadow: 0 16px 36px rgba(0,0,0,0.35); }
-  .about-content { text-align: left; }
-  .about-content .section-title { text-align: left; }
-  .about p { font-size: 14.5px; color: var(--tomoshibi); margin-bottom: 14px; }
-  .about p:last-child { margin-bottom: 0; }
-  @media (max-width: 700px) {
-    .about-grid { grid-template-columns: 1fr; gap: 28px; }
-    .about-content, .about-content .section-title { text-align: center; }
-  }
+  --kinari:#F4EDE1;      /* 生成りの白 */
+  --kinari-2:#D3C8B8;
+  --kinari-3:#A79B8B;
 
-  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .menu-card {
-    display: flex; flex-direction: column; text-align: center;
-    background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px; padding: 18px 18px 22px;
-  }
-  .menu-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
-  .menu-card .menu-name { margin-top: 14px; font-size: 15px; font-weight: 700; color: var(--tomoshibi); }
-  .menu-card .menu-copy { margin-top: 8px; font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.6; flex: 1; }
-  .menu-card .menu-price { margin-top: 16px; font-size: 15px; font-weight: 700; color: var(--honoo); }
-  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .menu-grid { grid-template-columns: 1fr; } }
+  --hi:#FF8A3D;          /* 熾火・橙 */
+  --hi-2:#FFB25C;        /* 明るい熾火 */
+  --hi-3:#E2542A;        /* 赤橙 */
+  --hi-deep:#8E1F0E;
 
-  .contact { background: var(--sumi); color: var(--tomoshibi); text-align: center; }
-  .contact .section-title { color: var(--tomoshibi); }
-  .contact-box {
-    width: fit-content; margin: 0 auto 24px; padding: 26px 42px;
-    background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px;
-  }
-  .contact p { font-size: 14px; margin-bottom: 8px; color: var(--tomoshibi); }
-  .contact p:last-of-type { margin-bottom: 0; }
-  .contact .btn {
-    display: inline-block; margin-top: 24px; background: var(--sumi-light); color: var(--honoo);
-    border: 1px solid var(--honoo); padding: 12px 34px; border-radius: 999px;
-    font-weight: 700; font-size: 13.5px; transition: background 0.25s ease, color 0.25s ease;
-  }
-  .contact .btn:hover { background: var(--honoo); color: var(--tomoshibi); }
-  footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); background: var(--sumi); }
+  --gothic:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --num:"Oswald","Zen Kaku Gothic New",sans-serif;
 
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
-  .menu-grid .menu-card:nth-child(3n+1) { transition-delay: 0s; }
-  .menu-grid .menu-card:nth-child(3n+2) { transition-delay: 0.1s; }
-  .menu-grid .menu-card:nth-child(3n+3) { transition-delay: 0.2s; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
+  --pad:clamp(20px,5.2vw,44px);
+  --maxw:1180px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip;background:var(--sumi)}
+body{
+  margin:0;
+  overflow-x:clip;
+  background:var(--sumi);
+  color:var(--kinari);
+  font-family:var(--gothic);
+  font-weight:400;
+  font-size:16px;
+  line-height:2.0;
+  font-feature-settings:"palt" 1;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,p,figure,ul,ol,dl,dd{margin:0;padding:0}
+ul,ol{list-style:none}
+:focus-visible{outline:2px solid var(--hi-2);outline-offset:3px;border-radius:2px}
 
-  /* ---- LINE連携ボタン（yakitori-standard.html と同一実装。全プラン共通のため残す） ---- */
-  .line-btn {
-    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
-    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
-    line-height: 21px;
-  }
-  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
-  .contact .line-wrap { margin-top: 18px; }
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.num{font-family:var(--num);font-variant-numeric:tabular-nums;letter-spacing:.04em}
 
-  /* ---- 地図プレースホルダー（仕様のステップ3指示により standard から変更せず維持。
-       retail-light.html 自体には map-placeholder が存在しないが、
-       本タスクの指示で明示的に「残すもの」とされているため踏襲） ---- */
-  .map-placeholder {
-    background: var(--sumi-light); border: 1px dashed var(--honoo); border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    align-self: stretch; min-height: 300px;
-  }
-  .map-placeholder span { font-size: 11.5px; color: var(--text-muted); }
+.skip{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip:focus{position:fixed;left:10px;top:10px;z-index:200;width:auto;height:auto;margin:0;clip-path:none;
+  background:var(--hi-2);color:#1A0C03;padding:10px 18px;font-weight:700;border-radius:2px}
 
-  /* ---- アクセス 2カラムレイアウト（左:情報 / 右:地図） ---- */
-  .contact-layout {
-    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
-  }
-  @media (max-width: 800px) {
-    .contact-layout { grid-template-columns: 1fr; }
-  }
+/* ---------- 告知バー ---------- */
+.notice{background:var(--sumi-3);border-bottom:1px solid var(--line-soft);font-size:12.5px;line-height:1.6}
+.notice-in{max-width:var(--maxw);margin:0 auto;padding:9px var(--pad);
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:space-between;color:var(--kinari-2)}
+.notice a{color:var(--hi-2);border-bottom:1px solid rgba(255,178,92,.45);padding-bottom:1px;font-weight:700;white-space:nowrap}
+.notice a:hover{color:#FFD199;border-bottom-color:#FFD199}
+
+/* ---------- ヘッダー ---------- */
+.mast{position:sticky;top:0;z-index:100;background:rgba(10,8,7,.82);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-soft)}
+.mast-in{max-width:var(--maxw);margin:0 auto;padding:12px var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:16px}
+.mast-name{font-weight:900;font-size:clamp(15px,2.1vw,18px);letter-spacing:.09em;line-height:1.3;display:flex;align-items:center;gap:10px}
+.mast-mark{width:20px;height:20px;flex:none}
+.mast-nav{display:flex;gap:clamp(12px,2.4vw,28px);font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--kinari-2)}
+.mast-nav a{position:relative;padding:4px 0}
+.mast-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--hi);transition:right .35s ease}
+.mast-nav a:hover{color:var(--kinari)}
+.mast-nav a:hover::after{right:0}
+@media (max-width:560px){.mast-nav{display:none}}
+
+/* ---------- 熾火（おきび） ---------- */
+.embers{position:absolute;left:0;right:0;bottom:0;width:100%;height:190px;
+  pointer-events:none;mix-blend-mode:screen;z-index:2}
+.embers--sm{height:96px;position:relative;display:block}
+.ebg{fill:url(#gGlow);opacity:.5;animation:ebGlow 7s ease-in-out infinite alternate}
+.ebg:nth-child(2){animation-duration:9.4s;animation-delay:-2.1s;opacity:.42}
+.ebg:nth-child(3){animation-duration:6.2s;animation-delay:-3.6s;opacity:.55}
+.ebg:nth-child(4){animation-duration:11s;animation-delay:-1.2s;opacity:.36}
+.ebc{fill:url(#gCoal);opacity:.75;animation:ebCoal 4.6s ease-in-out infinite alternate}
+.ebc--back{opacity:.4;animation-name:ebCoalBack}
+.ebc:nth-child(2n){animation-duration:6.3s;animation-delay:-1.7s}
+.ebc:nth-child(3n){animation-duration:8.1s;animation-delay:-3.2s}
+.ebc:nth-child(5n){animation-duration:5.4s;animation-delay:-4.4s}
+.ebc:nth-child(7n){animation-duration:9.7s;animation-delay:-2.6s}
+@keyframes ebGlow{from{opacity:.22}to{opacity:.62}}
+@keyframes ebCoal{from{opacity:.34}to{opacity:1}}
+@keyframes ebCoalBack{from{opacity:.14}to{opacity:.52}}
+
+/* ---------- ヒーロー ---------- */
+.hero{position:relative;overflow:hidden;background:#080605;
+  min-height:min(96svh,860px);display:flex;flex-direction:column;justify-content:flex-end}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;aspect-ratio:1376/768;
+  filter:brightness(.62) contrast(1.06) saturate(1.05)}
+.hero-scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(8,6,5,.86) 0%,rgba(8,6,5,.34) 32%,rgba(8,6,5,.72) 66%,rgba(8,6,5,.96) 100%)}
+.hero-scrim::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 70% at 50% 108%,rgba(226,84,42,.34) 0%,rgba(226,84,42,0) 62%)}
+.hero-in{position:relative;z-index:3;padding:clamp(60px,12vw,130px) 0 clamp(56px,10vw,96px)}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;
+  letter-spacing:.28em;color:var(--hi-2);margin-bottom:clamp(18px,3vw,28px)}
+.hero-eyebrow span{display:block;height:1px;width:clamp(28px,7vw,64px);background:linear-gradient(90deg,var(--hi),transparent)}
+h1{font-weight:900;font-size:clamp(34px,7.4vw,84px);line-height:1.22;letter-spacing:.02em;
+  text-shadow:0 6px 34px rgba(0,0,0,.85),0 1px 2px rgba(0,0,0,.9)}
+h1 .h1-l{display:block}
+h1 .h1-hot{color:var(--hi-2)}
+.hero-lead{margin-top:clamp(20px,3.4vw,32px);max-width:34em;color:var(--kinari-2);
+  font-size:clamp(14px,1.6vw,16.5px);line-height:2.1;text-shadow:0 2px 12px rgba(0,0,0,.9)}
+.hero-meta{margin-top:clamp(26px,4vw,40px);display:flex;flex-wrap:wrap;gap:10px 26px;
+  font-size:12.5px;letter-spacing:.1em;color:var(--kinari-3);font-weight:500}
+.hero-meta b{color:var(--kinari-2);font-weight:700}
+.hero-meta .num{font-size:14px;color:var(--kinari-2)}
+
+/* ---------- 見出し共通 ---------- */
+.sec{position:relative;padding:clamp(56px,8vw,104px) 0}
+.sec--alt{background:var(--sumi-1)}
+.sec-head{margin-bottom:clamp(30px,5vw,58px)}
+.sec-no{font-family:var(--num);font-size:12px;font-weight:600;letter-spacing:.3em;color:var(--hi);display:block;margin-bottom:12px}
+h2{font-weight:900;font-size:clamp(24px,4.4vw,44px);line-height:1.4;letter-spacing:.03em}
+.sec-sub{margin-top:14px;color:var(--kinari-3);font-size:13.5px;letter-spacing:.08em;font-weight:500}
+.rule{height:1px;background:linear-gradient(90deg,var(--hi-3),rgba(226,84,42,.18) 42%,transparent);margin-top:20px}
+
+/* ---------- 01 火のこと ---------- */
+.fire-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+@media (max-width:860px){.fire-grid{grid-template-columns:1fr}}
+.fire-copy p{font-size:clamp(15px,1.75vw,17.5px);line-height:2.25;color:var(--kinari-2)}
+.fire-copy .lede{font-size:clamp(19px,2.6vw,27px);line-height:1.9;font-weight:700;color:var(--kinari);margin-bottom:22px;letter-spacing:.02em}
+.fire-media{position:relative}
+.fire-media img{width:100%;height:auto;aspect-ratio:1376/768;object-fit:cover;border-radius:3px;
+  filter:brightness(.9) contrast(1.05)}
+.fire-frame{position:relative;border-radius:3px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(255,138,61,.22),0 34px 70px -26px rgba(0,0,0,.95),0 0 90px -34px rgba(226,84,42,.6)}
+.fire-frame::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(0deg,rgba(226,84,42,.24) 0%,rgba(226,84,42,0) 46%)}
+.fire-cap{margin-top:12px;font-size:12px;letter-spacing:.14em;color:var(--kinari-3);font-weight:500}
+.fire-temp{margin-top:clamp(26px,4vw,38px);display:flex;flex-wrap:wrap;gap:12px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:12.5px;
+  letter-spacing:.1em;color:var(--kinari-2);font-weight:700;background:rgba(36,31,27,.6)}
+.chip i{font-style:normal;color:var(--hi-2)}
+
+/* ---------- 02 一本ずつ ---------- */
+.ippon{position:relative}
+.ippon-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width:900px){.ippon-grid{grid-template-columns:1fr}}
+.ippon-copy p{font-size:clamp(15px,1.7vw,17px);line-height:2.25;color:var(--kinari-2)}
+.ippon-photo{margin-top:clamp(24px,4vw,36px);position:relative;border-radius:3px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(255,138,61,.18),0 30px 60px -26px rgba(0,0,0,.95)}
+.ippon-photo img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;filter:brightness(.86) contrast(1.06)}
+.ippon-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 18px 12px;
+  background:linear-gradient(0deg,rgba(8,6,5,.92),rgba(8,6,5,0));
+  font-size:12px;letter-spacing:.14em;color:var(--kinari-2);font-weight:700}
+
+.rack{background:var(--sumi-2);border:1px solid var(--line-soft);border-radius:4px;
+  padding:clamp(18px,3vw,26px) clamp(14px,2.6vw,24px) clamp(14px,2.2vw,18px);position:relative;overflow:hidden}
+.rack-top{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:clamp(14px,2.4vw,20px)}
+.rack-title{font-size:13px;font-weight:900;letter-spacing:.16em;color:var(--kinari)}
+.rack-count{font-family:var(--num);font-size:clamp(22px,3.4vw,32px);font-weight:600;color:var(--hi-2);line-height:1}
+.rack-count small{font-size:.5em;color:var(--kinari-3);margin-left:4px;letter-spacing:.1em}
+.rack-bar{height:3px;border-radius:2px;background:var(--sumi-3);overflow:hidden;margin-bottom:clamp(16px,2.6vw,24px)}
+.rack-bar i{display:block;height:100%;width:calc(var(--p,0) * 100%);
+  background:linear-gradient(90deg,var(--hi-deep),var(--hi-3) 45%,var(--hi-2));transition:width .18s linear}
+.rack-svg{width:100%;height:auto;display:block}
+.rack-labels{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:10px}
+.rack-labels span{text-align:center;font-size:clamp(10px,1.5vw,12px);font-weight:700;letter-spacing:.06em;
+  color:var(--kinari-3);transition:color .45s ease}
+.rack-labels span.on{color:var(--hi-2)}
+.rack-note{margin-top:14px;font-size:11.5px;letter-spacing:.08em;color:var(--kinari-3);line-height:1.8}
+
+/* 串 SVG */
+.skw .stick{fill:url(#gBamboo)}
+.skw .raw{fill:#C99C86}
+.skw .cooked{fill:url(#gCooked);opacity:var(--c,0)}
+.skw .char{stroke:#2B1409;stroke-width:3.4;stroke-linecap:round;fill:none;
+  opacity:calc((var(--c,0) - .55) * 2.4)}
+.skw .heat{fill:url(#gHeat);opacity:calc(var(--c,0) * .85)}
+.skw .chunk{transform:translateY(calc((1 - var(--c,0)) * 5px));transition:transform .3s ease-out}
+.skw .cooked,.skw .char,.skw .heat{transition:opacity .3s ease-out}
+
+/* ---------- 03 お品書き ---------- */
+.dishes{border-top:1px solid var(--line-soft)}
+.dish{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:clamp(24px,4.4vw,64px);
+  align-items:center;padding:clamp(42px,6.4vw,78px) 0;border-bottom:1px solid var(--line-soft)}
+.dish:nth-child(even) .dish-media{order:2}
+@media (max-width:880px){
+  .dish{grid-template-columns:1fr;gap:26px;padding:clamp(40px,8vw,64px) 0}
+  .dish:nth-child(even) .dish-media{order:0}
+}
+.dish-media{position:relative;border-radius:3px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(255,138,61,.2),0 40px 80px -30px rgba(0,0,0,.98),0 0 110px -40px rgba(226,84,42,.55)}
+.dish-media img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;
+  filter:brightness(.55) saturate(.85);transition:filter 1.05s ease .06s}
+.dish.in .dish-media img{filter:brightness(1.02) saturate(1.06) contrast(1.04)}
+.dish-media::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(90% 70% at 50% 118%,rgba(226,84,42,.3),rgba(226,84,42,0) 60%)}
+.dish-no{font-family:var(--num);font-size:clamp(44px,8vw,86px);font-weight:600;line-height:.9;
+  color:transparent;-webkit-text-stroke:1.4px rgba(255,138,61,.55);display:block;margin-bottom:10px}
+.d-name{font-weight:900;font-size:clamp(25px,3.8vw,42px);line-height:1.3;letter-spacing:.02em}
+.d-cnt{font-size:.5em;font-weight:700;color:var(--hi-2);letter-spacing:.06em;margin-left:.25em;vertical-align:.1em;white-space:nowrap}
+.d-desc{margin-top:16px;color:var(--kinari-2);font-size:clamp(14.5px,1.7vw,17px);line-height:2.1;max-width:26em}
+.d-priceline{margin-top:clamp(20px,3.2vw,30px);display:flex;align-items:flex-end;gap:14px;
+  border-top:1px solid var(--line);padding-top:16px}
+.d-priceline .lbl{font-size:11px;letter-spacing:.2em;color:var(--kinari-3);font-weight:700;padding-bottom:8px}
+.pr{font-family:var(--num);font-weight:500;font-size:clamp(30px,5vw,50px);line-height:1;color:var(--hi-2);letter-spacing:.01em}
+.six{margin-top:20px;display:block;width:min(230px,72%);height:auto;opacity:.95}
+.six .s-stick{fill:#B98F5E}
+.six .s-meat{fill:url(#gCooked)}
+
+/* ---------- 04 店の様子 ---------- */
+.yousu{position:relative;overflow:hidden}
+.sparks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;mix-blend-mode:screen}
+.spk{fill:#FFD08C;opacity:0;animation:spkUp 11s linear infinite}
+.spk:nth-child(2n){animation-duration:14s;fill:#FF9A48}
+.spk:nth-child(3n){animation-duration:9s}
+.spk:nth-child(4n){animation-duration:16.5s}
+.spk:nth-child(1){animation-delay:-1s}.spk:nth-child(2){animation-delay:-3.4s}
+.spk:nth-child(3){animation-delay:-6.2s}.spk:nth-child(4){animation-delay:-8.8s}
+.spk:nth-child(5){animation-delay:-2.2s}.spk:nth-child(6){animation-delay:-11.5s}
+.spk:nth-child(7){animation-delay:-5.1s}.spk:nth-child(8){animation-delay:-13.2s}
+.spk:nth-child(9){animation-delay:-7.7s}.spk:nth-child(10){animation-delay:-4.3s}
+.spk:nth-child(11){animation-delay:-9.9s}.spk:nth-child(12){animation-delay:-0.4s}
+@keyframes spkUp{
+  0%{opacity:0;transform:translate(0,40px) scale(.6)}
+  12%{opacity:1}
+  70%{opacity:.6}
+  100%{opacity:0;transform:translate(-26px,-320px) scale(1.05)}
+}
+.yousu .wrap{position:relative;z-index:2}
+.gal{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(10px,1.4vw,16px);
+  grid-template-rows:clamp(230px,25vw,400px) clamp(190px,20vw,320px);
+  grid-template-areas:"a a a a b b" "c c d d b b"}
+.gal .g{height:100%;width:100%}
+.g{position:relative;overflow:hidden;border-radius:3px;background:var(--sumi-2);
+  box-shadow:0 0 0 1px rgba(58,50,44,.9),0 26px 54px -28px rgba(0,0,0,.95)}
+.g img{width:100%;height:100%;aspect-ratio:1376/768;object-fit:cover;
+  filter:brightness(.34) saturate(.6) contrast(1.05);transform:scale(1.04);
+  transition:filter 1.15s ease,transform 1.5s ease}
+.g.in img{filter:brightness(.95) saturate(1.02) contrast(1.05);transform:scale(1)}
+.g figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:34px 16px 13px;
+  background:linear-gradient(0deg,rgba(8,6,5,.94),rgba(8,6,5,.55) 46%,rgba(8,6,5,0));
+  font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--kinari)}
+.g figcaption .num{color:var(--hi-2);margin-right:9px;font-size:11px}
+.g--a{grid-area:a}
+.g--b{grid-area:b}
+.g--c{grid-area:c}
+.g--d{grid-area:d}
+@media (max-width:860px){
+  .gal{grid-template-columns:repeat(2,1fr);
+    grid-template-rows:clamp(180px,26vw,300px) clamp(230px,32vw,360px) clamp(170px,24vw,280px);
+    grid-template-areas:"a a" "b c" "d d"}
+}
+@media (max-width:560px){
+  .gal{grid-template-columns:1fr;grid-template-rows:none;
+    grid-template-areas:"a" "b" "c" "d"}
+  .gal .g{height:auto}
+  .gal .g img{height:auto}
+  .g--a,.g--c,.g--d{aspect-ratio:16/10}
+  .g--b{aspect-ratio:4/5}
+}
+
+/* ---------- 05 夜の時間・店舗情報 ---------- */
+.night{position:relative;background:var(--sumi-1);overflow:hidden}
+.night-lead{font-size:clamp(18px,2.9vw,30px);font-weight:700;line-height:1.95;letter-spacing:.02em;
+  max-width:22em;margin-bottom:clamp(22px,3.4vw,30px)}
+.night-lead em{font-style:normal;color:var(--hi-2)}
+.night-body{color:var(--kinari-2);font-size:clamp(14.5px,1.7vw,17px);line-height:2.2;max-width:34em}
+.info{margin-top:clamp(38px,6vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(26px,4vw,56px);align-items:start}
+@media (max-width:820px){.info{grid-template-columns:1fr;gap:30px}}
+.dl dt{font-size:11px;letter-spacing:.22em;color:var(--hi);font-weight:700;margin-top:22px}
+.dl dt:first-of-type{margin-top:0}
+.dl dd{margin:6px 0 0;font-size:clamp(15px,1.8vw,17px);line-height:1.9;font-weight:500;color:var(--kinari)}
+.dl dd .num{font-family:var(--num);font-size:1.12em;font-weight:500;letter-spacing:.02em}
+.dl dd small{display:block;font-size:12.5px;color:var(--kinari-3);letter-spacing:.08em;margin-top:2px;font-weight:500}
+.cta{display:flex;flex-direction:column;gap:12px}
+.btn{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:18px 22px;border-radius:3px;font-weight:900;letter-spacing:.08em;font-size:15px;
+  border:1px solid var(--line);background:var(--sumi-2);color:var(--kinari);transition:border-color .3s,background .3s,transform .3s}
+.btn .arw{width:22px;height:10px;flex:none;stroke:var(--hi-2);stroke-width:1.6;fill:none;transition:transform .3s}
+.btn:hover{border-color:rgba(255,138,61,.7);background:var(--sumi-3);transform:translateY(-2px)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn--hi{background:linear-gradient(100deg,#6E1206,#B93E19);border-color:rgba(255,178,92,.55);color:#FFF6EC}
+.btn--hi .arw{stroke:#FFE1BE}
+.btn--hi:hover{background:linear-gradient(100deg,#8A1B0B,#C2461D);border-color:#FFC98F}
+.cta-note{font-size:12px;color:var(--kinari-3);letter-spacing:.06em;line-height:1.8;margin-top:4px}
+
+/* ---------- フッター ---------- */
+.foot{background:var(--sumi);border-top:1px solid var(--line-soft);padding:clamp(38px,6vw,58px) 0 clamp(30px,4vw,44px)}
+.foot-in{display:flex;flex-wrap:wrap;gap:20px 30px;align-items:flex-end;justify-content:space-between}
+.foot-name{font-weight:900;font-size:17px;letter-spacing:.1em;display:flex;align-items:center;gap:10px}
+.foot-sub{margin-top:8px;font-size:12px;color:var(--kinari-3);letter-spacing:.08em;font-weight:500}
+.foot-links{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:12.5px;color:var(--kinari-2);font-weight:700;letter-spacing:.06em}
+.foot-links a:hover{color:var(--hi-2)}
+
+/* ---------- リビール ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .85s ease,transform .85s cubic-bezier(.22,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.09s}.rv-d2{transition-delay:.18s}.rv-d3{transition-delay:.27s}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1!important;transform:none!important}
+  .ebg{opacity:.42!important}
+  .ebc{opacity:.8!important}
+  .spk{opacity:.5!important;transform:none!important}
+  .dish-media img,.g img{filter:brightness(.95) saturate(1.02) contrast(1.05)!important;transform:none!important}
+  .skw .chunk{transform:none!important}
+}
 </style>
 </head>
 <body>
 
-<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+<a class="skip" href="#main">本文へスキップ</a>
 
-<div class="hero">
-  <img src="images/yakitori/yakitori_hero.webp" alt="炭火焼鳥 とりや">
-  <div class="hero-text">
-    <div class="label">焼き鳥</div>
-    <h1>一本ずつ、炭に向き合う。</h1>
-    <p>炭火焼鳥 とりや</p>
+<!-- ===== 共通 SVG 定義 ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="gGlow" cx="50%" cy="100%" r="70%">
+      <stop offset="0%" stop-color="#FF7A2A" stop-opacity=".95"/>
+      <stop offset="45%" stop-color="#D93C15" stop-opacity=".38"/>
+      <stop offset="100%" stop-color="#8E1F0E" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gCoal" cx="50%" cy="46%" r="58%">
+      <stop offset="0%" stop-color="#FFE3B4"/>
+      <stop offset="24%" stop-color="#FF9A44"/>
+      <stop offset="56%" stop-color="#E24312" stop-opacity=".72"/>
+      <stop offset="100%" stop-color="#8E1F0E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gBamboo" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8E6A3F"/>
+      <stop offset="42%" stop-color="#D9B683"/>
+      <stop offset="100%" stop-color="#7A5931"/>
+    </linearGradient>
+    <linearGradient id="gCooked" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#D98A3C"/>
+      <stop offset="52%" stop-color="#A85718"/>
+      <stop offset="100%" stop-color="#6B300B"/>
+    </linearGradient>
+    <radialGradient id="gHeat" cx="50%" cy="58%" r="52%">
+      <stop offset="0%" stop-color="#FF7A2A" stop-opacity=".40"/>
+      <stop offset="55%" stop-color="#E2542A" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#E2542A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+<!-- ===== 告知バー ===== -->
+<div class="notice">
+  <div class="notice-in">
+    <span>これはRESCが作成したサンプルサイトです。実店舗ではありません。</span>
+    <a href="../hp-service/index.html">RESCのサイトに戻る</a>
   </div>
 </div>
 
-<section class="about reveal">
-  <div class="about-grid">
-    <div class="about-photo">
-      <img src="images/yakitori/yakitori_gallery4.webp" alt="外観（夜・赤提灯・暖簾）">
+<!-- ===== ヘッダー ===== -->
+<header class="mast">
+  <div class="mast-in">
+    <div class="mast-name">
+      <svg class="mast-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <rect x="10.6" y="1.5" width="2.8" height="21" rx="1.4" fill="url(#gBamboo)"/>
+        <rect x="4.6" y="5" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/>
+        <rect x="4.6" y="12.4" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/>
+      </svg>
+      炭火焼鳥 とりや
     </div>
-    <div class="about-content">
-      <div class="section-title">こだわり</div>
-      <p>備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。串と向き合う時間を大切にしています。</p>
-      <p>仕込みでは串一本ごとに肉の厚みや脂の乗り方を見極め、火からの距離と時間を細かく調整します。同じ串でも、その日の素材の状態によって焼き加減は変わります。</p>
-      <p>カウンター越しに炭火の音と香りを感じながら、ゆっくりと過ごしていただける時間を。仕事帰りの一杯にも、ふらりと立ち寄る一軒としても。</p>
+    <nav class="mast-nav" aria-label="サイト内">
+      <a href="#fire">火のこと</a>
+      <a href="#ippon">一本ずつ</a>
+      <a href="#shinagaki">お品書き</a>
+      <a href="#yousu">店の様子</a>
+      <a href="#info">お店について</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===== ヒーロー ===== -->
+<section class="hero" aria-labelledby="h1">
+  <img class="hero-img" src="images/yakitori/yakitori_hero.webp" alt="炭火の焼き場が見えるカウンター席。串が炭の上に並び、提灯の灯りがともる夜の店内" width="1376" height="768" fetchpriority="high">
+  <div class="hero-scrim" aria-hidden="true"></div>
+
+  <!-- 熾火（明滅する炭床） -->
+  <svg class="embers" viewBox="0 0 1200 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+    <g>
+      <ellipse class="ebg" cx="200" cy="196" rx="260" ry="104"/>
+      <ellipse class="ebg" cx="560" cy="200" rx="300" ry="92"/>
+      <ellipse class="ebg" cx="880" cy="194" rx="240" ry="110"/>
+      <ellipse class="ebg" cx="1120" cy="200" rx="220" ry="86"/>
+    </g>
+    <g>
+      <ellipse class="ebc ebc--back" cx="40" cy="162" rx="58" ry="9"/>
+      <ellipse class="ebc ebc--back" cx="176" cy="158" rx="66" ry="8"/>
+      <ellipse class="ebc ebc--back" cx="322" cy="163" rx="54" ry="9"/>
+      <ellipse class="ebc ebc--back" cx="470" cy="157" rx="70" ry="8"/>
+      <ellipse class="ebc ebc--back" cx="628" cy="162" rx="58" ry="9"/>
+      <ellipse class="ebc ebc--back" cx="780" cy="158" rx="66" ry="8"/>
+      <ellipse class="ebc ebc--back" cx="932" cy="163" rx="56" ry="9"/>
+      <ellipse class="ebc ebc--back" cx="1084" cy="157" rx="72" ry="8"/>
+      <ellipse class="ebc" cx="26" cy="180" rx="62" ry="12"/>
+      <ellipse class="ebc" cx="112" cy="190" rx="52" ry="9"/>
+      <ellipse class="ebc" cx="198" cy="176" rx="70" ry="13"/>
+      <ellipse class="ebc" cx="288" cy="191" rx="56" ry="10"/>
+      <ellipse class="ebc" cx="376" cy="179" rx="66" ry="12"/>
+      <ellipse class="ebc" cx="466" cy="192" rx="50" ry="9"/>
+      <ellipse class="ebc" cx="548" cy="175" rx="74" ry="13"/>
+      <ellipse class="ebc" cx="642" cy="190" rx="54" ry="10"/>
+      <ellipse class="ebc" cx="730" cy="180" rx="68" ry="12"/>
+      <ellipse class="ebc" cx="822" cy="192" rx="52" ry="9"/>
+      <ellipse class="ebc" cx="906" cy="176" rx="72" ry="13"/>
+      <ellipse class="ebc" cx="1000" cy="190" rx="56" ry="10"/>
+      <ellipse class="ebc" cx="1088" cy="179" rx="66" ry="12"/>
+      <ellipse class="ebc" cx="1172" cy="191" rx="58" ry="10"/>
+    </g>
+  </svg>
+
+  <div class="hero-in">
+    <div class="wrap">
+      <p class="hero-eyebrow"><span aria-hidden="true"></span>福岡・炭火焼鳥</p>
+      <h1 id="h1"><span class="h1-l">一本ずつ、</span><span class="h1-l h1-hot">炭に向き合う。</span></h1>
+      <p class="hero-lead">備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。串と向き合う時間を大切にしています。</p>
+      <p class="hero-meta">
+        <b>炭火焼鳥 とりや</b>
+        <span>営業 <span class="num">17:00</span>〜<span class="num">23:00</span></span>
+        <span>定休日 日曜日</span>
+      </p>
     </div>
   </div>
 </section>
 
-<section style="background:var(--sumi-light);">
-  <div class="section-title">メニュー</div>
-  <div class="menu-grid">
-    <div class="menu-card reveal">
-      <img src="images/yakitori/yakitori_menu_moriawase.webp" alt="おまかせ盛り合わせ（6本）">
-      <div class="menu-name">おまかせ盛り合わせ（6本）</div>
-      <div class="menu-copy">まずはこの一皿から、店の味を。</div>
-      <div class="menu-price">¥1,380</div>
+<!-- ===== 01 火のこと ===== -->
+<section class="sec sec--alt" id="fire" aria-labelledby="h-fire">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no">01</span>
+      <h2 id="h-fire">強すぎず、弱すぎず。</h2>
+      <p class="sec-sub">備長炭の火加減だけを見る</p>
+      <div class="rule" aria-hidden="true"></div>
     </div>
-    <div class="menu-card reveal">
-      <img src="images/yakitori/yakitori_menu_momo.webp" alt="もも串">
-      <div class="menu-name">もも串</div>
-      <div class="menu-copy">旨みそのままの、ジューシーな一本。</div>
-      <div class="menu-price">¥260</div>
-    </div>
-    <div class="menu-card reveal">
-      <img src="images/yakitori/yakitori_menu_tsukune.webp" alt="つくね">
-      <div class="menu-name">つくね</div>
-      <div class="menu-copy">刻んで、練って、丁寧に一本。</div>
-      <div class="menu-price">¥280</div>
-    </div>
-  </div>
-</section>
-
-<section class="contact reveal">
-  <div class="section-title">アクセス・お問い合わせ</div>
-  <div class="contact-layout">
-    <div class="contact-info">
-      <div class="contact-box">
-        <p>福岡県福岡市〇〇区〇〇9-3-7</p>
-        <p>営業時間:17:00〜23:00（定休日:日曜日）</p>
+    <div class="fire-grid">
+      <div class="fire-copy rv rv-d1">
+        <p class="lede">串と向き合う時間を、<br>いちばん大切にしています。</p>
+        <p>備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。串と向き合う時間を大切にしています。</p>
+        <div class="fire-temp">
+          <span class="chip"><i>炭</i> 備長炭</span>
+          <span class="chip"><i>火</i> 強すぎず、弱すぎず</span>
+          <span class="chip"><i>手</i> 一本ずつ</span>
+        </div>
       </div>
-      <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
-      <div class="line-wrap">
-        <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
-        <p class="line-note">LINEでのお問い合わせも承っています。</p>
-      </div>
-    </div>
-    <div class="map-placeholder">
-      <span>地図がここに表示されます（デモ表示中）</span>
+      <figure class="fire-media rv rv-d2">
+        <div class="fire-frame">
+          <img src="images/yakitori/yakitori_gallery1.webp" alt="炭床の上に並んだ串を、手で返しながら焼き上げている焼き場の様子" loading="lazy" width="1376" height="768">
+        </div>
+        <figcaption class="fire-cap">焼き場 ／ 炭の前に立つ</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<footer class="reveal">炭火焼鳥 とりや（RESC制作サンプル）</footer>
+<!-- ===== 02 一本ずつ ===== -->
+<section class="sec ippon" id="ippon" aria-labelledby="h-ippon">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no">02</span>
+      <h2 id="h-ippon">同じ串でも、その日で変わる。</h2>
+      <p class="sec-sub">厚みを見て、脂を見て、距離と時間を決める</p>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+
+    <div class="ippon-grid">
+      <div class="ippon-copy rv rv-d1">
+        <p>仕込みでは串一本ごとに肉の厚みや脂の乗り方を見極め、火からの距離と時間を細かく調整します。同じ串でも、その日の素材の状態によって焼き加減は変わります。</p>
+        <figure class="ippon-photo">
+          <img src="images/yakitori/yakitori_gallery3.webp" alt="まな板の上で、手作業で串を打っている仕込みの様子" loading="lazy" width="1376" height="768">
+          <figcaption>仕込み ／ 串を打つ</figcaption>
+        </figure>
+      </div>
+
+      <div class="rack rv rv-d2" id="rack">
+        <div class="rack-top">
+          <span class="rack-title">火 入 れ</span>
+          <span class="rack-count num"><span id="rackNum">0</span><small>/ 5</small></span>
+        </div>
+        <div class="rack-bar" aria-hidden="true"><i id="rackBar"></i></div>
+
+        <svg class="rack-svg skw" viewBox="0 0 350 300" aria-hidden="true" focusable="false">
+          <g class="s" style="--c:0">
+            <ellipse class="heat" cx="35" cy="152" rx="46" ry="122"/>
+            <rect class="stick" x="32.5" y="6" width="5" height="288" rx="2.5"/>
+            <g class="chunk"><rect class="raw" x="9.0" y="57.0" width="52" height="42" rx="9" transform="rotate(-3 35 78)"/><rect class="cooked" x="9.0" y="57.0" width="52" height="42" rx="9" transform="rotate(-3 35 78)"/><path class="char" d="M15.2 70 L54.8 73 M15.2 85 L54.8 88" transform="rotate(-3 35 78)"/></g>
+            <g class="chunk"><rect class="raw" x="11.0" y="108.0" width="48" height="40" rx="9" transform="rotate(2.5 35 128)"/><rect class="cooked" x="11.0" y="108.0" width="48" height="40" rx="9" transform="rotate(2.5 35 128)"/><path class="char" d="M16.8 120 L53.2 117 M16.8 135 L53.2 132" transform="rotate(2.5 35 128)"/></g>
+            <g class="chunk"><rect class="raw" x="8.0" y="156.0" width="54" height="44" rx="9" transform="rotate(-2 35 178)"/><rect class="cooked" x="8.0" y="156.0" width="54" height="44" rx="9" transform="rotate(-2 35 178)"/><path class="char" d="M14.5 170 L55.5 173 M14.5 185 L55.5 188" transform="rotate(-2 35 178)"/></g>
+            <g class="chunk"><rect class="raw" x="11.5" y="208.5" width="47" height="39" rx="9" transform="rotate(3.5 35 228)"/><rect class="cooked" x="11.5" y="208.5" width="47" height="39" rx="9" transform="rotate(3.5 35 228)"/><path class="char" d="M17.1 220 L52.9 217 M17.1 235 L52.9 232" transform="rotate(3.5 35 228)"/></g>
+          </g>
+          <g class="s" style="--c:0" transform="translate(70,0)">
+            <ellipse class="heat" cx="35" cy="152" rx="46" ry="122"/>
+            <rect class="stick" x="32.5" y="6" width="5" height="288" rx="2.5"/>
+            <g class="chunk"><rect class="raw" x="9.0" y="57.0" width="52" height="42" rx="9" transform="rotate(-3 35 78)"/><rect class="cooked" x="9.0" y="57.0" width="52" height="42" rx="9" transform="rotate(-3 35 78)"/><path class="char" d="M15.2 70 L54.8 73 M15.2 85 L54.8 88" transform="rotate(-3 35 78)"/></g>
+            <g class="chunk"><rect class="raw" x="11.0" y="108.0" width="48" height="40" rx="9" transform="rotate(2.5 35 128)"/><rect class="cooked" x="11.0" y="108.0" width="48" height="40" rx="9" transform="rotate(2.5 35 128)"/><path class="char" d="M16.8 120 L53.2 117 M16.8 135 L53.2 132" transform="rotate(2.5 35 128)"/></g>
+            <g class="chunk"><rect class="raw" x="8.0" y="156.0" width="54" height="44" rx="9" transform="rotate(-2 35 178)"/><rect class="cooked" x="8.0" y="156.0" width="54" height="44" rx="9" transform="rotate(-2 35 178)"/><path class="char" d="M14.5 170 L55.5 173 M14.5 185 L55.5 188" transform="rotate(-2 35 178)"/></g>
+            <g class="chunk"><rect class="raw" x="11.5" y="208.5" width="47" height="39" rx="9" transform="rotate(3.5 35 228)"/><rect class="cooked" x="11.5" y="208.5" width="47" height="39" rx="9" transform="rotate(3.5 35 228)"/><path class="char" d="M17.1 220 L52.9 217 M17.1 235 L52.9 232" transform="rotate(3.5 35 228)"/></g>
+          </g>
+          <g class="s" style="--c:0" transform="translate(140,0)">
+            <ellipse class="heat" cx="35" cy="152" rx="46" ry="122"/>
+            <rect class="stick" x="32.5" y="6" width="5" height="288" rx="2.5"/>
+            <g class="chunk"><rect class="raw" x="9.0" y="57.0" width="52" height="42" rx="9" transform="rotate(-3 35 78)"/><rect class="cooked" x="9.0" y="57.0" width="52" height="42" rx="9" transform="rotate(-3 35 78)"/><path class="char" d="M15.2 70 L54.8 73 M15.2 85 L54.8 88" transform="rotate(-3 35 78)"/></g>
+            <g class="chunk"><rect class="raw" x="11.0" y="108.0" width="48" height="40" rx="9" transform="rotate(2.5 35 128)"/><rect class="cooked" x="11.0" y="108.0" width="48" height="40" rx="9" transform="rotate(2.5 35 128)"/><path class="char" d="M16.8 120 L53.2 117 M16.8 135 L53.2 132" transform="rotate(2.5 35 128)"/></g>
+            <g class="chunk"><rect class="raw" x="8.0" y="156.0" width="54" height="44" rx="9" transform="rotate(-2 35 178)"/><rect class="cooked" x="8.0" y="156.0" width="54" height="44" rx="9" transform="rotate(-2 35 178)"/><path class="char" d="M14.5 170 L55.5 173 M14.5 185 L55.5 188" transform="rotate(-2 35 178)"/></g>
+            <g class="chunk"><rect class="raw" x="11.5" y="208.5" width="47" height="39" rx="9" transform="rotate(3.5 35 228)"/><rect class="cooked" x="11.5" y="208.5" width="47" height="39" rx="9" transform="rotate(3.5 35 228)"/><path class="char" d="M17.1 220 L52.9 217 M17.1 235 L52.9 232" transform="rotate(3.5 35 228)"/></g>
+          </g>
+          <g class="s" style="--c:0" transform="translate(210,0)">
+            <ellipse class="heat" cx="35" cy="152" rx="46" ry="122"/>
+            <rect class="stick" x="32.5" y="6" width="5" height="288" rx="2.5"/>
+            <g class="chunk"><rect class="raw" x="9.0" y="57.0" width="52" height="42" rx="9" transform="rotate(-3 35 78)"/><rect class="cooked" x="9.0" y="57.0" width="52" height="42" rx="9" transform="rotate(-3 35 78)"/><path class="char" d="M15.2 70 L54.8 73 M15.2 85 L54.8 88" transform="rotate(-3 35 78)"/></g>
+            <g class="chunk"><rect class="raw" x="11.0" y="108.0" width="48" height="40" rx="9" transform="rotate(2.5 35 128)"/><rect class="cooked" x="11.0" y="108.0" width="48" height="40" rx="9" transform="rotate(2.5 35 128)"/><path class="char" d="M16.8 120 L53.2 117 M16.8 135 L53.2 132" transform="rotate(2.5 35 128)"/></g>
+            <g class="chunk"><rect class="raw" x="8.0" y="156.0" width="54" height="44" rx="9" transform="rotate(-2 35 178)"/><rect class="cooked" x="8.0" y="156.0" width="54" height="44" rx="9" transform="rotate(-2 35 178)"/><path class="char" d="M14.5 170 L55.5 173 M14.5 185 L55.5 188" transform="rotate(-2 35 178)"/></g>
+            <g class="chunk"><rect class="raw" x="11.5" y="208.5" width="47" height="39" rx="9" transform="rotate(3.5 35 228)"/><rect class="cooked" x="11.5" y="208.5" width="47" height="39" rx="9" transform="rotate(3.5 35 228)"/><path class="char" d="M17.1 220 L52.9 217 M17.1 235 L52.9 232" transform="rotate(3.5 35 228)"/></g>
+          </g>
+          <g class="s" style="--c:0" transform="translate(280,0)">
+            <ellipse class="heat" cx="35" cy="152" rx="46" ry="122"/>
+            <rect class="stick" x="32.5" y="6" width="5" height="288" rx="2.5"/>
+            <g class="chunk"><rect class="raw" x="9.0" y="57.0" width="52" height="42" rx="9" transform="rotate(-3 35 78)"/><rect class="cooked" x="9.0" y="57.0" width="52" height="42" rx="9" transform="rotate(-3 35 78)"/><path class="char" d="M15.2 70 L54.8 73 M15.2 85 L54.8 88" transform="rotate(-3 35 78)"/></g>
+            <g class="chunk"><rect class="raw" x="11.0" y="108.0" width="48" height="40" rx="9" transform="rotate(2.5 35 128)"/><rect class="cooked" x="11.0" y="108.0" width="48" height="40" rx="9" transform="rotate(2.5 35 128)"/><path class="char" d="M16.8 120 L53.2 117 M16.8 135 L53.2 132" transform="rotate(2.5 35 128)"/></g>
+            <g class="chunk"><rect class="raw" x="8.0" y="156.0" width="54" height="44" rx="9" transform="rotate(-2 35 178)"/><rect class="cooked" x="8.0" y="156.0" width="54" height="44" rx="9" transform="rotate(-2 35 178)"/><path class="char" d="M14.5 170 L55.5 173 M14.5 185 L55.5 188" transform="rotate(-2 35 178)"/></g>
+            <g class="chunk"><rect class="raw" x="11.5" y="208.5" width="47" height="39" rx="9" transform="rotate(3.5 35 228)"/><rect class="cooked" x="11.5" y="208.5" width="47" height="39" rx="9" transform="rotate(3.5 35 228)"/><path class="char" d="M17.1 220 L52.9 217 M17.1 235 L52.9 232" transform="rotate(3.5 35 228)"/></g>
+          </g>
+        </svg>
+
+        <!-- 炭床（小） -->
+        <svg class="embers embers--sm" viewBox="0 0 600 96" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+          <g>
+            <ellipse class="ebg" cx="130" cy="96" rx="180" ry="56"/>
+            <ellipse class="ebg" cx="330" cy="96" rx="190" ry="48"/>
+            <ellipse class="ebg" cx="500" cy="96" rx="160" ry="58"/>
+          </g>
+          <g>
+            <ellipse class="ebc ebc--back" cx="60" cy="72" rx="52" ry="7"/>
+            <ellipse class="ebc ebc--back" cx="200" cy="70" rx="60" ry="6"/>
+            <ellipse class="ebc ebc--back" cx="345" cy="72" rx="52" ry="7"/>
+            <ellipse class="ebc ebc--back" cx="490" cy="70" rx="62" ry="6"/>
+            <ellipse class="ebc" cx="30" cy="84" rx="52" ry="9"/>
+            <ellipse class="ebc" cx="112" cy="90" rx="44" ry="7"/>
+            <ellipse class="ebc" cx="192" cy="82" rx="58" ry="10"/>
+            <ellipse class="ebc" cx="276" cy="90" rx="46" ry="7"/>
+            <ellipse class="ebc" cx="356" cy="83" rx="56" ry="9"/>
+            <ellipse class="ebc" cx="440" cy="90" rx="44" ry="7"/>
+            <ellipse class="ebc" cx="516" cy="82" rx="58" ry="10"/>
+            <ellipse class="ebc" cx="590" cy="89" rx="46" ry="8"/>
+          </g>
+        </svg>
+
+        <div class="rack-labels" id="rackLabels">
+          <span>厚み</span><span>脂</span><span>距離</span><span>時間</span><span>仕上げ</span>
+        </div>
+        <p class="rack-note">※ 焼き加減のイメージ図です。スクロールに合わせて、一本ずつ火が入ります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 03 お品書き ===== -->
+<section class="sec sec--alt" id="shinagaki" aria-labelledby="h-shina">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no">03</span>
+      <h2 id="h-shina">お品書き</h2>
+      <p class="sec-sub">数は多くありません。その分、一本ずつ。</p>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+
+    <div class="dishes">
+      <article class="dish rv">
+        <figure class="dish-media">
+          <img src="images/yakitori/yakitori_menu_moriawase.webp" alt="おまかせ盛り合わせ（6本）。一枚の器に串を並べて盛り付けた様子" loading="lazy" width="1376" height="768">
+        </figure>
+        <div class="dish-text">
+          <span class="dish-no num" aria-hidden="true">01</span>
+          <h3 class="d-name">おまかせ盛り合わせ<span class="d-cnt">（6本）</span></h3>
+          <p class="d-desc">まずはこの一皿から、店の味を。</p>
+          <svg class="six" viewBox="0 0 210 44" role="img" aria-label="六本の串を表した図">
+            <g class="s-stick"><rect x="16" y="2" width="3" height="40" rx="1.5"/><rect x="51" y="2" width="3" height="40" rx="1.5"/><rect x="86" y="2" width="3" height="40" rx="1.5"/><rect x="121" y="2" width="3" height="40" rx="1.5"/><rect x="156" y="2" width="3" height="40" rx="1.5"/><rect x="191" y="2" width="3" height="40" rx="1.5"/></g>
+            <g class="s-meat"><rect x="5" y="8" width="25" height="13" rx="4.5"/><rect x="5" y="24" width="25" height="13" rx="4.5"/><rect x="40" y="8" width="25" height="13" rx="4.5"/><rect x="40" y="24" width="25" height="13" rx="4.5"/><rect x="75" y="8" width="25" height="13" rx="4.5"/><rect x="75" y="24" width="25" height="13" rx="4.5"/><rect x="110" y="8" width="25" height="13" rx="4.5"/><rect x="110" y="24" width="25" height="13" rx="4.5"/><rect x="145" y="8" width="25" height="13" rx="4.5"/><rect x="145" y="24" width="25" height="13" rx="4.5"/><rect x="180" y="8" width="25" height="13" rx="4.5"/><rect x="180" y="24" width="25" height="13" rx="4.5"/></g>
+          </svg>
+          <p class="d-priceline"><span class="lbl">価格</span><span class="pr">¥1,380</span></p>
+        </div>
+      </article>
+
+      <article class="dish rv">
+        <figure class="dish-media">
+          <img src="images/yakitori/yakitori_menu_momo.webp" alt="もも串。焼き上がった串を器に盛り付けた様子" loading="lazy" width="1376" height="768">
+        </figure>
+        <div class="dish-text">
+          <span class="dish-no num" aria-hidden="true">02</span>
+          <h3 class="d-name">もも串</h3>
+          <p class="d-desc">旨みそのままの、ジューシーな一本。</p>
+          <p class="d-priceline"><span class="lbl">価格</span><span class="pr">¥260</span></p>
+        </div>
+      </article>
+
+      <article class="dish rv">
+        <figure class="dish-media">
+          <img src="images/yakitori/yakitori_menu_tsukune.webp" alt="つくね。焼き上がった串を器に盛り付けた様子" loading="lazy" width="1376" height="768">
+        </figure>
+        <div class="dish-text">
+          <span class="dish-no num" aria-hidden="true">03</span>
+          <h3 class="d-name">つくね</h3>
+          <p class="d-desc">刻んで、練って、丁寧に一本。</p>
+          <p class="d-priceline"><span class="lbl">価格</span><span class="pr">¥280</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 店の様子 ===== -->
+<section class="sec yousu" id="yousu" aria-labelledby="h-yousu">
+  <svg class="sparks" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <circle class="spk" cx="60" cy="660" r="2.4"/>
+    <circle class="spk" cx="170" cy="690" r="1.8"/>
+    <circle class="spk" cx="285" cy="670" r="2.8"/>
+    <circle class="spk" cx="390" cy="695" r="1.6"/>
+    <circle class="spk" cx="470" cy="665" r="2.2"/>
+    <circle class="spk" cx="560" cy="688" r="3"/>
+    <circle class="spk" cx="645" cy="672" r="1.9"/>
+    <circle class="spk" cx="730" cy="694" r="2.5"/>
+    <circle class="spk" cx="800" cy="668" r="1.7"/>
+    <circle class="spk" cx="870" cy="690" r="2.6"/>
+    <circle class="spk" cx="930" cy="666" r="2"/>
+    <circle class="spk" cx="985" cy="692" r="2.3"/>
+  </svg>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no">04</span>
+      <h2 id="h-yousu">暗がりに、灯りと炭の音。</h2>
+      <p class="sec-sub">店の様子</p>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+    <div class="gal">
+      <figure class="g g--a rv">
+        <img src="images/yakitori/yakitori_gallery2.webp" alt="一枚板の長いカウンター席が奥まで続く店内" loading="lazy" width="1376" height="768">
+        <figcaption><span class="num">01</span>カウンター</figcaption>
+      </figure>
+      <figure class="g g--b rv rv-d1">
+        <img src="images/yakitori/yakitori_gallery6.webp" alt="梁から下がる提灯の灯りに照らされた店内" loading="lazy" width="1376" height="768">
+        <figcaption><span class="num">02</span>灯り</figcaption>
+      </figure>
+      <figure class="g g--c rv rv-d1">
+        <img src="images/yakitori/yakitori_gallery5.webp" alt="焼き場を眺める席の卓上。器や箸が置かれている" loading="lazy" width="1376" height="768">
+        <figcaption><span class="num">03</span>一杯の時間</figcaption>
+      </figure>
+      <figure class="g g--d rv rv-d2">
+        <img src="images/yakitori/yakitori_gallery4.webp" alt="夜の路地に赤い提灯がともる店の外観" loading="lazy" width="1376" height="768">
+        <figcaption><span class="num">04</span>店の外</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 夜の時間・お店について ===== -->
+<section class="sec night" id="info" aria-labelledby="h-info">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-no">05</span>
+      <h2 id="h-info">お店について</h2>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+    <p class="night-lead rv rv-d1">仕事帰りの一杯にも、<br><em>ふらりと立ち寄る一軒</em>としても。</p>
+    <p class="night-body rv rv-d1">カウンター越しに炭火の音と香りを感じながら、ゆっくりと過ごしていただける時間を。仕事帰りの一杯にも、ふらりと立ち寄る一軒としても。</p>
+
+    <div class="info">
+      <dl class="dl rv rv-d2">
+        <dt>店名</dt>
+        <dd>炭火焼鳥 とりや</dd>
+        <dt>住所</dt>
+        <dd>福岡県福岡市〇〇区〇〇9-3-7</dd>
+        <dt>営業時間</dt>
+        <dd><span class="num">17:00</span>〜<span class="num">23:00</span><small>定休日:日曜日</small></dd>
+      </dl>
+      <div class="cta rv rv-d3">
+        <a class="btn btn--hi" href="https://lin.ee/z3rP0hO">
+          LINEで問い合わせる
+          <svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20M15.5 1L20 5l-4.5 4"/></svg>
+        </a>
+        <a class="btn" href="mailto:info@example.com">
+          メールで問い合わせる
+          <svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20M15.5 1L20 5l-4.5 4"/></svg>
+        </a>
+        <p class="cta-note">ご予約・お問い合わせはどちらからでも。<br>営業時間内は焼き場に立っているため、返信が遅くなることがあります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== フッター ===== -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <p class="foot-name">
+        <svg class="mast-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="10.6" y="1.5" width="2.8" height="21" rx="1.4" fill="url(#gBamboo)"/>
+          <rect x="4.6" y="5" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/>
+          <rect x="4.6" y="12.4" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/>
+        </svg>
+        炭火焼鳥 とりや
+      </p>
+      <p class="foot-sub">RESC制作サンプル</p>
+    </div>
+    <nav class="foot-links" aria-label="フッター">
+      <a href="#shinagaki">お品書き</a>
+      <a href="#yousu">店の様子</a>
+      <a href="mailto:info@example.com">info@example.com</a>
+      <a href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a>
+      <a href="../hp-service/index.html">RESCのサイトに戻る</a>
+    </nav>
+  </div>
+</footer>
 
 <script>
-(function () {
-  const targets = document.querySelectorAll('.reveal');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    targets.forEach(el => el.classList.add('is-visible'));
-    return;
+  /* --- リビール --- */
+  var rvs = document.querySelectorAll(".rv, .dish, .g");
+  if(reduce || !("IntersectionObserver" in window)){
+    for(var i=0;i<rvs.length;i++){ rvs[i].classList.add("in"); }
+  }else{
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    },{rootMargin:"0px 0px -8% 0px",threshold:0.12});
+    for(var j=0;j<rvs.length;j++){ io.observe(rvs[j]); }
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  /* --- 串の焼き上がり --- */
+  var rack = document.getElementById("rack");
+  if(rack){
+    var sk = rack.querySelectorAll(".skw .s");
+    var bar = document.getElementById("rackBar");
+    var numEl = document.getElementById("rackNum");
+    var labels = document.getElementById("rackLabels").children;
+    var last = -1;
 
-  targets.forEach(el => observer.observe(el));
+    function setAll(v){
+      for(var k=0;k<sk.length;k++){ sk[k].style.setProperty("--c", v); }
+      if(bar) bar.parentNode.style.setProperty("--p", v);
+      var n = Math.round(v*sk.length);
+      if(n!==last){ last=n; if(numEl) numEl.textContent = n;
+        for(var m=0;m<labels.length;m++){ labels[m].classList.toggle("on", m < n); } }
+    }
+
+    if(reduce){
+      setAll(1);
+    }else{
+      var ticking=false;
+      function update(){
+        ticking=false;
+        var r = rack.getBoundingClientRect();
+        var vh = window.innerHeight || 800;
+        /* rack が画面下端から入り、画面中央を過ぎるまでで 0→1 */
+        var span = r.height + vh*0.62;
+        var p = (vh*0.92 - r.top) / span;
+        p = p<0?0:(p>1?1:p);
+        var done=0;
+        for(var k=0;k<sk.length;k++){
+          var c = (p - k*0.11) / 0.46;
+          c = c<0?0:(c>1?1:c);
+          sk[k].style.setProperty("--c", c.toFixed(3));
+          if(c>=0.999) done++;
+          labels[k].classList.toggle("on", c>0.55);
+        }
+        var bp = document.querySelector(".rack-bar");
+        if(bp) bp.style.setProperty("--p", p.toFixed(3));
+        if(done!==last){ last=done; if(numEl) numEl.textContent = done; }
+      }
+      function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+      window.addEventListener("scroll", onScroll, {passive:true});
+      window.addEventListener("resize", onScroll, {passive:true});
+      update();
+    }
+  }
 })();
 </script>
-
 </body>
 </html>

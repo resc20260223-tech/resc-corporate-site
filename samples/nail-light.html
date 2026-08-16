@@ -2,266 +2,819 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nail Salon Fleur｜ネイルサロン</title>
+<meta name="description" content="福岡のネイルサロン Nail Salon Fleur。一人ひとりの手の形やライフスタイルに合わせたデザインをご提案します。ハンドネイル・アートネイル・ブライダルネイル・フットネイル・ネイルケア・ジェルオフ。爪の形とカラーを画面上で選べるデザインシミュレーターもご用意しています。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --primary: #D8B2B2;
-    --primary-dark: #8B6363;
-    --primary-light: #E6C2C2;
-    --bg: #FDFBF7;
-    --accent: #D4AF37;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Cormorant Garamond', 'Shippori Mincho', serif; background: var(--bg); color: #2B2420; line-height: 1.8; letter-spacing: 0.02em; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  .notice {
-    background: var(--primary-dark); color: #fff; text-align: center;
-    font-size: 12.5px; padding: 8px 16px;
-  }
-  .notice a { color: #fff; text-decoration: underline; }
-  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
-  .hero img { width: 100%; height: 100%; object-fit: cover; transform-origin: 60% 35%; animation: hero-kenburns 20s ease-out infinite alternate; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.16); }
-  .hero-text {
-    position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; color: #fff; padding: 24px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25);
-  }
-  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.9; margin-bottom: 14px; }
-  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; letter-spacing: 0.1em; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
-  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+/* ==========================================================
+   Nail Salon Fleur — 「選べる」体験 / curves & dusty pastels
+   ========================================================== */
+:root{
+  --bg:#FBF7F5;
+  --bg2:#F5ECE8;
+  --bg3:#FFFFFF;
+  --ink:#463A3C;
+  --muted:#6E5E60;
+  --mauve:#8C5C70;
+  --mauve-mid:#B98CA0;
+  --mauve-lbl:#8F6076;
+  --mauve-soft:#E2CBD4;
+  --pink:#E9CFC4;
+  --pink-soft:#F5E4DC;
+  --sage:#A8BCA6;
+  --sage-d:#5C7160;
+  --line:#E7D8D2;
+  --line-soft:#F0E4DF;
+  --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --en:"Jost","Zen Kaku Gothic New",sans-serif;
+  --pad:clamp(20px,5vw,56px);
+  --maxw:1180px;
+  --r-lg:clamp(20px,3vw,34px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--jp);font-weight:400;font-size:16px;line-height:2.0;
+  letter-spacing:.03em;font-feature-settings:"palt" 1;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3,h4,p,ul,ol,li,figure,dl,dd,dt{margin:0;padding:0}
+ul,ol{list-style:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--mauve);outline-offset:3px;border-radius:4px}
 
-  @keyframes hero-kenburns {
-    from { transform: scale(1) translate(0, 0); }
-    to { transform: scale(1.08) translate(-1.5%, -1.5%); }
-  }
-  @keyframes hero-fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero img,
-    .hero-text h1,
-    .hero-text p {
-      animation: none;
-    }
-  }
-  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
-  .section-title { font-size: 26px; font-weight: 700; letter-spacing: 0.12em; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
-  .about { background: #F5EDE6; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  .about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; box-shadow: 0 16px 36px rgba(139,99,99,0.18); }
-  .about-content { text-align: left; }
-  .about-content .section-title { text-align: left; }
-  .about p { font-size: 14.5px; color: #4A4238; }
-  @media (max-width: 700px) {
-    .about-grid { grid-template-columns: 1fr; gap: 28px; }
-    .about-content { text-align: center; }
-    .about-content .section-title { text-align: center; }
-    .about-photo img { aspect-ratio: 16 / 10; }
-  }
-  .menu-category { margin-top: 48px; }
-  .menu-category:first-child { margin-top: 0; }
-  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 24px; text-align: center; }
-  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .menu-card {
-    display: flex; flex-direction: column; text-align: center;
-    background: #fff; border: 1px solid rgba(212,175,55,0.4); border-radius: 12px; padding: 18px 18px 22px;
-  }
-  .menu-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; }
-  .menu-card .menu-name { margin-top: 14px; font-size: 15px; font-weight: 700; color: #2B2420; }
-  .menu-card .menu-copy { margin-top: 8px; font-size: 12px; font-style: italic; letter-spacing: 0.02em; color: #8A8272; line-height: 1.6; flex: 1; }
-  .menu-card .menu-price { margin-top: 16px; font-size: 15px; font-weight: 700; color: var(--primary-dark); }
-  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .menu-grid { grid-template-columns: 1fr; } }
-  .gallery-marquee { overflow: hidden; }
-  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
-  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
-  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; border-radius: 6px; margin-right: 16px; overflow: hidden; }
-  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-  .gallery-item:hover img { transform: scale(1.05); }
-  @keyframes gallery-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gallery-track { animation: none; }
-    .gallery-marquee { overflow-x: auto; }
-  }
-  .contact { background: var(--bg); color: var(--primary-dark); text-align: center; }
-  .contact .section-title { color: var(--primary-dark); }
-  .contact-box {
-    width: fit-content; margin: 0 auto 24px; padding: 26px 42px;
-    background: #fff; border: 1px solid var(--accent); border-radius: 12px;
-  }
-  .contact p { font-size: 14px; margin-bottom: 8px; color: var(--primary-dark); }
-  .contact p:last-of-type { margin-bottom: 0; }
-  .contact .btn {
-    display: inline-block; margin-top: 24px; background: #fff; color: var(--accent);
-    border: 1px solid var(--accent); padding: 12px 34px; border-radius: 999px;
-    font-weight: 700; letter-spacing: 0.04em; font-size: 13.5px;
-    transition: background 0.25s ease, color 0.25s ease;
-  }
-  .contact .btn:hover { background: var(--accent); color: #fff; }
-  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; background: var(--bg); }
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.wrap-n{max-width:900px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.sec{padding:clamp(56px,8.4vw,110px) 0}
 
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
-  .menu-grid .menu-card:nth-child(1) { transition-delay: 0s; }
-  .menu-grid .menu-card:nth-child(2) { transition-delay: 0.1s; }
-  .menu-grid .menu-card:nth-child(3) { transition-delay: 0.2s; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
+.skip{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip:focus{position:fixed;left:10px;top:10px;z-index:99;width:auto;height:auto;clip-path:none;
+  background:var(--mauve);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px}
 
-  /* ---- LINE連携ボタン（cafe-light.html と同一実装） ---- */
-  .line-btn {
-    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
-    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
-    line-height: 21px;
+/* ---------- 見出し共通 ---------- */
+.eyebrow{
+  font-family:var(--en);font-weight:300;font-size:12px;letter-spacing:.42em;
+  text-transform:uppercase;color:var(--mauve);margin-bottom:14px;line-height:1.6;
+}
+.h-sec{
+  font-weight:300;font-size:clamp(24px,4.2vw,38px);line-height:1.65;letter-spacing:.06em;
+}
+.lead{color:var(--muted);font-weight:300;line-height:2.15;font-size:clamp(14.5px,1.6vw,16px)}
+
+/* ---------- 告知バー ---------- */
+.notice{background:#4A3A40;color:#FBF1EE;font-size:12.5px;line-height:1.7;letter-spacing:.02em}
+.notice-in{max-width:var(--maxw);margin:0 auto;padding:9px var(--pad);
+  display:flex;flex-wrap:wrap;gap:4px 20px;align-items:baseline;justify-content:space-between}
+.notice a{color:#F2D8DF;text-underline-offset:3px;white-space:nowrap}
+.notice a:hover{color:#fff}
+.notice a:focus-visible{outline-color:#F2D8DF}
+
+/* ---------- ヘッダー ---------- */
+.hd{position:relative;z-index:5}
+.hd-in{max-width:var(--maxw);margin:0 auto;padding:20px var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:14px 28px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand-mark{width:26px;height:32px;flex:none}
+.brand-t{font-family:var(--en);font-weight:400;font-size:17px;letter-spacing:.2em;line-height:1.2}
+.brand-s{display:block;font-family:var(--jp);font-weight:300;font-size:10.5px;letter-spacing:.3em;color:var(--muted);margin-top:3px}
+.nav{display:flex;align-items:center;gap:6px 26px;flex-wrap:wrap}
+.nav a{font-size:13px;letter-spacing:.13em;font-weight:400;text-decoration:none;color:var(--muted);
+  padding:4px 0;position:relative;transition:color .3s}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--mauve-mid);transition:right .35s}
+.nav a:hover{color:var(--mauve)}
+.nav a:hover::after{right:0}
+.btn-line{
+  display:inline-flex;align-items:center;gap:8px;background:var(--mauve);color:#fff;
+  font-size:12.5px;letter-spacing:.12em;text-decoration:none;
+  padding:10px 20px;border-radius:999px;transition:background .3s,transform .3s;
+}
+.btn-line:hover{background:#7A4A5E;transform:translateY(-1px)}
+.btn-line:focus-visible{outline-color:#7A4A5E}
+
+/* ---------- ヒーロー ---------- */
+.hero{position:relative;padding-top:clamp(26px,5vw,54px);overflow:hidden}
+.hero-deco{position:absolute;inset:-6% -4% auto -4%;height:min(620px,86vw);pointer-events:none;z-index:0}
+.blob{position:absolute;border-radius:52% 48% 44% 56%/56% 42% 58% 44%;filter:blur(30px);opacity:.62}
+.b1{width:26vw;height:24vw;min-width:180px;min-height:170px;left:6%;top:8%;background:var(--pink)}
+.b2{width:22vw;height:21vw;min-width:150px;min-height:145px;left:34%;top:-4%;background:var(--mauve-soft)}
+.b3{width:18vw;height:18vw;min-width:130px;min-height:130px;right:14%;top:12%;background:#D9E3D6}
+.b4{width:14vw;height:14vw;min-width:100px;min-height:100px;right:4%;top:44%;background:var(--pink-soft)}
+.b5{width:16vw;height:15vw;min-width:110px;min-height:105px;left:16%;top:48%;background:#EFD9E1}
+.hero-in{position:relative;z-index:1;text-align:center;padding-bottom:clamp(34px,6vw,66px)}
+.hero-h1{font-weight:300;margin:0}
+.hero-en{display:block;font-family:var(--en);font-weight:300;font-size:clamp(12px,1.5vw,14px);
+  letter-spacing:.46em;text-indent:.46em;color:var(--mauve);margin-bottom:clamp(20px,3.2vw,32px)}
+.hero-jp{display:block;font-size:clamp(28px,6.2vw,62px);line-height:1.5;letter-spacing:.09em;color:var(--ink)}
+.hero-jp .ln{display:inline-block}
+.hero-sub{margin-top:clamp(20px,3vw,30px);color:var(--muted);font-weight:300;font-size:clamp(13px,1.6vw,15px);letter-spacing:.14em}
+.hero-fig{position:relative;z-index:1;margin:0 auto;max-width:1300px;padding:0 var(--pad)}
+.hero-fig img{width:100%;aspect-ratio:16/8.2;object-fit:cover;border-radius:clamp(24px,5vw,64px)}
+
+/* ---------- About ---------- */
+.about{position:relative}
+.about-in{display:grid;gap:clamp(26px,4vw,56px);align-items:start;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)}
+.about-h{font-weight:300;font-size:clamp(20px,3vw,29px);line-height:1.9;letter-spacing:.08em}
+.about-p{margin-top:0}
+.arc{display:block;width:100%;max-width:340px;height:auto;margin-top:30px;color:var(--mauve-soft)}
+.about-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.tag{border:1px solid var(--line);border-radius:999px;padding:5px 15px;font-size:12px;
+  letter-spacing:.1em;color:var(--muted);font-weight:300;background:#fff}
+
+/* ---------- シミュレーター ---------- */
+.sim-sec{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 22%,var(--bg2) 78%,var(--bg) 100%)}
+.sim-head{text-align:center;max-width:640px;margin:0 auto clamp(30px,5vw,54px)}
+.sim{display:grid;gap:clamp(24px,4vw,52px);grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center}
+.sim-stage{
+  position:relative;background:var(--bg3);border-radius:clamp(30px,6vw,72px);
+  padding:clamp(14px,3vw,26px);box-shadow:0 24px 60px -34px rgba(105,70,80,.34);
+}
+.hand-svg{display:block;width:100%;height:auto;max-width:430px;margin:0 auto}
+.skin,.palm{fill:#F4E1D8;stroke:#E1C3B7;stroke-width:1.1}
+.palm-sh{fill:none;stroke:#E1C3B7;stroke-width:1.1;opacity:.7}
+.nailbed{fill:#E9D0C6}
+.nail-fill{stroke:rgba(96,62,68,.2);stroke-width:.9;
+  transition:d .55s cubic-bezier(.32,.72,.24,1),fill .5s ease}
+.nail-gloss{fill:url(#gloss);pointer-events:none;
+  transition:d .55s cubic-bezier(.32,.72,.24,1)}
+.shine{fill:#fff;opacity:.34}
+.stage-blob{fill:#FAEFE9}
+.stage-blob2{fill:#F1E6EC}
+
+.sim-readout{
+  margin-top:10px;text-align:center;font-size:13px;letter-spacing:.1em;color:var(--muted);
+  font-weight:300;
+}
+.sim-readout b{font-weight:500;color:var(--mauve)}
+
+.grp{margin-bottom:clamp(22px,3.4vw,34px)}
+.grp-t{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+.grp-t .jpn{font-size:14px;letter-spacing:.16em;font-weight:400}
+.grp-t .enn{font-family:var(--en);font-weight:300;font-size:10.5px;letter-spacing:.3em;color:var(--mauve-lbl);text-transform:uppercase}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+
+.opt{
+  background:#fff;border:1px solid var(--line);border-radius:999px;cursor:pointer;
+  padding:9px 8px 10px;min-width:98px;flex:1 1 98px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  transition:border-color .3s,background .3s,transform .3s,box-shadow .3s;
+}
+.opt .oshape{display:block;width:22px;height:26px}
+.opt .olabel{font-size:12.5px;letter-spacing:.1em;line-height:1.4;font-weight:400}
+.opt:hover{border-color:var(--mauve-mid);transform:translateY(-2px)}
+.opt[aria-pressed="true"]{border-color:var(--mauve);background:#fff;
+  box-shadow:0 0 0 1px var(--mauve),0 10px 22px -16px rgba(105,70,80,.6)}
+.opt[aria-pressed="true"] .oshape{color:var(--mauve)}
+.opt .oshape{color:#CDB9BF}
+
+.sw{
+  background:#fff;border:1px solid var(--line);border-radius:999px;cursor:pointer;
+  padding:7px 15px 7px 8px;display:inline-flex;align-items:center;gap:9px;
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+}
+.sw-dot{width:20px;height:24px;border-radius:60% 60% 46% 46%/70% 70% 34% 34%;
+  box-shadow:inset 0 0 0 1px rgba(80,50,60,.14);flex:none}
+.sw-name{font-size:12.5px;letter-spacing:.08em;font-weight:400;white-space:nowrap}
+.sw:hover{border-color:var(--mauve-mid);transform:translateY(-2px)}
+.sw[aria-pressed="true"]{border-color:var(--mauve);
+  box-shadow:0 0 0 1px var(--mauve),0 10px 22px -16px rgba(105,70,80,.6)}
+.sim-note{margin-top:18px;font-size:12px;line-height:1.95;color:var(--muted);font-weight:300;
+  border-left:2px solid var(--mauve-soft);padding-left:14px}
+
+/* ---------- メニュー ---------- */
+.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 30px;flex-wrap:wrap;
+  margin-bottom:clamp(26px,4vw,48px)}
+.menu-note{font-size:12px;color:var(--muted);font-weight:300;letter-spacing:.08em}
+
+.hand-grid{display:grid;grid-template-columns:repeat(12,1fr);
+  gap:clamp(34px,5vw,72px) clamp(20px,3vw,40px)}
+.hc1{grid-column:1/8}
+.hc2{grid-column:8/13;align-self:end}
+.hc3{grid-column:4/11}
+.mcard .ph{overflow:hidden;border-radius:clamp(18px,2.6vw,30px);background:var(--bg2)}
+.mcard .ph img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .85s cubic-bezier(.2,.7,.2,1)}
+.mcard:hover .ph img,.mcard:focus-within .ph img{transform:scale(1.055)}
+.hc2 .ph img{aspect-ratio:1/1}
+.hc3 .ph img{aspect-ratio:16/9}
+.mtxt{padding-top:20px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px}
+.mname{font-weight:400;font-size:clamp(17px,2.1vw,21px);letter-spacing:.1em;line-height:1.6;width:100%}
+.mname .men{display:block;font-family:var(--en);font-weight:300;font-size:10.5px;
+  letter-spacing:.3em;color:var(--mauve-lbl);text-transform:uppercase;margin-top:5px}
+.mdesc{width:100%;color:var(--muted);font-weight:300;font-size:14px;line-height:1.95;margin-top:8px}
+.mprice{font-family:var(--en);font-weight:300;font-size:clamp(19px,2.4vw,24px);
+  letter-spacing:.04em;color:var(--ink);margin-top:12px}
+.mlink{
+  margin-top:12px;font-size:12px;letter-spacing:.12em;color:var(--mauve);text-decoration:none;
+  display:inline-flex;align-items:center;gap:7px;border-bottom:1px solid transparent;
+  transition:border-color .3s,gap .3s;padding-bottom:2px;
+}
+.mlink svg{width:15px;height:8px;flex:none}
+.mlink:hover{border-color:var(--mauve-mid);gap:11px}
+
+/* フット・ケア：行組み */
+.care-wrap{margin-top:clamp(58px,8vw,104px)}
+.care-list{border-top:1px solid var(--line);margin-top:clamp(22px,3.4vw,34px)}
+.crow{
+  border-bottom:1px solid var(--line);padding:clamp(18px,2.6vw,26px) 0;
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px clamp(18px,3vw,34px);
+  align-items:center;
+}
+.cph{overflow:hidden;width:clamp(74px,9vw,96px);border-radius:56px 56px 14px 14px;background:var(--bg2)}
+.cph img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .85s cubic-bezier(.2,.7,.2,1)}
+.crow:hover .cph img,.crow:focus-within .cph img{transform:scale(1.08)}
+.cname{font-weight:400;font-size:clamp(16px,1.9vw,19px);letter-spacing:.1em;line-height:1.6}
+.cname .men{font-family:var(--en);font-weight:300;font-size:10px;letter-spacing:.28em;
+  color:var(--mauve-lbl);text-transform:uppercase;margin-left:12px}
+.cdesc{color:var(--muted);font-weight:300;font-size:13.5px;line-height:1.9;margin-top:5px}
+.cright{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.cprice{font-family:var(--en);font-weight:300;font-size:clamp(18px,2.2vw,22px);letter-spacing:.04em;white-space:nowrap}
+
+/* ---------- ギャラリー ---------- */
+.gal-sec{background:var(--bg2)}
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(26px,4vw,50px) clamp(18px,3vw,36px);
+  margin-top:clamp(26px,4vw,48px)}
+.gitem{margin:0}
+.g1{grid-column:1/8}
+.g2{grid-column:8/13;align-self:end}
+.g3{grid-column:3/11}
+.gitem .gph{overflow:hidden;border-radius:clamp(18px,2.6vw,32px);background:#fff}
+.gitem img{width:100%;object-fit:cover}
+.g1 img{aspect-ratio:16/10}
+.g2 img{aspect-ratio:4/5}
+.g3 img{aspect-ratio:16/8}
+.gcap{margin-top:12px;display:flex;align-items:baseline;gap:12px;font-size:12.5px;
+  color:var(--muted);font-weight:300;letter-spacing:.1em}
+.gcap .gn{font-family:var(--en);font-size:11px;letter-spacing:.24em;color:var(--mauve)}
+
+/* ---------- 店舗情報 ---------- */
+.info{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(26px,4vw,60px)}
+.dl-info{margin-top:6px}
+.dl-info div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:6px 16px;
+  padding:16px 0;border-bottom:1px solid var(--line)}
+.dl-info dt{font-size:12px;letter-spacing:.18em;color:var(--mauve);font-weight:400;padding-top:3px}
+.dl-info dd{font-weight:300;line-height:1.95;font-size:15px}
+.contact-card{background:#fff;border-radius:var(--r-lg);padding:clamp(24px,4vw,42px);
+  box-shadow:0 22px 54px -36px rgba(105,70,80,.34)}
+.contact-card h3{font-weight:400;font-size:clamp(17px,2.2vw,21px);letter-spacing:.1em;line-height:1.7}
+.contact-card p{color:var(--muted);font-weight:300;font-size:14px;line-height:2;margin-top:12px}
+.ctas{display:flex;flex-direction:column;gap:12px;margin-top:24px;max-width:400px}
+.cta{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  padding:14px 26px;border-radius:999px;font-size:13.5px;letter-spacing:.12em;text-decoration:none;
+  transition:background .3s,color .3s,transform .3s,border-color .3s}
+.cta-1{background:var(--mauve);color:#fff}
+.cta-1:hover{background:#7A4A5E;transform:translateY(-2px)}
+.cta-2{border:1px solid var(--mauve);color:var(--mauve);background:#fff}
+.cta-2:hover{background:var(--pink-soft);transform:translateY(-2px)}
+.cta svg{width:16px;height:16px;flex:none}
+
+/* ---------- フッター ---------- */
+.ft{background:#4A3A40;color:#F6EAE7;margin-top:clamp(40px,7vw,90px)}
+.ft-in{max-width:var(--maxw);margin:0 auto;padding:clamp(34px,5vw,54px) var(--pad);
+  display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between}
+.ft-brand{font-family:var(--en);font-size:15px;letter-spacing:.22em;font-weight:300}
+.ft-note{font-size:12px;letter-spacing:.08em;color:#DCC5C9;font-weight:300}
+.ft a{color:#F2D8DF;text-underline-offset:3px}
+.ft a:focus-visible{outline-color:#F2D8DF}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width:1024px){
+  .sim{grid-template-columns:1fr;gap:clamp(24px,4vw,40px)}
+  .sim-stage{max-width:460px;margin:0 auto;width:100%}
+  .sim-ctrl{max-width:560px;margin:0 auto;width:100%}
+}
+@media (max-width:860px){
+  .about-in{grid-template-columns:1fr}
+  .info{grid-template-columns:1fr}
+}
+@media (max-width:768px){
+  body{line-height:1.95}
+  .hc1,.hc2,.hc3{grid-column:1/13}
+  .hc2 .ph img,.hc3 .ph img{aspect-ratio:4/3}
+  .g1,.g2,.g3{grid-column:1/13}
+  .g2 img{aspect-ratio:4/3}
+  .g3 img{aspect-ratio:16/10}
+  .crow{grid-template-columns:auto minmax(0,1fr);row-gap:12px}
+  .cright{grid-column:1/3;flex-direction:row;align-items:center;justify-content:space-between;width:100%}
+  .hd-in{justify-content:center;text-align:center}
+  .nav{justify-content:center;order:3;width:100%;gap:6px 20px}
+}
+@media (max-width:520px){
+  .dl-info div{grid-template-columns:1fr}
+  .opt{min-width:0;flex:1 1 88px}
+  .hero-fig{padding:0 16px}
+  .hero-fig img{aspect-ratio:4/3.1}
+}
+
+/* ---------- モーション ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .rv{opacity:0;transform:translateY(26px);
+    transition:opacity .9s cubic-bezier(.22,.7,.2,1),transform .9s cubic-bezier(.22,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .rv-d1{transition-delay:.12s}.rv-d2{transition-delay:.24s}.rv-d3{transition-delay:.36s}
+
+  .gitem .gph img{filter:blur(10px);opacity:0;transform:scale(1.06);
+    transition:filter 1.1s ease,opacity 1.1s ease,transform 1.2s cubic-bezier(.22,.7,.2,1)}
+  .gitem.in .gph img{filter:blur(0);opacity:1;transform:none}
+
+  /* 導入：やわらかい形がふわりと集まる */
+  .blob{opacity:0;animation:gather 1.5s cubic-bezier(.18,.78,.22,1) forwards}
+  .b1{animation-delay:.05s;--dx:-14vw;--dy:9vh}
+  .b2{animation-delay:.16s;--dx:11vw;--dy:-8vh}
+  .b3{animation-delay:.27s;--dx:13vw;--dy:8vh}
+  .b4{animation-delay:.38s;--dx:9vw;--dy:11vh}
+  .b5{animation-delay:.2s;--dx:-12vw;--dy:-9vh}
+  @keyframes gather{
+    0%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.42)}
+    60%{opacity:.68}
+    100%{opacity:.62;transform:translate(0,0) scale(1)}
   }
-  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
-  .contact .line-wrap { margin-top: 18px; }
+  .hero-en{opacity:0;animation:rise .95s .34s cubic-bezier(.22,.7,.2,1) forwards}
+  .hero-jp{opacity:0;animation:rise 1.05s .48s cubic-bezier(.22,.7,.2,1) forwards}
+  .hero-sub{opacity:0;animation:rise 1s .68s cubic-bezier(.22,.7,.2,1) forwards}
+  @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .hero-fig img{opacity:0;animation:soften 1.35s .8s cubic-bezier(.22,.7,.2,1) forwards}
+  @keyframes soften{
+    from{opacity:0;filter:blur(14px);transform:scale(1.035)}
+    to{opacity:1;filter:blur(0);transform:none}
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">本文へスキップ</a>
 
-<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
-
-<div class="hero">
-  <img src="images/nail/nail_hero.webp" alt="Nail Salon Fleur">
-  <div class="hero-text">
-    <div class="label">ネイルサロン</div>
-    <h1>指先から、じぶんを好きになる。</h1>
-    <p>Nail Salon Fleur</p>
+<div class="notice">
+  <div class="notice-in">
+    <span>これはRESCが作成したサンプルサイトです。実店舗ではありません。</span>
+    <a href="../hp-service/index.html">RESCのサイトに戻る</a>
   </div>
 </div>
 
-<section class="about reveal">
-  <div class="about-grid">
-    <div class="about-photo">
-      <img src="images/nail/nail_menu_geloff.webp" alt="ネイリストが丁寧にジェルネイルを施術している様子">
+<header class="hd">
+  <div class="hd-in">
+    <a class="brand" href="#main">
+      <svg class="brand-mark" viewBox="0 0 26 32" aria-hidden="true">
+        <path d="M13 1.6C6.9 1.6 2.4 6 2.4 12.2c0 7.6 5.4 13.9 10.6 18.2 5.2-4.3 10.6-10.6 10.6-18.2C23.6 6 19.1 1.6 13 1.6Z" fill="none" stroke="#B98CA0" stroke-width="1.3"/>
+        <path d="M13 7.4c-3 0-5.2 2.2-5.2 5.3 0 3.9 2.8 7 5.2 9.2 2.4-2.2 5.2-5.3 5.2-9.2 0-3.1-2.2-5.3-5.2-5.3Z" fill="#E9CFC4"/>
+      </svg>
+      <span class="brand-t">Nail Salon Fleur<span class="brand-s">ネイルサロン フルール</span></span>
+    </a>
+    <nav class="nav" aria-label="サイト内">
+      <a href="#about">サロンについて</a>
+      <a href="#simulator">シミュレーター</a>
+      <a href="#menu">メニュー</a>
+      <a href="#gallery">ギャラリー</a>
+      <a href="#info">店舗情報</a>
+    </nav>
+    <a class="btn-line" href="https://lin.ee/z3rP0hO">
+      <svg viewBox="0 0 16 16" aria-hidden="true" width="15" height="15" fill="currentColor"><path d="M8 1.4c3.9 0 7 2.5 7 5.6 0 1.2-.5 2.4-1.4 3.4-1.3 1.5-4.2 3.4-4.9 3.7-.6.3-.6-.2-.5-.5l.2-1c0-.2 0-.5-.1-.6-.2-.1-.4-.2-.7-.2C3.5 11.4.9 9.2 1 6.9 1.1 3.9 4.1 1.4 8 1.4Z"/></svg>
+      LINEで問い合わせる
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ ヒーロー ============ -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero-deco" aria-hidden="true">
+      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+      <span class="blob b4"></span><span class="blob b5"></span>
     </div>
-    <div class="about-content">
-      <div class="section-title">こだわり</div>
-      <p>一人ひとりの手の形や普段のライフスタイルに合わせたデザインをご提案。丁寧なケアと心地よい時間で、指先からリフレッシュしていただけます。</p>
+    <div class="wrap hero-in">
+      <h1 class="hero-h1" id="h1">
+        <span class="hero-en">Nail Salon Fleur</span>
+        <span class="hero-jp"><span class="ln">指先から、</span><span class="ln">じぶんを好きになる。</span></span>
+      </h1>
+      <p class="hero-sub">福岡のネイルサロン ／ 完全予約制</p>
     </div>
-  </div>
-</section>
+    <figure class="hero-fig">
+      <img src="images/nail/nail_hero.webp" alt="やわらかな光が入るNail Salon Fleurの店内。ピンクのチェアとネイルカラーの並んだ棚" width="1376" height="768" fetchpriority="high" decoding="async">
+    </figure>
+  </section>
 
-<section style="background:#fff;">
-  <div class="section-title">メニュー</div>
-
-  <div class="menu-category">
-    <div class="menu-category-title">ハンドネイル</div>
-    <div class="menu-grid">
-      <div class="menu-card reveal">
-        <img src="images/nail/nail_menu_hand.webp" alt="ハンドネイル">
-        <div class="menu-name">ハンドネイル</div>
-        <div class="menu-copy">シーンを選ばない、じぶん本来の美しさを引き出すワンカラー</div>
-        <div class="menu-price">¥6,600</div>
+  <!-- ============ About ============ -->
+  <section class="sec about" id="about" aria-labelledby="about-h">
+    <div class="wrap about-in">
+      <div class="rv">
+        <p class="eyebrow">About</p>
+        <h2 class="about-h" id="about-h">手の数だけ、<br>似合う指先があります。</h2>
+        <svg class="arc" viewBox="0 0 340 120" aria-hidden="true" fill="none">
+          <path d="M18 104C70 44 270 44 322 104" stroke="currentColor" stroke-width="1.1"/>
+          <g transform="translate(34,76) rotate(-24)"><path d="M0 30V13C0 5.8 5.8 0 13 0s13 5.8 13 13v17c0 3.9-5.8 6.4-13 6.4S0 33.9 0 30Z" transform="translate(-13,-18)" fill="#E4BFB1" stroke="rgba(96,62,68,.12)" stroke-width=".8"/></g>
+          <g transform="translate(100,54) rotate(-12)"><path d="M0 30V13C0 5.8 5.8 0 13 0s13 5.8 13 13v17c0 3.9-5.8 6.4-13 6.4S0 33.9 0 30Z" transform="translate(-13,-18)" fill="#B98CA0" stroke="rgba(96,62,68,.12)" stroke-width=".8"/></g>
+          <g transform="translate(170,44) rotate(0)"><path d="M0 30V13C0 5.8 5.8 0 13 0s13 5.8 13 13v17c0 3.9-5.8 6.4-13 6.4S0 33.9 0 30Z" transform="translate(-13,-18)" fill="#A8BCA6" stroke="rgba(96,62,68,.12)" stroke-width=".8"/></g>
+          <g transform="translate(240,54) rotate(12)"><path d="M0 30V13C0 5.8 5.8 0 13 0s13 5.8 13 13v17c0 3.9-5.8 6.4-13 6.4S0 33.9 0 30Z" transform="translate(-13,-18)" fill="#F1E6DE" stroke="rgba(96,62,68,.12)" stroke-width=".8"/></g>
+          <g transform="translate(306,76) rotate(24)"><path d="M0 30V13C0 5.8 5.8 0 13 0s13 5.8 13 13v17c0 3.9-5.8 6.4-13 6.4S0 33.9 0 30Z" transform="translate(-13,-18)" fill="#ADA3BE" stroke="rgba(96,62,68,.12)" stroke-width=".8"/></g>
+        </svg>
       </div>
-      <div class="menu-card reveal">
-        <img src="images/nail/nail_menu_art.webp" alt="アートネイル">
-        <div class="menu-name">アートネイル</div>
-        <div class="menu-copy">季節や気分を、指先で自由に描く</div>
-        <div class="menu-price">¥8,800</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/nail/nail_menu_bridal.webp" alt="ブライダルネイル">
-        <div class="menu-name">ブライダルネイル</div>
-        <div class="menu-copy">一生に一度の特別な日を、極上の輝きで彩る</div>
-        <div class="menu-price">¥13,200</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-category">
-    <div class="menu-category-title">フット・ケア</div>
-    <div class="menu-grid">
-      <div class="menu-card reveal">
-        <img src="images/nail/nail_menu_foot.webp" alt="フットネイル">
-        <div class="menu-name">フットネイル</div>
-        <div class="menu-copy">サンダルの季節も、素足に自信を</div>
-        <div class="menu-price">¥7,700</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/nail/nail_menu_care.webp" alt="ネイルケア">
-        <div class="menu-name">ネイルケア</div>
-        <div class="menu-copy">素の爪から美しく。すべての土台を整える</div>
-        <div class="menu-price">¥3,300</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/nail/nail_menu_geloff.webp" alt="ジェルオフ">
-        <div class="menu-name">ジェルオフ</div>
-        <div class="menu-copy">爪をいたわりながら、丁寧にオフ</div>
-        <div class="menu-price">¥2,200</div>
+      <div class="rv rv-d1">
+        <p class="lead about-p">一人ひとりの手の形や普段のライフスタイルに合わせたデザインをご提案。丁寧なケアと心地よい時間で、指先からリフレッシュしていただけます。</p>
+        <ul class="about-tags">
+          <li class="tag">ハンド</li>
+          <li class="tag">フット</li>
+          <li class="tag">ケア</li>
+          <li class="tag">ブライダル</li>
+          <li class="tag">ジェルオフ</li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="section-title reveal">ギャラリー</div>
-  <div class="gallery-marquee">
-    <div class="gallery-track">
-      <div class="gallery-item"><img src="images/nail/nail_gallery1.webp" alt="ネイルチップのデザインサンプル一覧"></div>
-      <div class="gallery-item"><img src="images/nail/nail_gallery2.webp" alt="ピンク基調のサロン内観・施術デスク"></div>
-      <div class="gallery-item"><img src="images/nail/nail_gallery3.webp" alt="花に囲まれた明るい待合スペース"></div>
-      <div class="gallery-item"><img src="images/nail/nail_gallery4.webp" alt="ネイルデザインのサンプルボード展示"></div>
-      <div class="gallery-item"><img src="images/nail/nail_gallery5.webp" alt="カラフルなネイルカラーが並ぶ棚"></div>
-      <div class="gallery-item"><img src="images/nail/nail_gallery6.webp" alt="受付・パウダールーム風のくつろぎスペース"></div>
-      <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery1.webp" alt=""></div>
-      <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery2.webp" alt=""></div>
-      <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery3.webp" alt=""></div>
-      <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery4.webp" alt=""></div>
-      <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery5.webp" alt=""></div>
-      <div class="gallery-item" aria-hidden="true"><img src="images/nail/nail_gallery6.webp" alt=""></div>
+  <!-- ============ シミュレーター ============ -->
+  <section class="sec sim-sec" id="simulator" aria-labelledby="sim-h">
+    <div class="wrap">
+      <div class="sim-head rv">
+        <p class="eyebrow">Design Simulator</p>
+        <h2 class="h-sec" id="sim-h">爪の形と色を選んで、<br>仕上がりを想像してみる。</h2>
+        <p class="lead" style="margin-top:16px">来店前に「こんな感じ」がつかめるように。形とカラーを切り替えると、プレビューの指先が変わります。</p>
+      </div>
+
+      <div class="sim">
+        <div class="sim-stage rv">
+          <svg class="hand-svg" viewBox="0 0 400 500" role="img" aria-label="爪の形とカラーを反映した手のプレビュー図">
+            <defs>
+              <linearGradient id="gloss" x1="0" y1="0" x2="0.32" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity=".52"/>
+                <stop offset=".55" stop-color="#ffffff" stop-opacity=".06"/>
+                <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g aria-hidden="true">
+              <path class="stage-blob" d="M104 176C86 106 140 40 224 36c86-4 148 54 146 126-2 74-64 124-146 126S122 246 104 176Z"/>
+              <path class="stage-blob2" d="M344 350c6 52-52 96-124 96-64 0-114-38-114-84 0-48 62-84 130-82 62 2 102 26 108 70Z" opacity=".6"/>
+              <circle cx="72" cy="112" r="7" fill="#E7C9D3"/>
+              <circle cx="352" cy="264" r="5" fill="#C9D8C6"/>
+              <circle cx="52" cy="300" r="4" fill="#EBD2C6"/>
+            </g>
+            <g class="hand">
+        <g class="fg" data-f="index" transform="translate(158,148) rotate(-6)">
+          <rect class="skin" x="-21.5" y="-44.0" width="43.0" height="234.0" rx="21.5"/>
+          <path class="nailbed" d="M -17.5 0 L -17.5 -17.2 C -17.5 -37.7 -9.6 -41.0 0.0 -41.0 C 9.6 -41.0 17.5 -37.7 17.5 -17.2 L 17.5 0 Q 0.0 5.7 -17.5 0 Z"/>
+          <path class="np nail-fill" data-w="35" data-h="41" d="M -17.5 0 L -17.5 -17.2 C -17.5 -37.7 -9.6 -41.0 0.0 -41.0 C 9.6 -41.0 17.5 -37.7 17.5 -17.2 L 17.5 0 Q 0.0 5.7 -17.5 0 Z"/>
+          <path class="np nail-gloss" d="M -17.5 0 L -17.5 -17.2 C -17.5 -37.7 -9.6 -41.0 0.0 -41.0 C 9.6 -41.0 17.5 -37.7 17.5 -17.2 L 17.5 0 Q 0.0 5.7 -17.5 0 Z"/>
+          <ellipse class="shine" cx="-6.0" cy="-23.0" rx="5.2" ry="7.8"/>
+        </g>
+        <g class="fg" data-f="middle" transform="translate(207,120) rotate(-1)">
+          <rect class="skin" x="-22.5" y="-47.0" width="45.0" height="265.0" rx="22.5"/>
+          <path class="nailbed" d="M -18.5 0 L -18.5 -18.5 C -18.5 -40.5 -10.2 -44.0 0.0 -44.0 C 10.2 -44.0 18.5 -40.5 18.5 -18.5 L 18.5 0 Q 0.0 6.2 -18.5 0 Z"/>
+          <path class="np nail-fill" data-w="37" data-h="44" d="M -18.5 0 L -18.5 -18.5 C -18.5 -40.5 -10.2 -44.0 0.0 -44.0 C 10.2 -44.0 18.5 -40.5 18.5 -18.5 L 18.5 0 Q 0.0 6.2 -18.5 0 Z"/>
+          <path class="np nail-gloss" d="M -18.5 0 L -18.5 -18.5 C -18.5 -40.5 -10.2 -44.0 0.0 -44.0 C 10.2 -44.0 18.5 -40.5 18.5 -18.5 L 18.5 0 Q 0.0 6.2 -18.5 0 Z"/>
+          <ellipse class="shine" cx="-6.3" cy="-24.6" rx="5.5" ry="8.4"/>
+        </g>
+        <g class="fg" data-f="ring" transform="translate(255,148) rotate(5)">
+          <rect class="skin" x="-21.5" y="-44.0" width="43.0" height="236.0" rx="21.5"/>
+          <path class="nailbed" d="M -17.5 0 L -17.5 -17.2 C -17.5 -37.7 -9.6 -41.0 0.0 -41.0 C 9.6 -41.0 17.5 -37.7 17.5 -17.2 L 17.5 0 Q 0.0 5.7 -17.5 0 Z"/>
+          <path class="np nail-fill" data-w="35" data-h="41" d="M -17.5 0 L -17.5 -17.2 C -17.5 -37.7 -9.6 -41.0 0.0 -41.0 C 9.6 -41.0 17.5 -37.7 17.5 -17.2 L 17.5 0 Q 0.0 5.7 -17.5 0 Z"/>
+          <path class="np nail-gloss" d="M -17.5 0 L -17.5 -17.2 C -17.5 -37.7 -9.6 -41.0 0.0 -41.0 C 9.6 -41.0 17.5 -37.7 17.5 -17.2 L 17.5 0 Q 0.0 5.7 -17.5 0 Z"/>
+          <ellipse class="shine" cx="-6.0" cy="-23.0" rx="5.2" ry="7.8"/>
+        </g>
+        <g class="fg" data-f="pinky" transform="translate(297,200) rotate(13)">
+          <rect class="skin" x="-18.5" y="-37.0" width="37.0" height="189.0" rx="18.5"/>
+          <path class="nailbed" d="M -14.5 0 L -14.5 -14.3 C -14.5 -31.3 -8.0 -34.0 0.0 -34.0 C 8.0 -34.0 14.5 -31.3 14.5 -14.3 L 14.5 0 Q 0.0 4.8 -14.5 0 Z"/>
+          <path class="np nail-fill" data-w="29" data-h="34" d="M -14.5 0 L -14.5 -14.3 C -14.5 -31.3 -8.0 -34.0 0.0 -34.0 C 8.0 -34.0 14.5 -31.3 14.5 -14.3 L 14.5 0 Q 0.0 4.8 -14.5 0 Z"/>
+          <path class="np nail-gloss" d="M -14.5 0 L -14.5 -14.3 C -14.5 -31.3 -8.0 -34.0 0.0 -34.0 C 8.0 -34.0 14.5 -31.3 14.5 -14.3 L 14.5 0 Q 0.0 4.8 -14.5 0 Z"/>
+          <ellipse class="shine" cx="-4.9" cy="-19.0" rx="4.3" ry="6.5"/>
+        </g>
+        <g class="fg" data-f="thumb" transform="translate(86,336) rotate(-52)">
+          <rect class="skin" x="-24.5" y="-44.0" width="49.0" height="176.0" rx="24.5"/>
+          <path class="nailbed" d="M -20.5 0 L -20.5 -17.2 C -20.5 -37.7 -11.3 -41.0 0.0 -41.0 C 11.3 -41.0 20.5 -37.7 20.5 -17.2 L 20.5 0 Q 0.0 5.7 -20.5 0 Z"/>
+          <path class="np nail-fill" data-w="41" data-h="41" d="M -20.5 0 L -20.5 -17.2 C -20.5 -37.7 -11.3 -41.0 0.0 -41.0 C 11.3 -41.0 20.5 -37.7 20.5 -17.2 L 20.5 0 Q 0.0 5.7 -20.5 0 Z"/>
+          <path class="np nail-gloss" d="M -20.5 0 L -20.5 -17.2 C -20.5 -37.7 -11.3 -41.0 0.0 -41.0 C 11.3 -41.0 20.5 -37.7 20.5 -17.2 L 20.5 0 Q 0.0 5.7 -20.5 0 Z"/>
+          <ellipse class="shine" cx="-7.0" cy="-23.0" rx="6.1" ry="7.8"/>
+        </g>
+              <path class="palm" d="M296 300C306 352 300 404 280 436C268 456 262 478 260 500L176 500C174 478 168 456 156 436C136 404 130 352 140 300C180 284 256 284 296 300Z"/>
+              <path class="palm-sh" d="M162 424c26 18 82 18 108 0"/>
+            </g>
+          </svg>
+          <p class="sim-readout" id="simReadout" aria-live="polite">いま表示中：<b>ラウンド</b> ／ <b>ピンクベージュ</b></p>
+        </div>
+
+        <div class="sim-ctrl rv rv-d1">
+          <div class="grp">
+            <p class="grp-t" id="lbl-shape"><span class="jpn">爪の形をえらぶ</span><span class="enn">Shape</span></p>
+            <div class="opts" role="group" aria-labelledby="lbl-shape" id="shapeGroup">
+              <button type="button" class="opt" data-shape="round" aria-pressed="true">
+                <svg class="oshape" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 25V11C2 4.5 5.6 1 11 1s9 3.5 9 10v14Z" fill="currentColor"/></svg>
+                <span class="olabel">ラウンド</span>
+              </button>
+              <button type="button" class="opt" data-shape="oval" aria-pressed="false">
+                <svg class="oshape" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 25V13C2 4 6 1 11 1s9 3 9 12v12Z" fill="currentColor"/></svg>
+                <span class="olabel">オーバル</span>
+              </button>
+              <button type="button" class="opt" data-shape="square" aria-pressed="false">
+                <svg class="oshape" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 25V6a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v19Z" fill="currentColor"/></svg>
+                <span class="olabel">スクエア</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="grp">
+            <p class="grp-t" id="lbl-color"><span class="jpn">カラーをえらぶ</span><span class="enn">Color</span></p>
+            <div class="opts" role="group" aria-labelledby="lbl-color" id="colorGroup">
+              <button type="button" class="sw" data-color="#E4BFB1" data-name="ピンクベージュ" aria-pressed="true">
+                <span class="sw-dot" style="background:#E4BFB1" aria-hidden="true"></span><span class="sw-name">ピンクベージュ</span>
+              </button>
+              <button type="button" class="sw" data-color="#B98CA0" data-name="モーヴ" aria-pressed="false">
+                <span class="sw-dot" style="background:#B98CA0" aria-hidden="true"></span><span class="sw-name">モーヴ</span>
+              </button>
+              <button type="button" class="sw" data-color="#A8BCA6" data-name="セージ" aria-pressed="false">
+                <span class="sw-dot" style="background:#A8BCA6" aria-hidden="true"></span><span class="sw-name">セージ</span>
+              </button>
+              <button type="button" class="sw" data-color="#F1E6DE" data-name="ミルクホワイト" aria-pressed="false">
+                <span class="sw-dot" style="background:#F1E6DE" aria-hidden="true"></span><span class="sw-name">ミルクホワイト</span>
+              </button>
+              <button type="button" class="sw" data-color="#ADA3BE" data-name="スモーキーラベンダー" aria-pressed="false">
+                <span class="sw-dot" style="background:#ADA3BE" aria-hidden="true"></span><span class="sw-name">スモーキーラベンダー</span>
+              </button>
+              <button type="button" class="sw" data-color="#C58A78" data-name="テラコッタ" aria-pressed="false">
+                <span class="sw-dot" style="background:#C58A78" aria-hidden="true"></span><span class="sw-name">テラコッタ</span>
+              </button>
+            </div>
+          </div>
+
+          <p class="sim-note">※ イメージを見ていただくための機能です。ここで選んだ形やカラーは単体のメニューではありません。実際の仕上がりや色味は、当日カウンセリングでご相談ください。</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="contact reveal">
-  <div class="section-title">アクセス・お問い合わせ</div>
-  <div class="contact-box">
-    <p>福岡県福岡市〇〇区〇〇7-1-4</p>
-    <p>営業時間:10:00〜19:00（定休日:不定休）</p>
-  </div>
-  <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
-  <div class="line-wrap">
-    <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
-    <p class="line-note">LINEでのお問い合わせも承っています。</p>
-  </div>
-</section>
+  <!-- ============ メニュー ============ -->
+  <section class="sec" id="menu" aria-labelledby="menu-h">
+    <div class="wrap">
+      <div class="menu-head rv">
+        <div>
+          <p class="eyebrow">Hand</p>
+          <h2 class="h-sec" id="menu-h">ハンドネイル</h2>
+        </div>
+        <p class="menu-note">表示価格はすべて税込です</p>
+      </div>
 
-<footer class="reveal">Nail Salon Fleur（RESC制作サンプル）</footer>
+      <div class="hand-grid">
+        <article class="mcard hc1 rv">
+          <figure class="ph"><img src="images/nail/nail_menu_hand.webp" alt="ワンカラーで整えたハンドネイルの指先" loading="lazy" width="800" height="597"></figure>
+          <div class="mtxt">
+            <h3 class="mname">ハンドネイル<span class="men">One Color</span></h3>
+            <p class="mdesc">シーンを選ばない、じぶん本来の美しさを引き出すワンカラー</p>
+            <p class="mprice">¥6,600</p>
+            <a class="mlink" href="#contact">このメニューを相談する
+              <svg viewBox="0 0 15 8" aria-hidden="true" fill="none"><path d="M0 4h13M9.6.8 13.4 4 9.6 7.2" stroke="currentColor" stroke-width="1"/></svg></a>
+          </div>
+        </article>
+
+        <article class="mcard hc2 rv rv-d1">
+          <figure class="ph"><img src="images/nail/nail_menu_art.webp" alt="色とりどりのアートを施したネイルの指先" loading="lazy" width="800" height="597"></figure>
+          <div class="mtxt">
+            <h3 class="mname">アートネイル<span class="men">Art</span></h3>
+            <p class="mdesc">季節や気分を、指先で自由に描く</p>
+            <p class="mprice">¥8,800</p>
+            <a class="mlink" href="#contact">このメニューを相談する
+              <svg viewBox="0 0 15 8" aria-hidden="true" fill="none"><path d="M0 4h13M9.6.8 13.4 4 9.6 7.2" stroke="currentColor" stroke-width="1"/></svg></a>
+          </div>
+        </article>
+
+        <article class="mcard hc3 rv">
+          <figure class="ph"><img src="images/nail/nail_menu_bridal.webp" alt="白とラメで上品に仕上げたブライダルネイルの指先" loading="lazy" width="800" height="597"></figure>
+          <div class="mtxt">
+            <h3 class="mname">ブライダルネイル<span class="men">Bridal</span></h3>
+            <p class="mdesc">一生に一度の特別な日を、極上の輝きで彩る</p>
+            <p class="mprice">¥13,200</p>
+            <a class="mlink" href="#contact">このメニューを相談する
+              <svg viewBox="0 0 15 8" aria-hidden="true" fill="none"><path d="M0 4h13M9.6.8 13.4 4 9.6 7.2" stroke="currentColor" stroke-width="1"/></svg></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="care-wrap">
+        <div class="menu-head rv" style="margin-bottom:0">
+          <div>
+            <p class="eyebrow">Foot &amp; Care</p>
+            <h2 class="h-sec">フット・ケア</h2>
+          </div>
+          <p class="menu-note">お仕上がりの目安は60〜90分です</p>
+        </div>
+
+        <ul class="care-list">
+          <li class="crow rv">
+            <figure class="cph"><img src="images/nail/nail_menu_foot.webp" alt="やわらかな色で整えたフットネイルの足元" loading="lazy" width="800" height="597"></figure>
+            <div class="ctxt">
+              <h3 class="cname">フットネイル<span class="men">Foot</span></h3>
+              <p class="cdesc">サンダルの季節も、素足に自信を</p>
+            </div>
+            <div class="cright">
+              <p class="cprice">¥7,700</p>
+              <a class="mlink" href="#contact">相談する
+                <svg viewBox="0 0 15 8" aria-hidden="true" fill="none"><path d="M0 4h13M9.6.8 13.4 4 9.6 7.2" stroke="currentColor" stroke-width="1"/></svg></a>
+            </div>
+          </li>
+          <li class="crow rv">
+            <figure class="cph"><img src="images/nail/nail_menu_care.webp" alt="ケアで整えられた自爪の手元" loading="lazy" width="800" height="597"></figure>
+            <div class="ctxt">
+              <h3 class="cname">ネイルケア<span class="men">Care</span></h3>
+              <p class="cdesc">素の爪から美しく。すべての土台を整える</p>
+            </div>
+            <div class="cright">
+              <p class="cprice">¥3,300</p>
+              <a class="mlink" href="#contact">相談する
+                <svg viewBox="0 0 15 8" aria-hidden="true" fill="none"><path d="M0 4h13M9.6.8 13.4 4 9.6 7.2" stroke="currentColor" stroke-width="1"/></svg></a>
+            </div>
+          </li>
+          <li class="crow rv">
+            <figure class="cph"><img src="images/nail/nail_menu_geloff.webp" alt="ジェルオフの施術を受けている手元" loading="lazy" width="800" height="597"></figure>
+            <div class="ctxt">
+              <h3 class="cname">ジェルオフ<span class="men">Gel Off</span></h3>
+              <p class="cdesc">爪をいたわりながら、丁寧にオフ</p>
+            </div>
+            <div class="cright">
+              <p class="cprice">¥2,200</p>
+              <a class="mlink" href="#contact">相談する
+                <svg viewBox="0 0 15 8" aria-hidden="true" fill="none"><path d="M0 4h13M9.6.8 13.4 4 9.6 7.2" stroke="currentColor" stroke-width="1"/></svg></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ギャラリー ============ -->
+  <section class="sec gal-sec" id="gallery" aria-labelledby="gal-h">
+    <div class="wrap">
+      <div class="rv">
+        <p class="eyebrow">Gallery</p>
+        <h2 class="h-sec" id="gal-h">色を選ぶ時間から、<br>もう施術ははじまっています。</h2>
+      </div>
+      <div class="gal">
+        <figure class="gitem g1">
+          <div class="gph"><img src="images/nail/nail_gallery1.webp" alt="トレーに並べられたパステルカラーのネイルチップ" loading="lazy" width="1200" height="670"></div>
+          <figcaption class="gcap"><span class="gn">01</span>その日の気分で選べるカラーチップ</figcaption>
+        </figure>
+        <figure class="gitem g2">
+          <div class="gph"><img src="images/nail/nail_gallery5.webp" alt="木の棚にグラデーション状に並ぶネイルカラーのボトル" loading="lazy" width="1200" height="670"></div>
+          <figcaption class="gcap"><span class="gn">02</span>棚いっぱいのカラーバリエーション</figcaption>
+        </figure>
+        <figure class="gitem g3">
+          <div class="gph"><img src="images/nail/nail_gallery3.webp" alt="花と観葉植物が置かれた明るいサロンの待合スペース" loading="lazy" width="1200" height="670"></div>
+          <figcaption class="gcap"><span class="gn">03</span>光と花のある、待ち時間</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 店舗情報 ============ -->
+  <section class="sec" id="info" aria-labelledby="info-h">
+    <div class="wrap info">
+      <div class="rv">
+        <p class="eyebrow">Information</p>
+        <h2 class="h-sec" id="info-h">店舗情報</h2>
+        <dl class="dl-info">
+          <div>
+            <dt>住所</dt>
+            <dd>福岡県福岡市〇〇区〇〇7-1-4</dd>
+          </div>
+          <div>
+            <dt>営業時間</dt>
+            <dd>10:00〜19:00（定休日:不定休）</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="rv rv-d1" id="contact">
+        <div class="contact-card">
+          <h3>ご予約・ご相談</h3>
+          <p>「どんなデザインが似合うかわからない」でも大丈夫です。手の形やお仕事のことを伺いながら、一緒に決めていきます。</p>
+          <div class="ctas">
+            <a class="cta cta-1" href="https://lin.ee/z3rP0hO">
+              <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 1.4c3.9 0 7 2.5 7 5.6 0 1.2-.5 2.4-1.4 3.4-1.3 1.5-4.2 3.4-4.9 3.7-.6.3-.6-.2-.5-.5l.2-1c0-.2 0-.5-.1-.6-.2-.1-.4-.2-.7-.2C3.5 11.4.9 9.2 1 6.9 1.1 3.9 4.1 1.4 8 1.4Z"/></svg>
+              LINEで問い合わせる
+            </a>
+            <a class="cta cta-2" href="mailto:info@example.com">
+              <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1.2" y="3" width="13.6" height="10" rx="2"/><path d="M1.8 4.2 8 8.6l6.2-4.4"/></svg>
+              メールで問い合わせる
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="ft-in">
+    <p class="ft-brand">Nail Salon Fleur</p>
+    <p class="ft-note">Nail Salon Fleur（RESC制作サンプル）／ <a href="../hp-service/index.html">RESCのサイトに戻る</a></p>
+  </div>
+</footer>
 
 <script>
-(function () {
-  const targets = document.querySelectorAll('.reveal');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){
+  "use strict";
 
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    targets.forEach(el => el.classList.add('is-visible'));
-    return;
+  /* ---------- スクロール表示 ---------- */
+  var rv = document.querySelectorAll('.rv,.gitem');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    rv.forEach(function(el){ io.observe(el); });
+  } else {
+    rv.forEach(function(el){ el.classList.add('in'); });
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  /* ---------- ネイル形状の生成 ---------- */
+  function nailPath(w, h, shape){
+    var hw = w/2, H, r, p1, c1, c2, q, f = function(v){ return (Math.round(v*10)/10); };
+    if (shape === 'oval'){
+      H = h*1.18;
+      p1 = [-hw, -H*0.32];
+      c1 = [[-hw*0.95,-H*0.84],[-hw*0.40,-H],[0,-H]];
+      c2 = [[hw*0.40,-H],[hw*0.95,-H*0.84],[hw,-H*0.32]];
+      q  = [0, H*0.12];
+    } else if (shape === 'square'){
+      H = h*0.88; r = hw*0.42;
+      p1 = [-hw, -(H-r)];
+      c1 = [[-hw,-H+r*0.45],[-hw+r*0.55,-H],[-hw+r,-H]];
+      c2 = [[hw-r,-H],[hw,-H],[hw,-(H-r)]];
+      q  = [0, H*0.16];
+    } else {
+      H = h;
+      p1 = [-hw, -H*0.42];
+      c1 = [[-hw,-H*0.92],[-hw*0.55,-H],[0,-H]];
+      c2 = [[hw*0.55,-H],[hw,-H*0.92],[hw,-H*0.42]];
+      q  = [0, H*0.14];
+    }
+    return 'M ' + f(-hw) + ' 0 L ' + f(p1[0]) + ' ' + f(p1[1]) +
+      ' C ' + f(c1[0][0]) + ' ' + f(c1[0][1]) + ' ' + f(c1[1][0]) + ' ' + f(c1[1][1]) + ' ' + f(c1[2][0]) + ' ' + f(c1[2][1]) +
+      ' C ' + f(c2[0][0]) + ' ' + f(c2[0][1]) + ' ' + f(c2[1][0]) + ' ' + f(c2[1][1]) + ' ' + f(c2[2][0]) + ' ' + f(c2[2][1]) +
+      ' L ' + f(hw) + ' 0 Q ' + f(q[0]) + ' ' + f(q[1]) + ' ' + f(-hw) + ' 0 Z';
+  }
 
-  targets.forEach(el => observer.observe(el));
+  var fingers  = Array.prototype.slice.call(document.querySelectorAll('.hand .fg'));
+  var readout  = document.getElementById('simReadout');
+  var shapeBtns= Array.prototype.slice.call(document.querySelectorAll('#shapeGroup .opt'));
+  var colorBtns= Array.prototype.slice.call(document.querySelectorAll('#colorGroup .sw'));
+  var SHAPE_JP = {round:'ラウンド', oval:'オーバル', square:'スクエア'};
+  var state = {shape:'round', color:'#E4BFB1', colorName:'ピンクベージュ'};
+
+  function paint(){
+    fingers.forEach(function(g){
+      var base = g.querySelector('.nail-fill');
+      var w = parseFloat(base.getAttribute('data-w'));
+      var h = parseFloat(base.getAttribute('data-h'));
+      var d = nailPath(w, h, state.shape);
+      Array.prototype.forEach.call(g.querySelectorAll('.np,.nailbed'), function(p){
+        p.setAttribute('d', d);
+        try { p.style.d = 'path("' + d + '")'; } catch(err){}
+      });
+      base.setAttribute('fill', state.color);
+    });
+    readout.innerHTML = 'いま表示中：<b>' + SHAPE_JP[state.shape] + '</b> ／ <b>' + state.colorName + '</b>';
+  }
+
+  function selectShape(btn){
+    state.shape = btn.getAttribute('data-shape');
+    shapeBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
+    paint();
+  }
+  function selectColor(btn){
+    state.color = btn.getAttribute('data-color');
+    state.colorName = btn.getAttribute('data-name');
+    colorBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
+    paint();
+  }
+
+  shapeBtns.forEach(function(b){ b.addEventListener('click', function(){ selectShape(b); }); });
+  colorBtns.forEach(function(b){ b.addEventListener('click', function(){ selectColor(b); }); });
+
+  /* 矢印キーでの移動＋選択 */
+  function arrows(list, pick){
+    list.forEach(function(b, i){
+      b.addEventListener('keydown', function(ev){
+        var k = ev.key, n = -1;
+        if (k === 'ArrowRight' || k === 'ArrowDown') n = (i + 1) % list.length;
+        else if (k === 'ArrowLeft' || k === 'ArrowUp') n = (i - 1 + list.length) % list.length;
+        else if (k === 'Home') n = 0;
+        else if (k === 'End') n = list.length - 1;
+        if (n < 0) return;
+        ev.preventDefault();
+        list[n].focus();
+        pick(list[n]);
+      });
+    });
+  }
+  arrows(shapeBtns, selectShape);
+  arrows(colorBtns, selectColor);
+
+  paint();
 })();
 </script>
-
 </body>
 </html>
