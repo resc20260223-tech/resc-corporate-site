@@ -335,15 +335,57 @@ ul{list-style:none}
   .gt.g3{grid-column:1/5}
   .gt.g4{grid-column:5/9;margin-top:clamp(20px,3.6vw,54px)}
   .gt.g5{grid-column:9/13;margin-top:clamp(6px,1.4vw,20px)}
-  .gt.g6{grid-column:3/11;margin-top:clamp(10px,2vw,28px)}
   .gt.g1 .gt-ph{aspect-ratio:16/10}
-  .gt.g3 .gt-ph,.gt.g4 .gt-ph,.gt.g5 .gt-ph{aspect-ratio:4/3}
-  .gt.g6 .gt-ph{aspect-ratio:21/9}
+  .gt.g2 .gt-ph,.gt.g3 .gt-ph,.gt.g4 .gt-ph,.gt.g5 .gt-ph{aspect-ratio:4/3}
 }
 @media (max-width:767px){
   .gt.g2,.gt.g4{margin-left:auto;width:88%}
   .gt.g3,.gt.g5{width:88%}
 }
+/* drawn panel — holds a tile slot without spending a photo */
+.gt-art{display:grid;place-items:center;background:var(--paper2);transition:background-color .25s linear}
+.gt-art::after{
+  content:"";position:absolute;inset:0;border-radius:10px;
+  box-shadow:inset 0 0 0 1px rgba(43,29,20,.09);pointer-events:none;
+}
+.gt-art svg{
+  width:76%;height:auto;color:var(--accent);
+  transition:color .25s linear,transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.gt-art svg *{stroke-linecap:round;stroke-linejoin:round}
+.gt:hover .gt-art svg,.gt:focus-within .gt-art svg{transform:scale(1.045)}
+
+/* closing band — typographic, no photo */
+.gt.gnote{grid-column:1/13;margin-top:clamp(16px,2.6vw,36px)}
+.gnote-in{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line-soft);
+  padding:clamp(24px,3.4vw,40px) 0 clamp(22px,3vw,34px);
+  display:grid;gap:clamp(22px,3vw,40px);
+}
+@media (min-width:768px){
+  .gnote-in{
+    grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+    align-items:center;gap:clamp(26px,4vw,72px);
+  }
+}
+.gnote-en{
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(26px,3.7vw,46px);line-height:1.1;letter-spacing:.01em;
+  color:var(--accent);transition:color .25s linear;
+}
+.gnote-jp{margin-top:clamp(10px,1.4vw,15px);font-size:14px;line-height:2.05;color:var(--ink-2);max-width:31em}
+.tl{padding:0 5px}
+.tl-bar{position:relative;display:flex;justify-content:space-between;align-items:center}
+.tl-bar::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+.tl-bar i{
+  position:relative;flex:0 0 auto;width:9px;height:9px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 5px var(--bg);
+  transition:background-color .25s linear,box-shadow .25s linear;
+}
+.tl-bar i:nth-child(1){opacity:.32}
+.tl-bar i:nth-child(2){opacity:.62}
+.tl-lb{display:flex;justify-content:space-between;margin-top:14px;font-size:11.5px;letter-spacing:.2em;color:var(--ink-3)}
+.tl-lb span:last-child{letter-spacing:0}
 
 /* ================= menu ================= */
 .menu{background:var(--paper2);transition:background-color .25s linear}
@@ -381,31 +423,46 @@ ul{list-style:none}
 .mi-price{font-family:var(--serif);font-size:17px;letter-spacing:.02em;color:var(--ink);flex:0 0 auto}
 .mi-lg .mi-price{font-size:20px}
 .mi-note{font-size:12px;color:var(--ink-3);margin-top:3px;line-height:1.7}
+
+/* --- 品書き : photo-free items, set as a ruled list --- */
+.ml{grid-column:1/13;border-top:1px solid var(--line)}
+.ml-row{border-bottom:1px dashed var(--line-soft);padding:clamp(13px,1.5vw,17px) 2px}
+.ml-line{display:flex;align-items:baseline;gap:10px;flex-wrap:nowrap}
+.ml-no{
+  font-family:var(--serif);font-size:13px;color:var(--accent);flex:0 0 auto;min-width:1.9em;
+  transition:color .25s linear,transform .3s ease;
+}
+.ml-row:hover .ml-no{transform:translateY(-2px)}
+.ml-name{font-size:15.5px;font-weight:500;letter-spacing:.03em;flex:0 1 auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ml-lead{flex:1 1 14px;min-width:10px;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+.ml-price{font-family:var(--serif);font-size:17.5px;letter-spacing:.02em;color:var(--ink);flex:0 0 auto}
+.ml-note{font-size:12px;color:var(--ink-3);margin-top:4px;line-height:1.75;padding-left:calc(1.9em + 10px)}
+@media (min-width:768px){
+  .ml-2{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(30px,5vw,86px)}
+}
+
 /* editorial placement */
 @media (min-width:1024px){
   .d1{grid-column:1/7;grid-row:1}
-  .d2{grid-column:8/12;grid-row:1;margin-top:clamp(50px,6vw,96px)}
-  .d3{grid-column:2/6;grid-row:2;margin-top:clamp(4px,1vw,16px)}
-  .d4{grid-column:7/13;grid-row:2;margin-top:clamp(34px,4.4vw,72px)}
+  .d2{grid-column:8/13;grid-row:1;margin-top:clamp(50px,6vw,98px)}
+  .dL{grid-column:1/13;grid-row:2;margin-top:clamp(20px,3vw,48px)}
   .f1{grid-column:1/8;grid-row:1}
   .f2{grid-column:9/13;grid-row:1;margin-top:clamp(44px,5.6vw,88px)}
-  .f3{grid-column:2/7;grid-row:2;margin-top:clamp(6px,1.2vw,20px)}
-  .f4{grid-column:8/12;grid-row:2;margin-top:clamp(48px,6vw,96px)}
-  .f5{grid-column:1/6;grid-row:3}
-  .f6{grid-column:7/13;grid-row:3;margin-top:clamp(30px,4vw,64px)}
+  .f2 .mi-ph{aspect-ratio:1/1}
+  .fL{grid-column:1/6;grid-row:2;align-self:center;margin-top:clamp(6px,1vw,14px)}
+  .f3{grid-column:7/13;grid-row:2;margin-top:clamp(30px,4vw,66px)}
 }
 @media (min-width:768px) and (max-width:1023px){
   .d1,.f1{grid-column:1/9}
   .d2,.f2{grid-column:6/13;margin-top:clamp(18px,3vw,34px)}
-  .d3,.f3{grid-column:1/8}
-  .d4,.f4{grid-column:5/13;margin-top:clamp(18px,3vw,34px)}
-  .f5{grid-column:1/8}
-  .f6{grid-column:5/13;margin-top:clamp(18px,3vw,34px)}
+  .f3{grid-column:3/13;margin-top:clamp(18px,3vw,34px)}
+  .dL,.fL{grid-column:1/13;margin-top:clamp(12px,2vw,26px)}
 }
 @media (max-width:767px){
   .mgrid{gap:26px 0}
-  .mi:nth-child(even){margin-left:auto;width:87%}
-  .mi:nth-child(odd){width:96%}
+  .mgrid>.mi:nth-child(even){margin-left:auto;width:87%}
+  .mgrid>.mi:nth-child(odd){width:96%}
+  .ml{margin-top:6px}
 }
 
 /* ================= info ================= */
@@ -604,20 +661,47 @@ ul{list-style:none}
           <figcaption><span class="n" aria-hidden="true">02</span>焙煎機 ／ 豆はすべて自家焙煎で</figcaption>
         </figure>
         <figure class="gt g3" style="--dx:-22px;--dy:44px;--rot:1.1deg;--d:2.6">
-          <div class="gt-in"><div class="gt-ph"><img src="images/cafe/cafe_gallery3.webp" alt="石畳沿いに並ぶテラス席" loading="lazy" decoding="async" width="1200" height="670"></div></div>
-          <figcaption><span class="n" aria-hidden="true">03</span>テラス席 ／ 石畳沿いの並び</figcaption>
+          <div class="gt-in"><div class="gt-ph gt-art">
+            <svg viewBox="0 0 200 150" aria-hidden="true" focusable="false">
+              <circle cx="100" cy="72" r="62" fill="none" stroke="currentColor" stroke-width="1.1" opacity=".3"></circle>
+              <path d="M76.5 127q23.5 6 47 0l1.5 1v1q0 12-24.5 12T75 129v-1Z" fill="currentColor" opacity=".16" stroke="none"></path>
+              <g fill="none" stroke="currentColor" stroke-width="2.1">
+                <ellipse cx="100" cy="50" rx="38" ry="7"></ellipse>
+                <path d="M62.6 53.5 94 92h12l31.4-38.5"></path>
+                <ellipse cx="100" cy="112" rx="25" ry="4.5"></ellipse>
+                <path d="M75 112v16q0 13 25 13t25-13v-16"></path>
+                <path d="M125.5 118q13.5 3 11.5 11-1.8 6.5-11.5 7.5"></path>
+              </g>
+              <g fill="none" stroke="currentColor" stroke-width="1.5" opacity=".62">
+                <path d="M70 63h60"></path>
+                <path d="M87 32c-5.5-8 5-10.5 0-18M113 29c-5.5-8 5-10.5 0-18"></path>
+                <path d="M100 96v5"></path>
+                <path d="M76.5 127q23.5 6 47 0"></path>
+              </g>
+              <circle cx="100" cy="106" r="2.2" fill="currentColor" stroke="none" opacity=".75"></circle>
+            </svg>
+          </div></div>
+          <figcaption><span class="n" aria-hidden="true">03</span>ドリップ ／ 湯を落とす速さも、その日次第</figcaption>
         </figure>
         <figure class="gt g4" style="--dx:0px;--dy:52px;--rot:-1.6deg;--d:-1.4">
-          <div class="gt-in"><div class="gt-ph"><img src="images/cafe/cafe_gallery4.webp" alt="ミルクを注いでラテアートを仕上げるスタッフ" loading="lazy" decoding="async" width="1200" height="670"></div></div>
-          <figcaption><span class="n" aria-hidden="true">04</span>ラテを注ぐ ／ 一杯ずつ手で仕上げます</figcaption>
+          <div class="gt-in"><div class="gt-ph"><img src="images/cafe/cafe_gallery5.webp" alt="クッションを敷いた窓辺のベンチ席とコーヒー" loading="lazy" decoding="async" width="1200" height="670"></div></div>
+          <figcaption><span class="n" aria-hidden="true">04</span>窓辺のベンチ席 ／ ひとり時間に</figcaption>
         </figure>
         <figure class="gt g5" style="--dx:26px;--dy:36px;--rot:1.5deg;--d:2">
-          <div class="gt-in"><div class="gt-ph"><img src="images/cafe/cafe_gallery5.webp" alt="クッションを敷いた窓辺のベンチ席とコーヒー" loading="lazy" decoding="async" width="1200" height="670"></div></div>
-          <figcaption><span class="n" aria-hidden="true">05</span>窓辺のベンチ席 ／ ひとり時間に</figcaption>
-        </figure>
-        <figure class="gt g6" style="--dx:-12px;--dy:46px;--rot:-.8deg;--d:1.1">
           <div class="gt-in"><div class="gt-ph"><img src="images/cafe/cafe_gallery6.webp" alt="本棚と観葉植物に囲まれた革張りのソファ席" loading="lazy" decoding="async" width="1200" height="670"></div></div>
-          <figcaption><span class="n" aria-hidden="true">06</span>本棚のある一角 ／ 灯りをともす時間</figcaption>
+          <figcaption><span class="n" aria-hidden="true">05</span>本棚のある一角 ／ 灯りをともす時間</figcaption>
+        </figure>
+        <figure class="gt gnote" style="--dx:0px;--dy:34px;--rot:0deg;--d:.7">
+          <div class="gt-in"><div class="gnote-in">
+            <div>
+              <p class="gnote-en" aria-hidden="true">Morning to Evening</p>
+              <p class="gnote-jp">朝のひかりから、夕の灯りまで。スクロールにあわせて、このページの紙の色も一日をたどります。</p>
+            </div>
+            <div class="tl">
+              <div class="tl-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+              <p class="tl-lb" aria-hidden="true"><span>朝</span><span>昼</span><span>夕</span></p>
+            </div>
+          </div></div>
         </figure>
       </div>
     </div>
@@ -641,18 +725,18 @@ ul{list-style:none}
             <p class="mi-note">自家焙煎の豆と、ミルクのバランスを毎朝合わせています。</p>
           </figure>
           <figure class="mi d2 rv">
-            <div class="mi-ph"><img src="images/cafe/cafe_menu_icecoffee.webp" alt="氷を入れたグラスのアイスコーヒー" loading="lazy" decoding="async" width="800" height="447"></div>
-            <figcaption class="mi-cap"><span class="mi-no" aria-hidden="true">02</span><span class="mi-name">アイスコーヒー</span><span class="mi-lead" aria-hidden="true"></span><span class="mi-price">¥500</span></figcaption>
-          </figure>
-          <figure class="mi d3 rv">
-            <div class="mi-ph"><img src="images/cafe/cafe_menu_lemonade.webp" alt="レモンを浮かべた自家製レモネード" loading="lazy" decoding="async" width="800" height="447"></div>
-            <figcaption class="mi-cap"><span class="mi-no" aria-hidden="true">03</span><span class="mi-name">自家製レモネード</span><span class="mi-lead" aria-hidden="true"></span><span class="mi-price">¥580</span></figcaption>
-          </figure>
-          <figure class="mi mi-lg d4 rv">
             <div class="mi-ph"><img src="images/cafe/cafe_menu_matcha.webp" alt="鮮やかな緑色の抹茶ラテ" loading="lazy" decoding="async" width="800" height="447"></div>
-            <figcaption class="mi-cap"><span class="mi-no" aria-hidden="true">04</span><span class="mi-name">抹茶ラテ</span><span class="mi-lead" aria-hidden="true"></span><span class="mi-price">¥600</span></figcaption>
+            <figcaption class="mi-cap"><span class="mi-no" aria-hidden="true">02</span><span class="mi-name">抹茶ラテ</span><span class="mi-lead" aria-hidden="true"></span><span class="mi-price">¥600</span></figcaption>
             <p class="mi-note">甘さは控えめ。午後の一杯にどうぞ。</p>
           </figure>
+          <ul class="ml ml-2 dL rv">
+            <li class="ml-row">
+              <p class="ml-line"><span class="ml-no" aria-hidden="true">03</span><span class="ml-name">アイスコーヒー</span><i class="ml-lead" aria-hidden="true"></i><span class="ml-price">¥500</span></p>
+            </li>
+            <li class="ml-row">
+              <p class="ml-line"><span class="ml-no" aria-hidden="true">04</span><span class="ml-name">自家製レモネード</span><i class="ml-lead" aria-hidden="true"></i><span class="ml-price">¥580</span></p>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -665,25 +749,24 @@ ul{list-style:none}
             <p class="mi-note">ご注文をいただいてから焼き上げます。少しお時間をください。</p>
           </figure>
           <figure class="mi f2 rv">
-            <div class="mi-ph"><img src="images/cafe/cafe_menu_sandwich.webp" alt="具材を重ねたクラブサンドイッチ" loading="lazy" decoding="async" width="800" height="447"></div>
-            <figcaption class="mi-cap"><span class="mi-no" aria-hidden="true">06</span><span class="mi-name">クラブサンドイッチ</span><span class="mi-lead" aria-hidden="true"></span><span class="mi-price">¥850</span></figcaption>
-          </figure>
-          <figure class="mi f3 rv">
-            <div class="mi-ph"><img src="images/cafe/cafe_menu_frenchtoast.webp" alt="こんがり焼いたフレンチトースト" loading="lazy" decoding="async" width="800" height="447"></div>
-            <figcaption class="mi-cap"><span class="mi-no" aria-hidden="true">07</span><span class="mi-name">フレンチトースト</span><span class="mi-lead" aria-hidden="true"></span><span class="mi-price">¥780</span></figcaption>
-          </figure>
-          <figure class="mi f4 rv">
             <div class="mi-ph"><img src="images/cafe/cafe_menu_cheesecake.webp" alt="なめらかなニューヨークチーズケーキ" loading="lazy" decoding="async" width="800" height="447"></div>
-            <figcaption class="mi-cap"><span class="mi-no" aria-hidden="true">08</span><span class="mi-name">ニューヨークチーズケーキ</span><span class="mi-lead" aria-hidden="true"></span><span class="mi-price">¥600</span></figcaption>
+            <figcaption class="mi-cap"><span class="mi-no" aria-hidden="true">06</span><span class="mi-name">ニューヨークチーズケーキ</span><span class="mi-lead" aria-hidden="true"></span><span class="mi-price">¥600</span></figcaption>
           </figure>
-          <figure class="mi f5 rv">
+          <ul class="ml fL rv">
+            <li class="ml-row">
+              <p class="ml-line"><span class="ml-no" aria-hidden="true">07</span><span class="ml-name">クラブサンドイッチ</span><i class="ml-lead" aria-hidden="true"></i><span class="ml-price">¥850</span></p>
+            </li>
+            <li class="ml-row">
+              <p class="ml-line"><span class="ml-no" aria-hidden="true">08</span><span class="ml-name">フレンチトースト</span><i class="ml-lead" aria-hidden="true"></i><span class="ml-price">¥780</span></p>
+            </li>
+            <li class="ml-row">
+              <p class="ml-line"><span class="ml-no" aria-hidden="true">09</span><span class="ml-name">焼きたてクロワッサン</span><i class="ml-lead" aria-hidden="true"></i><span class="ml-price">¥380</span></p>
+              <p class="ml-note">午前中の早い時間がいちばん香ります。</p>
+            </li>
+          </ul>
+          <figure class="mi mi-lg f3 rv">
             <div class="mi-ph"><img src="images/cafe/cafe_menu_pasta.webp" alt="トマトとバジルのパスタ" loading="lazy" decoding="async" width="800" height="447"></div>
-            <figcaption class="mi-cap"><span class="mi-no" aria-hidden="true">09</span><span class="mi-name">トマトバジルパスタ</span><span class="mi-lead" aria-hidden="true"></span><span class="mi-price">¥1,180</span></figcaption>
-          </figure>
-          <figure class="mi mi-lg f6 rv">
-            <div class="mi-ph"><img src="images/cafe/cafe_menu_croissant.webp" alt="焼きたてのクロワッサン" loading="lazy" decoding="async" width="800" height="447"></div>
-            <figcaption class="mi-cap"><span class="mi-no" aria-hidden="true">10</span><span class="mi-name">焼きたてクロワッサン</span><span class="mi-lead" aria-hidden="true"></span><span class="mi-price">¥380</span></figcaption>
-            <p class="mi-note">午前中の早い時間がいちばん香ります。</p>
+            <figcaption class="mi-cap"><span class="mi-no" aria-hidden="true">10</span><span class="mi-name">トマトバジルパスタ</span><span class="mi-lead" aria-hidden="true"></span><span class="mi-price">¥1,180</span></figcaption>
           </figure>
         </div>
       </div>

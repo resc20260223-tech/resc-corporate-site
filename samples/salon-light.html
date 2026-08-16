@@ -169,16 +169,33 @@ ul{list-style:none}
 .m-price .ln{flex:0 0 auto;width:clamp(28px,5vw,60px);height:1px;background:var(--line)}
 .m-price b{font-family:var(--mincho);font-weight:500;font-size:clamp(17px,1.9vw,22px);letter-spacing:.06em}
 
-/* group B : stepped */
-.msteps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.8vw,42px);align-items:start}
-.mstep{margin-top:calc(var(--i) * clamp(14px,3.4vw,52px))}
-.mstep .st-frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--paper-2)}
-.mstep .st-frame img{position:absolute;left:0;width:100%;height:112%;top:-6%;object-fit:cover;will-change:transform}
-.mstep .st-foot{display:flex;align-items:flex-start;gap:14px;margin-top:16px}
-.mstep .st-name{font-family:var(--mincho);font-weight:500;font-size:clamp(14px,1.35vw,17px);letter-spacing:.12em;line-height:1.5;max-height:16em}
-.mstep .st-right{padding-top:2px}
-.mstep .st-price{font-family:var(--mincho);font-weight:500;font-size:clamp(15px,1.6vw,19px);letter-spacing:.05em}
-.mstep .st-en{font-size:9px;letter-spacing:.28em;color:var(--sumi-3);margin-top:8px}
+/* group B : お品書き（写真なし・罫線組み） */
+.okina{
+  --enso:clamp(122px,14vw,206px);
+  display:grid;grid-template-columns:clamp(150px,18vw,248px) minmax(0,1fr);
+  gap:clamp(22px,4vw,72px);align-items:stretch;
+  border-top:1px solid var(--line);
+  padding-top:clamp(28px,3.6vw,52px);
+}
+.okina-mark{position:relative;display:flex;align-items:center;justify-content:center}
+.okina-mark svg{width:var(--enso);height:auto;display:block;color:#d9d0be}
+.okina-mark::before,.okina-mark::after{
+  content:"";position:absolute;left:50%;width:1px;background:var(--line-soft);
+}
+.okina-mark::before{top:0;height:calc(50% - var(--enso) / 2 - 12px)}
+.okina-mark::after{bottom:0;height:calc(50% - var(--enso) / 2 - 12px)}
+.ok-row{
+  display:grid;grid-template-columns:2.9em minmax(0,1fr) auto;
+  gap:2px clamp(14px,2.4vw,36px);align-items:baseline;
+  padding:clamp(24px,3.2vw,40px) 0;
+  border-bottom:1px solid var(--line-soft);
+}
+.ok-idx{font-family:var(--mincho);font-size:12px;letter-spacing:.2em;color:var(--ai)}
+.ok-name{font-family:var(--mincho);font-weight:500;font-size:clamp(19px,2.2vw,27px);letter-spacing:.14em;line-height:1.5}
+.ok-en{font-size:9.5px;letter-spacing:.32em;color:var(--sumi-3);margin-top:11px}
+.ok-price{display:flex;align-items:baseline;gap:clamp(12px,2vw,22px);white-space:nowrap}
+.ok-price .ln{flex:0 0 auto;width:clamp(26px,5vw,72px);height:1px;background:var(--line)}
+.ok-price b{font-family:var(--mincho);font-weight:500;font-size:clamp(17px,1.9vw,22px);letter-spacing:.06em}
 
 /* ============ info + contact ============ */
 .info-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,90px);align-items:start}
@@ -251,11 +268,13 @@ ul{list-style:none}
   .mrow{margin-top:clamp(54px,11vw,76px)}
   .mgroup .mrow:first-of-type{margin-top:0}
   .m-frame{aspect-ratio:16/10}
-  .msteps{grid-template-columns:1fr;gap:42px}
-  .mstep{margin-top:0}
-  .mstep .st-frame{aspect-ratio:16/11}
-  .mstep .st-name{max-height:none;writing-mode:horizontal-tb;-webkit-writing-mode:horizontal-tb;text-orientation:mixed;-webkit-text-orientation:mixed;font-size:16px}
-  .mstep .st-foot{align-items:baseline;gap:18px}
+  .okina{grid-template-columns:1fr;gap:clamp(18px,4vw,28px);padding-top:clamp(24px,5vw,34px)}
+  .okina-mark{justify-content:flex-start;gap:clamp(14px,4vw,24px);padding:0 0 clamp(14px,3.5vw,22px)}
+  .okina-mark svg{width:clamp(70px,17vw,94px)}
+  .okina-mark::before{display:none}
+  .okina-mark::after{position:static;left:auto;bottom:auto;flex:1 1 auto;width:auto;height:1px}
+  .ok-row{grid-template-columns:2.6em minmax(0,1fr);row-gap:14px;padding:clamp(22px,5vw,28px) 0}
+  .ok-price{grid-column:2}
   .gal-track{padding-block:44px}
   .gscroll .gal-view{height:74svh;top:12svh}
   .gal-item{width:auto}
@@ -280,11 +299,24 @@ ul{list-style:none}
   }
   .shoji{display:none}
   .gal-item{transform:none!important}
-  .gal-frame img,.m-frame img,.mstep .st-frame img{transition:none!important;transform:none!important}
+  .gal-view{overflow:visible}
+  .gal-track{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;
+    gap:clamp(40px,5vw,72px) clamp(18px,2.6vw,44px);
+    width:auto;max-width:1180px;margin:0 auto;padding:clamp(40px,5vw,64px) var(--pad);
+  }
+  .gal-item{width:auto}
+  .gal-frame{height:auto;width:auto;aspect-ratio:var(--ar)}
+  .gal-num{top:-22px}
+  .gal-hint{display:none}
+  .gal-frame img,.m-frame img{transition:none!important;transform:none!important}
   .gscroll .gal-view{position:static;height:auto;overflow-x:auto;display:block}
   .gscroll .gal-track{transform:none!important;padding-block:44px}
   .gscroll .gal-hint{position:static}
   *{scroll-behavior:auto!important}
+}
+@media (prefers-reduced-motion:reduce) and (max-width:640px){
+  .gal-track{grid-template-columns:minmax(0,1fr);gap:clamp(48px,13vw,64px)}
 }
 </style>
 </head>
@@ -436,37 +468,41 @@ ul{list-style:none}
 
     <div class="mgroup">
       <div class="mgroup-head rv-l"><span class="jp">スペシャル</span><span class="ln"></span></div>
-      <div class="msteps">
-        <article class="mstep rv" style="--i:0">
-          <div class="st-frame"><img src="images/salon/salon_menu_perm.webp" alt="仕上がったウェーブヘアで席に座るお客さま" loading="lazy" decoding="async" width="800" height="447" data-px="18"></div>
-          <div class="st-foot">
-            <h3 class="st-name vt">デジタルパーマ</h3>
-            <div class="st-right">
-              <p class="st-price">¥8,800</p>
-              <p class="st-en">DIGITAL PERM</p>
+      <div class="okina">
+        <div class="okina-mark rv" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false">
+            <circle cx="100" cy="100" r="82" fill="none" stroke="currentColor" stroke-width="2.4"
+                    stroke-linecap="round" stroke-dasharray="438 78" transform="rotate(-104 100 100)"/>
+            <circle cx="100" cy="100" r="82" fill="none" stroke="currentColor" stroke-width=".9"
+                    stroke-linecap="round" stroke-dasharray="0 438 40 38" transform="rotate(-104 100 100)"/>
+          </svg>
+        </div>
+        <div class="okina-list">
+          <article class="ok-row rv-l">
+            <p class="ok-idx">肆</p>
+            <div>
+              <h3 class="ok-name">デジタルパーマ</h3>
+              <p class="ok-en">DIGITAL PERM</p>
             </div>
-          </div>
-        </article>
-        <article class="mstep rv" style="--i:1;--d:.08s">
-          <div class="st-frame"><img src="images/salon/salon_menu_bridal.webp" alt="鏡の前でブライダルのヘアセットを受ける花嫁" loading="lazy" decoding="async" width="800" height="447" data-px="18"></div>
-          <div class="st-foot">
-            <h3 class="st-name vt">ブライダルヘア&amp;メイク</h3>
-            <div class="st-right">
-              <p class="st-price">¥16,500</p>
-              <p class="st-en">BRIDAL</p>
+            <p class="ok-price"><span class="ln" aria-hidden="true"></span><b>¥8,800</b></p>
+          </article>
+          <article class="ok-row rv-l" style="--d:.08s">
+            <p class="ok-idx">伍</p>
+            <div>
+              <h3 class="ok-name">ブライダルヘア&amp;メイク</h3>
+              <p class="ok-en">BRIDAL</p>
             </div>
-          </div>
-        </article>
-        <article class="mstep rv" style="--i:2;--d:.16s">
-          <div class="st-frame"><img src="images/salon/salon_menu_headspa.webp" alt="ヘッドスパで頭皮をマッサージされているお客さま" loading="lazy" decoding="async" width="800" height="447" data-px="18"></div>
-          <div class="st-foot">
-            <h3 class="st-name vt">ヘッドスパ</h3>
-            <div class="st-right">
-              <p class="st-price">¥4,400</p>
-              <p class="st-en">HEAD SPA</p>
+            <p class="ok-price"><span class="ln" aria-hidden="true"></span><b>¥16,500</b></p>
+          </article>
+          <article class="ok-row rv-l" style="--d:.16s">
+            <p class="ok-idx">陸</p>
+            <div>
+              <h3 class="ok-name">ヘッドスパ</h3>
+              <p class="ok-en">HEAD SPA</p>
             </div>
-          </div>
-        </article>
+            <p class="ok-price"><span class="ln" aria-hidden="true"></span><b>¥4,400</b></p>
+          </article>
+        </div>
       </div>
     </div>
   </div>
