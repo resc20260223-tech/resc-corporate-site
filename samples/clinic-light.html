@@ -2,187 +2,780 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>みなと接骨院｜医療・クリニック</title>
+<meta name="description" content="みなと接骨院は、肩こり・腰痛・スポーツ外傷など一人ひとりの症状に合わせた施術を行う接骨院です。症状から施術メニューを探せます。受付9:00〜19:00／休診日:日曜・祝日。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --primary: #5C7A6D;
-    --primary-dark: #3E5449;
-    --bg: #F4F7F5;
-    --accent: #8FA88C;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Zen Kaku Gothic New', sans-serif; background: var(--bg); color: #2B2420; line-height: 1.8; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  .notice {
-    background: var(--primary-dark); color: #fff; text-align: center;
-    font-size: 12.5px; padding: 8px 16px;
-  }
-  .notice a { color: #fff; text-decoration: underline; }
-  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
-  .hero img { width: 100%; height: 100%; object-fit: cover; transform-origin: 60% 35%; animation: hero-kenburns 20s ease-out infinite alternate; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
-  .hero-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
-  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
-  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
-  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+:root{
+  --w:#ffffff;
+  --pale:#eef3f6;       /* 淡いブルーグレー */
+  --pale2:#f7fafb;
+  --line:#c9d6de;       /* 罫線 */
+  --line-soft:#e0e8ed;
+  --ink:#12222b;        /* 本文（白背景で 14.7:1） */
+  --ink2:#3d5461;       /* 補助（白背景で 7.4:1） */
+  --accent:#0d5a5c;     /* 深い青緑（白背景で 7.5:1） */
+  --accent-d:#08403f;
+  --warn:#8a3a2e;
+  --gothic:"Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --disp:"Zen Kaku Gothic New","Noto Sans JP","Hiragino Sans",system-ui,sans-serif;
+  --pad:clamp(16px,4vw,56px);
+  --maxw:1240px;
+  --hh:67px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--w);color:var(--ink);
+  font-family:var(--gothic);
+  font-size:clamp(16.5px,1.08vw,18px);
+  line-height:1.95;font-weight:400;
+  letter-spacing:.02em;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+[hidden]{display:none!important}
+a{color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.5;letter-spacing:.01em;margin:0}
 
-  @keyframes hero-kenburns {
-    from { transform: scale(1) translate(0, 0); }
-    to { transform: scale(1.08) translate(-1.5%, -1.5%); }
-  }
-  @keyframes hero-fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero img,
-    .hero-text h1,
-    .hero-text p {
-      animation: none;
-    }
-  }
-  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
-  .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
-  .about p { font-size: 14.5px; color: #4A4238; }
-  .menu-category { margin-top: 40px; }
-  .menu-category:first-child { margin-top: 0; }
-  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; text-align: center; }
-  .menu-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-  .menu-card { text-align: center; width: calc(25% - 15px); }
-  .menu-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
-  .menu-card .menu-name { margin-top: 12px; font-size: 14px; font-weight: 700; color: #2B2420; }
-  .menu-card .menu-price { margin-top: 4px; font-size: 13px; color: var(--primary); }
-  @media (max-width: 900px) { .menu-card { width: calc(33.333% - 14px); } }
-  @media (max-width: 700px) { .menu-card { width: calc(50% - 10px); } }
-  @media (max-width: 420px) { .menu-card { width: 100%; } }
-  .gallery-marquee { overflow: hidden; }
-  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
-  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
-  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; object-fit: cover; border-radius: 6px; margin-right: 16px; }
-  @keyframes gallery-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gallery-track { animation: none; }
-    .gallery-marquee { overflow-x: auto; }
-  }
-  .contact { background: var(--primary); color: #fff; text-align: center; }
-  .contact .section-title { color: #fff; }
-  .contact p { font-size: 14px; margin-bottom: 8px; }
-  .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
-  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
+/* ============ 告知バー ============ */
+.notice{background:var(--accent-d);color:#fff;font-size:.83rem;line-height:1.6;padding:9px 0}
+.notice .wrap{display:flex;gap:10px 18px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center}
+.notice a{color:#fff;font-weight:700;text-decoration:underline;white-space:nowrap}
 
-  /* ---- LINE連携ボタン（cafe-light.html と同一実装） ---- */
-  .line-btn {
-    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
-    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
-    line-height: 21px;
-  }
-  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
-  .contact .line-wrap { margin-top: 18px; }
+/* ============ ヘッダー ============ */
+.hd{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);
+  -webkit-backdrop-filter:saturate(150%) blur(10px);backdrop-filter:saturate(150%) blur(10px);
+  border-bottom:1px solid var(--line)}
+.hd .wrap{display:flex;align-items:center;gap:14px;min-height:66px;padding-block:8px}
+.brand{font-family:var(--disp);font-weight:700;font-size:1.12rem;letter-spacing:.06em;color:var(--ink);text-decoration:none;white-space:nowrap}
+.brand small{display:block;font-family:var(--gothic);font-weight:400;font-size:.6rem;letter-spacing:.22em;color:var(--ink2);line-height:1.4}
+.nav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
+.nav a{font-size:.86rem;color:var(--ink);text-decoration:none;padding:7px 11px;border-radius:2px;font-weight:500}
+.nav a:hover{background:var(--pale);color:var(--accent-d)}
+.hd-cta{margin-left:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--gothic);font-weight:700;font-size:.92rem;line-height:1.4;
+  padding:13px 22px;border-radius:3px;text-decoration:none;border:1px solid transparent;cursor:pointer;white-space:nowrap;
+  -webkit-appearance:none;appearance:none;transition:background .2s,color .2s,border-color .2s}
+.btn-p{background:var(--accent);color:#fff}
+.btn-p:hover{background:var(--accent-d)}
+.btn-o{background:#fff;color:var(--accent-d);border-color:var(--line)}
+.btn-o:hover{border-color:var(--accent);background:var(--pale2)}
+.btn-sm{padding:9px 15px;font-size:.83rem}
+@media(max-width:1150px){.nav{display:none}}
+@media(min-width:1151px) and (max-width:1300px){.nav a{font-size:.82rem;padding:7px 8px}}
+
+/* 受付状態バッジ */
+.stat{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;font-weight:700;
+  padding:7px 13px;border:1px solid var(--line);border-radius:2px;background:#fff;color:var(--ink);white-space:nowrap}
+.stat .dot{width:9px;height:9px;border-radius:50%;background:var(--ink2);flex:none}
+.stat.open{border-color:#9dc3bf;background:#eef6f5;color:var(--accent-d)}
+.stat.open .dot{background:#0d7a63}
+.stat.closed{border-color:#dbc4bf;background:#f9f0ee;color:var(--warn)}
+.stat.closed .dot{background:var(--warn)}
+@media(max-width:520px){.hd .stat{display:none}}
+
+/* ============ 見出し ============ */
+.sec{padding-block:clamp(56px,7vw,104px);border-top:1px solid var(--line-soft)}
+.sec:first-of-type{border-top:0}
+.sec-alt{background:var(--pale2)}
+.shead{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;align-items:baseline;
+  padding-bottom:18px;border-bottom:2px solid var(--ink);margin-bottom:clamp(28px,3.4vw,44px)}
+.snum{font-family:var(--disp);font-weight:700;font-size:.88rem;letter-spacing:.16em;color:var(--accent);
+  border:1px solid var(--line);padding:3px 9px;border-radius:2px;background:#fff;align-self:center}
+.shead h2{font-size:clamp(1.5rem,2.5vw,2.05rem)}
+.shead p{grid-column:1/-1;margin:2px 0 0;color:var(--ink2);font-size:.95rem;line-height:1.85;max-width:62ch}
+@media(max-width:560px){.shead{grid-template-columns:1fr;gap:10px}.snum{justify-self:start}}
+
+/* ============ ヒーロー ============ */
+.hero{padding-top:clamp(30px,4vw,56px);padding-bottom:0;
+  min-height:calc(100vh - var(--hh));min-height:calc(100svh - var(--hh));
+  display:flex;flex-direction:column;justify-content:center}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(24px,3vw,48px);align-items:start}
+.hero-txt{display:flex;flex-direction:column;justify-content:center;padding-block:clamp(8px,2vw,26px)}
+.tag{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.18em;color:var(--accent);
+  border-left:3px solid var(--accent);padding-left:10px;margin-bottom:20px}
+.hero h1{font-size:clamp(1.85rem,4.1vw,3.05rem);line-height:1.42;letter-spacing:.005em}
+.hero h1 .l{display:block}
+.hero-lead{margin:22px 0 0;color:var(--ink2);font-size:clamp(1rem,1.1vw,1.06rem);line-height:2.05;max-width:34em}
+.hero-act{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-fig{position:relative;border:1px solid var(--line);background:var(--pale);padding:10px}
+.hero-fig img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.hero-fig figcaption{font-size:.76rem;color:var(--ink2);padding:9px 2px 1px;letter-spacing:.05em}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-fig img{aspect-ratio:16/10}}
+
+/* 事実ストリップ */
+.facts{margin-top:clamp(34px,4vw,60px);border:1px solid var(--line);background:#fff;
+  display:grid;grid-template-columns:repeat(4,1fr)}
+.facts div{padding:18px 20px;border-left:1px solid var(--line-soft);min-width:0}
+.facts div:first-child{border-left:0}
+.facts dt{font-size:.75rem;letter-spacing:.14em;color:var(--ink2);font-weight:700;margin-bottom:4px}
+.facts dd{margin:0;font-family:var(--disp);font-weight:700;font-size:clamp(1rem,1.35vw,1.18rem);line-height:1.55;color:var(--ink)}
+.facts dd span{font-size:.8rem;font-weight:400;font-family:var(--gothic);color:var(--ink2);display:block;letter-spacing:.02em}
+@media(max-width:860px){.facts{grid-template-columns:1fr 1fr}
+  .facts div:nth-child(3),.facts div:nth-child(4){border-top:1px solid var(--line-soft)}
+  .facts div:nth-child(odd){border-left:0}}
+@media(max-width:420px){.facts{grid-template-columns:1fr}
+  .facts div{border-left:0;border-top:1px solid var(--line-soft)}
+  .facts div:first-child{border-top:0}}
+
+/* ============ 症状フィルタ ============ */
+.filter{border:1px solid var(--line);background:#fff;padding:clamp(18px,2.2vw,26px);margin-bottom:clamp(24px,3vw,38px)}
+.filter-lb{font-family:var(--disp);font-weight:700;font-size:1rem;margin:0 0 4px}
+.filter-help{margin:0 0 16px;font-size:.87rem;color:var(--ink2);line-height:1.8}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{-webkit-appearance:none;appearance:none;font-family:var(--gothic);font-size:.98rem;font-weight:700;
+  color:var(--ink);background:var(--pale);border:1px solid var(--line);border-radius:2px;
+  padding:13px 20px;cursor:pointer;line-height:1.4;transition:background .18s,color .18s,border-color .18s;
+  display:inline-flex;align-items:center;gap:9px}
+.chip:hover{border-color:var(--accent);background:#fff}
+.chip .ic{width:18px;height:18px;flex:none;color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chip[aria-pressed="true"] .ic{color:#fff}
+.chip.reset{background:#fff;font-weight:500}
+.f-out{display:flex;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);
+  font-size:.9rem;color:var(--ink2);min-height:1.9em;line-height:1.7}
+.f-out b{color:var(--accent-d);font-weight:700}
+
+/* メニューカード */
+.menus{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line)}
+.mcard{background:#fff;padding:16px 18px 20px;display:flex;flex-direction:column;
+  transition:opacity .3s ease,filter .3s ease;min-width:0}
+.mcard img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line-soft);margin-bottom:14px}
+.mcard h3{font-size:1.08rem;line-height:1.6}
+.mcard .price{font-family:var(--disp);font-weight:700;font-size:1.32rem;color:var(--accent-d);margin:8px 0 0;letter-spacing:.02em}
+.mcard .price small{font-size:.72rem;font-weight:400;color:var(--ink2);font-family:var(--gothic);margin-left:6px;letter-spacing:.06em}
+.mcard .desc{font-size:.88rem;color:var(--ink2);line-height:1.85;margin:10px 0 14px}
+.mcard .tags{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
+.mcard .tags span{font-size:.74rem;color:var(--ink2);background:var(--pale);border:1px solid var(--line-soft);
+  padding:3px 9px;border-radius:2px;letter-spacing:.04em}
+.mcard.off{opacity:.22;filter:grayscale(1)}
+.mcard.off *{pointer-events:none}
+@media(max-width:1023px){.menus{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.menus{grid-template-columns:1fr}.mcard img{aspect-ratio:16/9}}
+
+/* ============ 料金表 ============ */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:26px}
+.compare div{background:#fff;padding:20px 22px}
+.compare .k{font-size:.8rem;font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:6px}
+.compare .v{font-family:var(--disp);font-weight:700;font-size:clamp(1.5rem,2.6vw,2rem);color:var(--ink);line-height:1.4}
+.compare .n{font-size:.85rem;color:var(--ink2);line-height:1.75;margin-top:4px}
+@media(max-width:560px){.compare{grid-template-columns:1fr}}
+.tw{position:relative;overflow-x:auto;border:1px solid var(--line);background:#fff;-webkit-overflow-scrolling:touch}
+table.pr{border-collapse:collapse;width:100%;min-width:640px;font-size:.97rem}
+table.pr caption{text-align:left;padding:14px 18px;font-weight:700;font-family:var(--disp);
+  border-bottom:1px solid var(--line);background:var(--pale);font-size:1rem}
+table.pr th,table.pr td{padding:15px 18px;border-bottom:1px solid var(--line-soft);text-align:left;vertical-align:middle}
+table.pr thead th{background:var(--pale2);font-size:.82rem;letter-spacing:.1em;color:var(--ink2);
+  border-bottom:2px solid var(--ink);white-space:nowrap;font-weight:700}
+table.pr tbody th{font-weight:700;font-size:1rem;color:var(--ink)}
+table.pr tbody tr:last-child th,table.pr tbody tr:last-child td{border-bottom:0}
+table.pr tbody tr:hover{background:var(--pale2)}
+.cat{display:inline-block;font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:2px;white-space:nowrap;
+  border:1px solid var(--line);background:var(--pale)}
+.cat.first{border-color:#9dc3bf;background:#eef6f5;color:var(--accent-d)}
+.cat.re{border-color:var(--line);background:#fff;color:var(--ink2)}
+.ins{font-weight:700;font-size:.9rem;white-space:nowrap}
+.ins.y{color:var(--accent-d)}
+.ins.n{color:var(--ink2);font-weight:400}
+.yen{font-family:var(--disp);font-weight:700;font-size:1.14rem;white-space:nowrap;color:var(--ink)}
+.note{margin:16px 0 0;font-size:.86rem;color:var(--ink2);line-height:1.85;
+  border-left:3px solid var(--line);padding-left:14px}
+
+/* ============ 通院の流れ ============ */
+.prog{position:sticky;top:var(--hh);z-index:40;background:rgba(255,255,255,.95);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border:1px solid var(--line);padding:16px 18px 14px;margin-bottom:clamp(26px,3vw,40px)}
+.prog-bar{position:relative;height:3px;background:var(--line-soft);margin:0 0 12px}
+.prog-fill{position:absolute;inset:0 auto 0 0;width:0%;background:var(--accent);transition:width .35s ease}
+.prog-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.prog-steps li{list-style:none;font-size:.83rem;color:var(--ink2);display:flex;align-items:center;gap:8px;
+  line-height:1.5;min-width:0;transition:color .25s}
+.prog-steps b{font-family:var(--disp);font-size:.78rem;width:24px;height:24px;flex:none;border-radius:50%;
+  border:1px solid var(--line);display:grid;place-items:center;background:#fff;color:var(--ink2);transition:.25s}
+.prog-steps li.on{color:var(--accent-d);font-weight:700}
+.prog-steps li.on b{background:var(--accent);border-color:var(--accent);color:#fff}
+.prog-steps span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:600px){.prog-steps span{display:none}.prog-steps{grid-template-columns:repeat(4,auto);justify-content:space-between}}
+
+.step{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(18px,2.6vw,42px);align-items:center;
+  padding-block:clamp(22px,2.6vw,34px);border-top:1px solid var(--line-soft)}
+.step:first-of-type{border-top:0}
+.step img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line)}
+.step-n{font-family:var(--disp);font-weight:700;font-size:.82rem;letter-spacing:.16em;color:var(--accent);
+  display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.step-n::after{content:"";height:1px;background:var(--line);flex:1}
+.step h3{font-size:clamp(1.15rem,1.8vw,1.42rem)}
+.step p{margin:10px 0 0;color:var(--ink2);line-height:2;font-size:.97rem}
+.step:nth-child(even) .step-fig{order:2}
+@media(max-width:760px){.step{grid-template-columns:1fr;gap:16px}.step:nth-child(even) .step-fig{order:0}}
+
+/* ============ 受付時間 ============ */
+.hrs{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(20px,2.6vw,36px);align-items:start}
+.hrs>*{min-width:0}
+@media(max-width:900px){.hrs{grid-template-columns:1fr}}
+table.wk{border-collapse:collapse;width:100%;min-width:470px;font-size:.98rem;text-align:center}
+table.wk th,table.wk td{border:1px solid var(--line-soft);padding:14px 6px;white-space:nowrap}
+table.wk thead th{background:var(--pale);font-family:var(--disp);font-weight:700;font-size:1.05rem;border-bottom:2px solid var(--ink);padding-block:11px}
+table.wk thead th.sun{color:var(--warn)}
+table.wk tbody th{background:var(--pale2);text-align:left;padding-inline:16px;font-size:.92rem;color:var(--ink);font-weight:700;font-family:var(--disp)}
+table.wk td{font-family:var(--disp);font-weight:700;font-size:1.25rem;line-height:1.2}
+table.wk td.o{color:var(--accent-d)}
+table.wk td.x{color:var(--warn)}
+table.wk .today{background:#eef6f5;box-shadow:inset 0 0 0 2px var(--accent)}
+table.wk td.today.x,table.wk th.today.sun{background:#f9f0ee;box-shadow:inset 0 0 0 2px var(--warn)}
+.today-mk{display:block;font-size:.66rem;letter-spacing:.08em;font-weight:700;color:var(--accent-d);font-family:var(--gothic);margin-top:2px}
+th.sun .today-mk{color:var(--warn)}
+.wk-lg{display:flex;flex-wrap:wrap;gap:6px 20px;margin:14px 0 0;font-size:.88rem;color:var(--ink2);line-height:1.7}
+.wk-lg b{font-family:var(--disp);font-size:1rem}
+.wk-lg .b1{color:var(--accent-d)}.wk-lg .b2{color:var(--warn)}
+.sr{position:absolute;left:0;top:0;width:1px;height:1px;margin:0;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.hrs-panel{border:1px solid var(--line);background:#fff;padding:22px}
+.hrs-panel .big{font-family:var(--disp);font-weight:700;font-size:clamp(1.28rem,2.1vw,1.6rem);line-height:1.5;margin:14px 0 0}
+.hrs-panel .sub{font-size:.9rem;color:var(--ink2);line-height:1.8;margin:8px 0 0}
+.hrs-panel dl{margin:18px 0 0;border-top:1px solid var(--line-soft);padding-top:14px;font-size:.92rem}
+.hrs-panel dl div{display:flex;gap:12px;padding-block:6px}
+.hrs-panel dt{color:var(--ink2);width:5.5em;flex:none;font-size:.86rem}
+.hrs-panel dd{margin:0;font-weight:700}
+
+/* ============ ギャラリー ============ */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line)}
+.gal figure{margin:0;background:#fff;padding:10px}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.gal figcaption{font-size:.83rem;color:var(--ink2);padding:10px 2px 2px;line-height:1.7}
+@media(max-width:900px){.gal{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.gal{grid-template-columns:1fr}}
+
+/* ============ アクセス ============ */
+.acc{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(22px,3vw,46px);align-items:start}
+@media(max-width:900px){.acc{grid-template-columns:1fr}}
+table.info{border-collapse:collapse;width:100%;font-size:.98rem}
+table.info th,table.info td{border-bottom:1px solid var(--line-soft);padding:16px 4px;text-align:left;vertical-align:top}
+table.info th{width:9em;color:var(--ink2);font-size:.88rem;font-weight:700;white-space:nowrap}
+table.info tr:first-child th,table.info tr:first-child td{border-top:1px solid var(--line)}
+.cta{border:1px solid var(--line);background:var(--pale2);padding:24px}
+.cta h3{font-size:1.12rem;margin-bottom:8px}
+.cta p{margin:0 0 18px;font-size:.9rem;color:var(--ink2);line-height:1.85}
+.cta .btn{width:100%;margin-bottom:10px}
+
+/* ============ フッター ============ */
+.ft{border-top:2px solid var(--ink);padding-block:34px;font-size:.86rem;color:var(--ink2)}
+.ft .wrap{display:flex;gap:12px 26px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.ft .fb{font-family:var(--disp);font-weight:700;color:var(--ink);font-size:1rem;letter-spacing:.06em}
+
+/* ============ 出現アニメーション ============ */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1!important;transform:none!important}
+  .prog-fill{transition:none!important}
+}
 </style>
 </head>
 <body>
 
-<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
-
-<div class="hero">
-  <img src="images/clinic/clinic_hero.webp" alt="みなと接骨院">
-  <div class="hero-text">
-    <div class="label">医療・クリニック</div>
-    <h1>からだの声に、ちゃんと向き合う。</h1>
-    <p>みなと接骨院</p>
+<!-- ============ 告知バー ============ -->
+<div class="notice">
+  <div class="wrap">
+    <span>これはRESCが作成したサンプルサイトです。実店舗ではありません。</span>
+    <a href="../hp-service/index.html">RESCのサイトに戻る</a>
   </div>
 </div>
 
-<section class="about">
-  <div class="section-title">こだわり</div>
-  <p>肩こり・腰痛・スポーツ外傷など、一人ひとりの症状に合わせた施術を行っています。初めての方も安心して通っていただけるよう、丁寧なカウンセリングを心がけています。</p>
+<!-- ============ ヘッダー ============ -->
+<header class="hd">
+  <div class="wrap">
+    <a class="brand" href="#top">みなと接骨院<small>MINATO SEKKOTSUIN</small></a>
+    <nav class="nav" aria-label="サイト内メニュー">
+      <a href="#symptom">症状から探す</a>
+      <a href="#price">料金</a>
+      <a href="#flow">通院の流れ</a>
+      <a href="#hours">受付時間</a>
+      <a href="#gallery">院内の様子</a>
+      <a href="#access">アクセス</a>
+    </nav>
+    <p class="stat" id="statHd" hidden><span class="dot" aria-hidden="true"></span><span class="stat-t">受付状況を確認中</span></p>
+    <a class="btn btn-p btn-sm hd-cta" href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ ヒーロー ============ -->
+<section class="sec hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-txt">
+        <p class="tag">福岡市・接骨院</p>
+        <h1><span class="l">からだの声に、</span><span class="l">ちゃんと向き合う。</span></h1>
+        <p class="hero-lead">肩こり・腰痛・スポーツ外傷など、一人ひとりの症状に合わせた施術を行っています。初めての方も安心して通っていただけるよう、丁寧なカウンセリングを心がけています。</p>
+        <div class="hero-act">
+          <a class="btn btn-p" href="#symptom">症状からメニューを探す</a>
+          <a class="btn btn-o" href="#price">料金表を見る</a>
+        </div>
+      </div>
+      <figure class="hero-fig">
+        <img src="images/clinic/clinic_hero.webp" alt="みなと接骨院の院内。施術ベッドが置かれた明るい施術室" width="1200" height="900" fetchpriority="high">
+        <figcaption>院内／施術室</figcaption>
+      </figure>
+    </div>
+
+    <dl class="facts rv">
+      <div><dt>受付時間</dt><dd>9:00〜19:00</dd></div>
+      <div><dt>休診日</dt><dd>日曜・祝日</dd></div>
+      <div><dt>初診</dt><dd>¥3,000<span>カウンセリング＋施術</span></dd></div>
+      <div><dt>保険適用施術</dt><dd>¥500〜<span>症状により異なります</span></dd></div>
+    </dl>
+  </div>
 </section>
 
-<section style="background:#fff;">
-  <div class="section-title">メニュー</div>
+<!-- ============ 01 症状から探す ============ -->
+<section class="sec sec-alt" id="symptom" aria-labelledby="sy-h">
+  <div class="wrap">
+    <div class="shead">
+      <span class="snum">01</span>
+      <h2 id="sy-h">症状から探す</h2>
+      <p>気になる症状を選ぶと、関連する施術メニューだけを表示します。どれを選べばよいか分からないときは「はじめての方」からご覧ください。</p>
+    </div>
 
-  <div class="menu-category">
-    <div class="menu-category-title">基本メニュー</div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="images/clinic/clinic_menu_consultation.webp" alt="初診カウンセリング＋施術">
-        <div class="menu-name">初診カウンセリング＋施術</div>
-        <div class="menu-price">¥3,000</div>
+    <div class="filter">
+      <p class="filter-lb">いまお困りの症状は？</p>
+      <p class="filter-help">ボタンをひとつ選んでください。もう一度押すと解除されます。</p>
+      <div class="chips" id="chips">
+        <button type="button" class="chip" aria-pressed="false" data-key="shoulder">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/><path d="M5 21v-4a7 7 0 0 1 14 0v4"/><path d="M4 12h4M16 12h4"/></svg>
+          肩こり・首のはり
+        </button>
+        <button type="button" class="chip" aria-pressed="false" data-key="back">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2v10"/><path d="M9 12h6l1 9H8l1-9Z"/><path d="M6 7c2 1 4 1.5 6 1.5S16 8 18 7"/></svg>
+          腰の痛み
+        </button>
+        <button type="button" class="chip" aria-pressed="false" data-key="sports">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3c3 3 3 15 0 18M3.5 9h17M3.5 15h17"/></svg>
+          スポーツ外傷
+        </button>
+        <button type="button" class="chip" aria-pressed="false" data-key="posture">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 21h16"/><path d="M8 21V7a4 4 0 0 1 8 0v14"/><path d="M8 13h8"/></svg>
+          姿勢の悩み
+        </button>
+        <button type="button" class="chip" aria-pressed="false" data-key="first">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8.5h.01"/></svg>
+          はじめての方
+        </button>
+        <button type="button" class="chip reset" id="chipReset">すべて表示</button>
       </div>
-      <div class="menu-card">
-        <img src="images/clinic/clinic_menu_treatment.webp" alt="再診施術">
-        <div class="menu-name">再診施術</div>
-        <div class="menu-price">¥1,500</div>
+      <p class="f-out" id="fOut" role="status" aria-live="polite">すべてのメニュー <b>6件</b> を表示しています。</p>
+    </div>
+
+    <div class="menus" id="menus">
+      <article class="mcard" data-tags="shoulder back sports posture first">
+        <img src="images/clinic/clinic_menu_consultation.webp" alt="カウンセリングで症状を聞き取っている様子" loading="lazy" width="800" height="600">
+        <h3>初診カウンセリング＋施術</h3>
+        <p class="price">¥3,000<small>初回</small></p>
+        <p class="desc">気になる箇所や日常の動作をお伺いしてから、症状に合わせた施術を行います。</p>
+        <div class="tags"><span>初診</span><span>自費</span></div>
+      </article>
+
+      <article class="mcard" data-tags="shoulder back first">
+        <img src="images/clinic/clinic_menu_treatment.webp" alt="施術ベッドで手技による施術を受けている様子" loading="lazy" width="800" height="600">
+        <h3>再診施術</h3>
+        <p class="price">¥1,500<small>2回目以降</small></p>
+        <p class="desc">2回目以降の施術です。その日の状態をお聞きしてから内容を調整します。</p>
+        <div class="tags"><span>再診</span><span>自費</span></div>
+      </article>
+
+      <article class="mcard" data-tags="sports first">
+        <img src="images/clinic/clinic_menu_care.webp" alt="人体図を使って施術内容を説明しているスタッフ" loading="lazy" width="800" height="600">
+        <h3>保険適用施術</h3>
+        <p class="price">¥500〜<small>負担割合により変動</small></p>
+        <p class="desc">健康保険の対象となる場合の施術です。適用の可否は受付でご確認ください。</p>
+        <div class="tags"><span>初診・再診</span><span>保険適用</span></div>
+      </article>
+
+      <article class="mcard" data-tags="back posture">
+        <img src="images/clinic/clinic_menu_pelvic.webp" alt="骨盤まわりのケアを行っている様子" loading="lazy" width="800" height="600">
+        <h3>骨盤矯正ケア</h3>
+        <p class="price">¥2,500<small>1回</small></p>
+        <p class="desc">骨盤まわりのバランスを確認しながら、体の使い方に合わせてケアします。</p>
+        <div class="tags"><span>ケア</span><span>自費</span></div>
+      </article>
+
+      <article class="mcard" data-tags="sports">
+        <img src="images/clinic/clinic_menu_sports.webp" alt="スポーツをする方向けのコンディショニングを行っている様子" loading="lazy" width="800" height="600">
+        <h3>スポーツコンディショニング</h3>
+        <p class="price">¥2,500<small>1回</small></p>
+        <p class="desc">競技や練習の内容を伺いながら、体の状態に合わせてコンディションを整えます。</p>
+        <div class="tags"><span>ケア</span><span>自費</span></div>
+      </article>
+
+      <article class="mcard" data-tags="shoulder posture">
+        <img src="images/clinic/clinic_menu_stretch.webp" alt="ストレッチで姿勢のケアを行っている様子" loading="lazy" width="800" height="600">
+        <h3>姿勢ケア・ストレッチ</h3>
+        <p class="price">¥2,000<small>1回</small></p>
+        <p class="desc">立ち方や座り方をふまえて、ストレッチを中心に姿勢のケアを行います。</p>
+        <div class="tags"><span>ケア</span><span>自費</span></div>
+      </article>
+    </div>
+    <p class="note">症状に応じた施術内容の目安です。施術の効果や結果を保証するものではありません。気になる症状がある場合は、受付・カウンセリング時にお知らせください。</p>
+  </div>
+</section>
+
+<!-- ============ 02 料金 ============ -->
+<section class="sec" id="price" aria-labelledby="pr-h">
+  <div class="wrap">
+    <div class="shead">
+      <span class="snum">02</span>
+      <h2 id="pr-h">料金表</h2>
+      <p>初診と再診、保険適用の有無をひとつの表にまとめています。表示はすべて税込です。</p>
+    </div>
+
+    <div class="compare rv">
+      <div>
+        <p class="k">初めての方</p>
+        <p class="v">¥3,000</p>
+        <p class="n">カウンセリング＋施術。症状のお伺いから施術までを行います。</p>
       </div>
-      <div class="menu-card">
-        <img src="images/clinic/clinic_menu_care.webp" alt="保険適用施術">
-        <div class="menu-name">保険適用施術</div>
-        <div class="menu-price">¥500〜</div>
+      <div>
+        <p class="k">2回目以降</p>
+        <p class="v">¥1,500</p>
+        <p class="n">再診施術。その日の状態を確認してから施術します。</p>
+      </div>
+    </div>
+
+    <div class="tw rv">
+      <table class="pr">
+        <caption>施術メニューと料金の一覧</caption>
+        <thead>
+          <tr>
+            <th scope="col">メニュー</th>
+            <th scope="col">区分</th>
+            <th scope="col">保険適用</th>
+            <th scope="col">料金（税込）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">初診カウンセリング＋施術</th><td><span class="cat first">初診</span></td><td><span class="ins n">自費</span></td><td class="yen">¥3,000</td></tr>
+          <tr><th scope="row">再診施術</th><td><span class="cat re">再診</span></td><td><span class="ins n">自費</span></td><td class="yen">¥1,500</td></tr>
+          <tr><th scope="row">保険適用施術</th><td><span class="cat">初診・再診</span></td><td><span class="ins y">適用あり</span></td><td class="yen">¥500〜</td></tr>
+          <tr><th scope="row">骨盤矯正ケア</th><td><span class="cat">ケア</span></td><td><span class="ins n">自費</span></td><td class="yen">¥2,500</td></tr>
+          <tr><th scope="row">スポーツコンディショニング</th><td><span class="cat">ケア</span></td><td><span class="ins n">自費</span></td><td class="yen">¥2,500</td></tr>
+          <tr><th scope="row">姿勢ケア・ストレッチ</th><td><span class="cat">ケア</span></td><td><span class="ins n">自費</span></td><td class="yen">¥2,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">保険適用の可否や自己負担額は、症状・保険の負担割合により異なります。「¥500〜」は負担割合による目安の表記です。詳しくは受付でご確認ください。</p>
+  </div>
+</section>
+
+<!-- ============ 03 通院の流れ ============ -->
+<section class="sec sec-alt" id="flow" aria-labelledby="fl-h">
+  <div class="wrap">
+    <div class="shead">
+      <span class="snum">03</span>
+      <h2 id="fl-h">通院の流れ</h2>
+      <p>ご来院から次回のご案内まで、4つのステップでご説明します。初めての方は全体で60分ほどを目安にお考えください。</p>
+    </div>
+
+    <div class="prog" aria-hidden="true">
+      <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+      <ol class="prog-steps" id="progSteps">
+        <li><b>1</b><span>受付・ご来院</span></li>
+        <li><b>2</b><span>カウンセリング</span></li>
+        <li><b>3</b><span>施術</span></li>
+        <li><b>4</b><span>ご説明・次回案内</span></li>
+      </ol>
+    </div>
+
+    <ol style="list-style:none;margin:0;padding:0">
+      <li class="step rv" data-step="1">
+        <figure class="step-fig" style="margin:0"><img src="images/clinic/clinic_flow1.webp" alt="受付カウンターで来院者を迎えている様子" loading="lazy" width="800" height="600"></figure>
+        <div><p class="step-n">STEP 01</p><h3>受付・ご来院</h3><p>受付でお名前と、気になっている箇所をお伺いします。保険をご利用の場合は保険証をご提示ください。予約なしのご来院も受け付けています。</p></div>
+      </li>
+      <li class="step rv" data-step="2">
+        <figure class="step-fig" style="margin:0"><img src="images/clinic/clinic_flow2.webp" alt="問診票をもとにカウンセリングを行っている様子" loading="lazy" width="800" height="600"></figure>
+        <div><p class="step-n">STEP 02</p><h3>カウンセリング</h3><p>いつから、どんなときに気になるのか。お仕事や普段の姿勢、運動の習慣まで丁寧にお聞きします。分からないことはこの時間に何でもお尋ねください。</p></div>
+      </li>
+      <li class="step rv" data-step="3">
+        <figure class="step-fig" style="margin:0"><img src="images/clinic/clinic_flow3.webp" alt="施術ベッドで施術を行っている様子" loading="lazy" width="800" height="600"></figure>
+        <div><p class="step-n">STEP 03</p><h3>施術</h3><p>お伺いした内容をふまえ、お一人おひとりの症状に合わせて施術を行います。痛みや強さの感じ方には個人差があるため、その都度確認しながら進めます。</p></div>
+      </li>
+      <li class="step rv" data-step="4">
+        <figure class="step-fig" style="margin:0"><img src="images/clinic/clinic_flow4.webp" alt="施術後に今後の通院について説明している様子" loading="lazy" width="800" height="600"></figure>
+        <div><p class="step-n">STEP 04</p><h3>ご説明・次回のご案内</h3><p>その日の施術内容と、ご自宅での過ごし方をご説明します。通院のペースについてもご相談のうえでご案内します。次回のご予約はLINEからも承ります。</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 04 受付時間 ============ -->
+<section class="sec" id="hours" aria-labelledby="hr-h">
+  <div class="wrap">
+    <div class="shead">
+      <span class="snum">04</span>
+      <h2 id="hr-h">受付時間</h2>
+      <p>受付は9:00〜19:00です。休診日は日曜・祝日となります。</p>
+    </div>
+
+    <div class="hrs">
+      <div>
+        <div class="tw rv">
+          <table class="wk">
+            <caption class="sr">曜日ごとの受付時間。丸印は受付、バツ印は休診です。</caption>
+            <thead>
+              <tr>
+                <th scope="col"><span class="sr">受付時間</span></th>
+                <th scope="col" data-d="1">月</th>
+                <th scope="col" data-d="2">火</th>
+                <th scope="col" data-d="3">水</th>
+                <th scope="col" data-d="4">木</th>
+                <th scope="col" data-d="5">金</th>
+                <th scope="col" data-d="6">土</th>
+                <th scope="col" class="sun" data-d="0">日</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">9:00〜19:00</th>
+                <td class="o" data-d="1"><span aria-hidden="true">●</span><span class="sr">受付</span></td>
+                <td class="o" data-d="2"><span aria-hidden="true">●</span><span class="sr">受付</span></td>
+                <td class="o" data-d="3"><span aria-hidden="true">●</span><span class="sr">受付</span></td>
+                <td class="o" data-d="4"><span aria-hidden="true">●</span><span class="sr">受付</span></td>
+                <td class="o" data-d="5"><span aria-hidden="true">●</span><span class="sr">受付</span></td>
+                <td class="o" data-d="6"><span aria-hidden="true">●</span><span class="sr">受付</span></td>
+                <td class="x" data-d="0"><span aria-hidden="true">×</span><span class="sr">休診</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="wk-lg">
+          <span><b class="b1">●</b> 受付 9:00〜19:00</span>
+          <span><b class="b2">×</b> 休診（日曜・祝日）</span>
+        </p>
+        <p class="note" style="margin-top:18px">祝日は休診です。受付状況の表示は曜日と時刻のみで判定しているため、祝日は反映されません。ご来院前にLINEまたはメールでご確認いただけます。</p>
+      </div>
+
+      <div class="hrs-panel rv">
+        <p class="stat" id="statBox"><span class="dot" aria-hidden="true"></span><span class="stat-t">受付状況を確認中</span></p>
+        <p class="big" id="statBig">受付状況を確認しています</p>
+        <p class="sub" id="statSub">お使いの端末の日付をもとに表示しています。</p>
+        <dl>
+          <div><dt>受付時間</dt><dd>9:00〜19:00</dd></div>
+          <div><dt>休診日</dt><dd>日曜・祝日</dd></div>
+        </dl>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="menu-category">
-    <div class="menu-category-title">ケアメニュー</div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="images/clinic/clinic_menu_pelvic.webp" alt="骨盤矯正ケア">
-        <div class="menu-name">骨盤矯正ケア</div>
-        <div class="menu-price">¥2,500</div>
-      </div>
-      <div class="menu-card">
-        <img src="images/clinic/clinic_menu_sports.webp" alt="スポーツコンディショニング">
-        <div class="menu-name">スポーツコンディショニング</div>
-        <div class="menu-price">¥2,500</div>
-      </div>
-      <div class="menu-card">
-        <img src="images/clinic/clinic_menu_stretch.webp" alt="姿勢ケア・ストレッチ">
-        <div class="menu-name">姿勢ケア・ストレッチ</div>
-        <div class="menu-price">¥2,000</div>
+<!-- ============ 05 院内の様子 ============ -->
+<section class="sec sec-alt" id="gallery" aria-labelledby="ga-h">
+  <div class="wrap">
+    <div class="shead">
+      <span class="snum">05</span>
+      <h2 id="ga-h">院内の様子</h2>
+      <p>初めてお越しになる方が院内の雰囲気を事前に確認できるよう、写真を掲載しています。</p>
+    </div>
+    <div class="gal">
+      <figure class="rv"><img src="images/clinic/clinic_gallery1.webp" alt="ソファが並ぶ待合スペースと受付カウンター" loading="lazy" width="800" height="600"><figcaption>待合スペース</figcaption></figure>
+      <figure class="rv"><img src="images/clinic/clinic_gallery2.webp" alt="施術ベッドが並ぶ施術スペースで準備をするスタッフ" loading="lazy" width="800" height="600"><figcaption>施術スペース</figcaption></figure>
+      <figure class="rv"><img src="images/clinic/clinic_gallery3.webp" alt="施術スペースに立つスタッフ" loading="lazy" width="800" height="600"><figcaption>スタッフ</figcaption></figure>
+      <figure class="rv"><img src="images/clinic/clinic_gallery4.webp" alt="タオルや備品が並ぶカウンター" loading="lazy" width="800" height="600"><figcaption>施術用品のカウンター</figcaption></figure>
+      <figure class="rv"><img src="images/clinic/clinic_gallery5.webp" alt="マットとストレッチ用ポールを置いたスペース" loading="lazy" width="800" height="600"><figcaption>ストレッチスペース</figcaption></figure>
+      <figure class="rv"><img src="images/clinic/clinic_gallery6.webp" alt="院内の通路と受付カウンター" loading="lazy" width="800" height="600"><figcaption>通路・受付</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 アクセス ============ -->
+<section class="sec" id="access" aria-labelledby="ac-h">
+  <div class="wrap">
+    <div class="shead">
+      <span class="snum">06</span>
+      <h2 id="ac-h">アクセス・お問い合わせ</h2>
+      <p>ご予約やご相談は、LINEまたはメールから承ります。</p>
+    </div>
+    <div class="acc">
+      <table class="info">
+        <tbody>
+          <tr><th scope="row">院名</th><td>みなと接骨院</td></tr>
+          <tr><th scope="row">住所</th><td>福岡県福岡市〇〇区〇〇3-1-8</td></tr>
+          <tr><th scope="row">受付時間</th><td>9:00〜19:00</td></tr>
+          <tr><th scope="row">休診日</th><td>日曜・祝日</td></tr>
+          <tr><th scope="row">お問い合わせ</th><td><a href="mailto:info@example.com">info@example.com</a></td></tr>
+          <tr><th scope="row">LINE</th><td><a href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a></td></tr>
+        </tbody>
+      </table>
+      <div class="cta">
+        <h3>ご予約・ご相談</h3>
+        <p>「これは診てもらえますか？」というご相談だけでも構いません。お気軽にご連絡ください。</p>
+        <a class="btn btn-p" href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a>
+        <a class="btn btn-o" href="mailto:info@example.com">メールで問い合わせる</a>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="section-title">ギャラリー</div>
-  <div class="gallery-marquee">
-    <div class="gallery-track">
-      <img class="gallery-item" src="images/clinic/clinic_gallery1.webp" alt="受付・待合スペース">
-      <img class="gallery-item" src="images/clinic/clinic_gallery2.webp" alt="施術ルーム">
-      <img class="gallery-item" src="images/clinic/clinic_gallery3.webp" alt="施術スタッフの様子">
-      <img class="gallery-item" src="images/clinic/clinic_gallery4.webp" alt="施術用品・タオル">
-      <img class="gallery-item" src="images/clinic/clinic_gallery5.webp" alt="コンディショニングルーム">
-      <img class="gallery-item" src="images/clinic/clinic_gallery6.webp" alt="エントランス・受付">
-      <img class="gallery-item" src="images/clinic/clinic_gallery1.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/clinic/clinic_gallery2.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/clinic/clinic_gallery3.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/clinic/clinic_gallery4.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/clinic/clinic_gallery5.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/clinic/clinic_gallery6.webp" alt="" aria-hidden="true">
-    </div>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <span class="fb">みなと接骨院</span>
+    <span>（RESC制作サンプル）</span>
+    <a href="../hp-service/index.html">RESCのサイトに戻る</a>
   </div>
-</section>
+</footer>
 
-<section class="contact">
-  <div class="section-title">アクセス・お問い合わせ</div>
-  <p>福岡県福岡市〇〇区〇〇3-1-8</p>
-  <p>受付時間:9:00〜19:00（休診日:日曜・祝日）</p>
-  <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
-  <div class="line-wrap">
-    <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
-    <p class="line-note">LINEでのお問い合わせも承っています。</p>
-  </div>
-</section>
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-<footer>みなと接骨院（RESC制作サンプル）</footer>
+  /* ---------- 1. 症状フィルタ ---------- */
+  var LABEL = {
+    shoulder:'肩こり・首のはり', back:'腰の痛み', sports:'スポーツ外傷',
+    posture:'姿勢の悩み', first:'はじめての方'
+  };
+  var chips  = Array.prototype.slice.call(document.querySelectorAll('#chips .chip[data-key]'));
+  var reset  = document.getElementById('chipReset');
+  var cards  = Array.prototype.slice.call(document.querySelectorAll('#menus .mcard'));
+  var out    = document.getElementById('fOut');
+  var active = null;
 
+  function apply(key){
+    active = key;
+    var n = 0;
+    cards.forEach(function(c){
+      var hit = !key || (' '+c.getAttribute('data-tags')+' ').indexOf(' '+key+' ') > -1;
+      c.classList.toggle('off', !hit);
+      c.setAttribute('aria-hidden', hit ? 'false' : 'true');
+      if (hit) n++;
+    });
+    chips.forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-key') === key));
+    });
+    out.innerHTML = key
+      ? '「' + LABEL[key] + '」に関連するメニュー <b>' + n + '件</b> を表示しています。'
+      : 'すべてのメニュー <b>' + n + '件</b> を表示しています。';
+  }
+
+  chips.forEach(function(b){
+    b.addEventListener('click', function(){
+      var k = b.getAttribute('data-key');
+      apply(active === k ? null : k);
+    });
+  });
+  if (reset) reset.addEventListener('click', function(){ apply(null); });
+  apply(null);
+
+  /* ---------- 2. 受付状況の判定 ---------- */
+  var OPEN_H = 9, CLOSE_H = 19;
+  function updateStatus(now){
+    now = now || new Date();
+    var day = now.getDay();                       // 0=日
+    var mins = now.getHours()*60 + now.getMinutes();
+    var openM = OPEN_H*60, closeM = CLOSE_H*60;
+    var closedDay = (day === 0);                  // 日曜は休診（祝日は判定対象外）
+    var label, big, sub, cls;
+
+    if (closedDay){
+      cls = 'closed'; label = '本日休診';
+      big = '本日休診';
+      sub = '日曜・祝日は休診です。翌営業日の9:00から受付いたします。';
+    } else if (mins < openM){
+      cls = 'open'; label = '本日受付中';
+      big = '本日受付中（9:00から）';
+      sub = 'ただいま受付時間外です。本日は9:00から19:00まで受付いたします。';
+    } else if (mins < closeM){
+      cls = 'open'; label = '本日受付中';
+      big = '本日受付中';
+      sub = '本日の受付は19:00までです。';
+    } else {
+      cls = 'closed'; label = '本日の受付は終了';
+      big = '本日の受付は終了しました';
+      sub = '受付時間は9:00〜19:00です。翌営業日にあらためてご来院ください。';
+    }
+
+    ['statHd','statBox'].forEach(function(id){
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.classList.remove('open','closed');
+      el.classList.add(cls);
+      el.querySelector('.stat-t').textContent = label;
+      el.hidden = false;
+    });
+    var b = document.getElementById('statBig'), s = document.getElementById('statSub');
+    if (b) b.textContent = big;
+    if (s) s.textContent = sub;
+
+    // 週間表の当日ハイライト
+    document.querySelectorAll('.wk [data-d]').forEach(function(el){
+      var is = Number(el.getAttribute('data-d')) === day;
+      el.classList.toggle('today', is);
+      var mk = el.querySelector('.today-mk');
+      if (is && !mk && el.tagName === 'TH'){
+        var i = document.createElement('span');
+        i.className = 'today-mk'; i.textContent = '本日';
+        el.appendChild(i);
+      } else if (!is && mk){ mk.remove(); }
+    });
+  }
+  window.__updateStatus = updateStatus;   // 検証用
+  updateStatus();
+  setInterval(function(){ updateStatus(); }, 60000);
+
+  /* ---------- 3. 出現アニメーション ---------- */
+  var rv = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+  if (reduce || !('IntersectionObserver' in window)){
+    rv.forEach(function(e){ e.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin:'0px 0px -8% 0px', threshold:0.08 });
+    rv.forEach(function(e){ io.observe(e); });
+  }
+
+  /* ---------- 4. ヘッダー高さ（sticky の基準） ---------- */
+  var hd = document.querySelector('.hd');
+  function setHH(){
+    if (!hd) return;
+    document.documentElement.style.setProperty('--hh', Math.round(hd.getBoundingClientRect().height) + 'px');
+  }
+  setHH();
+  window.addEventListener('resize', setHH);
+  window.addEventListener('load', setHH);
+
+  /* ---------- 5. 通院の流れ：進捗 ---------- */
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.step[data-step]'));
+  var lis   = Array.prototype.slice.call(document.querySelectorAll('#progSteps li'));
+  var fill  = document.getElementById('progFill');
+  var ticking = false;
+
+  function updateProgress(){
+    ticking = false;
+    if (!steps.length || !fill) return;
+    var mid = window.innerHeight * 0.55, current = 0;
+    steps.forEach(function(st, i){
+      var r = st.getBoundingClientRect();
+      if (r.top <= mid) current = i + 1;
+    });
+    lis.forEach(function(li, i){ li.classList.toggle('on', i < current); });
+    fill.style.width = (current / steps.length * 100) + '%';
+  }
+  function onScroll(){ if (!ticking){ ticking = true; requestAnimationFrame(updateProgress); } }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  updateProgress();
+})();
+</script>
 </body>
 </html>

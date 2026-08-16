@@ -2,252 +2,636 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Salon Ren｜美容室</title>
+<meta name="description" content="福岡の美容室 Salon Ren。落ち着いた空間で、髪質やライフスタイルに合わせたスタイルをご提案します。カット・カラー・トリートメント・デジタルパーマ・ブライダル・ヘッドスパ。">
+<meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&family=Zen+Old+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --primary: #4A4A4A;
-    --primary-dark: #2A2A2A;
-    --bg: #F7F7F5;
-    --accent: #B7A99A;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Zen Kaku Gothic New', sans-serif; background: var(--bg); color: #2B2420; line-height: 1.8; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  .notice {
-    background: var(--primary-dark); color: #fff; text-align: center;
-    font-size: 12.5px; padding: 8px 16px;
-  }
-  .notice a { color: #fff; text-decoration: underline; }
-  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
-  .hero img { width: 100%; height: 100%; object-fit: cover; transform-origin: 60% 35%; animation: hero-kenburns 20s ease-out infinite alternate; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
-  .hero-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 24px; }
-  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
-  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
-  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+/* ============ base ============ */
+:root{
+  --paper:#faf8f4;
+  --paper-2:#f1ece3;
+  --paper-3:#e7e0d4;
+  --sumi:#1b1917;
+  --sumi-2:#4c463e;
+  --sumi-3:#6b6459;
+  --line:rgba(27,25,23,.16);
+  --line-soft:rgba(27,25,23,.09);
+  --ai:#3f5460;
+  --rail:64px;
+  --mincho:"Zen Old Mincho","Noto Serif CJK JP","Hiragino Mincho ProN","Yu Mincho",YuMincho,"Shippori Mincho",serif;
+  --gothic:"Zen Kaku Gothic New","Noto Sans CJK JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --pad:clamp(20px,5vw,72px);
+  --offs:1;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--sumi);
+  font-family:var(--gothic);font-size:16px;line-height:1.95;
+  font-feature-settings:"palt" 1;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p,figure,dl,dd,dt,ul,li{margin:0;padding:0}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--ai);outline-offset:3px;border-radius:1px}
 
-  @keyframes hero-kenburns {
-    from { transform: scale(1) translate(0, 0); }
-    to { transform: scale(1.08) translate(-1.5%, -1.5%); }
-  }
-  @keyframes hero-fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero img,
-    .hero-text h1,
-    .hero-text p {
-      animation: none;
-    }
-  }
+.mincho{font-family:var(--mincho);font-weight:500}
+.vt{writing-mode:vertical-rl;-webkit-writing-mode:vertical-rl;text-orientation:upright;-webkit-text-orientation:upright;font-feature-settings:"pkna" 1}
+.vt-lat{writing-mode:vertical-rl;-webkit-writing-mode:vertical-rl;text-orientation:sideways;-webkit-text-orientation:sideways}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-  /* ---- ヒーロー オープニング演出(ハサミが横切り、切り込みラインで開く) ---- */
-  .hero-opening { position: absolute; inset: 0; z-index: 50; pointer-events: none; }
-  .hero-opening-panel { position: absolute; left: 0; width: 100%; height: 50%; background: var(--bg); }
-  .hero-opening-panel.top { top: 0; animation: hero-open-top 0.9s ease-in 1.65s forwards; }
-  .hero-opening-panel.bottom { bottom: 0; animation: hero-open-bottom 0.9s ease-in 1.65s forwards; }
-  .hero-opening-scissors {
-    position: absolute; top: 50%; left: -8%; width: 46px; height: 46px;
-    color: var(--primary-dark); transform: translateY(-50%);
-    animation: hero-scissors-sweep 1.8s ease-in-out forwards;
-  }
-  @keyframes hero-scissors-sweep {
-    0% { left: -8%; opacity: 1; }
-    85% { left: 100%; opacity: 1; }
-    100% { left: 108%; opacity: 0; }
-  }
-  @keyframes hero-open-top {
-    from { transform: translateY(0); }
-    to { transform: translateY(-100%); }
-  }
-  @keyframes hero-open-bottom {
-    from { transform: translateY(0); }
-    to { transform: translateY(100%); }
-  }
-  @media (max-width: 480px) {
-    .hero-opening-scissors { width: 36px; height: 36px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-opening { display: none; }
-  }
-  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
-  .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
-  .about p { font-size: 14.5px; color: #4A4238; }
-  .menu-category { margin-top: 40px; }
-  .menu-category:first-child { margin-top: 0; }
-  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; text-align: center; }
-  .menu-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-  .menu-card { text-align: center; width: calc(25% - 15px); }
-  .menu-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; object-position: center; }
-  .menu-card img[src*="salon_menu_cut.webp"] { object-position: 62% 35%; }
-  .menu-card img[src*="salon_menu_color.webp"] { object-position: 58% 40%; }
-  .menu-card img[src*="salon_menu_treatment.webp"] { object-position: 45% 50%; }
-  .menu-card img[src*="salon_menu_perm.webp"] { object-position: 45% 35%; }
-  .menu-card img[src*="salon_menu_bridal.webp"] { object-position: 68% 30%; }
-  .menu-card img[src*="salon_menu_headspa.webp"] { object-position: 45% 45%; }
-  .menu-card .menu-name { margin-top: 12px; font-size: 14px; font-weight: 700; color: #2B2420; }
-  .menu-card .menu-price { margin-top: 4px; font-size: 13px; color: var(--primary); }
-  @media (max-width: 900px) { .menu-card { width: calc(33.333% - 14px); } }
-  @media (max-width: 700px) { .menu-card { width: calc(50% - 10px); } }
-  @media (max-width: 420px) { .menu-card { width: 100%; } }
-  .gallery-marquee { overflow: hidden; }
-  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
-  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
-  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; object-fit: cover; border-radius: 6px; margin-right: 16px; }
-  @keyframes gallery-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gallery-track { animation: none; }
-    .gallery-marquee { overflow-x: auto; }
-  }
-  .contact { background: var(--primary); color: #fff; text-align: center; }
-  .contact .section-title { color: #fff; }
-  .contact p { font-size: 14px; margin-bottom: 8px; }
-  .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
-  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
+/* ============ notice ============ */
+.notice{
+  background:var(--paper-2);border-bottom:1px solid var(--line-soft);
+  font-size:12px;line-height:1.7;color:var(--sumi-2);
+  padding:9px var(--pad);
+  display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center;justify-content:space-between;
+}
+.notice a{color:var(--ai);text-underline-offset:3px;text-decoration-thickness:1px;white-space:nowrap}
+.notice a:hover{text-decoration:none}
 
-  /* ---- LINE連携ボタン（cafe-light.html と同一実装） ---- */
-  .line-btn {
-    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
-    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
-    line-height: 21px;
+/* ============ rail ============ */
+.rail{display:none}
+@media (min-width:1024px){
+  body{padding-left:var(--rail)}
+  .rail{
+    display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+    position:fixed;inset:0 auto 0 0;width:var(--rail);z-index:40;
+    background:var(--paper);border-right:1px solid var(--line-soft);
+    padding:22px 0 20px;
   }
-  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
-  .contact .line-wrap { margin-top: 18px; }
+  .rail .rl-brand{font-family:var(--mincho);font-size:13px;letter-spacing:.34em;color:var(--sumi)}
+  .rail .rl-hours{font-size:10px;letter-spacing:.24em;color:var(--sumi-3)}
+  .rail .rl-bar{position:relative;flex:1;width:1px;background:var(--line-soft);margin:20px 0;overflow:hidden}
+  .rail .rl-bar i{position:absolute;inset:0;background:var(--sumi);transform:scaleY(0);transform-origin:top;display:block}
+}
+
+/* ============ hero ============ */
+.hero{position:relative;display:grid;grid-template-columns:minmax(300px,36%) 1fr;min-height:76vh;min-height:calc(100svh - 40px)}
+.hero-copy{position:relative;display:flex;align-items:center;justify-content:center;padding:clamp(40px,7vh,90px) clamp(16px,2.5vw,34px)}
+.hero-inner{display:flex;align-items:flex-start;gap:clamp(14px,2vw,26px)}
+.hero-rule{width:1px;align-self:stretch;background:var(--sumi);transform-origin:top;flex:0 0 1px}
+.hero-title{
+  font-family:var(--mincho);font-weight:500;
+  font-size:clamp(23px,2.9vw,38px);font-size:clamp(23px,min(2.9vw,4.6svh),38px);
+  line-height:1.62;letter-spacing:.13em;
+  max-height:min(74svh,700px);
+}
+.hero-title .ch{display:inline-block}
+.hero-side{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding-top:6px}
+.hero-brand{font-family:var(--mincho);font-size:clamp(11px,1vw,13px);letter-spacing:.42em;color:var(--sumi-2)}
+.hero-kind{font-size:10px;letter-spacing:.3em;color:var(--sumi-3)}
+.hero-figure{position:relative;overflow:hidden;background:var(--paper-2)}
+.hero-zoom{position:absolute;inset:0}
+.hero-figure img{position:absolute;inset:0;width:100%;height:112%;top:-6%;object-fit:cover;object-position:center 46%;will-change:transform}
+.shoji{position:absolute;inset:0;pointer-events:none;z-index:2}
+.shoji i{position:absolute;top:0;bottom:0;width:20.4%;background:var(--paper);transform-origin:top;display:block}
+.shoji i:nth-child(1){left:0}
+.shoji i:nth-child(2){left:20%}
+.shoji i:nth-child(3){left:40%}
+.shoji i:nth-child(4){left:60%}
+.shoji i:nth-child(5){left:80%;width:20.2%}
+.hero-scroll{position:absolute;left:calc(var(--pad) * .6);bottom:26px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:.3em;color:var(--sumi-3)}
+.hero-scroll span{writing-mode:vertical-rl;-webkit-writing-mode:vertical-rl}
+.hero-scroll i{width:1px;height:52px;background:linear-gradient(var(--sumi-3),transparent);display:block}
+
+/* ============ layout helpers ============ */
+.sec{position:relative;padding:clamp(76px,11vw,150px) var(--pad)}
+.wrap{max-width:1180px;margin:0 auto}
+.shead{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(30px,5vw,56px)}
+.shead .jp{font-family:var(--mincho);font-weight:500;font-size:clamp(19px,2.2vw,26px);letter-spacing:.3em}
+.shead .jp .ch{display:inline-block}
+.shead .en{font-size:10px;letter-spacing:.36em;color:var(--sumi-3);white-space:nowrap}
+.shead .ln{flex:1;height:1px;background:var(--line);transform-origin:left}
+.hr-thin{height:1px;background:var(--line-soft);border:0}
+
+/* ============ gallery ============ */
+.gal{padding:clamp(60px,8vw,110px) 0 clamp(70px,9vw,120px);background:linear-gradient(180deg,var(--paper) 0%,#f7f3ec 45%,var(--paper) 100%)}
+.gal .shead{padding:0 var(--pad)}
+.gal-stage{position:relative}
+.gal-view{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.gal-track{display:flex;align-items:center;gap:clamp(18px,2.6vw,44px);padding:60px var(--pad);width:max-content}
+.gal-item{position:relative;flex:0 0 auto;width:var(--w);transform:translate3d(0,calc(var(--off) * var(--offs) * 1px),0)}
+.gal-frame{position:relative;aspect-ratio:var(--ar);overflow:hidden;background:var(--paper-2)}
+.gal-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.22,.61,.36,1)}
+.gal-item:hover .gal-frame img{transform:scale(1.045)}
+.gal-num{position:absolute;top:-24px;left:0;font-family:var(--mincho);font-size:11px;letter-spacing:.22em;color:var(--sumi-3)}
+.gal-hint{padding:0 var(--pad);font-size:10.5px;letter-spacing:.24em;color:var(--sumi-3);display:flex;align-items:center;gap:10px}
+.gal-hint i{width:38px;height:1px;background:var(--line);display:block}
+
+.gal-prog{display:none}
+
+/* scroll-driven mode (JS + motion ok) */
+.gscroll .gal-view{overflow:hidden;position:sticky;top:0;height:100svh;display:flex;align-items:center}
+.gscroll .gal-track{will-change:transform;padding-block:0}
+.gscroll .gal-hint{display:none}
+.gscroll .gal-prog{display:block;position:absolute;left:var(--pad);right:var(--pad);bottom:38px;height:1px;background:var(--line-soft);overflow:hidden}
+.gscroll .gal-prog i{display:block;height:100%;background:var(--sumi-3);transform:scaleX(0);transform-origin:left;will-change:transform}
+
+/* ============ about ============ */
+.about{position:relative;overflow:hidden}
+.about-grid{display:grid;grid-template-columns:auto 1fr;gap:clamp(26px,5vw,74px);align-items:start}
+.about-mark{
+  font-family:var(--mincho);font-weight:400;
+  font-size:clamp(90px,13vw,190px);line-height:1;color:var(--paper-3);
+  letter-spacing:.1em;user-select:none;
+}
+.about-body{max-width:44ch;padding-top:clamp(6px,1.6vw,20px)}
+.about-lead{font-family:var(--mincho);font-weight:500;font-size:clamp(17px,1.9vw,23px);line-height:2.15;letter-spacing:.1em;margin-bottom:26px}
+.about-lead .ln{display:block}
+.about-p{font-size:14.5px;line-height:2.25;color:var(--sumi-2);letter-spacing:.05em}
+.about-p+.about-p{margin-top:18px}
+.about-meta{margin-top:34px;display:flex;gap:26px;flex-wrap:wrap;font-size:11px;letter-spacing:.24em;color:var(--sumi-3)}
+
+/* ============ menu ============ */
+.menu{background:#f7f3ec}
+.mgroup+.mgroup{margin-top:clamp(64px,9vw,120px)}
+.mgroup-head{display:flex;align-items:center;gap:14px;margin-bottom:clamp(26px,4vw,48px)}
+.mgroup-head .jp{font-family:var(--mincho);font-size:15px;letter-spacing:.28em}
+.mgroup-head .ln{flex:1;height:1px;background:var(--line-soft)}
+
+/* group A : rhythmic rows */
+.mrow{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,2.6vw,38px);align-items:center;margin-top:var(--mt,0)}
+.mrow .m-fig{grid-column:var(--fig);position:relative}
+.mrow .m-body{grid-column:var(--body)}
+.m-frame{position:relative;aspect-ratio:var(--ar,4/3);overflow:hidden;background:var(--paper-2)}
+.m-frame img{position:absolute;left:0;width:100%;height:114%;top:-7%;object-fit:cover;will-change:transform}
+.m-idx{font-family:var(--mincho);font-size:12px;letter-spacing:.2em;color:var(--ai);margin-bottom:12px}
+.m-name{font-family:var(--mincho);font-weight:500;font-size:clamp(20px,2.5vw,30px);letter-spacing:.14em;line-height:1.5}
+.m-en{font-size:9.5px;letter-spacing:.32em;color:var(--sumi-3);margin-top:8px}
+.m-price{display:flex;align-items:baseline;gap:12px;margin-top:18px}
+.m-price .ln{flex:0 0 auto;width:clamp(28px,5vw,60px);height:1px;background:var(--line)}
+.m-price b{font-family:var(--mincho);font-weight:500;font-size:clamp(17px,1.9vw,22px);letter-spacing:.06em}
+
+/* group B : stepped */
+.msteps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.8vw,42px);align-items:start}
+.mstep{margin-top:calc(var(--i) * clamp(14px,3.4vw,52px))}
+.mstep .st-frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--paper-2)}
+.mstep .st-frame img{position:absolute;left:0;width:100%;height:112%;top:-6%;object-fit:cover;will-change:transform}
+.mstep .st-foot{display:flex;align-items:flex-start;gap:14px;margin-top:16px}
+.mstep .st-name{font-family:var(--mincho);font-weight:500;font-size:clamp(14px,1.35vw,17px);letter-spacing:.12em;line-height:1.5;max-height:16em}
+.mstep .st-right{padding-top:2px}
+.mstep .st-price{font-family:var(--mincho);font-weight:500;font-size:clamp(15px,1.6vw,19px);letter-spacing:.05em}
+.mstep .st-en{font-size:9px;letter-spacing:.28em;color:var(--sumi-3);margin-top:8px}
+
+/* ============ info + contact ============ */
+.info-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,90px);align-items:start}
+.dl{border-top:1px solid var(--line-soft)}
+.dl>div{display:grid;grid-template-columns:7.5em 1fr;gap:8px 18px;padding:18px 2px;border-bottom:1px solid var(--line-soft)}
+.dl dt{font-size:11px;letter-spacing:.26em;color:var(--sumi-3);padding-top:.45em}
+.dl dd{font-family:var(--mincho);font-size:15.5px;letter-spacing:.08em;line-height:1.85}
+.ct-lead{font-family:var(--mincho);font-weight:500;font-size:clamp(19px,2.3vw,27px);letter-spacing:.14em;line-height:1.75}
+.ct-note{margin-top:16px;font-size:13.5px;color:var(--sumi-2);letter-spacing:.05em;max-width:34ch}
+.btns{margin-top:30px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.btn{
+  display:inline-flex;align-items:center;justify-content:space-between;gap:22px;
+  min-width:min(300px,100%);padding:15px 20px;
+  font-size:13px;letter-spacing:.16em;text-decoration:none;
+  border:1px solid var(--sumi);color:var(--sumi);background:transparent;
+  transition:background .35s ease,color .35s ease;
+}
+.btn i{width:24px;height:1px;background:currentColor;position:relative;flex:0 0 auto}
+.btn i::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.btn:hover{background:var(--sumi);color:var(--paper)}
+.btn.line{border-color:var(--ai);color:var(--ai)}
+.btn.line:hover{background:var(--ai);color:#fff}
+
+/* ============ footer ============ */
+.foot{padding:36px var(--pad) 44px;border-top:1px solid var(--line-soft);display:flex;flex-wrap:wrap;gap:10px 26px;align-items:baseline;justify-content:space-between}
+.foot .fb{font-family:var(--mincho);font-size:13px;letter-spacing:.3em}
+.foot small{font-size:10.5px;letter-spacing:.16em;color:var(--sumi-3)}
+
+/* ============ reveal (JS on) ============ */
+.js .rv{opacity:0;transform:translate3d(0,26px,0);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv-l{opacity:0;transform:translate3d(0,18px,0);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1);transition-delay:var(--d,0s)}
+.js .rv-l.in{opacity:1;transform:none}
+.js .rv-ln{transform:scaleX(0);transition:transform 1s cubic-bezier(.76,0,.24,1);transition-delay:var(--d,0s)}
+.js .rv-ln.in{transform:scaleX(1)}
+.js .split .ch{display:inline-block;opacity:0;transform:translate3d(0,.5em,0);transition:opacity .6s ease,transform .7s cubic-bezier(.22,.61,.36,1);transition-delay:calc(var(--i) * 40ms)}
+.js .split.in .ch{opacity:1;transform:none}
+
+/* hero intro (JS on) */
+.js .hero-zoom{transform:scale(1.09);transition:transform 2.2s cubic-bezier(.22,.61,.36,1) .1s}
+.js .hero-rule{transform:scaleY(0);transition:transform 1.1s cubic-bezier(.76,0,.24,1) .55s}
+.js .hero-title .ch{opacity:0;transform:translate3d(0,.55em,0);transition:opacity .7s ease,transform .8s cubic-bezier(.22,.61,.36,1);transition-delay:calc(.6s + var(--i) * 55ms)}
+.js .hero-side>*{opacity:0;transform:translate3d(0,10px,0);transition:opacity .8s ease,transform .8s ease;transition-delay:calc(1.3s + var(--i) * .12s)}
+.js .hero-scroll{opacity:0;transition:opacity .9s ease 1.9s}
+.js .shoji i{transform:scaleY(1);transition:transform 1.05s cubic-bezier(.76,0,.24,1);transition-delay:calc(.12s + var(--i) * .085s)}
+.js.intro .shoji i{transform:scaleY(0)}
+.js.intro .hero-zoom{transform:scale(1)}
+.js.intro .hero-rule{transform:scaleY(1)}
+.js.intro .hero-title .ch{opacity:1;transform:none}
+.js.intro .hero-side>*{opacity:1;transform:none}
+.js.intro .hero-scroll{opacity:1}
+
+/* ============ responsive ============ */
+@media (max-width:1023px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-figure{order:-1;width:100%;justify-self:stretch;aspect-ratio:4/3;min-height:40svh;max-height:48svh}
+  .hero-copy{padding:clamp(30px,6vw,54px) var(--pad) clamp(34px,7vw,60px)}
+  .hero-title{max-height:min(54svh,440px)}
+  .hero-scroll{display:none}
+}
+@media (max-width:900px){
+  .info-grid{grid-template-columns:1fr;gap:44px}
+}
+@media (max-width:768px){
+  :root{--offs:.42}
+  .about-grid{grid-template-columns:1fr;gap:6px}
+  .about-mark{font-size:clamp(72px,20vw,120px);line-height:.9}
+  .mrow{grid-template-columns:1fr;gap:18px}
+  .mrow .m-fig,.mrow .m-body{grid-column:1/-1}
+  .mrow{margin-top:clamp(54px,11vw,76px)}
+  .mgroup .mrow:first-of-type{margin-top:0}
+  .m-frame{aspect-ratio:16/10}
+  .msteps{grid-template-columns:1fr;gap:42px}
+  .mstep{margin-top:0}
+  .mstep .st-frame{aspect-ratio:16/11}
+  .mstep .st-name{max-height:none;writing-mode:horizontal-tb;-webkit-writing-mode:horizontal-tb;text-orientation:mixed;-webkit-text-orientation:mixed;font-size:16px}
+  .mstep .st-foot{align-items:baseline;gap:18px}
+  .gal-track{padding-block:44px}
+  .gscroll .gal-view{height:74svh;top:12svh}
+  .gal-item{width:auto}
+  .gal-frame{height:clamp(200px,40svh,330px);width:auto;aspect-ratio:var(--ar)}
+}
+@media (max-width:520px){
+  body{font-size:15px}
+  .dl>div{grid-template-columns:1fr;gap:4px}
+  .dl dt{padding-top:0}
+  .btn{min-width:100%}
+  .shead{flex-wrap:wrap;gap:8px 14px}
+  .shead .ln{order:3;flex-basis:100%}
+}
+
+/* ============ reduced motion ============ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv,.js .rv-l,.js .rv-ln,.js .split .ch,
+  .js .hero-title .ch,.js .hero-side>*,.js .hero-scroll,
+  .js .hero-rule,.js .hero-zoom,.js .hero-figure img,.js .shoji i{
+    opacity:1!important;transform:none!important;transition:none!important;animation:none!important;
+  }
+  .shoji{display:none}
+  .gal-item{transform:none!important}
+  .gal-frame img,.m-frame img,.mstep .st-frame img{transition:none!important;transform:none!important}
+  .gscroll .gal-view{position:static;height:auto;overflow-x:auto;display:block}
+  .gscroll .gal-track{transform:none!important;padding-block:44px}
+  .gscroll .gal-hint{position:static}
+  *{scroll-behavior:auto!important}
+}
 </style>
 </head>
 <body>
+<script>document.documentElement.classList.add('js');</script>
 
-<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+<!-- ===== notice ===== -->
+<div class="notice">
+  <span>これはRESCが作成したサンプルサイトです。実店舗ではありません。</span>
+  <a href="../hp-service/index.html">RESCのサイトに戻る</a>
+</div>
 
-<div class="hero">
-  <img src="images/salon/salon_hero.webp" alt="Salon Ren">
-  <div class="hero-text">
-    <div class="label">美容室</div>
-    <h1>髪と心に、静かなひとときを。</h1>
-    <p>Salon Ren</p>
-  </div>
-  <div class="hero-opening">
-    <div class="hero-opening-panel top"></div>
-    <div class="hero-opening-panel bottom"></div>
-    <div class="hero-opening-scissors" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="6" cy="6" r="3"></circle>
-        <circle cx="6" cy="18" r="3"></circle>
-        <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
-        <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
-        <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
-      </svg>
+<!-- ===== side rail ===== -->
+<div class="rail" aria-hidden="true">
+  <span class="rl-brand vt-lat">SALON REN</span>
+  <span class="rl-bar"><i id="prog"></i></span>
+  <span class="rl-hours vt-lat">10:00 — 20:00</span>
+</div>
+
+<main>
+<!-- ===== hero ===== -->
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <div class="hero-inner">
+      <span class="hero-rule" aria-hidden="true"></span>
+      <h1 class="hero-title vt" data-split>髪と心に、静かなひとときを。</h1>
+      <div class="hero-side">
+        <span class="hero-brand vt-lat">Salon Ren</span>
+        <span class="hero-kind vt">美容室</span>
+      </div>
     </div>
   </div>
-</div>
+  <figure class="hero-figure">
+    <span class="hero-zoom"><img src="images/salon/salon_hero.webp" alt="Salon Renの店内。丸鏡が並ぶセット面と大きな窓のある明るく落ち着いた空間" width="1376" height="768" fetchpriority="high" decoding="async"></span>
+    <span class="shoji" aria-hidden="true"><i style="--i:4"></i><i style="--i:3"></i><i style="--i:2"></i><i style="--i:1"></i><i style="--i:0"></i></span>
+  </figure>
+  <div class="hero-scroll" aria-hidden="true"><span>SCROLL</span><i></i></div>
+</section>
+
+<!-- ===== gallery ===== -->
+<section class="gal" id="gallery" aria-labelledby="gal-h">
+  <div class="shead">
+    <h2 class="jp split" id="gal-h" data-split>作品</h2>
+    <span class="en rv-l">GALLERY</span>
+    <span class="ln rv-ln"></span>
+  </div>
+  <div class="gal-stage" id="galStage">
+    <div class="gal-view" id="galView" tabindex="0" role="group" aria-label="施術とサロンの写真（横スクロール）">
+      <div class="gal-track" id="galTrack">
+        <figure class="gal-item" style="--w:clamp(258px,30vw,420px);--ar:4/3;--off:0">
+          <span class="gal-num" aria-hidden="true">01</span>
+          <div class="gal-frame"><img src="images/salon/salon_gallery1.webp" alt="窓際のセット面でカットを受けるお客さまとスタイリスト" loading="lazy" decoding="async" width="1200" height="670"></div>
+        </figure>
+        <figure class="gal-item" style="--w:clamp(216px,24vw,336px);--ar:3/4;--off:88">
+          <span class="gal-num" aria-hidden="true">02</span>
+          <div class="gal-frame"><img src="images/salon/salon_gallery2.webp" alt="観葉植物とソファを配したサロンの待合スペース" loading="lazy" decoding="async" width="1200" height="670"></div>
+        </figure>
+        <figure class="gal-item" style="--w:clamp(280px,34vw,478px);--ar:16/10;--off:-58">
+          <span class="gal-num" aria-hidden="true">03</span>
+          <div class="gal-frame"><img src="images/salon/salon_gallery3.webp" alt="ブランケットを掛けてシャンプーを受けるお客さま" loading="lazy" decoding="async" width="1200" height="670"></div>
+        </figure>
+        <figure class="gal-item" style="--w:clamp(216px,24vw,336px);--ar:1/1;--off:62">
+          <span class="gal-num" aria-hidden="true">04</span>
+          <div class="gal-frame"><img src="images/salon/salon_gallery4.webp" alt="木のトレイに整えられたブラシとドライヤーなどの道具" loading="lazy" decoding="async" width="1200" height="670"></div>
+        </figure>
+        <figure class="gal-item" style="--w:clamp(230px,26vw,358px);--ar:3/4;--off:-28">
+          <span class="gal-num" aria-hidden="true">05</span>
+          <div class="gal-frame"><img src="images/salon/salon_gallery5.webp" alt="コームを手に微笑むスタイリスト" loading="lazy" decoding="async" width="1200" height="670"></div>
+        </figure>
+        <figure class="gal-item" style="--w:clamp(268px,32vw,440px);--ar:4/3;--off:38">
+          <span class="gal-num" aria-hidden="true">06</span>
+          <div class="gal-frame"><img src="images/salon/salon_gallery6.webp" alt="鏡の前で仕上がったまとめ髪のうしろ姿" loading="lazy" decoding="async" width="1200" height="670"></div>
+        </figure>
+      </div>
+      <span class="gal-prog" aria-hidden="true"><i id="galProg"></i></span>
+    </div>
+    <p class="gal-hint" id="galHint"><i aria-hidden="true"></i>横にスクロールしてご覧ください</p>
+  </div>
+</section>
+
+<!-- ===== about ===== -->
+<section class="sec about" id="about" aria-labelledby="ab-h">
+  <div class="wrap">
+    <div class="shead">
+      <h2 class="jp split" id="ab-h" data-split>静けさについて</h2>
+      <span class="en rv-l">ABOUT</span>
+      <span class="ln rv-ln"></span>
+    </div>
+    <div class="about-grid">
+      <p class="about-mark rv vt" aria-hidden="true">静</p>
+      <div class="about-body">
+        <p class="about-lead rv" style="--d:.06s">髪と心に、<br>静かなひとときを。</p>
+        <p class="about-p rv-l" style="--d:.12s">落ち着いた空間で、一人ひとりの髪質やライフスタイルに合わせたスタイルをご提案します。</p>
+        <p class="about-p rv-l" style="--d:.2s">トリートメントにもこだわり、まとまりのある美しい髪へ導きます。</p>
+        <p class="about-meta rv-l" style="--d:.28s"><span>CUT</span><span>COLOR</span><span>TREATMENT</span><span>SPA</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== menu ===== -->
+<section class="sec menu" id="menu" aria-labelledby="mn-h">
+  <div class="wrap">
+    <div class="shead">
+      <h2 class="jp split" id="mn-h" data-split>お品書き</h2>
+      <span class="en rv-l">MENU</span>
+      <span class="ln rv-ln"></span>
+    </div>
+
+    <div class="mgroup">
+      <div class="mgroup-head rv-l"><span class="jp">カット &amp; スタイリング</span><span class="ln"></span></div>
+
+      <article class="mrow" style="--fig:1/7;--body:8/13;--mt:0">
+        <figure class="m-fig rv" style="--ar:4/3">
+          <div class="m-frame"><img src="images/salon/salon_menu_cut.webp" alt="丸鏡の前でカットを受けるお客さま" loading="lazy" decoding="async" width="800" height="447" data-px="26"></div>
+        </figure>
+        <div class="m-body">
+          <p class="m-idx rv-l">壱</p>
+          <h3 class="m-name rv-l" style="--d:.05s">カット</h3>
+          <p class="m-en rv-l" style="--d:.1s">CUT</p>
+          <p class="m-price rv-l" style="--d:.15s"><span class="ln"></span><b>¥4,400</b></p>
+        </div>
+      </article>
+
+      <article class="mrow" style="--fig:7/13;--body:2/7;--mt:clamp(40px,7vw,104px)">
+        <figure class="m-fig rv" style="--ar:16/10">
+          <div class="m-frame"><img src="images/salon/salon_menu_color.webp" alt="カラー剤を塗布しているカラーリングの施術風景" loading="lazy" decoding="async" width="800" height="447" data-px="-22"></div>
+        </figure>
+        <div class="m-body">
+          <p class="m-idx rv-l">弐</p>
+          <h3 class="m-name rv-l" style="--d:.05s">カラー</h3>
+          <p class="m-en rv-l" style="--d:.1s">COLOR</p>
+          <p class="m-price rv-l" style="--d:.15s"><span class="ln"></span><b>¥6,600</b></p>
+        </div>
+      </article>
+
+      <article class="mrow" style="--fig:2/9;--body:9/13;--mt:clamp(40px,7vw,104px)">
+        <figure class="m-fig rv" style="--ar:3/2">
+          <div class="m-frame"><img src="images/salon/salon_menu_treatment.webp" alt="シャンプー台でトリートメントを受けるお客さま" loading="lazy" decoding="async" width="800" height="447" data-px="24"></div>
+        </figure>
+        <div class="m-body">
+          <p class="m-idx rv-l">参</p>
+          <h3 class="m-name rv-l" style="--d:.05s">トリートメント</h3>
+          <p class="m-en rv-l" style="--d:.1s">TREATMENT</p>
+          <p class="m-price rv-l" style="--d:.15s"><span class="ln"></span><b>¥3,300</b></p>
+        </div>
+      </article>
+    </div>
+
+    <div class="mgroup">
+      <div class="mgroup-head rv-l"><span class="jp">スペシャル</span><span class="ln"></span></div>
+      <div class="msteps">
+        <article class="mstep rv" style="--i:0">
+          <div class="st-frame"><img src="images/salon/salon_menu_perm.webp" alt="仕上がったウェーブヘアで席に座るお客さま" loading="lazy" decoding="async" width="800" height="447" data-px="18"></div>
+          <div class="st-foot">
+            <h3 class="st-name vt">デジタルパーマ</h3>
+            <div class="st-right">
+              <p class="st-price">¥8,800</p>
+              <p class="st-en">DIGITAL PERM</p>
+            </div>
+          </div>
+        </article>
+        <article class="mstep rv" style="--i:1;--d:.08s">
+          <div class="st-frame"><img src="images/salon/salon_menu_bridal.webp" alt="鏡の前でブライダルのヘアセットを受ける花嫁" loading="lazy" decoding="async" width="800" height="447" data-px="18"></div>
+          <div class="st-foot">
+            <h3 class="st-name vt">ブライダルヘア&amp;メイク</h3>
+            <div class="st-right">
+              <p class="st-price">¥16,500</p>
+              <p class="st-en">BRIDAL</p>
+            </div>
+          </div>
+        </article>
+        <article class="mstep rv" style="--i:2;--d:.16s">
+          <div class="st-frame"><img src="images/salon/salon_menu_headspa.webp" alt="ヘッドスパで頭皮をマッサージされているお客さま" loading="lazy" decoding="async" width="800" height="447" data-px="18"></div>
+          <div class="st-foot">
+            <h3 class="st-name vt">ヘッドスパ</h3>
+            <div class="st-right">
+              <p class="st-price">¥4,400</p>
+              <p class="st-en">HEAD SPA</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== info + contact ===== -->
+<section class="sec" id="info" aria-labelledby="if-h">
+  <div class="wrap">
+    <div class="shead">
+      <h2 class="jp split" id="if-h" data-split>店舗案内</h2>
+      <span class="en rv-l">INFORMATION</span>
+      <span class="ln rv-ln"></span>
+    </div>
+    <div class="info-grid">
+      <dl class="dl rv-l">
+        <div><dt>店名</dt><dd>Salon Ren</dd></div>
+        <div><dt>住所</dt><dd>福岡県福岡市〇〇区〇〇2-4-6</dd></div>
+        <div><dt>営業時間</dt><dd>10:00〜20:00</dd></div>
+        <div><dt>定休日</dt><dd>火曜日</dd></div>
+      </dl>
+      <div>
+        <p class="ct-lead rv" style="--d:.06s">ご予約・ご相談は<br>こちらから。</p>
+        <p class="ct-note rv-l" style="--d:.12s">はじめての方もお気軽にどうぞ。髪のお悩みをうかがったうえで、無理のないご提案をいたします。</p>
+        <div class="btns">
+          <a class="btn rv-l" style="--d:.18s" href="mailto:info@example.com">メールで問い合わせる<i aria-hidden="true"></i></a>
+          <a class="btn line rv-l" style="--d:.24s" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener noreferrer">LINEで問い合わせる<i aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <span class="fb">Salon Ren</span>
+  <small>Salon Ren（RESC制作サンプル）</small>
+</footer>
+
 <script>
-(function () {
-  var openingEl = document.querySelector('.hero-opening');
-  if (!openingEl) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    openingEl.remove();
-    return;
-  }
-  var bottomPanel = openingEl.querySelector('.hero-opening-panel.bottom');
-  if (bottomPanel) {
-    bottomPanel.addEventListener('animationend', function () {
-      openingEl.remove();
+(function(){
+  "use strict";
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var reduce = mq.matches;
+
+  /* ---- split headings into chars ---- */
+  document.querySelectorAll('[data-split]').forEach(function(el){
+    var txt = el.textContent, frag = document.createDocumentFragment(), n = 0;
+    Array.from(txt).forEach(function(c){
+      var s = document.createElement('span');
+      s.className = 'ch';
+      s.style.setProperty('--i', n++);
+      s.textContent = c;
+      frag.appendChild(s);
     });
+    el.textContent = '';
+    el.appendChild(frag);
+    if (!el.classList.contains('hero-title')) el.classList.add('split');
+  });
+
+  /* ---- hero intro ---- */
+  function startIntro(){ document.documentElement.classList.add('intro'); }
+  if (reduce) { startIntro(); }
+  else if (document.readyState === 'complete') { requestAnimationFrame(startIntro); }
+  else { window.addEventListener('load', function(){ requestAnimationFrame(startIntro); }); setTimeout(startIntro, 1400); }
+
+  /* ---- reveal on enter ---- */
+  var rvs = document.querySelectorAll('.rv,.rv-l,.rv-ln,.split');
+  if (reduce || !('IntersectionObserver' in window)) {
+    rvs.forEach(function(e){ e.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    rvs.forEach(function(e){ io.observe(e); });
   }
+
+  /* ---- scroll engine : parallax + gallery + progress ---- */
+  var stage = document.getElementById('galStage');
+  var view  = document.getElementById('galView');
+  var track = document.getElementById('galTrack');
+  var hint  = document.getElementById('galHint');
+  var prog  = document.getElementById('prog');
+  var gprog = document.getElementById('galProg');
+  var heroImg = document.querySelector('.hero-figure img');
+  var pxNodes = Array.prototype.slice.call(document.querySelectorAll('[data-px]'));
+  var maxShift = 0, hMode = false, ticking = false, stickTop = 0;
+
+  function clamp(v,a,b){ return v<a?a:(v>b?b:v); }
+
+  function layout(){
+    if (reduce || !stage) {
+      hMode = false;
+      return;
+    }
+    stage.style.height = '';
+    var vw = view.clientWidth;
+    var full = track.scrollWidth;
+    maxShift = full - vw;
+    hMode = maxShift > 40 && window.innerHeight > 420;
+    if (hMode){
+      document.documentElement.classList.add('gscroll');
+      // re-measure after class switch (padding-block changes)
+      maxShift = track.scrollWidth - view.clientWidth;
+      if (maxShift <= 40){ document.documentElement.classList.remove('gscroll'); hMode=false; stage.style.height=''; track.style.transform=''; return; }
+      stickTop = parseFloat(getComputedStyle(view).top) || 0;
+      stage.style.height = (view.clientHeight + maxShift) + 'px';
+    } else {
+      document.documentElement.classList.remove('gscroll');
+      track.style.transform = '';
+      stage.style.height = '';
+    }
+  }
+
+  function frame(){
+    ticking = false;
+    var vh = window.innerHeight;
+
+    if (prog){
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - vh;
+      prog.style.transform = 'scaleY(' + (max > 0 ? clamp(window.scrollY / max, 0, 1) : 0) + ')';
+    }
+
+    if (heroImg && !reduce){
+      var hr = heroImg.parentNode.getBoundingClientRect();
+      if (hr.bottom > 0 && hr.top < vh){
+        var hp = clamp(-hr.top / Math.max(hr.height,1), -1, 1);
+        heroImg.style.transform = 'translate3d(0,' + (hp * 42).toFixed(1) + 'px,0)';
+      }
+    }
+
+    if (!reduce){
+      for (var i=0;i<pxNodes.length;i++){
+        var el = pxNodes[i];
+        var r = el.parentNode.getBoundingClientRect();
+        if (r.bottom < -80 || r.top > vh + 80) continue;
+        var p = (r.top + r.height/2 - vh/2) / (vh/2); // -1 .. 1
+        el.style.transform = 'translate3d(0,' + (clamp(p,-1.2,1.2) * parseFloat(el.dataset.px)).toFixed(1) + 'px,0)';
+      }
+    }
+
+    if (hMode && stage){
+      var sr = stage.getBoundingClientRect();
+      var span = stage.offsetHeight - view.clientHeight;
+      var pr = span > 0 ? clamp((stickTop - sr.top) / span, 0, 1) : 0;
+      track.style.transform = 'translate3d(' + (-pr * maxShift).toFixed(1) + 'px,0,0)';
+      if (gprog) gprog.style.transform = 'scaleX(' + pr.toFixed(3) + ')';
+    }
+  }
+
+  function onScroll(){ if (!ticking){ ticking = true; requestAnimationFrame(frame); } }
+
+  var rt;
+  function onResize(){ clearTimeout(rt); rt = setTimeout(function(){ layout(); frame(); }, 140); }
+
+  layout();
+  frame();
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onResize);
+  window.addEventListener('load', function(){ layout(); frame(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ layout(); frame(); });
+  if (mq.addEventListener) mq.addEventListener('change', function(){ location.reload(); });
 })();
 </script>
-
-<section class="about">
-  <div class="section-title">こだわり</div>
-  <p>落ち着いた空間で、一人ひとりの髪質やライフスタイルに合わせたスタイルをご提案します。トリートメントにもこだわり、まとまりのある美しい髪へ導きます。</p>
-</section>
-
-<section style="background:#fff;">
-  <div class="section-title">メニュー</div>
-
-  <div class="menu-category">
-    <div class="menu-category-title">カット&スタイリング</div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="images/salon/salon_menu_cut.webp" alt="カット">
-        <div class="menu-name">カット</div>
-        <div class="menu-price">¥4,400</div>
-      </div>
-      <div class="menu-card">
-        <img src="images/salon/salon_menu_color.webp" alt="カラー">
-        <div class="menu-name">カラー</div>
-        <div class="menu-price">¥6,600</div>
-      </div>
-      <div class="menu-card">
-        <img src="images/salon/salon_menu_treatment.webp" alt="トリートメント">
-        <div class="menu-name">トリートメント</div>
-        <div class="menu-price">¥3,300</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="menu-category">
-    <div class="menu-category-title">スペシャルメニュー</div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="images/salon/salon_menu_perm.webp" alt="デジタルパーマ">
-        <div class="menu-name">デジタルパーマ</div>
-        <div class="menu-price">¥8,800</div>
-      </div>
-      <div class="menu-card">
-        <img src="images/salon/salon_menu_bridal.webp" alt="ブライダルヘア&メイク">
-        <div class="menu-name">ブライダルヘア&メイク</div>
-        <div class="menu-price">¥16,500</div>
-      </div>
-      <div class="menu-card">
-        <img src="images/salon/salon_menu_headspa.webp" alt="ヘッドスパ">
-        <div class="menu-name">ヘッドスパ</div>
-        <div class="menu-price">¥4,400</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="section-title">ギャラリー</div>
-  <div class="gallery-marquee">
-    <div class="gallery-track">
-      <img class="gallery-item" src="images/salon/salon_gallery1.webp" alt="サロン内観・スタイリング風景">
-      <img class="gallery-item" src="images/salon/salon_gallery2.webp" alt="待合ラウンジ">
-      <img class="gallery-item" src="images/salon/salon_gallery3.webp" alt="ヘッドスパ・シャンプー台">
-      <img class="gallery-item" src="images/salon/salon_gallery4.webp" alt="スタイリングツール">
-      <img class="gallery-item" src="images/salon/salon_gallery5.webp" alt="スタイリストの様子">
-      <img class="gallery-item" src="images/salon/salon_gallery6.webp" alt="アップスタイルの仕上がり">
-      <img class="gallery-item" src="images/salon/salon_gallery1.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/salon/salon_gallery2.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/salon/salon_gallery3.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/salon/salon_gallery4.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/salon/salon_gallery5.webp" alt="" aria-hidden="true">
-      <img class="gallery-item" src="images/salon/salon_gallery6.webp" alt="" aria-hidden="true">
-    </div>
-  </div>
-</section>
-
-<section class="contact">
-  <div class="section-title">アクセス・お問い合わせ</div>
-  <p>福岡県福岡市〇〇区〇〇2-4-6</p>
-  <p>営業時間:10:00〜20:00（定休日:火曜日）</p>
-  <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
-  <div class="line-wrap">
-    <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
-    <p class="line-note">LINEでのお問い合わせも承っています。</p>
-  </div>
-</section>
-
-<footer>Salon Ren（RESC制作サンプル）</footer>
-
 </body>
 </html>
