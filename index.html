@@ -290,6 +290,7 @@ ul{margin:0;padding:0;list-style:none}
   font-family:var(--serif);font-weight:600;
   font-size:clamp(34px,6.2vw,78px);line-height:1.55;letter-spacing:.06em;margin:0;
 }
+.hero__title .chunk{display:inline-block;white-space:nowrap}
 .hero__title .ch{display:inline-block;opacity:0;transform:translateY(1.1em) rotate(1.5deg);filter:blur(4px)}
 .hero__title.play .ch{animation:chUp .95s var(--ease) forwards}
 @keyframes chUp{to{opacity:1;transform:translateY(0) rotate(0);filter:blur(0)}}
@@ -385,7 +386,12 @@ ul{margin:0;padding:0;list-style:none}
 .sign i{display:block;width:clamp(60px,14vw,180px);height:1px;background:rgba(185,155,95,.6);flex:none}
 .sign p{font-family:var(--serif);font-size:clamp(16px,2vw,21px);font-weight:500;letter-spacing:.16em;color:#fff}
 .msg-portrait{position:relative}
-.msg-portrait figure{margin:0;border:1px solid rgba(255,255,255,.16);padding:22px;background:rgba(255,255,255,.03)}
+.msg-portrait figure{margin:0;border:1px solid rgba(255,255,255,.16);padding:22px;background:rgba(255,255,255,.03);position:relative}
+.msg-portrait figure::before,.msg-portrait figure::after{
+  content:"";position:absolute;width:30px;height:30px;pointer-events:none}
+.msg-portrait figure::before{top:10px;left:10px;border-top:1px solid rgba(185,155,95,.55);border-left:1px solid rgba(185,155,95,.55)}
+.msg-portrait figure::after{bottom:10px;right:10px;border-bottom:1px solid rgba(185,155,95,.55);border-right:1px solid rgba(185,155,95,.55)}
+.msg-portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;filter:saturate(.92) contrast(1.02)}
 .msg-portrait figcaption{
   margin-top:20px;font-family:var(--serif);font-size:14px;letter-spacing:.14em;color:#fff;text-align:center;
 }
@@ -757,16 +763,8 @@ ul{margin:0;padding:0;list-style:none}
     <div class="msg-body">
       <div class="msg-portrait reveal">
         <figure>
-          <svg viewBox="0 0 200 240" fill="none" stroke="rgba(185,155,95,.75)" stroke-width="1" aria-hidden="true" focusable="false">
-            <rect x="1" y="1" width="198" height="238" stroke="rgba(255,255,255,.14)"/>
-            <circle cx="100" cy="92" r="38"/>
-            <path d="M34 206c0-36 30-58 66-58s66 22 66 58"/>
-            <line x1="34" y1="206" x2="166" y2="206" stroke="rgba(255,255,255,.2)"/>
-            <line x1="20" y1="20" x2="52" y2="20" stroke="rgba(185,155,95,.5)"/>
-            <line x1="20" y1="20" x2="20" y2="52" stroke="rgba(185,155,95,.5)"/>
-            <line x1="180" y1="220" x2="148" y2="220" stroke="rgba(185,155,95,.5)"/>
-            <line x1="180" y1="220" x2="180" y2="188" stroke="rgba(185,155,95,.5)"/>
-          </svg>
+          <img src="/images/ceo-portrait.webp" width="800" height="1000"
+               alt="株式会社RESC 代表取締役 豊永光城" loading="lazy" decoding="async">
           <figcaption>代表取締役 豊永 光城<span class="cap-en">Representative Director</span></figcaption>
         </figure>
       </div>
@@ -1130,13 +1128,27 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mykrwgke"; // 設定済み（
     var text = title.textContent;
     title.setAttribute("aria-label", text);
     var frag = document.createDocumentFragment();
+    /* 句読点で文節に区切り、文節ごとに折り返す（「。」だけが行頭に落ちるのを防ぐ） */
+    var chunks = [], buf = "";
     for (var i=0; i<text.length; i++){
-      var s = document.createElement("span");
-      s.className = "ch";
-      s.setAttribute("aria-hidden","true");
-      s.textContent = text[i] === " " ? " " : text[i];
-      s.style.animationDelay = (0.42 + i*0.055) + "s";
-      frag.appendChild(s);
+      buf += text[i];
+      if (text[i] === "\u3001" || text[i] === "\u3002"){ chunks.push(buf); buf = ""; }
+    }
+    if (buf) chunks.push(buf);
+    var idx = 0;
+    for (var c=0; c<chunks.length; c++){
+      var w = document.createElement("span");
+      w.className = "chunk";
+      for (var j=0; j<chunks[c].length; j++){
+        var s = document.createElement("span");
+        s.className = "ch";
+        s.setAttribute("aria-hidden","true");
+        s.textContent = chunks[c][j] === " " ? " " : chunks[c][j];
+        s.style.animationDelay = (0.42 + idx*0.055) + "s";
+        idx++;
+        w.appendChild(s);
+      }
+      frag.appendChild(w);
     }
     title.textContent = "";
     title.appendChild(frag);
