@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Salon Ren｜美容室｜福岡</title>
-<meta name="description" content="福岡の美容室 Salon Ren。セット面4席の小さな店で、髪質と暮らし方に合わせたスタイルをご提案します。カット・カラー・トリートメント・デジタルパーマ・ブライダル・ヘッドスパ。">
+<title>スタイル集｜Salon Ren｜美容室｜福岡</title>
+<meta name="description" content="福岡の美容室 Salon Ren のスタイル集。六つの型を、長さ・朝の手入れ・次のご来店の目安つきで一覧にしています。">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -616,6 +616,26 @@ html.entering .pt{opacity:1}
   .card:hover{transform:none}
   *{scroll-behavior:auto!important}
 }
+
+/* ---- 23. ページ固有：03 スタイル集のプレート ---- */
+.plate{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,44px);align-items:center}
+.plate+.plate{margin-top:clamp(38px,5.5vw,72px);padding-top:clamp(38px,5.5vw,72px);border-top:1px solid var(--line-hair)}
+.plate.rev .ph{order:2}
+.plate-no{display:block;font-family:var(--mincho);font-size:var(--t-no);letter-spacing:.24em;color:var(--ai);margin-bottom:10px;text-indent:.24em}
+.plate h3{font-family:var(--mincho);font-weight:500;font-size:var(--t-h3);letter-spacing:.14em;line-height:1.7;text-indent:.14em}
+.plate h3 .en{display:block;margin-top:9px;font-family:var(--gothic);font-size:var(--t-lb);letter-spacing:.22em;color:var(--sumi-3);text-indent:.22em}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px clamp(12px,2vw,22px);margin-top:clamp(18px,2.6vw,26px)}
+.spec>div{border-top:1px solid var(--line-soft);padding-top:10px}
+.spec dt{font-size:var(--t-lb);letter-spacing:.14em;color:var(--sumi-3);line-height:1.75}
+.spec dd{font-family:var(--mincho);font-size:var(--t-body);letter-spacing:.08em;margin-top:6px;line-height:1.6}
+.idx a{color:var(--ai);text-underline-offset:3px}
+@media (max-width:768px){
+  .plate{grid-template-columns:minmax(0,1fr)}
+  .plate.rev .ph{order:0}
+}
+/* 索引の表から #st01〜#st06 で着地したとき、追従ヘッダー（上段＋面バー）に
+   プレートが隠れないよう、--hh に実寸ぶんを足す */
+.plate[id]{scroll-margin-top:calc(var(--hh) + 92px)}
 </style>
 </head>
 <body>
@@ -637,9 +657,9 @@ html.entering .pt{opacity:1}
 <header class="hd">
   <div class="hd-main">
     <nav class="hd-g l" aria-label="ページ群（前半）">
-      <a href="salon-advance.html" data-no="01" data-name="トップ" aria-current="page">
+      <a href="salon-advance.html" data-no="01" data-name="トップ">
         <span class="jp">序</span><span class="en">01</span></a>
-      <a href="salon-advance-service.html" data-no="02" data-name="メニュー・料金">
+      <a href="salon-advance-service.html" data-no="02" data-name="メニュー・料金" aria-current="true">
         <span class="jp">選ぶ</span><span class="en">02—04</span></a>
     </nav>
     <a class="hd-brand" href="salon-advance.html" data-no="01" data-name="トップ">
@@ -657,12 +677,12 @@ html.entering .pt{opacity:1}
       <nav class="st" aria-label="全10ページ">
         <div class="st-g">
           <span class="st-gl">序</span>
-          <a class="st-i" href="salon-advance.html" data-no="01" data-name="トップ" aria-current="page"><b>01</b><span class="nm">トップ</span></a>
+          <a class="st-i" href="salon-advance.html" data-no="01" data-name="トップ"><b>01</b><span class="nm">トップ</span></a>
         </div>
         <div class="st-g">
           <span class="st-gl">選ぶ</span>
           <a class="st-i" href="salon-advance-service.html" data-no="02" data-name="メニュー・料金"><b>02</b><span class="nm">メニュー・料金</span></a>
-          <a class="st-i" href="salon-advance-works.html" data-no="03" data-name="スタイル集"><b>03</b><span class="nm">スタイル集</span></a>
+          <a class="st-i" href="salon-advance-works.html" data-no="03" data-name="スタイル集" aria-current="page"><b>03</b><span class="nm">スタイル集</span></a>
           <a class="st-i" href="salon-advance-work-detail.html" data-no="04" data-name="スタイル詳細"><b>04</b><span class="nm">スタイル詳細</span></a>
         </div>
         <div class="st-g">
@@ -683,358 +703,259 @@ html.entering .pt{opacity:1}
   </div>
 </header>
 
+<!-- ===== パンくず ===== -->
+<nav class="crumb" aria-label="パンくず">
+  <ol>
+    <li><a href="salon-advance.html" data-no="01" data-name="トップ">01 トップ</a></li>
+    <li><span>選ぶ ／ SELECT</span></li>
+    <li><span aria-current="page">03 スタイル集</span></li>
+  </ol>
+</nav>
+
 <main>
 
-<!-- ===== 01a ヒーロー ===== -->
-<section class="hero" id="top">
-  <span class="hero-axis" aria-hidden="true"></span>
-  <div class="hero-in">
-    <p class="hero-lb">SALON REN &#8212; FUKUOKA</p>
-    <h1 class="hero-t" data-split>髪と心に、静かなひとときを。</h1>
-    <p class="hero-mir" aria-hidden="true">髪と心に、静かなひとときを。</p>
-    <p class="hero-sub">美容室 Salon Ren ／ セット面4席の小さな店です。<br>カット・カラー・トリートメント・デジタルパーマ・ブライダル・ヘッドスパ。</p>
+<!-- ===== ページ見出し ===== -->
+<section class="phead" id="top">
+  <span class="phead-axis" aria-hidden="true"></span>
+  <div class="phead-in">
+    <p class="phead-no" aria-hidden="true">03</p>
+    <h1 class="phead-t" data-split>スタイル集</h1>
+    <p class="phead-en">STYLE INDEX</p>
+    <p class="phead-lead">六つの型を並べました。それぞれに長さ・朝の手入れ・次のご来店の目安を添えています。写真の形そのものより、朝どのくらい手がかかるかで選んでいただくのが近道です。</p>
   </div>
-  <figure class="hero-fig">
-    <div class="hero-frame">
-      <img src="images/salon/salon_hero.webp" alt="丸鏡が並ぶセット面と大きな窓のある、Salon Renの明るい店内" fetchpriority="high" decoding="async">
-      <span class="hero-open" aria-hidden="true"><i class="l"></i><i class="r"></i><b></b></span>
+  <figure class="phead-fig">
+    <div class="phead-frame">
+      <img src="images/salon/salon_gallery5.webp" alt="鏡の前のお客さまと、コームを手に微笑むスタイリスト" fetchpriority="high" decoding="async">
     </div>
-    <figcaption class="hero-cap">鏡の前に座る。ここでするのは、それだけです。</figcaption>
   </figure>
-  <p class="hero-scroll" aria-hidden="true">SCROLL<i></i></p>
 </section>
 
-<!-- ===== 01b 映す ／ ABOUT ===== -->
-<section class="sec" id="about" aria-labelledby="ab-h">
+<!-- ===== 03a 索引 ／ INDEX ===== -->
+<section class="sec" id="index" aria-labelledby="ix-h">
   <div class="wrap">
     <div class="shead">
-      <span class="no">01b</span>
-      <h2 class="jp" id="ab-h" data-split>映す</h2>
-      <span class="en rv-l">ABOUT</span>
+      <span class="no">03a</span>
+      <h2 class="jp" id="ix-h" data-split>索引</h2>
+      <span class="en rv-l">INDEX</span>
       <span class="ln rv-ln"></span>
     </div>
+    <p class="lede rv-l" style="margin-bottom:clamp(30px,4.5vw,52px)">先に一覧にします。カウンセリングでは「朝、髪にかけられる時間はどのくらいですか」「次に来られるのは、だいたいどのくらい先ですか」の二問で、提案する型の手のかかり方を決めています。この表は、その二問をそのまま並べたものです。名前を選ぶと、下のプレートへ移ります。</p>
 
-    <div class="figpair" style="margin-bottom:clamp(34px,5vw,60px)">
-      <div class="rv-a">
-        <p class="bq" style="margin-bottom:clamp(20px,3vw,28px)">髪と心に、<br>静かなひとときを。</p>
-        <p class="lede">落ち着いた空間で、一人ひとりの髪質やライフスタイルに合わせたスタイルをご提案します。</p>
-        <p class="lede">トリートメントにもこだわり、まとまりのある美しい髪へ導きます。</p>
-        <p class="lede">鏡の前に座っている時間は、一日のうちで自分の姿をいちばんまっすぐ見る時間だと思っています。だから席は四つだけにしました。順番を待つ人も、急かされる人もいない広さです。</p>
-      </div>
-      <figure class="figfr rv-b" style="--ar:4/3;--d:.08s">
-        <div class="im px"><img src="images/salon/salon_gallery1.webp" alt="円形の照明つきミラーが並ぶセット面と、窓から光の入る店内" loading="lazy" decoding="async" data-px="22"></div>
-        <figcaption><span>窓からの光で、色の見え方を確かめられるようにしています。</span><span class="en">SALON</span></figcaption>
-      </figure>
-    </div>
-
-    <ul class="cards c4 rv">
-      <li class="card" style="cursor:default"><span class="no">01</span><h3>2016年から</h3><p>この場所で店を始めました。内装も什器も、そのときのまま使っています。</p><span class="go">OPEN<i></i></span></li>
-      <li class="card" style="cursor:default"><span class="no">02</span><h3>セット面 4席</h3><p>同じ時間に入れるのは4名まで。シャンプー台は2台です。</p><span class="go">SEATS<i></i></span></li>
-      <li class="card" style="cursor:default"><span class="no">03</span><h3>スタイリスト 3名</h3><p>担当はご指名いただけます。はじめての方はこちらでお選びします。</p><span class="go">STAFF<i></i></span></li>
-      <li class="card" style="cursor:default"><span class="no">04</span><h3>10:00〜20:00</h3><p>定休日は火曜日。ご予約はメールとLINEで承っています。</p><span class="go">HOURS<i></i></span></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== 01c 品 ／ MENU ===== -->
-<section class="sec tone" id="menu" aria-labelledby="mn-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01c</span>
-      <h2 class="jp" id="mn-h" data-split>品</h2>
-      <span class="en rv-l">MENU</span>
-      <span class="ln rv-ln"></span>
-    </div>
-    <p class="lede rv-l" style="margin-bottom:clamp(30px,4.5vw,52px)">六つのメニューをご用意しています。所要時間は目安で、髪の長さと状態によって前後します。ご予約のときにおおよその時間をお伝えします。</p>
-
-    <div class="pcards rv" style="margin-bottom:clamp(30px,4.5vw,52px)">
-      <a class="pcard" href="salon-advance-service.html#cut" data-no="02" data-name="メニュー・料金">
-        <span class="im" style="--ar:4/3"><img src="images/salon/salon_menu_cut.webp" alt="大きな丸鏡の前でカットを受けるお客さま" loading="lazy" decoding="async"></span>
-        <span class="ft"><span class="nm">カット</span><span class="en">CUT</span></span>
-        <span class="tx">生えぐせと分け目を見てから、長さを決めます。約60分。</span>
-      </a>
-      <a class="pcard" href="salon-advance-service.html#color" data-no="02" data-name="メニュー・料金">
-        <span class="im" style="--ar:4/3"><img src="images/salon/salon_menu_color.webp" alt="ホイルを使ってカラー剤を塗り分けている施術中の様子" loading="lazy" decoding="async"></span>
-        <span class="ft"><span class="nm">カラー</span><span class="en">COLOR</span></span>
-        <span class="tx">明るさを優先するか、負担を抑えるかを先に決めます。約90分。</span>
-      </a>
-      <a class="pcard" href="salon-advance-service.html#perm" data-no="02" data-name="メニュー・料金">
-        <span class="im" style="--ar:4/3"><img src="images/salon/salon_menu_perm.webp" alt="丸鏡の前で、ゆるやかなウェーブの仕上がりを確認するお客さまとスタイリスト" loading="lazy" decoding="async"></span>
-        <span class="ft"><span class="nm">デジタルパーマ</span><span class="en">DIGITAL PERM</span></span>
-        <span class="tx">乾かしたときにいちばん形が出るパーマです。約150分。</span>
-      </a>
-    </div>
-
-    <div class="price rv">
-      <div class="pr-row"><span class="nm">カット<span class="en">CUT</span></span><span class="pv">&yen;4,400</span><span class="tm">約60分</span></div>
-      <div class="pr-row"><span class="nm">デジタルパーマ<span class="en">DIGITAL PERM</span></span><span class="pv">&yen;8,800</span><span class="tm">約150分</span></div>
-      <div class="pr-row"><span class="nm">カラー<span class="en">COLOR</span></span><span class="pv">&yen;6,600</span><span class="tm">約90分</span></div>
-      <div class="pr-row"><span class="nm">ブライダルヘア&amp;メイク<span class="en">BRIDAL</span></span><span class="pv">&yen;16,500</span><span class="tm">約90分</span></div>
-      <div class="pr-row"><span class="nm">トリートメント<span class="en">TREATMENT</span></span><span class="pv">&yen;3,300</span><span class="tm">約30分</span></div>
-      <div class="pr-row"><span class="nm">ヘッドスパ<span class="en">HEAD SPA</span></span><span class="pv">&yen;4,400</span><span class="tm">約40分</span></div>
+    <div class="rv">
+      <table class="tbl">
+        <caption>INDEX &#8212; 六つの型</caption>
+        <thead>
+          <tr><th scope="col">番号</th><th scope="col">スタイル</th><th scope="col">長さ</th><th scope="col">朝の手入れ</th><th scope="col">次のご来店の目安</th><th scope="col">元になるメニュー</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">ST-01</th><td class="idx"><a href="#st01">肩でおさまるレイヤー</a></td><td>ミディアム</td><td class="num">約5分</td><td class="num">8週</td><td>カット</td></tr>
+          <tr><th scope="row">ST-02</th><td class="idx"><a href="#st02">透けるアッシュのグラデーション</a></td><td>ロング</td><td class="num">約10分</td><td class="num">6週</td><td>カラー</td></tr>
+          <tr><th scope="row">ST-03</th><td class="idx"><a href="#st03">ゆるやかなウェーブ</a></td><td>ミディアム</td><td class="num">約5分</td><td class="num">12週</td><td>デジタルパーマ</td></tr>
+          <tr><th scope="row">ST-04</th><td class="idx"><a href="#st04">結い上げのアップスタイル</a></td><td>ロング</td><td class="num">約10分</td><td class="num">8週</td><td>カット＋セット</td></tr>
+          <tr><th scope="row">ST-05</th><td class="idx"><a href="#st05">式の日のヘア&amp;メイク</a></td><td>ロング</td><td class="num">約10分</td><td class="num">4週</td><td>ブライダル</td></tr>
+          <tr><th scope="row">ST-06</th><td class="idx"><a href="#st06">素髪に近いつや</a></td><td>ボブ</td><td class="num">約3分</td><td class="num">6週</td><td>トリートメント</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="note rv-l">
-      <b>料金について</b>
-      表示はすべて税込です。ロングの方や、髪の量が多い方は追加をいただくことがあります。追加が必要なときは、施術に入る前に金額をお伝えします。
-    </div>
-
-    <div class="btns">
-      <a class="btn rv-l" href="salon-advance-service.html" data-no="02" data-name="メニュー・料金">六品すべての内容と料金を見る<i aria-hidden="true"></i></a>
+      <b>写真について</b>
+      写真は仕上がりの一例です。髪質・長さ・これまでの薬剤の履歴によって、同じようには収まらないことがあります。ご来店のときに、いまの髪の状態を見たうえで、届く範囲をお伝えします。
     </div>
   </div>
 </section>
 
-<!-- ===== 01d 合わせ鏡 ／ CONCERN ===== -->
-<section class="sec" id="mirror" aria-labelledby="mr-h">
+<!-- ===== 03b 六つの姿 ／ SIX STYLES ===== -->
+<section class="sec tone" id="styles" aria-labelledby="sy-h">
   <div class="wrap">
     <div class="shead">
-      <span class="no">01d</span>
-      <h2 class="jp" id="mr-h" data-split>合わせ鏡</h2>
-      <span class="en rv-l">TWO MIRRORS</span>
+      <span class="no">03b</span>
+      <h2 class="jp" id="sy-h" data-split>六つの姿</h2>
+      <span class="en rv-l">SIX STYLES</span>
       <span class="ln rv-ln"></span>
     </div>
 
-    <figure class="figfr mid rv" style="--ar:21/9;margin-bottom:clamp(30px,4.5vw,52px)">
-      <div class="im"><img src="images/salon/salon_voice1.webp" alt="鏡に向かって座るお客さまのうしろ姿と、鏡の中に映るその表情" loading="lazy" decoding="async"></div>
-      <figcaption><span>鏡は、いまの髪がどうなっているかを、いちばん正直に見せてくれます。</span><span class="en">REFLECTION</span></figcaption>
-    </figure>
+    <article class="plate" id="st01">
+      <figure class="figfr ph rv-a" style="--ar:4/3">
+        <div class="im"><img src="images/salon/salon_menu_cut.webp" alt="大きな丸鏡の前でカットを受けるお客さま" loading="lazy" decoding="async"></div>
+        <figcaption><span>ST-01 肩でおさまるレイヤー</span><span class="en">CUT</span></figcaption>
+      </figure>
+      <div class="rv-b" style="--d:.08s">
+      <span class="plate-no">ST-01</span>
+      <h3>肩でおさまるレイヤー<span class="en">BASED ON CUT ／ カット &yen;4,400</span></h3>
+      <p class="lede" style="margin-top:14px">肩の線でちょうど収まる長さに切り、上に薄い段を重ねます。段を入れる位置は、生えぐせと分け目を見てから決めます。</p>
+      <p class="lede" style="margin-top:14px">乾かすときに根もとだけ起こせば、あとは自然に落ちます。伸びてくると段の位置が下がるので、崩れ方はゆるやかです。</p>
+      <dl class="spec">
+        <div><dt>長さ</dt><dd>ミディアム</dd></div>
+        <div><dt>朝の手入れ</dt><dd>約5分</dd></div>
+        <div><dt>次のご来店の目安</dt><dd>8週</dd></div>
+      </dl>
+      </div>
+    </article>
+    <article class="plate rev" id="st02">
+      <figure class="figfr ph rv-b" style="--ar:4/3">
+        <div class="im"><img src="images/salon/salon_menu_color.webp" alt="ホイルを使ってカラー剤を塗り分けている施術中の様子" loading="lazy" decoding="async"></div>
+        <figcaption><span>ST-02 透けるアッシュのグラデーション</span><span class="en">COLOR</span></figcaption>
+      </figure>
+      <div class="rv-a" style="--d:.08s">
+      <span class="plate-no">ST-02</span>
+      <h3>透けるアッシュのグラデーション<span class="en">BASED ON COLOR ／ カラー &yen;6,600</span></h3>
+      <p class="lede" style="margin-top:14px">根もとを濃く、毛先にいくほど明るくします。塗り分けはホイルで区切りながら行い、境目が段にならないようにつなぎます。</p>
+      <p class="lede" style="margin-top:14px">明るさを優先するか、負担を抑えるかは施術前にご相談して決めます。中間から乾きが出ている髪（D2）では、明るくする幅を狭めてご提案します。</p>
+      <dl class="spec">
+        <div><dt>長さ</dt><dd>ロング</dd></div>
+        <div><dt>朝の手入れ</dt><dd>約10分</dd></div>
+        <div><dt>次のご来店の目安</dt><dd>6週</dd></div>
+      </dl>
+      </div>
+    </article>
+    <article class="plate" id="st03">
+      <figure class="figfr ph rv-a" style="--ar:4/3">
+        <div class="im"><img src="images/salon/salon_menu_perm.webp" alt="丸鏡の前で、ゆるやかなウェーブの仕上がりを確認するお客さまとスタイリスト" loading="lazy" decoding="async"></div>
+        <figcaption><span>ST-03 ゆるやかなウェーブ</span><span class="en">DIGITAL PERM</span></figcaption>
+      </figure>
+      <div class="rv-b" style="--d:.08s">
+      <span class="plate-no">ST-03</span>
+      <h3>ゆるやかなウェーブ<span class="en">BASED ON DIGITAL PERM ／ カット &yen;4,400 ＋ デジタルパーマ &yen;8,800</span></h3>
+      <p class="lede" style="margin-top:14px">鎖骨より少し下の長さに、加温式のデジタルパーマで大きめの波をつけます。濡らして乾かすだけで形が出るので、朝に道具を増やさずに済みます。</p>
+      <p class="lede" style="margin-top:14px">向いているのは、薬剤の履歴がほとんどない髪（D0〜D1）で、もともとゆるいうねりがある方。全体に薬剤が重なっている髪（D3）と、直近3ヶ月以内にブリーチをした髪にはお受けしていません。</p>
+      <dl class="spec">
+        <div><dt>長さ</dt><dd>ミディアム</dd></div>
+        <div><dt>朝の手入れ</dt><dd>約5分</dd></div>
+        <div><dt>次のご来店の目安</dt><dd>12週</dd></div>
+      </dl>
+      <div class="btns">
+        <a class="btn" href="salon-advance-work-detail.html" data-no="04" data-name="スタイル詳細">ST-03 を工程まで詳しく見る<i aria-hidden="true"></i></a>
+      </div>
+      </div>
+    </article>
+    <article class="plate rev" id="st04">
+      <figure class="figfr ph rv-b" style="--ar:4/3">
+        <div class="im"><img src="images/salon/salon_gallery6.webp" alt="鏡の前で仕上がった、結い上げのアップスタイルのうしろ姿" loading="lazy" decoding="async"></div>
+        <figcaption><span>ST-04 結い上げのアップスタイル</span><span class="en">CUT + SET</span></figcaption>
+      </figure>
+      <div class="rv-a" style="--d:.08s">
+      <span class="plate-no">ST-04</span>
+      <h3>結い上げのアップスタイル<span class="en">BASED ON CUT ＋ SET ／ カット &yen;4,400</span></h3>
+      <p class="lede" style="margin-top:14px">後頭部の丸みを出しながらまとめ、襟足はあえて少し残します。うしろから見た形で決まる型なので、仕上げは手鏡でご一緒に確認します。</p>
+      <p class="lede" style="margin-top:14px">長さを保ちながら、まとめたときに崩れにくい重さの位置をカットで作っておきます。当日のセットだけをご希望の場合も承ります。</p>
+      <dl class="spec">
+        <div><dt>長さ</dt><dd>ロング</dd></div>
+        <div><dt>朝の手入れ</dt><dd>約10分</dd></div>
+        <div><dt>次のご来店の目安</dt><dd>8週</dd></div>
+      </dl>
+      </div>
+    </article>
+    <article class="plate" id="st05">
+      <figure class="figfr ph rv-a" style="--ar:4/3">
+        <div class="im"><img src="images/salon/salon_menu_bridal.webp" alt="金縁の鏡の前でアップスタイルを仕上げているブライダルの支度" loading="lazy" decoding="async"></div>
+        <figcaption><span>ST-05 式の日のヘア&amp;メイク</span><span class="en">BRIDAL</span></figcaption>
+      </figure>
+      <div class="rv-b" style="--d:.08s">
+      <span class="plate-no">ST-05</span>
+      <h3>式の日のヘア&amp;メイク<span class="en">BASED ON BRIDAL ／ ブライダルヘア&amp;メイク &yen;16,500</span></h3>
+      <p class="lede" style="margin-top:14px">式当日の支度です。当日の進行にあわせて時間をお取りし、髪飾りの位置まで含めて組みます。試着とリハーサルは別の日にお時間をいただきます。</p>
+      <p class="lede" style="margin-top:14px">朝の手入れと次のご来店の目安は、式に向けて髪を整えていく期間の目安として書いています。当日の支度は店で行いますので、朝は普段どおりで構いません。</p>
+      <dl class="spec">
+        <div><dt>長さ</dt><dd>ロング</dd></div>
+        <div><dt>朝の手入れ</dt><dd>約10分</dd></div>
+        <div><dt>次のご来店の目安</dt><dd>4週</dd></div>
+      </dl>
+      </div>
+    </article>
+    <article class="plate rev" id="st06">
+      <figure class="figfr ph rv-b" style="--ar:4/3">
+        <div class="im"><img src="images/salon/salon_menu_treatment.webp" alt="シャンプー台で横になりトリートメントを受けるお客さま" loading="lazy" decoding="async"></div>
+        <figcaption><span>ST-06 素髪に近いつや</span><span class="en">TREATMENT</span></figcaption>
+      </figure>
+      <div class="rv-a" style="--d:.08s">
+      <span class="plate-no">ST-06</span>
+      <h3>素髪に近いつや<span class="en">BASED ON TREATMENT ／ トリートメント &yen;3,300</span></h3>
+      <p class="lede" style="margin-top:14px">長さは顎から首の下あたり。毛量を落としすぎず、表面をそろえて光の返り方を整えます。「補う」「閉じる」の二工程のトリートメントを合わせます。</p>
+      <p class="lede" style="margin-top:14px">朝は水気を取って乾かすだけ。手を入れる時間がいちばん短い型です。家でのすすぎ方と乾かし方は、仕上げのときにお伝えします。</p>
+      <dl class="spec">
+        <div><dt>長さ</dt><dd>ボブ</dd></div>
+        <div><dt>朝の手入れ</dt><dd>約3分</dd></div>
+        <div><dt>次のご来店の目安</dt><dd>6週</dd></div>
+      </dl>
+      </div>
+    </article>
+  </div>
+</section>
 
-    <p class="lede mid rv-l" style="margin-bottom:clamp(26px,4vw,44px)">カウンセリングでは、鏡を二枚使います。手前の鏡に映る「いまの髪」と、そのとき言葉にしていただく「なりたい姿」。二つを並べて見ると、あいだにある距離がはっきりします。埋める順番を決めるのが、私たちの仕事です。</p>
+<!-- ===== 03c 長さで変わること ／ LENGTH ===== -->
+<section class="sec" id="length" aria-labelledby="ln-h">
+  <div class="wrap">
+    <div class="shead">
+      <span class="no">03c</span>
+      <h2 class="jp" id="ln-h" data-split>長さで変わること</h2>
+      <span class="en rv-l">LENGTH</span>
+      <span class="ln rv-ln"></span>
+    </div>
+    <p class="lede rv-l" style="margin-bottom:clamp(26px,4vw,44px)">同じ人でも、長さが変わると朝の時間の使い方が変わります。六つの型のうち、いちばん長いロング（ST-02・ST-04・ST-05）と、いちばん短いボブ（ST-06）を並べてみます。どちらが良いという話ではなく、どちらの手のかかり方が暮らしに合うか、という話です。</p>
 
     <div class="mir rv">
       <div class="mir-head">
-        <span class="a">いまの髪</span>
+        <span class="a">ロングのとき</span>
         <span class="c" aria-hidden="true">&#9671;</span>
-        <span class="b">なりたい姿</span>
+        <span class="b">ボブのとき</span>
       </div>
       <div class="mir-row">
-        <p class="a"><span class="k">いまの髪</span>毛先がぱさついて、朝いくら手をかけてもまとまらない</p>
+        <p class="a"><span class="k">ロングのとき</span>乾かす時間が長い。根もとから順に、毛先は最後にあてる</p>
         <span class="mir-ax" aria-hidden="true"></span>
-        <p class="b"><span class="k">なりたい姿</span>手ぐしで整うところまで戻したい</p>
+        <p class="b"><span class="k">ボブのとき</span>乾かす時間が短い。8割で冷風に切り替えるところまで一息</p>
       </div>
       <div class="mir-row">
-        <p class="a"><span class="k">いまの髪</span>生えぎわのうねりが強くなって、分け目が割れる</p>
+        <p class="a"><span class="k">ロングのとき</span>まとまりは毛先で決まる。トリートメントを合わせる回数が増える</p>
         <span class="mir-ax" aria-hidden="true"></span>
-        <p class="b"><span class="k">なりたい姿</span>乾かすだけで収まる長さにしたい</p>
+        <p class="b"><span class="k">ボブのとき</span>まとまりは表面で決まる。乾かし方だけで収まることが多い</p>
       </div>
       <div class="mir-row">
-        <p class="a"><span class="k">いまの髪</span>頭頂部のボリュームが出にくく、ぺたんとする</p>
+        <p class="a"><span class="k">ロングのとき</span>伸びても形が大きく崩れにくい。間隔をあけられる</p>
         <span class="mir-ax" aria-hidden="true"></span>
-        <p class="b"><span class="k">なりたい姿</span>根もとが立ち上がって見える形にしたい</p>
+        <p class="b"><span class="k">ボブのとき</span>伸びると輪郭が変わる。6週くらいで整えたい</p>
       </div>
       <div class="mir-row">
-        <p class="a"><span class="k">いまの髪</span>白いものが目立ってきて、伸びると境目が気になる</p>
+        <p class="a"><span class="k">ロングのとき</span>結ぶ・まとめるという逃げ道がある</p>
         <span class="mir-ax" aria-hidden="true"></span>
-        <p class="b"><span class="k">なりたい姿</span>明るさを落とさずに、なじませたい</p>
+        <p class="b"><span class="k">ボブのとき</span>逃げ道が少ないぶん、切る位置を慎重に決める</p>
       </div>
     </div>
 
     <div class="note rv-l">
-      <b>お伝えしていること</b>
-      当店の施術は美容の範囲で行うもので、医療行為ではありません。頭皮や髪に痛み・かゆみ・湿疹などがあるときは、先に医療機関へご相談ください。状態によっては、施術をお断りしたり、日をあらためてご案内することがあります。
+      <b>決めきらなくて大丈夫です</b>
+      長さは、鏡の前で手鏡を添えながら決められます。決めきれないところは、決めないまま席に着いていただいて構いません。避けたいこと（短くしすぎたくない、明るくしすぎたくない など）だけ先にうかがいます。
     </div>
+  </div>
+</section>
 
+<!-- ===== 03d 選ぶときに ／ HOW TO CHOOSE ===== -->
+<section class="sec tone" id="choose" aria-labelledby="ch-h">
+  <div class="wrap">
+    <div class="shead">
+      <span class="no">03d</span>
+      <h2 class="jp" id="ch-h" data-split>選ぶときに</h2>
+      <span class="en rv-l">HOW TO CHOOSE</span>
+      <span class="ln rv-ln"></span>
+    </div>
+    <p class="lede rv-l" style="margin-bottom:clamp(28px,4vw,44px)">六つのうち、どれかひとつをそのまま選ばなくても構いません。近いものを一つ指していただければ、そこから長さと手のかかり方を寄せていきます。もう少し先まで見たい方は、次の三つへ。</p>
+    <ul class="cards rv">
+      <li><a class="card" href="salon-advance-work-detail.html" data-no="04" data-name="スタイル詳細"><span class="no">04</span><h3>スタイル詳細</h3><p>ST-03 ゆるやかなウェーブを、工程と朝の手順まで一つずつ。</p><span class="go">VIEW<i></i></span></a></li>
+      <li><a class="card" href="salon-advance-service.html" data-no="02" data-name="メニュー・料金"><span class="no">02</span><h3>メニュー・料金</h3><p>元になる六品の内容、料金、所要時間の目安。</p><span class="go">VIEW<i></i></span></a></li>
+      <li><a class="card" href="salon-advance-concern.html" data-no="06" data-name="悩み別の提案"><span class="no">06</span><h3>悩み別の提案</h3><p>白髪・くせ毛・ボリューム・ダメージ。気になるところから探す。</p><span class="go">VIEW<i></i></span></a></li>
+    </ul>
     <div class="btns">
-      <a class="btn rv-l" href="salon-advance-concern.html" data-no="06" data-name="悩み別の提案">悩み別の提案を見る<i aria-hidden="true"></i></a>
+      <a class="btn rv-l" href="mailto:info@example.com">近い型を伝えて相談する<i aria-hidden="true"></i></a>
+      <a class="btn line rv-l" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener noreferrer">LINEで写真を送って相談する<i aria-hidden="true"></i></a>
     </div>
-  </div>
-</section>
-
-<!-- ===== 01e 姿 ／ STYLE ===== -->
-<section class="sec tone" id="style" aria-labelledby="st-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01e</span>
-      <h2 class="jp" id="st-h" data-split>姿</h2>
-      <span class="en rv-l">STYLE</span>
-      <span class="ln rv-ln"></span>
-    </div>
-
-    <div class="figpair">
-      <figure class="figfr rv-a" style="--ar:4/3;--op:center 26%">
-        <div class="im"><img src="images/salon/salon_gallery6.webp" alt="鏡の前で仕上がった、結い上げのアップスタイルのうしろ姿" loading="lazy" decoding="async"></div>
-        <figcaption><span>ST-04 結い上げのアップスタイル</span><span class="en">STYLE 04</span></figcaption>
-      </figure>
-      <div class="rv-b" style="--d:.08s">
-        <p class="bq" style="margin-bottom:clamp(18px,2.6vw,26px)">仕上がりは、<br>うしろから見た形で決まります。</p>
-        <p class="lede">正面の鏡だけでは、後頭部の丸みや襟足の収まりは見えません。仕上げのときは手鏡を添えて、うしろから見た形をご一緒に確認します。</p>
-        <p class="lede">スタイル集では六つの型を、写真と「そのあと家でどう扱うか」の説明つきで並べています。ひとつを深く見たい方は、スタイル詳細のページへ。</p>
-        <ul class="cards c2" style="margin-top:clamp(22px,3vw,32px)">
-          <li><a class="card" href="salon-advance-works.html" data-no="03" data-name="スタイル集"><span class="no">03</span><h3>スタイル集</h3><p>六つの型を一覧で。長さ・くせ・手入れの時間から選べます。</p><span class="go">VIEW<i></i></span></a></li>
-          <li><a class="card" href="salon-advance-work-detail.html" data-no="04" data-name="スタイル詳細"><span class="no">04</span><h3>スタイル詳細</h3><p>ゆるやかなウェーブの一例を、工程と家での扱い方まで。</p><span class="go">VIEW<i></i></span></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 01f 整える ／ CARE ===== -->
-<section class="sec" id="care" aria-labelledby="cr-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01f</span>
-      <h2 class="jp" id="cr-h" data-split>整える</h2>
-      <span class="en rv-l">CARE</span>
-      <span class="ln rv-ln"></span>
-    </div>
-    <p class="lede rv-l" style="margin-bottom:clamp(28px,4vw,44px)">施術の前に、髪の状態を四段階で見ます。どこまで手を入れられるかを決めるためのものさしで、良し悪しを付けるものではありません。段階が進んでいるほど、明るくする施術は控えめにご提案します。</p>
-
-    <div class="svgbox rv">
-      <svg class="dw" viewBox="0 0 1000 460" role="img" aria-labelledby="dwT dwD">
-        <title id="dwT">髪の状態を四段階で見る図</title>
-        <desc id="dwD">中央の縦の軸を鏡に見立て、その左右に髪の断面を模した楕円を四段ならべた図。段が下がるほど外側の輪が細かく途切れ、左右に伸びる帯が長くなる。段階の名前は図の右側にD0からD3まで記されている。</desc>
-        <line x1="500" y1="24" x2="500" y2="436" class="s-1"/>
-        <g>
-          <rect x="330" y="68" width="110" height="5" class="f-3"/><rect x="560" y="68" width="110" height="5" class="f-3"/>
-          <ellipse cx="500" cy="70" rx="46" ry="30" class="f-1"/>
-          <ellipse cx="500" cy="70" rx="46" ry="30" fill="none" stroke="#6b6459" stroke-width="2"/>
-          <ellipse cx="500" cy="70" rx="17" ry="11" class="f-3"/>
-          <text x="846" y="78" font-size="26">D0</text>
-          <text x="160" y="78" font-size="22" text-anchor="end">SMOOTH</text>
-        </g>
-        <g>
-          <rect x="290" y="168" width="150" height="5" class="f-3"/><rect x="560" y="168" width="150" height="5" class="f-3"/>
-          <ellipse cx="500" cy="170" rx="46" ry="30" class="f-1"/>
-          <ellipse cx="500" cy="170" rx="46" ry="30" fill="none" stroke="#6b6459" stroke-width="2" stroke-dasharray="26 7"/>
-          <ellipse cx="500" cy="170" rx="17" ry="11" class="f-3"/>
-          <text x="846" y="178" font-size="26">D1</text>
-          <text x="160" y="178" font-size="22" text-anchor="end">TIPS</text>
-        </g>
-        <g>
-          <rect x="250" y="268" width="190" height="5" class="f-3"/><rect x="560" y="268" width="190" height="5" class="f-3"/>
-          <ellipse cx="500" cy="270" rx="46" ry="30" class="f-1"/>
-          <ellipse cx="500" cy="270" rx="46" ry="30" fill="none" stroke="#6b6459" stroke-width="2" stroke-dasharray="13 8"/>
-          <ellipse cx="500" cy="270" rx="17" ry="11" class="f-3"/>
-          <text x="846" y="278" font-size="26">D2</text>
-          <text x="160" y="278" font-size="22" text-anchor="end">MIDDLE</text>
-        </g>
-        <g>
-          <rect x="210" y="368" width="230" height="5" class="f-3"/><rect x="560" y="368" width="230" height="5" class="f-3"/>
-          <ellipse cx="500" cy="370" rx="46" ry="30" class="f-1"/>
-          <ellipse cx="500" cy="370" rx="46" ry="30" fill="none" stroke="#6b6459" stroke-width="2" stroke-dasharray="6 9"/>
-          <ellipse cx="500" cy="370" rx="17" ry="11" class="f-3"/>
-          <text x="846" y="378" font-size="26">D3</text>
-          <text x="160" y="378" font-size="22" text-anchor="end">ALL</text>
-        </g>
-      </svg>
-      <p class="cap"><span>FIG. 01c &#8212; FOUR STAGES</span><span>図は考え方を示すもので、実際の断面ではありません</span></p>
-    </div>
-
-    <ul class="svg-legend rv-l">
-      <li><span class="k">D0 ／ ほぼ素髪</span><p>薬剤の履歴がほとんどない状態。どの施術も選べます。</p></li>
-      <li><span class="k">D1 ／ 毛先だけ</span><p>毛先に乾きが出ている状態。カットで整えるだけで収まることが多いです。</p></li>
-      <li><span class="k">D2 ／ 中間から</span><p>中間から乾きが出ている状態。明るくする幅を狭め、補うトリートメントを合わせます。</p></li>
-      <li><span class="k">D3 ／ 全体</span><p>全体に薬剤が重なっている状態。同じ日に二つ以上の薬剤を重ねる施術はお断りします。</p></li>
-    </ul>
-
-    <div class="note rv-l">
-      <b>言葉づかいについて</b>
-      当店では「頭皮の汚れを落とす」「乾燥を防ぐ」「まとまりを出す」といった、美容の範囲の説明だけをしています。髪が増える・生えるといった効果をうたうことはありません。
-    </div>
-
-    <div class="btns">
-      <a class="btn rv-l" href="salon-advance-care.html" data-no="05" data-name="髪と頭皮のケア">髪と頭皮のケアを詳しく見る<i aria-hidden="true"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 01g 順 ／ FLOW ===== -->
-<section class="sec tone" id="flow" aria-labelledby="fl-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01g</span>
-      <h2 class="jp" id="fl-h" data-split>順</h2>
-      <span class="en rv-l">FLOW</span>
-      <span class="ln rv-ln"></span>
-    </div>
-    <p class="lede rv-l" style="margin-bottom:clamp(28px,4vw,44px)">ご来店から仕上げまで、四つの区切りで進みます。はじめての方は、カウンセリングに15分ほど多めにいただきます。</p>
-    <ol class="steps rv">
-      <li class="step"><span class="no">01</span><h3>ご来店・受付</h3><p>お名前をうかがい、荷物をお預かりします。お飲みものをお出しします。</p><span class="tm">約5分</span></li>
-      <li class="step"><span class="no">02</span><h3>カウンセリング</h3><p>四つの質問にお答えいただきながら、いまの髪となりたい姿を並べて見ます。</p><span class="tm">約10〜15分</span></li>
-      <li class="step"><span class="no">03</span><h3>シャンプー・施術</h3><p>シャンプー台は二台。途中で姿勢がつらくなったら、いつでもお声かけください。</p><span class="tm">メニューによる</span></li>
-      <li class="step"><span class="no">04</span><h3>仕上げ</h3><p>手鏡でうしろから見た形をご確認いただき、家での乾かし方をお伝えします。</p><span class="tm">約10分</span></li>
-    </ol>
-    <div class="btns">
-      <a class="btn ghost rv-l" href="salon-advance-flow.html" data-no="07" data-name="ご来店の流れ">ご来店の流れを詳しく見る<i aria-hidden="true"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 01h 面 ／ SITE MAP ===== -->
-<section class="sec" id="pages" aria-labelledby="pg-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01h</span>
-      <h2 class="jp" id="pg-h" data-split>十の面</h2>
-      <span class="en rv-l">TEN MIRRORS</span>
-      <span class="ln rv-ln"></span>
-    </div>
-    <p class="lede rv-l" style="margin-bottom:clamp(28px,4vw,44px)">このサイトは十のページでできています。番号を見れば、いまどこにいるかが分かるようにしました。</p>
-
-    <h3 class="mincho rv-l" style="font-size:13px;letter-spacing:.24em;color:var(--sumi-3);margin-bottom:14px">選ぶ ／ SELECT</h3>
-    <ul class="cards rv" style="margin-bottom:clamp(26px,4vw,40px)">
-      <li><a class="card" href="salon-advance-service.html" data-no="02" data-name="メニュー・料金"><span class="no">02</span><h3>メニュー・料金</h3><p>六品それぞれの内容、料金、所要時間の目安。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-works.html" data-no="03" data-name="スタイル集"><span class="no">03</span><h3>スタイル集</h3><p>六つの型を一覧で。長さと手入れの時間から選べます。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-work-detail.html" data-no="04" data-name="スタイル詳細"><span class="no">04</span><h3>スタイル詳細</h3><p>ゆるやかなウェーブの一例を、工程まで細かく。</p><span class="go">VIEW<i></i></span></a></li>
-    </ul>
-
-    <h3 class="mincho rv-l" style="font-size:13px;letter-spacing:.24em;color:var(--sumi-3);margin-bottom:14px">整える ／ CARE</h3>
-    <ul class="cards c2 rv" style="margin-bottom:clamp(26px,4vw,40px)">
-      <li><a class="card" href="salon-advance-care.html" data-no="05" data-name="髪と頭皮のケア"><span class="no">05</span><h3>髪と頭皮のケア</h3><p>店で行うことと、家でできること。使っている薬剤の考え方。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-concern.html" data-no="06" data-name="悩み別の提案"><span class="no">06</span><h3>悩み別の提案</h3><p>白髪・くせ毛・ボリューム・ダメージ。四つの入口からご提案します。</p><span class="go">VIEW<i></i></span></a></li>
-    </ul>
-
-    <h3 class="mincho rv-l" style="font-size:13px;letter-spacing:.24em;color:var(--sumi-3);margin-bottom:14px">訪ねる ／ VISIT</h3>
-    <ul class="cards c4 rv">
-      <li><a class="card" href="salon-advance-flow.html" data-no="07" data-name="ご来店の流れ"><span class="no">07</span><h3>ご来店の流れ</h3><p>受付からお見送りまで、四つの区切りで。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-company.html" data-no="08" data-name="スタッフ・店舗案内"><span class="no">08</span><h3>スタッフ・店舗案内</h3><p>三名の担当と、店の中のご案内。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-faq.html" data-no="09" data-name="よくある質問"><span class="no">09</span><h3>よくある質問</h3><p>ご予約、お子さま連れ、当日の変更について。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-contact.html" data-no="10" data-name="アクセス・ご予約"><span class="no">10</span><h3>アクセス・ご予約</h3><p>場所のご案内と、ご予約の取り方。</p><span class="go">VIEW<i></i></span></a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== 01i 案内 ／ INFORMATION ===== -->
-<section class="sec tone" id="info" aria-labelledby="if-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01i</span>
-      <h2 class="jp" id="if-h" data-split>案内</h2>
-      <span class="en rv-l">INFORMATION</span>
-      <span class="ln rv-ln"></span>
-    </div>
-    <div class="figpair" style="align-items:start">
-      <dl class="dl rv-a">
-        <div><dt>店名</dt><dd>Salon Ren</dd></div>
-        <div><dt>住所</dt><dd>福岡県福岡市〇〇区〇〇2-4-6</dd></div>
-        <div><dt>営業時間</dt><dd>10:00〜20:00<small>最終受付はカット19:00、パーマ・ブライダルは17:30です。</small></dd></div>
-        <div><dt>定休日</dt><dd>火曜日</dd></div>
-        <div><dt>席数</dt><dd>セット面4席／シャンプー台2台</dd></div>
-        <div><dt>ご予約</dt><dd>メール・LINE<small>前日までにいただけると確実です。当日は空きがあればお受けします。</small></dd></div>
-      </dl>
-      <div class="rv-b" style="--d:.08s">
-        <p class="bq" style="margin-bottom:clamp(16px,2.4vw,22px)">ご予約・ご相談は<br>こちらから。</p>
-        <p class="lede">はじめての方もお気軽にどうぞ。髪のお悩みをうかがったうえで、無理のないご提案をいたします。ご予約のときに、いまいちばん気になっていることを一行だけ添えていただけると、当日の時間を長くお取りできます。</p>
-        <div class="btns">
-          <a class="btn" href="mailto:info@example.com">メールで問い合わせる<i aria-hidden="true"></i></a>
-          <a class="btn line" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener noreferrer">LINEで問い合わせる<i aria-hidden="true"></i></a>
-          <a class="btn ghost" href="salon-advance-contact.html" data-no="10" data-name="アクセス・ご予約">アクセスとご予約の詳細<i aria-hidden="true"></i></a>
-        </div>
-      </div>
-    </div>
-    <figure class="figfr mid rv" style="--ar:21/8;margin-top:clamp(34px,5vw,58px)">
-      <div class="im"><img src="images/salon/salon_facility2.webp" alt="白い外壁とガラスの引き戸、足もとに植木鉢が並ぶSalon Renの外観" loading="lazy" decoding="async"></div>
-      <figcaption><span>通りに面した外観。引き戸を開けてお入りください。</span><span class="en">EXTERIOR</span></figcaption>
-    </figure>
   </div>
 </section>
 
 <!-- ===== 次のページ ===== -->
 <section class="sec sec-s pnext" aria-label="次のページ">
   <div class="pnext-in">
-    <span class="pnext-lb rv-l">NEXT &#8212; 02</span>
-    <a class="pnext-a rv-l" style="--d:.06s" href="salon-advance-service.html" data-no="02" data-name="メニュー・料金">メニュー・料金へ<i aria-hidden="true"></i></a>
+    <span class="pnext-lb rv-l">NEXT &#8212; 04</span>
+    <a class="pnext-a rv-l" style="--d:.06s" href="salon-advance-work-detail.html" data-no="04" data-name="スタイル詳細">スタイル詳細へ<i aria-hidden="true"></i></a>
   </div>
 </section>
 
@@ -1055,13 +976,13 @@ html.entering .pt{opacity:1}
   <nav class="ft-map" aria-label="サイトマップ">
     <div>
       <h2>序<span>PROLOGUE</span></h2>
-      <ul><li><span class="cur"><span class="no">01</span>トップ</span></li></ul>
+      <ul><li><a href="salon-advance.html" data-no="01" data-name="トップ"><span class="no">01</span>トップ</a></li></ul>
     </div>
     <div>
       <h2>選ぶ<span>SELECT</span></h2>
       <ul>
         <li><a href="salon-advance-service.html" data-no="02" data-name="メニュー・料金"><span class="no">02</span>メニュー・料金</a></li>
-        <li><a href="salon-advance-works.html" data-no="03" data-name="スタイル集"><span class="no">03</span>スタイル集</a></li>
+        <li><span class="cur"><span class="no">03</span>スタイル集</span></li>
         <li><a href="salon-advance-work-detail.html" data-no="04" data-name="スタイル詳細"><span class="no">04</span>スタイル詳細</a></li>
       </ul>
     </div>
@@ -1108,8 +1029,8 @@ html.entering .pt{opacity:1}
   "use strict";
 
   /* ==== ページごとに書き換えるのはこの2行だけ ==== */
-  var CURRENT  = '01';
-  var PAGENAME = 'トップ';
+  var CURRENT  = '03';
+  var PAGENAME = 'スタイル集';
   /* ============================================== */
 
   var mq = window.matchMedia('(prefers-reduced-motion: reduce)');

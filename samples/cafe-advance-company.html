@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cafe Hana｜福岡の自家焙煎コーヒーとタルトのカフェ</title>
-<meta name="description" content="福岡のカフェ Cafe Hana。生豆から焙煎、抽出、一杯、そしてお持ち帰りまで「一杯の順路」をたどる10ページのサイトです。営業時間10:00〜19:00（定休日:水曜日）。">
+<title>店とスタッフ｜Cafe Hana｜福岡の自家焙煎コーヒーとタルトのカフェ</title>
+<meta name="description" content="福岡のカフェ Cafe Hana の店とスタッフ。2019年4月に開いた1フロアの店と、24席（カウンター6／テーブル14／テラス4）の内訳、焙煎・カウンター・製菓の3人をご紹介します。営業時間10:00〜19:00（定休日:水曜日）。">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -700,6 +700,37 @@ body.pt-rise main{animation-delay:.06s}
 }
 .ft-cr a{color:#E8D9C2}
 
+/* ---------- ページ個別：アンカー着地の余白（追従ヘッダーの下に潜らせない） ---------- */
+main [id]{scroll-margin-top:96px}
+[hidden]{display:none!important}
+
+/* ---------- ページ個別 06：スタッフのカード ---------- */
+.stf{display:grid;gap:clamp(20px,3vw,32px)}
+@media (min-width:768px){.stf{grid-template-columns:repeat(3,1fr)}}
+.stfc{
+  display:flex;flex-direction:column;gap:12px;
+  background:var(--paper-2);border:1px solid var(--line-soft);border-radius:var(--r);
+  padding:clamp(16px,2vw,20px);box-shadow:var(--sh-1);
+}
+.stfc .ph{
+  position:relative;overflow:hidden;border-radius:var(--r-s);background:var(--paper-3);
+  aspect-ratio:3/4;box-shadow:var(--sh-1);
+}
+.stfc .ph img{width:100%;height:100%;object-fit:cover;object-position:center 28%;transition:transform .8s var(--ease)}
+.stfc:hover .ph img{transform:scale(1.04)}
+.stfc .rl{font-size:10.5px;letter-spacing:.18em;color:var(--coffee)}
+.stfc h3{font-size:var(--t-h3);font-weight:700;letter-spacing:.06em;line-height:1.5}
+.stfc h3 .kana{display:block;font-size:11.5px;font-weight:400;letter-spacing:.14em;color:var(--ink-3);margin-top:5px}
+.stfc .wd{
+  font-size:13.5px;line-height:1.95;color:var(--ink-2);
+  border-left:3px solid var(--coffee-pale);padding-left:13px;margin-top:auto;
+}
+
+/* ---------- ページ個別 06：席数の粒（配置図ではなく、数の内訳） ---------- */
+.dw .bean{fill:var(--coffee-pale);stroke:var(--coffee);stroke-width:1.4}
+.dw .beanl{fill:none;stroke:var(--coffee);stroke-width:1.4;stroke-linecap:round}
+.dw .big{font-size:44px;fill:var(--coffee-deep)}
+
 /* ---------- 20. reduced motion ---------- */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -752,7 +783,7 @@ body.pt-rise main{animation-delay:.06s}
           <span class="rn">I</span><span class="gp">生豆と焙煎</span></a>
         <a href="cafe-advance-service.html" data-no="02" data-nm="メニュー">
           <span class="rn">II</span><span class="gp">淹れて、出す</span></a>
-        <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方">
+        <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方" aria-current="true">
           <span class="rn">III</span><span class="gp">過ごす</span></a>
         <a href="cafe-advance-takeout.html" data-no="07" data-nm="テイクアウトと豆の販売">
           <span class="rn">IV</span><span class="gp">その先へ</span></a>
@@ -782,7 +813,7 @@ body.pt-rise main{animation-delay:.06s}
               <div class="rtgrp">
                 <p><b>III</b>過ごす</p>
                 <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方"><span class="n">05</span><span class="t">一日の過ごし方</span></a>
-                <a href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ"><span class="n">06</span><span class="t">店とスタッフ</span></a>
+                <a href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ" aria-current="page"><span class="n">06</span><span class="t">店とスタッフ</span></a>
               </div>
               <div class="rtgrp">
                 <p><b>IV</b>その先へ</p>
@@ -794,7 +825,7 @@ body.pt-rise main{animation-delay:.06s}
                 <a href="cafe-advance-contact.html" data-no="09" data-nm="アクセス・お問い合わせ"><span class="n">09</span><span class="t">アクセス・お問い合わせ</span></a>
               </div>
             </div>
-            <p class="rtcap" style="margin:22px 0 0"><i aria-hidden="true"></i>いま見ているのは <span style="color:var(--ink);letter-spacing:.06em">00 トップ</span></p>
+            <p class="rtcap" style="margin:22px 0 0"><i aria-hidden="true"></i>いま見ているのは <span style="color:var(--ink);letter-spacing:.06em">06 店とスタッフ</span></p>
           </div>
         </div>
       </details>
@@ -809,457 +840,255 @@ body.pt-rise main{animation-delay:.06s}
   <div class="hd-now">
     <div class="wrap">
       <p class="now">
-        <span class="no">00</span>
-        <span class="ch">START &mdash; 順路の入口</span>
-        <span class="nm">トップ</span>
+        <span class="no">06</span>
+        <span class="ch">III &mdash; STAY ／ 過ごす</span>
+        <span class="nm">店とスタッフ</span>
       </p>
       <p class="pn">
-        <span class="dis">&#9664; 前のページ</span>
-        <a href="cafe-advance-beans.html" data-no="01" data-nm="豆と焙煎">次のページ &nbsp;01 豆と焙煎 &#9654;</a>
+        <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方">&#9664; 前のページ &nbsp;05 一日の過ごし方</a>
+        <a href="cafe-advance-takeout.html" data-no="07" data-nm="テイクアウトと豆の販売">次のページ &nbsp;07 テイクアウトと豆の販売 &#9654;</a>
       </p>
     </div>
   </div>
 </header>
 
+<nav class="crumb" aria-label="パンくず">
+  <ol>
+    <li><a href="cafe-advance.html" data-no="00" data-nm="トップ">00 トップ</a></li>
+    <li><span>III &mdash; STAY ／ 過ごす</span></li>
+    <li><span aria-current="page">06 店とスタッフ</span></li>
+  </ol>
+</nav>
+
 <main>
 
-  <!-- ============ 00.1 入口 ============ -->
-  <section class="mast" id="top" aria-labelledby="h1">
+  <!-- ============ 06.1 マストヘッド ============ -->
+  <section class="mast sub" id="top" aria-labelledby="h1">
     <div class="wrap">
-      <p class="mast-kick"><span class="no">NO.00</span><i aria-hidden="true"></i><span>FUKUOKA ／ 自家焙煎コーヒーとタルト</span></p>
-      <h1 class="mast-h" id="h1">
-        <span class="l"><i>Cafe</i></span><span class="l"><i>Hana</i></span>
-        <span class="jp">一杯の順路</span>
-      </h1>
-      <p class="mast-catch">丁寧に淹れる一杯と、<br>ほっとできる時間を。</p>
+      <p class="mast-kick"><span class="no">NO.06</span><i aria-hidden="true"></i><span>III &mdash; STAY ／ 過ごす</span></p>
+      <h1 class="mast-h" id="h1">店とスタッフ<span class="en" aria-hidden="true">The Shop &amp; Us</span></h1>
+      <p class="mast-lead">2019年4月、この通りで店を開けました。カウンター6席、テーブル14席、テラス4席。全部で24席の小さな店を、3人でやっています。</p>
       <ul class="mast-tags">
-        <li>10:00 &ndash; 19:00</li>
-        <li>定休日 : 水曜日</li>
-        <li>福岡市〇〇区</li>
-        <li>全10ページ</li>
+        <li>2019年4月開店</li>
+        <li>24席</li>
+        <li>3人</li>
+        <li>全席禁煙</li>
       </ul>
     </div>
     <figure class="mast-fig">
-      <div class="ph">
-        <img src="images/cafe/cafe_hero.webp" alt="窓からやわらかな光が差し込む Cafe Hana の店内。手前のテーブルに湯気の立つコーヒーと本が置かれている" fetchpriority="high" decoding="async">
-      </div>
-      <figcaption>朝いちばんの湯気。豆を挽く音とともに、Cafe Hana の一日がはじまります。</figcaption>
+      <div class="ph"><img src="images/cafe/cafe_facility1.webp" alt="窓に面した長いカウンター席と、上から吊り下げられた照明のある店内" fetchpriority="high" decoding="async"></div>
+      <figcaption>カウンター席 ／ 焙煎機とマシンのすぐ前です。電源があるのは、この6席だけ。</figcaption>
     </figure>
   </section>
 
-  <!-- ============ 00.2 一杯の順路 ============ -->
-  <section class="sec" id="route" aria-labelledby="h-route">
+  <!-- ============ 06.2 この店のこと ============ -->
+  <section class="sec" id="shop" aria-labelledby="h-shop">
     <div class="wrap">
       <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.2</span>
-        <span class="tt"><h2 id="h-route">一杯の順路<span class="en">The Route of a Cup</span></h2></span>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-
-      <p class="lede rv">このサイトは、<em>生豆から一杯、そしてその先まで</em>の順路に沿って並べています。番号は、そのまま道順です。</p>
-      <p class="body rv" style="margin-top:18px">豆が届いて、焼いて、挽いて、湯を落として、カップに注ぐ。飲み終わったら、豆を買って帰る人もいます。店でやっていることを順番どおりに並べたら、10ページになりました。どこから読んでもかまいませんが、番号の順に進むと、一杯ができるまでがそのまま追えます。</p>
-
-      <div class="dwbox wideonly rv" style="margin-top:clamp(28px,4vw,48px)">
-        <svg class="dw" viewBox="0 0 1000 300" role="img" aria-label="生豆・焙煎から一杯、持ち帰りまでの順路を、湯を注ぐような一本の曲線に5つの章の印を置いて示した図">
-          <path class="ln-h" d="M40 262H960"/>
-          <path class="ln" d="M46 236C70 228 92 222 116 218C196 205 232 128 318 120C398 113 434 194 496 204C570 216 610 120 686 112C772 103 830 174 890 196C916 205 936 210 958 214"/>
-          <!-- I -->
-          <path class="stain-p" d="M141 218c1 12-6 24-17 28-11 4-25 1-32-8-7-9-7-24 0-33 7-9 21-13 32-9 11 4 16 10 17 22Z"/>
-          <circle class="dot" cx="116" cy="218" r="7"/>
-          <text class="rn" x="116" y="272" text-anchor="middle">I</text>
-          <text class="tk" x="116" y="186" text-anchor="middle">BEAN</text>
-          <!-- II -->
-          <path class="stain-p" d="M343 120c1 12-6 25-17 29-12 4-26 1-33-8-7-10-7-25 0-34 7-9 22-13 33-9 11 4 16 10 17 22Z"/>
-          <circle class="dot" cx="318" cy="120" r="7"/>
-          <text class="rn" x="318" y="272" text-anchor="middle">II</text>
-          <text class="tk" x="318" y="88" text-anchor="middle">BREW</text>
-          <path class="ln-h" d="M318 132v118"/>
-          <!-- III -->
-          <path class="stain-p" d="M521 204c1 12-6 24-17 28-11 4-25 1-32-8-7-9-7-24 0-33 7-9 21-13 32-9 11 4 16 10 17 22Z"/>
-          <circle class="dot" cx="496" cy="204" r="7"/>
-          <text class="rn" x="496" y="272" text-anchor="middle">III</text>
-          <text class="tk" x="496" y="172" text-anchor="middle">STAY</text>
-          <!-- IV -->
-          <path class="stain-p" d="M711 112c1 12-6 25-17 29-12 4-26 1-33-8-7-10-7-25 0-34 7-9 22-13 33-9 11 4 16 10 17 22Z"/>
-          <circle class="dot" cx="686" cy="112" r="7"/>
-          <text class="rn" x="686" y="272" text-anchor="middle">IV</text>
-          <text class="tk" x="686" y="80" text-anchor="middle">BEYOND</text>
-          <path class="ln-h" d="M686 124v118"/>
-          <!-- V : 順路のそと -->
-          <circle class="dot" cx="890" cy="196" r="7"/>
-          <path class="ln-h" d="M890 208v34" stroke-dasharray="3 5"/>
-          <text class="rn" x="890" y="272" text-anchor="middle">V</text>
-          <text class="tk" x="890" y="164" text-anchor="middle">ASK</text>
-        </svg>
-        <p class="dwcap"><span>THE ROUTE &mdash; 5 CHAPTERS / 10 PAGES</span><span>上の図は順路の考え方を示すもので、店内の配置図ではありません</span></p>
-      </div>
-
-      <ol class="route rv" style="margin-top:clamp(24px,3.4vw,38px)">
-        <li class="stn">
-          <a href="cafe-advance-beans.html" data-no="01" data-nm="豆と焙煎">
-            <svg class="mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-              <path class="fillc" d="M334.8 257.0C327.2 283.6 314.6 318.3 292.9 335.9C271.2 353.5 233.6 362.8 204.6 362.6C175.6 362.4 141.7 350.9 118.8 334.7C95.8 318.5 81.4 291.0 67.1 265.3C52.8 239.7 32.5 209.5 32.9 180.8C33.3 152.1 49.7 115.1 69.4 93.2C89.1 71.3 122.6 57.0 151.1 49.3C179.5 41.6 213.8 38.7 240.2 47.0C266.7 55.4 293.3 77.9 309.7 99.4C326.1 120.9 334.5 149.8 338.7 176.0C342.9 202.3 342.4 230.3 334.8 257.0Z"/>
-              <g transform="rotate(-22 200 200)">
-                <ellipse class="st" cx="200" cy="200" rx="92" ry="62"/>
-                <path class="st2" d="M112 200c26-34 62 34 88 0 26-34 62 34 88 0"/>
-              </g>
-            </svg>
-            <span class="rn">I &mdash; BEAN</span>
-            <h3>生豆と焙煎</h3>
-            <p>どこの豆を、どれくらい焼いているか。週2回の焙煎と、常時4種の豆の話です。</p>
-            <span class="go">01 豆と焙煎へ<i aria-hidden="true">&rarr;</i></span>
-          </a>
-        </li>
-        <li class="stn">
-          <a href="cafe-advance-service.html" data-no="02" data-nm="メニュー">
-            <svg class="mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-              <path class="fillc" d="M334.8 257.0C327.2 283.6 314.6 318.3 292.9 335.9C271.2 353.5 233.6 362.8 204.6 362.6C175.6 362.4 141.7 350.9 118.8 334.7C95.8 318.5 81.4 291.0 67.1 265.3C52.8 239.7 32.5 209.5 32.9 180.8C33.3 152.1 49.7 115.1 69.4 93.2C89.1 71.3 122.6 57.0 151.1 49.3C179.5 41.6 213.8 38.7 240.2 47.0C266.7 55.4 293.3 77.9 309.7 99.4C326.1 120.9 334.5 149.8 338.7 176.0C342.9 202.3 342.4 230.3 334.8 257.0Z"/>
-              <path class="st" d="M112 122h176l-70 106h-36Z"/>
-              <path class="st2" d="M200 244v34"/>
-              <path class="st" d="M136 300h128"/>
-            </svg>
-            <span class="rn">II &mdash; BREW</span>
-            <h3>淹れて、出す</h3>
-            <p>ドリンク4品・フード6品。全10品の品書きと、看板の一品を深く。</p>
-            <span class="go">02 メニューへ<i aria-hidden="true">&rarr;</i></span>
-          </a>
-        </li>
-        <li class="stn">
-          <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方">
-            <svg class="mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-              <path class="fillc" d="M334.8 257.0C327.2 283.6 314.6 318.3 292.9 335.9C271.2 353.5 233.6 362.8 204.6 362.6C175.6 362.4 141.7 350.9 118.8 334.7C95.8 318.5 81.4 291.0 67.1 265.3C52.8 239.7 32.5 209.5 32.9 180.8C33.3 152.1 49.7 115.1 69.4 93.2C89.1 71.3 122.6 57.0 151.1 49.3C179.5 41.6 213.8 38.7 240.2 47.0C266.7 55.4 293.3 77.9 309.7 99.4C326.1 120.9 334.5 149.8 338.7 176.0C342.9 202.3 342.4 230.3 334.8 257.0Z"/>
-              <path class="st" d="M124 118v104c0 26 20 44 46 44h60c26 0 46-18 46-44V118"/>
-              <path class="st2" d="M124 210h152"/>
-              <path class="st" d="M150 266v46M250 266v46"/>
-            </svg>
-            <span class="rn">III &mdash; STAY</span>
-            <h3>過ごす</h3>
-            <p>朝から夕方まで、時間ごとの店の様子。席と、Wi-Fiと、つくっている人のこと。</p>
-            <span class="go">05 一日の過ごし方へ<i aria-hidden="true">&rarr;</i></span>
-          </a>
-        </li>
-        <li class="stn">
-          <a href="cafe-advance-takeout.html" data-no="07" data-nm="テイクアウトと豆の販売">
-            <svg class="mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-              <path class="fillc" d="M334.8 257.0C327.2 283.6 314.6 318.3 292.9 335.9C271.2 353.5 233.6 362.8 204.6 362.6C175.6 362.4 141.7 350.9 118.8 334.7C95.8 318.5 81.4 291.0 67.1 265.3C52.8 239.7 32.5 209.5 32.9 180.8C33.3 152.1 49.7 115.1 69.4 93.2C89.1 71.3 122.6 57.0 151.1 49.3C179.5 41.6 213.8 38.7 240.2 47.0C266.7 55.4 293.3 77.9 309.7 99.4C326.1 120.9 334.5 149.8 338.7 176.0C342.9 202.3 342.4 230.3 334.8 257.0Z"/>
-              <path class="st" d="M132 152h136v148H132Z"/>
-              <path class="st2" d="M132 152l22-42h92l22 42"/>
-              <path class="st2" d="M170 196h60"/>
-            </svg>
-            <span class="rn">IV &mdash; BEYOND</span>
-            <h3>その先へ</h3>
-            <p>持ち帰る一杯と、家で淹れるための豆。容器のことも、挽き方のことも。</p>
-            <span class="go">07 テイクアウトと豆の販売へ<i aria-hidden="true">&rarr;</i></span>
-          </a>
-        </li>
-        <li class="stn">
-          <a href="cafe-advance-faq.html" data-no="08" data-nm="よくある質問">
-            <svg class="mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-              <path class="fillc" d="M334.8 257.0C327.2 283.6 314.6 318.3 292.9 335.9C271.2 353.5 233.6 362.8 204.6 362.6C175.6 362.4 141.7 350.9 118.8 334.7C95.8 318.5 81.4 291.0 67.1 265.3C52.8 239.7 32.5 209.5 32.9 180.8C33.3 152.1 49.7 115.1 69.4 93.2C89.1 71.3 122.6 57.0 151.1 49.3C179.5 41.6 213.8 38.7 240.2 47.0C266.7 55.4 293.3 77.9 309.7 99.4C326.1 120.9 334.5 149.8 338.7 176.0C342.9 202.3 342.4 230.3 334.8 257.0Z"/>
-              <path class="st" d="M112 136h176v128H190l-46 44v-44h-32Z"/>
-              <path class="st2" d="M168 196h64M168 232h44"/>
-            </svg>
-            <span class="rn">V &mdash; ASK</span>
-            <h3>たずねる</h3>
-            <p>順路のそと。よくいただく質問と、店までの道のり・ご連絡先です。</p>
-            <span class="go">08 よくある質問へ<i aria-hidden="true">&rarr;</i></span>
-          </a>
-        </li>
-      </ol>
-
-      <ul class="dwlegend rv">
-        <li><span class="k">I &mdash; BEAN</span><span>01 豆と焙煎</span></li>
-        <li><span class="k">II &mdash; BREW</span><span>02 メニュー ／ 03 品書きの一覧 ／ 04 看板の一品</span></li>
-        <li><span class="k">III &mdash; STAY</span><span>05 一日の過ごし方 ／ 06 店とスタッフ</span></li>
-        <li><span class="k">IV &mdash; BEYOND</span><span>07 テイクアウトと豆の販売</span></li>
-        <li><span class="k">V &mdash; ASK</span><span>08 よくある質問 ／ 09 アクセス・お問い合わせ</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============ 00.3 はじめに ============ -->
-  <section class="sec pale" id="about" aria-labelledby="h-about">
-    <div class="wrap">
-      <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.3</span>
-        <span class="tt"><h2 id="h-about">はじめに<span class="en">About Us</span></h2></span>
+        <span class="no ser" aria-hidden="true">06.2</span>
+        <span class="tt"><h2 id="h-shop">この店のこと<span class="en">Our Place</span></h2></span>
         <span class="rule" aria-hidden="true"></span>
       </div>
 
       <div class="colgrid">
         <div class="rv">
-          <p class="lede">自家焙煎のコーヒーと、地元農家から届く<em>旬のフルーツを使ったタルト</em>をご提供するカフェです。</p>
-          <p class="body" style="margin-top:clamp(18px,2.4vw,26px)">日常のなかにほっとできる場所を、地域の皆さまにお届けします。豆の焙煎から一杯の抽出まで、その日の気温や湿度に合わせて少しずつ調整しています。ひとりで本を読む午後も、誰かと過ごす夕方も、同じようにくつろげる場所であるように。今日もカウンターの奥で、静かにお待ちしています。</p>
-          <p class="body">2019年の春に、この通りで店を開けました。カウンター6席、テーブル14席、天気のいい日はテラスの4席。全部で24席の、小さな店です。</p>
+          <p class="lede">1フロアだけの店です。カウンターも客席も、<em>同じひとつの空間</em>にあります。</p>
+          <p class="body" style="margin-top:clamp(18px,2.4vw,26px)">焙煎機は店内に置いてあります。1回に焼けるのは3kgまでなので、火曜と金曜の開店前に少しずつ。焼いているあいだの音も匂いも、そのまま客席まで届きます。仕切りをつくらなかったのは、そのほうが店の様子が伝わると思ったからです。</p>
+          <p class="body">店名の Hana は、入り口に置いた鉢植えから取りました。季節ごとに花が入れ替わるので、外から見える顔も少しずつ変わります。何が咲いているかは、来ていただいたときのお楽しみということにしています。</p>
           <blockquote class="quote">「おいしかった」より先に、「また来ます」と言ってもらえる一杯を。</blockquote>
-          <a class="more" href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ">店とスタッフのことを見る<span class="ar" aria-hidden="true">&rarr;</span></a>
+          <a class="more" href="cafe-advance-beans.html" data-no="01" data-nm="豆と焙煎">01 豆と焙煎を読む<span class="ar" aria-hidden="true">&rarr;</span></a>
         </div>
 
         <div class="rv">
           <figure class="fig r43">
-            <div class="ph"><img src="images/cafe/cafe_voice2.webp" alt="木のテーブルをはさんで向かい合い、それぞれカップを手にしている二人の手元" loading="lazy" decoding="async"></div>
-            <figcaption><span class="n" aria-hidden="true">01</span>テーブル席 ／ 話しに来る日も、黙って読む日も</figcaption>
+            <div class="ph"><img src="images/cafe/cafe_gallery6.webp" alt="本棚と観葉植物に囲まれた革張りのソファ席" loading="lazy" decoding="async"></div>
+            <figcaption><span class="n" aria-hidden="true">01</span>本棚のある一角 ／ 二杯目まで居る人が、だいたいここに座ります</figcaption>
           </figure>
           <ul class="nlist" style="margin-top:clamp(20px,2.8vw,28px)">
-            <li><span class="k" aria-hidden="true">i</span><span class="v"><b>自家焙煎のコーヒー</b>その日の一杯に合わせて焙煎度合いを変えています。</span></li>
-            <li><span class="k" aria-hidden="true">ii</span><span class="v"><b>地元農家の旬のフルーツ</b>届いた果実に合わせて、タルトの内容が変わります。</span></li>
-            <li><span class="k" aria-hidden="true">iii</span><span class="v"><b>ほっとできる時間</b>長居していただける席の間隔と、静かな音量で。</span></li>
+            <li><span class="k" aria-hidden="true">i</span><span class="v"><b>開いたのは2019年の4月</b>この通りで、小さく始めました。</span></li>
+            <li><span class="k" aria-hidden="true">ii</span><span class="v"><b>焙煎機は店内に</b>1回3kgまで。火曜と金曜の開店前に焼いています。</span></li>
+            <li><span class="k" aria-hidden="true">iii</span><span class="v"><b>店名は入り口の鉢植えから</b>季節ごとに、花が入れ替わります。</span></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 00.4 今日の一杯 ============ -->
-  <section class="sec" id="today" aria-labelledby="h-today">
+  <!-- ============ 06.3 24席のこと ============ -->
+  <section class="sec pale" id="seats" aria-labelledby="h-seats">
     <div class="wrap">
       <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.4</span>
-        <span class="tt"><h2 id="h-today">今日の一杯ができるまで<span class="en">A Cup, Today</span></h2></span>
+        <span class="no ser" aria-hidden="true">06.3</span>
+        <span class="tt"><h2 id="h-seats">24席のこと<span class="en">Twenty-Four Seats</span></h2></span>
         <span class="rule" aria-hidden="true"></span>
       </div>
 
-      <p class="body rv">焼く、落とす、注ぐ。この3つのあいだに、その日の気温と湿度ぶんの調整が入ります。順路の I と II を、写真3枚で先にお見せします。</p>
+      <p class="body rv">カウンター6席、テーブル14席、テラス4席。席の種類ごとに、使われ方がだいたい決まっています。どこに座るか迷われたら、お声がけください。</p>
 
-      <div class="figrow c3 rv" style="margin-top:clamp(24px,3.2vw,36px)">
-        <figure class="fig r43">
-          <div class="ph"><img src="images/cafe/cafe_gallery2.webp" alt="麻袋の並ぶ棚の前に置かれた焙煎機と、焼き上がった豆の入った冷却皿" loading="lazy" decoding="async"></div>
-          <figcaption><span class="n" aria-hidden="true">01</span>焼く ／ 火・金の開店前に、3kgずつ</figcaption>
-        </figure>
-        <figure class="fig r43">
-          <div class="ph"><img src="images/cafe/cafe_gallery4.webp" alt="カウンターでピッチャーからミルクを注ぎ、カップに模様を描いているところ" loading="lazy" decoding="async"></div>
-          <figcaption><span class="n" aria-hidden="true">02</span>注ぐ ／ 落とす速さも、その日次第</figcaption>
-        </figure>
-        <figure class="fig r43">
-          <div class="ph"><img src="images/cafe/cafe_menu_latte.webp" alt="ラテアートを描いたカフェラテ" loading="lazy" decoding="async"></div>
-          <figcaption><span class="n" aria-hidden="true">03</span>一杯 ／ カフェラテ ¥550</figcaption>
-        </figure>
+      <div class="dwbox wideonly rv" style="margin-top:clamp(24px,3.2vw,36px)">
+      <svg class="dw" viewBox="0 0 900 240" role="img" aria-label="24席の内訳を粒の数で示した図。カウンター6、テーブル14、テラス4。席の配置を示すものではありません。">
+        <path class="ln-h" d="M270 22V218"/>
+        <path class="ln-h" d="M670 22V218"/>
+        <text class="tk" x="40" y="44">COUNTER</text>
+        <text class="big ser" x="40" y="92">6</text>
+        <ellipse class="bean" cx="55" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M55 128 C49 136,49 144,55 152"/>
+        <ellipse class="bean" cx="107" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M107 128 C101 136,101 144,107 152"/>
+        <ellipse class="bean" cx="159" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M159 128 C153 136,153 144,159 152"/>
+        <ellipse class="bean" cx="55" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M55 178 C49 186,49 194,55 202"/>
+        <ellipse class="bean" cx="107" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M107 178 C101 186,101 194,107 202"/>
+        <ellipse class="bean" cx="159" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M159 178 C153 186,153 194,159 202"/>
+        <text class="tk" x="300" y="44">TABLE</text>
+        <text class="big ser" x="300" y="92">14</text>
+        <ellipse class="bean" cx="315" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M315 128 C309 136,309 144,315 152"/>
+        <ellipse class="bean" cx="367" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M367 128 C361 136,361 144,367 152"/>
+        <ellipse class="bean" cx="419" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M419 128 C413 136,413 144,419 152"/>
+        <ellipse class="bean" cx="471" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M471 128 C465 136,465 144,471 152"/>
+        <ellipse class="bean" cx="523" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M523 128 C517 136,517 144,523 152"/>
+        <ellipse class="bean" cx="575" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M575 128 C569 136,569 144,575 152"/>
+        <ellipse class="bean" cx="627" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M627 128 C621 136,621 144,627 152"/>
+        <ellipse class="bean" cx="315" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M315 178 C309 186,309 194,315 202"/>
+        <ellipse class="bean" cx="367" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M367 178 C361 186,361 194,367 202"/>
+        <ellipse class="bean" cx="419" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M419 178 C413 186,413 194,419 202"/>
+        <ellipse class="bean" cx="471" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M471 178 C465 186,465 194,471 202"/>
+        <ellipse class="bean" cx="523" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M523 178 C517 186,517 194,523 202"/>
+        <ellipse class="bean" cx="575" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M575 178 C569 186,569 194,575 202"/>
+        <ellipse class="bean" cx="627" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M627 178 C621 186,621 194,627 202"/>
+        <text class="tk" x="700" y="44">TERRACE</text>
+        <text class="big ser" x="700" y="92">4</text>
+        <ellipse class="bean" cx="715" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M715 128 C709 136,709 144,715 152"/>
+        <ellipse class="bean" cx="767" cy="140" rx="15" ry="19"/>
+        <path class="beanl" d="M767 128 C761 136,761 144,767 152"/>
+        <ellipse class="bean" cx="715" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M715 178 C709 186,709 194,715 202"/>
+        <ellipse class="bean" cx="767" cy="190" rx="15" ry="19"/>
+        <path class="beanl" d="M767 178 C761 186,761 194,767 202"/>
+      </svg>
+        <p class="dwcap"><span>SEATS &mdash; 6 / 14 / 4 = 24</span><span>上の図は席数の内訳を粒の数で示したもので、実際の配置ではありません</span></p>
       </div>
 
-      <div class="colgrid rv" style="margin-top:clamp(30px,4vw,50px)">
+      <div class="rv" style="margin-top:clamp(24px,3.2vw,36px)">
+        <table class="tbl">
+          <caption>SEATS &mdash; 席の内訳と、使われ方</caption>
+          <thead>
+            <tr><th scope="col">席</th><th scope="col">数</th><th scope="col">使われ方</th><th scope="col">電源</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">カウンター</th>
+              <td data-l="数" class="num">6席</td>
+              <td data-l="使われ方">おひとりで来られた方がいちばん多い席です。焙煎機とマシンのすぐ前なので、淹れているところがそのまま見えます。</td>
+              <td data-l="電源">あり</td>
+            </tr>
+            <tr>
+              <th scope="row">テーブル</th>
+              <td data-l="数" class="num">14席</td>
+              <td data-l="使われ方">二人でも、四人でも。ベビーカーはたたまずに、そのままご案内します。お子さま連れの方はこちらへ。</td>
+              <td data-l="電源">なし</td>
+            </tr>
+            <tr>
+              <th scope="row">テラス</th>
+              <td data-l="数" class="num">4席</td>
+              <td data-l="使われ方">石畳の路地に面した4席です。ペットとご一緒いただけるのはこちらだけ。天気のいい日に開けています。</td>
+              <td data-l="電源">なし</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">全席禁煙です。テラス席も禁煙にしています。混み合う時間にお待ちいただく場合は、まずテラス席をご案内しています。</p>
+        <a class="more" href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方">05 一日の過ごし方を読む<span class="ar" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06.4 3人のこと ============ -->
+  <section class="sec" id="staff" aria-labelledby="h-staff">
+    <div class="wrap">
+      <div class="shead rv">
+        <span class="no ser" aria-hidden="true">06.4</span>
+        <span class="tt"><h2 id="h-staff">3人のこと<span class="en">Three of Us</span></h2></span>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+
+      <p class="body rv">焙煎、カウンター、焼き菓子。持ち場は分かれていますが、混み合う時間はだいたい全員がフロアに出ています。</p>
+
+      <div class="stf rv" style="margin-top:clamp(24px,3.2vw,36px)">
+        <div class="stfc">
+          <div class="ph"><img src="images/cafe/cafe_staff1.webp" alt="カウンターに立つ男性スタッフ。背後に豆の袋とエスプレッソマシンが見える" loading="lazy" decoding="async"></div>
+          <p class="rl">店主 ／ 焙煎</p>
+          <h3>大隈 亮<span class="kana">おおくま りょう</span></h3>
+          <p class="wd">焼けた豆の音を聞いてから、その日の淹れ方を決めています。</p>
+        </div>
+        <div class="stfc">
+          <div class="ph"><img src="images/cafe/cafe_staff2.webp" alt="トレイにカップをのせて運ぶ女性スタッフ" loading="lazy" decoding="async"></div>
+          <p class="rl">バリスタ ／ ホール</p>
+          <h3>花田 いずみ<span class="kana">はなだ いずみ</span></h3>
+          <p class="wd">お客さまの「いつもの」を覚えるのが、いちばん楽しい仕事です。</p>
+        </div>
+        <div class="stfc">
+          <div class="ph"><img src="images/cafe/cafe_staff3.webp" alt="焼き菓子とタルトの並ぶ台に立つ女性スタッフ" loading="lazy" decoding="async"></div>
+          <p class="rl">製菓 ／ タルト・焼き菓子</p>
+          <h3>木村 千尋<span class="kana">きむら ちひろ</span></h3>
+          <p class="wd">果実が届いてから、その日のタルトを決めます。</p>
+        </div>
+      </div>
+
+      <div class="colgrid even rv" style="margin-top:clamp(30px,4vw,50px)">
         <div>
-          <h3 class="lead-h">看板の一品は、カフェラテです。</h3>
-          <p class="lead-p">中深煎りのブレンドを、ミルクに負けないところで止めています。エスプレッソの抽出時間はその日の豆に合わせて動かすので、朝と夕方では少し違う一杯になります。豆のこと、抽出のこと、注ぎ方のことは、04 でひととおり書きました。</p>
-          <a class="more" href="cafe-advance-work-detail.html" data-no="04" data-nm="看板の一品">04 看板の一品を読む<span class="ar" aria-hidden="true">&rarr;</span></a>
+          <h3 class="lead-h">持ち場は分かれていても、店はひとつです。</h3>
+          <p class="lead-p">焙煎の日は開店前から店にいますし、タルトの内容はその日に届いた果実で決まります。だから「今日は何がありますか」と聞いていただくのがいちばん早いです。カウンター越しでも、テーブルからでも、お気軽にどうぞ。</p>
         </div>
         <div>
-          <p class="body">豆は常時4種。ブレンドのほか、浅煎り・中煎り・深煎りをひとつずつ置いています。産地は国名までしか書きません。仕入れの都合で切り替わることがあるためです。</p>
+          <p class="body">季節には、地元農家から届いた果実のタルトをお出ししています。何が並ぶかはその日次第なので、お品書きには載せていません。</p>
           <p class="note">気になる食材がある方は、ご注文の前にお気軽にお尋ねください。同じ厨房で小麦・卵・乳を扱っています。</p>
-          <a class="more" href="cafe-advance-beans.html" data-no="01" data-nm="豆と焙煎">01 豆と焙煎を読む<span class="ar" aria-hidden="true">&rarr;</span></a>
+          <a class="more" href="cafe-advance-service.html" data-no="02" data-nm="メニュー">02 メニューを見る<span class="ar" aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 00.5 お品書きから ============ -->
-  <section class="sec pale" id="menu" aria-labelledby="h-menu">
-    <div class="wrap">
-      <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.5</span>
-        <span class="tt"><h2 id="h-menu">お品書きから<span class="en">From the Menu</span></h2></span>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-
-      <p class="body rv">ドリンク4品、フード6品の全10品。ここでは4品だけ。価格はすべて税込です。</p>
-
-      <div class="mcards c4 rv" style="margin-top:clamp(24px,3.2vw,36px)">
-        <figure class="mcard">
-          <div class="ph"><img src="images/cafe/cafe_menu_matcha.webp" alt="鮮やかな緑色の抹茶ラテ" loading="lazy" decoding="async"></div>
-          <figcaption>
-            <p class="nm"><span class="no" aria-hidden="true">04</span>抹茶ラテ<span class="pr">&yen;600</span></p>
-            <p class="en" aria-hidden="true">Matcha Latte</p>
-            <p class="tx">甘さは控えめ。午後の一杯にどうぞ。</p>
-          </figcaption>
-        </figure>
-        <figure class="mcard">
-          <div class="ph"><img src="images/cafe/cafe_menu_pancake.webp" alt="厚みのあるふわふわパンケーキ" loading="lazy" decoding="async"></div>
-          <figcaption>
-            <p class="nm"><span class="no" aria-hidden="true">05</span>ふわふわパンケーキ<span class="pr">&yen;880</span></p>
-            <p class="en" aria-hidden="true">Fluffy Pancakes</p>
-            <p class="tx">ご注文をいただいてから焼き上げます。少しお時間をください。</p>
-          </figcaption>
-        </figure>
-        <figure class="mcard">
-          <div class="ph"><img src="images/cafe/cafe_menu_cheesecake.webp" alt="なめらかなニューヨークチーズケーキ" loading="lazy" decoding="async"></div>
-          <figcaption>
-            <p class="nm"><span class="no" aria-hidden="true">08</span>ニューヨークチーズケーキ<span class="pr">&yen;600</span></p>
-            <p class="en" aria-hidden="true">New York Cheesecake</p>
-            <p class="tx">コーヒーに合わせて、濃さは控えめに。</p>
-          </figcaption>
-        </figure>
-        <figure class="mcard">
-          <div class="ph"><img src="images/cafe/cafe_menu_croissant.webp" alt="かごに盛られた焼きたてのクロワッサン" loading="lazy" decoding="async"></div>
-          <figcaption>
-            <p class="nm"><span class="no" aria-hidden="true">10</span>焼きたてクロワッサン<span class="pr">&yen;380</span></p>
-            <p class="en" aria-hidden="true">Fresh-baked Croissant</p>
-            <p class="tx">午前中の早い時間がいちばん香ります。</p>
-          </figcaption>
-        </figure>
-      </div>
-
-      <p class="note rv">季節には、地元農家から届いた果実のタルトもお出しします。何が並ぶかは、その日に届いたもの次第です。</p>
-
-      <div class="morelinks c2 rv">
-        <a class="morelink" href="cafe-advance-service.html" data-no="02" data-nm="メニュー">
-          <b>メニューを写真つきで見る</b><span>02 &nbsp;MENU &nbsp;&rarr;</span>
-        </a>
-        <a class="morelink ghost" href="cafe-advance-works.html" data-no="03" data-nm="品書きの一覧">
-          <b>全10品を一覧で見る</b><span>03 &nbsp;INDEX &nbsp;&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 00.6 過ごす ============ -->
-  <section class="sec" id="stay" aria-labelledby="h-stay">
-    <div class="wrap">
-      <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.6</span>
-        <span class="tt"><h2 id="h-stay">過ごす、という使い方<span class="en">How to Stay</span></h2></span>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-
-      <p class="body rv">一杯だけ飲んで帰る日も、二杯目まで居る日も、どちらもふつうの使い方です。時間帯によって店の顔が変わるので、静かに読みたい日は平日の午前と夕方をおすすめしています。</p>
-
-      <div class="pcards rv" style="margin-top:clamp(24px,3.2vw,36px)">
-        <a class="pcard" href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方">
-          <div class="ph"><img src="images/cafe/cafe_gallery5.webp" alt="クッションを敷いた窓辺のベンチ席。テーブルにカップと開いた本が置かれている" loading="lazy" decoding="async"></div>
-          <span class="top"><span class="no">05</span><span>III &mdash; STAY</span></span>
-          <h3>一日の過ごし方<span class="en" aria-hidden="true">A Day Here</span></h3>
-          <p>10時の開店から19時まで、4つの時間帯でお店の様子が変わります。混み合う時間、静かな時間、Wi-Fiと電源のこと。</p>
-          <span class="go">05 へ<i aria-hidden="true">&rarr;</i></span>
-        </a>
-        <a class="pcard" href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ">
-          <div class="ph"><img src="images/cafe/cafe_facility1.webp" alt="窓に面した長いカウンター席と吊り下げ照明のある店内" loading="lazy" decoding="async"></div>
-          <span class="top"><span class="no">06</span><span>III &mdash; STAY</span></span>
-          <h3>店とスタッフ<span class="en" aria-hidden="true">The Shop &amp; Us</span></h3>
-          <p>24席の内訳と、店をやっている3人のこと。焙煎、カウンター、そして焼き菓子。それぞれの持ち場を紹介します。</p>
-          <span class="go">06 へ<i aria-hidden="true">&rarr;</i></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 00.7 持ち帰る ============ -->
-  <section class="sec pale" id="take" aria-labelledby="h-take">
-    <div class="wrap">
-      <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.7</span>
-        <span class="tt"><h2 id="h-take">持ち帰る、家で淹れる<span class="en">Beyond the Cup</span></h2></span>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-
-      <div class="colgrid rev">
-        <div class="rv">
-          <figure class="fig r43">
-            <div class="ph"><img src="images/cafe/cafe_flow3.webp" alt="カウンター越しに、コーヒーの入ったカップを両手で手渡しているところ" loading="lazy" decoding="async"></div>
-            <figcaption><span class="n" aria-hidden="true">01</span>お渡し ／ ドリンクのみなら5分ほど</figcaption>
-          </figure>
-        </div>
-        <div class="rv">
-          <h3 class="lead-h">順路の終わりは、店の外にあります。</h3>
-          <p class="lead-p">ドリンクは4品すべてお持ち帰りいただけます。フードはクロワッサンとチーズケーキの2品。容器代はいただかないので、店内で召し上がるときと同じ価格です。マイカップをお持ちいただくと30円引きになります。</p>
-          <p class="lead-p" style="margin-top:14px">豆は100gから。挽き方は3種類からお選びいただけます。家で淹れるところまでが、この店の順路です。</p>
-
-          <table class="tbl" style="margin-top:clamp(20px,2.6vw,28px)">
-            <caption>TAKE AWAY &mdash; 持ち帰りの要点</caption>
-            <thead>
-              <tr><th scope="col">項目</th><th scope="col">内容</th><th scope="col">価格</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">ドリンク</th>
-                <td data-l="内容">4品すべて。ホットは8oz、アイスは12ozの紙カップ</td>
-                <td data-l="価格" class="num">店内と同額</td>
-              </tr>
-              <tr>
-                <th scope="row">フード</th>
-                <td data-l="内容">クロワッサン／ニューヨークチーズケーキ の2品</td>
-                <td data-l="価格" class="num">店内と同額</td>
-              </tr>
-              <tr>
-                <th scope="row">豆</th>
-                <td data-l="内容">常時4種。100g から。豆のまま／中細挽き／粗挽き</td>
-                <td data-l="価格" class="num">&yen;700 &ndash; &yen;850</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="note">マイカップをお持ちの方は30円引きです。300ml前後まで入るものでお願いしています。</p>
-        </div>
-      </div>
-
-      <div class="morelinks rv">
-        <a class="morelink" href="cafe-advance-takeout.html" data-no="07" data-nm="テイクアウトと豆の販売">
-          <b>テイクアウトと豆の販売を詳しく見る</b><span>07 &nbsp;IV &mdash; BEYOND &nbsp;&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 00.8 順路表 ============ -->
-  <section class="sec" id="index" aria-labelledby="h-index">
-    <div class="wrap">
-      <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.8</span>
-        <span class="tt"><h2 id="h-index">順路表<span class="en">All 10 Pages</span></h2></span>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-
-      <div class="map rv">
-        <div class="mapgrp">
-          <p><b>I</b>BEAN<span class="jp">生豆と焙煎</span></p>
-          <a href="cafe-advance-beans.html" data-no="01" data-nm="豆と焙煎"><span class="n">01</span><span class="t">豆と焙煎<small>常時4種の豆と、週2回の焙煎。抽出の3つの方法。</small></span></a>
-        </div>
-        <div class="mapgrp">
-          <p><b>II</b>BREW<span class="jp">淹れて、出す</span></p>
-          <a href="cafe-advance-service.html" data-no="02" data-nm="メニュー"><span class="n">02</span><span class="t">メニュー<small>ドリンク4品・フード6品を写真つきで。</small></span></a>
-          <a href="cafe-advance-works.html" data-no="03" data-nm="品書きの一覧"><span class="n">03</span><span class="t">品書きの一覧<small>全10品の索引。価格と番号でまとめて。</small></span></a>
-          <a href="cafe-advance-work-detail.html" data-no="04" data-nm="看板の一品"><span class="n">04</span><span class="t">看板の一品<small>カフェラテ1品を、豆から注ぎ方まで。</small></span></a>
-        </div>
-        <div class="mapgrp">
-          <p><b>III</b>STAY<span class="jp">過ごす</span></p>
-          <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方"><span class="n">05</span><span class="t">一日の過ごし方<small>4つの時間帯と、席・Wi-Fi・電源のこと。</small></span></a>
-          <a href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ"><span class="n">06</span><span class="t">店とスタッフ<small>24席の内訳と、店をやっている3人。</small></span></a>
-        </div>
-        <div class="mapgrp">
-          <p><b>IV</b>BEYOND<span class="jp">その先へ</span></p>
-          <a href="cafe-advance-takeout.html" data-no="07" data-nm="テイクアウトと豆の販売"><span class="n">07</span><span class="t">テイクアウトと豆の販売<small>容器、価格、挽き方、保管のしかた。</small></span></a>
-        </div>
-        <div class="mapgrp">
-          <p><b>V</b>ASK<span class="jp">たずねる</span></p>
-          <a href="cafe-advance-faq.html" data-no="08" data-nm="よくある質問"><span class="n">08</span><span class="t">よくある質問<small>予約、作業利用、お子さま連れ、支払い方法。</small></span></a>
-          <a href="cafe-advance-contact.html" data-no="09" data-nm="アクセス・お問い合わせ"><span class="n">09</span><span class="t">アクセス・お問い合わせ<small>店までの道のりと、ご連絡の方法。</small></span></a>
-        </div>
-        <div class="mapgrp">
-          <p><b>00</b>START<span class="jp">順路の入口</span></p>
-          <a href="cafe-advance.html" data-no="00" data-nm="トップ" aria-current="page"><span class="n">00</span><span class="t">トップ<small>いま見ているページです。</small></span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 00.9 ご案内 ============ -->
+  <!-- ============ 06.5 ご利用のご案内 ============ -->
   <section class="sec pale" id="info" aria-labelledby="h-info">
     <div class="wrap">
       <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.9</span>
-        <span class="tt"><h2 id="h-info">ご案内<span class="en">Information</span></h2></span>
+        <span class="no ser" aria-hidden="true">06.5</span>
+        <span class="tt"><h2 id="h-info">ご利用のご案内<span class="en">Information</span></h2></span>
         <span class="rule" aria-hidden="true"></span>
       </div>
 
       <div class="if-grid">
         <div class="rv">
           <dl class="dl">
-            <div><dt>店名</dt><dd>Cafe Hana<small>カフェ</small></dd></div>
-            <div><dt>住所</dt><dd>福岡県福岡市〇〇区〇〇1-2-3</dd></div>
-            <div><dt>営業時間</dt><dd>10:00〜19:00<small>ラストオーダー 18:30 ／ 定休日 : 水曜日</small></dd></div>
-            <div><dt>席数</dt><dd>24席<small>カウンター6席／テーブル14席／テラス4席</small></dd></div>
+            <div><dt>店名</dt><dd>Cafe Hana<small>カフェ ／ 店名は入り口の鉢植えから</small></dd></div>
             <div><dt>開店</dt><dd>2019年4月</dd></div>
-            <div><dt>お問い合わせ</dt><dd><a href="mailto:info@example.com">info@example.com</a></dd></div>
-            <div><dt>LINE</dt><dd><a href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a></dd></div>
+            <div><dt>住所</dt><dd>福岡県福岡市〇〇区〇〇1-2-3</dd></div>
+            <div><dt>席数</dt><dd>24席<small>カウンター6席／テーブル14席／テラス4席</small></dd></div>
+            <div><dt>お支払い</dt><dd>現金／クレジットカード／交通系IC／QRコード決済<small>価格はすべて税込です</small></dd></div>
+            <div><dt>喫煙</dt><dd>全席禁煙<small>テラス席も禁煙です</small></dd></div>
+            <div><dt>ペット</dt><dd>テラス席のみご一緒いただけます</dd></div>
+            <div><dt>ベビーカー</dt><dd>たたまずに、そのままテーブル席へご案内します</dd></div>
           </dl>
-          <p class="note">お席のご予約、気になる食材のご相談などもお気軽にどうぞ。LINEからのご連絡がいちばん早くお返事できます。</p>
-          <a class="more" href="cafe-advance-contact.html" data-no="09" data-nm="アクセス・お問い合わせ">アクセスとお問い合わせを見る<span class="ar" aria-hidden="true">&rarr;</span></a>
+          <p class="note">お席のご予約はLINEかメールで承ります。4名以上でお越しの場合は、前日までにお知らせください。</p>
+          <a class="more" href="cafe-advance-faq.html" data-no="08" data-nm="よくある質問">08 よくある質問を見る<span class="ar" aria-hidden="true">&rarr;</span></a>
         </div>
 
         <div class="rv">
@@ -1279,11 +1108,11 @@ body.pt-rise main{animation-delay:.06s}
       </div>
 
       <div class="morelinks c2 rv">
-        <a class="morelink" href="cafe-advance-beans.html" data-no="01" data-nm="豆と焙煎">
-          <b>順路のはじめから読む</b><span>01 &nbsp;I &mdash; BEAN &nbsp;&rarr;</span>
+        <a class="morelink" href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方">
+          <b>一日の過ごし方を読む</b><span>05 &nbsp;III &mdash; STAY &nbsp;&rarr;</span>
         </a>
-        <a class="morelink ghost" href="cafe-advance-faq.html" data-no="08" data-nm="よくある質問">
-          <b>よくある質問を見る</b><span>08 &nbsp;V &mdash; ASK &nbsp;&rarr;</span>
+        <a class="morelink ghost" href="cafe-advance-contact.html" data-no="09" data-nm="アクセス・お問い合わせ">
+          <b>アクセスとお問い合わせ</b><span>09 &nbsp;V &mdash; ASK &nbsp;&rarr;</span>
         </a>
       </div>
     </div>
@@ -1318,7 +1147,7 @@ body.pt-rise main{animation-delay:.06s}
     <section>
       <p><b>III</b>STAY &mdash; 過ごす</p>
       <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方"><span class="n">05</span>一日の過ごし方</a>
-      <a href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ"><span class="n">06</span>店とスタッフ</a>
+      <a href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ" aria-current="page"><span class="n">06</span>店とスタッフ</a>
     </section>
     <section>
       <p><b>IV</b>BEYOND &mdash; その先へ</p>
@@ -1328,7 +1157,7 @@ body.pt-rise main{animation-delay:.06s}
       <p><b>V</b>ASK &mdash; たずねる</p>
       <a href="cafe-advance-faq.html" data-no="08" data-nm="よくある質問"><span class="n">08</span>よくある質問</a>
       <a href="cafe-advance-contact.html" data-no="09" data-nm="アクセス・お問い合わせ"><span class="n">09</span>アクセス・お問い合わせ</a>
-      <a href="cafe-advance.html" data-no="00" data-nm="トップ" aria-current="page"><span class="n">00</span>トップ</a>
+      <a href="cafe-advance.html" data-no="00" data-nm="トップ"><span class="n">00</span>トップ</a>
     </section>
   </nav>
 
@@ -1355,8 +1184,8 @@ body.pt-rise main{animation-delay:.06s}
   "use strict";
 
   /* ===== このページの識別子。ページごとに変えるのはこの2行だけ ===== */
-  var CURRENT  = '00';
-  var PAGENAME = 'トップ';
+  var CURRENT  = '06';
+  var PAGENAME = '店とスタッフ';
   /* =============================================================== */
 
   var root  = document.documentElement;
@@ -1499,5 +1328,6 @@ body.pt-rise main{animation-delay:.06s}
   if (mq.addEventListener) mq.addEventListener('change', function(){ location.reload(); });
 })();
 </script>
+
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cafe Hana｜福岡の自家焙煎コーヒーとタルトのカフェ</title>
-<meta name="description" content="福岡のカフェ Cafe Hana。生豆から焙煎、抽出、一杯、そしてお持ち帰りまで「一杯の順路」をたどる10ページのサイトです。営業時間10:00〜19:00（定休日:水曜日）。">
+<title>一日の過ごし方｜Cafe Hana｜福岡の自家焙煎コーヒーとタルトのカフェ</title>
+<meta name="description" content="Cafe Hana の一日の過ごし方。10:00〜19:00を4つの時間帯に分けて、席の埋まる順とテーブルの上の様子、Wi-Fi・電源・作業利用のお願い、お席のご予約についてまとめました。">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -713,6 +713,37 @@ body.pt-rise main{animation-delay:.06s}
   .js .mast-kick,.js .mast-catch,.js .mast-tags,.js .mast-h .jp,.js .mast-lead,.js .mast-fig figcaption{opacity:1!important;transform:none!important}
   .js .mast-fig .ph{opacity:1!important;transform:none!important}
 }
+
+/* ---------- 21. 下位ページの追補（既存トークンのみで組む） ---------- */
+.swx{display:block;width:100%;height:100%}
+.swx .rrim{fill:none;stroke:var(--coffee);stroke-width:1.6;opacity:.45}
+.r-l{fill:var(--crema)}
+.r-m{fill:var(--coffee)}
+.r-md{fill:var(--coffee-deep)}
+.r-d{fill:var(--dark)}
+.mk{display:block;width:clamp(46px,5.2vw,58px);height:auto;margin-bottom:12px;color:var(--coffee)}
+.mk .fillc{fill:var(--coffee-pale)}
+.mk .st{fill:none;stroke:var(--coffee-deep);stroke-width:13;stroke-linecap:round;stroke-linejoin:round}
+.mk .st2{fill:none;stroke:var(--coffee-deep);stroke-width:9;stroke-linecap:round;stroke-linejoin:round;opacity:.65}
+.mk .dt{fill:var(--coffee-deep)}
+.cardtx{font-size:13.5px;line-height:1.95;color:var(--ink-2)}
+.cardtx+.cardtx{margin-top:10px}
+.hour{scroll-margin-top:104px}
+.hour+.hour{margin-top:clamp(34px,5vw,64px);padding-top:clamp(30px,4.4vw,56px);border-top:1px solid var(--line)}
+.hour-k{font-size:11px;letter-spacing:.22em;color:var(--ink-3);margin-bottom:7px}
+.hour-t{font-family:var(--serif);font-size:clamp(32px,5.4vw,58px);line-height:1;letter-spacing:.01em;color:var(--coffee-deep)}
+.hour-h{font-size:var(--t-h3);font-weight:700;letter-spacing:.05em;line-height:1.7;margin:clamp(10px,1.4vw,16px) 0 12px}
+.tbar{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:16px}
+.tbar li{font-size:11.5px;letter-spacing:.06em;color:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:4px 13px;background:rgba(255,253,248,.55)}
+.tbar li.lb{border-color:transparent;background:transparent;padding-left:0;padding-right:2px;font-family:var(--serif);font-size:11px;letter-spacing:.16em;color:var(--coffee)}
+.snd{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:12px;letter-spacing:.08em;color:var(--ink-3)}
+.snd i{display:flex;gap:5px}
+.snd i b{display:block;width:9px;height:9px;border-radius:50%;background:transparent;box-shadow:inset 0 0 0 1px var(--line)}
+.snd i b.on{background:var(--coffee);box-shadow:none}
+.hjump{display:flex;flex-wrap:wrap;gap:9px 10px;margin-top:clamp(18px,2.4vw,26px)}
+.hjump a{display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;font-size:12px;letter-spacing:.06em;color:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:7px 15px;background:var(--paper-2);transition:background-color .2s ease,border-color .2s ease}
+.hjump a:hover{background:var(--paper-3);border-color:var(--coffee)}
+.hjump a .n{font-family:var(--serif);font-size:13px;color:var(--coffee)}
 </style>
 </head>
 <body>
@@ -752,7 +783,7 @@ body.pt-rise main{animation-delay:.06s}
           <span class="rn">I</span><span class="gp">生豆と焙煎</span></a>
         <a href="cafe-advance-service.html" data-no="02" data-nm="メニュー">
           <span class="rn">II</span><span class="gp">淹れて、出す</span></a>
-        <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方">
+        <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方" aria-current="page">
           <span class="rn">III</span><span class="gp">過ごす</span></a>
         <a href="cafe-advance-takeout.html" data-no="07" data-nm="テイクアウトと豆の販売">
           <span class="rn">IV</span><span class="gp">その先へ</span></a>
@@ -781,7 +812,7 @@ body.pt-rise main{animation-delay:.06s}
               </div>
               <div class="rtgrp">
                 <p><b>III</b>過ごす</p>
-                <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方"><span class="n">05</span><span class="t">一日の過ごし方</span></a>
+                <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方" aria-current="page"><span class="n">05</span><span class="t">一日の過ごし方</span></a>
                 <a href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ"><span class="n">06</span><span class="t">店とスタッフ</span></a>
               </div>
               <div class="rtgrp">
@@ -794,7 +825,7 @@ body.pt-rise main{animation-delay:.06s}
                 <a href="cafe-advance-contact.html" data-no="09" data-nm="アクセス・お問い合わせ"><span class="n">09</span><span class="t">アクセス・お問い合わせ</span></a>
               </div>
             </div>
-            <p class="rtcap" style="margin:22px 0 0"><i aria-hidden="true"></i>いま見ているのは <span style="color:var(--ink);letter-spacing:.06em">00 トップ</span></p>
+            <p class="rtcap" style="margin:22px 0 0"><i aria-hidden="true"></i>いま見ているのは <span style="color:var(--ink);letter-spacing:.06em">05 一日の過ごし方</span></p>
           </div>
         </div>
       </details>
@@ -809,457 +840,275 @@ body.pt-rise main{animation-delay:.06s}
   <div class="hd-now">
     <div class="wrap">
       <p class="now">
-        <span class="no">00</span>
-        <span class="ch">START &mdash; 順路の入口</span>
-        <span class="nm">トップ</span>
+        <span class="no">05</span>
+        <span class="ch">III &mdash; STAY ／ 過ごす</span>
+        <span class="nm">一日の過ごし方</span>
       </p>
       <p class="pn">
-        <span class="dis">&#9664; 前のページ</span>
-        <a href="cafe-advance-beans.html" data-no="01" data-nm="豆と焙煎">次のページ &nbsp;01 豆と焙煎 &#9654;</a>
+        <a href="cafe-advance-work-detail.html" data-no="04" data-nm="看板の一品">&#9664; 前のページ &nbsp;04 看板の一品</a>
+        <a href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ">次のページ &nbsp;06 店とスタッフ &#9654;</a>
       </p>
     </div>
   </div>
 </header>
 
+<nav class="crumb" aria-label="パンくず">
+  <ol>
+    <li><a href="cafe-advance.html" data-no="00" data-nm="トップ">00 トップ</a></li>
+    <li><span>III &mdash; STAY ／ 過ごす</span></li>
+    <li><span aria-current="page">05 一日の過ごし方</span></li>
+  </ol>
+</nav>
+
 <main>
 
-  <!-- ============ 00.1 入口 ============ -->
-  <section class="mast" id="top" aria-labelledby="h1">
+  <!-- ============ 05.1 入口 ============ -->
+  <section class="mast sub" id="top" aria-labelledby="h1">
     <div class="wrap">
-      <p class="mast-kick"><span class="no">NO.00</span><i aria-hidden="true"></i><span>FUKUOKA ／ 自家焙煎コーヒーとタルト</span></p>
-      <h1 class="mast-h" id="h1">
-        <span class="l"><i>Cafe</i></span><span class="l"><i>Hana</i></span>
-        <span class="jp">一杯の順路</span>
-      </h1>
-      <p class="mast-catch">丁寧に淹れる一杯と、<br>ほっとできる時間を。</p>
+      <p class="mast-kick"><span class="no">NO.05</span><i aria-hidden="true"></i><span>III &mdash; STAY ／ 過ごす</span></p>
+      <h1 class="mast-h" id="h1">一日の過ごし方<span class="en" aria-hidden="true">A Day Here</span></h1>
+      <p class="mast-lead">10時に開けて、19時に閉めます。メニューも価格も一日中同じですが、席の埋まり方も、テーブルの上に載っているものも、時間で変わります。どの時間に来ると何があるか、4つに分けて書きました。</p>
       <ul class="mast-tags">
-        <li>10:00 &ndash; 19:00</li>
-        <li>定休日 : 水曜日</li>
-        <li>福岡市〇〇区</li>
-        <li>全10ページ</li>
+        <li>10:00 &ndash; 19:00</li><li>4つの時間帯</li><li>L.O. 18:30</li><li>全24席</li>
       </ul>
     </div>
     <figure class="mast-fig">
       <div class="ph">
-        <img src="images/cafe/cafe_hero.webp" alt="窓からやわらかな光が差し込む Cafe Hana の店内。手前のテーブルに湯気の立つコーヒーと本が置かれている" fetchpriority="high" decoding="async">
+        <img src="images/cafe/cafe_flow1.webp" alt="扉を開けて店に入ろうとしている人。歩道に黒板の看板が出ている" fetchpriority="high" decoding="async">
       </div>
-      <figcaption>朝いちばんの湯気。豆を挽く音とともに、Cafe Hana の一日がはじまります。</figcaption>
+      <figcaption>開店は10時。黒板を出したところから、その日がはじまります。</figcaption>
     </figure>
   </section>
 
-  <!-- ============ 00.2 一杯の順路 ============ -->
-  <section class="sec" id="route" aria-labelledby="h-route">
+  <!-- ============ 05.2 一日の輪郭 ============ -->
+  <section class="sec" id="outline" aria-labelledby="h-outline">
     <div class="wrap">
       <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.2</span>
-        <span class="tt"><h2 id="h-route">一杯の順路<span class="en">The Route of a Cup</span></h2></span>
+        <span class="no ser" aria-hidden="true">05.2</span>
+        <span class="tt"><h2 id="h-outline">一日の輪郭<span class="en">The Shape of a Day</span></h2></span>
         <span class="rule" aria-hidden="true"></span>
       </div>
 
-      <p class="lede rv">このサイトは、<em>生豆から一杯、そしてその先まで</em>の順路に沿って並べています。番号は、そのまま道順です。</p>
-      <p class="body rv" style="margin-top:18px">豆が届いて、焼いて、挽いて、湯を落として、カップに注ぐ。飲み終わったら、豆を買って帰る人もいます。店でやっていることを順番どおりに並べたら、10ページになりました。どこから読んでもかまいませんが、番号の順に進むと、一杯ができるまでがそのまま追えます。</p>
+      <p class="lede rv">時間で変わるのは、<em>席の埋まる順と、テーブルの上</em>です。</p>
+      <p class="body rv" style="margin-top:18px">朝はカウンターから埋まって、昼はテーブルが一斉に動き、午後は窓辺が長く使われて、夕方は豆の袋を持って帰る人が増える。9時間のあいだに、それが4回入れ替わります。先に輪郭だけ表にしておきます。</p>
 
-      <div class="dwbox wideonly rv" style="margin-top:clamp(28px,4vw,48px)">
-        <svg class="dw" viewBox="0 0 1000 300" role="img" aria-label="生豆・焙煎から一杯、持ち帰りまでの順路を、湯を注ぐような一本の曲線に5つの章の印を置いて示した図">
-          <path class="ln-h" d="M40 262H960"/>
-          <path class="ln" d="M46 236C70 228 92 222 116 218C196 205 232 128 318 120C398 113 434 194 496 204C570 216 610 120 686 112C772 103 830 174 890 196C916 205 936 210 958 214"/>
-          <!-- I -->
-          <path class="stain-p" d="M141 218c1 12-6 24-17 28-11 4-25 1-32-8-7-9-7-24 0-33 7-9 21-13 32-9 11 4 16 10 17 22Z"/>
-          <circle class="dot" cx="116" cy="218" r="7"/>
-          <text class="rn" x="116" y="272" text-anchor="middle">I</text>
-          <text class="tk" x="116" y="186" text-anchor="middle">BEAN</text>
-          <!-- II -->
-          <path class="stain-p" d="M343 120c1 12-6 25-17 29-12 4-26 1-33-8-7-10-7-25 0-34 7-9 22-13 33-9 11 4 16 10 17 22Z"/>
-          <circle class="dot" cx="318" cy="120" r="7"/>
-          <text class="rn" x="318" y="272" text-anchor="middle">II</text>
-          <text class="tk" x="318" y="88" text-anchor="middle">BREW</text>
-          <path class="ln-h" d="M318 132v118"/>
-          <!-- III -->
-          <path class="stain-p" d="M521 204c1 12-6 24-17 28-11 4-25 1-32-8-7-9-7-24 0-33 7-9 21-13 32-9 11 4 16 10 17 22Z"/>
-          <circle class="dot" cx="496" cy="204" r="7"/>
-          <text class="rn" x="496" y="272" text-anchor="middle">III</text>
-          <text class="tk" x="496" y="172" text-anchor="middle">STAY</text>
-          <!-- IV -->
-          <path class="stain-p" d="M711 112c1 12-6 25-17 29-12 4-26 1-33-8-7-10-7-25 0-34 7-9 22-13 33-9 11 4 16 10 17 22Z"/>
-          <circle class="dot" cx="686" cy="112" r="7"/>
-          <text class="rn" x="686" y="272" text-anchor="middle">IV</text>
-          <text class="tk" x="686" y="80" text-anchor="middle">BEYOND</text>
-          <path class="ln-h" d="M686 124v118"/>
-          <!-- V : 順路のそと -->
-          <circle class="dot" cx="890" cy="196" r="7"/>
-          <path class="ln-h" d="M890 208v34" stroke-dasharray="3 5"/>
-          <text class="rn" x="890" y="272" text-anchor="middle">V</text>
-          <text class="tk" x="890" y="164" text-anchor="middle">ASK</text>
-        </svg>
-        <p class="dwcap"><span>THE ROUTE &mdash; 5 CHAPTERS / 10 PAGES</span><span>上の図は順路の考え方を示すもので、店内の配置図ではありません</span></p>
+      <div class="rv" style="margin-top:clamp(24px,3.2vw,36px)">
+        <table class="tbl">
+          <caption>A DAY &mdash; 4つの時間帯</caption>
+          <thead>
+            <tr><th scope="col">時間帯</th><th scope="col">店の様子</th><th scope="col">席の埋まる順</th><th scope="col">音</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="num">10:00 &ndash; 11:30</th>
+              <td data-l="店の様子">開けたばかりの店内。クロワッサンがいちばん香る時間</td>
+              <td data-l="席の埋まる順">カウンターから</td>
+              <td data-l="音">ひかえめ</td>
+            </tr>
+            <tr>
+              <th scope="row" class="num">11:30 &ndash; 13:30</th>
+              <td data-l="店の様子">軽く食べて出る人と、腰を据える人が入れ替わる時間</td>
+              <td data-l="席の埋まる順">テーブルから</td>
+              <td data-l="音">いちばんにぎやか</td>
+            </tr>
+            <tr>
+              <th scope="row" class="num">13:30 &ndash; 16:00</th>
+              <td data-l="店の様子">いちばん長くいられる時間。本と、二杯目</td>
+              <td data-l="席の埋まる順">窓辺から</td>
+              <td data-l="音">落ち着いた声</td>
+            </tr>
+            <tr>
+              <th scope="row" class="num">16:00 &ndash; 19:00</th>
+              <td data-l="店の様子">灯りをともす時間。豆を買って帰る人が増える</td>
+              <td data-l="席の埋まる順">本棚の一角から</td>
+              <td data-l="音">また静かに</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <ol class="route rv" style="margin-top:clamp(24px,3.4vw,38px)">
-        <li class="stn">
-          <a href="cafe-advance-beans.html" data-no="01" data-nm="豆と焙煎">
-            <svg class="mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-              <path class="fillc" d="M334.8 257.0C327.2 283.6 314.6 318.3 292.9 335.9C271.2 353.5 233.6 362.8 204.6 362.6C175.6 362.4 141.7 350.9 118.8 334.7C95.8 318.5 81.4 291.0 67.1 265.3C52.8 239.7 32.5 209.5 32.9 180.8C33.3 152.1 49.7 115.1 69.4 93.2C89.1 71.3 122.6 57.0 151.1 49.3C179.5 41.6 213.8 38.7 240.2 47.0C266.7 55.4 293.3 77.9 309.7 99.4C326.1 120.9 334.5 149.8 338.7 176.0C342.9 202.3 342.4 230.3 334.8 257.0Z"/>
-              <g transform="rotate(-22 200 200)">
-                <ellipse class="st" cx="200" cy="200" rx="92" ry="62"/>
-                <path class="st2" d="M112 200c26-34 62 34 88 0 26-34 62 34 88 0"/>
-              </g>
-            </svg>
-            <span class="rn">I &mdash; BEAN</span>
-            <h3>生豆と焙煎</h3>
-            <p>どこの豆を、どれくらい焼いているか。週2回の焙煎と、常時4種の豆の話です。</p>
-            <span class="go">01 豆と焙煎へ<i aria-hidden="true">&rarr;</i></span>
-          </a>
-        </li>
-        <li class="stn">
-          <a href="cafe-advance-service.html" data-no="02" data-nm="メニュー">
-            <svg class="mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-              <path class="fillc" d="M334.8 257.0C327.2 283.6 314.6 318.3 292.9 335.9C271.2 353.5 233.6 362.8 204.6 362.6C175.6 362.4 141.7 350.9 118.8 334.7C95.8 318.5 81.4 291.0 67.1 265.3C52.8 239.7 32.5 209.5 32.9 180.8C33.3 152.1 49.7 115.1 69.4 93.2C89.1 71.3 122.6 57.0 151.1 49.3C179.5 41.6 213.8 38.7 240.2 47.0C266.7 55.4 293.3 77.9 309.7 99.4C326.1 120.9 334.5 149.8 338.7 176.0C342.9 202.3 342.4 230.3 334.8 257.0Z"/>
-              <path class="st" d="M112 122h176l-70 106h-36Z"/>
-              <path class="st2" d="M200 244v34"/>
-              <path class="st" d="M136 300h128"/>
-            </svg>
-            <span class="rn">II &mdash; BREW</span>
-            <h3>淹れて、出す</h3>
-            <p>ドリンク4品・フード6品。全10品の品書きと、看板の一品を深く。</p>
-            <span class="go">02 メニューへ<i aria-hidden="true">&rarr;</i></span>
-          </a>
-        </li>
-        <li class="stn">
-          <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方">
-            <svg class="mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-              <path class="fillc" d="M334.8 257.0C327.2 283.6 314.6 318.3 292.9 335.9C271.2 353.5 233.6 362.8 204.6 362.6C175.6 362.4 141.7 350.9 118.8 334.7C95.8 318.5 81.4 291.0 67.1 265.3C52.8 239.7 32.5 209.5 32.9 180.8C33.3 152.1 49.7 115.1 69.4 93.2C89.1 71.3 122.6 57.0 151.1 49.3C179.5 41.6 213.8 38.7 240.2 47.0C266.7 55.4 293.3 77.9 309.7 99.4C326.1 120.9 334.5 149.8 338.7 176.0C342.9 202.3 342.4 230.3 334.8 257.0Z"/>
-              <path class="st" d="M124 118v104c0 26 20 44 46 44h60c26 0 46-18 46-44V118"/>
-              <path class="st2" d="M124 210h152"/>
-              <path class="st" d="M150 266v46M250 266v46"/>
-            </svg>
-            <span class="rn">III &mdash; STAY</span>
-            <h3>過ごす</h3>
-            <p>朝から夕方まで、時間ごとの店の様子。席と、Wi-Fiと、つくっている人のこと。</p>
-            <span class="go">05 一日の過ごし方へ<i aria-hidden="true">&rarr;</i></span>
-          </a>
-        </li>
-        <li class="stn">
-          <a href="cafe-advance-takeout.html" data-no="07" data-nm="テイクアウトと豆の販売">
-            <svg class="mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-              <path class="fillc" d="M334.8 257.0C327.2 283.6 314.6 318.3 292.9 335.9C271.2 353.5 233.6 362.8 204.6 362.6C175.6 362.4 141.7 350.9 118.8 334.7C95.8 318.5 81.4 291.0 67.1 265.3C52.8 239.7 32.5 209.5 32.9 180.8C33.3 152.1 49.7 115.1 69.4 93.2C89.1 71.3 122.6 57.0 151.1 49.3C179.5 41.6 213.8 38.7 240.2 47.0C266.7 55.4 293.3 77.9 309.7 99.4C326.1 120.9 334.5 149.8 338.7 176.0C342.9 202.3 342.4 230.3 334.8 257.0Z"/>
-              <path class="st" d="M132 152h136v148H132Z"/>
-              <path class="st2" d="M132 152l22-42h92l22 42"/>
-              <path class="st2" d="M170 196h60"/>
-            </svg>
-            <span class="rn">IV &mdash; BEYOND</span>
-            <h3>その先へ</h3>
-            <p>持ち帰る一杯と、家で淹れるための豆。容器のことも、挽き方のことも。</p>
-            <span class="go">07 テイクアウトと豆の販売へ<i aria-hidden="true">&rarr;</i></span>
-          </a>
-        </li>
-        <li class="stn">
-          <a href="cafe-advance-faq.html" data-no="08" data-nm="よくある質問">
-            <svg class="mark" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-              <path class="fillc" d="M334.8 257.0C327.2 283.6 314.6 318.3 292.9 335.9C271.2 353.5 233.6 362.8 204.6 362.6C175.6 362.4 141.7 350.9 118.8 334.7C95.8 318.5 81.4 291.0 67.1 265.3C52.8 239.7 32.5 209.5 32.9 180.8C33.3 152.1 49.7 115.1 69.4 93.2C89.1 71.3 122.6 57.0 151.1 49.3C179.5 41.6 213.8 38.7 240.2 47.0C266.7 55.4 293.3 77.9 309.7 99.4C326.1 120.9 334.5 149.8 338.7 176.0C342.9 202.3 342.4 230.3 334.8 257.0Z"/>
-              <path class="st" d="M112 136h176v128H190l-46 44v-44h-32Z"/>
-              <path class="st2" d="M168 196h64M168 232h44"/>
-            </svg>
-            <span class="rn">V &mdash; ASK</span>
-            <h3>たずねる</h3>
-            <p>順路のそと。よくいただく質問と、店までの道のり・ご連絡先です。</p>
-            <span class="go">08 よくある質問へ<i aria-hidden="true">&rarr;</i></span>
-          </a>
-        </li>
-      </ol>
+      <nav class="hjump rv" aria-label="時間帯へ移動">
+        <a href="#t1"><span class="n">10:00</span>朝のはじまり</a>
+        <a href="#t2"><span class="n">11:30</span>入れ替わる昼</a>
+        <a href="#t3"><span class="n">13:30</span>長い午後</a>
+        <a href="#t4"><span class="n">16:00</span>灯りの時間</a>
+      </nav>
 
-      <ul class="dwlegend rv">
-        <li><span class="k">I &mdash; BEAN</span><span>01 豆と焙煎</span></li>
-        <li><span class="k">II &mdash; BREW</span><span>02 メニュー ／ 03 品書きの一覧 ／ 04 看板の一品</span></li>
-        <li><span class="k">III &mdash; STAY</span><span>05 一日の過ごし方 ／ 06 店とスタッフ</span></li>
-        <li><span class="k">IV &mdash; BEYOND</span><span>07 テイクアウトと豆の販売</span></li>
-        <li><span class="k">V &mdash; ASK</span><span>08 よくある質問 ／ 09 アクセス・お問い合わせ</span></li>
-      </ul>
+      <p class="note rv">混み合うのは12:00〜13:30と、土日の14:00〜16:00です。静かなのは平日の10:00〜11:30と、16:30以降。ゆっくり過ごしたい日は、そのあたりを目安にどうぞ。</p>
     </div>
   </section>
 
-  <!-- ============ 00.3 はじめに ============ -->
-  <section class="sec pale" id="about" aria-labelledby="h-about">
+  <!-- ============ 05.3 四つの時間 ============ -->
+  <section class="sec pale" id="hours" aria-labelledby="h-hours">
     <div class="wrap">
       <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.3</span>
-        <span class="tt"><h2 id="h-about">はじめに<span class="en">About Us</span></h2></span>
+        <span class="no ser" aria-hidden="true">05.3</span>
+        <span class="tt"><h2 id="h-hours">四つの時間<span class="en">Four Hours</span></h2></span>
         <span class="rule" aria-hidden="true"></span>
       </div>
 
-      <div class="colgrid">
+      <p class="body rv" style="margin-bottom:clamp(28px,4vw,48px)">同じ席でも、時間によって使われ方が変わります。テーブルの上に何が載っているかを見ると、その時間の店がだいたい分かります。</p>
+
+        <div class="hour rv" id="t1">
+          <div class="colgrid">
+            <div>
+          <p class="hour-k" aria-hidden="true">MORNING</p>
+          <p class="hour-t">10:00 &mdash; 11:30</p>
+          <h3 class="hour-h">開けたばかりの店内。クロワッサンがいちばん香る時間</h3>
+          <p class="lead-p">10時に鍵を開けて、豆を挽く音から一日がはじまります。焼きたてのクロワッサンがいちばん香るのはこの時間です。</p>
+          <p class="lead-p" style="margin-top:12px">席はカウンターから埋まっていきます。一杯だけ飲んで出ていく人、始業前に本を開く人。平日のこの時間は、店のなかでいちばん静かです。</p>
+          <p class="note">席の埋まる順：カウンター → 窓辺 → テーブル</p>
+          <ul class="tbar" aria-label="この時間、テーブルの上にあるもの"><li class="lb" aria-hidden="true">ON THE TABLE</li><li>クロワッサンの皿</li><li>ホットのカップ</li><li>読みかけの文庫本</li></ul>
+          <p class="snd"><span>音</span><i aria-hidden="true"><b class="on"></b><b class="on"></b><b></b><b></b><b></b></i><span>ひかえめ</span></p>
+            </div>
+            <figure class="fig r43">
+              <div class="ph"><img src="images/cafe/cafe_gallery5.webp" alt="クッションを敷いた窓辺のベンチ席。テーブルにカップと開いた本が置かれている" loading="lazy" decoding="async"></div>
+              <figcaption><span class="n" aria-hidden="true">01</span>窓辺のベンチ席 ／ 朝は通りの光がいちばんきれいに入ります</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="hour rv" id="t2">
+          <div class="colgrid">
+            <div>
+          <p class="hour-k" aria-hidden="true">MIDDAY</p>
+          <p class="hour-t">11:30 &mdash; 13:30</p>
+          <h3 class="hour-h">軽く食べて出る人と、腰を据える人が入れ替わる時間</h3>
+          <p class="lead-p">近くで働いている方が入ってくる時間です。サンドイッチやパスタを頼んで、食べたら出ていく人。逆に、ここから腰を据えて午後まで居る人。二種類の使い方が入れ替わります。</p>
+          <p class="lead-p" style="margin-top:12px">この時間はテーブル席から埋まります。相席はお願いしていないので、満席のときはお待ちいただくか、テラス席をご案内します。</p>
+          <p class="note">席の埋まる順：テーブル → カウンター → テラス</p>
+          <ul class="tbar" aria-label="この時間、テーブルの上にあるもの"><li class="lb" aria-hidden="true">ON THE TABLE</li><li>取り分け用の小皿</li><li>水のグラス</li><li>会計のトレイ</li></ul>
+          <p class="snd"><span>音</span><i aria-hidden="true"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b></b></i><span>いちばんにぎやか</span></p>
+            </div>
+            <div class="card">
+              <div class="card-h"><b>12:00 &mdash; 13:30</b><span>PLEASE NOTE</span></div>
+              <p class="cardtx">この時間は混み合います。作業や勉強でお使いの場合は、90分ほどでお願いしています。</p>
+              <p class="cardtx">4名以上のお席は、前日までにLINEかメールでお知らせください。</p>
+              <p class="cardtx">当日の空席はお答えできないことがあります。お待ちいただく場合はテラス席をご案内します。</p>
+              <p class="fine">※ こちらはRESCが制作したサンプルサイトです。掲載の住所・メールアドレスは実在しません。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hour rv" id="t3">
+          <p class="hour-k" aria-hidden="true">AFTERNOON</p>
+          <p class="hour-t">13:30 &mdash; 16:00</p>
+          <h3 class="hour-h">いちばん長くいられる時間。本と、二杯目</h3>
+          <p class="lead-p">一日でいちばん長くいられる時間です。昼の入れ替わりが落ち着くと、窓辺の席から埋まっていきます。</p>
+          <p class="lead-p" style="margin-top:12px">本を持ってくる方が多いのもこの時間で、一杯目を飲み終えたあとに二杯目を頼んで、そのまま夕方まで、という日もあります。天気がよければテラスの4席がいちばん気持ちのいい時間帯です。</p>
+          <p class="lead-p" style="margin-top:12px">ただし土日の14時から16時は混み合います。静かに読みたい日は、平日のこの時間をおすすめしています。</p>
+          <p class="note">席の埋まる順：窓辺 → テラス → 本棚の一角</p>
+          <ul class="tbar" aria-label="この時間、テーブルの上にあるもの"><li class="lb" aria-hidden="true">ON THE TABLE</li><li>二杯目のカップ</li><li>読みかけの本</li><li>チーズケーキの皿</li></ul>
+          <p class="snd"><span>音</span><i aria-hidden="true"><b class="on"></b><b class="on"></b><b class="on"></b><b></b><b></b></i><span>落ち着いた声</span></p>
+          <div class="figrow c2" style="margin-top:clamp(22px,3vw,30px)">
+            <figure class="fig r43">
+              <div class="ph"><img src="images/cafe/cafe_voice1.webp" alt="窓辺の席で本を読んでいる人。手前にコーヒーの入ったカップが置かれている" loading="lazy" decoding="async"></div>
+              <figcaption><span class="n" aria-hidden="true">01</span>窓辺の席 ／ 二杯目を頼んで、そのまま夕方まで</figcaption>
+            </figure>
+            <figure class="fig r43">
+              <div class="ph"><img src="images/cafe/cafe_gallery3.webp" alt="石畳の路地に面したテラス席。テーブルと椅子が二組並んでいる" loading="lazy" decoding="async"></div>
+              <figcaption><span class="n" aria-hidden="true">02</span>テラス4席 ／ 天気のいい日と、ペットとご一緒の日に</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="hour rv" id="t4">
+          <div class="colgrid rev">
+            <div>
+          <p class="hour-k" aria-hidden="true">EVENING</p>
+          <p class="hour-t">16:00 &mdash; 19:00</p>
+          <h3 class="hour-h">灯りをともす時間。豆を買って帰る人が増える</h3>
+          <p class="lead-p">16時をすぎると外の光がゆっくり落ちて、店の灯りのほうが明るくなります。仕事帰りに一杯だけ、という方が増えるのもこの時間です。</p>
+          <p class="lead-p" style="margin-top:12px">豆の袋を持って帰る方が増えるのもこのあたり。16:30をすぎると席にも余裕が出てきます。ラストオーダーは18:30、閉店は19時です。</p>
+          <p class="note">席の埋まる順：本棚の一角 → 窓辺 → カウンター</p>
+          <ul class="tbar" aria-label="この時間、テーブルの上にあるもの"><li class="lb" aria-hidden="true">ON THE TABLE</li><li>豆の袋</li><li>最後の一杯</li><li>書きかけの手帳</li></ul>
+          <p class="snd"><span>音</span><i aria-hidden="true"><b class="on"></b><b class="on"></b><b></b><b></b><b></b></i><span>また静かに</span></p>
+            </div>
+            <figure class="fig r43">
+              <div class="ph"><img src="images/cafe/cafe_flow4.webp" alt="窓辺のテーブルでカップを手に、外を眺めている人" loading="lazy" decoding="async"></div>
+              <figcaption><span class="n" aria-hidden="true">01</span>夕方の窓辺 ／ 灯りがつくころ、通りの色が変わります</figcaption>
+            </figure>
+          </div>
+        </div>
+
+      <figure class="band rv" style="margin-top:clamp(36px,5vw,64px)">
+        <div class="ph"><img src="images/cafe/cafe_gallery6.webp" alt="本棚と観葉植物に囲まれた革張りのソファ席" loading="lazy" decoding="async"></div>
+        <figcaption class="band-txt">
+          <p class="band-en" aria-hidden="true">The last hour</p>
+          <p class="band-jp">本棚の一角は、夕方にいちばんよく使われる席です。灯りをつけたあとの一時間は、店のなかで音がいちばん少なくなります。ラストオーダーは18:30、19時に閉めます。閉める前に豆の袋を買って帰る方が多いのも、この時間です。</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 05.4 長くいるための ============ -->
+  <section class="sec" id="facility" aria-labelledby="h-facility">
+    <div class="wrap">
+      <div class="shead rv">
+        <span class="no ser" aria-hidden="true">05.4</span>
+        <span class="tt"><h2 id="h-facility">長くいるための、いくつか<span class="en">Wi-Fi, Power &amp; Rules</span></h2></span>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+
+      <p class="body rv">お願いごとは多くありません。ただ、電源の数と昼の混み具合だけは、先にお伝えしておきます。</p>
+
+      <div class="colgrid" style="margin-top:clamp(24px,3.2vw,36px)">
         <div class="rv">
-          <p class="lede">自家焙煎のコーヒーと、地元農家から届く<em>旬のフルーツを使ったタルト</em>をご提供するカフェです。</p>
-          <p class="body" style="margin-top:clamp(18px,2.4vw,26px)">日常のなかにほっとできる場所を、地域の皆さまにお届けします。豆の焙煎から一杯の抽出まで、その日の気温や湿度に合わせて少しずつ調整しています。ひとりで本を読む午後も、誰かと過ごす夕方も、同じようにくつろげる場所であるように。今日もカウンターの奥で、静かにお待ちしています。</p>
-          <p class="body">2019年の春に、この通りで店を開けました。カウンター6席、テーブル14席、天気のいい日はテラスの4席。全部で24席の、小さな店です。</p>
-          <blockquote class="quote">「おいしかった」より先に、「また来ます」と言ってもらえる一杯を。</blockquote>
-          <a class="more" href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ">店とスタッフのことを見る<span class="ar" aria-hidden="true">&rarr;</span></a>
+          <table class="tbl">
+            <caption>STAY &mdash; 設備とご利用について</caption>
+            <thead>
+              <tr><th scope="col">項目</th><th scope="col">ご案内</th></tr>
+            </thead>
+            <tbody>
+            <tr><th scope="row">Wi-Fi</th><td data-l="ご案内">あります（無料）。パスワードはカウンターでお尋ねください。</td></tr>
+            <tr><th scope="row">電源</th><td data-l="ご案内">カウンター6席のみ。テーブル席とテラス席にはありません。</td></tr>
+            <tr><th scope="row">作業・勉強</th><td data-l="ご案内">どうぞ。ただし12:00〜13:30の混み合う時間帯は、90分ほどでお願いしています。</td></tr>
+            <tr><th scope="row">オンライン通話</th><td data-l="ご案内">声が出るものは、恐れ入りますが席を外していただいています。</td></tr>
+            <tr><th scope="row">ラストオーダー</th><td data-l="ご案内">18:30（閉店の30分前）です。</td></tr>
+            <tr><th scope="row">お子さま</th><td data-l="ご案内">ご一緒にどうぞ。取り分け用の小皿とカトラリーをお出しします。</td></tr>
+            <tr><th scope="row">ベビーカー</th><td data-l="ご案内">そのままテーブル席へご案内します。</td></tr>
+            <tr><th scope="row">ペット</th><td data-l="ご案内">テラス席のみ、ご一緒いただけます。</td></tr>
+            <tr><th scope="row">喫煙</th><td data-l="ご案内">全席禁煙です。テラス席も禁煙になります。</td></tr>
+            </tbody>
+          </table>
+          <p class="note">気になる食材がある方は、ご注文の前にお気軽にお尋ねください。同じ厨房で小麦・卵・乳を扱っています。</p>
         </div>
 
         <div class="rv">
           <figure class="fig r43">
-            <div class="ph"><img src="images/cafe/cafe_voice2.webp" alt="木のテーブルをはさんで向かい合い、それぞれカップを手にしている二人の手元" loading="lazy" decoding="async"></div>
-            <figcaption><span class="n" aria-hidden="true">01</span>テーブル席 ／ 話しに来る日も、黙って読む日も</figcaption>
+            <div class="ph"><img src="images/cafe/cafe_facility1.webp" alt="窓に面した長いカウンター席と吊り下げ照明のある店内" loading="lazy" decoding="async"></div>
+            <figcaption><span class="n" aria-hidden="true">01</span>カウンター6席 ／ 電源があるのはこの席だけです</figcaption>
           </figure>
           <ul class="nlist" style="margin-top:clamp(20px,2.8vw,28px)">
-            <li><span class="k" aria-hidden="true">i</span><span class="v"><b>自家焙煎のコーヒー</b>その日の一杯に合わせて焙煎度合いを変えています。</span></li>
-            <li><span class="k" aria-hidden="true">ii</span><span class="v"><b>地元農家の旬のフルーツ</b>届いた果実に合わせて、タルトの内容が変わります。</span></li>
-            <li><span class="k" aria-hidden="true">iii</span><span class="v"><b>ほっとできる時間</b>長居していただける席の間隔と、静かな音量で。</span></li>
+            <li><span class="k" aria-hidden="true">i</span><span class="v"><b>電源はカウンターに6つ</b>テーブル席・テラス席にはありません。長く作業される日はカウンターへどうぞ。</span></li>
+            <li><span class="k" aria-hidden="true">ii</span><span class="v"><b>12:00〜13:30 は90分ほどで</b>いちばん混み合う時間なので、お席を回させていただいています。</span></li>
+            <li><span class="k" aria-hidden="true">iii</span><span class="v"><b>声の出る通話はご遠慮ください</b>恐れ入りますが、席を外していただいています。</span></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 00.4 今日の一杯 ============ -->
-  <section class="sec" id="today" aria-labelledby="h-today">
+  <!-- ============ 05.5 予約と当日 ============ -->
+  <section class="sec pale" id="reserve" aria-labelledby="h-reserve">
     <div class="wrap">
       <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.4</span>
-        <span class="tt"><h2 id="h-today">今日の一杯ができるまで<span class="en">A Cup, Today</span></h2></span>
+        <span class="no ser" aria-hidden="true">05.5</span>
+        <span class="tt"><h2 id="h-reserve">お席の予約と、当日のこと<span class="en">Booking a Seat</span></h2></span>
         <span class="rule" aria-hidden="true"></span>
       </div>
 
-      <p class="body rv">焼く、落とす、注ぐ。この3つのあいだに、その日の気温と湿度ぶんの調整が入ります。順路の I と II を、写真3枚で先にお見せします。</p>
-
-      <div class="figrow c3 rv" style="margin-top:clamp(24px,3.2vw,36px)">
-        <figure class="fig r43">
-          <div class="ph"><img src="images/cafe/cafe_gallery2.webp" alt="麻袋の並ぶ棚の前に置かれた焙煎機と、焼き上がった豆の入った冷却皿" loading="lazy" decoding="async"></div>
-          <figcaption><span class="n" aria-hidden="true">01</span>焼く ／ 火・金の開店前に、3kgずつ</figcaption>
-        </figure>
-        <figure class="fig r43">
-          <div class="ph"><img src="images/cafe/cafe_gallery4.webp" alt="カウンターでピッチャーからミルクを注ぎ、カップに模様を描いているところ" loading="lazy" decoding="async"></div>
-          <figcaption><span class="n" aria-hidden="true">02</span>注ぐ ／ 落とす速さも、その日次第</figcaption>
-        </figure>
-        <figure class="fig r43">
-          <div class="ph"><img src="images/cafe/cafe_menu_latte.webp" alt="ラテアートを描いたカフェラテ" loading="lazy" decoding="async"></div>
-          <figcaption><span class="n" aria-hidden="true">03</span>一杯 ／ カフェラテ ¥550</figcaption>
-        </figure>
-      </div>
-
-      <div class="colgrid rv" style="margin-top:clamp(30px,4vw,50px)">
-        <div>
-          <h3 class="lead-h">看板の一品は、カフェラテです。</h3>
-          <p class="lead-p">中深煎りのブレンドを、ミルクに負けないところで止めています。エスプレッソの抽出時間はその日の豆に合わせて動かすので、朝と夕方では少し違う一杯になります。豆のこと、抽出のこと、注ぎ方のことは、04 でひととおり書きました。</p>
-          <a class="more" href="cafe-advance-work-detail.html" data-no="04" data-nm="看板の一品">04 看板の一品を読む<span class="ar" aria-hidden="true">&rarr;</span></a>
-        </div>
-        <div>
-          <p class="body">豆は常時4種。ブレンドのほか、浅煎り・中煎り・深煎りをひとつずつ置いています。産地は国名までしか書きません。仕入れの都合で切り替わることがあるためです。</p>
-          <p class="note">気になる食材がある方は、ご注文の前にお気軽にお尋ねください。同じ厨房で小麦・卵・乳を扱っています。</p>
-          <a class="more" href="cafe-advance-beans.html" data-no="01" data-nm="豆と焙煎">01 豆と焙煎を読む<span class="ar" aria-hidden="true">&rarr;</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 00.5 お品書きから ============ -->
-  <section class="sec pale" id="menu" aria-labelledby="h-menu">
-    <div class="wrap">
-      <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.5</span>
-        <span class="tt"><h2 id="h-menu">お品書きから<span class="en">From the Menu</span></h2></span>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-
-      <p class="body rv">ドリンク4品、フード6品の全10品。ここでは4品だけ。価格はすべて税込です。</p>
-
-      <div class="mcards c4 rv" style="margin-top:clamp(24px,3.2vw,36px)">
-        <figure class="mcard">
-          <div class="ph"><img src="images/cafe/cafe_menu_matcha.webp" alt="鮮やかな緑色の抹茶ラテ" loading="lazy" decoding="async"></div>
-          <figcaption>
-            <p class="nm"><span class="no" aria-hidden="true">04</span>抹茶ラテ<span class="pr">&yen;600</span></p>
-            <p class="en" aria-hidden="true">Matcha Latte</p>
-            <p class="tx">甘さは控えめ。午後の一杯にどうぞ。</p>
-          </figcaption>
-        </figure>
-        <figure class="mcard">
-          <div class="ph"><img src="images/cafe/cafe_menu_pancake.webp" alt="厚みのあるふわふわパンケーキ" loading="lazy" decoding="async"></div>
-          <figcaption>
-            <p class="nm"><span class="no" aria-hidden="true">05</span>ふわふわパンケーキ<span class="pr">&yen;880</span></p>
-            <p class="en" aria-hidden="true">Fluffy Pancakes</p>
-            <p class="tx">ご注文をいただいてから焼き上げます。少しお時間をください。</p>
-          </figcaption>
-        </figure>
-        <figure class="mcard">
-          <div class="ph"><img src="images/cafe/cafe_menu_cheesecake.webp" alt="なめらかなニューヨークチーズケーキ" loading="lazy" decoding="async"></div>
-          <figcaption>
-            <p class="nm"><span class="no" aria-hidden="true">08</span>ニューヨークチーズケーキ<span class="pr">&yen;600</span></p>
-            <p class="en" aria-hidden="true">New York Cheesecake</p>
-            <p class="tx">コーヒーに合わせて、濃さは控えめに。</p>
-          </figcaption>
-        </figure>
-        <figure class="mcard">
-          <div class="ph"><img src="images/cafe/cafe_menu_croissant.webp" alt="かごに盛られた焼きたてのクロワッサン" loading="lazy" decoding="async"></div>
-          <figcaption>
-            <p class="nm"><span class="no" aria-hidden="true">10</span>焼きたてクロワッサン<span class="pr">&yen;380</span></p>
-            <p class="en" aria-hidden="true">Fresh-baked Croissant</p>
-            <p class="tx">午前中の早い時間がいちばん香ります。</p>
-          </figcaption>
-        </figure>
-      </div>
-
-      <p class="note rv">季節には、地元農家から届いた果実のタルトもお出しします。何が並ぶかは、その日に届いたもの次第です。</p>
-
-      <div class="morelinks c2 rv">
-        <a class="morelink" href="cafe-advance-service.html" data-no="02" data-nm="メニュー">
-          <b>メニューを写真つきで見る</b><span>02 &nbsp;MENU &nbsp;&rarr;</span>
-        </a>
-        <a class="morelink ghost" href="cafe-advance-works.html" data-no="03" data-nm="品書きの一覧">
-          <b>全10品を一覧で見る</b><span>03 &nbsp;INDEX &nbsp;&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 00.6 過ごす ============ -->
-  <section class="sec" id="stay" aria-labelledby="h-stay">
-    <div class="wrap">
-      <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.6</span>
-        <span class="tt"><h2 id="h-stay">過ごす、という使い方<span class="en">How to Stay</span></h2></span>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-
-      <p class="body rv">一杯だけ飲んで帰る日も、二杯目まで居る日も、どちらもふつうの使い方です。時間帯によって店の顔が変わるので、静かに読みたい日は平日の午前と夕方をおすすめしています。</p>
-
-      <div class="pcards rv" style="margin-top:clamp(24px,3.2vw,36px)">
-        <a class="pcard" href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方">
-          <div class="ph"><img src="images/cafe/cafe_gallery5.webp" alt="クッションを敷いた窓辺のベンチ席。テーブルにカップと開いた本が置かれている" loading="lazy" decoding="async"></div>
-          <span class="top"><span class="no">05</span><span>III &mdash; STAY</span></span>
-          <h3>一日の過ごし方<span class="en" aria-hidden="true">A Day Here</span></h3>
-          <p>10時の開店から19時まで、4つの時間帯でお店の様子が変わります。混み合う時間、静かな時間、Wi-Fiと電源のこと。</p>
-          <span class="go">05 へ<i aria-hidden="true">&rarr;</i></span>
-        </a>
-        <a class="pcard" href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ">
-          <div class="ph"><img src="images/cafe/cafe_facility1.webp" alt="窓に面した長いカウンター席と吊り下げ照明のある店内" loading="lazy" decoding="async"></div>
-          <span class="top"><span class="no">06</span><span>III &mdash; STAY</span></span>
-          <h3>店とスタッフ<span class="en" aria-hidden="true">The Shop &amp; Us</span></h3>
-          <p>24席の内訳と、店をやっている3人のこと。焙煎、カウンター、そして焼き菓子。それぞれの持ち場を紹介します。</p>
-          <span class="go">06 へ<i aria-hidden="true">&rarr;</i></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 00.7 持ち帰る ============ -->
-  <section class="sec pale" id="take" aria-labelledby="h-take">
-    <div class="wrap">
-      <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.7</span>
-        <span class="tt"><h2 id="h-take">持ち帰る、家で淹れる<span class="en">Beyond the Cup</span></h2></span>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-
-      <div class="colgrid rev">
+      <div class="colgrid even">
         <div class="rv">
-          <figure class="fig r43">
-            <div class="ph"><img src="images/cafe/cafe_flow3.webp" alt="カウンター越しに、コーヒーの入ったカップを両手で手渡しているところ" loading="lazy" decoding="async"></div>
-            <figcaption><span class="n" aria-hidden="true">01</span>お渡し ／ ドリンクのみなら5分ほど</figcaption>
-          </figure>
-        </div>
-        <div class="rv">
-          <h3 class="lead-h">順路の終わりは、店の外にあります。</h3>
-          <p class="lead-p">ドリンクは4品すべてお持ち帰りいただけます。フードはクロワッサンとチーズケーキの2品。容器代はいただかないので、店内で召し上がるときと同じ価格です。マイカップをお持ちいただくと30円引きになります。</p>
-          <p class="lead-p" style="margin-top:14px">豆は100gから。挽き方は3種類からお選びいただけます。家で淹れるところまでが、この店の順路です。</p>
-
-          <table class="tbl" style="margin-top:clamp(20px,2.6vw,28px)">
-            <caption>TAKE AWAY &mdash; 持ち帰りの要点</caption>
-            <thead>
-              <tr><th scope="col">項目</th><th scope="col">内容</th><th scope="col">価格</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">ドリンク</th>
-                <td data-l="内容">4品すべて。ホットは8oz、アイスは12ozの紙カップ</td>
-                <td data-l="価格" class="num">店内と同額</td>
-              </tr>
-              <tr>
-                <th scope="row">フード</th>
-                <td data-l="内容">クロワッサン／ニューヨークチーズケーキ の2品</td>
-                <td data-l="価格" class="num">店内と同額</td>
-              </tr>
-              <tr>
-                <th scope="row">豆</th>
-                <td data-l="内容">常時4種。100g から。豆のまま／中細挽き／粗挽き</td>
-                <td data-l="価格" class="num">&yen;700 &ndash; &yen;850</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="note">マイカップをお持ちの方は30円引きです。300ml前後まで入るものでお願いしています。</p>
-        </div>
-      </div>
-
-      <div class="morelinks rv">
-        <a class="morelink" href="cafe-advance-takeout.html" data-no="07" data-nm="テイクアウトと豆の販売">
-          <b>テイクアウトと豆の販売を詳しく見る</b><span>07 &nbsp;IV &mdash; BEYOND &nbsp;&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 00.8 順路表 ============ -->
-  <section class="sec" id="index" aria-labelledby="h-index">
-    <div class="wrap">
-      <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.8</span>
-        <span class="tt"><h2 id="h-index">順路表<span class="en">All 10 Pages</span></h2></span>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-
-      <div class="map rv">
-        <div class="mapgrp">
-          <p><b>I</b>BEAN<span class="jp">生豆と焙煎</span></p>
-          <a href="cafe-advance-beans.html" data-no="01" data-nm="豆と焙煎"><span class="n">01</span><span class="t">豆と焙煎<small>常時4種の豆と、週2回の焙煎。抽出の3つの方法。</small></span></a>
-        </div>
-        <div class="mapgrp">
-          <p><b>II</b>BREW<span class="jp">淹れて、出す</span></p>
-          <a href="cafe-advance-service.html" data-no="02" data-nm="メニュー"><span class="n">02</span><span class="t">メニュー<small>ドリンク4品・フード6品を写真つきで。</small></span></a>
-          <a href="cafe-advance-works.html" data-no="03" data-nm="品書きの一覧"><span class="n">03</span><span class="t">品書きの一覧<small>全10品の索引。価格と番号でまとめて。</small></span></a>
-          <a href="cafe-advance-work-detail.html" data-no="04" data-nm="看板の一品"><span class="n">04</span><span class="t">看板の一品<small>カフェラテ1品を、豆から注ぎ方まで。</small></span></a>
-        </div>
-        <div class="mapgrp">
-          <p><b>III</b>STAY<span class="jp">過ごす</span></p>
-          <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方"><span class="n">05</span><span class="t">一日の過ごし方<small>4つの時間帯と、席・Wi-Fi・電源のこと。</small></span></a>
-          <a href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ"><span class="n">06</span><span class="t">店とスタッフ<small>24席の内訳と、店をやっている3人。</small></span></a>
-        </div>
-        <div class="mapgrp">
-          <p><b>IV</b>BEYOND<span class="jp">その先へ</span></p>
-          <a href="cafe-advance-takeout.html" data-no="07" data-nm="テイクアウトと豆の販売"><span class="n">07</span><span class="t">テイクアウトと豆の販売<small>容器、価格、挽き方、保管のしかた。</small></span></a>
-        </div>
-        <div class="mapgrp">
-          <p><b>V</b>ASK<span class="jp">たずねる</span></p>
-          <a href="cafe-advance-faq.html" data-no="08" data-nm="よくある質問"><span class="n">08</span><span class="t">よくある質問<small>予約、作業利用、お子さま連れ、支払い方法。</small></span></a>
-          <a href="cafe-advance-contact.html" data-no="09" data-nm="アクセス・お問い合わせ"><span class="n">09</span><span class="t">アクセス・お問い合わせ<small>店までの道のりと、ご連絡の方法。</small></span></a>
-        </div>
-        <div class="mapgrp">
-          <p><b>00</b>START<span class="jp">順路の入口</span></p>
-          <a href="cafe-advance.html" data-no="00" data-nm="トップ" aria-current="page"><span class="n">00</span><span class="t">トップ<small>いま見ているページです。</small></span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 00.9 ご案内 ============ -->
-  <section class="sec pale" id="info" aria-labelledby="h-info">
-    <div class="wrap">
-      <div class="shead rv">
-        <span class="no ser" aria-hidden="true">00.9</span>
-        <span class="tt"><h2 id="h-info">ご案内<span class="en">Information</span></h2></span>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-
-      <div class="if-grid">
-        <div class="rv">
-          <dl class="dl">
-            <div><dt>店名</dt><dd>Cafe Hana<small>カフェ</small></dd></div>
-            <div><dt>住所</dt><dd>福岡県福岡市〇〇区〇〇1-2-3</dd></div>
-            <div><dt>営業時間</dt><dd>10:00〜19:00<small>ラストオーダー 18:30 ／ 定休日 : 水曜日</small></dd></div>
-            <div><dt>席数</dt><dd>24席<small>カウンター6席／テーブル14席／テラス4席</small></dd></div>
-            <div><dt>開店</dt><dd>2019年4月</dd></div>
-            <div><dt>お問い合わせ</dt><dd><a href="mailto:info@example.com">info@example.com</a></dd></div>
-            <div><dt>LINE</dt><dd><a href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a></dd></div>
-          </dl>
-          <p class="note">お席のご予約、気になる食材のご相談などもお気軽にどうぞ。LINEからのご連絡がいちばん早くお返事できます。</p>
-          <a class="more" href="cafe-advance-contact.html" data-no="09" data-nm="アクセス・お問い合わせ">アクセスとお問い合わせを見る<span class="ar" aria-hidden="true">&rarr;</span></a>
+          <h3 class="lead-h">4名以上は、前日までにお願いします。</h3>
+          <p class="lead-p">お席のご予約はLINEかメールで承ります。24席の小さな店なので、4名以上でお越しの場合は前日までにお知らせいただけると、席をまとめてご用意できます。</p>
+          <p class="lead-p" style="margin-top:14px">当日の空席については、お答えできないことがあります。満席のときはお待ちいただくか、テラス席をご案内します。</p>
+          <ul class="nlist" style="margin-top:clamp(22px,3vw,30px)">
+            <li><span class="k" aria-hidden="true">i</span><span class="v"><b>ご予約</b>LINEかメールで。4名以上は前日までに。</span></li>
+            <li><span class="k" aria-hidden="true">ii</span><span class="v"><b>当日の空席</b>お答えできないことがあります。テラス席をご案内する場合があります。</span></li>
+            <li><span class="k" aria-hidden="true">iii</span><span class="v"><b>お子さま連れ</b>取り分け用の小皿とカトラリーをお出しします。ベビーカーはそのままテーブル席へ。</span></li>
+            <li><span class="k" aria-hidden="true">iv</span><span class="v"><b>ペット</b>テラス席のみご一緒いただけます。全席禁煙です。</span></li>
+          </ul>
         </div>
 
         <div class="rv">
@@ -1269,6 +1118,7 @@ body.pt-rise main{animation-delay:.06s}
             <div class="card-row"><span>土・日・祝</span><b>10:00&ndash;19:00</b></div>
             <div class="card-row"><span>水曜日</span><b>定休</b></div>
             <div class="card-row"><span>ラストオーダー</span><b>18:30</b></div>
+            <div class="card-row"><span>席数</span><b>24席</b></div>
             <div class="btns" style="margin-top:22px">
               <a class="btn btn-p" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 1C4.13 1 1 3.54 1 6.67c0 2.8 2.48 5.15 5.83 5.6.23.05.54.15.62.35.07.18.05.46.02.64l-.1.6c-.03.18-.14.7.62.38s4.1-2.42 5.6-4.14C14.6 9.02 15 7.9 15 6.67 15 3.54 11.87 1 8 1Z"/></svg> LINEで問い合わせる</a>
               <a class="btn btn-s" href="mailto:info@example.com"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.3" d="M1.6 3.6h12.8v8.8H1.6zM1.9 4l6.1 4.6L14.1 4"/></svg> メールで問い合わせる</a>
@@ -1277,13 +1127,27 @@ body.pt-rise main{animation-delay:.06s}
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ 05.6 順路の続き ============ -->
+  <section class="sec" id="next" aria-labelledby="h-next">
+    <div class="wrap">
+      <div class="shead rv">
+        <span class="no ser" aria-hidden="true">05.6</span>
+        <span class="tt"><h2 id="h-next">順路の続き<span class="en">Next on the Route</span></h2></span>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+
+      <p class="lede rv">時間の話の次は、<em>この場所をつくっている側</em>の話です。</p>
+      <p class="body rv" style="margin-top:18px">24席の内訳と、店をやっている3人のことは 06 に。予約や作業利用など、ここで書ききれなかった細かい質問は 08 にまとめてあります。</p>
 
       <div class="morelinks c2 rv">
-        <a class="morelink" href="cafe-advance-beans.html" data-no="01" data-nm="豆と焙煎">
-          <b>順路のはじめから読む</b><span>01 &nbsp;I &mdash; BEAN &nbsp;&rarr;</span>
+        <a class="morelink" href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ">
+          <b>24席の内訳と、3人のことを見る</b><span>06 &nbsp;III &mdash; STAY &nbsp;&rarr;</span>
         </a>
         <a class="morelink ghost" href="cafe-advance-faq.html" data-no="08" data-nm="よくある質問">
-          <b>よくある質問を見る</b><span>08 &nbsp;V &mdash; ASK &nbsp;&rarr;</span>
+          <b>予約・作業利用の質問を読む</b><span>08 &nbsp;V &mdash; ASK &nbsp;&rarr;</span>
         </a>
       </div>
     </div>
@@ -1317,7 +1181,7 @@ body.pt-rise main{animation-delay:.06s}
     </section>
     <section>
       <p><b>III</b>STAY &mdash; 過ごす</p>
-      <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方"><span class="n">05</span>一日の過ごし方</a>
+      <a href="cafe-advance-flow.html" data-no="05" data-nm="一日の過ごし方" aria-current="page"><span class="n">05</span>一日の過ごし方</a>
       <a href="cafe-advance-company.html" data-no="06" data-nm="店とスタッフ"><span class="n">06</span>店とスタッフ</a>
     </section>
     <section>
@@ -1328,7 +1192,7 @@ body.pt-rise main{animation-delay:.06s}
       <p><b>V</b>ASK &mdash; たずねる</p>
       <a href="cafe-advance-faq.html" data-no="08" data-nm="よくある質問"><span class="n">08</span>よくある質問</a>
       <a href="cafe-advance-contact.html" data-no="09" data-nm="アクセス・お問い合わせ"><span class="n">09</span>アクセス・お問い合わせ</a>
-      <a href="cafe-advance.html" data-no="00" data-nm="トップ" aria-current="page"><span class="n">00</span>トップ</a>
+      <a href="cafe-advance.html" data-no="00" data-nm="トップ"><span class="n">00</span>トップ</a>
     </section>
   </nav>
 
@@ -1355,8 +1219,8 @@ body.pt-rise main{animation-delay:.06s}
   "use strict";
 
   /* ===== このページの識別子。ページごとに変えるのはこの2行だけ ===== */
-  var CURRENT  = '00';
-  var PAGENAME = 'トップ';
+  var CURRENT  = '05';
+  var PAGENAME = '一日の過ごし方';
   /* =============================================================== */
 
   var root  = document.documentElement;

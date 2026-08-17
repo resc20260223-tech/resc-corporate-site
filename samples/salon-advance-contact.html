@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Salon Ren｜美容室｜福岡</title>
-<meta name="description" content="福岡の美容室 Salon Ren。セット面4席の小さな店で、髪質と暮らし方に合わせたスタイルをご提案します。カット・カラー・トリートメント・デジタルパーマ・ブライダル・ヘッドスパ。">
+<title>アクセス・ご予約｜Salon Ren｜美容室｜福岡</title>
+<meta name="description" content="福岡の美容室 Salon Ren へのアクセスとご予約のご案内。場所の略図、ご予約でお伝えいただきたいこと、メール・LINE・ご予約フォームからのお申し込み方法をまとめています。">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -616,6 +616,133 @@ html.entering .pt{opacity:1}
   .card:hover{transform:none}
   *{scroll-behavior:auto!important}
 }
+
+/* ---- 23. 08・09・10 の追加コンポーネント（この3ページ共通） ---- */
+/* 人物カード（08） */
+.scards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3.4vw,44px)}
+.scard{display:flex;flex-direction:column}
+.scard .im{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--paper-2)}
+.scard .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 26%}
+.scard .nm{display:flex;align-items:baseline;justify-content:space-between;gap:6px 14px;flex-wrap:wrap;margin-top:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.scard .nm b{font-family:var(--mincho);font-weight:500;font-size:var(--t-h4);letter-spacing:.14em;line-height:1.6}
+.scard .nm .kn{font-size:10px;letter-spacing:.2em;color:var(--sumi-3)}
+.scard .role{align-self:flex-start;margin-top:14px;padding:5px 10px;border:1px solid var(--line-soft);font-size:11px;letter-spacing:.18em;color:var(--ai)}
+.scard dl{margin-top:14px;border-top:1px solid var(--line-hair)}
+.scard dl>div{display:grid;grid-template-columns:4.5em 1fr;gap:4px 14px;padding:9px 0;border-bottom:1px solid var(--line-hair)}
+.scard dt{font-size:10.5px;letter-spacing:.2em;color:var(--sumi-3);padding-top:.4em}
+.scard dd{font-size:12.5px;line-height:1.9;letter-spacing:.05em;color:var(--sumi-2)}
+.scard .say{margin-top:16px;padding-left:14px;border-left:1px solid var(--line);font-family:var(--mincho);font-size:13.5px;line-height:2;letter-spacing:.1em;color:var(--sumi)}
+
+/* 問答（09）— JS無効でも全部読めるよう、既定は open。JSが開いたときだけ畳む */
+.qa{border-bottom:1px solid var(--line-hair)}
+.qa:first-of-type{border-top:1px solid var(--line)}
+.qa>summary{
+  position:relative;display:flex;align-items:baseline;gap:clamp(10px,1.6vw,20px);
+  padding:clamp(16px,2.2vw,22px) 34px clamp(16px,2.2vw,22px) 0;
+  cursor:pointer;list-style:none;
+}
+.qa>summary::-webkit-details-marker{display:none}
+.qa>summary::marker{content:""}
+.qa .qno{flex:0 0 auto;font-family:var(--mincho);font-size:var(--t-no);letter-spacing:.14em;color:var(--ai)}
+.qa .qt{font-family:var(--mincho);font-weight:500;font-size:var(--t-h4);letter-spacing:.1em;line-height:1.85;transition:color .3s ease}
+.qa>summary:hover .qt{color:var(--sumi-2)}
+.qa .qi{position:absolute;right:2px;top:calc(clamp(16px,2.2vw,22px) + .8em);width:15px;height:1px;display:block}
+.qa .qi::before,.qa .qi::after{content:"";position:absolute;left:0;top:0;width:15px;height:1px;background:var(--sumi-3)}
+.qa .qi::after{transform:rotate(90deg);transition:transform .4s var(--ease-io)}
+.qa[open] .qi::after{transform:rotate(0deg)}
+.qa-a{padding:0 34px clamp(20px,2.8vw,28px) clamp(0px,3.6vw,52px)}
+.qa-a p{max-width:46em;font-size:var(--t-body);line-height:var(--lh-r);letter-spacing:.05em;color:var(--sumi-2)}
+.qa-a p+p{margin-top:14px}
+.qa-a .qlist{margin-top:12px;display:grid;gap:7px}
+.qa-a .qlist li{display:flex;gap:12px;font-size:var(--t-body);line-height:1.95;color:var(--sumi-2);letter-spacing:.05em}
+.qa-a .qlist .n{flex:0 0 auto;font-family:var(--mincho);color:var(--ai);font-size:12px;padding-top:.2em}
+.qa-a .lk{display:inline-flex;align-items:center;gap:10px;margin-top:16px;font-size:12px;letter-spacing:.14em;color:var(--ai);text-underline-offset:4px}
+.qa-a .lk i{width:22px;height:1px;background:currentColor;position:relative;display:block}
+.qa-a .lk i::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.qa-a .lk:hover{text-decoration:underline}
+
+/* 街区図（10）— 小さい画面でも読めるよう、図中の文字は sumi-2 で置く */
+.dw.mapdw text{fill:var(--sumi-2)}
+
+/* ご予約フォーム（10） */
+.fm{margin-top:clamp(26px,4vw,40px)}
+.fm-set{border:0;margin:0;padding:0;min-width:0}
+.fm-lg{font-family:var(--mincho);font-weight:500;font-size:13px;letter-spacing:.24em;text-indent:.24em;color:var(--sumi-2);padding:0 0 12px;border-bottom:1px solid var(--line);width:100%}
+.fm-row{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(20px,3vw,44px)}
+.fm-f{display:flex;flex-direction:column;gap:9px;padding:clamp(16px,2.2vw,22px) 0;border-bottom:1px solid var(--line-hair)}
+.fm-f.wide{grid-column:1/-1}
+.fm-lb{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.2em;color:var(--sumi-3)}
+.fm-lb .rq{font-family:var(--mincho);font-size:9.5px;letter-spacing:.12em;color:var(--ai);border:1px solid var(--line-soft);padding:2px 6px}
+.fm-lb .op{font-size:9.5px;letter-spacing:.12em;color:var(--sumi-3);border:1px solid var(--line-hair);padding:2px 6px}
+.fm-f input,.fm-f textarea,.fm-f select{
+  width:100%;font-family:var(--gothic);font-size:14px;line-height:1.8;color:var(--sumi);
+  background:#fff;border:1px solid var(--line);border-radius:0;
+  padding:11px 12px;letter-spacing:.05em;transition:border-color .3s ease;
+}
+.fm-f textarea{resize:vertical;min-height:104px}
+.fm-f select{-webkit-appearance:none;appearance:none;padding-right:38px}
+.fm-sel{position:relative;display:block}
+.fm-sel::after{
+  content:"";position:absolute;right:15px;top:50%;width:7px;height:7px;margin-top:-6px;
+  border-right:1px solid var(--sumi-3);border-bottom:1px solid var(--sumi-3);
+  transform:rotate(45deg);pointer-events:none;
+}
+.fm-f input:hover,.fm-f textarea:hover,.fm-f select:hover{border-color:var(--sumi-3)}
+.fm-f input:focus,.fm-f textarea:focus,.fm-f select:focus{border-color:var(--sumi);outline:2px solid var(--ai);outline-offset:2px}
+.fm-f [aria-invalid="true"]{border-color:var(--ai-deep);border-left-width:3px}
+.fm-hint{font-size:11px;line-height:1.85;letter-spacing:.05em;color:var(--sumi-3)}
+.fm-err{font-family:var(--mincho);font-size:11.5px;line-height:1.8;letter-spacing:.06em;color:var(--ai-deep)}
+.fm-err:empty{display:none}
+.fm-msg{margin-top:clamp(18px,2.6vw,24px)}
+.fm-msg:empty{display:none}
+.fm-msg .in{
+  display:block;border:1px solid var(--ai-deep);border-left-width:3px;background:var(--paper-4);
+  padding:13px 16px;font-size:12.5px;line-height:1.95;letter-spacing:.05em;color:var(--ai-deep);
+}
+.fm-act{margin-top:clamp(22px,3.4vw,32px);display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.fm-btn{
+  display:inline-flex;align-items:center;justify-content:space-between;gap:22px;
+  min-width:min(300px,100%);padding:15px 20px;font-family:var(--gothic);
+  font-size:13px;letter-spacing:.16em;color:var(--paper);background:var(--sumi);
+  border:1px solid var(--sumi);border-radius:0;cursor:pointer;
+  transition:background .35s ease,color .35s ease;
+}
+.fm-btn i{width:24px;height:1px;background:currentColor;position:relative;flex:0 0 auto;display:block}
+.fm-btn i::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.fm-btn:hover{background:#fff;color:var(--sumi)}
+.fm-note{font-size:11px;letter-spacing:.06em;color:var(--sumi-3);line-height:1.9}
+.fm-done{
+  border:1px solid var(--line);background:#fff;
+  padding:clamp(26px,4.4vw,46px) clamp(20px,3vw,34px);text-align:center;
+}
+.fm-done .lb{font-size:var(--t-lb);letter-spacing:.34em;color:var(--sumi-3);text-indent:.34em}
+.fm-done .tt{margin-top:14px;font-family:var(--mincho);font-weight:500;font-size:clamp(18px,2.4vw,26px);letter-spacing:.16em;text-indent:.16em;line-height:1.7}
+.fm-done .tx{margin:16px auto 0;max-width:40em;font-size:12.5px;line-height:2;letter-spacing:.05em;color:var(--sumi-2)}
+.fm-done dl{margin:clamp(20px,3vw,28px) auto 0;max-width:34em;text-align:left;border-top:1px solid var(--line-hair)}
+.fm-done dl>div{display:grid;grid-template-columns:8em 1fr;gap:4px 16px;padding:10px 0;border-bottom:1px solid var(--line-hair)}
+.fm-done dt{font-size:10.5px;letter-spacing:.2em;color:var(--sumi-3);padding-top:.4em}
+.fm-done dd{font-size:13px;line-height:1.85;letter-spacing:.05em;word-break:break-word}
+.fm-done .again{margin-top:clamp(20px,3vw,28px)}
+
+@media (max-width:1023px){
+  .scards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:768px){
+  .fm-row{grid-template-columns:minmax(0,1fr)}
+  .qa-a{padding-right:0}
+}
+@media (max-width:640px){
+  .scards{grid-template-columns:minmax(0,1fr);gap:clamp(30px,7vw,44px)}
+  .fm-done dl>div{grid-template-columns:1fr;gap:2px}
+  .fm-done dt{padding-top:0}
+}
+@media (max-width:560px){
+  .fm-btn{min-width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  .qa .qi::after,.qa .qt,.fm-f input,.fm-f textarea,.fm-f select,.fm-btn{transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -637,7 +764,7 @@ html.entering .pt{opacity:1}
 <header class="hd">
   <div class="hd-main">
     <nav class="hd-g l" aria-label="ページ群（前半）">
-      <a href="salon-advance.html" data-no="01" data-name="トップ" aria-current="page">
+      <a href="salon-advance.html" data-no="01" data-name="トップ">
         <span class="jp">序</span><span class="en">01</span></a>
       <a href="salon-advance-service.html" data-no="02" data-name="メニュー・料金">
         <span class="jp">選ぶ</span><span class="en">02—04</span></a>
@@ -648,7 +775,7 @@ html.entering .pt{opacity:1}
     <nav class="hd-g r" aria-label="ページ群（後半）">
       <a href="salon-advance-care.html" data-no="05" data-name="髪と頭皮のケア">
         <span class="jp">整える</span><span class="en">05—06</span></a>
-      <a href="salon-advance-flow.html" data-no="07" data-name="ご来店の流れ">
+      <a href="salon-advance-flow.html" data-no="07" data-name="ご来店の流れ" aria-current="true">
         <span class="jp">訪ねる</span><span class="en">07—10</span></a>
     </nav>
   </div>
@@ -657,7 +784,7 @@ html.entering .pt{opacity:1}
       <nav class="st" aria-label="全10ページ">
         <div class="st-g">
           <span class="st-gl">序</span>
-          <a class="st-i" href="salon-advance.html" data-no="01" data-name="トップ" aria-current="page"><b>01</b><span class="nm">トップ</span></a>
+          <a class="st-i" href="salon-advance.html" data-no="01" data-name="トップ"><b>01</b><span class="nm">トップ</span></a>
         </div>
         <div class="st-g">
           <span class="st-gl">選ぶ</span>
@@ -675,7 +802,7 @@ html.entering .pt{opacity:1}
           <a class="st-i" href="salon-advance-flow.html" data-no="07" data-name="ご来店の流れ"><b>07</b><span class="nm">ご来店の流れ</span></a>
           <a class="st-i" href="salon-advance-company.html" data-no="08" data-name="スタッフ・店舗案内"><b>08</b><span class="nm">スタッフ・店舗案内</span></a>
           <a class="st-i" href="salon-advance-faq.html" data-no="09" data-name="よくある質問"><b>09</b><span class="nm">よくある質問</span></a>
-          <a class="st-i" href="salon-advance-contact.html" data-no="10" data-name="アクセス・ご予約"><b>10</b><span class="nm">アクセス・ご予約</span></a>
+          <a class="st-i" href="salon-advance-contact.html" data-no="10" data-name="アクセス・ご予約" aria-current="page"><b>10</b><span class="nm">アクセス・ご予約</span></a>
         </div>
       </nav>
       <a class="hd-cta" href="salon-advance-contact.html" data-no="10" data-name="アクセス・ご予約">ご予約・ご相談</a>
@@ -683,358 +810,352 @@ html.entering .pt{opacity:1}
   </div>
 </header>
 
+<!-- ===== パンくず ===== -->
+<nav class="crumb" aria-label="パンくず">
+  <ol>
+    <li><a href="salon-advance.html" data-no="01" data-name="トップ">01 トップ</a></li>
+    <li><span>訪ねる ／ VISIT</span></li>
+    <li><span aria-current="page">10 アクセス・ご予約</span></li>
+  </ol>
+</nav>
+
 <main>
 
-<!-- ===== 01a ヒーロー ===== -->
-<section class="hero" id="top">
-  <span class="hero-axis" aria-hidden="true"></span>
-  <div class="hero-in">
-    <p class="hero-lb">SALON REN &#8212; FUKUOKA</p>
-    <h1 class="hero-t" data-split>髪と心に、静かなひとときを。</h1>
-    <p class="hero-mir" aria-hidden="true">髪と心に、静かなひとときを。</p>
-    <p class="hero-sub">美容室 Salon Ren ／ セット面4席の小さな店です。<br>カット・カラー・トリートメント・デジタルパーマ・ブライダル・ヘッドスパ。</p>
+<!-- ===== ページ見出し ===== -->
+<section class="phead" id="top">
+  <span class="phead-axis" aria-hidden="true"></span>
+  <div class="phead-in">
+    <p class="phead-no" aria-hidden="true">10</p>
+    <h1 class="phead-t" data-split>アクセス・ご予約</h1>
+    <p class="phead-en">ACCESS &amp; RESERVATION</p>
+    <p class="phead-lead">住宅街の角にある、白い外壁の一階です。場所の略図と、ご予約でお伝えいただきたいことをまとめました。ご予約はメール・LINE・下のフォームから承ります。</p>
   </div>
-  <figure class="hero-fig">
-    <div class="hero-frame">
-      <img src="images/salon/salon_hero.webp" alt="丸鏡が並ぶセット面と大きな窓のある、Salon Renの明るい店内" fetchpriority="high" decoding="async">
-      <span class="hero-open" aria-hidden="true"><i class="l"></i><i class="r"></i><b></b></span>
+  <figure class="phead-fig">
+    <div class="phead-frame">
+      <img src="images/salon/salon_facility2.webp" alt="白い外壁とガラスの引き戸、足もとに植木鉢が並ぶ外観" fetchpriority="high" decoding="async">
     </div>
-    <figcaption class="hero-cap">鏡の前に座る。ここでするのは、それだけです。</figcaption>
   </figure>
-  <p class="hero-scroll" aria-hidden="true">SCROLL<i></i></p>
 </section>
 
-<!-- ===== 01b 映す ／ ABOUT ===== -->
-<section class="sec" id="about" aria-labelledby="ab-h">
+<!-- ===== 10a 場所 ／ MAP ===== -->
+<section class="sec" id="map" aria-labelledby="mp-h">
   <div class="wrap">
     <div class="shead">
-      <span class="no">01b</span>
-      <h2 class="jp" id="ab-h" data-split>映す</h2>
-      <span class="en rv-l">ABOUT</span>
+      <span class="no">10a</span>
+      <h2 class="jp" id="mp-h" data-split>場所</h2>
+      <span class="en rv-l">MAP</span>
       <span class="ln rv-ln"></span>
     </div>
+    <p class="lede rv-l" style="margin-bottom:clamp(28px,4vw,44px)">通りに面したガラスの引き戸が入口です。足もとに植木鉢が並んでいるのが目印になります。下の図は、通りと店の位置関係だけを描いたものです。</p>
 
-    <div class="figpair" style="margin-bottom:clamp(34px,5vw,60px)">
-      <div class="rv-a">
-        <p class="bq" style="margin-bottom:clamp(20px,3vw,28px)">髪と心に、<br>静かなひとときを。</p>
-        <p class="lede">落ち着いた空間で、一人ひとりの髪質やライフスタイルに合わせたスタイルをご提案します。</p>
-        <p class="lede">トリートメントにもこだわり、まとまりのある美しい髪へ導きます。</p>
-        <p class="lede">鏡の前に座っている時間は、一日のうちで自分の姿をいちばんまっすぐ見る時間だと思っています。だから席は四つだけにしました。順番を待つ人も、急かされる人もいない広さです。</p>
+    <div class="svgbox rv">
+      <svg class="dw mapdw" viewBox="0 0 1000 460" role="img" aria-labelledby="mapT mapD">
+        <title id="mapT">当店と、まわりの通りの位置関係を示した略図</title>
+        <desc id="mapD">中央に縦の軸を通した略図。横に走る大きな通りと、その上側から中央でぶつかる脇道を帯で描き、まわりの区画を面で示している。当店は、大きな通りと脇道が交わる角の、軸のすぐ左側にある墨色の面。入口は大きな通りに面している。軸の右側と、通りの下側の区画に、コインパーキングを示す面をPの字とともに置いている。実際の道路の形とは異なる。</desc>
+
+        <!-- まわりの区画 -->
+        <rect x="40" y="52" width="430" height="200" class="f-1"/>
+        <rect x="530" y="52" width="430" height="200" class="f-1"/>
+        <rect x="40" y="312" width="430" height="108" class="f-1"/>
+        <rect x="530" y="312" width="430" height="108" class="f-1"/>
+
+        <!-- 通り（帯） -->
+        <rect x="0" y="252" width="1000" height="60" class="f-2"/>
+        <rect x="470" y="0" width="60" height="252" class="f-2"/>
+
+        <!-- 中央の軸 -->
+        <line x1="500" y1="10" x2="500" y2="450" class="s-1"/>
+
+        <!-- 当店（墨のベタ）と入口 -->
+        <rect x="330" y="150" width="140" height="102" class="f-ink"/>
+        <rect x="368" y="236" width="64" height="16" class="f-ai"/>
+        <text x="310" y="212" font-size="26" text-anchor="end">REN</text>
+
+        <!-- コインパーキング -->
+        <rect x="530" y="150" width="140" height="102" class="f-3"/>
+        <text x="600" y="212" font-size="26" text-anchor="middle">P</text>
+        <rect x="330" y="312" width="140" height="108" class="f-3"/>
+        <text x="400" y="376" font-size="26" text-anchor="middle">P</text>
+
+        <!-- 通りの名まえ（総称） -->
+        <text x="34" y="292" font-size="24">MAIN</text>
+        <text x="500" y="42" font-size="24" text-anchor="middle">SIDE</text>
+
+        <!-- 方角 -->
+        <polygon points="930,330 946,372 914,372" class="f-ink"/>
+        <text x="930" y="400" font-size="24" text-anchor="middle">N</text>
+      </svg>
+      <p class="cap"><span>FIG. 10a &#8212; AROUND THE SALON</span><span>図は場所のイメージで、実際の道路とは異なります</span></p>
+    </div>
+
+    <ul class="svg-legend rv-l">
+      <li><span class="k">MAIN ／ 通り</span><p>店の前を横に走る、広いほうの通りです。入口はこちらに面しています。</p></li>
+      <li><span class="k">SIDE ／ 脇道</span><p>通りに北からぶつかる細い道。角を曲がるとすぐ店です。</p></li>
+      <li><span class="k">REN ／ 当店</span><p>角の白い外壁の一階。藍色の印がガラスの引き戸の位置です。</p></li>
+      <li><span class="k">P ／ コインパーキング</span><p>当店の駐車場はありません。近隣のコインパーキングをご利用ください。位置は図のイメージです。</p></li>
+    </ul>
+
+    <div class="figpair" style="margin-top:clamp(34px,5vw,58px);align-items:start">
+      <dl class="dl rv-a">
+        <div><dt>住所</dt><dd>福岡県福岡市〇〇区〇〇2-4-6</dd></div>
+        <div><dt>営業時間</dt><dd>10:00〜20:00<small>最終受付は、カット・カラー・トリートメント・ヘッドスパが19:00、デジタルパーマ・ブライダルが17:30です。</small></dd></div>
+        <div><dt>定休日</dt><dd>火曜日</dd></div>
+        <div><dt>駐車場</dt><dd>近隣のコインパーキングをご利用ください<small>当店の駐車場はありません。</small></dd></div>
+      </dl>
+      <div class="rv-b" style="--d:.08s">
+        <p class="bq" style="margin-bottom:clamp(16px,2.4vw,22px)">引き戸を開けて、<br>そのままお入りください。</p>
+        <p class="lede">呼び鈴はありません。中でお声かけします。ベビーカーはたたまずにお入りいただけます。</p>
+        <p class="lede">迷われたときは、メールかLINEでご連絡ください。いまいる場所をうかがって、こちらからご案内します。</p>
+        <div class="btns">
+          <a class="btn line" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener noreferrer">LINEで問い合わせる<i aria-hidden="true"></i></a>
+        </div>
       </div>
-      <figure class="figfr rv-b" style="--ar:4/3;--d:.08s">
-        <div class="im px"><img src="images/salon/salon_gallery1.webp" alt="円形の照明つきミラーが並ぶセット面と、窓から光の入る店内" loading="lazy" decoding="async" data-px="22"></div>
-        <figcaption><span>窓からの光で、色の見え方を確かめられるようにしています。</span><span class="en">SALON</span></figcaption>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10b 着いてから ／ ARRIVAL ===== -->
+<section class="sec tone" id="arrival" aria-labelledby="ar-h">
+  <div class="wrap">
+    <div class="shead">
+      <span class="no">10b</span>
+      <h2 class="jp" id="ar-h" data-split>着いてから</h2>
+      <span class="en rv-l">ARRIVAL</span>
+      <span class="ln rv-ln"></span>
+    </div>
+    <p class="lede rv-l" style="margin-bottom:clamp(30px,4.5vw,52px)">引き戸を開けると待合、その奥がセット面です。はじめての方が迷わないように、中の様子も載せておきます。</p>
+    <div class="figpair">
+      <figure class="figfr rv-a" style="--ar:16/10">
+        <div class="im"><img src="images/salon/salon_gallery2.webp" alt="観葉植物とソファを配した、受付のある待合スペース" loading="lazy" decoding="async"></div>
+        <figcaption><span>入ってすぐが受付と待合です。お荷物をお預かりします。</span><span class="en">01 ENTRANCE</span></figcaption>
+      </figure>
+      <figure class="figfr rv-b" style="--ar:16/10;--d:.08s">
+        <div class="im"><img src="images/salon/salon_facility1.webp" alt="窓際に長いカウンターと椅子が並ぶ、細長い店内" loading="lazy" decoding="async"></div>
+        <figcaption><span>その奥がセット面。窓側の席から順にご案内します。</span><span class="en">02 INSIDE</span></figcaption>
       </figure>
     </div>
-
-    <ul class="cards c4 rv">
-      <li class="card" style="cursor:default"><span class="no">01</span><h3>2016年から</h3><p>この場所で店を始めました。内装も什器も、そのときのまま使っています。</p><span class="go">OPEN<i></i></span></li>
-      <li class="card" style="cursor:default"><span class="no">02</span><h3>セット面 4席</h3><p>同じ時間に入れるのは4名まで。シャンプー台は2台です。</p><span class="go">SEATS<i></i></span></li>
-      <li class="card" style="cursor:default"><span class="no">03</span><h3>スタイリスト 3名</h3><p>担当はご指名いただけます。はじめての方はこちらでお選びします。</p><span class="go">STAFF<i></i></span></li>
-      <li class="card" style="cursor:default"><span class="no">04</span><h3>10:00〜20:00</h3><p>定休日は火曜日。ご予約はメールとLINEで承っています。</p><span class="go">HOURS<i></i></span></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== 01c 品 ／ MENU ===== -->
-<section class="sec tone" id="menu" aria-labelledby="mn-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01c</span>
-      <h2 class="jp" id="mn-h" data-split>品</h2>
-      <span class="en rv-l">MENU</span>
-      <span class="ln rv-ln"></span>
-    </div>
-    <p class="lede rv-l" style="margin-bottom:clamp(30px,4.5vw,52px)">六つのメニューをご用意しています。所要時間は目安で、髪の長さと状態によって前後します。ご予約のときにおおよその時間をお伝えします。</p>
-
-    <div class="pcards rv" style="margin-bottom:clamp(30px,4.5vw,52px)">
-      <a class="pcard" href="salon-advance-service.html#cut" data-no="02" data-name="メニュー・料金">
-        <span class="im" style="--ar:4/3"><img src="images/salon/salon_menu_cut.webp" alt="大きな丸鏡の前でカットを受けるお客さま" loading="lazy" decoding="async"></span>
-        <span class="ft"><span class="nm">カット</span><span class="en">CUT</span></span>
-        <span class="tx">生えぐせと分け目を見てから、長さを決めます。約60分。</span>
-      </a>
-      <a class="pcard" href="salon-advance-service.html#color" data-no="02" data-name="メニュー・料金">
-        <span class="im" style="--ar:4/3"><img src="images/salon/salon_menu_color.webp" alt="ホイルを使ってカラー剤を塗り分けている施術中の様子" loading="lazy" decoding="async"></span>
-        <span class="ft"><span class="nm">カラー</span><span class="en">COLOR</span></span>
-        <span class="tx">明るさを優先するか、負担を抑えるかを先に決めます。約90分。</span>
-      </a>
-      <a class="pcard" href="salon-advance-service.html#perm" data-no="02" data-name="メニュー・料金">
-        <span class="im" style="--ar:4/3"><img src="images/salon/salon_menu_perm.webp" alt="丸鏡の前で、ゆるやかなウェーブの仕上がりを確認するお客さまとスタイリスト" loading="lazy" decoding="async"></span>
-        <span class="ft"><span class="nm">デジタルパーマ</span><span class="en">DIGITAL PERM</span></span>
-        <span class="tx">乾かしたときにいちばん形が出るパーマです。約150分。</span>
-      </a>
-    </div>
-
-    <div class="price rv">
-      <div class="pr-row"><span class="nm">カット<span class="en">CUT</span></span><span class="pv">&yen;4,400</span><span class="tm">約60分</span></div>
-      <div class="pr-row"><span class="nm">デジタルパーマ<span class="en">DIGITAL PERM</span></span><span class="pv">&yen;8,800</span><span class="tm">約150分</span></div>
-      <div class="pr-row"><span class="nm">カラー<span class="en">COLOR</span></span><span class="pv">&yen;6,600</span><span class="tm">約90分</span></div>
-      <div class="pr-row"><span class="nm">ブライダルヘア&amp;メイク<span class="en">BRIDAL</span></span><span class="pv">&yen;16,500</span><span class="tm">約90分</span></div>
-      <div class="pr-row"><span class="nm">トリートメント<span class="en">TREATMENT</span></span><span class="pv">&yen;3,300</span><span class="tm">約30分</span></div>
-      <div class="pr-row"><span class="nm">ヘッドスパ<span class="en">HEAD SPA</span></span><span class="pv">&yen;4,400</span><span class="tm">約40分</span></div>
-    </div>
-
-    <div class="note rv-l">
-      <b>料金について</b>
-      表示はすべて税込です。ロングの方や、髪の量が多い方は追加をいただくことがあります。追加が必要なときは、施術に入る前に金額をお伝えします。
-    </div>
-
     <div class="btns">
-      <a class="btn rv-l" href="salon-advance-service.html" data-no="02" data-name="メニュー・料金">六品すべての内容と料金を見る<i aria-hidden="true"></i></a>
+      <a class="btn ghost rv-l" href="salon-advance-company.html" data-no="08" data-name="スタッフ・店舗案内">スタッフと店内をもっと見る<i aria-hidden="true"></i></a>
     </div>
   </div>
 </section>
 
-<!-- ===== 01d 合わせ鏡 ／ CONCERN ===== -->
+<!-- ===== 10c 合わせ鏡 ／ TWO MIRRORS ===== -->
 <section class="sec" id="mirror" aria-labelledby="mr-h">
   <div class="wrap">
     <div class="shead">
-      <span class="no">01d</span>
+      <span class="no">10c</span>
       <h2 class="jp" id="mr-h" data-split>合わせ鏡</h2>
       <span class="en rv-l">TWO MIRRORS</span>
       <span class="ln rv-ln"></span>
     </div>
-
-    <figure class="figfr mid rv" style="--ar:21/9;margin-bottom:clamp(30px,4.5vw,52px)">
-      <div class="im"><img src="images/salon/salon_voice1.webp" alt="鏡に向かって座るお客さまのうしろ姿と、鏡の中に映るその表情" loading="lazy" decoding="async"></div>
-      <figcaption><span>鏡は、いまの髪がどうなっているかを、いちばん正直に見せてくれます。</span><span class="en">REFLECTION</span></figcaption>
-    </figure>
-
-    <p class="lede mid rv-l" style="margin-bottom:clamp(26px,4vw,44px)">カウンセリングでは、鏡を二枚使います。手前の鏡に映る「いまの髪」と、そのとき言葉にしていただく「なりたい姿」。二つを並べて見ると、あいだにある距離がはっきりします。埋める順番を決めるのが、私たちの仕事です。</p>
+    <p class="lede rv-l" style="margin-bottom:clamp(26px,4vw,44px)">ご予約の手段は、メールとLINEの二つです。どちらでも同じようにお受けします。向き不向きだけ並べておきますので、取りやすいほうをお選びください。</p>
 
     <div class="mir rv">
       <div class="mir-head">
-        <span class="a">いまの髪</span>
+        <span class="a">メールでのご予約</span>
         <span class="c" aria-hidden="true">&#9671;</span>
-        <span class="b">なりたい姿</span>
+        <span class="b">LINEでのご予約</span>
       </div>
       <div class="mir-row">
-        <p class="a"><span class="k">いまの髪</span>毛先がぱさついて、朝いくら手をかけてもまとまらない</p>
+        <p class="a"><span class="k">メールでのご予約</span>希望を書いてまとめて送りたい方に</p>
         <span class="mir-ax" aria-hidden="true"></span>
-        <p class="b"><span class="k">なりたい姿</span>手ぐしで整うところまで戻したい</p>
+        <p class="b"><span class="k">LINEでのご予約</span>短いやりとりで決めたい方に</p>
       </div>
       <div class="mir-row">
-        <p class="a"><span class="k">いまの髪</span>生えぎわのうねりが強くなって、分け目が割れる</p>
+        <p class="a"><span class="k">メールでのご予約</span>日時の候補を並べて送れます</p>
         <span class="mir-ax" aria-hidden="true"></span>
-        <p class="b"><span class="k">なりたい姿</span>乾かすだけで収まる長さにしたい</p>
+        <p class="b"><span class="k">LINEでのご予約</span>空き状況をその場でうかがえます</p>
       </div>
       <div class="mir-row">
-        <p class="a"><span class="k">いまの髪</span>頭頂部のボリュームが出にくく、ぺたんとする</p>
+        <p class="a"><span class="k">メールでのご予約</span>やりとりが残るので、変更のときに確認しやすいです</p>
         <span class="mir-ax" aria-hidden="true"></span>
-        <p class="b"><span class="k">なりたい姿</span>根もとが立ち上がって見える形にしたい</p>
+        <p class="b"><span class="k">LINEでのご予約</span>いまの髪の写真を送っていただけます</p>
       </div>
       <div class="mir-row">
-        <p class="a"><span class="k">いまの髪</span>白いものが目立ってきて、伸びると境目が気になる</p>
+        <p class="a"><span class="k">メールでのご予約</span>info@example.com へ</p>
         <span class="mir-ax" aria-hidden="true"></span>
-        <p class="b"><span class="k">なりたい姿</span>明るさを落とさずに、なじませたい</p>
+        <p class="b"><span class="k">LINEでのご予約</span>LINEの窓口から</p>
+      </div>
+    </div>
+
+    <div class="btns">
+      <a class="btn rv-l" href="mailto:info@example.com">メールで問い合わせる<i aria-hidden="true"></i></a>
+      <a class="btn line rv-l" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener noreferrer">LINEで問い合わせる<i aria-hidden="true"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10d ご予約 ／ HOW TO BOOK ===== -->
+<section class="sec tone" id="book" aria-labelledby="bk-h">
+  <div class="wrap">
+    <div class="shead">
+      <span class="no">10d</span>
+      <h2 class="jp" id="bk-h" data-split>ご予約の書き方</h2>
+      <span class="en rv-l">HOW TO BOOK</span>
+      <span class="ln rv-ln"></span>
+    </div>
+    <p class="lede rv-l" style="margin-bottom:clamp(28px,4vw,44px)">次の四つをいただけると、折り返しの回数が減って、そのぶん早くお席をお取りできます。決まっていない項目は空けたままで構いません。決めきれないところは、決めないまま席に着いていただいて大丈夫です。</p>
+
+    <ol class="steps rv">
+      <li class="step"><span class="no">01</span><h3>ご希望の日時</h3><p>第2希望までいただけると助かります。前日までのご連絡が確実です。</p><span class="tm">30分きざみの枠</span></li>
+      <li class="step"><span class="no">02</span><h3>ご希望のメニュー</h3><p>迷っている場合は「相談したい」で構いません。所要の目安をお返しします。</p><span class="tm">全6品</span></li>
+      <li class="step"><span class="no">03</span><h3>いま気になっていること</h3><p>1行で十分です。ここがあると、当日のカウンセリングが短くなります。</p><span class="tm">1行</span></li>
+      <li class="step"><span class="no">04</span><h3>担当のご指名の有無</h3><p>指名は無料です。無しの場合は、ご希望の内容から店側でお選びします。</p><span class="tm">3名</span></li>
+    </ol>
+
+    <table class="tbl rv" style="margin-top:clamp(34px,5vw,58px)">
+      <caption>RESERVATION &#8212; ご予約の約束ごと</caption>
+      <thead>
+        <tr><th scope="col">項目</th><th scope="col">内容</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">受付方法</th><td>メール（info@example.com）／LINE／このページのご予約フォーム</td></tr>
+        <tr><th scope="row">望ましい時期</th><td>前日まで。当日は空きがあればお受けします</td></tr>
+        <tr><th scope="row">返信</th><td>営業時間内に、いただいた順にお返しします</td></tr>
+        <tr><th scope="row">変更・キャンセル</th><td>前日までにご連絡ください。当日のご連絡でもキャンセル料はいただきません</td></tr>
+        <tr><th scope="row">遅れるとき</th><td>15分を超えるときは、その日にできる内容へ変更させていただくことがあります</td></tr>
+        <tr><th scope="row">お子さま連れ</th><td>ベビーカーのままお入りいただけます。ご同伴のときは、ご予約のときにお知らせください</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note rv-l">
+      <b>はじめての方へ</b>
+      カウンセリングに10〜15分ほど多くいただきます。所要の目安はメニューによって変わり、髪の長さ・量・状態によって前後します。ご予約のお返事のときに、おおよその時間をお伝えします。
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10e ご予約フォーム ／ FORM ===== -->
+<section class="sec deep" id="form" aria-labelledby="fm-h">
+  <div class="wrap-n">
+    <div class="shead">
+      <span class="no">10e</span>
+      <h2 class="jp" id="fm-h" data-split>ご予約フォーム</h2>
+      <span class="en rv-l">FORM</span>
+      <span class="ln rv-ln"></span>
+    </div>
+    <p class="lede rv-l">上の四つを、そのまま埋められる形にしました。送信後、こちらから折り返しご連絡します。</p>
+    <div class="note rv-l">
+      <b>このフォームについて</b>
+      これはRESCが作成したサンプルサイトです。<strong>サンプルのため実際には送信されません。</strong>入力された内容はどこにも送られず、保存もされません。お確かめになりたい場合は、そのまま送信ボタンを押してみてください。
+    </div>
+
+    <form class="fm rv" id="bookForm" action="#" method="post" novalidate>
+      <fieldset class="fm-set">
+        <legend class="fm-lg">お客さまのこと</legend>
+        <div class="fm-row">
+          <div class="fm-f">
+            <label class="fm-lb" for="fmName">お名前<span class="rq">必須</span></label>
+            <input type="text" id="fmName" name="name" autocomplete="name" aria-describedby="err-fmName">
+            <span class="fm-err" id="err-fmName"></span>
+          </div>
+          <div class="fm-f">
+            <label class="fm-lb" for="fmMail">メールアドレス<span class="rq">必須</span></label>
+            <input type="email" id="fmMail" name="email" autocomplete="email" aria-describedby="hint-fmMail err-fmMail">
+            <span class="fm-hint" id="hint-fmMail">お返事はこちらへお送りします。</span>
+            <span class="fm-err" id="err-fmMail"></span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="fm-set" style="margin-top:clamp(26px,4vw,40px)">
+        <legend class="fm-lg">ご希望</legend>
+        <div class="fm-row">
+          <div class="fm-f">
+            <label class="fm-lb" for="fmDate1">ご希望の日時（第1希望）<span class="rq">必須</span></label>
+            <input type="text" id="fmDate1" name="date1" aria-describedby="hint-fmDate1 err-fmDate1">
+            <span class="fm-hint" id="hint-fmDate1">例：来週の木曜日 14:00ごろ／11月の平日の午前。30分きざみの枠でご案内します。</span>
+            <span class="fm-err" id="err-fmDate1"></span>
+          </div>
+          <div class="fm-f">
+            <label class="fm-lb" for="fmDate2">ご希望の日時（第2希望）<span class="op">任意</span></label>
+            <input type="text" id="fmDate2" name="date2" aria-describedby="hint-fmDate2">
+            <span class="fm-hint" id="hint-fmDate2">いただけると、折り返しが一度で済みます。</span>
+          </div>
+          <div class="fm-f">
+            <label class="fm-lb" for="fmMenu">ご希望のメニュー<span class="rq">必須</span></label>
+            <span class="fm-sel">
+              <select id="fmMenu" name="menu" aria-describedby="err-fmMenu">
+                <option value="">選んでください</option>
+                <option value="カット（約60分）">カット（約60分）</option>
+                <option value="カラー（約90分）">カラー（約90分）</option>
+                <option value="トリートメント（約30分）">トリートメント（約30分）</option>
+                <option value="デジタルパーマ（約150分）">デジタルパーマ（約150分）</option>
+                <option value="ブライダルヘア&amp;メイク（約90分）">ブライダルヘア&amp;メイク（約90分）</option>
+                <option value="ヘッドスパ（約40分）">ヘッドスパ（約40分）</option>
+                <option value="決めていない／相談したい">決めていない／相談したい</option>
+              </select>
+            </span>
+            <span class="fm-err" id="err-fmMenu"></span>
+          </div>
+          <div class="fm-f">
+            <label class="fm-lb" for="fmStaff">担当のご指名<span class="op">任意</span></label>
+            <span class="fm-sel">
+              <select id="fmStaff" name="staff" aria-describedby="hint-fmStaff">
+                <option value="指名なし（店にお任せ）">指名なし（店にお任せ）</option>
+                <option value="蓮沼 佑">蓮沼 佑（代表／スタイリスト）</option>
+                <option value="三宅 香織">三宅 香織（スタイリスト）</option>
+                <option value="高浦 実咲">高浦 実咲（アシスタント／スパニスト）</option>
+              </select>
+            </span>
+            <span class="fm-hint" id="hint-fmStaff">指名は無料です。はじめての方は「店にお任せ」で構いません。</span>
+          </div>
+          <div class="fm-f wide">
+            <label class="fm-lb" for="fmVisit">ご来店は<span class="op">任意</span></label>
+            <span class="fm-sel">
+              <select id="fmVisit" name="visit">
+                <option value="はじめて">はじめて</option>
+                <option value="2回目以降">2回目以降</option>
+              </select>
+            </span>
+            <span class="fm-hint">はじめての方は、カウンセリングに10〜15分ほど多くいただきます。</span>
+          </div>
+          <div class="fm-f wide">
+            <label class="fm-lb" for="fmNote">いま気になっていること<span class="op">任意</span></label>
+            <textarea id="fmNote" name="note" rows="4" maxlength="400" aria-describedby="hint-fmNote"></textarea>
+            <span class="fm-hint" id="hint-fmNote">1行で構いません。お子さま連れのご予定や、避けたいこと（短くしすぎたくない 等）もこちらへ。</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="fm-msg" id="fmMsg" role="alert" aria-live="assertive"></p>
+
+      <div class="fm-act">
+        <button type="submit" class="fm-btn">この内容で申し込む<i aria-hidden="true"></i></button>
+        <span class="fm-note">サンプルのため実際には送信されません。</span>
+      </div>
+    </form>
+
+    <div class="fm-done" id="fmDone" role="status" aria-live="polite" tabindex="-1" hidden>
+      <p class="lb">SAMPLE &#8212; NOT SENT</p>
+      <p class="tt">お申し込みを承りました。</p>
+      <p class="tx">これはサンプルサイトの表示です。実際には送信されていません。実店舗の場合はこのあと、営業時間内に順にお返事をお送りします。</p>
+      <dl>
+        <div><dt>お名前</dt><dd id="dnName"></dd></div>
+        <div><dt>メール</dt><dd id="dnMail"></dd></div>
+        <div><dt>第1希望</dt><dd id="dnDate1"></dd></div>
+        <div><dt>第2希望</dt><dd id="dnDate2"></dd></div>
+        <div><dt>メニュー</dt><dd id="dnMenu"></dd></div>
+        <div><dt>ご指名</dt><dd id="dnStaff"></dd></div>
+      </dl>
+      <div class="again">
+        <button type="button" class="fm-btn" id="fmAgain">もう一度入力する<i aria-hidden="true"></i></button>
       </div>
     </div>
 
     <div class="note rv-l">
       <b>お伝えしていること</b>
-      当店の施術は美容の範囲で行うもので、医療行為ではありません。頭皮や髪に痛み・かゆみ・湿疹などがあるときは、先に医療機関へご相談ください。状態によっては、施術をお断りしたり、日をあらためてご案内することがあります。
+      当店の施術は美容の範囲で行うもので、医療行為ではありません。頭皮や髪に痛み・かゆみ・湿疹などがあるときは、先に医療機関へご相談ください。髪の状態によっては、施術をお断りしたり、日をあらためてご案内することがあります。
     </div>
-
-    <div class="btns">
-      <a class="btn rv-l" href="salon-advance-concern.html" data-no="06" data-name="悩み別の提案">悩み別の提案を見る<i aria-hidden="true"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 01e 姿 ／ STYLE ===== -->
-<section class="sec tone" id="style" aria-labelledby="st-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01e</span>
-      <h2 class="jp" id="st-h" data-split>姿</h2>
-      <span class="en rv-l">STYLE</span>
-      <span class="ln rv-ln"></span>
-    </div>
-
-    <div class="figpair">
-      <figure class="figfr rv-a" style="--ar:4/3;--op:center 26%">
-        <div class="im"><img src="images/salon/salon_gallery6.webp" alt="鏡の前で仕上がった、結い上げのアップスタイルのうしろ姿" loading="lazy" decoding="async"></div>
-        <figcaption><span>ST-04 結い上げのアップスタイル</span><span class="en">STYLE 04</span></figcaption>
-      </figure>
-      <div class="rv-b" style="--d:.08s">
-        <p class="bq" style="margin-bottom:clamp(18px,2.6vw,26px)">仕上がりは、<br>うしろから見た形で決まります。</p>
-        <p class="lede">正面の鏡だけでは、後頭部の丸みや襟足の収まりは見えません。仕上げのときは手鏡を添えて、うしろから見た形をご一緒に確認します。</p>
-        <p class="lede">スタイル集では六つの型を、写真と「そのあと家でどう扱うか」の説明つきで並べています。ひとつを深く見たい方は、スタイル詳細のページへ。</p>
-        <ul class="cards c2" style="margin-top:clamp(22px,3vw,32px)">
-          <li><a class="card" href="salon-advance-works.html" data-no="03" data-name="スタイル集"><span class="no">03</span><h3>スタイル集</h3><p>六つの型を一覧で。長さ・くせ・手入れの時間から選べます。</p><span class="go">VIEW<i></i></span></a></li>
-          <li><a class="card" href="salon-advance-work-detail.html" data-no="04" data-name="スタイル詳細"><span class="no">04</span><h3>スタイル詳細</h3><p>ゆるやかなウェーブの一例を、工程と家での扱い方まで。</p><span class="go">VIEW<i></i></span></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 01f 整える ／ CARE ===== -->
-<section class="sec" id="care" aria-labelledby="cr-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01f</span>
-      <h2 class="jp" id="cr-h" data-split>整える</h2>
-      <span class="en rv-l">CARE</span>
-      <span class="ln rv-ln"></span>
-    </div>
-    <p class="lede rv-l" style="margin-bottom:clamp(28px,4vw,44px)">施術の前に、髪の状態を四段階で見ます。どこまで手を入れられるかを決めるためのものさしで、良し悪しを付けるものではありません。段階が進んでいるほど、明るくする施術は控えめにご提案します。</p>
-
-    <div class="svgbox rv">
-      <svg class="dw" viewBox="0 0 1000 460" role="img" aria-labelledby="dwT dwD">
-        <title id="dwT">髪の状態を四段階で見る図</title>
-        <desc id="dwD">中央の縦の軸を鏡に見立て、その左右に髪の断面を模した楕円を四段ならべた図。段が下がるほど外側の輪が細かく途切れ、左右に伸びる帯が長くなる。段階の名前は図の右側にD0からD3まで記されている。</desc>
-        <line x1="500" y1="24" x2="500" y2="436" class="s-1"/>
-        <g>
-          <rect x="330" y="68" width="110" height="5" class="f-3"/><rect x="560" y="68" width="110" height="5" class="f-3"/>
-          <ellipse cx="500" cy="70" rx="46" ry="30" class="f-1"/>
-          <ellipse cx="500" cy="70" rx="46" ry="30" fill="none" stroke="#6b6459" stroke-width="2"/>
-          <ellipse cx="500" cy="70" rx="17" ry="11" class="f-3"/>
-          <text x="846" y="78" font-size="26">D0</text>
-          <text x="160" y="78" font-size="22" text-anchor="end">SMOOTH</text>
-        </g>
-        <g>
-          <rect x="290" y="168" width="150" height="5" class="f-3"/><rect x="560" y="168" width="150" height="5" class="f-3"/>
-          <ellipse cx="500" cy="170" rx="46" ry="30" class="f-1"/>
-          <ellipse cx="500" cy="170" rx="46" ry="30" fill="none" stroke="#6b6459" stroke-width="2" stroke-dasharray="26 7"/>
-          <ellipse cx="500" cy="170" rx="17" ry="11" class="f-3"/>
-          <text x="846" y="178" font-size="26">D1</text>
-          <text x="160" y="178" font-size="22" text-anchor="end">TIPS</text>
-        </g>
-        <g>
-          <rect x="250" y="268" width="190" height="5" class="f-3"/><rect x="560" y="268" width="190" height="5" class="f-3"/>
-          <ellipse cx="500" cy="270" rx="46" ry="30" class="f-1"/>
-          <ellipse cx="500" cy="270" rx="46" ry="30" fill="none" stroke="#6b6459" stroke-width="2" stroke-dasharray="13 8"/>
-          <ellipse cx="500" cy="270" rx="17" ry="11" class="f-3"/>
-          <text x="846" y="278" font-size="26">D2</text>
-          <text x="160" y="278" font-size="22" text-anchor="end">MIDDLE</text>
-        </g>
-        <g>
-          <rect x="210" y="368" width="230" height="5" class="f-3"/><rect x="560" y="368" width="230" height="5" class="f-3"/>
-          <ellipse cx="500" cy="370" rx="46" ry="30" class="f-1"/>
-          <ellipse cx="500" cy="370" rx="46" ry="30" fill="none" stroke="#6b6459" stroke-width="2" stroke-dasharray="6 9"/>
-          <ellipse cx="500" cy="370" rx="17" ry="11" class="f-3"/>
-          <text x="846" y="378" font-size="26">D3</text>
-          <text x="160" y="378" font-size="22" text-anchor="end">ALL</text>
-        </g>
-      </svg>
-      <p class="cap"><span>FIG. 01c &#8212; FOUR STAGES</span><span>図は考え方を示すもので、実際の断面ではありません</span></p>
-    </div>
-
-    <ul class="svg-legend rv-l">
-      <li><span class="k">D0 ／ ほぼ素髪</span><p>薬剤の履歴がほとんどない状態。どの施術も選べます。</p></li>
-      <li><span class="k">D1 ／ 毛先だけ</span><p>毛先に乾きが出ている状態。カットで整えるだけで収まることが多いです。</p></li>
-      <li><span class="k">D2 ／ 中間から</span><p>中間から乾きが出ている状態。明るくする幅を狭め、補うトリートメントを合わせます。</p></li>
-      <li><span class="k">D3 ／ 全体</span><p>全体に薬剤が重なっている状態。同じ日に二つ以上の薬剤を重ねる施術はお断りします。</p></li>
-    </ul>
-
-    <div class="note rv-l">
-      <b>言葉づかいについて</b>
-      当店では「頭皮の汚れを落とす」「乾燥を防ぐ」「まとまりを出す」といった、美容の範囲の説明だけをしています。髪が増える・生えるといった効果をうたうことはありません。
-    </div>
-
-    <div class="btns">
-      <a class="btn rv-l" href="salon-advance-care.html" data-no="05" data-name="髪と頭皮のケア">髪と頭皮のケアを詳しく見る<i aria-hidden="true"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 01g 順 ／ FLOW ===== -->
-<section class="sec tone" id="flow" aria-labelledby="fl-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01g</span>
-      <h2 class="jp" id="fl-h" data-split>順</h2>
-      <span class="en rv-l">FLOW</span>
-      <span class="ln rv-ln"></span>
-    </div>
-    <p class="lede rv-l" style="margin-bottom:clamp(28px,4vw,44px)">ご来店から仕上げまで、四つの区切りで進みます。はじめての方は、カウンセリングに15分ほど多めにいただきます。</p>
-    <ol class="steps rv">
-      <li class="step"><span class="no">01</span><h3>ご来店・受付</h3><p>お名前をうかがい、荷物をお預かりします。お飲みものをお出しします。</p><span class="tm">約5分</span></li>
-      <li class="step"><span class="no">02</span><h3>カウンセリング</h3><p>四つの質問にお答えいただきながら、いまの髪となりたい姿を並べて見ます。</p><span class="tm">約10〜15分</span></li>
-      <li class="step"><span class="no">03</span><h3>シャンプー・施術</h3><p>シャンプー台は二台。途中で姿勢がつらくなったら、いつでもお声かけください。</p><span class="tm">メニューによる</span></li>
-      <li class="step"><span class="no">04</span><h3>仕上げ</h3><p>手鏡でうしろから見た形をご確認いただき、家での乾かし方をお伝えします。</p><span class="tm">約10分</span></li>
-    </ol>
-    <div class="btns">
-      <a class="btn ghost rv-l" href="salon-advance-flow.html" data-no="07" data-name="ご来店の流れ">ご来店の流れを詳しく見る<i aria-hidden="true"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 01h 面 ／ SITE MAP ===== -->
-<section class="sec" id="pages" aria-labelledby="pg-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01h</span>
-      <h2 class="jp" id="pg-h" data-split>十の面</h2>
-      <span class="en rv-l">TEN MIRRORS</span>
-      <span class="ln rv-ln"></span>
-    </div>
-    <p class="lede rv-l" style="margin-bottom:clamp(28px,4vw,44px)">このサイトは十のページでできています。番号を見れば、いまどこにいるかが分かるようにしました。</p>
-
-    <h3 class="mincho rv-l" style="font-size:13px;letter-spacing:.24em;color:var(--sumi-3);margin-bottom:14px">選ぶ ／ SELECT</h3>
-    <ul class="cards rv" style="margin-bottom:clamp(26px,4vw,40px)">
-      <li><a class="card" href="salon-advance-service.html" data-no="02" data-name="メニュー・料金"><span class="no">02</span><h3>メニュー・料金</h3><p>六品それぞれの内容、料金、所要時間の目安。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-works.html" data-no="03" data-name="スタイル集"><span class="no">03</span><h3>スタイル集</h3><p>六つの型を一覧で。長さと手入れの時間から選べます。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-work-detail.html" data-no="04" data-name="スタイル詳細"><span class="no">04</span><h3>スタイル詳細</h3><p>ゆるやかなウェーブの一例を、工程まで細かく。</p><span class="go">VIEW<i></i></span></a></li>
-    </ul>
-
-    <h3 class="mincho rv-l" style="font-size:13px;letter-spacing:.24em;color:var(--sumi-3);margin-bottom:14px">整える ／ CARE</h3>
-    <ul class="cards c2 rv" style="margin-bottom:clamp(26px,4vw,40px)">
-      <li><a class="card" href="salon-advance-care.html" data-no="05" data-name="髪と頭皮のケア"><span class="no">05</span><h3>髪と頭皮のケア</h3><p>店で行うことと、家でできること。使っている薬剤の考え方。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-concern.html" data-no="06" data-name="悩み別の提案"><span class="no">06</span><h3>悩み別の提案</h3><p>白髪・くせ毛・ボリューム・ダメージ。四つの入口からご提案します。</p><span class="go">VIEW<i></i></span></a></li>
-    </ul>
-
-    <h3 class="mincho rv-l" style="font-size:13px;letter-spacing:.24em;color:var(--sumi-3);margin-bottom:14px">訪ねる ／ VISIT</h3>
-    <ul class="cards c4 rv">
-      <li><a class="card" href="salon-advance-flow.html" data-no="07" data-name="ご来店の流れ"><span class="no">07</span><h3>ご来店の流れ</h3><p>受付からお見送りまで、四つの区切りで。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-company.html" data-no="08" data-name="スタッフ・店舗案内"><span class="no">08</span><h3>スタッフ・店舗案内</h3><p>三名の担当と、店の中のご案内。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-faq.html" data-no="09" data-name="よくある質問"><span class="no">09</span><h3>よくある質問</h3><p>ご予約、お子さま連れ、当日の変更について。</p><span class="go">VIEW<i></i></span></a></li>
-      <li><a class="card" href="salon-advance-contact.html" data-no="10" data-name="アクセス・ご予約"><span class="no">10</span><h3>アクセス・ご予約</h3><p>場所のご案内と、ご予約の取り方。</p><span class="go">VIEW<i></i></span></a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== 01i 案内 ／ INFORMATION ===== -->
-<section class="sec tone" id="info" aria-labelledby="if-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">01i</span>
-      <h2 class="jp" id="if-h" data-split>案内</h2>
-      <span class="en rv-l">INFORMATION</span>
-      <span class="ln rv-ln"></span>
-    </div>
-    <div class="figpair" style="align-items:start">
-      <dl class="dl rv-a">
-        <div><dt>店名</dt><dd>Salon Ren</dd></div>
-        <div><dt>住所</dt><dd>福岡県福岡市〇〇区〇〇2-4-6</dd></div>
-        <div><dt>営業時間</dt><dd>10:00〜20:00<small>最終受付はカット19:00、パーマ・ブライダルは17:30です。</small></dd></div>
-        <div><dt>定休日</dt><dd>火曜日</dd></div>
-        <div><dt>席数</dt><dd>セット面4席／シャンプー台2台</dd></div>
-        <div><dt>ご予約</dt><dd>メール・LINE<small>前日までにいただけると確実です。当日は空きがあればお受けします。</small></dd></div>
-      </dl>
-      <div class="rv-b" style="--d:.08s">
-        <p class="bq" style="margin-bottom:clamp(16px,2.4vw,22px)">ご予約・ご相談は<br>こちらから。</p>
-        <p class="lede">はじめての方もお気軽にどうぞ。髪のお悩みをうかがったうえで、無理のないご提案をいたします。ご予約のときに、いまいちばん気になっていることを一行だけ添えていただけると、当日の時間を長くお取りできます。</p>
-        <div class="btns">
-          <a class="btn" href="mailto:info@example.com">メールで問い合わせる<i aria-hidden="true"></i></a>
-          <a class="btn line" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener noreferrer">LINEで問い合わせる<i aria-hidden="true"></i></a>
-          <a class="btn ghost" href="salon-advance-contact.html" data-no="10" data-name="アクセス・ご予約">アクセスとご予約の詳細<i aria-hidden="true"></i></a>
-        </div>
-      </div>
-    </div>
-    <figure class="figfr mid rv" style="--ar:21/8;margin-top:clamp(34px,5vw,58px)">
-      <div class="im"><img src="images/salon/salon_facility2.webp" alt="白い外壁とガラスの引き戸、足もとに植木鉢が並ぶSalon Renの外観" loading="lazy" decoding="async"></div>
-      <figcaption><span>通りに面した外観。引き戸を開けてお入りください。</span><span class="en">EXTERIOR</span></figcaption>
-    </figure>
   </div>
 </section>
 
 <!-- ===== 次のページ ===== -->
 <section class="sec sec-s pnext" aria-label="次のページ">
   <div class="pnext-in">
-    <span class="pnext-lb rv-l">NEXT &#8212; 02</span>
-    <a class="pnext-a rv-l" style="--d:.06s" href="salon-advance-service.html" data-no="02" data-name="メニュー・料金">メニュー・料金へ<i aria-hidden="true"></i></a>
+    <span class="pnext-lb rv-l">NEXT &#8212; 01</span>
+    <a class="pnext-a rv-l" style="--d:.06s" href="salon-advance.html" data-no="01" data-name="トップ">トップページへ<i aria-hidden="true"></i></a>
   </div>
 </section>
 
@@ -1055,7 +1176,7 @@ html.entering .pt{opacity:1}
   <nav class="ft-map" aria-label="サイトマップ">
     <div>
       <h2>序<span>PROLOGUE</span></h2>
-      <ul><li><span class="cur"><span class="no">01</span>トップ</span></li></ul>
+      <ul><li><a href="salon-advance.html" data-no="01" data-name="トップ"><span class="no">01</span>トップ</a></li></ul>
     </div>
     <div>
       <h2>選ぶ<span>SELECT</span></h2>
@@ -1078,7 +1199,7 @@ html.entering .pt{opacity:1}
         <li><a href="salon-advance-flow.html" data-no="07" data-name="ご来店の流れ"><span class="no">07</span>ご来店の流れ</a></li>
         <li><a href="salon-advance-company.html" data-no="08" data-name="スタッフ・店舗案内"><span class="no">08</span>スタッフ・店舗案内</a></li>
         <li><a href="salon-advance-faq.html" data-no="09" data-name="よくある質問"><span class="no">09</span>よくある質問</a></li>
-        <li><a href="salon-advance-contact.html" data-no="10" data-name="アクセス・ご予約"><span class="no">10</span>アクセス・ご予約</a></li>
+        <li><span class="cur"><span class="no">10</span>アクセス・ご予約</span></li>
       </ul>
     </div>
   </nav>
@@ -1108,8 +1229,8 @@ html.entering .pt{opacity:1}
   "use strict";
 
   /* ==== ページごとに書き換えるのはこの2行だけ ==== */
-  var CURRENT  = '01';
-  var PAGENAME = 'トップ';
+  var CURRENT  = '10';
+  var PAGENAME = 'アクセス・ご予約';
   /* ============================================== */
 
   var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -1260,6 +1381,101 @@ html.entering .pt{opacity:1}
   window.addEventListener('load', frame);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(frame);
   if (mq.addEventListener) mq.addEventListener('change', function(){ location.reload(); });
+
+  /* ---- 7. ページ固有：ご予約フォーム（10） ----
+     サンプルのため送信はしません。action はダミーで、送信時はその場で完了表示に差し替えます。
+     エラーは日本語で、aria-live（role="alert"）の領域と各項目の下に出します。 */
+  var form = document.getElementById('bookForm');
+  if (form){
+    var msg   = document.getElementById('fmMsg');
+    var done  = document.getElementById('fmDone');
+    var again = document.getElementById('fmAgain');
+
+    var REQ = [
+      { id:'fmName',  lb:'お名前',                 err:'お名前を入力してください。' },
+      { id:'fmMail',  lb:'メールアドレス',          err:'メールアドレスを入力してください。' },
+      { id:'fmDate1', lb:'ご希望の日時（第1希望）', err:'ご希望の日時（第1希望）を入力してください。' },
+      { id:'fmMenu',  lb:'ご希望のメニュー',        err:'ご希望のメニューを選んでください。' }
+    ];
+
+    function val(id){
+      var el = document.getElementById(id);
+      return el ? String(el.value).replace(/^[\s　]+|[\s　]+$/g, '') : '';
+    }
+    function setErr(f, text){
+      var el = document.getElementById(f.id);
+      var ee = document.getElementById('err-' + f.id);
+      if (ee) ee.textContent = text || '';
+      if (text) el.setAttribute('aria-invalid', 'true');
+      else el.removeAttribute('aria-invalid');
+    }
+    function clearMsg(){ while (msg.firstChild) msg.removeChild(msg.firstChild); }
+    function showMsg(text){
+      clearMsg();
+      var b = document.createElement('span');
+      b.className = 'in';
+      b.textContent = text;
+      msg.appendChild(b);
+    }
+    function setText(id, text){
+      var el = document.getElementById(id);
+      if (el) el.textContent = text;
+    }
+
+    REQ.forEach(function(f){
+      var el = document.getElementById(f.id);
+      if (!el) return;
+      var fix = function(){ if (el.getAttribute('aria-invalid')) setErr(f, ''); };
+      el.addEventListener('input', fix);
+      el.addEventListener('change', fix);
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();          /* サンプルなので送信しない。URLも変えない */
+      var bad = [], first = null;
+      REQ.forEach(function(f){
+        var v = val(f.id), t = '';
+        if (!v) t = f.err;
+        else if (f.id === 'fmMail' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))
+          t = 'メールアドレスの形をご確認ください（例：info@example.com）。';
+        setErr(f, t);
+        if (t){ bad.push(f.lb); if (!first) first = document.getElementById(f.id); }
+      });
+
+      if (bad.length){
+        showMsg('入力をご確認ください。' + bad.length + '件、まだ埋まっていない項目があります：' + bad.join('／'));
+        if (first) first.focus();
+        return;
+      }
+
+      clearMsg();
+      setText('dnName',  val('fmName'));
+      setText('dnMail',  val('fmMail'));
+      setText('dnDate1', val('fmDate1'));
+      setText('dnDate2', val('fmDate2') || '（なし）');
+      setText('dnMenu',  val('fmMenu'));
+      setText('dnStaff', val('fmStaff') || '指名なし（店にお任せ）');
+      form.hidden = true;
+      done.hidden = false;
+      done.focus();
+      var r = done.getBoundingClientRect();
+      if (r.top < 0 || r.top > window.innerHeight * 0.6){
+        window.scrollTo(0, window.scrollY + r.top - 80);
+      }
+    });
+
+    if (again){
+      again.addEventListener('click', function(){
+        done.hidden = true;
+        form.hidden = false;
+        form.reset();
+        REQ.forEach(function(f){ setErr(f, ''); });
+        clearMsg();
+        var n = document.getElementById('fmName');
+        if (n) n.focus();
+      });
+    }
+  }
 })();
 </script>
 </body>
