@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>福岡匠建｜工務店｜福岡の新築・リフォーム</title>
-<meta name="description" content="福岡匠建は、新築・リフォームともに地域の気候と暮らし方に合わせた設計をご提案する工務店です。工法、施工事例、家づくりの流れ、保証、費用の考え方まで、10枚のシートにまとめています。">
+<title>施工事例 詳細 W-02 和モダン住宅｜福岡匠建｜工務店</title>
+<meta name="description" content="福岡匠建の施工事例 W-02 和モダン住宅を1件くわしく。柱と梁を現した居間、梁と天井、造作の棚、庭に面した開口の4つの部位と、窓の高さの考え方をまとめています。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -774,6 +774,110 @@ html.pt-hold .pt{opacity:1;visibility:visible}
   .pt{display:none!important}
   .dw .ray{stroke-dasharray:none!important;stroke-dashoffset:0!important}
 }
+
+/* ---------- 16. 追加コンポーネント（B-01 / C-01 / D-01 で使用・全ページ共通） ----------
+   既存トークンだけで組んでいます。新しい色・余白は足していません。 */
+
+/* 索引ストリップ（C-01 プレート索引） */
+.pindex{margin-top:clamp(26px,3.6vw,46px)}
+.pindex .cap{
+  display:flex;align-items:center;gap:14px;font-size:var(--t-mono);color:var(--ink-3);
+  letter-spacing:.16em;padding-bottom:9px;border-bottom:1px solid var(--rule);
+}
+.pindex .cap i{flex:1 1 auto;height:0;border-top:1px dashed var(--rule);display:block}
+.pstrip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(8px,1vw,14px);margin-top:clamp(14px,2vw,20px)}
+.pstrip a{display:block;text-decoration:none;border-top:2px solid var(--rule);padding-top:9px;transition:border-color .25s ease}
+.pstrip .fr{display:block;position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--paper-3)}
+.pstrip img{width:100%;height:100%;object-fit:cover;filter:grayscale(.5) contrast(.97);transition:filter .3s ease}
+.pstrip .tn{display:block;font-size:var(--t-mono-s);color:var(--ink-3);margin-top:9px;letter-spacing:.09em}
+.pstrip .tt{display:block;font-size:12.5px;font-weight:700;margin-top:2px;line-height:1.5}
+.pstrip a:hover{border-top-color:var(--ink)}
+.pstrip a:hover img{filter:none}
+.pstrip a:hover .tn{color:var(--wood-deep)}
+@media(max-width:820px){ .pstrip{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 10px} }
+@media(max-width:430px){ .pstrip{grid-template-columns:repeat(2,minmax(0,1fr))} }
+
+/* 事例プレート（C-01 一覧 / D-01 部位別） */
+.plates{padding-top:clamp(10px,2vw,24px)}
+.case{padding-block:clamp(38px,5.2vw,74px);border-top:1px solid var(--rule-2)}
+.case.first{border-top:1.5px solid var(--ink)}
+.case-head{display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;margin-bottom:clamp(20px,2.8vw,34px)}
+.case-head .pl{background:var(--ink);color:var(--paper);font-size:var(--t-mono);padding:4px 10px;letter-spacing:.14em;flex:0 0 auto}
+.case-head h3{font-weight:900;font-size:clamp(21px,3vw,34px);line-height:1.4;letter-spacing:.01em}
+.case-head .cat{font-size:var(--t-mono);color:var(--wood-deep);letter-spacing:.12em;border:1px solid var(--rule);padding:4px 10px;background:var(--paper-2)}
+.case-head .ln{flex:1 1 60px;height:0;border-top:1px solid var(--rule);min-width:20px}
+.case-body{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:clamp(18px,2.6vw,40px);align-items:start}
+.case.alt .case-body{grid-template-columns:minmax(0,1fr) minmax(0,1.32fr)}
+.case.alt .case-main{order:2}
+.case-main .im{aspect-ratio:16/11}
+/* 側の段に写真がある場合は、主写真を段の高さいっぱいまで伸ばして余白を作らない */
+.case.has-sub .case-body{align-items:stretch}
+.case.has-sub .case-main{display:flex;flex-direction:column}
+.case.has-sub .case-main .im{flex:1 1 auto;min-height:360px}
+.case-sub .im{aspect-ratio:4/3}
+.case-side{display:flex;flex-direction:column;gap:clamp(14px,2vw,20px);min-width:0}
+.case-side .desc{font-size:var(--t-body);color:var(--ink-2);line-height:2.1}
+.case-side .morelink{margin-top:0}
+.case-side .note-s{margin-top:0}
+.cmeta{border-top:1.5px solid var(--ink)}
+.cmeta div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid var(--rule-2)}
+.cmeta dt{font-size:var(--t-mono-s);color:var(--ink-3);letter-spacing:.13em}
+.cmeta dd{font-size:13px;font-weight:700;overflow-wrap:anywhere}
+.cdim{display:flex;align-items:center;gap:0;padding-top:2px}
+.cdim .ln{flex:1 1 auto;height:1px;background:var(--ink-3);min-width:10px}
+.cdim .lb{flex:0 0 auto;font-size:var(--t-mono-s);color:var(--ink-3);letter-spacing:.18em;white-space:nowrap;padding-inline:12px}
+@media(max-width:860px){
+  .case-body,.case.alt .case-body{grid-template-columns:minmax(0,1fr)}
+  .case.alt .case-main{order:0}
+}
+
+/* プレート一覧表（C-01） */
+.dlist{border-top:1.5px solid var(--ink)}
+.dlist .hrow2,.dlist .drow2{
+  display:grid;grid-template-columns:96px minmax(0,1.2fr) minmax(0,1fr) 96px;
+  gap:clamp(8px,1.6vw,20px);align-items:center;
+  padding:clamp(12px,1.7vw,18px) 0;border-bottom:1px solid var(--rule-2);
+}
+.dlist .hrow2{font-size:var(--t-mono-s);color:var(--ink-3);letter-spacing:.14em;border-bottom-color:var(--rule)}
+.dlist .drow2{text-decoration:none;transition:background .2s ease}
+.dlist .drow2:hover{background:var(--paper-3)}
+.dlist .no{font-size:11.5px;color:var(--wood-deep);font-family:var(--f-mono);letter-spacing:.08em}
+.dlist .nm{font-size:clamp(14px,1.5vw,17px);font-weight:900}
+.dlist .ct{font-size:12px;color:var(--ink-3)}
+.dlist .go{font-size:var(--t-mono);color:var(--ink-3);text-align:right}
+.dlist .drow2:hover .go{color:var(--ink)}
+@media(max-width:640px){
+  .dlist .hrow2{display:none}
+  .dlist .drow2{grid-template-columns:70px minmax(0,1fr) 24px;row-gap:2px}
+  .dlist .ct{grid-column:2}
+  .dlist .go{grid-column:3;grid-row:1/3}
+}
+
+/* 3段の工程（B-01 材から現場へ） */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,30px);margin-top:clamp(24px,3.4vw,40px)}
+.trio > li{min-width:0}
+.trio .n{display:flex;align-items:center;gap:10px;font-size:var(--t-mono);color:var(--wood-deep);margin-bottom:12px}
+.trio .n::after{content:"";flex:1 1 auto;height:0;border-top:1px dashed var(--rule)}
+.trio h3{margin-top:14px;font-weight:900;font-size:clamp(15px,1.7vw,18px);line-height:1.55}
+.trio p{margin-top:8px;font-size:12.5px;color:var(--ink-3);line-height:1.95}
+.trio .dwbox{padding:9px}
+.trio .dwbox .cap{margin-top:9px}
+@media(max-width:860px){ .trio{grid-template-columns:1fr} }
+
+/* マストヘッド内に図版を置く場合（D-01）。枠が二重にならないよう罫を外す */
+.mast .dwbox{border:0;padding:0;background:transparent}
+.mast .dwbox .cap{border-top:1px solid var(--rule-2)}
+
+/* 参照シートのリンク（表の中） */
+.reflink{color:var(--wood-deep);text-decoration:none;border-bottom:1px solid var(--rule);font-family:var(--f-mono);font-size:var(--t-mono);letter-spacing:.1em;white-space:nowrap}
+.reflink:hover{color:var(--ink);border-bottom-color:var(--ink)}
+
+/* .dw の円（既定の .dw ルールに circle が入っていないため補う） */
+.dw circle{fill:none;stroke:var(--ink);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.dw circle.thin{stroke:var(--ink-3);stroke-width:1}
+.dw circle.hair{stroke:var(--rule);stroke-width:1}
+.dw circle.accent{stroke:var(--wood-deep)}
+.dw circle.bold{stroke-width:2.4}
 </style>
 </head>
 <body>
@@ -795,9 +899,9 @@ html.pt-hold .pt{opacity:1;visibility:visible}
       <li data-s="J-01">J-01</li>
     </ol>
     <div class="pt-card">
-      <p class="fr"><span id="ptFrom">A-01</span><i></i><span class="to" id="ptToS">B-01</span></p>
-      <b class="no" id="ptNo">B-01</b>
-      <span class="nm" id="ptNm">サービス・工法</span>
+      <p class="fr"><span id="ptFrom">A-01</span><i></i><span class="to" id="ptToS">D-01</span></p>
+      <b class="no" id="ptNo">D-01</b>
+      <span class="nm" id="ptNm">施工事例 詳細</span>
       <span class="br">FUKUOKA SHOKEN &#8212; DRAWING SET 10 SHEETS</span>
     </div>
   </div>
@@ -820,10 +924,10 @@ html.pt-hold .pt{opacity:1;visibility:visible}
       </a>
 
       <nav class="gnav" aria-label="メインナビゲーション">
-        <a href="construction-advance.html" aria-current="page" data-sheet="A-01" data-name="トップ">
+        <a href="construction-advance.html" data-sheet="A-01" data-name="トップ">
           <span class="g">総則</span><span class="r mono">A</span>
         </a>
-        <a href="construction-advance-service.html" data-sheet="B-01" data-name="サービス・工法">
+        <a href="construction-advance-service.html" aria-current="true" data-sheet="B-01" data-name="サービス・工法">
           <span class="g">設計と施工</span><span class="r mono">B &#8212; E</span>
         </a>
         <a href="construction-advance-warranty.html" data-sheet="F-01" data-name="保証とアフターサービス">
@@ -846,7 +950,7 @@ html.pt-hold .pt{opacity:1;visibility:visible}
               <div class="idxgrp">
                 <p class="gl">A &nbsp;GENERAL</p><span class="gj">総則</span>
                 <ul>
-                  <li><a href="construction-advance.html" aria-current="page" data-sheet="A-01" data-name="トップ"><span class="n">A-01</span>トップ</a></li>
+                  <li><a href="construction-advance.html" data-sheet="A-01" data-name="トップ"><span class="n">A-01</span>トップ</a></li>
                 </ul>
               </div>
               <div class="idxgrp">
@@ -854,7 +958,7 @@ html.pt-hold .pt{opacity:1;visibility:visible}
                 <ul>
                   <li><a href="construction-advance-service.html" data-sheet="B-01" data-name="サービス・工法"><span class="n">B-01</span>サービス・工法</a></li>
                   <li><a href="construction-advance-works.html" data-sheet="C-01" data-name="施工事例 一覧"><span class="n">C-01</span>施工事例 一覧</a></li>
-                  <li><a href="construction-advance-work-detail.html" data-sheet="D-01" data-name="施工事例 詳細"><span class="n">D-01</span>施工事例 詳細</a></li>
+                  <li><a href="construction-advance-work-detail.html" aria-current="page" data-sheet="D-01" data-name="施工事例 詳細"><span class="n">D-01</span>施工事例 詳細</a></li>
                   <li><a href="construction-advance-flow.html" data-sheet="E-01" data-name="家づくりの流れ"><span class="n">E-01</span>家づくりの流れ</a></li>
                 </ul>
               </div>
@@ -885,335 +989,348 @@ html.pt-hold .pt{opacity:1;visibility:visible}
   <div class="hd-sheet">
     <div class="wrap">
       <p class="cur mono">
-        <span class="no">A-01</span>
-        <span class="gp">GENERAL &#8212; 総則</span>
-        <span class="nm">トップ</span>
+        <span class="no">D-01</span>
+        <span class="gp">DESIGN &amp; WORKS &#8212; 設計と施工</span>
+        <span class="nm">施工事例 詳細</span>
       </p>
       <p class="pn mono">
-        <span class="dis">&#9664; PREV</span>
-        <a href="construction-advance-service.html" data-sheet="B-01" data-name="サービス・工法">NEXT SHEET &nbsp;B-01 &#9654;</a>
+        <a href="construction-advance-works.html" data-sheet="C-01" data-name="施工事例 一覧">&#9664; PREV &nbsp;C-01</a>
+        <a href="construction-advance-flow.html" data-sheet="E-01" data-name="家づくりの流れ">NEXT SHEET &nbsp;E-01 &#9654;</a>
       </p>
     </div>
   </div>
 </header>
 
+<!-- ===== パンくず ===== -->
+<nav class="crumb" aria-label="パンくず">
+  <div class="wrap">
+    <ol>
+      <li><a href="construction-advance.html" data-sheet="A-01" data-name="トップ">A-01 トップ</a></li>
+      <li><span class="mono">B &#8212; E 設計と施工</span></li>
+      <li><a href="construction-advance-works.html" data-sheet="C-01" data-name="施工事例 一覧">C-01 施工事例 一覧</a></li>
+      <li><span aria-current="page">D-01 W-02 和モダン住宅</span></li>
+    </ol>
+  </div>
+</nav>
+
 <main id="main">
 
-<!-- ============ A-01 マストヘッド ============ -->
-<section class="mast" aria-labelledby="h1">
+<!-- ============ D-01 マストヘッド ============ -->
+<section class="mast sub" aria-labelledby="h1">
   <div class="wrap">
     <div class="frame">
 
       <div class="mast-top mono">
-        <span>SHEET&nbsp;&nbsp;A-01</span>
+        <span>SHEET&nbsp;&nbsp;D-01</span>
         <span class="dot">&#9679;</span>
-        <span>工務店 / 新築・リフォーム</span>
+        <span>WORK DETAIL / PLATE W-02</span>
         <span class="dot">&#9679;</span>
-        <span>FUKUOKA, JAPAN</span>
-        <span class="dot">&#9679;</span>
-        <span>SET OF 10 SHEETS</span>
+        <span>注文住宅</span>
         <span class="dot">&#9679;</span>
         <span>SCALE&nbsp;&nbsp;N.T.S.</span>
       </div>
 
-      <h1 id="h1">家族の時間を、<span class="l2"><em>長く支える</em>家づくり。</span></h1>
-
-      <p class="mast-lead">新築・リフォームともに、地域の気候と暮らし方に合わせた設計をご提案します。完成後のメンテナンスまで、長いお付き合いを大切にしています。</p>
-
-      <ul class="mast-tags mono">
-        <li>注文住宅</li><li>和モダン</li><li>平屋</li><li>二世帯</li><li>リノベーション</li><li>店舗・オフィス</li>
-      </ul>
+      <div class="mast-head">
+        <h1 id="h1">和モダン住宅<span class="l2">PLATE W-02 &#8212; WORK DETAIL</span></h1>
+        <p class="mast-lead">柱と梁を現した居間のある住まいです。1軒を部位ごとに分けて、写真と図で見ていきます。まずは、居間と庭の関係から。</p>
+      </div>
 
       <div class="dimbar" aria-hidden="true">
         <svg class="cap" width="16" height="11" viewBox="0 0 16 11" focusable="false"><path d="M15,5.5 H1 M1,0.5 V10.5 M1,5.5 l8,-3.4 M1,5.5 l8,3.4" stroke="#5C6169" stroke-width="1" fill="none"/></svg>
         <span class="ln"></span>
-        <span class="lb mono">EXTERIOR &#8212; APPROACH</span>
+        <span class="lb mono">LIVING &amp; GARDEN</span>
         <span class="ln"></span>
         <svg class="cap" width="16" height="11" viewBox="0 0 16 11" focusable="false"><path d="M1,5.5 H15 M15,0.5 V10.5 M15,5.5 l-8,-3.4 M15,5.5 l-8,3.4" stroke="#5C6169" stroke-width="1" fill="none"/></svg>
       </div>
 
-      <figure class="mast-photo">
-        <img src="images/construction/construction_hero.png" alt="焼杉の外壁と深い軒を持つ木造二階建ての住まい。手前に石積みの植栽帯とコンクリートのアプローチが続く" fetchpriority="high" decoding="async">
-        <span class="corner c1"></span><span class="corner c2"></span>
-        <span class="corner c4"></span>
-        <figcaption class="mono">PHOTO 01 &nbsp;/&nbsp; 完成写真・外観</figcaption>
-      </figure>
+      <div class="dwbox">
+        
+<svg class="dw" viewBox="0 0 1000 500" role="img"
+     aria-label="居間と庭の関係を示した模式図。左手の壁に造作の棚があり、右手の庭に面した側に引き違いの開口があります。開口の外には軒が出ていて、室内に座った位置から庭へ視線が抜ける様子を破線で示しています。天井の梁は破線で表しています。">
+  <!-- 室内 -->
+  <rect class="fill-p" x="90" y="70" width="610" height="340"/>
+  <path d="M90,70 H700 M90,410 H700 M90,70 V410" class="bold"/>
+  <path d="M700,70 V130 M700,350 V410" class="bold"/>
 
-      <div class="titleblock mono">
+  <!-- 造作の棚 -->
+  <rect class="fill-w" x="90" y="120" width="40" height="240"/>
+  <path d="M90,120 H130 M90,360 H130 M130,120 V360"/>
+
+  <!-- 引き違いの開口 -->
+  <path d="M694,130 V244 M706,236 V350" class="thin"/>
+  <path d="M694,130 H706 M694,350 H706" class="thin"/>
+
+  <!-- 現しの梁（上部にあるものを破線で） -->
+  <path d="M90,180 H700 M90,300 H700" class="thin" stroke-dasharray="14 10"/>
+
+  <!-- 柱 -->
+  <rect class="fill-w" x="81" y="61" width="18" height="18"/>
+  <rect class="fill-w" x="691" y="61" width="18" height="18"/>
+  <rect class="fill-w" x="81" y="401" width="18" height="18"/>
+  <rect class="fill-w" x="691" y="401" width="18" height="18"/>
+  <rect class="fill-w" x="386" y="61" width="18" height="18"/>
+  <rect class="fill-w" x="386" y="401" width="18" height="18"/>
+  <path d="M81,61 h18 v18 h-18 Z M691,61 h18 v18 h-18 Z M81,401 h18 v18 h-18 Z M691,401 h18 v18 h-18 Z M386,61 h18 v18 h-18 Z M386,401 h18 v18 h-18 Z" class="bold"/>
+
+  <!-- 軒の出（破線） -->
+  <path d="M700,40 H790 V440 H700" class="hair" stroke-dasharray="12 9"/>
+
+  <!-- 庭 -->
+  <circle cx="870" cy="150" r="26" class="thin"/>
+  <circle cx="928" cy="316" r="22" class="thin"/>
+  
+  <path d="M826,414 h60 v20 h-60 Z" class="hair"/>
+  <path d="M975,40 V440" class="hair" stroke-dasharray="10 8"/>
+
+  <!-- 視線 -->
+  <circle cx="300" cy="240" r="12" class="accent"/>
+  <path d="M314,240 H950" class="accent" stroke-dasharray="16 10"/>
+  <path d="M950,240 l-20,-7 M950,240 l-20,7" class="accent"/>
+
+  <text x="108" y="48">POST</text>
+  <text x="146" y="336">SHELF</text>
+  <text x="500" y="170">BEAM</text>
+  <text x="690" y="330" text-anchor="end">OPENING</text>
+  <text x="745" y="60" text-anchor="middle">EAVE</text>
+  <text x="400" y="380" text-anchor="middle">LIVING</text>
+  <text x="880" y="392" text-anchor="middle">GARDEN</text>
+  <text x="870" y="226" text-anchor="middle">VIEW</text>
+  <text x="500" y="478" text-anchor="middle" class="big">PLAN DIAGRAM &#8212; N.T.S.</text>
+</svg>
+
+        <p class="cap mono"><span>DIAGRAM &#8212; LIVING &amp; GARDEN</span><span>模式図で、実際の間取りではありません</span></p>
+      </div>
+
+      <div class="titleblock mono" style="margin-top:clamp(20px,2.6vw,30px);border-top:var(--bd)">
         <div><span class="k">PROJECT</span><span class="v">福岡匠建</span></div>
-        <div><span class="k">TYPE</span><span class="v">工務店</span></div>
-        <div><span class="k">LOCATION</span><span class="v">福岡市</span></div>
-        <div><span class="k">SHEET</span><span class="v">A-01 / 10</span></div>
+        <div><span class="k">SHEET</span><span class="v">D-01 WORK DETAIL</span></div>
+        <div><span class="k">PLATE</span><span class="v">W-02 和モダン住宅</span></div>
+        <div><span class="k">SCALE</span><span class="v">N.T.S.</span></div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ============ A-02 福岡匠建について ============ -->
+<!-- ============ D-02 この住まいについて ============ -->
 <section class="sec" id="about" aria-labelledby="aboutH">
   <div class="wrap">
     <div class="sheet-tag mono rv">
-      <span class="no">A-02</span>
-      <h2 class="ttl" id="aboutH">福岡匠建について</h2>
-      <span class="sp">GENERAL DESCRIPTION</span>
+      <span class="no">D-02</span>
+      <h2 class="ttl" id="aboutH">この住まいについて</h2>
+      <span class="sp">DESCRIPTION</span>
     </div>
 
     <div class="secgrid">
       <div class="rv">
-        <h3 class="lead-h">敷地の条件も、暮らし方も、<br>一軒ずつ違います。</h3>
-        <p class="lead-p">新築・リフォームともに、地域の気候と暮らし方に合わせた設計をご提案します。完成後のメンテナンスまで、長いお付き合いを大切にしています。</p>
+        <h3 class="lead-h">1軒を、部位ごとに<br>分けて見ていきます。</h3>
+        <p class="lead-p">柱と梁を現した居間です。座ったときの目線の高さで、庭がいちばんきれいに見える位置に窓を取りました。木の面が見えるぶん、年数が経ってどう色が変わるかまで考えて材を選んでいます。</p>
+        <p class="lead-p">このシートでは、居間・梁と天井・造作・開口の4つに分けて、それぞれにプレート番号を振っています。番号は W-02-a から W-02-d です。</p>
 
         <ul class="nlist">
           <li>
-            <span class="id mono">N-01</span>
-            <div>
-              <h4>気候から考える</h4>
-              <p>日当たり、風の抜け、隣家との距離。同じ図面が二度と使えないのは、敷地の条件が毎回違うからです。窓の位置と軒の出は、その都度考え直します。</p>
-            </div>
+            <span class="id mono">W-02-a</span>
+            <div><h4>柱と梁を現した居間</h4><p>庭に向かって開いた、この住まいの中心です。</p></div>
           </li>
           <li>
-            <span class="id mono">N-02</span>
-            <div>
-              <h4>暮らし方から決める</h4>
-              <p>間取りを先に決めません。朝起きてから寝るまでの動きをうかがってから、線を引きはじめます。</p>
-            </div>
+            <span class="id mono">W-02-b</span>
+            <div><h4>梁と天井</h4><p>構造がそのまま仕上げになっている部分です。</p></div>
           </li>
           <li>
-            <span class="id mono">N-03</span>
-            <div>
-              <h4>引き渡しのあとも</h4>
-              <p>完成後も定期的に伺い、傷みが出る前に手を入れます。長く住むための手入れまで含めて、家づくりだと考えています。</p>
-            </div>
+            <span class="id mono">W-02-c</span>
+            <div><h4>造作の棚</h4><p>長いテーブルと合わせてつくった、収納まわりです。</p></div>
+          </li>
+          <li>
+            <span class="id mono">W-02-d</span>
+            <div><h4>庭に面した開口</h4><p>引き違いの窓と、その高さの決め方です。</p></div>
           </li>
         </ul>
       </div>
 
-      <div class="rv" style="display:grid;gap:clamp(14px,2vw,22px)">
-        <figure class="figfr">
-          <span class="im"><img src="images/construction/construction_voice2.webp" alt="木の内装のリビングで、ソファに腰かけてくつろぐ家族" loading="lazy" decoding="async"></span>
-          <span class="plate mono">PHOTO 02</span>
-          <figcaption class="mono"><span>お引き渡し後の住まいで</span><span>INTERIOR</span></figcaption>
-        </figure>
-        <figure class="figfr r169">
-          <span class="im"><img src="images/construction/construction_gallery1.webp" alt="作業台の上で鑿と木槌を使い、木材を刻む職人の手元" loading="lazy" decoding="async"></span>
-          <span class="plate mono">PHOTO 03</span>
-          <figcaption class="mono"><span>造作の手仕事</span><span>JOINERY</span></figcaption>
-        </figure>
+      <div class="rv">
+        <table class="tbl">
+          <caption class="mono">SPECIFICATION &#8212; プレート情報</caption>
+          <thead>
+            <tr><th scope="col">項目</th><th scope="col">内容</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">プレート番号</th><td class="mono">W-02</td></tr>
+            <tr><th scope="row">名称</th><td>和モダン住宅</td></tr>
+            <tr><th scope="row">区分</th><td>注文住宅（新築）</td></tr>
+            <tr><th scope="row">構造</th><td>木造軸組工法 2階建</td></tr>
+            <tr><th scope="row">所在地</th><td>福岡市内</td></tr>
+            <tr><th scope="row">竣工</th><td>2024年</td></tr>
+            <tr><th scope="row">延床面積</th><td>118.4㎡（35.8坪）</td></tr>
+            <tr><th scope="row">工期</th><td>6ヶ月</td></tr>
+            <tr><th scope="row">主な樹種</th><td>柱・梁：杉／造作：タモ</td></tr>
+            <tr><th scope="row">掲載写真</th><td>4点（居間／梁と天井／造作／開口）。いずれも室内のカットです</td></tr>
+          </tbody>
+        </table>
+
+        <p class="note-s mono">
+          <svg width="52" height="8" viewBox="0 0 52 8" aria-hidden="true" focusable="false"><path d="M1,4 H51 M1,1 V7 M51,1 V7" stroke="#5C6169" fill="none"/></svg>
+          面積は延床、工期は着工からお引き渡しまでの期間です
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ A-03 図面目録 ============ -->
-<section class="sec gridbg" id="index" aria-labelledby="indexH">
+<!-- ============ D-03 部位ごとに見る ============ -->
+<section class="sec plates gridbg" id="parts" aria-labelledby="partsH">
   <div class="wrap">
     <div class="sheet-tag mono rv">
-      <span class="no">A-03</span>
-      <h2 class="ttl" id="indexH">図面目録</h2>
-      <span class="sp">DRAWING INDEX &#8212; 10 SHEETS</span>
+      <span class="no">D-03</span>
+      <h2 class="ttl" id="partsH">部位ごとに見る</h2>
+      <span class="sp">PLATE W-02-a &#8212; d</span>
     </div>
 
-    <p class="lede rv">このサイトは10枚のシートでできています。番号の頭文字が内容のまとまりを表していて、A が総則、B から E が設計と施工、F から H が保証と費用、I と J が会社のことです。知りたいところから開いてください。</p>
+    <p class="lede rv">同じ1軒を、4つの部位に分けて並べています。どこを見た写真なのかが分かるように、それぞれに枝番を振りました。</p>
 
-    <div class="dset rv" style="margin-top:clamp(24px,3.4vw,40px)">
+    <div style="margin-top:clamp(24px,3.4vw,40px)">
 
-      <div class="dgrp">
-        <p class="gh mono"><span class="no" style="color:var(--wood-deep)">A</span><b>総則</b><span>GENERAL</span><span class="rg">1 SHEET</span></p>
-        <div class="drows">
-          <div class="drow self">
-            <span class="no mono">A-01</span>
-            <svg class="mi" viewBox="0 0 72 44" aria-hidden="true" focusable="false">
-              <rect x="1" y="1" width="70" height="42" class="bold"/>
-              <path d="M1,31 H71 M28,31 V43 M50,31 V43" />
-              <path d="M9,10 H40 M9,17 H33 M9,24 H44" class="hair"/>
-            </svg>
-            <span>
-              <span class="tt">トップ<b class="badge">CURRENT</b></span>
-              <span class="ds">いま見ているシート。全体の入り口です。</span>
-            </span>
-            <span class="ar" aria-hidden="true">&#8212;</span>
-          </div>
+    <article class="case rv first" id="pa" aria-labelledby="pah">
+      <div class="case-head">
+        <span class="pl mono">W-02-a</span>
+        <h3 id="pah">柱と梁を現した居間</h3>
+        <span class="cat mono">INTERIOR</span>
+        <span class="ln" aria-hidden="true"></span>
+      </div>
+      <div class="case-body">
+        <figure class="figfr case-main">
+          <span class="im"><img src="images/construction/construction_menu_wamodern.webp" alt="和モダン住宅の居間。現しの木の柱と梁、庭に開いた大きな窓" loading="lazy" decoding="async"></span>
+          <span class="plate mono">W-02-a</span>
+          <figcaption class="mono"><span>PHOTO 01</span><span>居間・庭側</span></figcaption>
+        </figure>
+        <div class="case-side">
+          <p class="desc">柱と梁を現した居間です。座ったときの目線の高さで、庭がいちばんきれいに見える位置に窓を取りました。</p>
+          <dl class="cmeta mono">
+            <div><dt>PLATE</dt><dd>W-02-a</dd></div>
+            <div><dt>PART</dt><dd>柱と梁を現した居間</dd></div>
+            <div><dt>PHOTO</dt><dd>01</dd></div>
+            <div><dt>REF</dt><dd><a class="reflink" href="#sight">D-04 SIGHT LINE</a></dd></div>
+          </dl>
+          <p class="cdim" aria-hidden="true"><span class="ln"></span><span class="lb mono">LIVING &amp; GARDEN</span><span class="ln"></span></p>
         </div>
       </div>
+    </article>
 
-      <div class="dgrp">
-        <p class="gh mono"><span class="no" style="color:var(--wood-deep)">B &#8212; E</span><b>設計と施工</b><span>DESIGN &amp; WORKS</span><span class="rg">4 SHEETS</span></p>
-        <div class="drows">
-          <a class="drow" href="construction-advance-service.html" data-sheet="B-01" data-name="サービス・工法">
-            <span class="no mono">B-01</span>
-            <svg class="mi" viewBox="0 0 72 44" aria-hidden="true" focusable="false">
-              <path d="M12,2 V42 M24,2 V42 M40,2 V42 M52,2 V42" class="bold"/>
-              <path d="M24,6 l16,0 M24,12 l16,0 M24,18 l16,0 M24,24 l16,0 M24,30 l16,0 M24,36 l16,0" class="hair"/>
-              <path d="M60,8 H68 M60,8 V36 M60,36 H68" class="accent"/>
-            </svg>
-            <span>
-              <span class="tt">サービス・工法</span>
-              <span class="ds">木造軸組でつくる考え方と、対応できる工事の範囲。</span>
-            </span>
-            <span class="ar" aria-hidden="true">&#8594;</span>
-          </a>
-          <a class="drow" href="construction-advance-works.html" data-sheet="C-01" data-name="施工事例 一覧">
-            <span class="no mono">C-01</span>
-            <svg class="mi" viewBox="0 0 72 44" aria-hidden="true" focusable="false">
-              <rect x="2" y="4" width="20" height="15"/><rect x="26" y="4" width="20" height="15"/><rect x="50" y="4" width="20" height="15" class="bold"/>
-              <rect x="2" y="25" width="20" height="15"/><rect x="26" y="25" width="20" height="15"/><rect x="50" y="25" width="20" height="15"/>
-            </svg>
-            <span>
-              <span class="tt">施工事例 一覧</span>
-              <span class="ds">注文住宅4件とリノベーション・店舗2件、プレート W-01 から W-06。</span>
-            </span>
-            <span class="ar" aria-hidden="true">&#8594;</span>
-          </a>
-          <a class="drow" href="construction-advance-work-detail.html" data-sheet="D-01" data-name="施工事例 詳細">
-            <span class="no mono">D-01</span>
-            <svg class="mi" viewBox="0 0 72 44" aria-hidden="true" focusable="false">
-              <rect x="2" y="4" width="42" height="36" class="bold"/>
-              <rect x="48" y="4" width="22" height="16"/>
-              <rect x="48" y="24" width="22" height="16"/>
-              <path d="M6,36 H40" class="accent"/>
-            </svg>
-            <span>
-              <span class="tt">施工事例 詳細</span>
-              <span class="ds">W-02 和モダン住宅を1件、図面と写真でくわしく。</span>
-            </span>
-            <span class="ar" aria-hidden="true">&#8594;</span>
-          </a>
-          <a class="drow" href="construction-advance-flow.html" data-sheet="E-01" data-name="家づくりの流れ">
-            <span class="no mono">E-01</span>
-            <svg class="mi" viewBox="0 0 72 44" aria-hidden="true" focusable="false">
-              <path d="M4,22 H68" class="bold"/>
-              <path d="M4,16 V28 M68,16 V28"/>
-              <circle cx="20" cy="22" r="4"/><circle cx="36" cy="22" r="4"/><circle cx="52" cy="22" r="4"/>
-              <path d="M20,10 V16 M36,10 V16 M52,10 V16" class="hair"/>
-            </svg>
-            <span>
-              <span class="tt">家づくりの流れ</span>
-              <span class="ds">ご相談から現地調査、着工、お引き渡しまで STEP 01 &#8212; 04。</span>
-            </span>
-            <span class="ar" aria-hidden="true">&#8594;</span>
-          </a>
+    <article class="case rv alt" id="pb" aria-labelledby="pbh">
+      <div class="case-head">
+        <span class="pl mono">W-02-b</span>
+        <h3 id="pbh">梁と天井</h3>
+        <span class="cat mono">STRUCTURE</span>
+        <span class="ln" aria-hidden="true"></span>
+      </div>
+      <div class="case-body">
+        <figure class="figfr case-main">
+          <span class="im"><img src="images/construction/construction_gallery2.webp" alt="木の梁と天井を現した広い居間。庭に面した大きな窓から光が入る" loading="lazy" decoding="async"></span>
+          <span class="plate mono">W-02-b</span>
+          <figcaption class="mono"><span>PHOTO 02</span><span>梁と天井</span></figcaption>
+        </figure>
+        <div class="case-side">
+          <p class="desc">梁と天井を現した広い居間です。庭に面した大きな窓から光が入ります。構造がそのまま見えるので、材の見え方まで含めて決めていきます。</p>
+          <dl class="cmeta mono">
+            <div><dt>PLATE</dt><dd>W-02-b</dd></div>
+            <div><dt>PART</dt><dd>梁と天井</dd></div>
+            <div><dt>PHOTO</dt><dd>02</dd></div>
+            <div><dt>REF</dt><dd><a class="reflink" href="construction-advance-service.html#structure" data-sheet="B-01" data-name="サービス・工法">B-01 STRUCTURE</a></dd></div>
+          </dl>
+          <p class="cdim" aria-hidden="true"><span class="ln"></span><span class="lb mono">CEILING &amp; BEAM</span><span class="ln"></span></p>
         </div>
       </div>
+    </article>
 
-      <div class="dgrp">
-        <p class="gh mono"><span class="no" style="color:var(--wood-deep)">F &#8212; H</span><b>保証と費用</b><span>SUPPORT</span><span class="rg">3 SHEETS</span></p>
-        <div class="drows">
-          <a class="drow" href="construction-advance-warranty.html" data-sheet="F-01" data-name="保証とアフターサービス">
-            <span class="no mono">F-01</span>
-            <svg class="mi" viewBox="0 0 72 44" aria-hidden="true" focusable="false">
-              <path d="M4,30 H62 M62,30 l-6,-4 M62,30 l-6,4" class="bold"/>
-              <path d="M14,30 V14 M30,30 V18 M46,30 V22" />
-              <path d="M10,14 H18 M26,18 H34 M42,22 H50" class="accent"/>
-            </svg>
-            <span>
-              <span class="tt">保証とアフターサービス</span>
-              <span class="ds">お引き渡しのあとの点検と、手を入れる考え方。</span>
-            </span>
-            <span class="ar" aria-hidden="true">&#8594;</span>
-          </a>
-          <a class="drow" href="construction-advance-cost.html" data-sheet="G-01" data-name="土地と費用の考え方">
-            <span class="no mono">G-01</span>
-            <svg class="mi" viewBox="0 0 72 44" aria-hidden="true" focusable="false">
-              <rect x="2" y="8" width="68" height="30" class="hair"/>
-              <rect x="14" y="14" width="34" height="20" class="bold"/>
-              <path d="M2,4 H70 M2,1 V7 M70,1 V7" class="thin"/>
-              <path d="M54,14 h12 v20 h-12 Z" class="accent"/>
-            </svg>
-            <span>
-              <span class="tt">土地と費用の考え方</span>
-              <span class="ds">敷地と建物と諸費用、どこにいくらかかるのかの整理。</span>
-            </span>
-            <span class="ar" aria-hidden="true">&#8594;</span>
-          </a>
-          <a class="drow" href="construction-advance-faq.html" data-sheet="H-01" data-name="よくある質問">
-            <span class="no mono">H-01</span>
-            <svg class="mi" viewBox="0 0 72 44" aria-hidden="true" focusable="false">
-              <path d="M2,10 H10 M16,10 H70" class="bold"/>
-              <path d="M2,22 H10 M16,22 H60" />
-              <path d="M2,34 H10 M16,34 H66" />
-              <path d="M10,6 V14" class="accent"/>
-            </svg>
-            <span>
-              <span class="tt">よくある質問</span>
-              <span class="ds">ご相談の前に多くいただく質問と、その答え。</span>
-            </span>
-            <span class="ar" aria-hidden="true">&#8594;</span>
-          </a>
+    <article class="case rv" id="pc" aria-labelledby="pch">
+      <div class="case-head">
+        <span class="pl mono">W-02-c</span>
+        <h3 id="pch">造作の棚</h3>
+        <span class="cat mono">JOINERY</span>
+        <span class="ln" aria-hidden="true"></span>
+      </div>
+      <div class="case-body">
+        <figure class="figfr case-main">
+          <span class="im"><img src="images/construction/construction_gallery3.webp" alt="木の天井と大きな窓のある広い室内。長いテーブルと造作の棚が並ぶ" loading="lazy" decoding="async"></span>
+          <span class="plate mono">W-02-c</span>
+          <figcaption class="mono"><span>PHOTO 03</span><span>造作の棚まわり</span></figcaption>
+        </figure>
+        <div class="case-side">
+          <p class="desc">造作の棚と長いテーブルです。木の面が見えるぶん、年数が経ってどう色が変わるかまで考えて材を選んでいます。</p>
+          <dl class="cmeta mono">
+            <div><dt>PLATE</dt><dd>W-02-c</dd></div>
+            <div><dt>PART</dt><dd>造作の棚</dd></div>
+            <div><dt>PHOTO</dt><dd>03</dd></div>
+            <div><dt>REF</dt><dd><a class="reflink" href="#material">D-05 MATERIALS</a></dd></div>
+          </dl>
+          <p class="cdim" aria-hidden="true"><span class="ln"></span><span class="lb mono">BUILT-IN FURNITURE</span><span class="ln"></span></p>
         </div>
       </div>
+    </article>
 
-      <div class="dgrp">
-        <p class="gh mono"><span class="no" style="color:var(--wood-deep)">I &#8212; J</span><b>会社</b><span>COMPANY</span><span class="rg">2 SHEETS</span></p>
-        <div class="drows">
-          <a class="drow" href="construction-advance-company.html" data-sheet="I-01" data-name="スタッフ・会社案内">
-            <span class="no mono">I-01</span>
-            <svg class="mi" viewBox="0 0 72 44" aria-hidden="true" focusable="false">
-              <rect x="1" y="1" width="70" height="42"/>
-              <path d="M1,15 H71 M1,29 H71 M24,1 V43 M48,1 V43" class="hair"/>
-              <rect x="4" y="18" width="14" height="8" class="bold"/>
-            </svg>
-            <span>
-              <span class="tt">スタッフ・会社案内</span>
-              <span class="ds">つくっている人と、会社の基本的なこと。</span>
-            </span>
-            <span class="ar" aria-hidden="true">&#8594;</span>
-          </a>
-          <a class="drow" href="construction-advance-contact.html" data-sheet="J-01" data-name="アクセス・お問い合わせ">
-            <span class="no mono">J-01</span>
-            <svg class="mi" viewBox="0 0 72 44" aria-hidden="true" focusable="false">
-              <path d="M2,36 H70" class="bold"/><path d="M2,40 H70" class="hair"/>
-              <rect x="16" y="10" width="26" height="18"/>
-              <path d="M50,10 h14 v18 h-14 Z" class="hair"/>
-              <path d="M29,28 V36" class="accent"/>
-            </svg>
-            <span>
-              <span class="tt">アクセス・お問い合わせ</span>
-              <span class="ds">事務所の場所と、ご相談のはじめ方。</span>
-            </span>
-            <span class="ar" aria-hidden="true">&#8594;</span>
-          </a>
+    <article class="case rv alt" id="pd" aria-labelledby="pdh">
+      <div class="case-head">
+        <span class="pl mono">W-02-d</span>
+        <h3 id="pdh">庭に面した開口</h3>
+        <span class="cat mono">OPENING</span>
+        <span class="ln" aria-hidden="true"></span>
+      </div>
+      <div class="case-body">
+        <figure class="figfr case-main">
+          <span class="im"><img src="images/construction/construction_voice3.webp" alt="現しの梁のあるダイニング。庭に面した引き違いの開口から光が入る" loading="lazy" decoding="async"></span>
+          <span class="plate mono">W-02-d</span>
+          <figcaption class="mono"><span>PHOTO 04</span><span>引き違いの開口</span></figcaption>
+        </figure>
+        <div class="case-side">
+          <p class="desc">庭に面した引き違いの開口です。ダイニングにも梁を現しています。開口の高さは、部屋のなかでどこに座るかを決めてから合わせました。</p>
+          <dl class="cmeta mono">
+            <div><dt>PLATE</dt><dd>W-02-d</dd></div>
+            <div><dt>PART</dt><dd>庭に面した開口</dd></div>
+            <div><dt>PHOTO</dt><dd>04</dd></div>
+            <div><dt>REF</dt><dd><a class="reflink" href="#sight">D-04 SIGHT LINE</a></dd></div>
+          </dl>
+          <p class="cdim" aria-hidden="true"><span class="ln"></span><span class="lb mono">OPENING &amp; LIGHT</span><span class="ln"></span></p>
         </div>
       </div>
+    </article>
 
     </div>
   </div>
 </section>
 
-<!-- ============ A-04 軒と光と風（断面図） ============ -->
-<section class="sec paperbg" id="section" aria-labelledby="sectionH">
+<!-- ============ D-04 窓の高さと、目線 ============ -->
+<section class="sec paperbg" id="sight" aria-labelledby="sightH">
   <div class="wrap">
     <div class="sheet-tag mono rv">
-      <span class="no">A-04</span>
-      <h2 class="ttl" id="sectionH">軒と、光と、風</h2>
-      <span class="sp">SECTION &#8212; N.T.S.</span>
+      <span class="no">D-04</span>
+      <h2 class="ttl" id="sightH">窓の高さと、目線</h2>
+      <span class="sp">SECTION &#8212; SIGHT LINE</span>
     </div>
 
     <div class="secgrid rev">
       <div class="rv">
-        <h3 class="lead-h">同じ図面が二度と<br>使えない理由。</h3>
-        <p class="lead-p">日当たり、風の抜け、隣家との距離。敷地の条件が毎回違うので、窓の位置と軒の出は、その都度考え直します。断面で見ると、軒の深さがそのまま夏と冬の光の入り方になることが分かります。</p>
+        <h3 class="lead-h">座ったときに、<br>庭がいちばんきれいに見える。</h3>
+        <p class="lead-p">この住まいで最初に決めたのは、窓の高さでした。立って見るのか、座って見るのかで、気持ちのいい高さは変わります。床から窓台までと、床からまぐさまで。この2つの寸法が決まると、開口の大きさが決まります。</p>
 
         <ul class="nlist">
           <li>
-            <span class="id mono">S-01</span>
+            <span class="id mono">V-01</span>
             <div>
-              <h4>夏の高い日差しは軒で切る</h4>
-              <p>軒を深く出すと、高い位置から来る夏の日差しは室内に入る前で止まります。窓の前の地面に影が落ちる位置まで見て、軒の出を決めています。</p>
+              <h4>座った目線から決める</h4>
+              <p>床に近いところから庭を見たときに、視線が窓台に切られない高さを探します。</p>
             </div>
           </li>
           <li>
-            <span class="id mono">S-02</span>
+            <span class="id mono">V-02</span>
             <div>
-              <h4>冬の低い光は奥まで入れる</h4>
-              <p>同じ軒でも、低い角度から来る冬の光はその下をくぐって、部屋の奥まで届きます。座ったときの目線の高さで庭がきれいに見える位置も、あわせて窓を決めます。</p>
+              <h4>立った目線も通す</h4>
+              <p>立ったときの視線が、まぐさで止まらないようにします。座っても立っても、同じ庭が見えるようにしています。</p>
             </div>
           </li>
           <li>
-            <span class="id mono">S-03</span>
+            <span class="id mono">V-03</span>
             <div>
-              <h4>風は低いところから入れて高いところへ抜く</h4>
-              <p>低い位置の窓から入った風は、高い位置の窓へ抜けていきます。隣家との距離を見ながら、開口の高さをずらして配置します。</p>
+              <h4>梁と天井はそのまま</h4>
+              <p>開口の上には梁があります。現しにしているぶん、位置を動かせません。梁の位置と窓の高さは、同時に決めます。</p>
             </div>
           </li>
         </ul>
@@ -1221,337 +1338,117 @@ html.pt-hold .pt{opacity:1;visibility:visible}
 
       <div class="rv">
         <div class="dwbox">
-          <svg class="dw" viewBox="0 0 1000 560" role="img"
-               aria-label="住まいの断面図。深い軒が夏の高い日差しを室内の手前で切り、冬の低い光は軒の下をくぐって部屋の奥まで届く様子。低い窓から入った風が高い窓へ抜ける経路もあわせて示しています。">
-            <!-- 面の塗り -->
-            <rect class="fill-p" x="240" y="250" width="500" height="205"/>
-            <polygon class="fill-w" points="150,250 490,150 830,250"/>
-            <rect class="fill-w" x="372" y="441" width="368" height="14"/>
+          
+<svg class="dw" viewBox="0 0 1000 620" role="img"
+     aria-label="室内の断面図。庭に面した壁に開口があり、床から窓台までの高さH1、床からまぐさまでの高さH2を寸法で示しています。座ったときと立ったときの視線が、どちらも開口を通って庭へ抜ける様子を破線で表しています。">
+  <!-- 塗り -->
+  <rect class="fill-w" x="300" y="120" width="60" height="54"/>
+  <rect class="fill-w" x="560" y="120" width="60" height="54"/>
+  <rect class="fill-p" x="760" y="120" width="40" height="60"/>
+  <rect class="fill-p" x="760" y="430" width="40" height="50"/>
+  <rect class="fill-w" x="760" y="160" width="40" height="20"/>
+  <rect class="fill-w" x="760" y="430" width="40" height="20"/>
 
-            <!-- 地盤線 -->
-            <path d="M40,470 H960" class="bold"/>
-            <path d="M70,474 l-16,24 M120,474 l-16,24 M170,474 l-16,24 M852,474 l-16,24 M900,474 l-16,24 M946,474 l-16,24" class="thin"/>
+  <!-- 床・天井 -->
+  <path d="M60,480 H820" class="bold"/>
+  <path d="M60,120 H760"/>
+  <path d="M96,480 l-16,22 M156,480 l-16,22 M216,480 l-16,22 M276,480 l-16,22 M336,480 l-16,22 M396,480 l-16,22 M456,480 l-16,22 M516,480 l-16,22 M576,480 l-16,22 M636,480 l-16,22 M696,480 l-16,22 M756,480 l-16,22" class="hair"/>
 
-            <!-- 床・壁（開口部は壁を切って表す） -->
-            <path d="M220,470 V455 H760 V470" />
-            <path d="M240,455 V410 M240,340 V250" class="bold"/>
-            <path d="M740,455 V420 M740,285 V250" class="bold"/>
-            <path d="M232,340 H248 M232,410 H248" class="thin"/>
-            <path d="M732,285 H748 M732,420 H748" class="thin"/>
-            <path d="M280,455 H700" class="hair"/>
+  <!-- 現しの梁（断面） -->
+  <path d="M300,120 h60 v54 h-60 Z M560,120 h60 v54 h-60 Z" class="bold"/>
 
-            <!-- 屋根と軒 -->
-            <path d="M150,250 L490,150 L830,250" class="bold"/>
-            <path d="M150,268 L490,168 L830,268"/>
-            <path d="M150,250 V268 M830,250 V268"/>
+  <!-- 壁と開口 -->
+  <path d="M760,120 V180 M800,120 V180 M760,430 V480 M800,430 V480" class="bold"/>
+  <path d="M760,180 H800 M760,430 H800" class="bold"/>
+  <path d="M774,180 V430 M786,180 V430" class="thin"/>
 
-            <!-- 軒の出の寸法線 -->
-            <path d="M740,212 H830 M740,204 V220 M830,204 V220" class="thin"/>
-            <path d="M740,212 l14,-4 M740,212 l14,4 M830,212 l-14,-4 M830,212 l-14,4" class="thin"/>
+  <!-- 外の地盤 -->
+  <path d="M800,500 H960" class="bold"/>
+  <path d="M836,500 l-16,22 M896,500 l-16,22 M950,500 l-16,22" class="hair"/>
 
-            <!-- 夏の日差し：軒に当たって室内には入らない -->
-            <path d="M898,24 L830,250" class="ray accent"/>
-            <path d="M830,250 L763,470" class="ray d2 thin" stroke-dasharray="6 6"/>
+  <!-- 視線 -->
+  <circle cx="280" cy="380" r="11" class="accent"/>
+  <circle cx="280" cy="250" r="11" class="accent"/>
+  <path d="M292,378 L946,300" class="accent" stroke-dasharray="16 10"/>
+  <path d="M292,248 L946,190" class="accent" stroke-dasharray="16 10"/>
+  <path d="M946,300 l-21,-3 M946,300 l-19,8 M946,190 l-21,-2 M946,190 l-19,8" class="accent"/>
 
-            <!-- 冬の光：軒の下をくぐって床の奥まで -->
-            <path d="M980,182 L374,455" class="ray d3 accent"/>
+  <!-- 寸法 -->
+  <path d="M150,430 H760 M110,180 H760" class="hair" stroke-dasharray="9 8"/>
+  <path d="M150,430 V480 M138,430 H162 M138,480 H162" class="thin"/>
+  <path d="M110,180 V480 M98,180 H122 M98,480 H122" class="thin"/>
+  <path d="M110,180 l-5,16 M110,180 l5,16 M110,480 l-5,-16 M110,480 l5,-16" class="thin"/>
 
-            <!-- 風の経路：低い窓から入り、高い窓へ抜ける -->
-            <path d="M156,390 H232" class="ray d4 thin"/>
-            <path d="M248,390 C350,392 430,364 530,340 C608,322 668,308 734,301" class="ray d4 accent"/>
-            <path d="M740,300 l-15,-6 M740,300 l-15,6" class="thin"/>
-            <path d="M740,300 H816" class="ray d4 thin"/>
+  <!-- 引き出し線 -->
+  <path d="M800,170 H856" class="thin"/>
+  <path d="M800,440 H856" class="thin"/>
 
-            <!-- 注記 -->
-            <text x="882" y="18" text-anchor="end">SUMMER</text>
-            <text x="992" y="170" text-anchor="end">WINTER</text>
-            <text x="146" y="374">WIND</text>
-            <text x="785" y="198" text-anchor="middle">EAVE</text>
-            <text x="60" y="462">GL</text>
-            <text x="556" y="432" text-anchor="middle">WINTER LIGHT</text>
-            <text x="470" y="540" text-anchor="middle" class="big">SECTION &#8212; N.T.S.</text>
-          </svg>
-          <p class="cap mono"><span>SECTION &#8212; SUN &amp; WIND</span><span>断面はイメージです</span></p>
+  <text x="180" y="462">H1</text>
+  <text x="88" y="330" text-anchor="end">H2</text>
+  <text x="440" y="158" text-anchor="middle">BEAM</text>
+  <text x="862" y="166">HEAD</text>
+  <text x="862" y="446">SILL</text>
+  <text x="620" y="200" text-anchor="middle">STANDING</text>
+  <text x="640" y="318" text-anchor="middle">SEATED</text>
+  <text x="880" y="552" text-anchor="middle">GARDEN</text>
+  <text x="66" y="466">FL</text>
+  <text x="500" y="598" text-anchor="middle" class="big">SECTION &#8212; SIGHT LINE / N.T.S.</text>
+</svg>
+
+          <p class="cap mono"><span>SECTION &#8212; SIGHT LINE</span><span>断面はイメージです</span></p>
         </div>
 
         <ul class="dwlegend">
-          <li><span class="k">SUMMER</span><span>夏の高い日差し。軒に当たって室内には入らず、窓の手前に影が落ちます。</span></li>
-          <li><span class="k">WINTER</span><span>冬の低い光。軒の下をくぐって、床の奥まで届きます。</span></li>
-          <li><span class="k">WIND</span><span>低い窓から入って、高い窓へ抜ける風の道。</span></li>
+          <li><span class="k">SEATED</span><span>座ったときの視線。開口を通って庭へ抜けます。</span></li>
+          <li><span class="k">STANDING</span><span>立ったときの視線。まぐさの下をくぐります。</span></li>
+          <li><span class="k">SILL</span><span>窓台。開口の下端です。</span></li>
+          <li><span class="k">HEAD</span><span>まぐさ。開口の上端です。</span></li>
+          <li><span class="k">H1 / H2</span><span>床から窓台まで、床からまぐさまでの高さ。座ったときの目線に庭が入るように決めています。</span></li>
         </ul>
 
         <p class="note-s mono">
           <svg width="52" height="8" viewBox="0 0 52 8" aria-hidden="true" focusable="false"><path d="M1,4 H51 M1,1 V7 M51,1 V7" stroke="#5C6169" fill="none"/></svg>
-          上の断面は考え方を示す図で、実際の寸法や角度ではありません
+          上の断面は考え方を示す図で、実際の寸法ではありません
         </p>
       </div>
     </div>
-
-    <a class="morelink ghost rv" href="construction-advance-service.html" data-sheet="B-01" data-name="サービス・工法">
-      <b>工法と対応できる工事をくわしく見る</b>
-      <span class="mono">SHEET B-01 &nbsp;/&nbsp; SERVICE &amp; METHOD &nbsp;&#8594;</span>
-    </a>
   </div>
 </section>
 
-<!-- ============ A-05 施工事例 ============ -->
-<section class="sec" id="works" aria-labelledby="worksH">
+<!-- ============ D-05 材のこと ============ -->
+<section class="sec" id="material" aria-labelledby="materialH">
   <div class="wrap">
     <div class="sheet-tag mono rv">
-      <span class="no">A-05</span>
-      <h2 class="ttl" id="worksH">施工事例</h2>
-      <span class="sp">PLATE W-01 &#8212; W-06</span>
+      <span class="no">D-05</span>
+      <h2 class="ttl" id="materialH">材のこと</h2>
+      <span class="sp">MATERIALS</span>
     </div>
 
-    <div class="wcards rv">
-      <a class="wcard" href="construction-advance-works.html#w01" data-sheet="C-01" data-name="施工事例 一覧">
-        <span class="fr">
-          <img src="images/construction/construction_menu_modern.webp" alt="モダン住宅の外観。片流れ屋根と大きな開口部を持つ二階建て" loading="lazy" decoding="async">
-          <span class="pl mono">W-01</span>
-        </span>
-        <span class="bd">
-          <span><span class="nm">モダン住宅</span><span class="ct mono">注文住宅</span></span>
-          <span class="ar" aria-hidden="true">&#8594;</span>
-        </span>
-      </a>
-      <a class="wcard" href="construction-advance-works.html#w02" data-sheet="C-01" data-name="施工事例 一覧">
-        <span class="fr">
-          <img src="images/construction/construction_menu_wamodern.webp" alt="和モダン住宅のリビング。現しの木の柱と梁、庭に開いた大きな窓" loading="lazy" decoding="async">
-          <span class="pl mono">W-02</span>
-        </span>
-        <span class="bd">
-          <span><span class="nm">和モダン住宅</span><span class="ct mono">注文住宅</span></span>
-          <span class="ar" aria-hidden="true">&#8594;</span>
-        </span>
-      </a>
-      <a class="wcard" href="construction-advance-works.html#w03" data-sheet="C-01" data-name="施工事例 一覧">
-        <span class="fr">
-          <img src="images/construction/construction_menu_hiraya.webp" alt="平屋住宅の外観。深い軒と、石と植栽であしらった前庭" loading="lazy" decoding="async">
-          <span class="pl mono">W-03</span>
-        </span>
-        <span class="bd">
-          <span><span class="nm">平屋住宅</span><span class="ct mono">注文住宅</span></span>
-          <span class="ar" aria-hidden="true">&#8594;</span>
-        </span>
-      </a>
-      <a class="wcard" href="construction-advance-works.html#w04" data-sheet="C-01" data-name="施工事例 一覧">
-        <span class="fr">
-          <img src="images/construction/construction_menu_nisetai.webp" alt="二世帯住宅の外観。二つの玄関とガレージを備えた二階建て" loading="lazy" decoding="async">
-          <span class="pl mono">W-04</span>
-        </span>
-        <span class="bd">
-          <span><span class="nm">二世帯住宅</span><span class="ct mono">注文住宅</span></span>
-          <span class="ar" aria-hidden="true">&#8594;</span>
-        </span>
-      </a>
-      <a class="wcard" href="construction-advance-works.html#w05" data-sheet="C-01" data-name="施工事例 一覧">
-        <span class="fr">
-          <img src="images/construction/construction_menu_renovation.webp" alt="リノベーションで現した木造の梁と柱の仕口の接合部" loading="lazy" decoding="async">
-          <span class="pl mono">W-05</span>
-        </span>
-        <span class="bd">
-          <span><span class="nm">リノベーション</span><span class="ct mono">リノベーション・その他</span></span>
-          <span class="ar" aria-hidden="true">&#8594;</span>
-        </span>
-      </a>
-      <a class="wcard" href="construction-advance-works.html#w06" data-sheet="C-01" data-name="施工事例 一覧">
-        <span class="fr">
-          <img src="images/construction/construction_menu_shop.webp" alt="店舗・オフィスの内装。木の什器と間接照明でまとめた落ち着いた空間" loading="lazy" decoding="async">
-          <span class="pl mono">W-06</span>
-        </span>
-        <span class="bd">
-          <span><span class="nm">店舗・オフィス</span><span class="ct mono">リノベーション・その他</span></span>
-          <span class="ar" aria-hidden="true">&#8594;</span>
-        </span>
-      </a>
-    </div>
+    <p class="lede rv">現しにすると、木の面がそのまま部屋の表情になります。だから材は、張った直後の色ではなく、何年か経ったあとの色で選びます。</p>
 
-    <p class="legend mono rv">
-      <span><i></i>W-01 &#8212; W-04 &nbsp;注文住宅</span>
-      <span><i class="dash"></i>W-05 &#8212; W-06 &nbsp;リノベーション・その他</span>
-    </p>
-
-    <a class="morelink rv" href="construction-advance-works.html" data-sheet="C-01" data-name="施工事例 一覧">
-      <b>施工事例を一覧で見る</b>
-      <span class="mono">SHEET C-01 &nbsp;/&nbsp; PLATE W-01 &#8212; W-06 &nbsp;&#8594;</span>
-    </a>
-    <a class="morelink ghost rv" href="construction-advance-work-detail.html" data-sheet="D-01" data-name="施工事例 詳細">
-      <b>W-02 和モダン住宅を1件まるごと見る</b>
-      <span class="mono">SHEET D-01 &nbsp;/&nbsp; WORK DETAIL &nbsp;&#8594;</span>
-    </a>
-  </div>
-</section>
-
-<!-- ============ A-06 家づくりの流れ ============ -->
-<section class="sec gridbg" id="flow" aria-labelledby="flowH">
-  <div class="wrap">
-    <div class="sheet-tag mono rv">
-      <span class="no">A-06</span>
-      <h2 class="ttl" id="flowH">家づくりの流れ</h2>
-      <span class="sp">STEP 01 &#8212; 04</span>
-    </div>
-
-    <p class="lede rv">はじめてのご相談から、お引き渡しのあとの点検まで。どの段階で何を決めるのかを、順番に並べています。決めきれないところは、決めないまま次に進めても構いません。</p>
-
-    <div class="pflow rv" style="margin-top:clamp(24px,3.4vw,40px);background:var(--paper-2)">
-      <ol>
-        <li>
-          <p class="n mono">STEP 01</p>
-          <h3>ご相談・プラン作成</h3>
-          <p>暮らし方とご予算をうかがってから、間取りの方向性を一緒に整理します。気になっている点は、この段階で全部出してください。</p>
-          <p class="tick" aria-hidden="true"><svg width="72" height="8" viewBox="0 0 72 8" focusable="false"><path d="M1,4 H71 M1,1 V7 M71,1 V7 M18,2 V6 M36,2 V6 M54,2 V6" stroke="#D6D2C9" fill="none"/></svg></p>
-        </li>
-        <li>
-          <p class="n mono">STEP 02</p>
-          <h3>現地調査・敷地確認</h3>
-          <p>日当たりや風の抜け、隣家との距離を実際に見て確かめます。図面の上だけでは分からないことが、現地に立つと見えてきます。</p>
-          <p class="tick" aria-hidden="true"><svg width="72" height="8" viewBox="0 0 72 8" focusable="false"><path d="M1,4 H71 M1,1 V7 M71,1 V7 M18,2 V6 M36,2 V6 M54,2 V6" stroke="#D6D2C9" fill="none"/></svg></p>
-        </li>
-        <li>
-          <p class="n mono">STEP 03</p>
-          <h3>着工・上棟</h3>
-          <p>基礎から軸組まで、工程ごとに現場の状況をご報告します。壁で隠れてしまう前の姿は、この時期にしか見られません。</p>
-          <p class="tick" aria-hidden="true"><svg width="72" height="8" viewBox="0 0 72 8" focusable="false"><path d="M1,4 H71 M1,1 V7 M71,1 V7 M18,2 V6 M36,2 V6 M54,2 V6" stroke="#D6D2C9" fill="none"/></svg></p>
-        </li>
-        <li>
-          <p class="n mono">STEP 04</p>
-          <h3>お引き渡し・メンテナンス</h3>
-          <p>お引き渡しがゴールではありません。完成後も定期的に伺い、傷みが出る前に手を入れます。</p>
-          <p class="tick" aria-hidden="true"><svg width="72" height="8" viewBox="0 0 72 8" focusable="false"><path d="M1,4 H71 M1,1 V7 M71,1 V7 M18,2 V6 M36,2 V6 M54,2 V6" stroke="#D6D2C9" fill="none"/></svg></p>
-        </li>
-      </ol>
-    </div>
-
-    <a class="morelink ghost rv" href="construction-advance-flow.html" data-sheet="E-01" data-name="家づくりの流れ">
-      <b>各ステップで決めることをくわしく見る</b>
-      <span class="mono">SHEET E-01 &nbsp;/&nbsp; PROCESS &nbsp;&#8594;</span>
-    </a>
-  </div>
-</section>
-
-<!-- ============ A-07 保証・費用・質問 ============ -->
-<section class="sec" id="support" aria-labelledby="supportH">
-  <div class="wrap">
-    <div class="sheet-tag mono rv">
-      <span class="no">A-07</span>
-      <h2 class="ttl" id="supportH">保証・費用・ご質問</h2>
-      <span class="sp">SHEET F-01 / G-01 / H-01</span>
-    </div>
-
-    <div class="cards rv">
-      <a class="card" href="construction-advance-warranty.html" data-sheet="F-01" data-name="保証とアフターサービス">
-        <span class="top mono"><span class="no">F-01</span><span>AFTER SERVICE</span></span>
-        <svg class="mi" viewBox="0 0 320 96" aria-hidden="true" focusable="false">
-          <path d="M1,70 H300 M300,70 l-9,-6 M300,70 l-9,6" class="bold"/>
-          <path d="M60,70 V38 M140,70 V46 M220,70 V54" />
-          <path d="M50,38 H70 M130,46 H150 M210,54 H230" class="accent"/>
-          <path d="M1,84 H319" class="hair"/>
-        </svg>
-        <span>
-          <h3>保証とアフターサービス</h3>
-          <p>お引き渡しのあと、どの時期に何を見るのか。傷みが出る前に手を入れるための考え方をまとめています。</p>
-        </span>
-        <span class="go mono">VIEW SHEET<i></i>&#8594;</span>
-      </a>
-
-      <a class="card" href="construction-advance-cost.html" data-sheet="G-01" data-name="土地と費用の考え方">
-        <span class="top mono"><span class="no">G-01</span><span>LAND &amp; COST</span></span>
-        <svg class="mi" viewBox="0 0 320 96" aria-hidden="true" focusable="false">
-          <rect x="1" y="20" width="318" height="60" class="hair"/>
-          <rect x="40" y="34" width="140" height="46" class="bold"/>
-          <rect x="210" y="46" width="70" height="34" class="accent"/>
-          <path d="M1,10 H319 M1,5 V15 M319,5 V15" class="thin"/>
-        </svg>
-        <span>
-          <h3>土地と費用の考え方</h3>
-          <p>建物だけでは家は建ちません。土地、建物、そのほかにかかるものを分けて、順番に考えます。</p>
-        </span>
-        <span class="go mono">VIEW SHEET<i></i>&#8594;</span>
-      </a>
-
-      <a class="card" href="construction-advance-faq.html" data-sheet="H-01" data-name="よくある質問">
-        <span class="top mono"><span class="no">H-01</span><span>QUESTIONS</span></span>
-        <svg class="mi" viewBox="0 0 320 96" aria-hidden="true" focusable="false">
-          <path d="M1,20 H26 M40,20 H319" class="bold"/>
-          <path d="M1,48 H26 M40,48 H280"/>
-          <path d="M1,76 H26 M40,76 H305"/>
-          <path d="M26,12 V28" class="accent"/>
-        </svg>
-        <span>
-          <h3>よくある質問</h3>
-          <p>相談のタイミング、打ち合わせの回数、工期のこと。よくいただく質問をまとめました。</p>
-        </span>
-        <span class="go mono">VIEW SHEET<i></i>&#8594;</span>
-      </a>
-    </div>
-
-    <p class="note-s mono rv">
-      <svg width="52" height="8" viewBox="0 0 52 8" aria-hidden="true" focusable="false"><path d="M1,4 H51 M1,1 V7 M51,1 V7" stroke="#5C6169" fill="none"/></svg>
-      保証の期間や費用の目安など、具体的な数字は各シートでご確認ください
-    </p>
-  </div>
-</section>
-
-<!-- ============ A-08 概要・お問い合わせ ============ -->
-<section class="sec paperbg" id="info" aria-labelledby="infoH">
-  <div class="wrap">
-    <div class="sheet-tag mono rv">
-      <span class="no">A-08</span>
-      <h2 class="ttl" id="infoH">概要・お問い合わせ</h2>
-      <span class="sp">GENERAL NOTES</span>
-    </div>
-
-    <dl class="notes rv">
-      <div class="note">
-        <dt class="id mono">NOTE 01</dt>
-        <dd class="k mono" style="grid-column:2">NAME</dd>
-        <dd class="v">福岡匠建<small>社名</small></dd>
-      </div>
-      <div class="note">
-        <dt class="id mono">NOTE 02</dt>
-        <dd class="k mono" style="grid-column:2">ADDRESS</dd>
-        <dd class="v">福岡県福岡市〇〇区〇〇5-3-1<small>住所</small></dd>
-      </div>
-      <div class="note">
-        <dt class="id mono">NOTE 03</dt>
-        <dd class="k mono" style="grid-column:2">OPEN</dd>
-        <dd class="v"><span class="mono">8:30 &#8212; 17:30</span><small>営業時間</small></dd>
-      </div>
-      <div class="note">
-        <dt class="id mono">NOTE 04</dt>
-        <dd class="k mono" style="grid-column:2">CLOSED</dd>
-        <dd class="v">日曜日<small>定休日</small></dd>
-      </div>
-      <div class="note">
-        <dt class="id mono">NOTE 05</dt>
-        <dd class="k mono" style="grid-column:2">WORKS</dd>
-        <dd class="v">新築・リフォーム／注文住宅・リノベーション・店舗<small>対応業務</small></dd>
-      </div>
-      <div class="note">
-        <dt class="id mono">NOTE 06</dt>
-        <dd class="k mono" style="grid-column:2">CONTACT</dd>
-        <dd class="v"><span class="mono">info@example.com</span><small>お問い合わせ</small></dd>
-      </div>
-    </dl>
-
-    <div class="hours rv">
-      <p class="cap mono">OPENING HOURS &#8212; DIMENSION</p>
-      <div class="hrow">
-        <span class="t mono">8:30</span>
-        <span class="dim" aria-hidden="true">
-          <span class="val mono">9.0 h</span>
-          <span class="dl">
-            <svg class="cap" width="16" height="11" viewBox="0 0 16 11" focusable="false"><path d="M15,5.5 H1 M1,0.5 V10.5 M1,5.5 l8,-3.4 M1,5.5 l8,3.4" stroke="#14171A" stroke-width="1.2" fill="none"/></svg>
-            <span class="ln"></span>
-            <svg class="cap" width="16" height="11" viewBox="0 0 16 11" focusable="false"><path d="M1,5.5 H15 M15,0.5 V10.5 M15,5.5 l-8,-3.4 M15,5.5 l-8,3.4" stroke="#14171A" stroke-width="1.2" fill="none"/></svg>
-          </span>
-        </span>
-        <span class="t mono">17:30</span>
-      </div>
-      <div class="ruler" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-      <div class="hfoot mono"><span>OPEN</span><span>CLOSE</span></div>
-      <p class="hclosed mono">CLOSED : SUN &#65372; 定休日 日曜日</p>
-    </div>
+    <ul class="nlist rv" style="margin-top:clamp(20px,2.8vw,32px)">
+      <li>
+        <span class="id mono">MT-01</span>
+        <div>
+          <h4>年数が経ったあとの色で選ぶ</h4>
+          <p>木の面が見えるぶん、年数が経ってどう色が変わるかまで考えて材を選んでいます。</p>
+        </div>
+      </li>
+      <li>
+        <span class="id mono">MT-02</span>
+        <div>
+          <h4>見本を手に取って決める</h4>
+          <p>打ち合わせスペースには実際の木の見本を置いています。手に取りながら、床や建具の材を決めていただけます。図面と写真だけでは分かりにくいところは、現物でご確認ください。</p>
+        </div>
+      </li>
+      <li>
+        <span class="id mono">MT-03</span>
+        <div>
+          <h4>この住まいで使った樹種・仕上げ</h4>
+          <p>柱と梁は杉、造作はタモを使っています。現しの部分が多いので、木目の出方と節の位置まで見て一本ずつ選びました。</p>
+        </div>
+      </li>
+    </ul>
 
     <div class="cta rv">
       <a href="mailto:info@example.com">
@@ -1564,12 +1461,17 @@ html.pt-hold .pt{opacity:1;visibility:visible}
       </a>
     </div>
 
-    <a class="morelink ghost rv" href="construction-advance-contact.html" data-sheet="J-01" data-name="アクセス・お問い合わせ">
-      <b>事務所の場所とご相談のはじめ方</b>
-      <span class="mono">SHEET J-01 &nbsp;/&nbsp; ACCESS &amp; CONTACT &nbsp;&#8594;</span>
+    <a class="morelink rv" href="construction-advance-flow.html" data-sheet="E-01" data-name="家づくりの流れ">
+      <b>ご相談から引き渡しまでの流れを見る</b>
+      <span class="mono">SHEET E-01 &nbsp;/&nbsp; STEP 01 &#8212; 04 &nbsp;&#8594;</span>
+    </a>
+    <a class="morelink ghost rv" href="construction-advance-works.html" data-sheet="C-01" data-name="施工事例 一覧">
+      <b>ほかの施工事例を一覧で見る</b>
+      <span class="mono">SHEET C-01 &nbsp;/&nbsp; PLATE W-01 &#8212; W-06 &nbsp;&#8594;</span>
     </a>
   </div>
 </section>
+
 </main>
 
 <!-- ===== フッター ===== -->
@@ -1584,7 +1486,7 @@ html.pt-hold .pt{opacity:1;visibility:visible}
       <span class="b">
         <a href="mailto:info@example.com" class="mono">MAIL &nbsp;info@example.com</a>
         <a href="https://lin.ee/z3rP0hO" class="mono">LINE &nbsp;24H</a>
-        <a href="construction-advance-contact.html" class="mono" data-sheet="J-01" data-name="アクセス・お問い合わせ">J-01 &nbsp;アクセス</a>
+        <a class="mono" href="construction-advance-contact.html" data-sheet="J-01" data-name="アクセス・お問い合わせ">J-01 &nbsp;アクセス</a>
       </span>
     </div>
 
@@ -1592,7 +1494,7 @@ html.pt-hold .pt{opacity:1;visibility:visible}
       <div>
         <p class="gl mono">A &nbsp;GENERAL &#8212; 総則</p>
         <ul>
-          <li><a href="construction-advance.html" aria-current="page" data-sheet="A-01" data-name="トップ"><span class="n">A-01</span>トップ</a></li>
+          <li><a href="construction-advance.html" data-sheet="A-01" data-name="トップ"><span class="n">A-01</span>トップ</a></li>
         </ul>
       </div>
       <div>
@@ -1600,7 +1502,7 @@ html.pt-hold .pt{opacity:1;visibility:visible}
         <ul>
           <li><a href="construction-advance-service.html" data-sheet="B-01" data-name="サービス・工法"><span class="n">B-01</span>サービス・工法</a></li>
           <li><a href="construction-advance-works.html" data-sheet="C-01" data-name="施工事例 一覧"><span class="n">C-01</span>施工事例 一覧</a></li>
-          <li><a href="construction-advance-work-detail.html" data-sheet="D-01" data-name="施工事例 詳細"><span class="n">D-01</span>施工事例 詳細</a></li>
+          <li><a href="construction-advance-work-detail.html" aria-current="page" data-sheet="D-01" data-name="施工事例 詳細"><span class="n">D-01</span>施工事例 詳細</a></li>
           <li><a href="construction-advance-flow.html" data-sheet="E-01" data-name="家づくりの流れ"><span class="n">E-01</span>家づくりの流れ</a></li>
         </ul>
       </div>
@@ -1647,7 +1549,7 @@ html.pt-hold .pt{opacity:1;visibility:visible}
   var doc = document.documentElement;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var HREF = /^construction-advance(-[a-z-]+)?\.html(#.*)?$/;
-  var CURRENT = 'A-01';
+  var CURRENT = 'D-01';
 
   function unhold(){ doc.className = doc.className.replace(/\s*\bpt-hold\b/, ''); }
 
@@ -1684,7 +1586,7 @@ html.pt-hold .pt{opacity:1;visibility:visible}
     /* 入場：直前のシート番号があれば FROM に出す */
     var from = null;
     try { from = window.sessionStorage.getItem('fkFrom'); } catch (e) { from = null; }
-    paintCard(from && from !== CURRENT ? from : null, CURRENT, 'トップ');
+    paintCard(from && from !== CURRENT ? from : null, CURRENT, '施工事例 詳細');
     pt.classList.add('enter');
     enterTimer = window.setTimeout(function(){ pt.classList.remove('enter'); unhold(); }, 620);
 
