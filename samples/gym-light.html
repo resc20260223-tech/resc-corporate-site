@@ -2,434 +2,882 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FORGE（フォージ）｜福岡中央区のパーソナルジム</title>
-<meta name="description" content="福岡市中央区のパーソナルジムFORGE（フォージ）。完全予約制のマンツーマン指導で、初心者も安心。シャワー・ウェア無料。">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FORGE｜パーソナルジム</title>
+<meta name="description" content="福岡市中央区・天神の完全予約制パーソナルジム FORGE。マンツーマン指導で、トレーニング経験がない方も無理なく確実に。シャワー・ウェアは無料。料金・トレーナー・営業時間をご案内します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #16181B;
-    --ink-2: #2A2D31;
-    --bg: #F5F3F0;
-    --white: #FFFFFF;
-    --accent: #E4572E;
-    --text-dark: #201D1A;
-    --text-muted: #6B6560;
-    --line: #E2DED8;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text-dark); line-height: 1.8; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
+/* ============ tokens ============ */
+:root{
+  --ink:#121211;
+  --ink-2:#1C1D1B;
+  --ink-3:#262724;
+  --concrete:#CFCEC9;
+  --concrete-d:#BFBEB8;
+  --paper:#DCDBD6;
+  --muted:#4A4A45;
+  --rule:#9E9D96;
+  --rule-strong:#121211;
+  --on-dark:#E8E7E2;
+  --on-dark-mute:#9E9E97;
+  --dark-rule:#3A3B37;
+  --lime:#C3F53C;
+  --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif;
+  --pad:clamp(18px,5vw,64px);
+  --maxw:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--concrete);color:var(--ink);
+  font-family:var(--jp);font-weight:400;line-height:1.85;
+  font-size:15px;letter-spacing:.02em;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0;padding:0}
+ul{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.dark :focus-visible,.notice :focus-visible{outline-color:var(--lime)}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.skip{position:absolute;left:-9999px;top:0;z-index:99}
+.skip:focus{left:8px;top:8px;background:var(--ink);color:var(--lime);padding:10px 16px}
 
-  .notice {
-    background: var(--ink); color: #fff; text-align: center;
-    font-size: 12.5px; padding: 8px 16px;
-  }
-  .notice a { color: #fff; text-decoration: underline; }
+/* ============ notice ============ */
+.notice{background:var(--ink);color:var(--on-dark);font-size:12.5px;line-height:1.6}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;padding-block:9px}
+.notice__tag{
+  font-family:var(--num);font-weight:700;font-size:13px;letter-spacing:.14em;
+  background:var(--lime);color:var(--ink);padding:1px 8px 0
+}
+.notice a{color:var(--lime);text-decoration:underline;text-underline-offset:3px;font-weight:500}
 
-  /* ── 画像プレースホルダー ── */
-  .ph {
-    background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 55%, var(--ink) 100%);
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(245,243,240,.4);
-    font-size: 12.5px; letter-spacing: .28em; font-weight: 700;
-  }
+/* ============ header ============ */
+.head{background:var(--ink);color:var(--on-dark);border-bottom:1px solid var(--dark-rule)}
+.head .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;padding-block:14px}
+.brand{display:flex;align-items:baseline;gap:10px;flex:0 0 auto}
+.brand__mark{font-family:var(--num);font-weight:700;font-size:30px;letter-spacing:.18em;line-height:1}
+.brand__sub{font-size:10.5px;letter-spacing:.18em;color:var(--on-dark-mute)}
+.nav{display:flex;flex-wrap:wrap;gap:4px 20px;margin-left:auto}
+.nav a{
+  font-size:12px;letter-spacing:.1em;text-decoration:none;color:var(--on-dark);
+  padding:4px 0;position:relative
+}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--lime);transition:right .25s}
+.nav a:hover::after{right:0}
+.head__cta{
+  flex:0 0 auto;background:var(--lime);color:var(--ink);text-decoration:none;
+  font-weight:700;font-size:12.5px;letter-spacing:.06em;padding:9px 16px;white-space:nowrap
+}
+.head__cta:hover{background:#D3FF5E}
 
-  /* ── Nav ── */
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(22,24,27,.95); backdrop-filter: blur(6px);
-    height: 64px;
-  }
-  .nav-in {
-    max-width: 1120px; margin: 0 auto; height: 100%;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 24px;
-  }
-  .logo { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 20px; letter-spacing: .1em; color: #fff; }
-  .logo span { color: var(--accent); }
-  .nav-links { display: flex; align-items: center; gap: 28px; }
-  .nav-links a { color: rgba(255,255,255,.82); font-size: 13.5px; font-weight: 700; white-space: nowrap; }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a.btn { background: var(--accent); color: #fff; padding: 9px 18px; border-radius: 4px; }
-  .nav-toggle {
-    display: none;
-    width: 44px; height: 44px;
-    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-    background: transparent; border: none; cursor: pointer;
-  }
-  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+/* ============ hero ============ */
+.hero{position:relative;background:var(--ink);color:var(--on-dark);overflow:hidden}
+.hero__media{position:absolute;inset:0}
+.hero__media img{width:100%;height:100%;object-fit:cover;aspect-ratio:1376/768;opacity:.5}
+.hero__veil{position:absolute;inset:0;background:linear-gradient(105deg,#0C0C0Bef 0%,#0C0C0Bd6 42%,#0C0C0B70 100%)}
+.hero__inner{position:relative;padding-block:clamp(64px,13vw,150px)}
+.hero__eye{
+  display:inline-flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.16em;
+  color:var(--on-dark);margin-bottom:clamp(20px,4vw,34px)
+}
+.hero__eye::before{content:"";width:26px;height:8px;background:var(--lime);flex:0 0 auto}
+h1{display:block;margin:0}
+.h1-brand{
+  display:block;font-family:var(--num);font-weight:700;
+  font-size:clamp(76px,17vw,206px);line-height:.82;letter-spacing:.02em;
+  color:var(--on-dark)
+}
+.h1-catch{
+  display:block;font-weight:900;line-height:1.32;letter-spacing:.01em;
+  font-size:clamp(21px,4.4vw,44px);margin-top:clamp(18px,3vw,30px)
+}
+.h1-catch em{font-style:normal;color:var(--lime)}
+.hero__lead{
+  position:relative;margin-top:clamp(26px,4vw,40px);max-width:44em;
+  font-size:clamp(13.5px,1.35vw,15.5px);line-height:2.05;color:var(--on-dark);
+  border-left:2px solid var(--lime);padding-left:18px
+}
+/* spec strip */
+.strip{background:var(--ink-2);border-top:1px solid var(--dark-rule);color:var(--on-dark)}
+.strip__grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.strip__cell{padding:clamp(16px,2.6vw,26px) clamp(10px,2vw,26px);border-left:1px solid var(--dark-rule)}
+.strip__cell:first-child{border-left:0;padding-left:0}
+.strip__k{font-family:var(--num);font-weight:600;font-size:12px;letter-spacing:.2em;color:var(--lime);display:block}
+.strip__v{display:block;font-weight:700;font-size:clamp(13px,1.7vw,19px);line-height:1.5;margin-top:4px}
 
-  /* ── Hero ── */
-  .hero {
-    background: var(--ink);
-    display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 40px;
-    max-width: 1120px; margin: 0 auto; padding: 90px 24px 80px;
-  }
-  .hero-eyebrow { font-size: 12px; letter-spacing: .24em; color: var(--accent); font-weight: 700; margin-bottom: 16px; }
-  .hero h1 { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: clamp(28px, 4.6vw, 46px); font-weight: 900; color: #fff; line-height: 1.4; margin-bottom: 20px; }
-  .hero h1 em { font-style: normal; color: var(--accent); }
-  .hero p.lead { color: rgba(255,255,255,.72); font-size: 15px; max-width: 32em; margin-bottom: 32px; }
-  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn-main {
-    display: inline-block; background: var(--accent); color: #fff; font-weight: 700; font-size: 14.5px;
-    padding: 14px 30px; border-radius: 4px; text-decoration: none; transition: transform .15s ease;
-  }
-  .btn-main:hover { transform: translateY(-2px); }
-  .btn-ghost {
-    display: inline-block; border: 1px solid rgba(255,255,255,.4); color: #fff; font-weight: 700; font-size: 14.5px;
-    padding: 13px 28px; border-radius: 4px; text-decoration: none;
-  }
-  .hero-visual { aspect-ratio: 4/3; border-radius: 8px; width: 100%; height: auto; object-fit: cover; }
+/* ============ section shell ============ */
+.sec{padding-block:clamp(58px,8.5vw,116px)}
+.sec--paper{background:var(--paper)}
+.sec--dark{background:var(--ink);color:var(--on-dark)}
+.shead{border-top:2px solid var(--rule-strong);padding-top:16px;margin-bottom:clamp(30px,4.5vw,54px)}
+.sec--dark .shead{border-color:var(--lime)}
+.shead__row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.shead__no{font-family:var(--num);font-weight:700;font-size:15px;letter-spacing:.14em;color:var(--muted)}
+.sec--dark .shead__no{color:var(--on-dark-mute)}
+.shead__en{font-family:var(--num);font-weight:600;font-size:15px;letter-spacing:.24em;color:var(--muted)}
+.sec--dark .shead__en{color:var(--lime)}
+.shead h2{font-weight:900;font-size:clamp(25px,4.2vw,46px);line-height:1.28;letter-spacing:.01em;margin-top:8px}
+.shead__note{margin-top:12px;max-width:46em;font-size:14px;line-height:1.95;color:var(--muted)}
+.sec--dark .shead__note{color:var(--on-dark-mute)}
 
-  /* ── Scroll reveal ── */
-  .reveal {
-    opacity: 0; transform: translateY(24px);
-    transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
-  }
-  .reveal.is-visible { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
+/* ============ reasons ============ */
+.reasons{display:grid;gap:0}
+.reason{
+  display:grid;grid-template-columns:minmax(118px,.62fr) minmax(0,1.5fr) minmax(0,1.2fr);
+  gap:clamp(18px,3vw,44px);align-items:start;
+  border-top:1px solid var(--rule);padding-block:clamp(24px,3.4vw,42px)
+}
+.reason:last-child{border-bottom:1px solid var(--rule)}
+.reason p.reason__no{font-family:var(--num);font-weight:700;font-size:clamp(58px,9vw,124px);line-height:.8;
+  letter-spacing:.01em;color:var(--ink)}
+.reason p.reason__no .z{color:var(--rule)}
+.reason h3{font-weight:900;font-size:clamp(18px,2.3vw,27px);line-height:1.45;margin-bottom:12px}
+.reason p{font-size:14.5px;line-height:2;color:var(--muted)}
+.reason__fig{margin:0}
+.reason__fig img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:grayscale(.15) contrast(1.05)}
 
-  /* ── Sections common ── */
-  .sec { max-width: 1120px; margin: 0 auto; padding: 76px 24px; }
-  .sec-eyebrow { font-size: 12px; letter-spacing: .22em; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
-  .sec-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: clamp(22px, 3.2vw, 30px); font-weight: 900; color: var(--ink); margin-bottom: 36px; }
+/* ============ photo band ============ */
+.band{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--ink)}
+.band img{width:100%;aspect-ratio:1200/670;object-fit:cover}
 
-  /* ── 選ばれる理由 ── */
-  .reasons { background: var(--white); }
-  .reason-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .reason-card { padding: 30px 24px; border: 1px solid var(--line); border-radius: 8px; }
-  .reason-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 13px; font-weight: 900; color: var(--accent); letter-spacing: .1em; margin-bottom: 14px; }
-  .reason-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-  .reason-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.85; }
+/* ============ price ============ */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,20px)}
+.plan{border:1px solid var(--rule-strong);background:var(--concrete);display:flex;flex-direction:column}
+.sec--paper .plan{background:var(--paper)}
+.plan__hd{padding:clamp(16px,2vw,24px);border-bottom:1px solid var(--rule-strong)}
+.plan__name{font-weight:900;font-size:clamp(15px,1.9vw,20px);line-height:1.4}
+.plan__en{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;color:var(--muted);display:block;margin-bottom:6px}
+.plan__price{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-top:12px}
+.plan__yen{font-family:var(--num);font-weight:700;font-size:clamp(38px,5.6vw,62px);line-height:.9;letter-spacing:.005em}
+.plan__unit{flex:0 0 100%;font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.04em;margin-top:6px}
+.plan__body{padding:clamp(16px,2vw,24px);display:flex;flex-direction:column;gap:14px;flex:1}
+.plan__desc{font-size:13.5px;line-height:1.9;color:var(--muted)}
+.plan__list{display:flex;flex-direction:column;gap:8px;font-size:13.5px;line-height:1.65}
+.plan__list li{display:grid;grid-template-columns:14px 1fr;gap:8px;align-items:start}
+.plan__list li::before{content:"";width:8px;height:8px;background:var(--ink);margin-top:8px}
 
-  /* ── 料金 ── */
-  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .plan-card {
-    background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 30px 26px;
-    display: flex; flex-direction: column;
-  }
-  .plan-card.highlight { border: 2px solid var(--accent); box-shadow: 0 10px 26px rgba(0,0,0,.08); }
-  .plan-name { font-size: 15px; font-weight: 700; color: var(--text-muted); letter-spacing: .06em; margin-bottom: 12px; }
-  .plan-price { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 30px; font-weight: 900; color: var(--ink); margin-bottom: 4px; }
-  .plan-price span { font-size: 13px; font-weight: 500; color: var(--text-muted); }
-  .plan-desc { font-size: 12.5px; color: var(--text-muted); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed var(--line); }
-  .plan-list { font-size: 13px; color: var(--text-dark); margin-bottom: 22px; }
-  .plan-list li { list-style: none; padding: 6px 0; }
-  .plan-list li::before { content: "・"; color: var(--accent); font-weight: 700; }
-  .plan-cta {
-    margin-top: auto; text-align: center; padding: 12px; border-radius: 4px; font-weight: 700; font-size: 13.5px;
-    background: var(--ink); color: #fff; text-decoration: none;
-  }
+/* ---- unit-price chart ---- */
+.chart{background:var(--ink);color:var(--on-dark);margin-top:clamp(28px,4vw,48px);padding:clamp(20px,3.2vw,40px)}
+.chart__hd{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:flex-end;justify-content:space-between;
+  border-bottom:1px solid var(--dark-rule);padding-bottom:16px}
+.chart__t{font-weight:900;font-size:clamp(17px,2.1vw,24px);line-height:1.4}
+.chart__t span{display:block;font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.22em;color:var(--lime);margin-bottom:5px}
+.toggle{display:flex;border:1px solid var(--dark-rule)}
+.toggle button{padding:7px 14px;font-size:12px;letter-spacing:.08em;font-weight:700;color:var(--on-dark-mute);cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--lime);color:var(--ink)}
+.calc{margin-top:20px;display:flex;flex-direction:column;gap:2px}
+.calc__cap{font-size:12px;letter-spacing:.08em;color:var(--on-dark-mute);margin-bottom:8px}
+.calc__row{
+  display:grid;grid-template-columns:minmax(96px,1fr) minmax(0,1.9fr);gap:6px 14px;
+  padding:7px 0;border-bottom:1px solid #2C2D29;font-size:13px;align-items:baseline
+}
+.calc__row b{font-weight:700}
+.calc__expr{font-family:var(--num);font-weight:600;font-size:clamp(15px,1.9vw,19px);letter-spacing:.03em;
+  font-variant-numeric:tabular-nums;color:var(--on-dark)}
+.calc__expr i{font-style:normal;color:var(--on-dark-mute)}
+.calc__expr u{text-decoration:none;color:var(--lime)}
 
-  /* ── トレーナー ── */
-  .trainer-sec { background: var(--white); }
-  .trainer-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: center; }
-  .trainer-photo { aspect-ratio: 3/4; border-radius: 8px; width: 100%; object-fit: cover; }
-  .trainer-name { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 22px; font-weight: 900; margin-bottom: 6px; }
-  .trainer-role { font-size: 13px; color: var(--accent); font-weight: 700; margin-bottom: 18px; letter-spacing: .04em; }
-  .trainer-bio { font-size: 14.5px; color: var(--text-muted); line-height: 2; }
+.plot{margin-top:26px;position:relative}
+.plot__axis{position:relative;height:22px;margin-left:var(--lab);border-bottom:1px solid var(--dark-rule)}
+.plot__tick{position:absolute;top:0;bottom:0;font-family:var(--num);font-weight:600;font-size:11.5px;
+  color:var(--on-dark-mute);letter-spacing:.06em;transform:translateX(-50%);white-space:nowrap}
+.plot__tick--f{transform:translateX(0)}
+.plot__tick--l{transform:translateX(-100%)}
+.plot{--lab:132px}
+.rows{position:relative}
+.grid{position:absolute;left:var(--lab);right:0;top:0;bottom:0;pointer-events:none}
+.grid i{position:absolute;top:0;bottom:0;width:1px;background:#2C2D29}
+.brow{display:grid;grid-template-columns:var(--lab) minmax(0,1fr);align-items:center;
+  padding:12px 0;position:relative;z-index:1}
+.brow__lab{font-size:12.5px;font-weight:700;line-height:1.4;padding-right:14px}
+.brow__lab em{display:block;font-style:normal;font-family:var(--num);font-weight:600;font-size:11px;
+  letter-spacing:.14em;color:var(--on-dark-mute)}
+.brow__track{position:relative;display:flex;align-items:center;gap:10px;min-height:24px}
+.bar{
+  height:22px;background:var(--lime);border-radius:0 4px 4px 0;
+  transform:scaleX(0);transform-origin:left center;transition:transform .85s cubic-bezier(.2,.7,.2,1);
+  flex:0 0 auto
+}
+.is-in .bar{transform:scaleX(1)}
+.brow:nth-child(2) .bar{transition-delay:.06s}
+.brow:nth-child(3) .bar{transition-delay:.12s}
+.brow:nth-child(4) .bar{transition-delay:.18s}
+.bar__v{font-family:var(--num);font-weight:700;font-size:clamp(17px,2.1vw,22px);letter-spacing:.03em;
+  color:var(--on-dark);white-space:nowrap;opacity:0;transition:opacity .4s .5s}
+.is-in .bar__v{opacity:1}
+.chart__foot{margin-top:16px;font-size:12px;line-height:1.85;color:var(--on-dark-mute);border-top:1px solid var(--dark-rule);padding-top:14px}
+/* table twin */
+.dtable{width:100%;border-collapse:collapse;margin-top:22px;font-size:13px}
+.dtable caption{text-align:left;font-size:12px;color:var(--on-dark-mute);padding-bottom:10px;letter-spacing:.06em}
+.dtable th,.dtable td{border-bottom:1px solid #2C2D29;padding:10px 8px;text-align:right;
+  font-variant-numeric:tabular-nums;font-family:var(--num);font-weight:600;font-size:15px;letter-spacing:.03em}
+.dtable th{color:var(--on-dark-mute);font-size:11.5px;letter-spacing:.12em;font-weight:600}
+.dtable th:first-child,.dtable td:first-child{text-align:left;font-family:var(--jp);font-weight:700;font-size:13px;letter-spacing:.02em}
+.dtable thead th{border-bottom:1px solid var(--dark-rule)}
+[hidden]{display:none !important}
 
-  /* ── FAQ ── */
-  .faq-item { border-bottom: 1px solid var(--line); }
-  .faq-item summary {
-    list-style: none; cursor: pointer; padding: 22px 4px; font-size: 15px; font-weight: 700;
-    display: flex; gap: 14px; align-items: flex-start;
-  }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::before { content: "Q"; color: var(--accent); font-weight: 900; flex: 0 0 auto; }
-  .faq-item p { padding: 0 4px 22px 24px; font-size: 13.5px; color: var(--text-muted); line-height: 1.9; }
+/* ============ trainer ============ */
+.trainer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(20px,3.4vw,52px);align-items:start}
+.trainer__fig{margin:0}
+.trainer__fig img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.trainer__cap{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.18em;color:var(--on-dark-mute);
+  border-top:1px solid var(--dark-rule);padding-top:8px;margin-top:10px}
+.trainer p{margin-top:18px;font-size:14.5px;line-height:2.05;color:var(--on-dark)}
+.trainer p.trainer__bio2{color:var(--on-dark-mute)}
+.trainer p.trainer__name{font-family:var(--jp);font-weight:900;font-size:clamp(24px,3.6vw,42px);
+  line-height:1.25;margin-top:0;color:var(--on-dark)}
+.trainer p.trainer__lic{display:inline-block;margin-top:16px;border:1px solid var(--lime);color:var(--lime);
+  font-size:12.5px;font-weight:700;letter-spacing:.06em;padding:6px 14px;line-height:1.4}
+.motto{border-top:1px solid var(--dark-rule);margin-top:26px;padding-top:22px}
+.trainer p.motto__q{font-weight:900;font-size:clamp(18px,2.6vw,28px);line-height:1.55;margin-top:0;
+  color:var(--on-dark)}
+.motto__q b{color:var(--lime);font-weight:900}
 
-  /* ── アクセス ── */
-  .access-sec { background: var(--white); }
-  .access-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-  .access-table div { display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
-  .access-table dt { flex: 0 0 90px; color: var(--text-muted); font-weight: 700; }
-  .access-map { aspect-ratio: 4/3; border-radius: 8px; }
+/* load graph */
+.loadfig{margin:clamp(26px,4vw,42px) 0 0;background:var(--ink-2);padding:clamp(16px,2.4vw,28px);border:1px solid var(--dark-rule)}
+.loadfig svg{width:100%;height:auto;display:block}
+.loadfig figcaption{margin-top:14px;font-size:12.5px;line-height:1.9;color:var(--on-dark-mute);
+  border-top:1px solid var(--dark-rule);padding-top:12px}
+.lgd{display:flex;flex-wrap:wrap;gap:8px 22px;margin-bottom:14px}
+.lgd span{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--on-dark)}
+.lgd i{width:22px;height:3px;background:var(--on-dark-mute);flex:0 0 auto}
+.lgd .k2 i{background:var(--lime)}
+.gpath{fill:none;stroke-linecap:round;stroke-linejoin:round}
 
-  /* ── お問い合わせ（見た目のみ） ── */
-  .contact-sec { background: var(--ink); }
-  .contact-sec .sec-title, .contact-sec .sec-eyebrow { color: #fff; }
-  .contact-sec .sec-eyebrow { color: var(--accent); }
-  .contact-lead { color: rgba(255,255,255,.7); font-size: 14px; margin-bottom: 34px; max-width: 34em; }
-  .form-grid { display: grid; gap: 18px; max-width: 560px; }
-  .form-row label { display: block; font-size: 12.5px; font-weight: 700; color: rgba(255,255,255,.85); margin-bottom: 8px; }
-  .form-row input, .form-row textarea {
-    width: 100%; font-family: inherit; font-size: 14.5px; color: var(--text-dark);
-    background: #fff; border: none; border-radius: 4px; padding: 12px 14px;
-  }
-  .form-row textarea { min-height: 120px; resize: vertical; }
-  .form-submit {
-    justify-self: start; background: var(--accent); color: #fff; font-weight: 700; font-size: 14px;
-    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer;
-  }
-  .line-btn {
-    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
-    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
-    line-height: 21px;
-  }
-  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
-  .form-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 14px; }
+/* ============ faq ============ */
+.faq{border-top:2px solid var(--rule-strong)}
+.faq__item{border-bottom:1px solid var(--rule)}
+.faq__btn{
+  width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;
+  text-align:left;padding:clamp(16px,2.2vw,24px) clamp(12px,1.6vw,18px);cursor:pointer;
+  transition:background .25s,color .25s
+}
+.faq__q{font-weight:700;font-size:clamp(14.5px,1.8vw,18px);line-height:1.6}
+.faq__no{font-family:var(--num);font-weight:700;font-size:clamp(20px,2.6vw,30px);line-height:1;color:var(--muted);
+  transition:color .25s}
+.faq__mk{position:relative;width:22px;height:16px;flex:0 0 auto}
+.faq__mk i{position:absolute;left:0;width:22px;height:2px;background:var(--ink);transition:transform .3s,background .25s}
+.faq__mk i:nth-child(1){top:4px}
+.faq__mk i:nth-child(2){top:10px}
+.faq__item.open .faq__btn{background:var(--ink);color:var(--on-dark)}
+.faq__item.open .faq__no{color:var(--lime)}
+.faq__item.open .faq__mk i{background:var(--lime)}
+.faq__item.open .faq__mk i:nth-child(1){transform:translateY(3px)}
+.faq__item.open .faq__mk i:nth-child(2){transform:translateY(-3px)}
+.faq__panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.faq__item.open .faq__panel{grid-template-rows:1fr}
+.faq__inner{overflow:hidden}
+.faq__a{padding:0 clamp(12px,1.6vw,18px) clamp(18px,2.4vw,26px) clamp(48px,6vw,74px);
+  font-size:14px;line-height:2.05;color:var(--muted)}
 
-  footer { text-align: center; padding: 26px 24px; font-size: 12px; color: var(--text-muted); background: var(--white); }
+/* ============ access ============ */
+.access{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(22px,3.6vw,54px);align-items:start}
+.info{border-top:1px solid var(--rule-strong)}
+.info div{display:grid;grid-template-columns:minmax(88px,.5fr) minmax(0,1.5fr);gap:10px 18px;
+  border-bottom:1px solid var(--rule);padding:13px 0}
+.info dt{font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--muted);padding-top:3px}
+.info dd{margin:0;font-size:14px;line-height:1.85;font-weight:500}
+.access__fig{margin:0}
+.access__fig img{width:100%;aspect-ratio:1200/670;object-fit:cover}
+.access__cap{font-size:11.5px;letter-spacing:.1em;color:var(--muted);border-top:1px solid var(--rule);padding-top:8px;margin-top:9px}
 
-  /* ── レスポンシブ ── */
-  @media (max-width: 860px) {
-    .nav-links { display: none; }
-    .nav-toggle { display: flex; }
-    .nav.open .nav-links {
-      display: flex; flex-direction: column; align-items: stretch; gap: 4px;
-      position: absolute; top: 64px; left: 0; right: 0;
-      background: var(--ink); padding: 12px 24px 20px;
-    }
-    .nav.open .nav-links a { padding: .8em .2em; }
-    .nav.open .nav-links a.btn { margin-top: 10px; text-align: center; }
-    .hero { grid-template-columns: 1fr; padding: 56px 20px 60px; }
-    .hero-visual { order: -1; aspect-ratio: 16/9; height: auto; }
-    .reason-grid { grid-template-columns: 1fr; }
-    .plan-grid { grid-template-columns: 1fr; }
-    .trainer-layout { grid-template-columns: 1fr; }
-    .trainer-photo { max-width: 260px; margin: 0 auto; }
-    .access-layout { grid-template-columns: 1fr; }
-    .sec { padding: 56px 20px; }
-  }
+/* week timeline */
+.week{margin-top:clamp(26px,4vw,44px);border-top:2px solid var(--rule-strong);padding-top:20px}
+.week__t{font-weight:900;font-size:clamp(16px,2vw,21px);margin-bottom:4px}
+.week__t span{display:block;font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.22em;color:var(--muted);margin-bottom:5px}
+.week__note{font-size:12.5px;color:var(--muted);margin-bottom:18px}
+.wk{--wlab:56px;--wend:64px}
+.wk__axis{position:relative;height:20px;margin-left:var(--wlab);margin-right:var(--wend);border-bottom:1px solid var(--rule)}
+.wk__tick{position:absolute;top:0;font-family:var(--num);font-weight:600;font-size:11px;color:var(--muted);
+  transform:translateX(-50%);white-space:nowrap;letter-spacing:.04em}
+.wk__rows{position:relative}
+.wk__grid{position:absolute;left:var(--wlab);right:var(--wend);top:0;bottom:0;pointer-events:none}
+.wk__grid i{position:absolute;top:0;bottom:0;width:1px;background:#B4B3AC}
+.wrow{display:grid;grid-template-columns:var(--wlab) minmax(0,1fr) var(--wend);align-items:center;
+  gap:0;padding:6px 0;position:relative;z-index:1}
+.wrow__d{font-weight:700;font-size:13px;letter-spacing:.06em}
+.wrow__d em{font-style:normal;font-family:var(--num);font-size:10.5px;letter-spacing:.14em;color:var(--muted);display:block;line-height:1.2}
+.wrow__track{position:relative;height:20px}
+.wbar{position:absolute;top:0;height:20px;background:var(--ink);border-radius:0 3px 3px 0;
+  transform:scaleX(0);transform-origin:left center;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.wk.is-in .wbar{transform:scaleX(1)}
+.wrow:nth-child(2) .wbar{transition-delay:.04s}
+.wrow:nth-child(3) .wbar{transition-delay:.08s}
+.wrow:nth-child(4) .wbar{transition-delay:.12s}
+.wrow:nth-child(5) .wbar{transition-delay:.16s}
+.wrow:nth-child(6) .wbar{transition-delay:.2s}
+.wrow:nth-child(7) .wbar{transition-delay:.24s}
+.wrow:nth-child(8) .wbar{transition-delay:.28s}
+.wrow--off .wrow__track::after{
+  content:"定休日";position:absolute;left:0;right:0;top:0;height:20px;
+  display:flex;align-items:center;padding-left:10px;
+  font-size:11.5px;font-weight:700;letter-spacing:.14em;color:var(--muted);
+  border:1px dotted #A9A8A1
+}
+.wrow__h{font-family:var(--num);font-weight:700;font-size:15px;text-align:right;
+  font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.wrow--off .wrow__h{color:var(--muted)}
+.wk__legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:14px;font-size:11.5px;color:var(--muted)}
+.wk__legend span{display:inline-flex;align-items:center;gap:7px}
+.wk__legend i{width:16px;height:10px;background:var(--ink)}
+.wk__legend .l3 i{background:none;border:1px dotted #8E8D87}
+.wk__hint{margin-top:8px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* ============ cta ============ */
+.cta{background:var(--lime);color:var(--ink)}
+.cta .wrap{padding-block:clamp(44px,6vw,80px)}
+.cta h2{font-weight:900;font-size:clamp(24px,4vw,46px);line-height:1.3}
+.cta__en{font-family:var(--num);font-weight:700;font-size:13px;letter-spacing:.26em;display:block;margin-bottom:10px}
+.cta p{margin-top:14px;font-size:14px;line-height:1.95;max-width:38em}
+.cta__btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(22px,3vw,34px)}
+.btn{
+  display:inline-flex;align-items:center;gap:12px;text-decoration:none;
+  font-weight:700;font-size:14.5px;letter-spacing:.04em;padding:16px 26px;border:2px solid var(--ink)
+}
+.btn--solid{background:var(--ink);color:var(--lime)}
+.btn--solid:hover{background:#000}
+.btn--ghost:hover{background:#0000000f}
+.btn em{font-style:normal;font-family:var(--num);font-weight:700;letter-spacing:.14em;font-size:12px;opacity:.75}
+
+/* ============ footer ============ */
+.foot{background:var(--ink);color:var(--on-dark-mute);font-size:12px}
+.foot .wrap{padding-block:30px;display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between}
+.foot__brand{font-family:var(--num);font-weight:700;font-size:22px;letter-spacing:.18em;color:var(--on-dark)}
+
+/* ============ reveal ============ */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.is-in{opacity:1;transform:none}
+
+/* ============ responsive ============ */
+@media (max-width:1024px){
+  .reason{grid-template-columns:minmax(96px,.8fr) minmax(0,1.5fr)}
+  .reason__fig{grid-column:1 / -1}
+  .reason__fig img{aspect-ratio:21/9}
+}
+@media (max-width:860px){
+  .trainer{grid-template-columns:1fr}
+  .trainer__fig img{aspect-ratio:16/10}
+  .access{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr}
+  .plan__price{margin-top:8px}
+  .plot{--lab:104px}
+  .brow__lab{font-size:12px;padding-right:10px}
+}
+@media (max-width:640px){
+  .strip__grid{grid-template-columns:1fr}
+  .strip__cell{border-left:0;border-top:1px solid var(--dark-rule);padding-left:0;padding-right:0}
+  .strip__cell:first-child{border-top:0}
+  .reason{grid-template-columns:1fr;gap:8px}
+  .reason__no{font-size:56px}
+  .band{grid-template-columns:1fr}
+  .plot{--lab:0}
+  .brow{grid-template-columns:1fr;gap:8px}
+  .brow__lab{padding-right:0}
+  .brow__track{flex-direction:column;align-items:flex-start;gap:6px}
+  .bar__v{font-size:18px}
+  .plot__axis{margin-left:0}
+  .grid{left:0}
+  .calc__row{grid-template-columns:1fr}
+  .wk{--wlab:44px;--wend:52px}
+  .wrow__d{font-size:12px}
+  .wrow__h{font-size:13px}
+  .info div{grid-template-columns:1fr;gap:2px}
+  .btn{width:100%;justify-content:space-between}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .rv{opacity:1 !important;transform:none !important}
+  .bar,.wbar{transform:scaleX(1) !important}
+  .bar__v{opacity:1 !important}
+  .gpath{stroke-dasharray:none !important;stroke-dashoffset:0 !important}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">本文へスキップ</a>
 
-<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+<div class="notice">
+  <div class="wrap">
+    <span class="notice__tag">SAMPLE</span>
+    <span>これはRESCが作成したサンプルサイトです。実店舗ではありません。</span>
+    <a href="../hp-service/index.html">RESCのサイトに戻る</a>
+  </div>
+</div>
 
-<nav class="nav" id="nav">
-  <div class="nav-in">
-    <a class="logo" href="#top">FOR<span>GE</span></a>
-    <div class="nav-links">
-      <a href="#pricing">料金</a>
+<header class="head">
+  <div class="wrap">
+    <div class="brand">
+      <span class="brand__mark">FORGE</span>
+      <span class="brand__sub">PERSONAL GYM / FUKUOKA</span>
+    </div>
+    <nav class="nav" aria-label="サイト内">
+      <a href="#reason">選ばれる理由</a>
+      <a href="#price">料金</a>
       <a href="#trainer">トレーナー</a>
       <a href="#faq">よくある質問</a>
       <a href="#access">アクセス</a>
-      <a class="btn" href="#contact">お問い合わせ</a>
-    </div>
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" aria-expanded="false" onclick="toggleNav()">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
+    </nav>
+    <a class="head__cta" href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a>
   </div>
-</nav>
+</header>
 
-<!-- ヒーロー -->
-<section class="hero" id="top">
-  <div>
-    <p class="hero-eyebrow">パーソナルジム</p>
-    <h1>本気になった日から、<br><em>変わりはじめる。</em></h1>
-    <p class="lead">福岡市中央区、完全予約制のマンツーマン指導。トレーニング経験がない方も、無理なく確実に。シャワー・ウェアは無料でご用意しています。</p>
-    <div class="hero-cta">
-      <a class="btn-main" href="#contact">無料カウンセリングへ</a>
-      <a class="btn-ghost" href="#pricing">料金を見る</a>
-    </div>
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__media">
+    <img src="images/gym/gym_hero.webp" alt="FORGEのトレーニングフロア。窓際に並んだダンベルラック" width="1376" height="768" fetchpriority="high">
+    <span class="hero__veil" aria-hidden="true"></span>
   </div>
-  <img class="hero-visual" src="images/gym/gym_hero.webp" alt="パーソナルジムFORGEのトレーニング風景" width="1376" height="768">
+  <div class="wrap hero__inner">
+    <p class="hero__eye">FUKUOKA CHUO-KU TENJIN / 完全予約制</p>
+    <h1>
+      <span class="h1-brand">FORGE</span>
+      <span class="h1-catch">本気になった日から、<br><em>変わりはじめる。</em></span>
+    </h1>
+    <p class="hero__lead">福岡市中央区、完全予約制のマンツーマン指導。トレーニング経験がない方も、無理なく確実に。シャワー・ウェアは無料でご用意しています。</p>
+  </div>
 </section>
 
-<!-- 選ばれる理由 -->
-<section class="sec reasons" id="reasons">
-  <p class="sec-eyebrow">Reason</p>
-  <h2 class="sec-title reveal">FORGEが選ばれる理由</h2>
-  <div class="reason-grid">
-    <div class="reason-card reveal">
-      <div class="reason-num">01</div>
-      <h3>完全予約制のマンツーマン</h3>
-      <p>他のお客様と時間が重なることはありません。専属トレーナーが、あなたの体だけを見て指導します。</p>
-    </div>
-    <div class="reason-card reveal">
-      <div class="reason-num">02</div>
-      <h3>初心者歓迎</h3>
-      <p>運動経験がなくても大丈夫。フォームの作り方から、無理のないペース配分まで丁寧にお伝えします。</p>
-    </div>
-    <div class="reason-card reveal">
-      <div class="reason-num">03</div>
-      <h3>シャワー・ウェア無料</h3>
-      <p>お仕事帰りでも手ぶらで通えます。タオル・シャワーウェアはすべて無料でご用意しています。</p>
+<section class="strip" aria-label="FORGEの基本方針">
+  <div class="wrap">
+    <div class="strip__grid">
+      <div class="strip__cell"><span class="strip__k">01 / SYSTEM</span><span class="strip__v">完全予約制のマンツーマン</span></div>
+      <div class="strip__cell"><span class="strip__k">02 / LEVEL</span><span class="strip__v">初心者歓迎</span></div>
+      <div class="strip__cell"><span class="strip__k">03 / AMENITY</span><span class="strip__v">シャワー・ウェア無料</span></div>
     </div>
   </div>
 </section>
 
-<!-- 料金 -->
-<section class="sec" id="pricing">
-  <p class="sec-eyebrow">Pricing</p>
-  <h2 class="sec-title reveal">料金プラン</h2>
-  <div class="plan-grid">
-    <div class="plan-card reveal">
-      <div class="plan-name">体験セッション</div>
-      <div class="plan-price">¥5,000<span> ／回</span></div>
-      <div class="plan-desc">初めての方へ。カウンセリング込み60分。</div>
-      <ul class="plan-list">
-        <li>カウンセリング</li>
-        <li>体組成測定</li>
-        <li>トレーニング体験60分</li>
-      </ul>
-      <a class="plan-cta" href="#contact">この内容で相談する</a>
+<!-- ============ REASON ============ -->
+<section class="sec" id="reason">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">SECTION 01</span><span class="shead__en">REASON</span></div>
+      <h2>選ばれる理由</h2>
     </div>
-    <div class="plan-card highlight reveal">
-      <div class="plan-name">スタンダード</div>
-      <div class="plan-price">¥28,000<span> ／月4回</span></div>
-      <div class="plan-desc">週1回のペースでじっくり。継続しやすい標準プラン。</div>
-      <ul class="plan-list">
-        <li>月4回・60分/回</li>
-        <li>食事アドバイス</li>
-        <li>シャワー・ウェア無料</li>
-      </ul>
-      <a class="plan-cta" href="#contact">この内容で相談する</a>
-    </div>
-    <div class="plan-card reveal">
-      <div class="plan-name">プレミアム</div>
-      <div class="plan-price">¥52,000<span> ／月8回</span></div>
-      <div class="plan-desc">週2回でしっかり結果を出したい方に。</div>
-      <ul class="plan-list">
-        <li>月8回・60分/回</li>
-        <li>食事アドバイス・LINE相談</li>
-        <li>シャワー・ウェア無料</li>
-      </ul>
-      <a class="plan-cta" href="#contact">この内容で相談する</a>
+
+    <div class="reasons">
+      <article class="reason rv">
+        <p class="reason__no" aria-hidden="true"><span class="z">0</span>1</p>
+        <div>
+          <h3>完全予約制のマンツーマン</h3>
+          <p>他のお客様と時間が重なることはありません。専属トレーナーが、あなたの体だけを見て指導します。</p>
+        </div>
+        <figure class="reason__fig">
+          <img src="images/gym/gym_trainer_1.webp" alt="フロアで一人だけがトレーニングに向かう様子" loading="lazy" width="1200" height="670">
+        </figure>
+      </article>
+
+      <article class="reason rv">
+        <p class="reason__no" aria-hidden="true"><span class="z">0</span>2</p>
+        <div>
+          <h3>初心者歓迎</h3>
+          <p>運動経験がなくても大丈夫。フォームの作り方から、無理のないペース配分まで丁寧にお伝えします。</p>
+        </div>
+        <figure class="reason__fig">
+          <img src="images/gym/gym_training_4.webp" alt="バーベルのシャフトを握る手元。フォームを確認しているところ" loading="lazy" width="1200" height="670">
+        </figure>
+      </article>
+
+      <article class="reason rv">
+        <p class="reason__no" aria-hidden="true"><span class="z">0</span>3</p>
+        <div>
+          <h3>シャワー・ウェア無料</h3>
+          <p>お仕事帰りでも手ぶらで通えます。タオル・シャワーウェアはすべて無料でご用意しています。</p>
+        </div>
+        <figure class="reason__fig">
+          <img src="images/gym/gym_facility_4.webp" alt="たたんだタオルが置かれたシャワー・更衣スペース" loading="lazy" width="1200" height="670">
+        </figure>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- トレーナー紹介 -->
-<section class="sec trainer-sec" id="trainer">
-  <p class="sec-eyebrow">Trainer</p>
-  <h2 class="sec-title reveal">担当トレーナー</h2>
-  <div class="trainer-layout reveal">
-    <img class="trainer-photo" src="images/gym/gym_trainer_1.webp" alt="トレーナー 佐藤healthy太郎の写真" width="1200" height="670" loading="lazy">
-    <div>
-      <div class="trainer-name">佐藤 healthy太郎</div>
-      <div class="trainer-role">NSCA認定パーソナルトレーナー</div>
-      <p class="trainer-bio">
-        大手フィットネスクラブでの指導経験を経て、FORGEを開業。「無理な追い込みより、続けられる負荷」をモットーに、一人ひとりの体力・目的に合わせたメニューを組み立てます。<br><br>
-        趣味はトレイルランニング。休日はご自身のトレーニングにも励んでいます。
-      </p>
+<div class="band">
+  <img src="images/gym/gym_facility_1.webp" alt="FORGEの受付カウンターとエントランス" loading="lazy" width="1200" height="670">
+  <img src="images/gym/gym_training_5.webp" alt="ケトルベルとトレーニングバンドを並べた床面" loading="lazy" width="1200" height="670">
+</div>
+
+<!-- ============ PRICE ============ -->
+<section class="sec sec--paper" id="price">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">SECTION 02</span><span class="shead__en">PRICE</span></div>
+      <h2>料金プラン</h2>
+      <p class="shead__note">3つのプランをご用意しています。総額だけでは比べにくいので、1回あたりの金額も計算してそのまま載せています。</p>
     </div>
+
+    <div class="plans rv">
+      <article class="plan">
+        <div class="plan__hd">
+          <span class="plan__en">PLAN A</span>
+          <h3 class="plan__name">体験セッション</h3>
+          <p class="plan__price"><span class="plan__yen">¥5,000</span><span class="plan__unit">／回</span></p>
+        </div>
+        <div class="plan__body">
+          <p class="plan__desc">初めての方へ。カウンセリング込み60分。</p>
+          <ul class="plan__list">
+            <li>カウンセリング</li>
+            <li>体組成測定</li>
+            <li>トレーニング体験60分</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div class="plan__hd">
+          <span class="plan__en">PLAN B</span>
+          <h3 class="plan__name">スタンダード</h3>
+          <p class="plan__price"><span class="plan__yen">¥28,000</span><span class="plan__unit">／月4回</span></p>
+        </div>
+        <div class="plan__body">
+          <p class="plan__desc">週1回のペースでじっくり。継続しやすい標準プラン。</p>
+          <ul class="plan__list">
+            <li>月4回・60分/回</li>
+            <li>食事アドバイス</li>
+            <li>シャワー・ウェア無料</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div class="plan__hd">
+          <span class="plan__en">PLAN C</span>
+          <h3 class="plan__name">プレミアム</h3>
+          <p class="plan__price"><span class="plan__yen">¥52,000</span><span class="plan__unit">／月8回</span></p>
+        </div>
+        <div class="plan__body">
+          <p class="plan__desc">週2回でしっかり結果を出したい方に。</p>
+          <ul class="plan__list">
+            <li>月8回・60分/回</li>
+            <li>食事アドバイス</li>
+            <li>LINE相談</li>
+            <li>シャワー・ウェア無料</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <!-- unit price chart -->
+    <section class="chart rv" id="unitchart" aria-labelledby="unitchart-t">
+      <div class="chart__hd">
+        <h3 class="chart__t" id="unitchart-t"><span>UNIT PRICE / 1 SESSION</span>1回あたりの金額</h3>
+        <div class="toggle" role="group" aria-label="表示切り替え">
+          <button type="button" id="btn-bar" aria-pressed="true">バー</button>
+          <button type="button" id="btn-tbl" aria-pressed="false">数値表</button>
+        </div>
+      </div>
+
+      <div class="calc">
+        <p class="calc__cap">計算過程</p>
+        <div class="calc__row"><b>体験セッション</b><span class="calc__expr">¥5,000 <i>÷</i> 1回 <i>=</i> <u>¥5,000</u> <i>/回</i></span></div>
+        <div class="calc__row"><b>スタンダード</b><span class="calc__expr">¥28,000 <i>÷</i> 4回 <i>=</i> <u>¥7,000</u> <i>/回</i></span></div>
+        <div class="calc__row"><b>プレミアム</b><span class="calc__expr">¥52,000 <i>÷</i> 8回 <i>=</i> <u>¥6,500</u> <i>/回</i></span></div>
+      </div>
+
+      <div class="plot" id="plot-bars">
+        <div class="plot__axis" aria-hidden="true">
+          <span class="plot__tick plot__tick--f" style="left:0%">¥0</span>
+          <span class="plot__tick" style="left:25%">¥2,000</span>
+          <span class="plot__tick" style="left:50%">¥4,000</span>
+          <span class="plot__tick" style="left:75%">¥6,000</span>
+          <span class="plot__tick plot__tick--l" style="left:100%">¥8,000</span>
+        </div>
+        <div class="rows">
+          <div class="grid" aria-hidden="true"><i style="left:25%"></i><i style="left:50%"></i><i style="left:75%"></i><i style="left:100%"></i></div>
+          <div class="brow">
+            <div class="brow__lab">体験セッション<em>PLAN A</em></div>
+            <div class="brow__track"><span class="bar" data-v="5000" style="width:62.5%"></span><span class="bar__v">¥5,000</span></div>
+          </div>
+          <div class="brow">
+            <div class="brow__lab">スタンダード<em>PLAN B</em></div>
+            <div class="brow__track"><span class="bar" data-v="7000" style="width:87.5%"></span><span class="bar__v">¥7,000</span></div>
+          </div>
+          <div class="brow">
+            <div class="brow__lab">プレミアム<em>PLAN C</em></div>
+            <div class="brow__track"><span class="bar" data-v="6500" style="width:81.25%"></span><span class="bar__v">¥6,500</span></div>
+          </div>
+        </div>
+      </div>
+
+      <table class="dtable" id="plot-table" hidden>
+        <caption>プラン別 1回あたりの金額</caption>
+        <thead>
+          <tr><th scope="col">プラン</th><th scope="col">総額</th><th scope="col">回数</th><th scope="col">1回あたり</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">体験セッション</th><td>¥5,000</td><td>1</td><td>¥5,000</td></tr>
+          <tr><th scope="row">スタンダード</th><td>¥28,000</td><td>4</td><td>¥7,000</td></tr>
+          <tr><th scope="row">プレミアム</th><td>¥52,000</td><td>8</td><td>¥6,500</td></tr>
+        </tbody>
+      </table>
+
+      <p class="chart__foot">バーの長さは1回あたりの金額に正比例しています（横軸の上限は ¥8,000）。体験セッションは1回きりのため、金額をそのまま1回あたりとして並べています。回数と内容が異なるので、金額だけをそのまま載せています。</p>
+    </section>
   </div>
 </section>
 
-<!-- よくある質問 -->
+<!-- ============ TRAINER ============ -->
+<section class="sec sec--dark dark" id="trainer">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">SECTION 03</span><span class="shead__en">TRAINER</span></div>
+      <h2>担当トレーナー</h2>
+    </div>
+
+    <div class="trainer rv">
+      <figure class="trainer__fig">
+        <img src="images/gym/gym_trainer_2.webp" alt="クリップボードを持ってトレーニングを見ているトレーナー" loading="lazy" width="1200" height="670">
+        <figcaption class="trainer__cap">FORGE / HEAD TRAINER</figcaption>
+      </figure>
+      <div>
+        <p class="trainer__name">佐藤 healthy太郎</p>
+        <p class="trainer__lic">NSCA認定パーソナルトレーナー</p>
+        <p>大手フィットネスクラブでの指導経験を経て、FORGEを開業。「無理な追い込みより、続けられる負荷」をモットーに、一人ひとりの体力・目的に合わせたメニューを組み立てます。</p>
+        <p class="trainer__bio2">趣味はトレイルランニング。休日はご自身のトレーニングにも励んでいます。</p>
+
+        <div class="motto">
+          <p class="motto__q">無理な追い込みより、<br><b>続けられる負荷。</b></p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="loadfig rv" id="loadfig">
+      <div class="lgd">
+        <span class="k1"><i></i>短期間で追い込んだ場合</span>
+        <span class="k2"><i></i>続けられる負荷で重ねた場合</span>
+      </div>
+      <svg viewBox="0 0 640 300" aria-hidden="true" focusable="false">
+        <line x1="56" y1="40" x2="56" y2="258" stroke="#3A3B37" stroke-width="1"/>
+        <line x1="56" y1="258" x2="470" y2="258" stroke="#3A3B37" stroke-width="1"/>
+        <path class="gpath" id="g-burn" d="M56 244 C 100 238, 132 96, 168 66 C 196 44, 214 120, 242 198 C 266 244, 320 250, 380 250 L 470 250" stroke="#7E7E76" stroke-width="2"/>
+        <path class="gpath" id="g-keep" d="M56 244 C 130 236, 210 216, 300 188 C 370 166, 420 148, 470 132" stroke="#C3F53C" stroke-width="3"/>
+        <circle cx="470" cy="132" r="5" fill="#C3F53C"/>
+        <text x="486" y="137" fill="#C3F53C" font-family="Zen Kaku Gothic New, sans-serif" font-size="13" font-weight="700">続けられる負荷</text>
+        <text x="486" y="255" fill="#9E9E97" font-family="Zen Kaku Gothic New, sans-serif" font-size="13">短期間の追い込み</text>
+        <text x="8" y="26" fill="#9E9E97" font-family="Zen Kaku Gothic New, sans-serif" font-size="12">負荷（LOAD）</text>
+        <text x="56" y="284" fill="#9E9E97" font-family="Zen Kaku Gothic New, sans-serif" font-size="12">時間の経過（TIME）</text>
+      </svg>
+      <figcaption>短期間で一気に追い込むと、負荷は高く上がってもそこで止まってしまいます。続けられる範囲の負荷なら、上がり方はゆるやかでも積み重ね続けられます。FORGEは後者の考え方でメニューを組みます。※この図は考え方を表したイメージで、効果を示すものではありません。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
 <section class="sec" id="faq">
-  <p class="sec-eyebrow">FAQ</p>
-  <h2 class="sec-title reveal">よくある質問</h2>
-  <div class="faq-item reveal">
-    <details>
-      <summary>運動経験がなくても大丈夫ですか？</summary>
-      <p>はい、全く問題ありません。現在の体力や運動経験をお伺いした上で、無理のない負荷から始めます。実際に会員様の多くが未経験からのスタートです。</p>
-    </details>
-  </div>
-  <div class="faq-item reveal">
-    <details>
-      <summary>持ち物は何が必要ですか？</summary>
-      <p>特にご用意いただくものはありません。シャワー・ウェア・タオルはすべて無料でご準備しています。手ぶらでお越しください。</p>
-    </details>
-  </div>
-  <div class="faq-item reveal">
-    <details>
-      <summary>予約はどのくらい前に取ればよいですか？</summary>
-      <p>完全予約制のため、事前のご予約をお願いしております。目安として3日前までのご連絡がスムーズですが、空き状況によっては当日のご案内も可能です。</p>
-    </details>
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">SECTION 04</span><span class="shead__en">FAQ</span></div>
+      <h2>よくある質問</h2>
+    </div>
+
+    <div class="faq rv">
+      <div class="faq__item">
+        <h3>
+          <button class="faq__btn" type="button" aria-expanded="false" aria-controls="faq-p1" id="faq-b1">
+            <span class="faq__no" aria-hidden="true">01</span>
+            <span class="faq__q">運動経験がなくても大丈夫ですか？</span>
+            <span class="faq__mk" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </h3>
+        <div class="faq__panel" id="faq-p1" role="region" aria-labelledby="faq-b1">
+          <div class="faq__inner"><p class="faq__a">はい、全く問題ありません。現在の体力や運動経験をお伺いした上で、無理のない負荷から始めます。実際に会員様の多くが未経験からのスタートです。</p></div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <h3>
+          <button class="faq__btn" type="button" aria-expanded="false" aria-controls="faq-p2" id="faq-b2">
+            <span class="faq__no" aria-hidden="true">02</span>
+            <span class="faq__q">持ち物は何が必要ですか？</span>
+            <span class="faq__mk" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </h3>
+        <div class="faq__panel" id="faq-p2" role="region" aria-labelledby="faq-b2">
+          <div class="faq__inner"><p class="faq__a">特にご用意いただくものはありません。シャワー・ウェア・タオルはすべて無料でご準備しています。手ぶらでお越しください。</p></div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <h3>
+          <button class="faq__btn" type="button" aria-expanded="false" aria-controls="faq-p3" id="faq-b3">
+            <span class="faq__no" aria-hidden="true">03</span>
+            <span class="faq__q">予約はどのくらい前に取ればよいですか？</span>
+            <span class="faq__mk" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </h3>
+        <div class="faq__panel" id="faq-p3" role="region" aria-labelledby="faq-b3">
+          <div class="faq__inner"><p class="faq__a">完全予約制のため、事前のご予約をお願いしております。目安として3日前までのご連絡がスムーズですが、空き状況によっては当日のご案内も可能です。</p></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- アクセス・営業時間 -->
-<section class="sec access-sec" id="access">
-  <p class="sec-eyebrow">Access</p>
-  <h2 class="sec-title reveal">アクセス・営業時間</h2>
-  <div class="access-layout">
-    <div class="access-table reveal">
-      <div><dt>店舗名</dt><dd>FORGE（フォージ）</dd></div>
-      <div><dt>所在地</dt><dd>〒810-0001<br>福岡県福岡市中央区天神4丁目2-10 天神フォージビル3F</dd></div>
-      <div><dt>営業時間</dt><dd>平日 7:00〜22:00<br>土日 9:00〜20:00</dd></div>
-      <div><dt>定休日</dt><dd>水曜日</dd></div>
-      <div><dt>予約方法</dt><dd>完全予約制（お問い合わせフォームより）</dd></div>
+<!-- ============ ACCESS ============ -->
+<section class="sec sec--paper" id="access">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">SECTION 05</span><span class="shead__en">ACCESS</span></div>
+      <h2>アクセス</h2>
     </div>
-    <div class="ph access-map reveal"><span>画像</span></div>
+
+    <div class="access rv">
+      <dl class="info">
+        <div><dt>店舗名</dt><dd>FORGE（フォージ）</dd></div>
+        <div><dt>所在地</dt><dd>〒810-0001<br>福岡県福岡市中央区天神4丁目2-10 天神フォージビル3F</dd></div>
+        <div><dt>営業時間</dt><dd>平日 7:00〜22:00<br>土日 9:00〜20:00</dd></div>
+        <div><dt>定休日</dt><dd>水曜日</dd></div>
+        <div><dt>予約方法</dt><dd>完全予約制（お問い合わせフォームより）</dd></div>
+      </dl>
+      <figure class="access__fig">
+        <img src="images/gym/gym_misc_2.webp" alt="夜のビル1階にあるFORGEの入口外観" loading="lazy" width="1200" height="670">
+        <figcaption class="access__cap">FUKUOKA / TENJIN 4-2-10</figcaption>
+      </figure>
+    </div>
+
+    <!-- weekly timeline -->
+    <section class="week rv" aria-labelledby="week-t">
+      <h3 class="week__t" id="week-t"><span>WEEKLY HOURS</span>曜日ごとの営業時間</h3>
+      <p class="week__note">帯の長さが、その曜日に営業している時間の長さです。</p>
+      <div class="wk" id="wk">
+        <div class="wk__axis" aria-hidden="true">
+          <span class="wk__tick" style="left:0%">6:00</span>
+          <span class="wk__tick" style="left:16.6667%">9:00</span>
+          <span class="wk__tick" style="left:33.3333%">12:00</span>
+          <span class="wk__tick" style="left:50%">15:00</span>
+          <span class="wk__tick" style="left:66.6667%">18:00</span>
+          <span class="wk__tick" style="left:83.3333%">21:00</span>
+          <span class="wk__tick" style="left:100%">24:00</span>
+        </div>
+        <div class="wk__rows">
+          <div class="wk__grid" aria-hidden="true"><i style="left:16.6667%"></i><i style="left:33.3333%"></i><i style="left:50%"></i><i style="left:66.6667%"></i><i style="left:83.3333%"></i><i style="left:100%"></i></div>
+          <div class="wrow"><span class="wrow__d">月<em>MON</em></span><span class="wrow__track"><span class="wbar" style="left:5.5556%;width:83.3333%"></span></span><span class="wrow__h">15時間</span></div>
+          <div class="wrow"><span class="wrow__d">火<em>TUE</em></span><span class="wrow__track"><span class="wbar" style="left:5.5556%;width:83.3333%"></span></span><span class="wrow__h">15時間</span></div>
+          <div class="wrow wrow--off"><span class="wrow__d">水<em>WED</em></span><span class="wrow__track"></span><span class="wrow__h">—</span></div>
+          <div class="wrow"><span class="wrow__d">木<em>THU</em></span><span class="wrow__track"><span class="wbar" style="left:5.5556%;width:83.3333%"></span></span><span class="wrow__h">15時間</span></div>
+          <div class="wrow"><span class="wrow__d">金<em>FRI</em></span><span class="wrow__track"><span class="wbar" style="left:5.5556%;width:83.3333%"></span></span><span class="wrow__h">15時間</span></div>
+          <div class="wrow wrow--we"><span class="wrow__d">土<em>SAT</em></span><span class="wrow__track"><span class="wbar" style="left:16.6667%;width:61.1111%"></span></span><span class="wrow__h">11時間</span></div>
+          <div class="wrow wrow--we"><span class="wrow__d">日<em>SUN</em></span><span class="wrow__track"><span class="wbar" style="left:16.6667%;width:61.1111%"></span></span><span class="wrow__h">11時間</span></div>
+        </div>
+        <div class="wk__legend">
+          <span class="l1"><i></i>営業時間</span>
+          <span class="l3"><i></i>定休日</span>
+        </div>
+        <p class="wk__hint">平日 7:00〜22:00（15時間）／ 土日 9:00〜20:00（11時間）／ 水曜定休</p>
+      </div>
+    </section>
   </div>
 </section>
 
-<!-- お問い合わせ（見た目のみ） -->
-<section class="sec contact-sec" id="contact">
-  <p class="sec-eyebrow">Contact</p>
-  <h2 class="sec-title reveal">お問い合わせ・無料カウンセリング予約</h2>
-  <p class="contact-lead">まずはお気軽にご相談ください。体験セッションのご予約も、こちらから承っております。</p>
-  <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
-  <p class="line-note">LINEでのご相談も承っています。</p>
-  <form class="form-grid reveal" onsubmit="event.preventDefault();">
-    <div class="form-row">
-      <label for="g-name">お名前</label>
-      <input id="g-name" type="text" placeholder="山田 太郎">
+<!-- ============ CTA ============ -->
+<section class="cta" aria-labelledby="cta-t">
+  <div class="wrap">
+    <h2 id="cta-t"><span class="cta__en">CONTACT</span>まずは体験セッションから。</h2>
+    <p>完全予約制のため、事前のご予約をお願いしています。ご希望の曜日・時間帯をお知らせください。</p>
+    <div class="cta__btns">
+      <a class="btn btn--solid" href="mailto:info@example.com"><span>メールで問い合わせる</span><em>MAIL</em></a>
+      <a class="btn btn--ghost" href="https://lin.ee/z3rP0hO"><span>LINEで問い合わせる</span><em>LINE</em></a>
     </div>
-    <div class="form-row">
-      <label for="g-mail">メールアドレス</label>
-      <input id="g-mail" type="email" placeholder="example@example.com">
-    </div>
-    <div class="form-row">
-      <label for="g-tel">電話番号</label>
-      <input id="g-tel" type="tel" placeholder="000-0000-0000">
-    </div>
-    <div class="form-row">
-      <label for="g-msg">お問い合わせ内容</label>
-      <textarea id="g-msg" placeholder="体験セッション希望、ご質問など"></textarea>
-    </div>
-    <button class="form-submit" type="submit">この内容で送る</button>
-  </form>
-  <p class="form-note">※このページはRESCの営業用サンプルです。実際の送信機能はありません。</p>
+  </div>
 </section>
 
-<footer>FORGE（RESC制作サンプル）</footer>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span class="foot__brand">FORGE</span>
+    <span>FORGE（RESC制作サンプル）</span>
+  </div>
+</footer>
 
 <script>
-  function toggleNav() {
-    var nav = document.getElementById('nav');
-    var isOpen = nav.classList.toggle('open');
-    document.getElementById('navToggle').setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- reveal + bar-in ---- */
+  var targets = document.querySelectorAll('.rv, #unitchart, #wk, #loadfig');
+  function activate(el){ el.classList.add('is-in'); }
+  if (reduce || !('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(targets, activate);
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { activate(e.target); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    Array.prototype.forEach.call(targets, function(el){ io.observe(el); });
   }
-  document.querySelectorAll('.nav-links a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      document.getElementById('nav').classList.remove('open');
-      document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
+
+  /* ---- SVG line draw ---- */
+  var paths = [document.getElementById('g-burn'), document.getElementById('g-keep')];
+  if (!reduce) {
+    paths.forEach(function(p, i){
+      if (!p) return;
+      var len = p.getTotalLength();
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = len;
+      p.style.transition = 'stroke-dashoffset 1.5s ease ' + (i * 0.35) + 's';
+    });
+    var fig = document.getElementById('loadfig');
+    if (fig) {
+      var drawn = false;
+      var draw = function(){
+        if (drawn) return; drawn = true;
+        paths.forEach(function(p){ if (p) p.style.strokeDashoffset = '0'; });
+      };
+      if ('IntersectionObserver' in window) {
+        var io2 = new IntersectionObserver(function(es){
+          es.forEach(function(e){ if (e.isIntersecting) { draw(); io2.disconnect(); } });
+        }, { threshold: 0.25 });
+        io2.observe(fig);
+      } else { draw(); }
+    }
+  }
+
+  /* ---- chart view toggle ---- */
+  var bBar = document.getElementById('btn-bar');
+  var bTbl = document.getElementById('btn-tbl');
+  var pBar = document.getElementById('plot-bars');
+  var pTbl = document.getElementById('plot-table');
+  function setView(isBar){
+    bBar.setAttribute('aria-pressed', String(isBar));
+    bTbl.setAttribute('aria-pressed', String(!isBar));
+    pBar.hidden = !isBar;
+    pTbl.hidden = isBar;
+  }
+  if (bBar && bTbl) {
+    bBar.addEventListener('click', function(){ setView(true); });
+    bTbl.addEventListener('click', function(){ setView(false); });
+  }
+
+  /* ---- FAQ ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('.faq__btn'), function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq__item');
+      var open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
     });
   });
 
-  /* ── Scroll reveal ── */
-  (function () {
-    var revealEls = document.querySelectorAll('.reveal');
-    var groups = [];
-    revealEls.forEach(function (el) {
-      var parent = el.parentElement;
-      var group = groups.find(function (g) { return g.parent === parent; });
-      if (!group) { group = { parent: parent, items: [] }; groups.push(group); }
-      group.items.push(el);
+  /* ---- smooth anchors ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('.nav a[href^="#"]'), function(a){
+    a.addEventListener('click', function(ev){
+      var t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      ev.preventDefault();
+      t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
     });
-    groups.forEach(function (group) {
-      var parentDisplay = getComputedStyle(group.parent).display;
-      if (parentDisplay === 'grid' || parentDisplay === 'flex') {
-        group.items.forEach(function (el, i) {
-          el.style.transitionDelay = (i * 80) + 'ms';
-        });
-      }
-    });
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    revealEls.forEach(function (el) { revealObserver.observe(el); });
-  })();
+  });
+})();
 </script>
-
 </body>
 </html>
