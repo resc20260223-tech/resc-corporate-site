@@ -2,547 +2,1063 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>福岡匠建｜工務店</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>福岡匠建｜工務店｜福岡の新築・リフォーム</title>
+<meta name="description" content="福岡匠建は、新築・リフォームともに地域の気候と暮らし方に合わせた設計をご提案する工務店です。完成後のメンテナンスまで、長いお付き合いを大切にしています。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --primary: #6B4423;
-    --primary-dark: #472C16;
-    --bg: #F7F4EF;
-    --accent: #8A9A5B;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Zen Kaku Gothic New', sans-serif; background: var(--bg); color: #2B2420; line-height: 1.8; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  .notice {
-    background: var(--primary-dark); color: #fff; text-align: center;
-    font-size: 12.5px; padding: 8px 16px;
-  }
-  .notice a { color: #fff; text-decoration: underline; }
+/* ============================================================
+   福岡匠建 — 製図／設計図メタファー  ／ SHEET A-01  トップ
+   ============================================================ */
+:root{
+  --paper:#FBFAF8;
+  --paper-2:#FFFFFF;
+  --paper-3:#F4F2ED;
+  --ink:#14171A;
+  --ink-2:#3A3F45;
+  --ink-3:#5C6169;
+  --rule:#D6D2C9;
+  --rule-2:#E7E3DA;
+  --grid:#E9E5DC;
+  --wood:#B08A50;
+  --wood-deep:#8A6A38;
+  --wood-pale:#EFE4D2;
+  --maxw:1240px;
+  --gut:clamp(20px,4vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x:clip}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Noto Sans CJK JP","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+  font-weight:500;
+  line-height:1.85;
+  font-feature-settings:"palt" 1;
+  letter-spacing:.02em;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4,p,figure,dl,dd,ul{margin:0}
+ul{padding:0;list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0}
 
-  /* ---- Nav（cafe-standard.html のナビ実装を移植し、constructionの配色に変更） ---- */
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(71,44,22,.95); backdrop-filter: blur(6px);
-    height: 64px;
-  }
-  .nav-in {
-    max-width: 900px; margin: 0 auto; height: 100%;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 24px;
-  }
-  .logo { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: .05em; color: #fff; cursor: pointer; }
-  .logo span { color: var(--accent); }
-  .nav-links { display: flex; align-items: center; gap: 26px; }
-  .nav-links a { color: rgba(255,255,255,.85); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a.nav-cta { background: var(--accent); color: #fff; padding: 9px 18px; border-radius: 4px; }
-  .nav-toggle {
-    display: none;
-    width: 44px; height: 44px;
-    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-    background: transparent; border: none; cursor: pointer;
-  }
-  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+.mono{
+  font-family:"JetBrains Mono","DejaVu Sans Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-weight:500;
+  letter-spacing:.09em;
+  font-feature-settings:normal;
+}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
 
-  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
-  .hero-video { width: 100%; height: 100%; object-fit: contain; background: var(--primary-dark); }
-  .hero-mask-top { position: absolute; top: 0; left: 0; right: 0; height: 46px; background: var(--primary-dark); z-index: 1; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5)); }
-  .hero-text { display: none; }
-  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 14px; }
-  .hero-text h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px; animation: hero-fade-up 0.9s ease-out both; }
-  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-up 0.9s ease-out both; animation-delay: 0.3s; }
+:focus-visible{outline:2.5px solid var(--ink);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:0;z-index:99}
+.skip:focus{left:8px;top:8px;background:var(--ink);color:var(--paper);padding:10px 16px;z-index:99}
 
-  @keyframes hero-fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-text h1,
-    .hero-text p {
-      animation: none;
-    }
-  }
-  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
-  .section-title { font-size: 26px; font-weight: 700; color: var(--primary-dark); margin-bottom: 24px; text-align: center; }
-  .about p { font-size: 14.5px; color: #4A4238; }
+/* ---------- 告知バー ---------- */
+.notice{background:var(--ink);color:#F2EFE9;font-size:12px;line-height:1.6}
+.notice .wrap{
+  display:flex;flex-wrap:wrap;gap:6px 18px;
+  align-items:center;justify-content:space-between;padding-block:9px;
+}
+.notice p{letter-spacing:.04em}
+.notice a{
+  color:#F2EFE9;text-decoration:none;
+  border-bottom:1px solid rgba(242,239,233,.55);
+  padding-bottom:1px;white-space:nowrap;
+}
+.notice a:hover{border-bottom-color:#F2EFE9}
+.notice a::after{content:" →"}
 
-  /* ---- about抜粋（page-top） ---- */
-  .about-excerpt p { font-size: 14.5px; color: #4A4238; margin-bottom: 22px; }
-  .about-excerpt .more-link {
-    display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent);
-    border-bottom: 1px solid var(--accent); padding-bottom: 2px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
-  }
+/* ---------- ヘッダー（3ページ共通） ---------- */
+.hd{
+  position:sticky;top:0;z-index:40;
+  background:rgba(251,250,248,.94);
+  backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.hd .wrap{display:flex;align-items:center;gap:16px;min-height:60px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;flex:0 0 auto}
+.brand b{font-weight:900;font-size:17px;letter-spacing:.14em}
+.brand span{font-size:10px;color:var(--ink-3)}
+.hd nav{margin-left:auto;display:flex;gap:clamp(12px,2vw,28px);align-items:center}
+.hd nav a{
+  text-decoration:none;font-size:12px;color:var(--ink-2);
+  padding:6px 0;position:relative;white-space:nowrap;
+}
+.hd nav a .n{color:var(--wood-deep);margin-right:7px}
+.hd nav a:hover{color:var(--ink)}
+.hd nav a[aria-current="page"]{color:var(--ink);font-weight:700}
+.hd nav a[aria-current="page"]::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--ink);
+}
+.hd .hcta{
+  border:1.5px solid var(--ink);padding:8px 16px;font-size:12px;
+  text-decoration:none;white-space:nowrap;
+}
+.hd .hcta:hover{background:var(--ink);color:var(--paper)}
+/* モバイル：ナビは2段目に折り返す */
+@media(max-width:900px){
+  .hd .wrap{flex-wrap:wrap;padding-block:8px;gap:8px 14px}
+  .hd nav{margin-left:0;order:3;width:100%;border-top:1px solid var(--rule-2);padding-top:7px;gap:0;justify-content:space-between}
+  .hd nav a{font-size:11.5px;flex:1 1 0;text-align:center;min-width:0}
+  .hd nav a .n{margin-right:5px}
+  .hd .hcta{margin-left:auto;padding:6px 13px}
+}
+@media(max-width:420px){
+  .hd nav a .n{display:none}
+  .brand span{display:none}
+}
 
-  .menu-category { margin-top: 40px; }
-  .menu-category:first-child { margin-top: 0; }
-  .menu-category-title { font-size: 16px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; text-align: center; }
-  .menu-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-  .menu-card { text-align: center; width: calc(25% - 15px); }
-  .menu-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
-  .menu-card .menu-name { margin-top: 12px; font-size: 14px; font-weight: 700; color: #2B2420; }
-  @media (max-width: 900px) { .menu-card { width: calc(33.333% - 14px); } }
-  @media (max-width: 700px) { .menu-card { width: calc(50% - 10px); } }
-  @media (max-width: 420px) { .menu-card { width: 100%; } }
-  .gallery-marquee { overflow: hidden; }
-  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
-  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
-  .gallery-item { flex: 0 0 auto; width: 280px; height: 220px; object-fit: cover; border-radius: 6px; margin-right: 16px; }
-  @keyframes gallery-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gallery-track { animation: none; }
-    .gallery-marquee { overflow-x: auto; }
-  }
-  .contact { background: var(--primary); color: #fff; text-align: center; }
-  .contact .section-title { color: #fff; }
-  .contact p { font-size: 14px; margin-bottom: 8px; }
-  .contact .btn { display: inline-block; margin-top: 18px; background: #fff; color: var(--primary-dark); padding: 12px 30px; border-radius: 4px; font-weight: 700; font-size: 13.5px; }
-  footer { text-align: center; padding: 24px; font-size: 12px; color: #8A8272; }
+/* ---------- 共通：セクション見出し ---------- */
+.sheet-tag{
+  display:flex;align-items:center;gap:14px;
+  font-size:11px;color:var(--ink-3);
+  padding-bottom:10px;border-bottom:1.5px solid var(--ink);
+  margin-bottom:clamp(28px,4vw,52px);
+}
+.sheet-tag .no{color:var(--paper);background:var(--ink);padding:3px 9px;letter-spacing:.14em;font-size:11px}
+.sheet-tag .ttl{font-weight:900;font-size:clamp(15px,1.9vw,19px);letter-spacing:.1em;color:var(--ink);font-family:inherit}
+.sheet-tag .sp{margin-left:auto;letter-spacing:.12em}
+@media(max-width:560px){ .sheet-tag .sp{display:none} }
 
-  /* ---- LINE連携ボタン（cafe-light.html と同一実装） ---- */
-  .line-btn {
-    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
-    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
-    line-height: 21px;
-  }
-  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
-  .contact .line-wrap { margin-top: 18px; }
+.sec{padding-block:clamp(64px,9vw,132px)}
 
-  /* ---- 地図プレースホルダー（page-access・insta-note の作法を踏襲。色はcontact内で既存の rgba(255,255,255,.5) を再利用） ---- */
-  .map-placeholder {
-    border: 1px dashed rgba(255,255,255,.5); border-radius: 4px;
-    display: flex; align-items: center; justify-content: center;
-    align-self: stretch; min-height: 300px;
-  }
-  .map-placeholder span { font-size: 11.5px; color: rgba(255,255,255,.5); }
+.gridbg{
+  background-image:
+    linear-gradient(to right,var(--grid) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+  background-position:center top;
+}
 
-  /* ---- page-access 2カラムレイアウト（左:情報 / 右:地図・retail-standard.html を移植） ---- */
-  .contact-layout {
-    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
-  }
-  .contact-info { min-height: 300px; }
-  @media (max-width: 800px) {
-    .contact-layout { grid-template-columns: 1fr; }
-    .contact-info { min-height: 0; }
-  }
+/* ---------- ページ遷移（図面シートの差し替え） ---------- */
+.flip{
+  position:fixed;inset:0;z-index:120;pointer-events:none;
+  background:var(--paper);opacity:0;visibility:hidden;
+  clip-path:inset(0 0 0 100%);
+  display:flex;align-items:center;justify-content:center;
+  background-image:
+    linear-gradient(to right,var(--grid) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.flip .fl-in{
+  border:1.5px solid var(--ink);background:var(--paper-2);
+  padding:14px 26px;font-size:12px;letter-spacing:.2em;color:var(--ink);
+}
+.flip.enter{animation:sheetIn .52s cubic-bezier(.4,0,.2,1) forwards}
+.flip.leave{animation:sheetOut .32s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes sheetIn{
+  0%{visibility:visible;opacity:1;clip-path:inset(0 0 0 0)}
+  99%{visibility:visible;opacity:1;clip-path:inset(0 100% 0 0)}
+  100%{visibility:hidden;opacity:0;clip-path:inset(0 100% 0 0)}
+}
+@keyframes sheetOut{
+  0%{visibility:visible;opacity:1;clip-path:inset(0 0 0 100%)}
+  100%{visibility:visible;opacity:1;clip-path:inset(0 0 0 0)}
+}
 
-  /* ---- Instagram（デモ表示・cafe-standard.html の insta-sec を移植） ---- */
-  .insta-note {
-    display: inline-block; font-size: 11.5px; color: #8A8272;
-    border: 1px dashed rgba(0,0,0,0.15); border-radius: 4px; padding: 6px 12px; margin-bottom: 24px;
-  }
-  .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .insta-item { aspect-ratio: 1/1; border-radius: 6px; width: 100%; height: auto; object-fit: cover; }
-  @media (max-width: 700px) { .insta-grid { grid-template-columns: repeat(2, 1fr); } }
+/* ============================================================
+   A-01  ヒーロー = 図面シート
+   ============================================================ */
+.hero{position:relative;overflow:hidden;padding-top:clamp(34px,5vw,64px);padding-bottom:clamp(40px,6vw,80px)}
+.hero .frame{
+  border:1.5px solid var(--ink);
+  outline:1px solid var(--rule);outline-offset:5px;
+  padding:clamp(20px,3.4vw,44px);
+  background:var(--paper-2);position:relative;
+}
+.hero-top{
+  display:flex;flex-wrap:wrap;gap:8px 22px;
+  font-size:11px;color:var(--ink-3);
+  padding-bottom:14px;border-bottom:1px solid var(--rule-2);
+}
+.hero-top .dot{color:var(--wood-deep)}
+h1{
+  font-weight:900;font-size:clamp(30px,6.1vw,74px);
+  line-height:1.24;letter-spacing:.005em;
+  margin:clamp(26px,4vw,46px) 0 0;
+}
+h1 .l2{display:block}
+h1 em{
+  font-style:normal;white-space:nowrap;
+  background-image:linear-gradient(transparent 58%,var(--wood-pale) 58%,var(--wood-pale) 80%,transparent 80%);
+  background-repeat:no-repeat;
+}
+.hero-lead{
+  margin-top:clamp(22px,3vw,34px);
+  max-width:44em;font-size:clamp(14px,1.15vw,15.5px);
+  color:var(--ink-2);line-height:2.15;
+}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.hero-tags li{font-size:11px;border:1px solid var(--rule);padding:5px 11px;color:var(--ink-2);background:var(--paper)}
 
-  /* ---- 各ページへの導線カード（page-top） ---- */
-  .link-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .link-card {
-    display: block; background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px;
-    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.08); }
-  .link-card .tag { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
-  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--primary-dark); }
-  .link-card p { font-size: 13px; color: #8A8272; }
-  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--accent); }
-  @media (max-width: 700px) { .link-grid { grid-template-columns: 1fr; } }
+.dimbar{margin-top:clamp(28px,4vw,46px);margin-bottom:10px;display:flex;align-items:center;gap:0}
+.dimbar .cap{flex:0 0 auto;display:block}
+.dimbar .ln{flex:1 1 auto;height:1px;background:var(--ink-3);min-width:10px}
+.dimbar .lb{flex:0 0 auto;font-size:11px;color:var(--ink-3);letter-spacing:.2em;white-space:nowrap;padding-inline:clamp(10px,1.8vw,22px)}
+.hero-photo{position:relative;aspect-ratio:21/9;overflow:hidden;background:var(--paper-3)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo .corner{position:absolute;width:26px;height:26px;border:2px solid rgba(255,255,255,.92);pointer-events:none}
+.hero-photo .c1{top:12px;left:12px;border-right:0;border-bottom:0}
+.hero-photo .c2{top:12px;right:12px;border-left:0;border-bottom:0}
+.hero-photo .c4{bottom:12px;right:12px;border-left:0;border-top:0}
+.hero-photo figcaption{
+  position:absolute;left:0;bottom:0;background:var(--ink);color:#F2EFE9;
+  font-size:11px;padding:7px 14px;letter-spacing:.1em;
+}
+@media(max-width:700px){ .hero-photo{aspect-ratio:4/3} }
 
-  /* ---- ページ切り替え（cafe-standard.html のCSSパターンを移植） ---- */
-  #page-top { display: block; }
-  #page-menu, #page-about, #page-access { display: none; }
-  body[class*="-page"] #page-top { display: none; }
-  body.menu-page #page-menu { display: block; }
-  body.about-page #page-about { display: block; }
-  body.access-page #page-access { display: block; }
+.titleblock{
+  margin-top:-1px;border:1.5px solid var(--ink);border-top:0;
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.titleblock div{padding:12px 14px;border-left:1px solid var(--rule);min-width:0}
+.titleblock div:first-child{border-left:0}
+.titleblock dt,.titleblock .k{display:block;font-size:10px;color:var(--ink-3);letter-spacing:.14em}
+.titleblock .v{display:block;font-size:12.5px;color:var(--ink);margin-top:5px;overflow-wrap:anywhere}
+@media(max-width:700px){
+  .titleblock{grid-template-columns:repeat(2,1fr)}
+  .titleblock div:nth-child(3){border-left:0}
+  .titleblock div:nth-child(n+3){border-top:1px solid var(--rule)}
+}
 
-  /* ---- レスポンシブ ---- */
-  @media (max-width: 860px) {
-    .nav-links { display: none; }
-    .nav-toggle { display: flex; }
-    .nav.open .nav-links {
-      display: flex; flex-direction: column; align-items: stretch; gap: 4px;
-      position: absolute; top: 64px; left: 0; right: 0;
-      background: var(--primary-dark); padding: 12px 24px 20px;
-    }
-    .nav.open .nav-links a { padding: .8em .2em; }
-    .nav.open .nav-links a.nav-cta { margin-top: 10px; text-align: center; }
-  }
+/* ============================================================
+   A-02  紹介
+   ============================================================ */
+.about-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);
+  gap:clamp(26px,4vw,64px);align-items:start;
+}
+.about-lead h3{
+  font-weight:900;font-size:clamp(21px,2.9vw,36px);line-height:1.5;letter-spacing:.01em;
+}
+.about-lead > p{margin-top:clamp(18px,2.4vw,26px);font-size:clamp(14px,1.2vw,15.5px);color:var(--ink-2);line-height:2.15}
+.about-notes{margin-top:clamp(26px,3.4vw,40px);border-top:1px solid var(--rule)}
+.about-notes li{
+  display:grid;grid-template-columns:64px minmax(0,1fr);gap:clamp(10px,1.6vw,20px);
+  padding-block:clamp(15px,2vw,20px);border-bottom:1px solid var(--rule-2);
+}
+.about-notes .id{font-size:11px;color:var(--wood-deep)}
+.about-notes h4{font-weight:900;font-size:15px;line-height:1.7}
+.about-notes p{margin-top:6px;font-size:13px;color:var(--ink-3);line-height:2}
+.about-figs{display:grid;gap:clamp(14px,2vw,22px)}
+.figfr{position:relative;border:1.5px solid var(--ink);background:var(--paper-2);padding:9px}
+.figfr .im{display:block;position:relative;overflow:hidden;background:var(--paper-3)}
+.figfr .im img{width:100%;height:100%;object-fit:cover}
+.figfr figcaption{
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-size:10.5px;color:var(--ink-3);letter-spacing:.1em;padding:9px 2px 2px;
+}
+.fig-a .im{aspect-ratio:16/10}
+.fig-b .im{aspect-ratio:16/9}
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .about-figs{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:620px){ .about-figs{grid-template-columns:1fr} }
+
+/* ============================================================
+   A-03  建ち上がり（スクロール連動 SVG）
+   ============================================================ */
+.build{background:var(--paper-2);border-block:1px solid var(--rule)}
+.build-track{position:relative;height:340vh}
+.build-sticky{
+  position:sticky;top:0;height:100vh;min-height:600px;
+  display:flex;align-items:center;overflow:hidden;
+  padding-bottom:clamp(30px,7vh,90px);
+}
+.build-inner{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.build-grid{
+  display:grid;grid-template-columns:minmax(240px,320px) minmax(0,1fr);
+  grid-template-areas:"head canvas" "stages canvas";
+  grid-template-rows:auto auto;
+  column-gap:clamp(24px,4vw,64px);row-gap:0;align-content:center;
+}
+.build-head{grid-area:head}
+.stages{grid-area:stages}
+.build-canvas{grid-area:canvas;align-self:center}
+.build-head .kick{font-size:11px;color:var(--wood-deep);letter-spacing:.18em}
+.build-head h2{font-weight:900;font-size:clamp(21px,2.8vw,34px);line-height:1.45;margin-top:12px;letter-spacing:.01em}
+.build-head p{margin-top:16px;font-size:13.5px;color:var(--ink-3);line-height:2.05;max-width:32em}
+.stages{margin-top:clamp(20px,3vw,34px);border-top:1px solid var(--rule)}
+.stages li{
+  display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:12px;
+  padding:13px 0;border-bottom:1px solid var(--rule-2);
+  color:var(--ink-3);transition:color .35s ease;
+}
+.stages .sn{font-size:12px;color:var(--rule);transition:color .35s ease}
+.stages .snm{font-size:13.5px;font-weight:700}
+.stages .bar{width:52px;height:2px;background:var(--rule-2);position:relative;overflow:hidden}
+.stages .bar i{position:absolute;inset:0;transform-origin:left;transform:scaleX(0);background:var(--wood);transition:transform .18s linear}
+.stages li.on{color:var(--ink)}
+.stages li.on .sn{color:var(--wood-deep)}
+
+.build-canvas{position:relative;min-width:0}
+.build-canvas svg{display:block;width:100%;height:auto}
+.draw path,.draw line,.draw rect,.draw polyline{
+  fill:none;stroke:var(--ink);stroke-width:1.6;
+  vector-effect:non-scaling-stroke;stroke-linecap:square;
+}
+.draw .thin{stroke:var(--ink-3);stroke-width:1}
+.draw .hair{stroke:var(--rule);stroke-width:1}
+.draw .bold{stroke-width:2.4}
+.draw .accent{stroke:var(--wood-deep)}
+.draw .fillwood{fill:var(--wood-pale);stroke:none;opacity:0}
+.draw .fillsky{fill:#F4F2ED;stroke:none;opacity:0}
+.draw text{
+  fill:var(--ink-3);font-size:15px;letter-spacing:.1em;
+  font-family:"JetBrains Mono","DejaVu Sans Mono",ui-monospace,monospace;opacity:0;
+}
+.draw text.big{fill:var(--ink);font-size:17px}
+.build-scrollhint{
+  position:absolute;right:0;bottom:-6px;font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.16em;display:flex;align-items:center;gap:8px;
+}
+.build-scrollhint::before{content:"";width:34px;height:1px;background:var(--rule)}
+@media(max-width:900px){
+  .build-grid{grid-template-columns:1fr;grid-template-areas:"head" "canvas" "stages";row-gap:18px}
+  .build-canvas{margin-inline:calc(-1 * var(--gut));width:calc(100% + var(--gut) * 2)}
+  .stages{margin-top:6px}
+  .stages li{padding:9px 0}
+  .build-head p{font-size:13px;margin-top:12px}
+  .build-track{height:300vh}
+  .build-sticky{min-height:520px}
+  .build-scrollhint{display:none}
+}
+
+/* ============================================================
+   A-04  施工事例カード
+   ============================================================ */
+.wcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,26px)}
+.wcard{
+  display:block;text-decoration:none;background:var(--paper-2);
+  border:1.5px solid var(--ink);padding:10px;
+  transition:background .25s ease,color .25s ease;
+}
+.wcard .fr{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:var(--paper-3)}
+.wcard img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(.98);transition:filter .35s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+.wcard .pl{
+  position:absolute;left:0;top:0;background:var(--ink);color:#F2EFE9;
+  font-size:10.5px;padding:5px 10px;letter-spacing:.14em;
+}
+.wcard .bd{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;padding:12px 4px 4px}
+.wcard .nm{font-size:clamp(14.5px,1.5vw,17px);font-weight:900;line-height:1.5}
+.wcard .ct{display:block;font-size:10.5px;color:var(--ink-3);letter-spacing:.1em;margin-top:5px}
+.wcard .ar{font-size:15px;line-height:1;color:var(--ink-3);flex:0 0 auto;padding-bottom:3px}
+.wcard:hover img{filter:none;transform:scale(1.035)}
+.wcard:hover{background:var(--paper-3)}
+.wcard:hover .ar{color:var(--ink)}
+@media(max-width:900px){ .wcards{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media(max-width:520px){ .wcards{grid-template-columns:1fr} }
+
+.legend{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:26px;font-size:11px;color:var(--ink-3)}
+.legend span{display:flex;align-items:center;gap:8px}
+.legend i{width:22px;height:0;border-top:2px solid var(--ink)}
+.legend i.dash{border-top-style:dashed;border-color:var(--wood-deep)}
+
+.morelink{
+  margin-top:clamp(22px,3vw,34px);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);
+  text-decoration:none;padding:clamp(16px,2.2vw,24px) clamp(18px,2.4vw,28px);
+  transition:background .2s ease,border-color .2s ease;
+}
+.morelink b{font-size:clamp(15px,1.7vw,18px);font-weight:900;letter-spacing:.04em}
+.morelink span{font-size:10.5px;color:rgba(242,239,233,.75);letter-spacing:.14em}
+.morelink:hover{background:var(--wood-deep);border-color:var(--wood-deep)}
+
+/* ============================================================
+   A-05  シート索引（他ページへの導線）
+   ============================================================ */
+.index-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.icard{
+  display:flex;flex-direction:column;justify-content:space-between;gap:clamp(20px,3vw,34px);
+  border:1.5px solid var(--ink);background:var(--paper-2);
+  text-decoration:none;padding:clamp(20px,3vw,34px);min-height:240px;
+  transition:background .22s ease,color .22s ease;
+}
+.icard .top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:11px;color:var(--ink-3);letter-spacing:.14em}
+.icard .top .no{background:var(--ink);color:var(--paper);padding:3px 9px}
+.icard h3{font-weight:900;font-size:clamp(19px,2.4vw,27px);line-height:1.5;margin-top:auto}
+.icard p{margin-top:10px;font-size:13px;color:var(--ink-3);line-height:1.95}
+.icard .go{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.16em;color:var(--ink)}
+.icard .go i{flex:1 1 auto;height:1px;background:var(--rule);display:block}
+.icard svg{display:block;width:100%;height:auto}
+.icard:hover{background:var(--ink);color:var(--paper)}
+.icard:hover p,.icard:hover .top,.icard:hover .go{color:rgba(242,239,233,.8)}
+.icard:hover .top .no{background:var(--paper);color:var(--ink)}
+.icard:hover .go i{background:rgba(242,239,233,.45)}
+.icard:hover .mini path,.icard:hover .mini rect,.icard:hover .mini line{stroke:rgba(242,239,233,.75)}
+.mini path,.mini rect,.mini line{fill:none;stroke:var(--ink-3);stroke-width:1.2;vector-effect:non-scaling-stroke;transition:stroke .22s ease}
+.mini .bold{stroke:var(--ink);stroke-width:1.8}
+@media(max-width:760px){ .index-grid{grid-template-columns:1fr} .icard{min-height:0} }
+
+/* ============================================================
+   A-06  概要 / 注記
+   ============================================================ */
+.notes{border-top:1.5px solid var(--ink)}
+.note{
+  display:grid;grid-template-columns:74px 150px 1fr;
+  gap:clamp(10px,2vw,26px);align-items:baseline;
+  padding:clamp(16px,2.2vw,24px) 0;border-bottom:1px solid var(--rule-2);
+}
+.note .id{font-size:11px;color:var(--wood-deep)}
+.note .k{font-size:12px;color:var(--ink-3);letter-spacing:.1em}
+.note .v{font-size:clamp(15px,1.6vw,18px);font-weight:700;line-height:1.7;overflow-wrap:anywhere}
+.note .v small{display:block;font-weight:500;font-size:12px;color:var(--ink-3);margin-top:6px;letter-spacing:.04em}
+@media(max-width:640px){
+  .note{grid-template-columns:56px 1fr;row-gap:4px}
+  .note .v{grid-column:1/-1}
+}
+
+.hours{margin-top:clamp(28px,4vw,44px);border:1.5px solid var(--ink);padding:clamp(18px,3vw,34px);background:var(--paper-2)}
+.hours .cap{font-size:11px;color:var(--ink-3);letter-spacing:.16em}
+.hrow{display:flex;align-items:flex-end;gap:clamp(10px,2vw,24px);margin-top:clamp(14px,2vw,22px)}
+.hrow .t{flex:0 0 auto;font-size:clamp(26px,4.6vw,44px);font-weight:700;line-height:1.05}
+.hrow .dim{flex:1 1 auto;min-width:40px;padding-bottom:8px}
+.hrow .val{display:block;text-align:center;font-size:11px;color:var(--wood-deep);margin-bottom:6px;letter-spacing:.12em}
+.hrow .dl{display:flex;align-items:center;gap:0}
+.hrow .dl .ln{flex:1 1 auto;height:1px;background:var(--ink);min-width:6px}
+.hrow .cap{display:block;flex:0 0 auto}
+.ruler{display:flex;height:9px;margin-top:12px;border-top:1px solid var(--rule)}
+.ruler span{flex:1 1 0;border-left:1px solid var(--rule);min-width:0}
+.ruler span:first-child{border-left:0}
+.hfoot{display:flex;justify-content:space-between;gap:12px;margin-top:8px;font-size:11px;color:var(--ink-3)}
+.hclosed{
+  margin-top:clamp(14px,2vw,20px);padding-top:clamp(12px,1.6vw,16px);
+  border-top:1px solid var(--rule-2);
+  font-size:clamp(11px,1.2vw,13px);color:var(--ink-3);text-align:center;
+}
+
+.cta{margin-top:clamp(28px,4vw,44px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cta a{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  text-decoration:none;padding:clamp(18px,2.4vw,26px) clamp(18px,2.4vw,28px);
+  border:1.5px solid var(--ink);background:var(--paper-2);
+  transition:background .2s ease,color .2s ease;
+}
+.cta a .lb{font-size:clamp(15px,1.7vw,18px);font-weight:900;letter-spacing:.04em}
+.cta a .sb{display:block;font-size:10.5px;color:var(--ink-3);letter-spacing:.14em;margin-top:5px}
+.cta a .ar{font-size:18px;line-height:1}
+.cta a:hover{background:var(--ink);color:var(--paper)}
+.cta a:hover .sb{color:rgba(242,239,233,.75)}
+.cta a.line{background:var(--ink);color:var(--paper)}
+.cta a.line .sb{color:rgba(242,239,233,.75)}
+.cta a.line:hover{background:var(--wood-deep);border-color:var(--wood-deep)}
+@media(max-width:640px){ .cta{grid-template-columns:1fr} }
+
+/* ---------- フッター ---------- */
+.ft{background:var(--ink);color:#EDEAE3;padding-block:clamp(40px,6vw,64px)}
+.ft .row{display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:flex-start}
+.ft .fb b{display:block;font-size:18px;font-weight:900;letter-spacing:.14em}
+.ft .fb span{display:block;font-size:11px;color:rgba(237,234,227,.66);margin-top:8px}
+.ft .fl{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:12px}
+.ft .fl a{color:rgba(237,234,227,.85);text-decoration:none;border-bottom:1px solid transparent}
+.ft .fl a:hover{color:#fff;border-bottom-color:rgba(255,255,255,.6)}
+.ft .cr{
+  margin-top:clamp(28px,4vw,44px);padding-top:18px;
+  border-top:1px solid rgba(237,234,227,.2);
+  display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;
+  font-size:11px;color:rgba(237,234,227,.6);
+}
+.ft :focus-visible{outline-color:#fff}
+
+/* ---------- 出現アニメーション ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1!important;transform:none!important}
+  .flip{display:none!important}
+  .build-track{height:auto!important;padding-block:clamp(56px,8vw,110px)}
+  .build-sticky{position:static!important;height:auto!important;min-height:0!important}
+  .draw path,.draw line,.draw rect,.draw polyline{stroke-dashoffset:0!important;stroke-dasharray:none!important}
+  .draw text{opacity:1!important}
+  .draw .fillwood,.draw .fillsky{opacity:1!important}
+  .stages li{color:var(--ink)}
+  .stages .sn{color:var(--wood-deep)}
+  .stages .bar i{transform:scaleX(1)!important}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">本文へスキップ</a>
 
-<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
+<div class="flip" id="flip" aria-hidden="true"><span class="fl-in mono">SHEET</span></div>
 
-<nav class="nav" id="nav">
-  <div class="nav-in">
-    <a class="logo" onclick="showPage('top')">福岡<span>匠建</span></a>
-    <div class="nav-links">
-      <a onclick="showPage('top')">TOP</a>
-      <a onclick="showPage('menu')">施工事例</a>
-      <a onclick="showPage('about')">こだわり</a>
-      <a class="nav-cta" onclick="showPage('access')">アクセス・お問い合わせ</a>
-    </div>
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" aria-expanded="false" onclick="toggleNav()">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
-  </div>
-</nav>
-
-<!-- ════ PAGE: TOP ════ -->
-<div id="page-top">
-
-  <div class="hero">
-    <video class="hero-video" id="hero-video" autoplay muted playsinline>
-      <source src="images/construction/construction_hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero-mask-top"></div>
-    <div class="hero-text">
-      <div class="label">工務店</div>
-      <h1>家族の時間を、長く支える家づくり。</h1>
-      <p>福岡匠建</p>
-    </div>
-  </div>
-  <script>
-  (function () {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var v = document.getElementById('hero-video');
-      if (v) { v.pause(); v.removeAttribute('autoplay'); }
-    }
-  })();
-  </script>
-
-  <section class="about-excerpt">
-    <div class="section-title">こだわり</div>
-    <p>新築・リフォームともに、地域の気候と暮らし方に合わせた設計をご提案します。</p>
-    <a class="more-link" onclick="showPage('about')">こだわりをもっと見る →</a>
-  </section>
-
-  <section style="background:#fff;">
-    <div class="section-title">Instagram</div>
-    <div style="text-align:center;">
-      <span class="insta-note">Instagramの投稿がここに自動表示されます（デモ表示中）</span>
-    </div>
-    <div class="insta-grid">
-      <img class="insta-item" src="images/construction/construction_gallery1.webp" alt="大工の手仕事（継手加工）">
-      <img class="insta-item" src="images/construction/construction_gallery2.webp" alt="和モダンなリビング・ダイニング">
-      <img class="insta-item" src="images/construction/construction_gallery3.webp" alt="庭を望む応接空間">
-      <img class="insta-item" src="images/construction/construction_gallery4.webp" alt="お客様との打ち合わせ風景">
-      <img class="insta-item" src="images/construction/construction_gallery5.webp" alt="ご家族との打ち合わせ風景">
-      <img class="insta-item" src="images/construction/construction_gallery6.webp" alt="木材と職人道具">
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">詳しく見る</div>
-    <div class="link-grid">
-      <button class="link-card" onclick="showPage('menu')">
-        <div class="tag">Works</div>
-        <h3>施工事例</h3>
-        <p>注文住宅からリノベーションまで写真つきでご紹介します。</p>
-        <span class="go">詳しく見る →</span>
-      </button>
-      <button class="link-card" onclick="showPage('about')">
-        <div class="tag">About</div>
-        <h3>こだわり・ギャラリー</h3>
-        <p>家づくりのこだわりと、現場の様子をご覧いただけます。</p>
-        <span class="go">詳しく見る →</span>
-      </button>
-      <button class="link-card" onclick="showPage('access')">
-        <div class="tag">Access</div>
-        <h3>アクセス・お問い合わせ</h3>
-        <p>営業時間・所在地のご案内と、お問い合わせ先です。</p>
-        <span class="go">詳しく見る →</span>
-      </button>
-    </div>
-  </section>
-
-</div><!-- /page-top -->
-
-<!-- ════ PAGE: 施工事例 ════ -->
-<div id="page-menu">
-  <section style="background:#fff;">
-    <div class="section-title">施工事例</div>
-
-    <div class="menu-category">
-      <div class="menu-category-title">注文住宅</div>
-      <div class="menu-grid">
-        <div class="menu-card">
-          <img src="images/construction/construction_menu_modern.webp" alt="モダン住宅">
-          <div class="menu-name">モダン住宅</div>
-        </div>
-        <div class="menu-card">
-          <img src="images/construction/construction_menu_wamodern.webp" alt="和モダン住宅">
-          <div class="menu-name">和モダン住宅</div>
-        </div>
-        <div class="menu-card">
-          <img src="images/construction/construction_menu_hiraya.webp" alt="平屋住宅">
-          <div class="menu-name">平屋住宅</div>
-        </div>
-        <div class="menu-card">
-          <img src="images/construction/construction_menu_nisetai.webp" alt="二世帯住宅">
-          <div class="menu-name">二世帯住宅</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-category">
-      <div class="menu-category-title">リノベーション・その他</div>
-      <div class="menu-grid">
-        <div class="menu-card">
-          <img src="images/construction/construction_menu_renovation.webp" alt="リノベーション">
-          <div class="menu-name">リノベーション</div>
-        </div>
-        <div class="menu-card">
-          <img src="images/construction/construction_menu_shop.webp" alt="店舗・オフィス">
-          <div class="menu-name">店舗・オフィス</div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-menu -->
-
-<!-- ════ PAGE: こだわり ════ -->
-<div id="page-about">
-  <section class="about">
-    <div class="section-title">こだわり</div>
-    <p>新築・リフォームともに、地域の気候と暮らし方に合わせた設計をご提案します。完成後のメンテナンスまで、長いお付き合いを大切にしています。</p>
-  </section>
-
-  <section style="background:#fff;">
-    <div class="section-title">ギャラリー</div>
-    <div class="gallery-marquee">
-      <div class="gallery-track">
-        <img class="gallery-item" src="images/construction/construction_gallery1.webp" alt="大工の手仕事（継手加工）">
-        <img class="gallery-item" src="images/construction/construction_gallery2.webp" alt="和モダンなリビング・ダイニング">
-        <img class="gallery-item" src="images/construction/construction_gallery3.webp" alt="庭を望む応接空間">
-        <img class="gallery-item" src="images/construction/construction_gallery4.webp" alt="お客様との打ち合わせ風景">
-        <img class="gallery-item" src="images/construction/construction_gallery5.webp" alt="ご家族との打ち合わせ風景">
-        <img class="gallery-item" src="images/construction/construction_gallery6.webp" alt="木材と職人道具">
-        <img class="gallery-item" src="images/construction/construction_gallery1.webp" alt="" aria-hidden="true">
-        <img class="gallery-item" src="images/construction/construction_gallery2.webp" alt="" aria-hidden="true">
-        <img class="gallery-item" src="images/construction/construction_gallery3.webp" alt="" aria-hidden="true">
-        <img class="gallery-item" src="images/construction/construction_gallery4.webp" alt="" aria-hidden="true">
-        <img class="gallery-item" src="images/construction/construction_gallery5.webp" alt="" aria-hidden="true">
-        <img class="gallery-item" src="images/construction/construction_gallery6.webp" alt="" aria-hidden="true">
-      </div>
-    </div>
-  </section>
-</div><!-- /page-about -->
-
-<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
-<div id="page-access">
-  <section class="contact">
-    <div class="section-title">アクセス・お問い合わせ</div>
-    <div class="contact-layout">
-      <div class="contact-info">
-        <p>福岡県福岡市〇〇区〇〇5-3-1</p>
-        <p>営業時間:8:30〜17:30（定休日:日曜日）</p>
-        <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
-        <div class="line-wrap">
-          <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
-          <p class="line-note">LINEでのお問い合わせも承っています。</p>
-        </div>
-      </div>
-      <div class="map-placeholder">
-        <span>地図がここに表示されます（デモ表示中）</span>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-access -->
-
-<footer>福岡匠建（RESC制作サンプル）</footer>
-
-<script>
-  /* ── ページ切り替え（cafe-standard.html より移植） ── */
-  function showPage(page) {
-    closeNav(); closeMenu();
-    document.body.className = (page === 'top') ? '' : (page + '-page');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  /* ── ハンバーガーメニュー（cafe-standard.html のナビ実装を移植） ── */
-  function toggleNav() {
-    var nav = document.getElementById('nav');
-    var isOpen = nav.classList.toggle('open');
-    document.getElementById('navToggle').setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  }
-  function closeNav() {
-    document.getElementById('nav').classList.remove('open');
-    document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
-  }
-  /* construction-standardにはメニューオーバーレイを実装していないため何もしない（showPageからの呼び出し用スタブ） */
-  function closeMenu() {}
-</script>
-
-<style>
-  /* ---- FAQ Chatbot(キーワードマッチ式。cafe-standard.html の実装を移植。
-       construction-standard.html は旧系統で :root の変数名が cafe と同じ命名規則(--primary/--primary-dark/--bg/--accent)のため変数置換は不要) ---- */
-  .faq-chatbot-toggle {
-    position: fixed; bottom: 26px; right: 26px; z-index: 200;
-    width: 56px; height: 56px; border-radius: 50%;
-    background: var(--primary); border: 1px solid rgba(255,255,255,0.25);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; box-shadow: 0 10px 30px rgba(92,59,36,0.35);
-    transition: transform 0.15s ease;
-  }
-  .faq-chatbot-toggle:hover { transform: translateY(-2px); }
-  .faq-chatbot-toggle svg { width: 26px; height: 26px; }
-  .faq-chatbot-panel {
-    position: fixed; bottom: 94px; right: 26px; z-index: 200;
-    width: 340px; max-width: calc(100vw - 40px); max-height: 70vh;
-    background: #fff; border: 1px solid rgba(92,59,36,0.15); border-radius: 14px;
-    box-shadow: 0 24px 48px rgba(92,59,36,0.25);
-    display: flex; flex-direction: column; overflow: hidden;
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    opacity: 0; visibility: hidden; pointer-events: none;
-    transform: translateY(12px);
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
-  }
-  .faq-chatbot-panel.open {
-    opacity: 1; visibility: visible; pointer-events: auto;
-    transform: translateY(0);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  .faq-cb-header {
-    background: var(--primary-dark); color: #fff; padding: 14px 16px;
-    display: flex; align-items: center; justify-content: space-between; font-size: 13.5px; font-weight: 700;
-  }
-  .faq-cb-close { cursor: pointer; font-size: 18px; line-height: 1; opacity: 0.8; }
-  .faq-cb-close:hover { opacity: 1; }
-  .faq-cb-messages {
-    flex: 1; overflow-y: auto; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
-    max-height: 320px; background: var(--bg);
-  }
-  .faq-cb-msg { font-size: 13px; line-height: 1.7; padding: 10px 13px; border-radius: 10px; max-width: 85%; white-space: pre-line; }
-  .faq-cb-msg.bot { background: #fff; color: #2B2420; align-self: flex-start; border: 1px solid rgba(92,59,36,0.12); }
-  .faq-cb-msg.user { background: var(--primary); color: #fff; align-self: flex-end; }
-  .faq-cb-msg a { color: var(--accent); }
-  .faq-cb-inputrow { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid rgba(92,59,36,0.12); background: #fff; }
-  .faq-cb-inputrow input {
-    flex: 1; min-width: 0; border: 1px solid rgba(92,59,36,0.2); border-radius: 20px;
-    padding: 9px 14px; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 13px; color: #2B2420;
-  }
-  .faq-cb-inputrow input:focus { outline: none; border-color: var(--accent); }
-  .faq-cb-send {
-    background: var(--primary); color: #fff; border: none; border-radius: 20px;
-    padding: 0 18px; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;
-  }
-  .faq-cb-send:hover { background: var(--primary-dark); }
-  @media (max-width: 480px) {
-    .faq-chatbot-toggle { right: 16px; bottom: 16px; }
-    .faq-chatbot-panel { right: 16px; bottom: 82px; }
-  }
-</style>
-
-<div class="faq-chatbot-toggle" id="faq-cb-toggle" role="button" aria-label="チャットを開く">
-  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-  </svg>
-</div>
-
-<div class="faq-chatbot-panel" id="faq-cb-panel">
-  <div class="faq-cb-header">
-    <span>福岡匠建 チャット</span>
-    <span class="faq-cb-close" id="faq-cb-close">×</span>
-  </div>
-  <div class="faq-cb-messages" id="faq-cb-messages">
-    <div class="faq-cb-msg bot">こんにちは！福岡匠建です。ご質問をどうぞ（営業時間・アクセス・施工事例など）</div>
-  </div>
-  <div class="faq-cb-inputrow">
-    <input type="text" id="faq-cb-input" placeholder="質問を入力...">
-    <button class="faq-cb-send" id="faq-cb-send">送信</button>
+<!-- ===== 告知バー ===== -->
+<div class="notice">
+  <div class="wrap">
+    <p class="mono">これはRESCが作成したサンプルサイトです。実店舗ではありません。</p>
+    <a class="mono" href="../hp-service/index.html">RESCのサイトに戻る</a>
   </div>
 </div>
 
+<!-- ===== ヘッダー ===== -->
+<header class="hd">
+  <div class="wrap">
+    <a class="brand" href="construction-standard.html" data-sheet="SHEET A-01">
+      <b>福岡匠建</b><span class="mono">FUKUOKA SHOKEN</span>
+    </a>
+    <nav aria-label="メインナビゲーション">
+      <a href="construction-standard.html" aria-current="page" data-sheet="SHEET A-01"><span class="n mono">A-01</span>トップ</a>
+      <a href="construction-standard-detail.html" data-sheet="SHEET B-01"><span class="n mono">B-01</span>施工事例</a>
+      <a href="construction-standard-info.html" data-sheet="SHEET C-01"><span class="n mono">C-01</span>家づくり・会社案内</a>
+    </nav>
+    <a class="hcta mono" href="mailto:info@example.com">CONTACT</a>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============ A-01 ヒーロー ============ -->
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="frame">
+
+      <div class="hero-top mono">
+        <span>SHEET&nbsp;&nbsp;A-01</span>
+        <span class="dot">●</span>
+        <span>工務店 / 新築・リフォーム</span>
+        <span class="dot">●</span>
+        <span>FUKUOKA, JAPAN</span>
+        <span class="dot">●</span>
+        <span>SCALE&nbsp;&nbsp;N.T.S.</span>
+      </div>
+
+      <h1 id="h1">家族の時間を、<span class="l2"><em>長く支える</em>家づくり。</span></h1>
+
+      <p class="hero-lead">新築・リフォームともに、地域の気候と暮らし方に合わせた設計をご提案します。完成後のメンテナンスまで、長いお付き合いを大切にしています。</p>
+
+      <ul class="hero-tags mono">
+        <li>注文住宅</li><li>和モダン</li><li>平屋</li><li>二世帯</li><li>リノベーション</li><li>店舗・オフィス</li>
+      </ul>
+
+      <div class="dimbar" aria-hidden="true">
+        <svg class="cap" width="16" height="11" viewBox="0 0 16 11" focusable="false"><path d="M15,5.5 H1 M1,0.5 V10.5 M1,5.5 l8,-3.4 M1,5.5 l8,3.4" stroke="#5C6169" stroke-width="1" fill="none"/></svg>
+        <span class="ln"></span>
+        <span class="lb mono">INTERIOR &#8212; LIVING</span>
+        <span class="ln"></span>
+        <svg class="cap" width="16" height="11" viewBox="0 0 16 11" focusable="false"><path d="M1,5.5 H15 M15,0.5 V10.5 M15,5.5 l-8,-3.4 M15,5.5 l-8,3.4" stroke="#5C6169" stroke-width="1" fill="none"/></svg>
+      </div>
+
+      <figure class="hero-photo">
+        <img src="images/construction/construction_gallery2.webp" alt="木の梁と天井を現した広いリビング。庭に面した大きな窓から光が入る" width="1200" height="896" fetchpriority="high" decoding="async">
+        <span class="corner c1"></span><span class="corner c2"></span>
+        <span class="corner c4"></span>
+        <figcaption class="mono">PHOTO 01 &nbsp;/&nbsp; 完成写真・居間</figcaption>
+      </figure>
+
+      <div class="titleblock mono">
+        <div><span class="k">PROJECT</span><span class="v">福岡匠建</span></div>
+        <div><span class="k">TYPE</span><span class="v">工務店</span></div>
+        <div><span class="k">LOCATION</span><span class="v">福岡市</span></div>
+        <div><span class="k">DRAWING</span><span class="v">A-01</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ A-02 紹介 ============ -->
+<section class="sec" id="about" aria-labelledby="aboutH">
+  <div class="wrap">
+    <div class="sheet-tag mono rv">
+      <span class="no">A-02</span>
+      <h2 class="ttl" id="aboutH">福岡匠建について</h2>
+      <span class="sp">GENERAL DESCRIPTION</span>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-lead rv">
+        <h3>敷地の条件も、暮らし方も、<br>一軒ずつ違います。</h3>
+        <p>新築・リフォームともに、地域の気候と暮らし方に合わせた設計をご提案します。完成後のメンテナンスまで、長いお付き合いを大切にしています。</p>
+
+        <ul class="about-notes">
+          <li>
+            <span class="id mono">N-01</span>
+            <div>
+              <h4>気候から考える</h4>
+              <p>日当たり、風の抜け、隣家との距離。同じ図面が二度と使えないのは、敷地の条件が毎回違うからです。窓の位置と軒の出は、その都度考え直します。</p>
+            </div>
+          </li>
+          <li>
+            <span class="id mono">N-02</span>
+            <div>
+              <h4>暮らし方から決める</h4>
+              <p>間取りを先に決めません。朝起きてから寝るまでの動きをうかがってから、線を引きはじめます。</p>
+            </div>
+          </li>
+          <li>
+            <span class="id mono">N-03</span>
+            <div>
+              <h4>引き渡しのあとも</h4>
+              <p>完成後も定期的に伺い、傷みが出る前に手を入れます。長く住むための手入れまで含めて、家づくりだと考えています。</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="about-figs rv">
+        <figure class="figfr fig-a">
+          <span class="im"><img src="images/construction/construction_voice2.webp" alt="木の内装のリビングで、ソファに腰かけてくつろぐ家族" width="1376" height="768" loading="lazy" decoding="async"></span>
+          <figcaption class="mono"><span>PHOTO 02</span><span>お引き渡し後の住まいで</span></figcaption>
+        </figure>
+        <figure class="figfr fig-b">
+          <span class="im"><img src="images/construction/construction_gallery1.webp" alt="作業台の上で鑿と木槌を使い、木材を刻む職人の手元" width="1200" height="670" loading="lazy" decoding="async"></span>
+          <figcaption class="mono"><span>PHOTO 03</span><span>造作の手仕事</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A-03 建ち上がり ============ -->
+<section class="build" id="build" aria-labelledby="buildH">
+  <div class="build-track" id="buildTrack">
+    <div class="build-sticky">
+      <div class="build-inner">
+        <div class="build-grid">
+
+          <div class="build-head">
+            <p class="kick mono">A-03 &nbsp;/&nbsp; STRUCTURE</p>
+            <h2 id="buildH">一本の線から、<br>家は建ち上がる。</h2>
+            <p>基礎を据え、柱を立て、屋根を架ける。順番を守ることが、長く住める家の条件です。図面のとおりに、現場でも同じ線を引いていきます。</p>
+          </div>
+
+          <ul class="stages" id="stages">
+              <li data-stage="0"><span class="sn mono">01</span><span class="snm">基礎</span><span class="bar"><i></i></span></li>
+              <li data-stage="1"><span class="sn mono">02</span><span class="snm">軸組・柱</span><span class="bar"><i></i></span></li>
+              <li data-stage="2"><span class="sn mono">03</span><span class="snm">屋根</span><span class="bar"><i></i></span></li>
+              <li data-stage="3"><span class="sn mono">04</span><span class="snm">開口・仕上げ</span><span class="bar"><i></i></span></li>
+          </ul>
+
+          <div class="build-canvas">
+            <svg id="houseSvg" class="draw" viewBox="0 0 1200 700" role="img"
+                 aria-label="木造住宅の立面図。基礎、軸組と柱、屋根、開口部の順に線が引かれていく図。">
+              <polygon class="fillwood" points="140,300 600,180 1060,300"/>
+              <rect class="fillsky" x="220" y="300" width="760" height="220"/>
+
+              <g data-stage="0">
+                <path d="M40,600 H1160" class="bold"/>
+                <path d="M200,600 V520 H1000 V600"/>
+                <path d="M220,520 H980" class="thin"/>
+                <path d="M70,604 l-18,26 M110,604 l-18,26 M150,604 l-18,26 M1010,604 l-18,26 M1050,604 l-18,26 M1090,604 l-18,26 M1130,604 l-18,26" class="thin"/>
+                <path d="M240,600 V560 M400,600 V560 M600,600 V560 M800,600 V560 M960,600 V560" class="hair"/>
+              </g>
+
+              <g data-stage="1">
+                <path d="M240,520 V300 M400,520 V300 M600,520 V300 M800,520 V300 M960,520 V300"/>
+                <path d="M220,300 H980" class="bold"/>
+                <path d="M220,410 H980" class="thin"/>
+                <path d="M240,520 L400,410 M240,410 L400,300 M960,520 L800,410 M960,410 L800,300" class="accent"/>
+                <path d="M600,300 V180" class="thin"/>
+              </g>
+
+              <g data-stage="2">
+                <path d="M140,300 L600,180 L1060,300" class="bold"/>
+                <path d="M140,322 L600,202 L1060,322"/>
+                <path d="M140,300 V322 M1060,300 V322"/>
+                <path d="M340,268 L600,201 M860,268 L600,201" class="hair"/>
+                <path d="M96,600 V180 M88,600 H104 M88,520 H104 M88,410 H104 M88,300 H104 M88,180 H104" class="thin"/>
+              </g>
+
+              <g data-stage="3">
+                <path d="M440,322 h120 v68 h-120 Z"/>
+                <path d="M500,322 v68" class="hair"/>
+                <path d="M640,322 h120 v68 h-120 Z"/>
+                <path d="M700,322 v68" class="hair"/>
+                <path d="M440,432 h120 v68 h-120 Z"/>
+                <path d="M500,432 v68" class="hair"/>
+                <path d="M660,520 v-96 h80 v96"/>
+                <path d="M700,424 v96" class="hair"/>
+                <path d="M200,662 H1000 M200,656 V668 M1000,656 V668" class="thin"/>
+                <path d="M200,662 l16,-4 M200,662 l16,4 M1000,662 l-16,-4 M1000,662 l-16,4" class="thin"/>
+              </g>
+
+              <g id="houseText">
+                <text x="118" y="594" data-stage="0">GL</text>
+                <text x="118" y="514" data-stage="0">1FL</text>
+                <text x="118" y="404" data-stage="1">2FL</text>
+                <text x="118" y="174" data-stage="2">RIDGE</text>
+                <text x="600" y="694" text-anchor="middle" data-stage="3">FRONT ELEVATION &#8212; N.T.S.</text>
+                <text x="1150" y="150" text-anchor="end" class="big" data-stage="2">FUKUOKA SHOKEN</text>
+              </g>
+            </svg>
+            <p class="build-scrollhint mono">SCROLL</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A-04 施工事例 ============ -->
+<section class="sec" id="works" aria-labelledby="worksH">
+  <div class="wrap">
+    <div class="sheet-tag mono rv">
+      <span class="no">A-04</span>
+      <h2 class="ttl" id="worksH">施工事例</h2>
+      <span class="sp">PLATE W-01 &#8212; W-06</span>
+    </div>
+
+    <div class="wcards rv">
+      <a class="wcard" href="construction-standard-detail.html#w01" data-sheet="SHEET B-01">
+        <span class="fr">
+          <img src="images/construction/construction_menu_modern.webp" alt="モダン住宅の外観。片流れ屋根と大きな開口部を持つ二階建て" width="800" height="597" loading="lazy" decoding="async">
+          <span class="pl mono">W-01</span>
+        </span>
+        <span class="bd">
+          <span><span class="nm">モダン住宅</span><span class="ct mono">注文住宅</span></span>
+          <span class="ar" aria-hidden="true">&#8594;</span>
+        </span>
+      </a>
+      <a class="wcard" href="construction-standard-detail.html#w02" data-sheet="SHEET B-01">
+        <span class="fr">
+          <img src="images/construction/construction_menu_wamodern.webp" alt="和モダン住宅のリビング。現しの木の柱と梁、庭に開いた大きな窓" width="800" height="447" loading="lazy" decoding="async">
+          <span class="pl mono">W-02</span>
+        </span>
+        <span class="bd">
+          <span><span class="nm">和モダン住宅</span><span class="ct mono">注文住宅</span></span>
+          <span class="ar" aria-hidden="true">&#8594;</span>
+        </span>
+      </a>
+      <a class="wcard" href="construction-standard-detail.html#w03" data-sheet="SHEET B-01">
+        <span class="fr">
+          <img src="images/construction/construction_menu_hiraya.webp" alt="平屋住宅の外観。深い軒と、石と植栽であしらった前庭" width="800" height="597" loading="lazy" decoding="async">
+          <span class="pl mono">W-03</span>
+        </span>
+        <span class="bd">
+          <span><span class="nm">平屋住宅</span><span class="ct mono">注文住宅</span></span>
+          <span class="ar" aria-hidden="true">&#8594;</span>
+        </span>
+      </a>
+      <a class="wcard" href="construction-standard-detail.html#w04" data-sheet="SHEET B-01">
+        <span class="fr">
+          <img src="images/construction/construction_menu_nisetai.webp" alt="二世帯住宅の外観。二つの玄関とガレージを備えた二階建て" width="800" height="597" loading="lazy" decoding="async">
+          <span class="pl mono">W-04</span>
+        </span>
+        <span class="bd">
+          <span><span class="nm">二世帯住宅</span><span class="ct mono">注文住宅</span></span>
+          <span class="ar" aria-hidden="true">&#8594;</span>
+        </span>
+      </a>
+      <a class="wcard" href="construction-standard-detail.html#w05" data-sheet="SHEET B-01">
+        <span class="fr">
+          <img src="images/construction/construction_menu_renovation.webp" alt="リノベーションで現した木造の梁と柱の仕口の接合部" width="800" height="447" loading="lazy" decoding="async">
+          <span class="pl mono">W-05</span>
+        </span>
+        <span class="bd">
+          <span><span class="nm">リノベーション</span><span class="ct mono">リノベーション・その他</span></span>
+          <span class="ar" aria-hidden="true">&#8594;</span>
+        </span>
+      </a>
+      <a class="wcard" href="construction-standard-detail.html#w06" data-sheet="SHEET B-01">
+        <span class="fr">
+          <img src="images/construction/construction_menu_shop.webp" alt="店舗・オフィスの内装。木の什器と間接照明でまとめた落ち着いた空間" width="800" height="597" loading="lazy" decoding="async">
+          <span class="pl mono">W-06</span>
+        </span>
+        <span class="bd">
+          <span><span class="nm">店舗・オフィス</span><span class="ct mono">リノベーション・その他</span></span>
+          <span class="ar" aria-hidden="true">&#8594;</span>
+        </span>
+      </a>
+    </div>
+
+    <p class="legend mono rv">
+      <span><i></i>W-01 &#8212; W-04 &nbsp;注文住宅</span>
+      <span><i class="dash"></i>W-05 &#8212; W-06 &nbsp;リノベーション・その他</span>
+    </p>
+
+    <a class="morelink rv" href="construction-standard-detail.html" data-sheet="SHEET B-01">
+      <b>施工事例をくわしく見る</b>
+      <span class="mono">SHEET B-01 &nbsp;/&nbsp; PLATE W-01 &#8212; W-06 &nbsp;&#8594;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ A-05 シート索引 ============ -->
+<section class="sec gridbg" id="sheets" aria-labelledby="sheetsH">
+  <div class="wrap">
+    <div class="sheet-tag mono rv">
+      <span class="no">A-05</span>
+      <h2 class="ttl" id="sheetsH">シート索引</h2>
+      <span class="sp">DRAWING INDEX</span>
+    </div>
+
+    <div class="index-grid rv">
+      <a class="icard" href="construction-standard-detail.html" data-sheet="SHEET B-01">
+        <span class="top mono"><span class="no">B-01</span><span>PLATE W-01 &#8212; W-06</span></span>
+        <svg class="mini" viewBox="0 0 320 96" aria-hidden="true" focusable="false">
+          <rect x="1" y="1" width="98" height="66"/>
+          <rect x="111" y="1" width="98" height="66"/>
+          <rect x="221" y="1" width="98" height="66" class="bold"/>
+          <path d="M1,80 H319" class="bold"/>
+          <path d="M1,74 V88 M319,74 V88"/>
+        </svg>
+        <span>
+          <h3>施工事例</h3>
+          <p>注文住宅4件とリノベーション・店舗2件。それぞれ写真を増やして、外観と内観の両方を載せています。</p>
+        </span>
+        <span class="go mono">VIEW SHEET<i></i>&#8594;</span>
+      </a>
+
+      <a class="icard" href="construction-standard-info.html" data-sheet="SHEET C-01">
+        <span class="top mono"><span class="no">C-01</span><span>STEP 01 &#8212; 04 / NOTES</span></span>
+        <svg class="mini" viewBox="0 0 320 96" aria-hidden="true" focusable="false">
+          <path d="M1,34 H319" class="bold"/>
+          <path d="M40,34 V16 M120,34 V16 M200,34 V16 M280,34 V16"/>
+          <rect x="26" y="46" width="28" height="28"/>
+          <rect x="106" y="46" width="28" height="28"/>
+          <rect x="186" y="46" width="28" height="28"/>
+          <rect x="266" y="46" width="28" height="28" class="bold"/>
+          <path d="M1,88 H319"/>
+        </svg>
+        <span>
+          <h3>家づくりの流れ・会社案内</h3>
+          <p>ご相談からお引き渡し、その後の点検まで。現場と設備の様子、会社概要とアクセスもこちらに。</p>
+        </span>
+        <span class="go mono">VIEW SHEET<i></i>&#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A-06 概要 ============ -->
+<section class="sec" id="info" aria-labelledby="infoH">
+  <div class="wrap">
+    <div class="sheet-tag mono rv">
+      <span class="no">A-06</span>
+      <h2 class="ttl" id="infoH">概要・お問い合わせ</h2>
+      <span class="sp">GENERAL NOTES</span>
+    </div>
+
+    <dl class="notes rv">
+      <div class="note">
+        <dt class="id mono">NOTE 01</dt>
+        <dd class="k mono" style="grid-column:2">ADDRESS</dd>
+        <dd class="v">福岡県福岡市〇〇区〇〇5-3-1<small>住所</small></dd>
+      </div>
+      <div class="note">
+        <dt class="id mono">NOTE 02</dt>
+        <dd class="k mono" style="grid-column:2">OPEN</dd>
+        <dd class="v"><span class="mono">8:30 &#8212; 17:30</span><small>営業時間</small></dd>
+      </div>
+      <div class="note">
+        <dt class="id mono">NOTE 03</dt>
+        <dd class="k mono" style="grid-column:2">CLOSED</dd>
+        <dd class="v">日曜日<small>定休日</small></dd>
+      </div>
+      <div class="note">
+        <dt class="id mono">NOTE 04</dt>
+        <dd class="k mono" style="grid-column:2">WORKS</dd>
+        <dd class="v">新築・リフォーム／注文住宅・リノベーション・店舗<small>対応業務</small></dd>
+      </div>
+    </dl>
+
+    <div class="hours rv">
+      <p class="cap mono">OPENING HOURS &#8212; DIMENSION</p>
+      <div class="hrow">
+        <span class="t mono">8:30</span>
+        <span class="dim" aria-hidden="true">
+          <span class="val mono">9.0 h</span>
+          <span class="dl">
+            <svg class="cap" width="16" height="11" viewBox="0 0 16 11" focusable="false"><path d="M15,5.5 H1 M1,0.5 V10.5 M1,5.5 l8,-3.4 M1,5.5 l8,3.4" stroke="#14171A" stroke-width="1.2" fill="none"/></svg>
+            <span class="ln"></span>
+            <svg class="cap" width="16" height="11" viewBox="0 0 16 11" focusable="false"><path d="M1,5.5 H15 M15,0.5 V10.5 M15,5.5 l-8,-3.4 M15,5.5 l-8,3.4" stroke="#14171A" stroke-width="1.2" fill="none"/></svg>
+          </span>
+        </span>
+        <span class="t mono">17:30</span>
+      </div>
+      <div class="ruler" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="hfoot mono"><span>OPEN</span><span>CLOSE</span></div>
+      <p class="hclosed mono">CLOSED : SUN &#65372; 定休日 日曜日</p>
+    </div>
+
+    <div class="cta rv">
+      <a href="mailto:info@example.com">
+        <span><span class="lb">メールで問い合わせる</span><span class="sb mono">info@example.com</span></span>
+        <span class="ar" aria-hidden="true">&#8594;</span>
+      </a>
+      <a class="line" href="https://lin.ee/z3rP0hO">
+        <span><span class="lb">LINEで問い合わせる</span><span class="sb mono">LINE &#8212; 24H RECEPTION</span></span>
+        <span class="ar" aria-hidden="true">&#8594;</span>
+      </a>
+    </div>
+
+    <a class="morelink rv" href="construction-standard-info.html" data-sheet="SHEET C-01">
+      <b>会社案内・アクセスを見る</b>
+      <span class="mono">SHEET C-01 &nbsp;/&nbsp; COMPANY &amp; ACCESS &nbsp;&#8594;</span>
+    </a>
+  </div>
+</section>
+</main>
+
+<!-- ===== フッター ===== -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="row">
+      <div class="fb">
+        <b>福岡匠建</b>
+        <span class="mono">FUKUOKA SHOKEN &nbsp;/&nbsp; RESC制作サンプル</span>
+        <span>福岡県福岡市〇〇区〇〇5-3-1 &nbsp;/&nbsp; 8:30〜17:30（定休日:日曜日）</span>
+      </div>
+      <nav class="fl mono" aria-label="フッターナビゲーション">
+        <a href="construction-standard.html" data-sheet="SHEET A-01">A-01 トップ</a>
+        <a href="construction-standard-detail.html" data-sheet="SHEET B-01">B-01 施工事例</a>
+        <a href="construction-standard-info.html" data-sheet="SHEET C-01">C-01 家づくり・会社案内</a>
+        <a href="mailto:info@example.com">MAIL</a>
+        <a href="https://lin.ee/z3rP0hO">LINE</a>
+      </nav>
+    </div>
+    <div class="cr mono">
+      <span>福岡匠建（RESC制作サンプル）</span>
+      <span><a href="../hp-service/index.html">RESCのサイトに戻る</a></span>
+    </div>
+  </div>
+</footer>
+
 <script>
-(function () {
-  const FAQ = {
-    hours: { match: ["営業時間", "何時"], answer: "営業時間は8:30〜17:30です。定休日は毎週日曜日です。" },
-    closed: { match: ["定休日", "休み", "休業"], answer: "定休日は毎週日曜日です。それ以外は営業しております。" },
-    access: { match: ["場所", "アクセス", "住所", "行き方"], answer: "福岡県福岡市〇〇区〇〇5-3-1にございます。詳しくは下部のアクセス欄をご覧ください。" },
-    menu: { match: ["事例", "何ができ"], answer: "モダン住宅・和モダン住宅・平屋住宅・二世帯住宅などの注文住宅をはじめ、リノベーション、店舗・オフィスの施工にも対応しております。詳しくは施工事例欄をご覧ください。" },
-    estimate: { match: ["見積", "費用", "料金", "いくら"], answer: "建物の規模や内容により費用が異なりますため、個別にお見積りをご相談させていただいております。お気軽にお問い合わせください。" },
-    area: { match: ["エリア", "地域", "対応範囲", "どこまで"], answer: "福岡市を中心に対応しております。詳しくはお問い合わせください。" },
-    after: { match: ["アフター", "保証", "メンテナンス", "引き渡し後"], answer: "引き渡し後のメンテナンス対応も行っております。安心してお住まいいただけるようサポートいたします。" }
-  };
-  const FALLBACK = "お問い合わせフォームからご連絡ください。ページ下部のアクセス欄もご覧いただけます。";
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const toggle = document.getElementById('faq-cb-toggle');
-  const panel = document.getElementById('faq-cb-panel');
-  const closeBtn = document.getElementById('faq-cb-close');
-  const messages = document.getElementById('faq-cb-messages');
-  const input = document.getElementById('faq-cb-input');
-  const sendBtn = document.getElementById('faq-cb-send');
+  /* ---------- 0. ページ遷移（図面シートの差し替え） ---------- */
+  var flip = document.getElementById('flip');
+  if (flip && !reduce) {
+    flip.classList.add('enter');
+    window.setTimeout(function(){ flip.classList.remove('enter'); }, 700);
 
-  function addMsg(text, who) {
-    const div = document.createElement('div');
-    div.className = 'faq-cb-msg ' + who;
-    div.textContent = text;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var n = e.target;
+      while (n && n.nodeType === 1 && n.tagName.toLowerCase() !== 'a') n = n.parentNode;
+      if (!n || n.nodeType !== 1) return;
+      var href = n.getAttribute('href') || '';
+      if (!/^construction-standard(-detail|-info)?\.html(#.*)?$/.test(href)) return;
+      if (n.getAttribute('target')) return;
+      e.preventDefault();
+      var lb = flip.querySelector('.fl-in');
+      if (lb) lb.textContent = n.getAttribute('data-sheet') || 'SHEET';
+      flip.classList.remove('enter');
+      flip.classList.add('leave');
+      window.setTimeout(function(){ window.location.href = href; }, 300);
+    });
   }
 
-  function addFallback() {
-    const div = document.createElement('div');
-    div.className = 'faq-cb-msg bot';
-    div.innerHTML = FALLBACK + '<br><a href="mailto:info@example.com">お問い合わせフォームへ</a>';
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  }
+  /* ---------- 1. 家が建ち上がる（stroke-dasharray スクラブ） ---------- */
+  var svg = document.getElementById('houseSvg');
+  var track = document.getElementById('buildTrack');
+  var stageEls = Array.prototype.slice.call(document.querySelectorAll('#stages li'));
+  var groups = [], texts = [], fills = [];
 
-  function respond(text) {
-    const lower = text.toLowerCase();
-    let hit = null;
-    for (const key in FAQ) {
-      if (FAQ[key].match.some(k => lower.includes(k.toLowerCase()))) { hit = FAQ[key]; break; }
+  if (svg) {
+    for (var s = 0; s < 4; s++) {
+      var g = svg.querySelector('g[data-stage="' + s + '"]');
+      var items = [];
+      if (g) {
+        var shapes = g.querySelectorAll('path,line,polyline,rect');
+        for (var i = 0; i < shapes.length; i++) {
+          var el = shapes[i];
+          var len = 0;
+          try { len = el.getTotalLength(); } catch (e) { len = 0; }
+          if (!len || !isFinite(len)) len = 400;
+          if (!reduce) {
+            el.style.strokeDasharray = len;
+            el.style.strokeDashoffset = len;
+          }
+          items.push({ el: el, len: len });
+        }
+      }
+      groups.push(items);
     }
-    setTimeout(() => {
-      if (hit) addMsg(hit.answer, 'bot');
-      else addFallback();
-    }, 350);
+    texts = Array.prototype.slice.call(svg.querySelectorAll('#houseText text'));
+    fills = Array.prototype.slice.call(svg.querySelectorAll('.fillwood,.fillsky'));
   }
 
-  let userClosed = false;
+  function setStage(idx, p) {
+    var items = groups[idx];
+    if (!items) return;
+    var n = items.length;
+    for (var i = 0; i < n; i++) {
+      var start = i / n, end = (i + 1) / n;
+      var t = (p - start) / (end - start);
+      t = t < 0 ? 0 : (t > 1 ? 1 : t);
+      items[i].el.style.strokeDashoffset = items[i].len * (1 - t);
+    }
+    var li = stageEls[idx];
+    if (li) {
+      li.classList.toggle('on', p > 0.02);
+      var bar = li.querySelector('.bar i');
+      if (bar) bar.style.transform = 'scaleX(' + p + ')';
+    }
+  }
 
-  toggle.addEventListener('click', () => { panel.classList.add('open'); toggle.style.display = 'none'; });
-  closeBtn.addEventListener('click', () => {
-    panel.classList.remove('open');
-    toggle.style.display = 'flex';
-    userClosed = true;
-  });
+  var STAGES = [[0.02, 0.30], [0.28, 0.56], [0.54, 0.80], [0.78, 0.97]];
 
-  // ページ読み込み後、少し間を置いて自動的にチャットを開く(スマホ幅では邪魔になるため無効)
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      if (userClosed || window.innerWidth <= 480) return;
-      panel.classList.add('open');
-      toggle.style.display = 'none';
-    }, 900);
-  });
+  function renderBuild() {
+    if (!track || !svg) return;
+    var r = track.getBoundingClientRect();
+    var vh = window.innerHeight || 800;
+    var total = r.height - vh;
+    var prog = total > 0 ? (-r.top) / total : (r.top < 0 ? 1 : 0);
+    prog = prog < 0 ? 0 : (prog > 1 ? 1 : prog);
 
-  sendBtn.addEventListener('click', () => {
-    const val = input.value.trim();
-    if (!val) return;
-    addMsg(val, 'user');
-    respond(val);
-    input.value = '';
-  });
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') sendBtn.click();
-  });
+    for (var s = 0; s < 4; s++) {
+      var a = STAGES[s][0], b = STAGES[s][1];
+      var p = (prog - a) / (b - a);
+      p = p < 0 ? 0 : (p > 1 ? 1 : p);
+      setStage(s, p);
+    }
+    for (var i = 0; i < texts.length; i++) {
+      var st = parseInt(texts[i].getAttribute('data-stage'), 10) || 0;
+      var trg = STAGES[st][1];
+      texts[i].style.opacity = prog > trg - 0.02 ? 1 : 0;
+      texts[i].style.transition = 'opacity .4s ease';
+    }
+    var fo = prog > 0.80 ? Math.min(1, (prog - 0.80) / 0.12) : 0;
+    for (var k = 0; k < fills.length; k++) fills[k].style.opacity = fo;
+  }
+
+  if (svg && !reduce) {
+    var ticking = false;
+    var onScroll = function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () { renderBuild(); ticking = false; });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    renderBuild();
+  } else if (svg) {
+    for (var si = 0; si < 4; si++) {
+      var li2 = stageEls[si];
+      if (li2) { li2.classList.add('on'); }
+    }
+  }
+
+  /* ---------- 2. 出現アニメーション ---------- */
+  var rvs = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+  if (reduce || !('IntersectionObserver' in window)) {
+    rvs.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    rvs.forEach(function (el) { io.observe(el); });
+  }
 })();
 </script>
-
 </body>
 </html>
