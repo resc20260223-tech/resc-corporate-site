@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お品書き｜炭火焼鳥 とりや</title>
+<meta name="description" content="炭火焼鳥 とりやのお品書き。おまかせ盛り合わせ、もも串、つくね、皮、レバー、季節の一品。串ごとの火力の目安つき。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=" js";</script>
+<style>
+:root{--sumi:#0C0A08;--sumi-1:#141110;--sumi-2:#1D1917;--sumi-3:#282320;
+  --line:#443A33;--line-soft:#312A25;--mast-bg:rgba(12,10,8,.87);--glow:.66}
+
+/* ==========================================================
+   炭火焼鳥 とりや — スタンダード
+   骨格：炭。ページは「火床（ほど）の段」＝炭からの距離。
+   火床 三 強火（トップ）／ 二 中火（お品書き）／ 一 遠火（店とご予約）
+   ========================================================== */
+:root{
+  --kinari:#F6F0E6; --kinari-2:#D9CFC0; --kinari-3:#AFA495;
+  --hi:#FF8A3D; --hi-2:#FFB25C; --hi-3:#E2542A; --hi-deep:#8E1F0E;
+  --gothic:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --num:"Oswald","Zen Kaku Gothic New",sans-serif;
+  --pad:clamp(20px,5.2vw,44px);
+  --maxw:1180px;
+  --glow:1;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip;background:var(--sumi)}
+body{margin:0;overflow-x:clip;background:var(--sumi);color:var(--kinari);
+  font-family:var(--gothic);font-weight:400;font-size:16px;line-height:2.0;
+  font-feature-settings:"palt" 1;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,p,figure,ul,ol,dl,dd,fieldset{margin:0;padding:0}
+fieldset{border:0;min-width:0}
+ul,ol{list-style:none}
+:focus-visible{outline:2px solid var(--hi-2);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+section[id],article[id]{scroll-margin-top:clamp(74px,13vw,116px)}
+.num{font-family:var(--num);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip:focus{position:fixed;left:10px;top:10px;z-index:500;width:auto;height:auto;margin:0;clip-path:none;
+  background:var(--hi-2);color:#1A0C03;padding:10px 18px;font-weight:700;border-radius:2px}
+
+/* ---------- ページ遷移（火の粉→暗転／読込は明転） ---------- */
+.curtain{position:fixed;inset:0;z-index:400;background:#050303;overflow:hidden;
+  opacity:0;visibility:hidden;pointer-events:none}
+.js .curtain{opacity:1;visibility:visible}
+.js.lit .curtain{opacity:0;visibility:hidden;transition:opacity .55s ease,visibility 0s linear .55s}
+.js.leaving .curtain{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .34s ease .24s}
+.curtain::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-6%;height:52%;
+  background:radial-gradient(60% 100% at 50% 100%,rgba(255,122,42,.55),rgba(226,84,42,.16) 46%,rgba(226,84,42,0) 74%);
+  opacity:0;transition:opacity .4s ease}
+.js.leaving .curtain::after{opacity:1}
+.cfire{position:absolute;inset:0}
+.cspk{position:absolute;bottom:-16px;border-radius:50%;background:#FFCE95;
+  box-shadow:0 0 11px 3px rgba(255,146,54,.85);opacity:0}
+.js.leaving .cspk{animation-name:cUp;animation-timing-function:cubic-bezier(.28,.5,.42,1);animation-fill-mode:forwards}
+@keyframes cUp{
+  0%{opacity:0;transform:translate3d(0,0,0) scale(.4)}
+  14%{opacity:1}
+  74%{opacity:.85}
+  100%{opacity:0;transform:translate3d(var(--dx,0),-86vh,0) scale(1.2)}
+}
+
+/* ---------- 告知バー ---------- */
+.notice{background:var(--sumi-3);border-bottom:1px solid var(--line-soft);font-size:12.5px;line-height:1.6}
+.notice-in{max-width:var(--maxw);margin:0 auto;padding:9px var(--pad);
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:space-between;color:var(--kinari-2)}
+.notice a{color:var(--hi-2);border-bottom:1px solid rgba(255,178,92,.45);padding-bottom:1px;font-weight:700;white-space:nowrap}
+.notice a:hover{color:#FFD199;border-bottom-color:#FFD199}
+
+/* ---------- ヘッダー ---------- */
+.mast{position:sticky;top:0;z-index:100;background:var(--mast-bg);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-soft)}
+.mast-in{max-width:var(--maxw);margin:0 auto;padding:11px var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:14px}
+.mast-name{font-weight:900;font-size:clamp(14px,2vw,17px);letter-spacing:.09em;line-height:1.3;
+  display:flex;align-items:center;gap:9px;flex:none}
+.mast-mark{width:19px;height:19px;flex:none}
+.mast-nav{display:flex;gap:clamp(14px,2.6vw,30px);font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--kinari-2)}
+.mast-nav a{position:relative;padding:5px 0;white-space:nowrap}
+.mast-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--hi);transition:right .35s ease}
+.mast-nav a:hover{color:var(--kinari)}
+.mast-nav a:hover::after{right:0}
+.mast-nav a[aria-current="page"]{color:var(--hi-2)}
+.mast-nav a[aria-current="page"]::after{right:0;background:var(--hi-2)}
+.hodo-tag{display:flex;align-items:center;gap:9px;flex:none;
+  font-size:11px;letter-spacing:.16em;color:var(--kinari-3);font-weight:700}
+.hodo-tag b{color:var(--hi-2);margin-left:.5em;letter-spacing:.1em}
+.hodo-meter{width:26px;height:22px;flex:none}
+.hm-bar{fill:#3E352F}
+.hm-bar.on{fill:var(--hi-2)}
+@media (max-width:1000px){.hodo-tag{display:none}}
+@media (max-width:620px){
+  .mast-in{flex-wrap:wrap;gap:8px;padding-bottom:0}
+  .mast-nav{width:100%;order:3;justify-content:space-between;gap:10px;
+    border-top:1px solid var(--line-soft);padding:6px 0 2px;font-size:12px}
+  .mast-nav a{padding:4px 0}
+}
+
+/* ---------- 炭の帯（区切り） ---------- */
+.coalrule{display:block;width:100%;height:clamp(16px,2.4vw,26px);opacity:.9}
+.cr-dark{fill:url(#gSumi)}
+.cr-hot{fill:url(#gEmber);opacity:calc(.7 * var(--glow))}
+
+/* ---------- 見出し共通 ---------- */
+.sec{position:relative;padding:clamp(54px,7.6vw,100px) 0}
+.sec--alt{background:var(--sumi-1)}
+.sec-head{margin-bottom:clamp(28px,4.6vw,54px)}
+.sec-no{font-family:var(--num);font-size:12px;font-weight:600;letter-spacing:.3em;color:var(--hi);display:block;margin-bottom:11px}
+h2{font-weight:900;font-size:clamp(23px,4.2vw,42px);line-height:1.42;letter-spacing:.03em}
+.sec-sub{margin-top:13px;color:var(--kinari-3);font-size:13.5px;letter-spacing:.08em;font-weight:500;line-height:1.9}
+.rule{height:1px;background:linear-gradient(90deg,var(--hi-3),rgba(226,84,42,.18) 42%,transparent);margin-top:18px}
+.lead-p{color:var(--kinari-2);font-size:clamp(14.5px,1.7vw,17px);line-height:2.2;max-width:34em}
+.lede{font-size:clamp(18px,2.5vw,26px);line-height:1.92;font-weight:700;color:var(--kinari);letter-spacing:.02em}
+
+/* ---------- 下層ページのヘッド ---------- */
+.phero{position:relative;overflow:hidden;background:#080605}
+.phero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:brightness(var(--pb,.5)) contrast(1.05) saturate(.98)}
+.phero-scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(8,6,5,.9) 0%,rgba(8,6,5,.5) 40%,rgba(8,6,5,.94) 100%)}
+.phero-in{position:relative;z-index:3;padding:clamp(46px,8vw,86px) 0 clamp(40px,6.6vw,72px)}
+.phero h1{font-weight:900;font-size:clamp(28px,5.6vw,58px);line-height:1.28;letter-spacing:.03em;
+  text-shadow:0 6px 30px rgba(0,0,0,.9),0 1px 2px rgba(0,0,0,.95)}
+.phero .hodo-line{margin-bottom:clamp(16px,2.6vw,24px)}
+.phero-lead{margin-top:clamp(16px,2.6vw,26px);max-width:32em;color:var(--kinari-2);
+  font-size:clamp(14px,1.6vw,16.5px);line-height:2.05;text-shadow:0 2px 12px rgba(0,0,0,.9)}
+
+/* 火床ライン（ページ章表示） */
+.hodo-line{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  font-size:11.5px;font-weight:700;letter-spacing:.24em;color:var(--hi-2)}
+.hodo-line .hodo-meter{width:30px;height:25px}
+.hodo-line em{font-style:normal;color:var(--kinari-3);letter-spacing:.12em;font-weight:500;font-size:11px}
+
+/* ---------- 火床の断面（トップの見どころ） ---------- */
+.hodo{background:var(--sumi-1);position:relative;overflow:hidden}
+.hodo-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.95fr);gap:clamp(26px,4.4vw,58px);align-items:start}
+@media (max-width:900px){.hodo-grid{grid-template-columns:1fr}}
+.bed{position:relative;border:1px solid var(--line-soft);border-radius:4px;background:var(--sumi-2);
+  padding:clamp(14px,2.4vw,22px) clamp(12px,2vw,20px) clamp(12px,2vw,18px);overflow:hidden}
+.bed-svg{width:100%;height:auto;display:block;border-radius:3px;background:linear-gradient(180deg,#0B0806,#140F0C)}
+.bed-ctrl{margin-top:clamp(14px,2.2vw,20px);display:flex;gap:8px;flex-wrap:wrap}
+.bed-btn{flex:1 1 0;min-width:92px;appearance:none;border:1px solid var(--line);border-radius:3px;
+  background:var(--sumi-3);color:var(--kinari-2);font-family:inherit;font-weight:900;font-size:13px;
+  letter-spacing:.12em;padding:12px 8px;cursor:pointer;transition:border-color .3s,background .3s,color .3s;line-height:1.5}
+.bed-btn:hover{border-color:rgba(255,138,61,.6);color:var(--kinari)}
+.bed-btn[aria-pressed="true"]{background:linear-gradient(100deg,#71160A,#B94420);border-color:#FFC98F;color:#FFF3E6}
+.bed-read{margin-top:14px;border-top:1px solid var(--line-soft);padding-top:14px}
+.bed-read dt{font-size:11px;letter-spacing:.2em;color:var(--hi);font-weight:700}
+.bed-read dd{margin:6px 0 0;color:var(--kinari-2);font-size:14.5px;line-height:2}
+.bed-note{margin-top:12px;font-size:11.5px;letter-spacing:.06em;color:var(--kinari-3);line-height:1.85}
+/* 断面SVG */
+.bed-svg .coal-dark{fill:url(#gSumi)}
+.bed-svg .coal-hot{fill:url(#gEmber);opacity:.9}
+.bed-svg .ash{fill:#241E1A}
+.bed-svg .bedglow{fill:url(#gHeatBed)}
+.bed-svg .zone{fill:#FF7A2A;opacity:.05}
+.bed-svg .zone.on{opacity:.17}
+.bed-svg .zone-t{fill:var(--kinari-3);font-size:17px;font-weight:700;letter-spacing:.12em;font-family:var(--gothic)}
+.bed-svg .zone-t.on{fill:var(--hi-2)}
+.bed-svg .lbl{fill:var(--kinari-3);font-size:17px;font-weight:700;letter-spacing:.16em;font-family:var(--gothic)}
+.bed-svg .skew-g{transition:transform .55s cubic-bezier(.3,.7,.3,1)}
+.bed-svg .stick{fill:url(#gBamboo)}
+.bed-svg .neta{fill:url(#gCooked)}
+.bed-svg .rim{fill:none;stroke:#FFB25C;stroke-width:3;stroke-linecap:round;opacity:.55;transition:opacity .5s ease}
+.bed-svg .wave{fill:none;stroke:#FFA860;stroke-width:1.6;stroke-linecap:round;opacity:0;transition:opacity .5s ease}
+.bed.lv-near .wave{opacity:.3}
+.bed.lv-mid .wave{opacity:.2}
+.bed.lv-far .wave{opacity:.1}
+.bed.lv-near .rim{opacity:.95}
+.bed.lv-mid .rim{opacity:.6}
+.bed.lv-far .rim{opacity:.3}
+.bed.lv-near .skew-g{transform:translateY(0)}
+.bed.lv-mid .skew-g{transform:translateY(-42px)}
+.bed.lv-far .skew-g{transform:translateY(-84px)}
+.bed.lv-near .coal-hot{opacity:1}
+.bed.lv-mid .coal-hot{opacity:.72}
+.bed.lv-far .coal-hot{opacity:.5}
+
+/* ---------- 汎用カード／写真 ---------- */
+.frame{position:relative;border-radius:3px;overflow:hidden;background:var(--sumi-2);
+  box-shadow:0 0 0 1px rgba(255,138,61,calc(.2 * var(--glow))),0 30px 62px -28px rgba(0,0,0,.95)}
+.frame img{width:100%;height:auto;object-fit:cover;filter:brightness(.9) contrast(1.04)}
+.frame figcaption,.cap-in{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 15px 12px;
+  background:linear-gradient(0deg,rgba(8,6,5,.95),rgba(8,6,5,.5) 50%,rgba(8,6,5,0));
+  font-size:12px;font-weight:700;letter-spacing:.13em;color:var(--kinari);line-height:1.7}
+.frame figcaption .num,.cap-in .num{color:var(--hi-2);margin-right:9px;font-size:11px}
+.cap{margin-top:11px;font-size:12px;letter-spacing:.13em;color:var(--kinari-3);font-weight:500;line-height:1.8}
+
+/* ---------- ボタン ---------- */
+.btn{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:17px 21px;border-radius:3px;font-weight:900;letter-spacing:.08em;font-size:14.5px;line-height:1.6;
+  border:1px solid var(--line);background:var(--sumi-2);color:var(--kinari);
+  transition:border-color .3s,background .3s,transform .3s}
+.btn .arw{width:22px;height:10px;flex:none;stroke:var(--hi-2);stroke-width:1.6;fill:none;transition:transform .3s}
+.btn:hover{border-color:rgba(255,138,61,.7);background:var(--sumi-3);transform:translateY(-2px)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn--hi{background:linear-gradient(100deg,#6E1206,#B93E19);border-color:rgba(255,178,92,.55);color:#FFF6EC}
+.btn--hi .arw{stroke:#FFE1BE}
+.btn--hi:hover{background:linear-gradient(100deg,#8A1B0B,#C2461D);border-color:#FFC98F}
+.cta{display:flex;flex-direction:column;gap:11px}
+.cta-note{font-size:12px;color:var(--kinari-3);letter-spacing:.05em;line-height:1.9;margin-top:2px}
+
+/* ---------- 火力ゲージ ---------- */
+.gauge{display:inline-flex;align-items:center;gap:9px;vertical-align:middle}
+.gauge svg{width:56px;height:16px;display:block;flex:none}
+.gauge .gc{fill:#463B34}
+.gauge .gc.on{fill:url(#gOki)}
+.gauge-txt{font-size:11.5px;font-weight:900;letter-spacing:.16em;color:var(--hi-2)}
+.gauge-txt.soft{color:var(--kinari-2)}
+
+/* ---------- 店舗情報 ---------- */
+.dl dt{font-size:11px;letter-spacing:.22em;color:var(--hi);font-weight:700;margin-top:22px}
+.dl dt:first-of-type{margin-top:0}
+.dl dd{margin:6px 0 0;font-size:clamp(15px,1.8vw,17px);line-height:1.95;font-weight:500;color:var(--kinari)}
+.dl dd .num{font-family:var(--num);font-size:1.12em;font-weight:500;letter-spacing:.02em}
+.dl dd small{display:block;font-size:12.5px;color:var(--kinari-3);letter-spacing:.08em;margin-top:2px;font-weight:500;line-height:1.8}
+
+/* ---------- フッター ---------- */
+.foot{background:var(--sumi);border-top:1px solid var(--line-soft);padding:0 0 clamp(28px,4vw,44px)}
+.foot .coalrule{opacity:.5;margin-bottom:clamp(30px,5vw,52px)}
+.foot-in{display:flex;flex-wrap:wrap;gap:20px 30px;align-items:flex-end;justify-content:space-between}
+.foot-name{font-weight:900;font-size:16.5px;letter-spacing:.1em;display:flex;align-items:center;gap:9px}
+.foot-sub{margin-top:8px;font-size:12px;color:var(--kinari-3);letter-spacing:.06em;font-weight:500;line-height:1.9}
+.foot-links{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:12.5px;color:var(--kinari-2);font-weight:700;letter-spacing:.06em}
+.foot-links a:hover{color:var(--hi-2)}
+
+/* ---------- リビール ---------- */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.7,.3,1)}
+.js .rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .curtain{display:none!important}
+  .js .rv{opacity:1!important;transform:none!important}
+}
+
+.phero{min-height:min(56svh,460px);display:flex;flex-direction:column;justify-content:flex-end}
+/* 早見表 */
+.hayami{border:1px solid var(--line-soft);border-radius:4px;background:var(--sumi-2);overflow:hidden}
+.hy-row{display:grid;grid-template-columns:142px minmax(0,1fr);align-items:center;gap:clamp(12px,2vw,22px);
+  padding:clamp(15px,2.4vw,22px) clamp(15px,2.6vw,24px);border-top:1px solid var(--line-soft);position:relative}
+.hy-row.l1{background:linear-gradient(90deg,rgba(255,138,61,.05),rgba(255,138,61,0) 55%)}
+.hy-row.l2{background:linear-gradient(90deg,rgba(255,138,61,.11),rgba(255,138,61,0) 62%)}
+.hy-row.l3{background:linear-gradient(90deg,rgba(255,138,61,.19),rgba(255,138,61,.02) 70%)}
+.hy-axis{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px clamp(15px,2.6vw,24px);
+  background:var(--sumi-3);font-size:11px;letter-spacing:.16em;color:var(--kinari-3);font-weight:700;line-height:1.7}
+.hy-axis b{color:var(--hi-2);font-weight:700}
+.hy-coalline{display:flex;align-items:flex-end;gap:12px;padding:0 clamp(15px,2.6vw,24px) 12px;background:rgba(255,138,61,.05)}
+.hy-coalline span{font-size:11px;letter-spacing:.2em;color:var(--hi-2);font-weight:700;padding-bottom:2px}
+.hy-coalline .coalrule{flex:1;height:26px;opacity:1}
+.hy-tail{margin-top:16px;font-size:13.5px;color:var(--kinari-2);line-height:2.05}
+.hy-tail a{color:var(--hi-2);border-bottom:1px solid rgba(255,178,92,.45);font-weight:700}
+.hy-tail a:hover{color:#FFD199}
+.hy-row:first-child{border-top:0}
+.hy-k{display:flex;flex-direction:column;gap:7px}
+.hy-k b{font-size:14.5px;font-weight:900;letter-spacing:.14em;color:var(--hi-2);line-height:1.4}
+.hy-k span{font-size:11.5px;color:var(--kinari-3);letter-spacing:.06em;line-height:1.7}
+.hy-v{display:flex;flex-wrap:wrap;gap:8px 10px}
+.hy-v a,.hy-v span.it{border:1px solid var(--line);border-radius:999px;padding:6px 15px;font-size:13px;
+  font-weight:700;letter-spacing:.06em;color:var(--kinari);background:var(--sumi-3);line-height:1.7}
+.hy-v a:hover{border-color:rgba(255,178,92,.7);color:var(--hi-2)}
+.hy-coal{position:absolute;left:0;top:0;bottom:0;width:5px}
+.hy-c1{background:linear-gradient(180deg,#5A3A22,#3A2418)}
+.hy-c2{background:linear-gradient(180deg,#C4550F,#7A2C08)}
+.hy-c3{background:linear-gradient(180deg,#FFB25C,#C93A11)}
+@media (max-width:600px){.hy-row{grid-template-columns:1fr;gap:10px}}
+
+/* 品目 */
+.feat{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(24px,4.4vw,58px);align-items:center}
+@media (max-width:880px){.feat{grid-template-columns:1fr;gap:24px}}
+.feat--rev .feat-media{order:2}
+@media (max-width:880px){.feat--rev .feat-media{order:0}}
+.feat-media{position:relative;border-radius:3px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(255,138,61,calc(.24 * var(--glow))),0 36px 74px -30px rgba(0,0,0,.98)}
+.feat-media img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;filter:brightness(.95) saturate(1.04) contrast(1.05)}
+.d-no{font-family:var(--num);font-size:clamp(38px,7vw,74px);font-weight:600;line-height:.9;
+  color:transparent;-webkit-text-stroke:1.3px rgba(255,138,61,.55);display:block;margin-bottom:10px}
+.d-name{font-weight:900;font-size:clamp(24px,3.6vw,40px);line-height:1.32;letter-spacing:.02em}
+.d-cnt{font-size:.5em;font-weight:700;color:var(--hi-2);letter-spacing:.06em;margin-left:.25em;vertical-align:.1em;white-space:nowrap}
+.d-desc{margin-top:15px;color:var(--kinari-2);font-size:clamp(14.5px,1.7vw,17px);line-height:2.1;max-width:26em}
+.d-meta{margin-top:clamp(18px,2.8vw,26px);display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px 26px;
+  border-top:1px solid var(--line);padding-top:16px}
+.d-meta .pr{font-family:var(--num);font-weight:500;font-size:clamp(28px,4.6vw,46px);line-height:1;color:var(--hi-2)}
+.d-meta .lbl{font-size:11px;letter-spacing:.2em;color:var(--kinari-3);font-weight:700;display:block;margin-bottom:6px}
+
+/* 定番の串 */
+.teiban{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.6vw,30px)}
+@media (max-width:700px){.teiban{grid-template-columns:1fr}}
+.tb{background:var(--sumi-2);border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.tb img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;filter:brightness(.93) saturate(1.03) contrast(1.05)}
+.tb-b{padding:clamp(16px,2.4vw,24px);display:flex;flex-direction:column;gap:11px;flex:1}
+.tb h3{font-size:clamp(19px,2.4vw,24px);font-weight:900;letter-spacing:.03em;line-height:1.45}
+.tb p{font-size:14px;color:var(--kinari-2);line-height:2}
+.tb-f{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  border-top:1px solid var(--line-soft);padding-top:13px}
+.tb-f .pr{font-family:var(--num);font-size:clamp(22px,3vw,30px);color:var(--hi-2);font-weight:500;line-height:1}
+.osusume{margin-top:clamp(26px,4vw,40px);border:1px solid var(--line-soft);border-radius:4px;background:var(--sumi-1);
+  padding:clamp(18px,2.8vw,26px)}
+.osusume p{font-size:14px;color:var(--kinari-2);line-height:2.05}
+.osusume b{color:var(--kinari);font-weight:900;letter-spacing:.06em;display:block;margin-bottom:8px;font-size:13px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<linearGradient id="gBamboo" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="#8E6A3F"/><stop offset="42%" stop-color="#D9B683"/><stop offset="100%" stop-color="#7A5931"/>
+</linearGradient>
+<linearGradient id="gCooked" x1="0" y1="0" x2="0.3" y2="1">
+<stop offset="0%" stop-color="#D98A3C"/><stop offset="52%" stop-color="#A85718"/><stop offset="100%" stop-color="#6B300B"/>
+</linearGradient>
+<linearGradient id="gSumi" x1="0" y1="0" x2="0.2" y2="1">
+<stop offset="0%" stop-color="#4A3F38"/><stop offset="55%" stop-color="#2B2320"/><stop offset="100%" stop-color="#191413"/>
+</linearGradient>
+<linearGradient id="gOki" x1="0" y1="0" x2="0.25" y2="1">
+<stop offset="0%" stop-color="#FFD9A0"/><stop offset="34%" stop-color="#FF8F35"/><stop offset="72%" stop-color="#C93A11"/><stop offset="100%" stop-color="#6E1B08"/>
+</linearGradient>
+<radialGradient id="gEmber" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#FFD9A0" stop-opacity=".95"/><stop offset="38%" stop-color="#FF8F35" stop-opacity=".62"/><stop offset="100%" stop-color="#C93A11" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="gHeatBed" cx="50%" cy="100%" r="72%">
+<stop offset="0%" stop-color="#FF7A2A" stop-opacity=".85"/><stop offset="46%" stop-color="#D93C15" stop-opacity=".3"/><stop offset="100%" stop-color="#8E1F0E" stop-opacity="0"/>
+</radialGradient>
+</defs></svg>
+<div class="curtain" id="curtain" aria-hidden="true"><div class="cfire"><i class="cspk" style="left:45.0%;--dx:25px;width:4px;height:4px;animation-delay:0.22s;animation-duration:0.80s"></i><i class="cspk" style="left:83.2%;--dx:-22px;width:5px;height:5px;animation-delay:0.05s;animation-duration:0.81s"></i><i class="cspk" style="left:60.3%;--dx:-23px;width:4px;height:4px;animation-delay:0.02s;animation-duration:0.71s"></i><i class="cspk" style="left:53.2%;--dx:42px;width:5px;height:5px;animation-delay:0.16s;animation-duration:0.97s"></i><i class="cspk" style="left:93.7%;--dx:37px;width:6px;height:6px;animation-delay:0.19s;animation-duration:0.71s"></i><i class="cspk" style="left:3.4%;--dx:21px;width:3px;height:3px;animation-delay:0.02s;animation-duration:0.72s"></i><i class="cspk" style="left:25.0%;--dx:-43px;width:4px;height:4px;animation-delay:0.20s;animation-duration:0.80s"></i><i class="cspk" style="left:82.0%;--dx:20px;width:4px;height:4px;animation-delay:0.06s;animation-duration:0.82s"></i><i class="cspk" style="left:64.9%;--dx:12px;width:4px;height:4px;animation-delay:0.17s;animation-duration:0.98s"></i><i class="cspk" style="left:96.6%;--dx:-36px;width:4px;height:4px;animation-delay:0.18s;animation-duration:0.90s"></i><i class="cspk" style="left:50.7%;--dx:-43px;width:3px;height:3px;animation-delay:0.02s;animation-duration:0.79s"></i><i class="cspk" style="left:82.4%;--dx:3px;width:3px;height:3px;animation-delay:0.02s;animation-duration:0.93s"></i><i class="cspk" style="left:2.1%;--dx:-20px;width:3px;height:3px;animation-delay:0.24s;animation-duration:0.81s"></i><i class="cspk" style="left:95.1%;--dx:4px;width:5px;height:5px;animation-delay:0.11s;animation-duration:0.86s"></i><i class="cspk" style="left:76.0%;--dx:-12px;width:4px;height:4px;animation-delay:0.09s;animation-duration:0.77s"></i><i class="cspk" style="left:93.6%;--dx:-31px;width:6px;height:6px;animation-delay:0.03s;animation-duration:0.69s"></i><i class="cspk" style="left:7.7%;--dx:16px;width:5px;height:5px;animation-delay:0.05s;animation-duration:0.72s"></i><i class="cspk" style="left:50.3%;--dx:-30px;width:4px;height:4px;animation-delay:0.11s;animation-duration:0.70s"></i><i class="cspk" style="left:42.0%;--dx:-19px;width:5px;height:5px;animation-delay:0.00s;animation-duration:0.76s"></i><i class="cspk" style="left:86.1%;--dx:-20px;width:5px;height:5px;animation-delay:0.05s;animation-duration:0.87s"></i></div></div>
+<div class="notice"><div class="notice-in"><span>これはRESCが作成したサンプルサイトです。実店舗ではありません。</span><a href="../hp-service/index.html">RESCのサイトに戻る</a></div></div>
+<header class="mast"><div class="mast-in"><a class="mast-name" href="yakitori-standard.html"><svg class="mast-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="10.6" y="1.5" width="2.8" height="21" rx="1.4" fill="url(#gBamboo)"/><rect x="4.6" y="5" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/><rect x="4.6" y="12.4" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/></svg><span>炭火焼鳥 とりや</span></a><nav class="mast-nav" aria-label="サイト内"><a href="yakitori-standard.html">トップ</a><a href="yakitori-standard-detail.html" aria-current="page">お品書き</a><a href="yakitori-standard-info.html">店とご予約</a></nav><span class="hodo-tag"><svg class="hodo-meter" viewBox="0 0 34 28" aria-hidden="true" focusable="false"><rect class="hm-bar" x="0" y="0" width="34" height="6" rx="3"/><rect class="hm-bar on" x="0" y="11" width="34" height="6" rx="3"/><rect class="hm-bar" x="0" y="22" width="34" height="6" rx="3"/></svg><span class="hodo-txt">火床 二<b>中火</b></span></span></div></header>
+<main id="main"><section class="phero" aria-labelledby="h1"><img class="phero-img" src="images/yakitori/yakitori_flow3.webp" alt="炭の上に並べた串を、手で返している焼き場の手元" fetchpriority="high"><div class="phero-scrim" aria-hidden="true"></div><div class="phero-in"><div class="wrap"><p class="hodo-line"><svg class="hodo-meter" viewBox="0 0 34 28" aria-hidden="true" focusable="false"><rect class="hm-bar" x="0" y="0" width="34" height="6" rx="3"/><rect class="hm-bar on" x="0" y="11" width="34" height="6" rx="3"/><rect class="hm-bar" x="0" y="22" width="34" height="6" rx="3"/></svg><span>火床 二 ／ 中火</span><em>炭から少し離した段</em></p><h1 id="h1">お品書き</h1><p class="phero-lead">数は多くありません。その分、一本ずつ。定番のもも・つくね・皮・レバーから、季節ごとに変わる一品まで。</p></div></div></section><section class="sec" id="hayami" aria-labelledby="h-hayami"><div class="wrap"><div class="sec-head rv"><span class="sec-no">01</span><h2 id="h-hayami">串は、火床の高さで分ける。</h2><p class="sec-sub">下に行くほど、炭に近い火。離すほど、時間をかけて火を通します。</p><div class="rule" aria-hidden="true"></div></div><div class="hayami rv rv-d1"><p class="hy-axis"><span>上ほど、炭から遠い</span><span><b>&#8595;</b> 下ほど、炭に近い</span></p><div class="hy-row l1"><span class="hy-coal hy-c1" aria-hidden="true"></span><span class="hy-k"><b>遠火</b><span>いちばん離した高さ</span><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="vh">（火力の目安：遠火）</span></span></span><span class="hy-v"><a href="#yakitori_menu_lever">レバー</a></span></div><div class="hy-row l2"><span class="hy-coal hy-c2" aria-hidden="true"></span><span class="hy-k"><b>中火</b><span>少し離した高さ</span><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="vh">（火力の目安：中火）</span></span></span><span class="hy-v"><a href="#yakitori_menu_tsukune">つくね</a><a href="#yakitori_menu_seasonal">季節の一品</a></span></div><div class="hy-row l3"><span class="hy-coal hy-c3" aria-hidden="true"></span><span class="hy-k"><b>強火</b><span>炭のいちばん近く</span><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="vh">（火力の目安：強火）</span></span></span><span class="hy-v"><a href="#yakitori_menu_momo">もも串</a><a href="#yakitori_menu_kawa">皮</a></span></div><div class="hy-coalline"><span>炭</span><svg class="coalrule" viewBox="0 0 1200 32" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g class="cr-hot"><ellipse cx="14.0" cy="19.0" rx="33" ry="10"/><ellipse cx="72.5" cy="18.5" rx="32" ry="9"/><ellipse cx="138.5" cy="22.5" rx="32" ry="9"/><ellipse cx="191.5" cy="21.0" rx="35" ry="7"/><ellipse cx="257.0" cy="18.0" rx="32" ry="6"/><ellipse cx="317.0" cy="21.0" rx="41" ry="6"/><ellipse cx="377.0" cy="18.0" rx="34" ry="9"/><ellipse cx="436.5" cy="20.0" rx="35" ry="11"/><ellipse cx="478.0" cy="18.5" rx="37" ry="6"/><ellipse cx="542.0" cy="20.0" rx="32" ry="9"/><ellipse cx="593.5" cy="18.5" rx="32" ry="9"/><ellipse cx="629.5" cy="19.0" rx="41" ry="9"/><ellipse cx="679.5" cy="21.5" rx="44" ry="8"/><ellipse cx="736.0" cy="21.0" rx="41" ry="10"/><ellipse cx="785.0" cy="20.5" rx="36" ry="8"/><ellipse cx="825.5" cy="18.5" rx="43" ry="7"/><ellipse cx="861.5" cy="22.5" rx="40" ry="8"/><ellipse cx="896.0" cy="18.0" rx="30" ry="11"/><ellipse cx="961.5" cy="20.0" rx="34" ry="8"/><ellipse cx="1012.5" cy="19.5" rx="29" ry="11"/><ellipse cx="1061.0" cy="20.5" rx="27" ry="8"/><ellipse cx="1111.0" cy="20.0" rx="34" ry="7"/><ellipse cx="1177.5" cy="20.5" rx="43" ry="11"/><ellipse cx="1221.5" cy="19.5" rx="37" ry="11"/></g><g class="cr-dark"><path d="M-15.9 14.8 L-6.3 5.8 L-1.8 7.7 L13.3 14.7 L8.2 30.0 L-7.0 30.0Z"/><path d="M15.6 17.8 L25.7 4.1 L53.9 7.8 L68.5 15.2 L57.0 30.0 L31.5 30.0Z"/><path d="M77.3 22.1 L88.5 13.2 L116.2 18.8 L133.7 22.4 L125.5 30.0 L89.6 30.0Z"/><path d="M140.2 20.0 L152.6 10.6 L169.3 13.5 L189.9 20.1 L177.8 30.0 L149.5 30.0Z"/><path d="M195.2 16.2 L206.0 4.0 L226.1 9.2 L253.4 18.3 L241.9 30.0 L204.7 30.0Z"/><path d="M261.5 17.8 L275.5 12.4 L290.3 10.7 L317.4 16.9 L300.5 30.0 L270.8 30.0Z"/><path d="M320.4 12.8 L331.7 6.7 L355.7 4.7 L374.1 13.4 L365.3 30.0 L333.1 30.0Z"/><path d="M376.7 14.4 L392.1 9.7 L417.7 9.0 L434.3 18.7 L425.1 30.0 L393.4 30.0Z"/><path d="M438.8 16.0 L448.1 9.2 L461.0 8.5 L477.1 16.0 L469.6 30.0 L446.9 30.0Z"/><path d="M481.2 19.5 L495.7 10.5 L513.2 13.3 L537.1 17.5 L523.1 30.0 L492.0 30.0Z"/><path d="M545.4 17.3 L554.0 9.6 L568.3 8.2 L591.6 14.8 L580.4 30.0 L554.4 30.0Z"/><path d="M596.4 13.7 L601.4 7.1 L616.3 8.5 L626.4 14.2 L616.8 30.0 L604.2 30.0Z"/><path d="M633.6 16.2 L641.6 14.8 L664.0 16.9 L675.9 18.4 L665.8 30.0 L646.6 30.0Z"/><path d="M680.7 16.0 L695.3 13.6 L717.1 14.1 L734.0 16.3 L725.0 30.0 L693.2 30.0Z"/><path d="M740.5 16.8 L746.8 13.3 L767.7 9.4 L781.4 21.4 L769.7 30.0 L751.0 30.0Z"/><path d="M786.8 13.3 L796.6 10.0 L805.2 5.7 L820.1 13.5 L813.2 30.0 L796.3 30.0Z"/><path d="M830.0 19.9 L835.4 16.6 L850.3 12.9 L860.9 23.9 L854.6 30.0 L834.5 30.0Z"/><path d="M862.5 16.4 L870.9 4.2 L878.2 4.8 L893.8 15.3 L888.7 30.0 L868.7 30.0Z"/><path d="M899.6 17.1 L916.4 9.7 L933.0 11.7 L960.9 20.2 L943.0 30.0 L912.0 30.0Z"/><path d="M965.4 18.1 L976.1 10.9 L992.3 7.7 L1011.8 19.8 L1003.2 30.0 L978.1 30.0Z"/><path d="M1014.8 17.2 L1022.4 11.1 L1040.2 14.5 L1060.9 18.5 L1046.2 30.0 L1023.4 30.0Z"/><path d="M1064.8 15.6 L1070.5 8.9 L1093.4 13.3 L1110.6 19.2 L1096.7 30.0 L1073.2 30.0Z"/><path d="M1114.4 18.0 L1127.7 13.1 L1155.0 10.7 L1170.9 19.3 L1157.0 30.0 L1130.0 30.0Z"/><path d="M1181.8 14.2 L1190.1 6.8 L1207.5 9.4 L1216.4 19.8 L1211.9 30.0 L1188.4 30.0Z"/></g></svg></div></div><p class="hy-tail rv rv-d1"><a href="#yakitori_menu_moriawase">おまかせ盛り合わせ</a>は、六本それぞれ置く高さを変えて焼いています。</p><p class="bed-note rv" style="max-width:44em">※ このページはRESCが制作したサンプルです。火力の表記は見せ方のためのイメージで、実際はその日の素材の状態を見て、火からの距離と時間を決めています。</p></div></section><section class="sec sec--alt" id="yakitori_menu_moriawase" aria-labelledby="h-mori"><div class="wrap"><div class="sec-head rv"><span class="sec-no">02</span><h2 id="h-mori">まずは、この一皿から。</h2><div class="rule" aria-hidden="true"></div></div><div class="feat"><figure class="feat-media rv"><img src="images/yakitori/yakitori_menu_moriawase.webp" alt="黒い器に盛り付けたおまかせ盛り合わせ。つくねや野菜の串が並ぶ" loading="lazy"></figure><div class="rv rv-d1"><span class="d-no num" aria-hidden="true">01</span><h3 class="d-name">おまかせ盛り合わせ<span class="d-cnt">（6本）</span></h3><p class="d-desc">まずはこの一皿から、店の味を。 六本それぞれ、炭からの高さを変えて焼いています。</p><div class="d-meta"><span><span class="lbl">価格</span><span class="pr">¥1,380</span></span><span><span class="lbl">火力</span><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="gauge-txt soft">串ごとに変える</span></span></span></div></div></div></div></section><section class="sec" id="teiban" aria-labelledby="h-teiban"><div class="wrap"><div class="sec-head rv"><span class="sec-no">03</span><h2 id="h-teiban">定番の串</h2><p class="sec-sub">もも・つくね・皮・レバー</p><div class="rule" aria-hidden="true"></div></div><div class="teiban"><article class="tb rv rv-d1" id="yakitori_menu_momo"><img src="images/yakitori/yakitori_menu_momo.webp" alt="器に盛られたもも串。数本を並べて盛り付けている" loading="lazy"><div class="tb-b"><h3>もも串</h3><p>旨みそのままの、ジューシーな一本。</p><div class="tb-f"><span class="pr">¥260</span><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="gauge-txt">強火</span><span class="vh">（火力の目安：強火）</span></span></div></div></article><article class="tb rv rv-d2" id="yakitori_menu_tsukune"><img src="images/yakitori/yakitori_menu_tsukune.webp" alt="つくねの串を器に盛り、卵黄を添えた様子" loading="lazy"><div class="tb-b"><h3>つくね</h3><p>刻んで、練って、丁寧に一本。</p><div class="tb-f"><span class="pr">¥280</span><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="gauge-txt">中火</span><span class="vh">（火力の目安：中火）</span></span></div></div></article><article class="tb rv rv-d3" id="yakitori_menu_kawa"><img src="images/yakitori/yakitori_menu_kawa.webp" alt="皮の串を器に盛り、くし切りのレモンを添えた様子" loading="lazy"><div class="tb-b"><h3>皮</h3><p>パリッと香ばしく、じっくり焼く。</p><div class="tb-f"><span class="pr">¥220</span><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="gauge-txt">強火</span><span class="vh">（火力の目安：強火）</span></span></div></div></article><article class="tb rv rv-d4" id="yakitori_menu_lever"><img src="images/yakitori/yakitori_menu_lever.webp" alt="レバーの串を器に盛り、薬味を添えた様子" loading="lazy"><div class="tb-b"><h3>レバー</h3><p>臭みを抑え、しっとりと焼き上げる。</p><div class="tb-f"><span class="pr">¥240</span><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="gauge-txt">遠火</span><span class="vh">（火力の目安：遠火）</span></span></div></div></article></div><div class="osusume rv"><p><b>焼き方のこと</b>仕込みでは串一本ごとに肉の厚みや脂の乗り方を見極め、火からの距離と時間を細かく調整します。同じ串でも、その日の素材の状態によって焼き加減は変わります。</p></div></div></section><section class="sec sec--alt" id="yakitori_menu_seasonal" aria-labelledby="h-season"><div class="wrap"><div class="sec-head rv"><span class="sec-no">04</span><h2 id="h-season">その時期だけの、ひと串。</h2><p class="sec-sub">季節の一品</p><div class="rule" aria-hidden="true"></div></div><div class="feat feat--rev"><figure class="feat-media rv"><img src="images/yakitori/yakitori_menu_seasonal.webp" alt="焼き上げた椎茸とねぎの串を器に盛った様子" loading="lazy"></figure><div class="rv rv-d1"><h3 class="d-name">季節の一品</h3><p class="d-desc">その時期だけの、旬をひと串に。 内容はその時期によって変わります。お品書きは店頭でご案内しています。</p><div class="d-meta"><span><span class="lbl">価格</span><span class="pr">¥580</span></span><span><span class="lbl">火力</span><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="gauge-txt">中火</span><span class="vh">（火力の目安：中火）</span></span></span></div></div></div></div></section><section class="sec" aria-labelledby="h-next"><div class="wrap"><div class="sec-head rv"><span class="sec-no">05</span><h2 id="h-next">火から離れて、店のこと。</h2><p class="sec-sub">次の段：火床 一 ／ 遠火</p><div class="rule" aria-hidden="true"></div></div><div class="more rv rv-d1" style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn btn--hi" style="flex:1 1 280px" href="yakitori-standard-info.html">店とご予約のページへ<svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20M15.5 1L20 5l-4.5 4"/></svg></a><a class="btn" style="flex:1 1 280px" href="yakitori-standard.html">トップへ戻る（火床 三 ／ 強火）<svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20M15.5 1L20 5l-4.5 4"/></svg></a></div></div></section></main><footer class="foot"><svg class="coalrule" viewBox="0 0 1200 32" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g class="cr-hot"><ellipse cx="25.5" cy="19.5" rx="44" ry="9"/><ellipse cx="63.5" cy="21.5" rx="29" ry="11"/><ellipse cx="119.5" cy="22.5" rx="28" ry="7"/><ellipse cx="165.0" cy="18.0" rx="36" ry="9"/><ellipse cx="220.5" cy="20.5" rx="31" ry="11"/><ellipse cx="259.0" cy="20.0" rx="42" ry="11"/><ellipse cx="305.5" cy="19.5" rx="39" ry="11"/><ellipse cx="370.5" cy="22.5" rx="27" ry="8"/><ellipse cx="413.5" cy="18.5" rx="35" ry="7"/><ellipse cx="481.0" cy="18.0" rx="38" ry="7"/><ellipse cx="522.5" cy="21.5" rx="33" ry="10"/><ellipse cx="567.5" cy="21.5" rx="28" ry="9"/><ellipse cx="638.5" cy="21.5" rx="44" ry="6"/><ellipse cx="705.5" cy="18.0" rx="37" ry="6"/><ellipse cx="758.0" cy="19.5" rx="38" ry="6"/><ellipse cx="803.5" cy="22.5" rx="27" ry="9"/><ellipse cx="846.5" cy="19.0" rx="41" ry="9"/><ellipse cx="899.0" cy="18.0" rx="38" ry="11"/><ellipse cx="959.0" cy="22.0" rx="42" ry="7"/><ellipse cx="1003.5" cy="18.0" rx="32" ry="7"/><ellipse cx="1035.0" cy="20.0" rx="29" ry="8"/><ellipse cx="1077.5" cy="19.0" rx="33" ry="10"/><ellipse cx="1139.5" cy="22.5" rx="41" ry="11"/><ellipse cx="1194.0" cy="21.5" rx="37" ry="6"/><ellipse cx="1237.0" cy="22.5" rx="28" ry="8"/></g><g class="cr-dark"><path d="M-13.1 16.9 L-5.5 7.3 L11.2 12.1 L22.1 17.4 L12.0 30.0 L-10.1 30.0Z"/><path d="M30.5 17.2 L34.1 10.3 L52.6 15.5 L60.9 20.5 L48.7 30.0 L34.2 30.0Z"/><path d="M66.3 22.0 L76.8 17.6 L97.9 16.2 L116.2 20.9 L103.7 30.0 L75.1 30.0Z"/><path d="M124.4 11.6 L131.8 6.4 L145.1 6.5 L159.2 15.8 L150.8 30.0 L134.2 30.0Z"/><path d="M166.6 15.0 L182.7 14.0 L200.0 12.1 L219.3 20.1 L205.8 30.0 L180.9 30.0Z"/><path d="M223.7 15.8 L232.7 12.6 L241.8 9.2 L260.1 16.0 L249.5 30.0 L227.2 30.0Z"/><path d="M262.1 14.1 L271.8 6.1 L283.9 10.3 L301.8 20.0 L289.9 30.0 L269.5 30.0Z"/><path d="M311.7 17.4 L321.5 13.7 L343.9 13.9 L363.8 20.0 L356.9 30.0 L326.2 30.0Z"/><path d="M377.1 14.7 L386.8 9.4 L394.7 6.3 L408.3 17.8 L401.4 30.0 L385.7 30.0Z"/><path d="M416.9 15.8 L428.5 7.1 L459.7 4.6 L478.5 16.5 L467.6 30.0 L431.9 30.0Z"/><path d="M482.0 16.3 L488.4 12.7 L501.5 16.2 L518.8 17.6 L510.8 30.0 L490.1 30.0Z"/><path d="M525.4 18.0 L537.3 13.3 L544.8 15.3 L564.9 21.4 L557.4 30.0 L531.0 30.0Z"/><path d="M573.8 17.2 L590.6 13.6 L612.9 12.5 L632.3 21.2 L624.3 30.0 L588.2 30.0Z"/><path d="M640.8 14.7 L656.0 6.1 L678.1 8.2 L704.3 13.7 L690.7 30.0 L654.8 30.0Z"/><path d="M706.0 13.6 L715.6 10.9 L739.1 9.9 L754.6 14.5 L745.0 30.0 L717.7 30.0Z"/><path d="M759.7 19.7 L769.6 16.2 L790.0 17.2 L801.8 19.4 L792.3 30.0 L770.7 30.0Z"/><path d="M804.4 16.1 L811.6 7.7 L829.3 10.0 L843.2 17.4 L836.4 30.0 L811.2 30.0Z"/><path d="M850.4 14.3 L863.5 8.5 L875.5 5.7 L897.9 16.9 L882.8 30.0 L858.3 30.0Z"/><path d="M904.5 17.4 L914.7 15.1 L934.8 15.5 L955.4 17.9 L941.1 30.0 L914.2 30.0Z"/><path d="M961.9 15.5 L968.1 5.4 L985.4 7.2 L1002.8 16.6 L994.3 30.0 L971.0 30.0Z"/><path d="M1006.6 19.4 L1013.4 7.1 L1022.4 8.4 L1033.5 19.2 L1024.8 30.0 L1007.2 30.0Z"/><path d="M1036.4 12.5 L1043.4 8.4 L1064.7 8.9 L1076.7 15.7 L1066.0 30.0 L1048.4 30.0Z"/><path d="M1080.8 17.5 L1092.7 17.0 L1119.0 16.8 L1133.3 21.0 L1123.1 30.0 L1092.4 30.0Z"/><path d="M1142.8 17.9 L1153.7 13.8 L1177.0 11.4 L1188.8 19.9 L1182.1 30.0 L1151.9 30.0Z"/><path d="M1197.4 18.8 L1208.0 14.4 L1214.6 14.3 L1232.3 19.5 L1222.7 30.0 L1202.5 30.0Z"/></g></svg><div class="wrap foot-in"><div><p class="foot-name"><svg class="mast-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="10.6" y="1.5" width="2.8" height="21" rx="1.4" fill="url(#gBamboo)"/><rect x="4.6" y="5" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/><rect x="4.6" y="12.4" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/></svg><span>炭火焼鳥 とりや</span></p><p class="foot-sub">RESC制作サンプル ／ これはサンプルサイトです。実店舗ではありません。</p><p class="foot-sub">福岡県福岡市〇〇区〇〇9-3-7 ／ 営業 <span class="num">17:00</span>〜<span class="num">23:00</span>（定休日:日曜日）</p></div><nav class="foot-links" aria-label="フッター"><a href="yakitori-standard.html">トップ</a><a href="yakitori-standard-info.html">店とご予約</a><a href="mailto:info@example.com">info@example.com</a><a href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a><a href="../hp-service/index.html">RESCのサイトに戻る</a></nav></div></footer>
+<script>
+
+(function(){
+"use strict";
+var root=document.documentElement;
+var mq=window.matchMedia?window.matchMedia("(prefers-reduced-motion: reduce)"):null;
+var reduce=!!(mq&&mq.matches);
+
+/* ---- 明転（読み込み） ---- */
+function lit(){root.classList.add("lit");}
+if(reduce){lit();}
+else{
+  if(document.readyState==="complete"){setTimeout(lit,40);}
+  else{window.addEventListener("load",function(){setTimeout(lit,40);});}
+  setTimeout(lit,1600); /* 保険 */
+}
+window.addEventListener("pageshow",function(){root.classList.remove("leaving");lit();});
+
+/* ---- 暗転（ページ遷移：火の粉が舞い上がってから） ---- */
+document.addEventListener("click",function(e){
+  if(reduce)return;
+  if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+  var a=e.target&&e.target.closest?e.target.closest("a[href]"):null;
+  if(!a)return;
+  var raw=a.getAttribute("href")||"";
+  if(!raw||raw.charAt(0)==="#")return;
+  if(/^(mailto:|tel:|javascript:)/i.test(raw))return;
+  if(a.target&&a.target!=="_self")return;
+  if(a.hasAttribute("download"))return;
+  var u;
+  try{u=new URL(a.href,location.href);}catch(err){return;}
+  if(u.origin!==location.origin)return;
+  if(u.pathname===location.pathname&&u.search===location.search)return;
+  e.preventDefault();
+  root.classList.remove("lit");
+  /* 火の粉のアニメーションを毎回頭から流す */
+  var f=document.querySelector(".cfire");
+  if(f){var c=f.cloneNode(true);f.parentNode.replaceChild(c,f);}
+  root.classList.add("leaving");
+  var go=function(){location.href=a.href;};
+  setTimeout(go,720);
+},false);
+
+/* ---- リビール ---- */
+var rvs=[].slice.call(document.querySelectorAll(".rv"));
+function show(el){el.classList.add("in");}
+if(reduce||!("IntersectionObserver" in window)){
+  rvs.forEach(show);
+}else{
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){show(en.target);io.unobserve(en.target);}});
+  },{rootMargin:"0px 0px -6% 0px",threshold:0.06});
+  rvs.forEach(function(el){io.observe(el);});
+  var tick=false;
+  function sweep(){
+    tick=false;
+    var vh=window.innerHeight||800;
+    for(var i=0;i<rvs.length;i++){
+      var el=rvs[i];
+      if(el.classList.contains("in"))continue;
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.94){show(el);io.unobserve(el);}
+    }
+  }
+  function onS(){if(!tick){tick=true;requestAnimationFrame(sweep);}}
+  window.addEventListener("scroll",onS,{passive:true});
+  window.addEventListener("resize",onS,{passive:true});
+  window.addEventListener("load",onS);
+  sweep();
+}
+
+})();
+
+</script>
+</body>
+</html>

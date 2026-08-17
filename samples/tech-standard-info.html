@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>会社情報・チーム・お問い合わせ｜株式会社NextGrid（LAYER 03 基盤）</title>
+<meta name="description" content="株式会社NextGridの会社概要、チームの働き方、アクセス、よくあるご質問、お問い合わせ。福岡県福岡市。営業時間9:30〜18:30、土日祝休み。費用は要相談です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   株式会社NextGrid — STANDARD / 3層構造（LAYER 01-03）
+   白＋墨＋電光ブルー／幾何サンセリフ／ノードと線
+   ========================================================== */
+:root{
+  --paper:#FFFFFF;
+  --paper-2:#F5F7FA;
+  --paper-3:#EEF2F7;
+  --tint:#EDF3FF;
+  --ink:#0D1218;
+  --ink-2:#39434F;
+  --ink-3:#5B6673;
+  --line:#DDE4EC;
+  --line-2:#C3CCD8;
+  --acc:#0B57E0;
+  --acc-soft:rgba(11,87,224,.14);
+  --acc-lite:#7FA9F5;
+  --maxw:1280px;
+  --gut:clamp(20px,4.2vw,64px);
+  --r:3px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x:clip}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Noto Sans CJK JP","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+  font-weight:500;line-height:1.9;letter-spacing:.015em;
+  font-feature-settings:"palt" 1;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4,p,dl,dd,figure,ul,ol,fieldset{margin:0}
+ul,ol{padding:0;list-style:none}
+fieldset{border:0;padding:0;min-width:0}
+button{font:inherit;color:inherit;background:none;border:0;padding:0}
+:focus-visible{outline:2.5px solid var(--acc);outline-offset:3px}
+.mono{font-family:"IBM Plex Mono","DejaVu Sans Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:500;letter-spacing:.1em;font-feature-settings:normal}
+.lat{font-family:"Space Grotesk","Zen Kaku Gothic New",system-ui,sans-serif;letter-spacing:-.01em}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:-9999px;top:0;z-index:210}
+.skip:focus{left:8px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;z-index:210}
+
+/* ---------- 告知バー ---------- */
+.notice{background:var(--ink);color:#fff}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:center;justify-content:space-between;padding-block:9px}
+.notice p{font-size:11.5px;line-height:1.6;letter-spacing:.06em}
+.notice a{font-size:11.5px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:1px;white-space:nowrap}
+.notice a:hover{border-bottom-color:#fff}
+
+/* ---------- ヘッダー ---------- */
+.hd{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;gap:clamp(10px,2vw,24px);min-height:64px;padding-block:8px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.brand svg{display:block;flex:none}
+.brand b{font-size:16.5px;font-weight:700;letter-spacing:.01em;display:block}
+.brand span span{display:block;font-size:9.5px;color:var(--ink-3);letter-spacing:.18em;line-height:1.3;margin-top:-2px}
+.lnav{display:flex;align-items:stretch;gap:4px}
+.lnav a{display:flex;flex-direction:column;justify-content:center;gap:1px;text-decoration:none;color:var(--ink-2);padding:6px 11px;border:1px solid transparent;border-radius:var(--r);transition:background .25s,color .25s,border-color .25s;line-height:1.35}
+.lnav .lv{font-size:9.5px;color:var(--ink-3);letter-spacing:.1em;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.lnav .lt{font-size:11.5px;white-space:nowrap}
+.lnav a:hover{background:var(--paper-2);color:var(--acc)}
+.lnav a:hover .lv{color:var(--acc)}
+.lnav a[aria-current="page"]{background:var(--tint);border-color:var(--line-2);color:var(--acc)}
+.lnav a[aria-current="page"] .lv{color:var(--acc)}
+.hd-cta{font-size:11.5px;text-decoration:none;border:1px solid var(--ink);padding:8px 15px;border-radius:var(--r);white-space:nowrap;transition:background .25s,color .25s;flex:none}
+.hd-cta:hover{background:var(--ink);color:#fff}
+
+/* ---------- ボタン ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:13px;padding:13px 22px;border-radius:var(--r);border:1px solid var(--ink);transition:background .25s,color .25s,border-color .25s;cursor:pointer}
+.btn--fill{background:var(--ink);color:#fff}
+.btn--fill:hover{background:var(--acc);border-color:var(--acc)}
+.btn--line:hover{background:var(--paper-3)}
+.btn i{font-style:normal;font-size:10px;letter-spacing:.12em;opacity:.7}
+
+/* ---------- レイヤー・マストヘッド ---------- */
+.mast{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--paper)}
+.mast--l2{background:var(--paper-2)}
+.mast--l3{background:var(--paper-3)}
+.mast-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.mast-bg .mb-l{fill:none;stroke:var(--line);stroke-width:1}
+.mast-bg .mb-a{stroke:var(--line-2)}
+.mast-bg .mb-d{fill:var(--acc);opacity:.5}
+.mast .wrap{position:relative;padding-block:clamp(46px,7vw,86px) clamp(38px,5.4vw,66px)}
+.mast-head{display:flex;align-items:flex-start;justify-content:space-between;gap:clamp(18px,3vw,40px);flex-wrap:wrap}
+.mast-main{flex:1 1 420px;min-width:0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;color:var(--ink-3);margin-bottom:clamp(16px,2.4vw,26px)}
+.eyebrow i{display:block;width:26px;height:1px;background:var(--line-2);font-style:normal}
+.eyebrow b{color:var(--acc);font-weight:500}
+h1{font-weight:700;line-height:1.16;letter-spacing:-.005em;font-size:clamp(27px,5.2vw,54px);max-width:17em}
+h1 .h1-jp{display:block;font-size:.4em;font-weight:700;letter-spacing:.1em;color:var(--ink-3);line-height:1.5;margin-bottom:.55em}
+h1 .h1-en{display:block;font-family:"Space Grotesk","Zen Kaku Gothic New",system-ui,sans-serif;font-weight:700}
+.mast-catch{margin-top:clamp(18px,2.6vw,30px);font-size:clamp(14.5px,1.5vw,19px);font-weight:700;line-height:1.85;max-width:32em}
+.mast-catch br{display:inline}
+.mast-catch::before{content:"";display:block;width:44px;height:2px;background:var(--acc);margin-bottom:18px}
+.mast-lead{margin-top:16px;font-size:13.5px;line-height:2.05;color:var(--ink-2);max-width:38em}
+.mast-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(24px,3.4vw,38px)}
+.mast-meta{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:clamp(26px,4vw,44px);font-size:10.5px;color:var(--ink-3)}
+.mast-meta span{display:inline-flex;gap:9px;align-items:center}
+.mast-meta span::before{content:"";width:5px;height:5px;background:var(--acc);flex:none}
+
+/* レイヤー・インジケータ */
+.lind{flex:0 0 auto;border:1px solid var(--line);background:rgba(255,255,255,.72);border-radius:var(--r);padding:14px 16px 12px;display:flex;gap:14px;align-items:center}
+.lind svg{display:block;flex:none;width:74px;height:58px}
+.lind .mp{fill:#fff;stroke:var(--line-2);stroke-width:1.4}
+.lind .mp.is-on{fill:var(--tint);stroke:var(--acc);stroke-width:2}
+.lind-tx b{display:block;font-size:11px;color:var(--acc);letter-spacing:.14em;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.lind-tx span{display:block;font-size:10.5px;color:var(--ink-3);line-height:1.7;margin-top:3px}
+
+/* ---------- 写真バンド ---------- */
+.band{position:relative;overflow:hidden;background:var(--paper-3);border-bottom:1px solid var(--line)}
+.band img{width:100%;height:100%;object-fit:cover;object-position:50% 100%;aspect-ratio:1440/300}
+.band-cap{position:absolute;left:var(--gut);bottom:10px;font-size:10px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.7);letter-spacing:.12em}
+
+/* ---------- セクション共通 ---------- */
+.sec{padding-block:clamp(58px,8vw,110px)}
+.sec--alt{background:var(--paper-2);border-block:1px solid var(--line)}
+.sec--deep{background:var(--paper-3);border-block:1px solid var(--line)}
+.shead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(24px,3.4vw,42px)}
+.shead .idx{font-size:10.5px;color:var(--acc)}
+.shead h2{font-size:clamp(20px,2.6vw,30px);font-weight:700;line-height:1.4;letter-spacing:.01em}
+.shead .en{font-size:10.5px;color:var(--ink-3);margin-left:auto}
+.rule{height:1px;background:var(--line);margin-bottom:clamp(24px,3.2vw,38px)}
+.lead{font-size:13.5px;color:var(--ink-2);line-height:2.1;max-width:46em}
+
+/* ---------- 出現 ---------- */
+.js .rev{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.8,.3,1)}
+.js .rev.in{opacity:1;transform:none}
+
+/* ---------- 層めくりナビ（下の層へ） ---------- */
+.dive{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.dive--1{grid-template-columns:minmax(0,1fr)}
+.dcard{display:block;text-decoration:none;border:1px solid var(--line-2);border-radius:var(--r);background:var(--paper);padding:clamp(20px,2.6vw,30px);position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
+.dcard::after{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.dcard:hover{border-color:var(--acc);box-shadow:0 6px 22px rgba(13,18,24,.07);transform:translateY(-2px)}
+.dcard:hover::after{transform:scaleX(1)}
+.dcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.dcard .dc-lv{font-size:10px;color:var(--acc);letter-spacing:.14em}
+.dcard svg{display:block;flex:none;width:60px;height:48px}
+.dcard .mp{fill:#fff;stroke:var(--line-2);stroke-width:1.4}
+.dcard .mp.is-on{fill:var(--tint);stroke:var(--acc);stroke-width:2}
+.dcard h3{margin-top:14px;font-size:clamp(16px,1.9vw,20px);font-weight:700;line-height:1.5}
+.dcard p{margin-top:9px;font-size:12.5px;color:var(--ink-3);line-height:1.95}
+.dcard .go{display:inline-flex;align-items:center;gap:9px;margin-top:16px;font-size:11px;color:var(--acc)}
+
+/* ---------- フッター ---------- */
+.ft{background:var(--ink);color:#fff;padding-block:34px}
+.ft .wrap{display:flex;flex-wrap:wrap;gap:18px 30px;align-items:center;justify-content:space-between}
+.ft-brand{display:flex;align-items:center;gap:11px}
+.ft-brand b{font-size:14.5px;font-weight:700}
+.ft-nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+.ft-nav a{font-size:11px;color:rgba(255,255,255,.82);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+.ft-nav a:hover{color:#fff;border-bottom-color:var(--acc-lite)}
+.ft-nav a[aria-current="page"]{color:var(--acc-lite)}
+.ft small{font-size:10.5px;color:rgba(255,255,255,.6);letter-spacing:.08em}
+.ft :focus-visible{outline-color:var(--acc-lite)}
+
+/* ---------- デジタル・ディゾルブ（ページ遷移） ---------- */
+.dsv{position:fixed;inset:0;z-index:200;display:grid;pointer-events:none;
+  grid-template-columns:repeat(var(--cols,8),1fr);grid-template-rows:repeat(var(--rows,6),1fr)}
+.dsv i{display:block;background:var(--paper);box-shadow:inset -1px -1px 0 var(--line);
+  transition:opacity .34s ease var(--d,0ms),transform .34s cubic-bezier(.4,0,.2,1) var(--d,0ms)}
+.dsv i.k{background:var(--tint);box-shadow:inset -1px -1px 0 var(--line-2)}
+.dsv--in i{opacity:1;transform:none}
+.dsv--in.run i{opacity:0;transform:scale(.84)}
+.dsv--out i{opacity:0;transform:scale(1.16)}
+.dsv--out.run i{opacity:1;transform:none}
+
+/* ---------- レスポンシブ（共通） ---------- */
+@media (max-width:1060px){
+  .lnav .lt{display:none}
+  .lnav a{padding:8px 10px;align-items:center}
+}
+@media (max-width:760px){
+  .band img{aspect-ratio:2.3/1;transform:scale(2);transform-origin:50% 100%}
+  .band-cap{bottom:8px}
+  .shead .en{margin-left:0;flex-basis:100%}
+  .dive{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  .hd-cta{display:none}
+  .brand b{font-size:15px}
+}
+@media (max-width:520px){
+  .btn{width:100%;justify-content:space-between}
+  .mast-acts{gap:10px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rev{opacity:1!important;transform:none!important}
+}
+
+/* ---------- 会社概要 ---------- */
+.cmp{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(22px,3.4vw,56px);align-items:start}
+.spec{border-top:1px solid var(--ink)}
+.spec div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}
+.spec dt{font-size:10px;color:var(--ink-3);padding-top:3px}
+.spec dd{font-size:13.5px;line-height:1.85}
+.spec dd small{display:block;font-size:11.5px;color:var(--ink-3);margin-top:2px}
+.cmp figure{margin:0}
+.cmp .fw{border:1px solid var(--line);background:var(--paper-3);overflow:hidden;border-radius:var(--r)}
+.cmp img{width:100%;height:auto;aspect-ratio:1200/670;object-fit:cover}
+.cmp figcaption{display:flex;gap:10px;align-items:baseline;margin-top:11px;font-size:11.5px;color:var(--ink-3);line-height:1.75}
+.cmp figcaption b{font-size:9.5px;color:var(--acc);font-weight:500;flex:none}
+
+/* ---------- チーム ---------- */
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.2vw,28px)}
+.team figure{margin:0}
+.team .fw{border:1px solid var(--line);background:var(--paper-3);overflow:hidden;border-radius:var(--r);position:relative}
+.team img{width:100%;height:auto;aspect-ratio:928/1152;object-fit:cover}
+.team figcaption{margin-top:11px;font-size:12px;color:var(--ink-2);line-height:1.85}
+.team figcaption b{display:block;font-size:9.5px;color:var(--acc);font-weight:500;margin-bottom:3px;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:.1em}
+.team-note{margin-top:18px;font-size:11.5px;color:var(--ink-3);line-height:1.9}
+.tway{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:clamp(24px,3.4vw,44px)}
+.tway div{background:var(--paper);padding:clamp(18px,2.2vw,26px)}
+.tway .tw-n{font-size:9.5px;color:var(--acc)}
+.tway h3{margin-top:9px;font-size:15px;font-weight:700;line-height:1.55}
+.tway p{margin-top:8px;font-size:12.5px;color:var(--ink-3);line-height:1.95}
+
+/* ---------- アクセス ---------- */
+.acc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,3.2vw,48px);align-items:start}
+.acc-box{border:1px solid var(--line);border-radius:var(--r);background:var(--paper);padding:clamp(20px,2.6vw,30px)}
+.acc-box dl div{display:grid;grid-template-columns:78px minmax(0,1fr);gap:12px;padding-block:11px;border-bottom:1px dashed var(--line)}
+.acc-box dl div:last-child{border-bottom:0}
+.acc-box dt{font-size:10px;color:var(--ink-3);padding-top:3px}
+.acc-box dd{font-size:13.5px;line-height:1.8}
+.acc-fig{margin:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--paper)}
+.acc-map{display:block;width:100%;height:auto;background:var(--paper-2)}
+.acc-map .rd{fill:none;stroke:#fff;stroke-width:18;stroke-linecap:square}
+.acc-map .rd2{fill:none;stroke:#fff;stroke-width:10;stroke-linecap:square}
+.acc-map .blk{fill:#F4F7FB;stroke:#D6DEE8;stroke-width:1}
+.acc-map .blk--a{fill:var(--tint);stroke:var(--acc);stroke-width:1.4}
+.acc-map .lbl{fill:#fff;stroke:var(--line-2);stroke-width:1}
+.acc-map .pin{fill:var(--acc)}
+.acc-map .pinr{fill:none;stroke:var(--acc);stroke-width:1.6;opacity:.5}
+.acc-map .mt{font-size:13px;fill:var(--ink-3);font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:.08em}
+.acc-map .rdn{fill:#9AA6B4;font-size:11px;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:.1em}
+.acc-cap{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between;padding:11px 14px;border-top:1px solid var(--line);font-size:10.5px;color:var(--ink-3)}
+.acc-photo{margin:0;margin-top:clamp(14px,2vw,20px)}
+.acc-photo .fw{border:1px solid var(--line);background:var(--paper-3);overflow:hidden;border-radius:var(--r)}
+.acc-photo img{width:100%;height:auto;aspect-ratio:1376/768;object-fit:cover}
+.acc-photo figcaption{display:flex;gap:10px;align-items:baseline;margin-top:11px;font-size:11.5px;color:var(--ink-3)}
+.acc-photo figcaption b{font-size:9.5px;color:var(--acc);font-weight:500;flex:none}
+
+/* ---------- FAQ ---------- */
+.faq{border-top:1px solid var(--ink)}
+.faq>div{border-bottom:1px solid var(--line)}
+.faq-q{display:flex;width:100%;text-align:left;align-items:flex-start;gap:14px;padding:17px 4px;cursor:pointer;font-size:14px;font-weight:700;line-height:1.7;transition:color .2s}
+.faq-q:hover{color:var(--acc)}
+.faq-q .qm{flex:none;font-size:10px;color:var(--acc);padding-top:5px;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.faq-q .qt{flex:1}
+.faq-q .qi{flex:none;width:16px;height:16px;margin-top:5px;position:relative}
+.faq-q .qi::before,.faq-q .qi::after{content:"";position:absolute;background:var(--ink-3);transition:transform .3s ease,background .2s}
+.faq-q .qi::before{left:0;top:7.5px;width:16px;height:1.5px}
+.faq-q .qi::after{left:7.5px;top:0;width:1.5px;height:16px}
+.faq-q[aria-expanded="true"] .qi::after{transform:scaleY(0)}
+.faq-q[aria-expanded="true"]{color:var(--acc)}
+.faq-q[aria-expanded="true"] .qi::before{background:var(--acc)}
+.faq-a{padding:0 4px 20px 40px;font-size:13px;color:var(--ink-2);line-height:2.05}
+
+/* ---------- お問い合わせ ---------- */
+.ct{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(22px,3.4vw,52px);align-items:start}
+.form{border:1px solid var(--line-2);border-radius:var(--r);background:var(--paper);padding:clamp(20px,2.8vw,32px)}
+.frow{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.frow label{font-size:11px;color:var(--ink-3);display:flex;align-items:center;gap:8px}
+.frow label em{font-style:normal;font-size:9.5px;color:var(--acc);border:1px solid var(--acc);border-radius:2px;padding:1px 5px;letter-spacing:.08em}
+.frow input,.frow textarea{font:inherit;font-size:13.5px;font-weight:500;color:var(--ink);background:var(--paper-2);border:1px solid var(--line-2);border-radius:var(--r);padding:11px 13px;width:100%;transition:border-color .2s,background .2s}
+.frow textarea{min-height:132px;resize:vertical;line-height:1.9}
+.frow input:focus,.frow textarea:focus{background:var(--paper);border-color:var(--acc);outline:none;box-shadow:0 0 0 3px var(--acc-soft)}
+.frow input:focus-visible,.frow textarea:focus-visible{outline:none}
+.ferr{font-size:11px;color:#B3261E;line-height:1.7}
+.form-foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.form-foot p{font-size:11px;color:var(--ink-3);line-height:1.8;flex:1 1 200px}
+.form-done{border:1px solid var(--acc);border-radius:var(--r);background:var(--tint);padding:clamp(24px,3vw,36px)}
+.form-done .fd-code{font-size:10px;color:var(--acc)}
+.form-done h3{margin-top:10px;font-size:18px;font-weight:700;line-height:1.6}
+.form-done p{margin-top:10px;font-size:12.5px;color:var(--ink-2);line-height:2}
+.form-done svg{display:block;margin-bottom:4px}
+.cta{border:1px solid var(--ink);border-radius:var(--r);padding:clamp(22px,2.8vw,32px);background:var(--paper)}
+.cta h3{font-size:17px;font-weight:700;line-height:1.6}
+.cta p{margin-top:10px;font-size:12.5px;color:var(--ink-3);line-height:1.95}
+.cta-acts{display:flex;flex-direction:column;gap:11px;margin-top:20px}
+.cta-acts .btn{justify-content:space-between}
+.cta-hours{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);font-size:11.5px;color:var(--ink-3);line-height:1.9}
+
+/* ---------- サイトの全体図 ---------- */
+.sidx{display:flex;flex-direction:column;gap:clamp(10px,1.6vw,16px)}
+.sx{border:1px solid var(--line-2);border-radius:var(--r);background:var(--paper);padding:clamp(16px,2.2vw,24px);margin-left:calc(var(--i) * clamp(0px, 2.4vw, 34px));position:relative}
+.sx::before{content:"";position:absolute;left:0;top:0;width:3px;height:100%;background:var(--line-2)}
+.sx--3::before{background:var(--acc)}
+.sx-h{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sx-h svg{display:block;flex:none;width:56px;height:44px}
+.sx .mp{fill:#fff;stroke:var(--line-2);stroke-width:1.4}
+.sx .mp.is-on{fill:var(--tint);stroke:var(--acc);stroke-width:2}
+.sx-lv{font-size:10px;color:var(--acc);display:block}
+.sx-h h3{font-size:16.5px;font-weight:700;line-height:1.5}
+.sx-h h3 a{text-decoration:none;border-bottom:1px solid var(--line-2);padding-bottom:2px}
+.sx-h h3 a:hover{color:var(--acc);border-bottom-color:var(--acc)}
+.sx-h .sx-jp{font-size:10.5px;color:var(--ink-3);margin-left:auto}
+.sx-l{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.sx-l a{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;text-decoration:none;color:var(--ink-2);border:1px solid var(--line);border-radius:var(--r);padding:6px 11px;transition:background .2s,border-color .2s,color .2s}
+.sx-l a:hover{background:var(--tint);border-color:var(--acc);color:var(--acc)}
+.sx-l a i{font-style:normal;font-size:9px;color:var(--ink-3);font-family:"IBM Plex Mono",ui-monospace,monospace}
+.sx-l a:hover i{color:var(--acc)}
+.sx--now{background:var(--tint)}
+
+@media (max-width:940px){
+  .cmp{grid-template-columns:minmax(0,1fr)}
+  .acc{grid-template-columns:minmax(0,1fr)}
+  .ct{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  .team{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .team figure:last-child{grid-column:span 2;max-width:52%}
+  .tway{grid-template-columns:minmax(0,1fr)}
+  .sx{margin-left:calc(var(--i) * 12px)}
+}
+@media (max-width:460px){
+  .team{grid-template-columns:minmax(0,1fr)}
+  .team figure:last-child{grid-column:auto;max-width:none}
+  .spec div{grid-template-columns:80px minmax(0,1fr);gap:10px}
+}
+</style>
+<script>document.documentElement.className+=" js";</script>
+</head>
+<body id="top">
+<script>
+(function(){
+  try{
+    if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if(!document.body) return;
+    var vw = window.innerWidth || 1024, vh = window.innerHeight || 768;
+    var cols = Math.max(5, Math.min(15, Math.round(vw/104)));
+    var rows = Math.max(4, Math.min(13, Math.round(vh/104)));
+    var ov = document.createElement("div");
+    ov.className = "dsv dsv--in";
+    ov.setAttribute("aria-hidden","true");
+    ov.style.setProperty("--cols", cols);
+    ov.style.setProperty("--rows", rows);
+    var mc = cols>1?cols-1:1, mr = rows>1?rows-1:1, html = "";
+    for(var y=0;y<rows;y++){
+      for(var x=0;x<cols;x++){
+        var d = (1 - x/mc)*0.46 + (1 - y/mr)*0.54;
+        d = d*0.8 + Math.random()*0.2;
+        html += '<i class="' + (Math.random()<0.09?'k':'') + '" style="--d:' + Math.round(d*300) + 'ms"></i>';
+      }
+    }
+    ov.innerHTML = html;
+    document.body.appendChild(ov);
+    var killed = false;
+    function kill(){ if(killed) return; killed = true; if(ov.parentNode) ov.parentNode.removeChild(ov); }
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        ov.classList.add("run");
+        setTimeout(kill, 900);
+      });
+    });
+    setTimeout(kill, 2200);
+  }catch(e){
+    var n = document.querySelector(".dsv"); if(n && n.parentNode) n.parentNode.removeChild(n);
+  }
+})();
+</script>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<div class="notice">
+  <div class="wrap">
+    <p class="mono">これはRESCが作成したサンプルサイトです。実店舗ではありません。</p>
+    <a class="mono" href="../hp-service/index.html">RESCのサイトに戻る</a>
+  </div>
+</div>
+
+<header class="hd">
+  <div class="wrap">
+    <a class="brand" href="tech-standard.html">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" focusable="false">
+        <path d="M5 5H13V13H5z" fill="none" stroke="#0D1218" stroke-width="1.6"/>
+        <path d="M13 13H21V21H13z" fill="none" stroke="#0B57E0" stroke-width="1.6"/>
+        <path d="M13 9H21M9 13V21" fill="none" stroke="#C3CCD8" stroke-width="1.4"/>
+        <circle cx="21" cy="9" r="2" fill="#0B57E0"/>
+        <circle cx="9" cy="21" r="2" fill="#0D1218"/>
+      </svg>
+      <span><b class="lat">NextGrid</b><span class="mono">IT / OFFICE</span></span>
+    </a>
+    <nav class="lnav" aria-label="レイヤーナビゲーション">
+      <a href="tech-standard.html" aria-label="LAYER 01 概要"><span class="lv">L01</span><span class="lt">概要</span></a>
+      <a href="tech-standard-detail.html" aria-label="LAYER 02 サービス・進め方"><span class="lv">L02</span><span class="lt">サービス・進め方</span></a>
+      <a href="tech-standard-info.html" aria-current="page" aria-label="LAYER 03 会社情報・お問い合わせ"><span class="lv">L03</span><span class="lt">会社情報・お問い合わせ</span></a>
+    </nav>
+    <a class="hd-cta mono" href="tech-standard-info.html#contact">お問い合わせ</a>
+  </div>
+</header>
+<main id="main">
+
+<!-- ===== LAYER 03 マストヘッド ===== -->
+<section class="mast mast--l3">
+  <svg class="mast-bg" viewBox="0 0 1440 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <g class="mb-l">
+      <path d="M-40 200L360 0L760 200L360 400Z"/>
+      <path d="M-40 280L360 80L760 280L360 480Z"/>
+      <path d="M-40 360L360 160L760 360L360 560Z"/>
+      <path d="M680 240L1080 40L1480 240L1080 440Z"/>
+      <path d="M680 320L1080 120L1480 320L1080 520Z"/>
+    </g>
+    <g class="mb-l mb-a"><path d="M160 200V360M560 200V360M880 240V320M1280 240V320"/></g>
+    <circle class="mb-d" cx="360" cy="160" r="5"/>
+    <circle class="mb-d" cx="1080" cy="120" r="5"/>
+  </svg>
+  <div class="wrap">
+    <div class="mast-head">
+      <div class="mast-main">
+        <p class="eyebrow mono"><i></i>LAYER 03 — FOUNDATION<i></i>COMPANY / CONTACT</p>
+        <h1>
+          <span class="h1-jp mono">会社情報と</span>
+          <span class="h1-en lat">Foundation</span>
+        </h1>
+        <p class="mast-catch">いちばん下の層に、会社そのものがあります。</p>
+        <p class="mast-lead">会社概要、チームの様子、アクセス、よくあるご質問、そしてお問い合わせ。上の2層を支えている基盤の情報を、ここにまとめました。</p>
+        <div class="mast-acts">
+          <a class="btn btn--fill mono" href="#contact">お問い合わせへ <i>↓</i></a>
+          <a class="btn btn--line mono" href="#index">サイトの全体図 <i>↓</i></a>
+        </div>
+        <p class="mast-meta mono">
+          <span>福岡市</span><span>9:30〜18:30</span><span>土日祝休み</span><span>費用は要相談</span>
+        </p>
+      </div>
+      <div class="lind">
+        <svg viewBox="0 0 74 58" aria-hidden="true" focusable="false"><polygon class="mp is-on" points="11,44 37,31 63,44 37,57"/><polygon class="mp" points="11,32 37,19 63,32 37,45"/><polygon class="mp" points="11,20 37,7 63,20 37,33"/></svg>
+        <span class="lind-tx"><b>LAYER 03</b><span>基盤 / FOUNDATION<br>全体を支える層</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 会社概要 ===== -->
+<section class="sec" id="company">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">01</span>
+      <h2>会社概要</h2>
+      <span class="en mono">COMPANY</span>
+    </div>
+    <div class="rule"></div>
+    <div class="cmp rev">
+      <dl class="spec">
+        <div><dt class="mono">社名</dt><dd>株式会社NextGrid</dd></div>
+        <div><dt class="mono">所在地</dt><dd>福岡県福岡市〇〇区〇〇8-6-2</dd></div>
+        <div><dt class="mono">営業時間</dt><dd>9:30〜18:30<small>土日祝休み</small></dd></div>
+        <div><dt class="mono">事業内容</dt><dd>Webサイト制作／Webアプリ開発／システム開発／DXコンサルティング／業務システム改善／保守・運用サポート</dd></div>
+        <div><dt class="mono">費用</dt><dd>要相談<small>内容によって異なるため、個別にご相談を承っています。</small></dd></div>
+      </dl>
+      <figure>
+        <div class="fw"><img src="images/tech/tech_gallery5.webp" loading="lazy" alt="ホワイトボードに付箋を貼りながら業務の流れを整理するメンバー"></div>
+        <figcaption><b class="mono">FND-01</b>要件の整理は、まずホワイトボードから始めます。</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== チーム ===== -->
+<section class="sec sec--alt" id="team">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">02</span>
+      <h2>チームの働き方</h2>
+      <span class="en mono">TEAM</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rev" style="margin-bottom:clamp(22px,3vw,34px)">少人数精鋭のチームだからこそ、意思決定はスピーディーに、要件のすり合わせはきめ細かく。無駄な工程を省き、本当に必要な機能に集中して開発を進めます。相談から決定までに挟まる人が少ないほど、確認の往復も手戻りも減ります。</p>
+    <div class="team">
+      <figure class="rev">
+        <div class="fw"><img src="images/tech/tech_staff1.webp" loading="lazy" alt="明るい窓を背にして立つNextGridのメンバー"></div>
+        <figcaption><b>MEMBER 01</b>打ち合わせは、専門用語をできるだけ使わずに話します。</figcaption>
+      </figure>
+      <figure class="rev">
+        <div class="fw"><img src="images/tech/tech_staff2.webp" loading="lazy" alt="ノートパソコンを手に持ってオフィスに立つNextGridのメンバー"></div>
+        <figcaption><b>MEMBER 02</b>要件は、その場で書き出しながらすり合わせます。</figcaption>
+      </figure>
+      <figure class="rev">
+        <div class="fw"><img src="images/tech/tech_staff3.webp" loading="lazy" alt="タブレットを持ってオフィスに立つNextGridのメンバー"></div>
+        <figcaption><b>MEMBER 03</b>リリース後も同じメンバーで見続けます。</figcaption>
+      </figure>
+    </div>
+    <p class="team-note rev">※写真はイメージです。これはRESCが作成したサンプルサイトのため、実在の担当者を示すものではありません。</p>
+
+    <div class="tway rev">
+      <div>
+        <span class="tw-n mono">WAY 01</span>
+        <h3>まず、いまを見せてもらう</h3>
+        <p>資料をつくってもらう前に、実際に使っているファイルや画面をそのまま見せてもらうところから始めます。</p>
+      </div>
+      <div>
+        <span class="tw-n mono">WAY 02</span>
+        <h3>小さく作って、見せる</h3>
+        <p>仕様書だけで進めません。動くものを早めに見てもらい、認識のズレを早いうちに潰します。</p>
+      </div>
+      <div>
+        <span class="tw-n mono">WAY 03</span>
+        <h3>渡したあとも、見続ける</h3>
+        <p>リリース後の運用・保守まで見据えたご提案と、長くお付き合いできる伴走型のサポート体制を大切にしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== アクセス ===== -->
+<section class="sec" id="access">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">03</span>
+      <h2>アクセス</h2>
+      <span class="en mono">ACCESS</span>
+    </div>
+    <div class="rule"></div>
+    <div class="acc rev">
+      <div>
+        <div class="acc-box">
+          <dl>
+            <div><dt class="mono">所在地</dt><dd>福岡県福岡市〇〇区〇〇8-6-2</dd></div>
+            <div><dt class="mono">営業時間</dt><dd>9:30〜18:30</dd></div>
+            <div><dt class="mono">定休日</dt><dd>土曜・日曜・祝日</dd></div>
+          </dl>
+        </div>
+        <figure class="acc-photo">
+          <div class="fw"><img src="images/tech/tech_facility2.webp" loading="lazy" alt="木目の受付カウンターと観葉植物が置かれたオフィスの入口"></div>
+          <figcaption><b class="mono">FND-02</b>入口を入ってすぐが受付です。</figcaption>
+        </figure>
+      </div>
+      <figure class="acc-fig">
+        <svg class="acc-map" viewBox="0 0 620 400" role="img" aria-label="所在地のイメージ図です。地図はデモ表示のため、実際の位置を示すものではありません。">
+          <rect x="0" y="0" width="620" height="400" fill="#E6EBF2"/>
+          <g class="blk"><rect x="16" y="20" width="70" height="54"/><rect x="98" y="20" width="76" height="42"/><rect x="16" y="86" width="58" height="60"/><rect x="86" y="74" width="88" height="72"/><rect x="214" y="16" width="54" height="66"/><rect x="280" y="16" width="52" height="44"/><rect x="214" y="92" width="118" height="58"/><rect x="376" y="16" width="86" height="60"/><rect x="474" y="16" width="66" height="42"/><rect x="552" y="16" width="56" height="84"/><rect x="376" y="88" width="120" height="62"/><rect x="508" y="70" width="100" height="50"/><rect x="16" y="192" width="80" height="42"/><rect x="108" y="192" width="66" height="84"/><rect x="16" y="246" width="80" height="34"/><rect x="286" y="192" width="46" height="50"/><rect x="376" y="192" width="76" height="80"/><rect x="488" y="192" width="64" height="44"/><rect x="562" y="192" width="46" height="80"/><rect x="488" y="248" width="60" height="28"/><rect x="16" y="310" width="74" height="66"/><rect x="102" y="310" width="72" height="44"/><rect x="214" y="310" width="58" height="66"/><rect x="284" y="310" width="50" height="44"/><rect x="376" y="310" width="80" height="52"/><rect x="470" y="310" width="66" height="66"/><rect x="548" y="310" width="58" height="42"/></g>
+          <g class="rd"><path d="M0 172H620"/><path d="M352 0V400"/></g>
+          <g class="rd2"><path d="M196 0V400"/><path d="M0 292H620"/><path d="M470 172V400"/></g>
+          <rect class="blk blk--a" x="216" y="196" width="60" height="76"/>
+          <text class="rdn" x="10" y="177">MAIN ST.</text>
+          <circle class="pinr" cx="276" cy="232" r="34"/>
+          <circle class="pinr" cx="276" cy="232" r="21"/>
+          <path class="pin" d="M276 210a13 13 0 0 0-13 13c0 9.8 13 24 13 24s13-14.2 13-24a13 13 0 0 0-13-13z"/>
+          <circle cx="276" cy="223" r="4.4" fill="#fff"/>
+          <rect class="lbl" x="16" y="352" width="206" height="32" rx="3"/>
+          <text class="mt" x="30" y="373">MAP IMAGE — DEMO</text>
+        </svg>
+        <div class="acc-cap">
+          <span class="mono">地図がここに表示されます（デモ表示中）</span>
+          <span class="mono">NEXTGRID / FUKUOKA</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec sec--alt" id="faq">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">04</span>
+      <h2>よくあるご質問</h2>
+      <span class="en mono">FAQ</span>
+    </div>
+    <div class="rule"></div>
+    <div class="faq rev">
+      <div>
+        <h3><button class="faq-q" type="button" id="fq1" aria-expanded="true" aria-controls="fa1">
+          <span class="qm">Q1</span><span class="qt">営業時間を教えてください。</span><span class="qi" aria-hidden="true"></span>
+        </button></h3>
+        <div class="faq-a" id="fa1" role="region" aria-labelledby="fq1">営業時間は9:30〜18:30です。土曜・日曜・祝日はお休みをいただいております。</div>
+      </div>
+      <div>
+        <h3><button class="faq-q" type="button" id="fq2" aria-expanded="false" aria-controls="fa2">
+          <span class="qm">Q2</span><span class="qt">どんなサービスに対応していますか。</span><span class="qi" aria-hidden="true"></span>
+        </button></h3>
+        <div class="faq-a" id="fa2" role="region" aria-labelledby="fq2">Webサイト制作、Webアプリ開発、システム開発、DXコンサルティング、業務システム改善、保守・運用サポートの6つです。詳しくは LAYER 02 のサービスページをご覧ください。</div>
+      </div>
+      <div>
+        <h3><button class="faq-q" type="button" id="fq3" aria-expanded="false" aria-controls="fa3">
+          <span class="qm">Q3</span><span class="qt">費用はどのくらいかかりますか。</span><span class="qi" aria-hidden="true"></span>
+        </button></h3>
+        <div class="faq-a" id="fa3" role="region" aria-labelledby="fq3">内容により費用は異なりますため、お見積りは個別にご相談を承っております。お気軽にお問い合わせください。</div>
+      </div>
+      <div>
+        <h3><button class="faq-q" type="button" id="fq4" aria-expanded="false" aria-controls="fa4">
+          <span class="qm">Q4</span><span class="qt">納期はどのくらいですか。</span><span class="qi" aria-hidden="true"></span>
+        </button></h3>
+        <div class="faq-a" id="fa4" role="region" aria-labelledby="fq4">内容によって納期は異なります。まずは要件定義からご相談させてください。</div>
+      </div>
+      <div>
+        <h3><button class="faq-q" type="button" id="fq5" aria-expanded="false" aria-controls="fa5">
+          <span class="qm">Q5</span><span class="qt">納品後のサポートはありますか。</span><span class="qi" aria-hidden="true"></span>
+        </button></h3>
+        <div class="faq-a" id="fa5" role="region" aria-labelledby="fq5">納品後の運用・保守までサポートしております。リリース後も安心してお任せいただけます。</div>
+      </div>
+      <div>
+        <h3><button class="faq-q" type="button" id="fq6" aria-expanded="false" aria-controls="fa6">
+          <span class="qm">Q6</span><span class="qt">事務所はどこにありますか。</span><span class="qi" aria-hidden="true"></span>
+        </button></h3>
+        <div class="faq-a" id="fa6" role="region" aria-labelledby="fq6">福岡県福岡市〇〇区〇〇8-6-2にございます。詳しくはこのページのアクセス欄をご覧ください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== お問い合わせ ===== -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">05</span>
+      <h2>まだ要件が固まっていなくても、大丈夫です。</h2>
+      <span class="en mono">CONTACT</span>
+    </div>
+    <div class="rule"></div>
+    <div class="ct rev">
+      <div>
+        <form class="form" id="cform" action="#" method="post" novalidate>
+          <p class="ferr" id="formErr" role="alert" hidden></p>
+          <div class="frow">
+            <label for="f-name">お名前 <em class="mono">必須</em></label>
+            <input type="text" id="f-name" name="name" autocomplete="name" data-req data-label="お名前">
+          </div>
+          <div class="frow">
+            <label for="f-corp">会社名・団体名</label>
+            <input type="text" id="f-corp" name="company" autocomplete="organization">
+          </div>
+          <div class="frow">
+            <label for="f-mail">メールアドレス <em class="mono">必須</em></label>
+            <input type="email" id="f-mail" name="email" autocomplete="email" data-req data-label="メールアドレス">
+          </div>
+          <div class="frow">
+            <label for="f-body">ご相談の内容 <em class="mono">必須</em></label>
+            <textarea id="f-body" name="message" data-req data-label="ご相談の内容" placeholder="いま困っていることを、そのままお書きください。要件が固まっていなくて構いません。"></textarea>
+          </div>
+          <div class="form-foot">
+            <button class="btn btn--fill mono" type="submit">送信する <i>→</i></button>
+            <p>※このフォームはサンプルのため、実際には送信されません。</p>
+          </div>
+        </form>
+        <div class="form-done" id="formDone" hidden>
+          <svg width="36" height="30" viewBox="0 0 36 30" aria-hidden="true" focusable="false">
+            <polygon points="2,15 18,7 34,15 18,23" fill="#EDF3FF" stroke="#0B57E0" stroke-width="1.8"/>
+            <path d="M11 15l5 4 9-8" fill="none" stroke="#0B57E0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="fd-code mono">FORM — SAMPLE</p>
+          <h3>送信の完了イメージです。</h3>
+          <p>実際のサイトでは、この場所に受付完了のご案内が表示されます。このサイトはRESCが作成したサンプルのため、入力内容はどこにも送信されていません。</p>
+        </div>
+      </div>
+      <div class="cta">
+        <h3>「何から手をつけるか」の整理からご一緒します。</h3>
+        <p>現状のシステムや困っていることを、そのままお聞かせください。資料をつくっていただく必要はありません。</p>
+        <div class="cta-acts">
+          <a class="btn btn--fill mono" href="mailto:info@example.com">メールで問い合わせる <i>→</i></a>
+          <a class="btn btn--line mono" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる <i>→</i></a>
+        </div>
+        <p class="cta-hours mono">受付：9:30〜18:30 / 土日祝休み<br>費用：要相談</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== サイトの全体図 ===== -->
+<section class="sec sec--deep" id="index">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">06</span>
+      <h2>サイトの全体図</h2>
+      <span class="en mono">SITE INDEX</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rev" style="margin-bottom:clamp(22px,3vw,34px)">3つの層と、そのなかにある項目の一覧です。いま見ているのはいちばん下の LAYER 03 です。</p>
+    <ol class="sidx rev">
+      <li class="sx sx--1" style="--i:0">
+        <div class="sx-h">
+          <svg viewBox="0 0 56 44" aria-hidden="true" focusable="false"><polygon class="mp" points="8,33 28,23 48,33 28,43"/><polygon class="mp" points="8,24 28,14 48,24 28,34"/><polygon class="mp is-on" points="8,15 28,5 48,15 28,25"/></svg>
+          <span><span class="sx-lv mono">LAYER 01 — L01</span><h3><a href="tech-standard.html">概要</a></h3></span>
+          <span class="sx-jp mono">表層 / SURFACE</span>
+        </div>
+        <div class="sx-l"><a href="tech-standard.html#about"><i>01</i>考え方</a><a href="tech-standard.html#map"><i>02</i>見取り図</a><a href="tech-standard.html#service"><i>03</i>サービス一覧</a><a href="tech-standard.html#partner"><i>04</i>伴走について</a><a href="tech-standard.html#office"><i>05</i>オフィス</a></div>
+      </li>
+      <li class="sx sx--2" style="--i:1">
+        <div class="sx-h">
+          <svg viewBox="0 0 56 44" aria-hidden="true" focusable="false"><polygon class="mp" points="8,33 28,23 48,33 28,43"/><polygon class="mp is-on" points="8,24 28,14 48,24 28,34"/><polygon class="mp" points="8,15 28,5 48,15 28,25"/></svg>
+          <span><span class="sx-lv mono">LAYER 02 — L02</span><h3><a href="tech-standard-detail.html">サービスと進め方</a></h3></span>
+          <span class="sx-jp mono">構造 / STRUCTURE</span>
+        </div>
+        <div class="sx-l"><a href="tech-standard-detail.html#matrix"><i>01</i>サービス × 層の断面</a><a href="tech-standard-detail.html#service"><i>02</i>6つのサービス</a><a href="tech-standard-detail.html#process"><i>03</i>進め方</a><a href="tech-standard-detail.html#cases"><i>04</i>ご相談の入り口</a></div>
+      </li>
+      <li class="sx sx--3 sx--now" style="--i:2">
+        <div class="sx-h">
+          <svg viewBox="0 0 56 44" aria-hidden="true" focusable="false"><polygon class="mp is-on" points="8,33 28,23 48,33 28,43"/><polygon class="mp" points="8,24 28,14 48,24 28,34"/><polygon class="mp" points="8,15 28,5 48,15 28,25"/></svg>
+          <span><span class="sx-lv mono">LAYER 03 — L03</span><h3><a href="tech-standard-info.html">会社情報とお問い合わせ</a></h3></span>
+          <span class="sx-jp mono">基盤 / FOUNDATION</span>
+        </div>
+        <div class="sx-l"><a href="tech-standard-info.html#company"><i>01</i>会社概要</a><a href="tech-standard-info.html#team"><i>02</i>チーム</a><a href="tech-standard-info.html#access"><i>03</i>アクセス</a><a href="tech-standard-info.html#faq"><i>04</i>よくあるご質問</a><a href="tech-standard-info.html#contact"><i>05</i>お問い合わせ</a></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-brand">
+      <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true" focusable="false">
+        <path d="M5 5H13V13H5z" fill="none" stroke="#fff" stroke-width="1.6"/>
+        <path d="M13 13H21V21H13z" fill="none" stroke="#7FA9F5" stroke-width="1.6"/>
+        <circle cx="21" cy="9" r="2" fill="#7FA9F5"/>
+        <circle cx="9" cy="21" r="2" fill="#fff"/>
+      </svg>
+      <b class="lat">株式会社NextGrid</b>
+    </div>
+    <nav class="ft-nav" aria-label="フッターナビゲーション">
+        <a class="mono" href="tech-standard.html">LAYER 01 — 概要</a>
+        <a class="mono" href="tech-standard-detail.html">LAYER 02 — サービス・進め方</a>
+        <a class="mono" href="tech-standard-info.html" aria-current="page">LAYER 03 — 会社情報・お問い合わせ</a>
+    </nav>
+    <small class="mono">RESC制作サンプル</small>
+  </div>
+</footer>
+
+<script>
+/* ============ 共通：出現・ページ遷移 ============ */
+(function(){
+  "use strict";
+  var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.NG = {reduce:REDUCE};
+
+  /* ---- 出現（IO＋スクロール掃引の二重化：飛ばしても取りこぼさない） ---- */
+  var revs = [].slice.call(document.querySelectorAll(".rev"));
+  var io = null;
+  function done(el){ el.classList.add("in"); if(io){ try{io.unobserve(el);}catch(e){} } }
+  if(REDUCE || !("IntersectionObserver" in window)){
+    revs.forEach(done); revs.length = 0;
+  }else{
+    io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ done(e.target); var i=revs.indexOf(e.target); if(i>=0) revs.splice(i,1); }
+      });
+    },{rootMargin:"0px 0px -6% 0px",threshold:0});
+    revs.forEach(function(el){ io.observe(el); });
+  }
+  function sweep(){
+    if(!revs.length) return;
+    var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+    for(var i=revs.length-1;i>=0;i--){
+      var r = revs[i].getBoundingClientRect();
+      if(r.top < vh*0.94){ done(revs[i]); revs.splice(i,1); }
+    }
+  }
+
+  /* ---- スクロール購読（rAF スロットル） ---- */
+  var subs = [], ticking = false;
+  window.NG.onScroll = function(fn){ subs.push(fn); };
+  function run(){ sweep(); for(var i=0;i<subs.length;i++){ try{ subs[i](); }catch(e){} } ticking=false; }
+  function tick(){ if(ticking) return; ticking=true; requestAnimationFrame(run); }
+  window.addEventListener("scroll", tick, {passive:true});
+  window.addEventListener("resize", tick);
+  window.addEventListener("orientationchange", tick);
+  window.addEventListener("load", function(){ tick(); setTimeout(tick,220); });
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(tick).catch(function(){}); }
+  tick();
+
+  /* ---- デジタル・ディゾルブ（退出側） ---- */
+  var INTERNAL = /^tech-standard(-detail|-info)?\.html(#.*)?$/;
+  function build(kind){
+    var vw = window.innerWidth || 1024, vh = window.innerHeight || 768;
+    var cols = Math.max(5, Math.min(15, Math.round(vw/104)));
+    var rows = Math.max(4, Math.min(13, Math.round(vh/104)));
+    var ov = document.createElement("div");
+    ov.className = "dsv dsv--" + kind;
+    ov.setAttribute("aria-hidden","true");
+    ov.style.setProperty("--cols", cols);
+    ov.style.setProperty("--rows", rows);
+    var frag = document.createDocumentFragment();
+    var mc = cols>1?cols-1:1, mr = rows>1?rows-1:1;
+    for(var y=0;y<rows;y++){
+      for(var x=0;x<cols;x++){
+        var c = document.createElement("i");
+        var d = (x/mc)*0.58 + (y/mr)*0.42;
+        d = d*0.84 + Math.random()*0.16;
+        c.style.setProperty("--d", Math.round(d*300) + "ms");
+        if(Math.random() < 0.09) c.className = "k";
+        frag.appendChild(c);
+      }
+    }
+    ov.appendChild(frag);
+    return ov;
+  }
+  function clearOverlays(){
+    var ns = document.querySelectorAll(".dsv");
+    for(var i=0;i<ns.length;i++){ if(ns[i].parentNode) ns[i].parentNode.removeChild(ns[i]); }
+  }
+  window.addEventListener("pageshow", function(ev){ if(ev.persisted) clearOverlays(); });
+
+  if(!REDUCE){
+    document.addEventListener("click", function(ev){
+      if(ev.defaultPrevented || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+      var a = ev.target && ev.target.closest ? ev.target.closest("a[href]") : null;
+      if(!a) return;
+      if(a.hasAttribute("download")) return;
+      if(a.target && a.target !== "_self") return;
+      var href = a.getAttribute("href") || "";
+      if(!INTERNAL.test(href)) return;
+      var here = location.pathname.split("/").pop() || "tech-standard.html";
+      if(href.split("#")[0] === here) return;      /* 同一ページ内はそのまま */
+      ev.preventDefault();
+      var ov = build("out");
+      document.body.appendChild(ov);
+      /* 強制リフロー → 開始 */
+      void ov.offsetWidth;
+      ov.classList.add("run");
+      setTimeout(function(){ location.href = href; }, 480);
+    }, false);
+  }
+})();
+
+/* ============ FAQ ============ */
+(function(){
+  "use strict";
+  var qs = [].slice.call(document.querySelectorAll(".faq-q"));
+  if(!qs.length) return;
+  qs.forEach(function(b){
+    var p = document.getElementById(b.getAttribute("aria-controls"));
+    if(!p) return;
+    if(b.getAttribute("aria-expanded") !== "true") p.hidden = true;
+    b.addEventListener("click", function(){
+      var open = b.getAttribute("aria-expanded") === "true";
+      b.setAttribute("aria-expanded", open ? "false" : "true");
+      p.hidden = open;
+    });
+  });
+})();
+
+/* ============ お問い合わせフォーム（送信はしません） ============ */
+(function(){
+  "use strict";
+  var form = document.getElementById("cform");
+  var done = document.getElementById("formDone");
+  if(!form || !done) return;
+  var err = document.getElementById("formErr");
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var miss = [];
+    [].slice.call(form.querySelectorAll("[data-req]")).forEach(function(el){
+      if(!el.value.trim()) miss.push(el.getAttribute("data-label"));
+    });
+    var mail = form.querySelector("#f-mail");
+    if(mail && mail.value.trim() && mail.value.indexOf("@") < 1) miss.push("メールアドレスの形式");
+    if(miss.length){
+      err.textContent = miss.join("／") + " をご確認ください。";
+      err.hidden = false;
+      var first = form.querySelector("[data-req]");
+      [].slice.call(form.querySelectorAll("[data-req]")).some(function(el){
+        if(!el.value.trim()){ first = el; return true; } return false;
+      });
+      if(first) first.focus();
+      return;
+    }
+    err.hidden = true;
+    form.hidden = true;
+    done.hidden = false;
+    done.setAttribute("tabindex","-1");
+    done.focus();
+  });
+})();
+</script>
+</body>
+</html>

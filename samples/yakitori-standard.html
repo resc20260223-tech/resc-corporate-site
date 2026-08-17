@@ -2,632 +2,459 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>炭火焼鳥 とりや｜焼き鳥</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="福岡の炭火焼鳥 とりや。備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げる焼き鳥店。営業時間17:00〜23:00（定休日:日曜日）。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=" js";</script>
 <style>
-  :root {
-    --sumi: #1A1614;
-    --sumi-light: #2E2724;
-    --honoo: #D9622B;
-    --tomoshibi: #F0EBE3;
-    --text-muted: #A89C93;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans JP', sans-serif; background: var(--sumi); color: var(--tomoshibi); line-height: 1.8; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  .notice {
-    background: var(--sumi-light); color: var(--tomoshibi); text-align: center;
-    font-size: 12.5px; padding: 8px 16px;
-  }
-  .notice a { color: var(--tomoshibi); text-decoration: underline; }
+:root{--sumi:#070505;--sumi-1:#0E0B09;--sumi-2:#171310;--sumi-3:#221D19;
+  --line:#3E342D;--line-soft:#2B2420;--mast-bg:rgba(7,5,5,.86);--glow:1}
 
-  /* ---- Nav（retail-standard.html のナビ実装を移植し、yakitoriの配色に変更。
-       nav背景は元々 var(--ai-deep) 相当の literal rgba(44,62,80,.95) だったため、
-       var(--ai-deep)の背景用途への置換ルールに合わせて --sumi-light の rgb 値へ変更） ---- */
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(46,39,36,.95); backdrop-filter: blur(6px);
-    height: 64px;
-  }
-  .nav-in {
-    max-width: 900px; margin: 0 auto; height: 100%;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 24px;
-  }
-  .logo { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 18px; letter-spacing: .03em; color: var(--tomoshibi); cursor: pointer; }
-  .logo span { color: var(--honoo); }
-  .nav-links { display: flex; align-items: center; gap: 26px; }
-  .nav-links a { color: rgba(240,235,227,.85); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
-  .nav-links a:hover { color: var(--honoo); }
-  .nav-links a.nav-cta { background: var(--honoo); color: var(--tomoshibi); padding: 9px 18px; border-radius: 4px; }
-  .nav-toggle {
-    display: none;
-    width: 44px; height: 44px;
-    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-    background: transparent; border: none; cursor: pointer;
-  }
-  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: var(--tomoshibi); border-radius: 2px; }
+/* ==========================================================
+   炭火焼鳥 とりや — スタンダード
+   骨格：炭。ページは「火床（ほど）の段」＝炭からの距離。
+   火床 三 強火（トップ）／ 二 中火（お品書き）／ 一 遠火（店とご予約）
+   ========================================================== */
+:root{
+  --kinari:#F6F0E6; --kinari-2:#D9CFC0; --kinari-3:#AFA495;
+  --hi:#FF8A3D; --hi-2:#FFB25C; --hi-3:#E2542A; --hi-deep:#8E1F0E;
+  --gothic:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --num:"Oswald","Zen Kaku Gothic New",sans-serif;
+  --pad:clamp(20px,5.2vw,44px);
+  --maxw:1180px;
+  --glow:1;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip;background:var(--sumi)}
+body{margin:0;overflow-x:clip;background:var(--sumi);color:var(--kinari);
+  font-family:var(--gothic);font-weight:400;font-size:16px;line-height:2.0;
+  font-feature-settings:"palt" 1;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,p,figure,ul,ol,dl,dd,fieldset{margin:0;padding:0}
+fieldset{border:0;min-width:0}
+ul,ol{list-style:none}
+:focus-visible{outline:2px solid var(--hi-2);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+section[id],article[id]{scroll-margin-top:clamp(74px,13vw,116px)}
+.num{font-family:var(--num);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip:focus{position:fixed;left:10px;top:10px;z-index:500;width:auto;height:auto;margin:0;clip-path:none;
+  background:var(--hi-2);color:#1A0C03;padding:10px 18px;font-weight:700;border-radius:2px}
 
-  /* ---- ヒーロー（静止画・左揃え。retail-standard.html の構造を踏襲しつつ、
-       もともと暗い写真のため、オーバーレイは黒(0,0,0)から --sumi の rgb に変更のうえ
-       不透明度を0.45/0.40→0.30/0.22へ引き下げ。text-shadowも同系色に統一） ---- */
-  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
-  .hero img { width: 100%; height: 100%; object-fit: cover; animation: hero-kenburns 20s ease-out infinite alternate; }
-  .hero::after {
-    content: ""; position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(to right, rgba(26,22,20,0.30) 0%, rgba(26,22,20,0.22) 50%, rgba(26,22,20,0) 75%);
-  }
-  .hero-text {
-    position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
-    text-align: left; color: var(--tomoshibi); padding: 24px 24px 24px 8%;
-    text-shadow: 0 2px 8px rgba(26,22,20,0.5);
-  }
-  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.9; margin-bottom: 14px; }
-  .hero-text h1 {
-    font-family: 'Shippori Mincho', serif; font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px;
-    animation: hero-fade-in 0.9s ease-out both;
-  }
-  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-in 0.9s ease-out both; animation-delay: 0.3s; }
-  @media (max-width: 768px) {
-    .hero::after { background: linear-gradient(to bottom, rgba(26,22,20,0) 0%, rgba(26,22,20,0.22) 50%, rgba(26,22,20,0.30) 100%); }
-    .hero-text { align-items: center; text-align: center; padding: 24px; }
-  }
-  @keyframes hero-kenburns {
-    from { transform: scale(1); }
-    to { transform: scale(1.08); }
-  }
-  @keyframes hero-fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero img, .hero-text h1, .hero-text p { animation: none; }
-  }
-  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
-  .section-title { font-family: 'Shippori Mincho', serif; font-size: 26px; font-weight: 700; color: var(--tomoshibi); margin-bottom: 24px; text-align: center; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  .about-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; box-shadow: 0 16px 36px rgba(0,0,0,0.35); }
-  .about-content { text-align: left; }
-  .about-content .section-title { text-align: left; }
-  .about p { font-size: 14.5px; color: var(--tomoshibi); margin-bottom: 14px; }
-  .about p:last-child { margin-bottom: 0; }
-  @media (max-width: 700px) {
-    .about-grid { grid-template-columns: 1fr; gap: 28px; }
-    .about-content, .about-content .section-title { text-align: center; }
-  }
+/* ---------- ページ遷移（火の粉→暗転／読込は明転） ---------- */
+.curtain{position:fixed;inset:0;z-index:400;background:#050303;overflow:hidden;
+  opacity:0;visibility:hidden;pointer-events:none}
+.js .curtain{opacity:1;visibility:visible}
+.js.lit .curtain{opacity:0;visibility:hidden;transition:opacity .55s ease,visibility 0s linear .55s}
+.js.leaving .curtain{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .34s ease .24s}
+.curtain::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-6%;height:52%;
+  background:radial-gradient(60% 100% at 50% 100%,rgba(255,122,42,.55),rgba(226,84,42,.16) 46%,rgba(226,84,42,0) 74%);
+  opacity:0;transition:opacity .4s ease}
+.js.leaving .curtain::after{opacity:1}
+.cfire{position:absolute;inset:0}
+.cspk{position:absolute;bottom:-16px;border-radius:50%;background:#FFCE95;
+  box-shadow:0 0 11px 3px rgba(255,146,54,.85);opacity:0}
+.js.leaving .cspk{animation-name:cUp;animation-timing-function:cubic-bezier(.28,.5,.42,1);animation-fill-mode:forwards}
+@keyframes cUp{
+  0%{opacity:0;transform:translate3d(0,0,0) scale(.4)}
+  14%{opacity:1}
+  74%{opacity:.85}
+  100%{opacity:0;transform:translate3d(var(--dx,0),-86vh,0) scale(1.2)}
+}
 
-  /* ---- about抜粋（page-top） ---- */
-  .about-excerpt p { font-size: 14.5px; color: var(--tomoshibi); margin-bottom: 22px; }
-  .about-excerpt .more-link {
-    display: inline-block; font-size: 13px; font-weight: 700; color: var(--honoo);
-    border-bottom: 1px solid var(--honoo); padding-bottom: 2px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
-  }
+/* ---------- 告知バー ---------- */
+.notice{background:var(--sumi-3);border-bottom:1px solid var(--line-soft);font-size:12.5px;line-height:1.6}
+.notice-in{max-width:var(--maxw);margin:0 auto;padding:9px var(--pad);
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:space-between;color:var(--kinari-2)}
+.notice a{color:var(--hi-2);border-bottom:1px solid rgba(255,178,92,.45);padding-bottom:1px;font-weight:700;white-space:nowrap}
+.notice a:hover{color:#FFD199;border-bottom-color:#FFD199}
 
-  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .menu-card {
-    display: flex; flex-direction: column; text-align: center;
-    background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px; padding: 18px 18px 22px;
-  }
-  .menu-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
-  .menu-card .menu-name { margin-top: 14px; font-size: 15px; font-weight: 700; color: var(--tomoshibi); }
-  .menu-card .menu-copy { margin-top: 8px; font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.6; flex: 1; }
-  .menu-card .menu-price { margin-top: 16px; font-size: 15px; font-weight: 700; color: var(--honoo); }
-  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .menu-grid { grid-template-columns: 1fr; } }
-  .gallery-marquee { overflow: hidden; }
-  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
-  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
-  .gallery-item { flex: 0 0 auto; width: 320px; aspect-ratio: 16 / 9; border-radius: 6px; margin-right: 16px; overflow: hidden; }
-  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-  .gallery-item:hover img { transform: scale(1.05); }
-  @keyframes gallery-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gallery-track { animation: none; }
-    .gallery-marquee { overflow-x: auto; }
-  }
-  .contact { background: var(--sumi); color: var(--tomoshibi); text-align: center; }
-  .contact .section-title { color: var(--tomoshibi); }
-  .contact-box {
-    width: fit-content; margin: 0 auto 24px; padding: 26px 42px;
-    background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px;
-  }
-  .contact p { font-size: 14px; margin-bottom: 8px; color: var(--tomoshibi); }
-  .contact p:last-of-type { margin-bottom: 0; }
-  .contact .btn {
-    display: inline-block; margin-top: 24px; background: var(--sumi-light); color: var(--honoo);
-    border: 1px solid var(--honoo); padding: 12px 34px; border-radius: 999px;
-    font-weight: 700; font-size: 13.5px; transition: background 0.25s ease, color 0.25s ease;
-  }
-  .contact .btn:hover { background: var(--honoo); color: var(--tomoshibi); }
-  footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); background: var(--sumi); }
+/* ---------- ヘッダー ---------- */
+.mast{position:sticky;top:0;z-index:100;background:var(--mast-bg);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-soft)}
+.mast-in{max-width:var(--maxw);margin:0 auto;padding:11px var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:14px}
+.mast-name{font-weight:900;font-size:clamp(14px,2vw,17px);letter-spacing:.09em;line-height:1.3;
+  display:flex;align-items:center;gap:9px;flex:none}
+.mast-mark{width:19px;height:19px;flex:none}
+.mast-nav{display:flex;gap:clamp(14px,2.6vw,30px);font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--kinari-2)}
+.mast-nav a{position:relative;padding:5px 0;white-space:nowrap}
+.mast-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--hi);transition:right .35s ease}
+.mast-nav a:hover{color:var(--kinari)}
+.mast-nav a:hover::after{right:0}
+.mast-nav a[aria-current="page"]{color:var(--hi-2)}
+.mast-nav a[aria-current="page"]::after{right:0;background:var(--hi-2)}
+.hodo-tag{display:flex;align-items:center;gap:9px;flex:none;
+  font-size:11px;letter-spacing:.16em;color:var(--kinari-3);font-weight:700}
+.hodo-tag b{color:var(--hi-2);margin-left:.5em;letter-spacing:.1em}
+.hodo-meter{width:26px;height:22px;flex:none}
+.hm-bar{fill:#3E352F}
+.hm-bar.on{fill:var(--hi-2)}
+@media (max-width:1000px){.hodo-tag{display:none}}
+@media (max-width:620px){
+  .mast-in{flex-wrap:wrap;gap:8px;padding-bottom:0}
+  .mast-nav{width:100%;order:3;justify-content:space-between;gap:10px;
+    border-top:1px solid var(--line-soft);padding:6px 0 2px;font-size:12px}
+  .mast-nav a{padding:4px 0}
+}
 
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
-  .menu-grid .menu-card:nth-child(3n+1) { transition-delay: 0s; }
-  .menu-grid .menu-card:nth-child(3n+2) { transition-delay: 0.1s; }
-  .menu-grid .menu-card:nth-child(3n+3) { transition-delay: 0.2s; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
+/* ---------- 炭の帯（区切り） ---------- */
+.coalrule{display:block;width:100%;height:clamp(16px,2.4vw,26px);opacity:.9}
+.cr-dark{fill:url(#gSumi)}
+.cr-hot{fill:url(#gEmber);opacity:calc(.7 * var(--glow))}
 
-  /* ---- LINE連携ボタン（retail-standard.html と同一実装。
-       line-note の color は rgba(255,255,255,.5) のまま維持（暗背景で正しく見えるため）） ---- */
-  .line-btn {
-    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
-    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
-    line-height: 21px;
-  }
-  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
-  .contact .line-wrap { margin-top: 18px; }
+/* ---------- 見出し共通 ---------- */
+.sec{position:relative;padding:clamp(54px,7.6vw,100px) 0}
+.sec--alt{background:var(--sumi-1)}
+.sec-head{margin-bottom:clamp(28px,4.6vw,54px)}
+.sec-no{font-family:var(--num);font-size:12px;font-weight:600;letter-spacing:.3em;color:var(--hi);display:block;margin-bottom:11px}
+h2{font-weight:900;font-size:clamp(23px,4.2vw,42px);line-height:1.42;letter-spacing:.03em}
+.sec-sub{margin-top:13px;color:var(--kinari-3);font-size:13.5px;letter-spacing:.08em;font-weight:500;line-height:1.9}
+.rule{height:1px;background:linear-gradient(90deg,var(--hi-3),rgba(226,84,42,.18) 42%,transparent);margin-top:18px}
+.lead-p{color:var(--kinari-2);font-size:clamp(14.5px,1.7vw,17px);line-height:2.2;max-width:34em}
+.lede{font-size:clamp(18px,2.5vw,26px);line-height:1.92;font-weight:700;color:var(--kinari);letter-spacing:.02em}
 
-  /* ---- 地図プレースホルダー（page-access。retail-standard.html の実装を踏襲） ---- */
-  .map-placeholder {
-    background: var(--sumi-light); border: 1px dashed var(--honoo); border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    align-self: stretch; min-height: 300px;
-  }
-  .map-placeholder span { font-size: 11.5px; color: var(--text-muted); }
+/* ---------- 下層ページのヘッド ---------- */
+.phero{position:relative;overflow:hidden;background:#080605}
+.phero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:brightness(var(--pb,.5)) contrast(1.05) saturate(.98)}
+.phero-scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(8,6,5,.9) 0%,rgba(8,6,5,.5) 40%,rgba(8,6,5,.94) 100%)}
+.phero-in{position:relative;z-index:3;padding:clamp(46px,8vw,86px) 0 clamp(40px,6.6vw,72px)}
+.phero h1{font-weight:900;font-size:clamp(28px,5.6vw,58px);line-height:1.28;letter-spacing:.03em;
+  text-shadow:0 6px 30px rgba(0,0,0,.9),0 1px 2px rgba(0,0,0,.95)}
+.phero .hodo-line{margin-bottom:clamp(16px,2.6vw,24px)}
+.phero-lead{margin-top:clamp(16px,2.6vw,26px);max-width:32em;color:var(--kinari-2);
+  font-size:clamp(14px,1.6vw,16.5px);line-height:2.05;text-shadow:0 2px 12px rgba(0,0,0,.9)}
 
-  /* ---- page-access 2カラムレイアウト（左:情報 / 右:地図） ---- */
-  .contact-layout {
-    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
-  }
-  @media (max-width: 800px) {
-    .contact-layout { grid-template-columns: 1fr; }
-  }
+/* 火床ライン（ページ章表示） */
+.hodo-line{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  font-size:11.5px;font-weight:700;letter-spacing:.24em;color:var(--hi-2)}
+.hodo-line .hodo-meter{width:30px;height:25px}
+.hodo-line em{font-style:normal;color:var(--kinari-3);letter-spacing:.12em;font-weight:500;font-size:11px}
 
-  /* ---- Instagram（デモ表示。retail-standard.html の insta-sec を移植。
-       セクション背景のインライン style="background:#fff;" は var(--sumi-light) に変更。
-       insta-note のborderは rgba(0,0,0,0.15) → rgba(240,235,227,0.15) に変更
-       （暗背景では黒の半透明borderが見えなくなるため） ---- */
-  .insta-note {
-    display: inline-block; font-size: 11.5px; color: var(--text-muted);
-    border: 1px dashed rgba(240,235,227,0.15); border-radius: 4px; padding: 6px 12px; margin-bottom: 24px;
-  }
-  .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .insta-item { aspect-ratio: 1/1; border-radius: 6px; width: 100%; height: auto; object-fit: cover; }
-  @media (max-width: 700px) { .insta-grid { grid-template-columns: repeat(2, 1fr); } }
+/* ---------- 火床の断面（トップの見どころ） ---------- */
+.hodo{background:var(--sumi-1);position:relative;overflow:hidden}
+.hodo-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.95fr);gap:clamp(26px,4.4vw,58px);align-items:start}
+@media (max-width:900px){.hodo-grid{grid-template-columns:1fr}}
+.bed{position:relative;border:1px solid var(--line-soft);border-radius:4px;background:var(--sumi-2);
+  padding:clamp(14px,2.4vw,22px) clamp(12px,2vw,20px) clamp(12px,2vw,18px);overflow:hidden}
+.bed-svg{width:100%;height:auto;display:block;border-radius:3px;background:linear-gradient(180deg,#0B0806,#140F0C)}
+.bed-ctrl{margin-top:clamp(14px,2.2vw,20px);display:flex;gap:8px;flex-wrap:wrap}
+.bed-btn{flex:1 1 0;min-width:92px;appearance:none;border:1px solid var(--line);border-radius:3px;
+  background:var(--sumi-3);color:var(--kinari-2);font-family:inherit;font-weight:900;font-size:13px;
+  letter-spacing:.12em;padding:12px 8px;cursor:pointer;transition:border-color .3s,background .3s,color .3s;line-height:1.5}
+.bed-btn:hover{border-color:rgba(255,138,61,.6);color:var(--kinari)}
+.bed-btn[aria-pressed="true"]{background:linear-gradient(100deg,#71160A,#B94420);border-color:#FFC98F;color:#FFF3E6}
+.bed-read{margin-top:14px;border-top:1px solid var(--line-soft);padding-top:14px}
+.bed-read dt{font-size:11px;letter-spacing:.2em;color:var(--hi);font-weight:700}
+.bed-read dd{margin:6px 0 0;color:var(--kinari-2);font-size:14.5px;line-height:2}
+.bed-note{margin-top:12px;font-size:11.5px;letter-spacing:.06em;color:var(--kinari-3);line-height:1.85}
+/* 断面SVG */
+.bed-svg .coal-dark{fill:url(#gSumi)}
+.bed-svg .coal-hot{fill:url(#gEmber);opacity:.9}
+.bed-svg .ash{fill:#241E1A}
+.bed-svg .bedglow{fill:url(#gHeatBed)}
+.bed-svg .zone{fill:#FF7A2A;opacity:.05}
+.bed-svg .zone.on{opacity:.17}
+.bed-svg .zone-t{fill:var(--kinari-3);font-size:17px;font-weight:700;letter-spacing:.12em;font-family:var(--gothic)}
+.bed-svg .zone-t.on{fill:var(--hi-2)}
+.bed-svg .lbl{fill:var(--kinari-3);font-size:17px;font-weight:700;letter-spacing:.16em;font-family:var(--gothic)}
+.bed-svg .skew-g{transition:transform .55s cubic-bezier(.3,.7,.3,1)}
+.bed-svg .stick{fill:url(#gBamboo)}
+.bed-svg .neta{fill:url(#gCooked)}
+.bed-svg .rim{fill:none;stroke:#FFB25C;stroke-width:3;stroke-linecap:round;opacity:.55;transition:opacity .5s ease}
+.bed-svg .wave{fill:none;stroke:#FFA860;stroke-width:1.6;stroke-linecap:round;opacity:0;transition:opacity .5s ease}
+.bed.lv-near .wave{opacity:.3}
+.bed.lv-mid .wave{opacity:.2}
+.bed.lv-far .wave{opacity:.1}
+.bed.lv-near .rim{opacity:.95}
+.bed.lv-mid .rim{opacity:.6}
+.bed.lv-far .rim{opacity:.3}
+.bed.lv-near .skew-g{transform:translateY(0)}
+.bed.lv-mid .skew-g{transform:translateY(-42px)}
+.bed.lv-far .skew-g{transform:translateY(-84px)}
+.bed.lv-near .coal-hot{opacity:1}
+.bed.lv-mid .coal-hot{opacity:.72}
+.bed.lv-far .coal-hot{opacity:.5}
 
-  /* ---- 各ページへの導線カード（page-top） ---- */
-  .link-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .link-card {
-    display: block; background: var(--sumi-light); border: 1px solid var(--honoo); border-radius: 12px;
-    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.35); }
-  .link-card .tag { font-size: 11px; color: var(--honoo); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
-  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--tomoshibi); }
-  .link-card p { font-size: 13px; color: var(--text-muted); }
-  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--honoo); }
-  @media (max-width: 700px) { .link-grid { grid-template-columns: 1fr; } }
+/* ---------- 汎用カード／写真 ---------- */
+.frame{position:relative;border-radius:3px;overflow:hidden;background:var(--sumi-2);
+  box-shadow:0 0 0 1px rgba(255,138,61,calc(.2 * var(--glow))),0 30px 62px -28px rgba(0,0,0,.95)}
+.frame img{width:100%;height:auto;object-fit:cover;filter:brightness(.9) contrast(1.04)}
+.frame figcaption,.cap-in{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 15px 12px;
+  background:linear-gradient(0deg,rgba(8,6,5,.95),rgba(8,6,5,.5) 50%,rgba(8,6,5,0));
+  font-size:12px;font-weight:700;letter-spacing:.13em;color:var(--kinari);line-height:1.7}
+.frame figcaption .num,.cap-in .num{color:var(--hi-2);margin-right:9px;font-size:11px}
+.cap{margin-top:11px;font-size:12px;letter-spacing:.13em;color:var(--kinari-3);font-weight:500;line-height:1.8}
 
-  /* ---- ページ切り替え（retail-standard.html のCSSパターンを移植） ---- */
-  #page-top { display: block; }
-  #page-menu, #page-about, #page-access { display: none; }
-  body[class*="-page"] #page-top { display: none; }
-  body.menu-page #page-menu { display: block; }
-  body.about-page #page-about { display: block; }
-  body.access-page #page-access { display: block; }
+/* ---------- ボタン ---------- */
+.btn{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:17px 21px;border-radius:3px;font-weight:900;letter-spacing:.08em;font-size:14.5px;line-height:1.6;
+  border:1px solid var(--line);background:var(--sumi-2);color:var(--kinari);
+  transition:border-color .3s,background .3s,transform .3s}
+.btn .arw{width:22px;height:10px;flex:none;stroke:var(--hi-2);stroke-width:1.6;fill:none;transition:transform .3s}
+.btn:hover{border-color:rgba(255,138,61,.7);background:var(--sumi-3);transform:translateY(-2px)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn--hi{background:linear-gradient(100deg,#6E1206,#B93E19);border-color:rgba(255,178,92,.55);color:#FFF6EC}
+.btn--hi .arw{stroke:#FFE1BE}
+.btn--hi:hover{background:linear-gradient(100deg,#8A1B0B,#C2461D);border-color:#FFC98F}
+.cta{display:flex;flex-direction:column;gap:11px}
+.cta-note{font-size:12px;color:var(--kinari-3);letter-spacing:.05em;line-height:1.9;margin-top:2px}
 
-  /* ---- レスポンシブ ---- */
-  @media (max-width: 860px) {
-    .nav-links { display: none; }
-    .nav-toggle { display: flex; }
-    .nav.open .nav-links {
-      display: flex; flex-direction: column; align-items: stretch; gap: 4px;
-      position: absolute; top: 64px; left: 0; right: 0;
-      background: var(--sumi-light); padding: 12px 24px 20px;
-    }
-    .nav.open .nav-links a { padding: .8em .2em; }
-    .nav.open .nav-links a.nav-cta { margin-top: 10px; text-align: center; }
-  }
+/* ---------- 火力ゲージ ---------- */
+.gauge{display:inline-flex;align-items:center;gap:9px;vertical-align:middle}
+.gauge svg{width:56px;height:16px;display:block;flex:none}
+.gauge .gc{fill:#463B34}
+.gauge .gc.on{fill:url(#gOki)}
+.gauge-txt{font-size:11.5px;font-weight:900;letter-spacing:.16em;color:var(--hi-2)}
+.gauge-txt.soft{color:var(--kinari-2)}
+
+/* ---------- 店舗情報 ---------- */
+.dl dt{font-size:11px;letter-spacing:.22em;color:var(--hi);font-weight:700;margin-top:22px}
+.dl dt:first-of-type{margin-top:0}
+.dl dd{margin:6px 0 0;font-size:clamp(15px,1.8vw,17px);line-height:1.95;font-weight:500;color:var(--kinari)}
+.dl dd .num{font-family:var(--num);font-size:1.12em;font-weight:500;letter-spacing:.02em}
+.dl dd small{display:block;font-size:12.5px;color:var(--kinari-3);letter-spacing:.08em;margin-top:2px;font-weight:500;line-height:1.8}
+
+/* ---------- フッター ---------- */
+.foot{background:var(--sumi);border-top:1px solid var(--line-soft);padding:0 0 clamp(28px,4vw,44px)}
+.foot .coalrule{opacity:.5;margin-bottom:clamp(30px,5vw,52px)}
+.foot-in{display:flex;flex-wrap:wrap;gap:20px 30px;align-items:flex-end;justify-content:space-between}
+.foot-name{font-weight:900;font-size:16.5px;letter-spacing:.1em;display:flex;align-items:center;gap:9px}
+.foot-sub{margin-top:8px;font-size:12px;color:var(--kinari-3);letter-spacing:.06em;font-weight:500;line-height:1.9}
+.foot-links{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:12.5px;color:var(--kinari-2);font-weight:700;letter-spacing:.06em}
+.foot-links a:hover{color:var(--hi-2)}
+
+/* ---------- リビール ---------- */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.7,.3,1)}
+.js .rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .curtain{display:none!important}
+  .js .rv{opacity:1!important;transform:none!important}
+}
+
+.hero{position:relative;overflow:hidden;background:#070505;
+  min-height:min(94svh,880px);display:flex;flex-direction:column;justify-content:flex-end}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:brightness(.6) contrast(1.08) saturate(1.06)}
+.hero-scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(7,5,5,.9) 0%,rgba(7,5,5,.3) 30%,rgba(7,5,5,.74) 64%,rgba(7,5,5,.98) 100%)}
+.hero-scrim::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(130% 62% at 50% 112%,rgba(226,84,42,.42) 0%,rgba(226,84,42,0) 64%)}
+.hero-in{position:relative;z-index:3;padding:clamp(56px,11vw,120px) 0 clamp(70px,10vw,110px)}
+h1{font-weight:900;font-size:clamp(33px,7.2vw,82px);line-height:1.2;letter-spacing:.02em;
+  text-shadow:0 6px 34px rgba(0,0,0,.85),0 1px 2px rgba(0,0,0,.9)}
+h1 .h1-l{display:block}
+h1 .h1-hot{color:var(--hi-2)}
+.hero-lead{margin-top:clamp(20px,3.2vw,30px);max-width:33em;color:var(--kinari-2);
+  font-size:clamp(14px,1.6vw,16.5px);line-height:2.1;text-shadow:0 2px 12px rgba(0,0,0,.9)}
+.hero-meta{margin-top:clamp(24px,3.6vw,36px);display:flex;flex-wrap:wrap;gap:9px 24px;
+  font-size:12.5px;letter-spacing:.1em;color:var(--kinari-3);font-weight:500}
+.hero-meta b{color:var(--kinari-2);font-weight:700}
+.hero-meta .num{font-size:14px;color:var(--kinari-2)}
+.hero-bed{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(58px,8vw,96px);z-index:2;pointer-events:none}
+.hero-bed .hb-glow{fill:url(#gHeatBed);opacity:.6}
+.hero-bed .hb-hot{fill:url(#gEmber);opacity:.95}
+.hero-bed .hb-dark{fill:url(#gSumi)}
+
+/* 骨格の説明 */
+.axis{margin-top:clamp(26px,4vw,40px);display:grid;gap:10px}
+.axis-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:center;
+  border:1px solid var(--line-soft);border-radius:3px;padding:12px 15px;background:var(--sumi-2)}
+.axis-row .k{font-weight:900;font-size:13px;letter-spacing:.16em;color:var(--kinari-3);white-space:nowrap}
+.axis-row.on{border-color:rgba(255,178,92,.5);background:var(--sumi-3)}
+.axis-row.on .k{color:var(--hi-2)}
+.axis-row .t{font-size:13px;color:var(--kinari-2);line-height:1.85;letter-spacing:.04em}
+
+.fire-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(26px,4.6vw,64px);align-items:center}
+@media (max-width:860px){.fire-grid{grid-template-columns:1fr}}
+.fire-grid .frame img{aspect-ratio:16/10}
+.chips{margin-top:clamp(22px,3.4vw,32px);display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:12.5px;
+  letter-spacing:.1em;color:var(--kinari-2);font-weight:700;background:var(--sumi-2)}
+.chip i{font-style:normal;color:var(--hi-2);margin-right:.4em}
+
+/* お品書き三品 */
+.picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.4vw,26px)}
+@media (max-width:820px){.picks{grid-template-columns:1fr}}
+.pick{background:var(--sumi-2);border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;
+  display:flex;flex-direction:column}
+.pick img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;filter:brightness(.92) contrast(1.05) saturate(1.04)}
+.pick-b{padding:clamp(16px,2.4vw,22px);display:flex;flex-direction:column;gap:10px;flex:1}
+.pick h3{font-size:clamp(17px,2.2vw,21px);font-weight:900;letter-spacing:.03em;line-height:1.5}
+.pick h3 small{font-size:.62em;color:var(--hi-2);margin-left:.3em;font-weight:700}
+.pick p{font-size:13.5px;color:var(--kinari-2);line-height:1.95}
+.pick .pr{margin-top:auto;font-family:var(--num);font-size:clamp(22px,3vw,28px);color:var(--hi-2);font-weight:500;line-height:1}
+.pick .pr small{font-size:.5em;color:var(--kinari-3);margin-left:6px;letter-spacing:.1em}
+.more{margin-top:clamp(24px,3.6vw,36px);display:flex;flex-wrap:wrap;gap:12px}
+.more .btn{flex:1 1 260px}
+
+/* 店の様子 */
+.mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(10px,1.4vw,18px)}
+.mos{position:relative;overflow:hidden;border-radius:3px;background:var(--sumi-2);
+  box-shadow:0 0 0 1px rgba(58,50,44,.9),0 24px 52px -28px rgba(0,0,0,.95)}
+.mos img{width:100%;height:100%;object-fit:cover;filter:brightness(.86) saturate(.98) contrast(1.05)}
+.m1{grid-column:1/8;aspect-ratio:16/10;align-self:start}
+.m2{grid-column:8/13;aspect-ratio:3/4}
+.m3{grid-column:1/6;aspect-ratio:4/3}
+.m4{grid-column:6/13;aspect-ratio:16/9;align-self:start}
+@media (max-width:760px){
+  .m1{grid-column:1/13;aspect-ratio:16/10}
+  .m2{grid-column:1/7;aspect-ratio:3/4}
+  .m3{grid-column:7/13;aspect-ratio:3/4}
+  .m4{grid-column:1/13;aspect-ratio:16/9}
+}
+@media (max-width:480px){
+  .mosaic{grid-template-columns:1fr}
+  .m1,.m2,.m3,.m4{grid-column:1/2;aspect-ratio:16/10}
+}
+/* 店主 */
+.nushi{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(26px,4.6vw,60px);align-items:center}
+@media (max-width:820px){.nushi{grid-template-columns:1fr}.nushi>figure{max-width:420px}}
+.nushi .frame img{aspect-ratio:4/5}
+.q{font-size:clamp(19px,2.7vw,30px);font-weight:900;line-height:1.85;letter-spacing:.02em;margin-bottom:20px}
+.q em{font-style:normal;color:var(--hi-2)}
+/* 店舗情報 */
+.info{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(26px,4vw,56px);align-items:start}
+@media (max-width:820px){.info{grid-template-columns:1fr;gap:30px}}
 </style>
 </head>
 <body>
-
-<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
-
-<nav class="nav" id="nav">
-  <div class="nav-in">
-    <a class="logo" onclick="showPage('top')">炭火焼鳥 <span>とりや</span></a>
-    <div class="nav-links">
-      <a onclick="showPage('top')">TOP</a>
-      <a onclick="showPage('menu')">メニュー</a>
-      <a onclick="showPage('about')">こだわり</a>
-      <a class="nav-cta" onclick="showPage('access')">アクセス・お問い合わせ</a>
-    </div>
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" aria-expanded="false" onclick="toggleNav()">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
-  </div>
-</nav>
-
-<!-- ════ PAGE: TOP ════ -->
-<div id="page-top">
-
-  <div class="hero">
-    <img src="images/yakitori/yakitori_hero.webp" alt="炭火焼鳥 とりや">
-    <div class="hero-text">
-      <div class="label">焼き鳥</div>
-      <h1>一本ずつ、炭に向き合う。</h1>
-      <p>炭火焼鳥 とりや</p>
-    </div>
-  </div>
-
-  <section class="about-excerpt">
-    <div class="section-title">こだわり</div>
-    <p>備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。</p>
-    <a class="more-link" onclick="showPage('about')">こだわりをもっと見る →</a>
-  </section>
-
-  <section style="background:var(--sumi-light);">
-    <div class="section-title">Instagram</div>
-    <div style="text-align:center;">
-      <span class="insta-note">Instagramの投稿がここに自動表示されます（デモ表示中）</span>
-    </div>
-    <div class="insta-grid">
-      <img class="insta-item" src="images/yakitori/yakitori_gallery1.webp" alt="炭火で焼く手元">
-      <img class="insta-item" src="images/yakitori/yakitori_gallery2.webp" alt="カウンター">
-      <img class="insta-item" src="images/yakitori/yakitori_gallery3.webp" alt="串打ちの手元">
-      <img class="insta-item" src="images/yakitori/yakitori_gallery4.webp" alt="外観（夜・赤提灯・暖簾）">
-      <img class="insta-item" src="images/yakitori/yakitori_gallery5.webp" alt="ビールと日本酒">
-      <img class="insta-item" src="images/yakitori/yakitori_gallery6.webp" alt="提灯">
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">詳しく見る</div>
-    <div class="link-grid">
-      <button class="link-card" onclick="showPage('menu')">
-        <div class="tag">Menu</div>
-        <h3>メニュー</h3>
-        <p>おまかせ盛り合わせから定番の串、季節の一品まで写真つきでご紹介します。</p>
-        <span class="go">詳しく見る →</span>
-      </button>
-      <button class="link-card" onclick="showPage('about')">
-        <div class="tag">About</div>
-        <h3>こだわり</h3>
-        <p>炭火と向き合う焼き方へのこだわりをご紹介します。</p>
-        <span class="go">詳しく見る →</span>
-      </button>
-      <button class="link-card" onclick="showPage('access')">
-        <div class="tag">Access</div>
-        <h3>アクセス・お問い合わせ</h3>
-        <p>営業時間・所在地のご案内と、お問い合わせ先です。</p>
-        <span class="go">詳しく見る →</span>
-      </button>
-    </div>
-  </section>
-
-</div><!-- /page-top -->
-
-<!-- ════ PAGE: メニュー ════ -->
-<div id="page-menu">
-  <section style="background:var(--sumi-light);">
-    <div class="section-title">メニュー</div>
-    <div class="menu-grid">
-      <div class="menu-card reveal">
-        <img src="images/yakitori/yakitori_menu_moriawase.webp" alt="おまかせ盛り合わせ（6本）">
-        <div class="menu-name">おまかせ盛り合わせ（6本）</div>
-        <div class="menu-copy">まずはこの一皿から、店の味を。</div>
-        <div class="menu-price">¥1,380</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/yakitori/yakitori_menu_momo.webp" alt="もも串">
-        <div class="menu-name">もも串</div>
-        <div class="menu-copy">旨みそのままの、ジューシーな一本。</div>
-        <div class="menu-price">¥260</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/yakitori/yakitori_menu_tsukune.webp" alt="つくね">
-        <div class="menu-name">つくね</div>
-        <div class="menu-copy">刻んで、練って、丁寧に一本。</div>
-        <div class="menu-price">¥280</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/yakitori/yakitori_menu_kawa.webp" alt="皮">
-        <div class="menu-name">皮</div>
-        <div class="menu-copy">パリッと香ばしく、じっくり焼く。</div>
-        <div class="menu-price">¥220</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/yakitori/yakitori_menu_lever.webp" alt="レバー">
-        <div class="menu-name">レバー</div>
-        <div class="menu-copy">臭みを抑え、しっとりと焼き上げる。</div>
-        <div class="menu-price">¥240</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/yakitori/yakitori_menu_seasonal.webp" alt="季節の一品">
-        <div class="menu-name">季節の一品</div>
-        <div class="menu-copy">その時期だけの、旬をひと串に。</div>
-        <div class="menu-price">¥580</div>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-menu -->
-
-<!-- ════ PAGE: こだわり ════ -->
-<div id="page-about">
-  <section class="about reveal">
-    <div class="about-grid">
-      <div class="about-photo">
-        <img src="images/yakitori/yakitori_gallery1.webp" alt="炭火で焼く手元">
-      </div>
-      <div class="about-content">
-        <div class="section-title">こだわり</div>
-        <p>備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。串と向き合う時間を大切にしています。</p>
-        <p>定番のもも・つくね・皮・レバーから、季節ごとに変わる一品まで。素材の状態を見ながら、その日の焼き加減を微調整しています。</p>
-        <p>カウンター越しに炭火の音と香りを感じながら、ゆっくりと過ごしていただける時間を。仕事帰りの一杯にも、ふらりと立ち寄る一軒としても。</p>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:var(--sumi-light);">
-    <div class="section-title reveal">ギャラリー</div>
-    <div class="gallery-marquee">
-      <div class="gallery-track">
-        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery1.webp" alt="炭火で焼く手元"></div>
-        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery2.webp" alt="カウンター"></div>
-        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery3.webp" alt="串打ちの手元"></div>
-        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery4.webp" alt="外観（夜・赤提灯・暖簾）"></div>
-        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery5.webp" alt="ビールと日本酒"></div>
-        <div class="gallery-item"><img src="images/yakitori/yakitori_gallery6.webp" alt="提灯"></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery1.webp" alt=""></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery2.webp" alt=""></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery3.webp" alt=""></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery4.webp" alt=""></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery5.webp" alt=""></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/yakitori/yakitori_gallery6.webp" alt=""></div>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-about -->
-
-<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
-<div id="page-access">
-  <section class="contact reveal">
-    <div class="section-title">アクセス・お問い合わせ</div>
-    <div class="contact-layout">
-      <div class="contact-info">
-        <div class="contact-box">
-          <p>福岡県福岡市〇〇区〇〇9-3-7</p>
-          <p>営業時間:17:00〜23:00（定休日:日曜日）</p>
-        </div>
-        <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
-        <div class="line-wrap">
-          <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
-          <p class="line-note">LINEでのお問い合わせも承っています。</p>
-        </div>
-      </div>
-      <div class="map-placeholder">
-        <span>地図がここに表示されます（デモ表示中）</span>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-access -->
-
-<footer class="reveal">炭火焼鳥 とりや（RESC制作サンプル）</footer>
-
+<a class="skip" href="#main">本文へスキップ</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<linearGradient id="gBamboo" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="#8E6A3F"/><stop offset="42%" stop-color="#D9B683"/><stop offset="100%" stop-color="#7A5931"/>
+</linearGradient>
+<linearGradient id="gCooked" x1="0" y1="0" x2="0.3" y2="1">
+<stop offset="0%" stop-color="#D98A3C"/><stop offset="52%" stop-color="#A85718"/><stop offset="100%" stop-color="#6B300B"/>
+</linearGradient>
+<linearGradient id="gSumi" x1="0" y1="0" x2="0.2" y2="1">
+<stop offset="0%" stop-color="#4A3F38"/><stop offset="55%" stop-color="#2B2320"/><stop offset="100%" stop-color="#191413"/>
+</linearGradient>
+<linearGradient id="gOki" x1="0" y1="0" x2="0.25" y2="1">
+<stop offset="0%" stop-color="#FFD9A0"/><stop offset="34%" stop-color="#FF8F35"/><stop offset="72%" stop-color="#C93A11"/><stop offset="100%" stop-color="#6E1B08"/>
+</linearGradient>
+<radialGradient id="gEmber" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#FFD9A0" stop-opacity=".95"/><stop offset="38%" stop-color="#FF8F35" stop-opacity=".62"/><stop offset="100%" stop-color="#C93A11" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="gHeatBed" cx="50%" cy="100%" r="72%">
+<stop offset="0%" stop-color="#FF7A2A" stop-opacity=".85"/><stop offset="46%" stop-color="#D93C15" stop-opacity=".3"/><stop offset="100%" stop-color="#8E1F0E" stop-opacity="0"/>
+</radialGradient>
+</defs></svg>
+<div class="curtain" id="curtain" aria-hidden="true"><div class="cfire"><i class="cspk" style="left:45.0%;--dx:25px;width:4px;height:4px;animation-delay:0.22s;animation-duration:0.80s"></i><i class="cspk" style="left:83.2%;--dx:-22px;width:5px;height:5px;animation-delay:0.05s;animation-duration:0.81s"></i><i class="cspk" style="left:60.3%;--dx:-23px;width:4px;height:4px;animation-delay:0.02s;animation-duration:0.71s"></i><i class="cspk" style="left:53.2%;--dx:42px;width:5px;height:5px;animation-delay:0.16s;animation-duration:0.97s"></i><i class="cspk" style="left:93.7%;--dx:37px;width:6px;height:6px;animation-delay:0.19s;animation-duration:0.71s"></i><i class="cspk" style="left:3.4%;--dx:21px;width:3px;height:3px;animation-delay:0.02s;animation-duration:0.72s"></i><i class="cspk" style="left:25.0%;--dx:-43px;width:4px;height:4px;animation-delay:0.20s;animation-duration:0.80s"></i><i class="cspk" style="left:82.0%;--dx:20px;width:4px;height:4px;animation-delay:0.06s;animation-duration:0.82s"></i><i class="cspk" style="left:64.9%;--dx:12px;width:4px;height:4px;animation-delay:0.17s;animation-duration:0.98s"></i><i class="cspk" style="left:96.6%;--dx:-36px;width:4px;height:4px;animation-delay:0.18s;animation-duration:0.90s"></i><i class="cspk" style="left:50.7%;--dx:-43px;width:3px;height:3px;animation-delay:0.02s;animation-duration:0.79s"></i><i class="cspk" style="left:82.4%;--dx:3px;width:3px;height:3px;animation-delay:0.02s;animation-duration:0.93s"></i><i class="cspk" style="left:2.1%;--dx:-20px;width:3px;height:3px;animation-delay:0.24s;animation-duration:0.81s"></i><i class="cspk" style="left:95.1%;--dx:4px;width:5px;height:5px;animation-delay:0.11s;animation-duration:0.86s"></i><i class="cspk" style="left:76.0%;--dx:-12px;width:4px;height:4px;animation-delay:0.09s;animation-duration:0.77s"></i><i class="cspk" style="left:93.6%;--dx:-31px;width:6px;height:6px;animation-delay:0.03s;animation-duration:0.69s"></i><i class="cspk" style="left:7.7%;--dx:16px;width:5px;height:5px;animation-delay:0.05s;animation-duration:0.72s"></i><i class="cspk" style="left:50.3%;--dx:-30px;width:4px;height:4px;animation-delay:0.11s;animation-duration:0.70s"></i><i class="cspk" style="left:42.0%;--dx:-19px;width:5px;height:5px;animation-delay:0.00s;animation-duration:0.76s"></i><i class="cspk" style="left:86.1%;--dx:-20px;width:5px;height:5px;animation-delay:0.05s;animation-duration:0.87s"></i></div></div>
+<div class="notice"><div class="notice-in"><span>これはRESCが作成したサンプルサイトです。実店舗ではありません。</span><a href="../hp-service/index.html">RESCのサイトに戻る</a></div></div>
+<header class="mast"><div class="mast-in"><a class="mast-name" href="yakitori-standard.html"><svg class="mast-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="10.6" y="1.5" width="2.8" height="21" rx="1.4" fill="url(#gBamboo)"/><rect x="4.6" y="5" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/><rect x="4.6" y="12.4" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/></svg><span>炭火焼鳥 とりや</span></a><nav class="mast-nav" aria-label="サイト内"><a href="yakitori-standard.html" aria-current="page">トップ</a><a href="yakitori-standard-detail.html">お品書き</a><a href="yakitori-standard-info.html">店とご予約</a></nav><span class="hodo-tag"><svg class="hodo-meter" viewBox="0 0 34 28" aria-hidden="true" focusable="false"><rect class="hm-bar" x="0" y="0" width="34" height="6" rx="3"/><rect class="hm-bar" x="0" y="11" width="34" height="6" rx="3"/><rect class="hm-bar on" x="0" y="22" width="34" height="6" rx="3"/></svg><span class="hodo-txt">火床 三<b>強火</b></span></span></div></header>
+<main id="main"><section class="hero" aria-labelledby="h1"><img class="hero-img" src="images/yakitori/yakitori_hero.webp" alt="炭火の焼き場が見えるカウンター席。串が炭の上に並び、提灯の灯りがともる夜の店内" fetchpriority="high"><div class="hero-scrim" aria-hidden="true"></div><svg class="hero-bed" viewBox="0 0 1200 62" preserveAspectRatio="none" aria-hidden="true" focusable="false"><ellipse class="hb-glow" cx="600" cy="64" rx="660" ry="46"/><g class="hb-hot"><ellipse cx="57.0" cy="42.5" rx="56" ry="9"/><ellipse cx="148.0" cy="41.5" rx="40" ry="11"/><ellipse cx="209.5" cy="41.5" rx="38" ry="6"/><ellipse cx="270.0" cy="41.5" rx="50" ry="6"/><ellipse cx="350.0" cy="40.5" rx="51" ry="11"/><ellipse cx="432.5" cy="46.0" rx="45" ry="6"/><ellipse cx="514.5" cy="42.5" rx="60" ry="6"/><ellipse cx="579.5" cy="43.5" rx="37" ry="9"/><ellipse cx="656.0" cy="42.5" rx="37" ry="10"/><ellipse cx="710.0" cy="48.0" rx="56" ry="6"/><ellipse cx="758.5" cy="41.5" rx="35" ry="8"/><ellipse cx="835.0" cy="46.0" rx="51" ry="9"/><ellipse cx="917.0" cy="44.0" rx="36" ry="11"/><ellipse cx="978.5" cy="46.0" rx="41" ry="6"/><ellipse cx="1066.5" cy="47.0" rx="34" ry="11"/><ellipse cx="1162.5" cy="47.0" rx="48" ry="7"/><ellipse cx="1218.5" cy="44.5" rx="41" ry="6"/></g><g class="hb-dark"><path d="M-15.2 35.0 L4.0 24.0 L28.4 27.7 L54.2 41.6 L41.4 60.0 L3.0 60.0Z"/><path d="M57.3 34.0 L76.5 23.0 L116.6 25.8 L146.4 37.1 L128.0 60.0 L74.7 60.0Z"/><path d="M152.9 37.2 L167.3 22.4 L182.9 22.5 L206.0 34.8 L192.4 60.0 L166.0 60.0Z"/><path d="M215.2 37.7 L230.9 20.0 L250.7 23.4 L270.8 36.8 L260.0 60.0 L223.2 60.0Z"/><path d="M271.2 32.4 L285.8 19.2 L320.8 24.5 L345.2 39.2 L332.0 60.0 L284.0 60.0Z"/><path d="M354.2 42.9 L372.3 29.2 L405.0 33.1 L433.0 41.2 L413.9 60.0 L372.0 60.0Z"/><path d="M433.8 36.3 L456.4 25.4 L476.9 28.9 L510.1 38.6 L491.8 60.0 L450.5 60.0Z"/><path d="M516.0 39.9 L528.4 28.7 L557.7 29.0 L578.0 38.7 L565.9 60.0 L530.4 60.0Z"/><path d="M584.3 37.3 L596.4 23.7 L628.6 29.4 L651.6 41.6 L640.6 60.0 L595.9 60.0Z"/><path d="M655.7 43.9 L672.1 34.8 L683.5 39.2 L705.9 45.5 L694.4 60.0 L672.5 60.0Z"/><path d="M712.8 36.8 L725.7 22.3 L744.2 23.2 L758.1 39.4 L750.4 60.0 L722.6 60.0Z"/><path d="M758.4 42.3 L774.2 33.7 L802.5 30.8 L831.4 42.9 L817.4 60.0 L775.2 60.0Z"/><path d="M837.2 41.5 L851.7 31.0 L888.6 30.2 L914.1 41.0 L900.3 60.0 L850.5 60.0Z"/><path d="M918.0 42.7 L932.6 31.9 L954.8 31.0 L974.5 42.4 L965.1 60.0 L929.7 60.0Z"/><path d="M983.6 43.9 L1001.2 31.4 L1028.9 36.2 L1060.4 41.8 L1043.5 60.0 L1000.1 60.0Z"/><path d="M1070.2 44.5 L1088.4 36.7 L1127.1 38.4 L1162.4 46.4 L1137.3 60.0 L1089.4 60.0Z"/><path d="M1163.0 36.9 L1174.1 29.9 L1193.1 28.5 L1214.6 42.2 L1203.2 60.0 L1179.4 60.0Z"/></g></svg><div class="hero-in"><div class="wrap"><p class="hodo-line"><svg class="hodo-meter" viewBox="0 0 34 28" aria-hidden="true" focusable="false"><rect class="hm-bar" x="0" y="0" width="34" height="6" rx="3"/><rect class="hm-bar" x="0" y="11" width="34" height="6" rx="3"/><rect class="hm-bar on" x="0" y="22" width="34" height="6" rx="3"/></svg><span>火床 三 ／ 強火</span><em>炭にいちばん近い段</em></p><h1 id="h1"><span class="h1-l">一本ずつ、</span><span class="h1-l h1-hot">炭に向き合う。</span></h1><p class="hero-lead">備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。串と向き合う時間を大切にしています。</p><p class="hero-meta"><b>炭火焼鳥 とりや</b><span>福岡</span><span>営業 <span class="num">17:00</span>〜<span class="num">23:00</span></span><span>定休日 日曜日</span></p></div></div></section><section class="sec hodo" id="hodo" aria-labelledby="h-hodo"><div class="wrap"><div class="sec-head rv"><span class="sec-no">01</span><h2 id="h-hodo">火床（ほど）の、三段。</h2><p class="sec-sub">炭からの距離で、焼き方が変わる。このサイトも同じ順で並んでいます。</p><div class="rule" aria-hidden="true"></div></div><div class="hodo-grid"><div class="bed rv rv-d1 lv-mid" id="bed"><svg class="bed-svg" viewBox="0 58 560 194" role="img" aria-label="火床の断面図。炭の上に串を置く高さを、遠火・中火・強火の三段で示した図"><ellipse class="bedglow" cx="220" cy="236" rx="240" ry="104"/><rect class="zone" id="zFar" x="34" y="72" width="386" height="36" rx="5"/><text class="zone-t" id="ztFar" x="432" y="97">遠火</text><rect class="zone" id="zMid" x="34" y="114" width="386" height="36" rx="5"/><text class="zone-t" id="ztMid" x="432" y="139">中火</text><rect class="zone" id="zNear" x="34" y="156" width="386" height="36" rx="5"/><text class="zone-t" id="ztNear" x="432" y="181">強火</text><path class="wave" d="M118 199 c -8 -13 8 -17 0 -30 c -7 -12 7 -14 0 -24"/><path class="wave" d="M220 199 c -8 -13 8 -17 0 -30 c -7 -12 7 -14 0 -24"/><path class="wave" d="M322 199 c -8 -13 8 -17 0 -30 c -7 -12 7 -14 0 -24"/><g class="coal-hot"><ellipse cx="68.5" cy="225.5" rx="25" ry="9"/><ellipse cx="107.5" cy="225.0" rx="22" ry="7"/><ellipse cx="140.5" cy="226.5" rx="34" ry="9"/><ellipse cx="181.0" cy="226.5" rx="27" ry="11"/><ellipse cx="221.0" cy="226.0" rx="27" ry="6"/><ellipse cx="256.5" cy="224.2" rx="33" ry="8"/><ellipse cx="289.0" cy="225.0" rx="32" ry="6"/><ellipse cx="340.0" cy="226.0" rx="27" ry="11"/><ellipse cx="383.5" cy="226.0" rx="22" ry="9"/><ellipse cx="425.0" cy="226.0" rx="24" ry="9"/></g><g class="coal-dark"><path d="M23.2 216.6 L36.3 207.4 L54.1 204.7 L66.8 219.1 L58.3 232.0 L35.1 232.0Z"/><path d="M70.2 214.0 L74.0 202.3 L88.3 208.2 L104.3 213.2 L98.1 232.0 L74.4 232.0Z"/><path d="M110.5 215.8 L122.1 212.2 L126.0 214.1 L138.2 219.9 L129.9 232.0 L121.2 232.0Z"/><path d="M142.3 215.5 L148.6 207.4 L162.7 211.9 L175.5 219.9 L169.0 232.0 L149.2 232.0Z"/><path d="M183.9 217.4 L189.1 210.9 L201.5 210.9 L221.7 214.7 L214.4 232.0 L190.8 232.0Z"/><path d="M224.3 209.7 L231.5 203.6 L245.6 201.9 L252.3 213.5 L248.4 232.0 L225.7 232.0Z"/><path d="M262.2 211.1 L265.2 204.7 L280.9 204.7 L289.1 215.5 L279.6 232.0 L264.5 232.0Z"/><path d="M292.1 215.0 L301.9 209.3 L315.3 210.0 L339.1 214.8 L328.8 232.0 L299.9 232.0Z"/><path d="M340.8 218.7 L348.6 208.0 L370.6 207.2 L383.2 220.3 L374.5 232.0 L353.9 232.0Z"/><path d="M382.8 215.7 L391.0 210.5 L409.1 207.5 L422.1 220.4 L415.4 232.0 L391.7 232.0Z"/></g><rect class="ash" x="8" y="231" width="424" height="13" rx="4"/><g class="skew-g"><rect class="stick" x="42" y="172" width="380" height="5" rx="2.5"/><rect class="neta" x="104" y="160" width="64" height="29" rx="12"/><path class="rim" d="M112 187.5 h48"/><rect class="neta" x="180" y="160" width="64" height="29" rx="12"/><path class="rim" d="M188 187.5 h48"/><rect class="neta" x="256" y="160" width="64" height="29" rx="12"/><path class="rim" d="M264 187.5 h48"/><rect class="neta" x="332" y="160" width="64" height="29" rx="12"/><path class="rim" d="M340 187.5 h48"/><text class="lbl" x="6" y="181">串</text></g><text class="lbl" x="432" y="240">炭</text></svg><div class="bed-ctrl" role="group" aria-label="火加減を選ぶ"><button type="button" class="bed-btn" data-lv="far" aria-pressed="false">遠火</button><button type="button" class="bed-btn" data-lv="mid" aria-pressed="true">中火</button><button type="button" class="bed-btn" data-lv="near" aria-pressed="false">強火</button></div><dl class="bed-read" aria-live="polite"><dt id="bedName">中火</dt><dd id="bedText">少し離した高さ。表面と中の火の通り方のつり合いを見ながら、返す回数で調整します。</dd></dl><p class="bed-note">※ このページはRESCが制作したサンプルです。火力の表記は見せ方のためのイメージで、実際はその日の素材の状態を見て決めています。</p></div><div class="hodo-copy rv rv-d2"><p class="lede">同じ串でも、<br>その日で変わる。</p><p class="lead-p" style="margin-top:20px">仕込みでは串一本ごとに肉の厚みや脂の乗り方を見極め、火からの距離と時間を細かく調整します。同じ串でも、その日の素材の状態によって焼き加減は変わります。</p><div class="axis"><div class="axis-row on"><span class="k">火床 三 ／ 強火</span><span class="t">このページ。炭にいちばん近い段です。</span></div><div class="axis-row"><span class="k">火床 二 ／ 中火</span><span class="t"><a href="yakitori-standard-detail.html">お品書き</a>。串ごとの火力を並べています。</span></div><div class="axis-row"><span class="k">火床 一 ／ 遠火</span><span class="t"><a href="yakitori-standard-info.html">店とご予約</a>。火から離れて、店のことを。</span></div></div></div></div></div></section><section class="sec sec--alt" id="fire" aria-labelledby="h-fire"><div class="wrap"><div class="sec-head rv"><span class="sec-no">02</span><h2 id="h-fire">強すぎず、弱すぎず。</h2><p class="sec-sub">備長炭の火加減だけを見る</p><div class="rule" aria-hidden="true"></div></div><div class="fire-grid"><div class="rv rv-d1"><p class="lede">串と向き合う時間を、<br>いちばん大切にしています。</p><p class="lead-p" style="margin-top:20px">備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。炭が落ち着くのを待ってから、はじめの一本を置きます。</p><div class="chips"><span class="chip"><i>炭</i>備長炭</span><span class="chip"><i>火</i>強すぎず、弱すぎず</span><span class="chip"><i>手</i>一本ずつ</span></div></div><figure class="rv rv-d2"><div class="frame"><img src="images/yakitori/yakitori_gallery1.webp" alt="炭床の上に並んだ串を、手で返しながら焼き上げている焼き場の様子" loading="lazy"></div><figcaption class="cap">焼き場 ／ 炭の前に立つ</figcaption></figure></div></div></section><section class="sec" id="picks" aria-labelledby="h-picks"><div class="wrap"><div class="sec-head rv"><span class="sec-no">03</span><h2 id="h-picks">お品書きから、三品。</h2><p class="sec-sub">数は多くありません。その分、一本ずつ。</p><div class="rule" aria-hidden="true"></div></div><div class="picks"><article class="pick rv rv-d1"><img src="images/yakitori/yakitori_menu_moriawase.webp" alt="黒い器に盛り付けたおまかせ盛り合わせ。つくねや野菜の串が並ぶ" loading="lazy"><div class="pick-b"><h3>おまかせ盛り合わせ<small>（6本）</small></h3><p>まずはこの一皿から、店の味を。</p><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="gauge-txt soft">串ごとに変える</span></span><p class="pr">¥1,380</p></div></article><article class="pick rv rv-d2"><img src="images/yakitori/yakitori_menu_momo.webp" alt="器に盛られたもも串。数本を並べて盛り付けている" loading="lazy"><div class="pick-b"><h3>もも串</h3><p>旨みそのままの、ジューシーな一本。</p><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="gauge-txt">強火</span><span class="vh">（火力の目安：強火）</span></span><p class="pr">¥260</p></div></article><article class="pick rv rv-d3"><img src="images/yakitori/yakitori_menu_tsukune.webp" alt="つくねの串を器に盛り、卵黄を添えた様子" loading="lazy"><div class="pick-b"><h3>つくね</h3><p>刻んで、練って、丁寧に一本。</p><span class="gauge"><svg viewBox="0 0 54 16" aria-hidden="true" focusable="false"><rect class="gc on" x="0" y="2" width="14" height="12" rx="4"/><rect class="gc on" x="20" y="2" width="14" height="12" rx="4"/><rect class="gc" x="40" y="2" width="14" height="12" rx="4"/></svg><span class="gauge-txt">中火</span><span class="vh">（火力の目安：中火）</span></span><p class="pr">¥280</p></div></article></div><div class="more rv"><a class="btn" href="yakitori-standard-detail.html">お品書きをぜんぶ見る（火床 二 ／ 中火）<svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20M15.5 1L20 5l-4.5 4"/></svg></a></div></div></section><section class="sec sec--alt" id="yousu" aria-labelledby="h-yousu"><div class="wrap"><div class="sec-head rv"><span class="sec-no">04</span><h2 id="h-yousu">暗がりに、灯りと炭の音。</h2><p class="sec-sub">店の様子</p><div class="rule" aria-hidden="true"></div></div><div class="mosaic"><figure class="mos m1 rv"><img src="images/yakitori/yakitori_gallery2.webp" alt="一枚板の長いカウンター席が奥まで続く店内" loading="lazy"><figcaption class="cap-in"><span class="num">01</span>カウンター</figcaption></figure><figure class="mos m2 rv rv-d1"><img src="images/yakitori/yakitori_gallery6.webp" alt="梁から下がる提灯の灯りに照らされた店内" loading="lazy"><figcaption class="cap-in"><span class="num">02</span>灯り</figcaption></figure><figure class="mos m3 rv rv-d1"><img src="images/yakitori/yakitori_flow3.webp" alt="炭の上に並べた串を、手で返している焼き場の手元" loading="lazy"><figcaption class="cap-in"><span class="num">03</span>炭の上</figcaption></figure><figure class="mos m4 rv rv-d2"><img src="images/yakitori/yakitori_gallery4.webp" alt="夜の路地に赤い提灯がともる店の外観" loading="lazy"><figcaption class="cap-in"><span class="num">04</span>店の外</figcaption></figure></div></div></section><section class="sec" id="nushi" aria-labelledby="h-nushi"><div class="wrap"><div class="sec-head rv"><span class="sec-no">05</span><h2 id="h-nushi">焼き場に立つ人。</h2><p class="sec-sub">カウンターの向こう側</p><div class="rule" aria-hidden="true"></div></div><div class="nushi"><figure class="rv rv-d1"><div class="frame"><img src="images/yakitori/yakitori_staff1.webp" alt="焼き場の前に立つ店主。手ぬぐいを巻き、腕を組んでいる" loading="lazy"></div><figcaption class="cap">店主 ／ 焼き場</figcaption></figure><div class="rv rv-d2"><p class="q">炭の前に立って、<br><em>火が落ち着くのを待つ。</em></p><p class="lead-p">カウンター越しに炭火の音と香りを感じながら、ゆっくりと過ごしていただける時間を。仕事帰りの一杯にも、ふらりと立ち寄る一軒としても。</p><div class="more"><a class="btn" href="yakitori-standard-info.html">店とご予約のこと（火床 一 ／ 遠火）<svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20M15.5 1L20 5l-4.5 4"/></svg></a></div></div></div></div></section><section class="sec sec--alt" id="info" aria-labelledby="h-info"><div class="wrap"><div class="sec-head rv"><span class="sec-no">06</span><h2 id="h-info">お店について</h2><div class="rule" aria-hidden="true"></div></div><div class="info"><dl class="dl rv rv-d1"><dt>店名</dt><dd>炭火焼鳥 とりや</dd><dt>住所</dt><dd>福岡県福岡市〇〇区〇〇9-3-7</dd><dt>営業時間</dt><dd><span class="num">17:00</span>〜<span class="num">23:00</span><small>定休日:日曜日</small></dd></dl><div class="cta rv rv-d2"><a class="btn btn--hi" href="https://lin.ee/z3rP0hO">LINEで問い合わせる<svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20M15.5 1L20 5l-4.5 4"/></svg></a><a class="btn" href="mailto:info@example.com">メールで問い合わせる<svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20M15.5 1L20 5l-4.5 4"/></svg></a><a class="btn" href="yakitori-standard-info.html">ご予約フォーム・アクセス<svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0 5h20M15.5 1L20 5l-4.5 4"/></svg></a><p class="cta-note">ご予約・お問い合わせはどちらからでも。<br>営業時間内は焼き場に立っているため、返信が遅くなることがあります。</p></div></div></div></section></main><footer class="foot"><svg class="coalrule" viewBox="0 0 1200 32" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g class="cr-hot"><ellipse cx="25.5" cy="19.5" rx="44" ry="9"/><ellipse cx="63.5" cy="21.5" rx="29" ry="11"/><ellipse cx="119.5" cy="22.5" rx="28" ry="7"/><ellipse cx="165.0" cy="18.0" rx="36" ry="9"/><ellipse cx="220.5" cy="20.5" rx="31" ry="11"/><ellipse cx="259.0" cy="20.0" rx="42" ry="11"/><ellipse cx="305.5" cy="19.5" rx="39" ry="11"/><ellipse cx="370.5" cy="22.5" rx="27" ry="8"/><ellipse cx="413.5" cy="18.5" rx="35" ry="7"/><ellipse cx="481.0" cy="18.0" rx="38" ry="7"/><ellipse cx="522.5" cy="21.5" rx="33" ry="10"/><ellipse cx="567.5" cy="21.5" rx="28" ry="9"/><ellipse cx="638.5" cy="21.5" rx="44" ry="6"/><ellipse cx="705.5" cy="18.0" rx="37" ry="6"/><ellipse cx="758.0" cy="19.5" rx="38" ry="6"/><ellipse cx="803.5" cy="22.5" rx="27" ry="9"/><ellipse cx="846.5" cy="19.0" rx="41" ry="9"/><ellipse cx="899.0" cy="18.0" rx="38" ry="11"/><ellipse cx="959.0" cy="22.0" rx="42" ry="7"/><ellipse cx="1003.5" cy="18.0" rx="32" ry="7"/><ellipse cx="1035.0" cy="20.0" rx="29" ry="8"/><ellipse cx="1077.5" cy="19.0" rx="33" ry="10"/><ellipse cx="1139.5" cy="22.5" rx="41" ry="11"/><ellipse cx="1194.0" cy="21.5" rx="37" ry="6"/><ellipse cx="1237.0" cy="22.5" rx="28" ry="8"/></g><g class="cr-dark"><path d="M-13.1 16.9 L-5.5 7.3 L11.2 12.1 L22.1 17.4 L12.0 30.0 L-10.1 30.0Z"/><path d="M30.5 17.2 L34.1 10.3 L52.6 15.5 L60.9 20.5 L48.7 30.0 L34.2 30.0Z"/><path d="M66.3 22.0 L76.8 17.6 L97.9 16.2 L116.2 20.9 L103.7 30.0 L75.1 30.0Z"/><path d="M124.4 11.6 L131.8 6.4 L145.1 6.5 L159.2 15.8 L150.8 30.0 L134.2 30.0Z"/><path d="M166.6 15.0 L182.7 14.0 L200.0 12.1 L219.3 20.1 L205.8 30.0 L180.9 30.0Z"/><path d="M223.7 15.8 L232.7 12.6 L241.8 9.2 L260.1 16.0 L249.5 30.0 L227.2 30.0Z"/><path d="M262.1 14.1 L271.8 6.1 L283.9 10.3 L301.8 20.0 L289.9 30.0 L269.5 30.0Z"/><path d="M311.7 17.4 L321.5 13.7 L343.9 13.9 L363.8 20.0 L356.9 30.0 L326.2 30.0Z"/><path d="M377.1 14.7 L386.8 9.4 L394.7 6.3 L408.3 17.8 L401.4 30.0 L385.7 30.0Z"/><path d="M416.9 15.8 L428.5 7.1 L459.7 4.6 L478.5 16.5 L467.6 30.0 L431.9 30.0Z"/><path d="M482.0 16.3 L488.4 12.7 L501.5 16.2 L518.8 17.6 L510.8 30.0 L490.1 30.0Z"/><path d="M525.4 18.0 L537.3 13.3 L544.8 15.3 L564.9 21.4 L557.4 30.0 L531.0 30.0Z"/><path d="M573.8 17.2 L590.6 13.6 L612.9 12.5 L632.3 21.2 L624.3 30.0 L588.2 30.0Z"/><path d="M640.8 14.7 L656.0 6.1 L678.1 8.2 L704.3 13.7 L690.7 30.0 L654.8 30.0Z"/><path d="M706.0 13.6 L715.6 10.9 L739.1 9.9 L754.6 14.5 L745.0 30.0 L717.7 30.0Z"/><path d="M759.7 19.7 L769.6 16.2 L790.0 17.2 L801.8 19.4 L792.3 30.0 L770.7 30.0Z"/><path d="M804.4 16.1 L811.6 7.7 L829.3 10.0 L843.2 17.4 L836.4 30.0 L811.2 30.0Z"/><path d="M850.4 14.3 L863.5 8.5 L875.5 5.7 L897.9 16.9 L882.8 30.0 L858.3 30.0Z"/><path d="M904.5 17.4 L914.7 15.1 L934.8 15.5 L955.4 17.9 L941.1 30.0 L914.2 30.0Z"/><path d="M961.9 15.5 L968.1 5.4 L985.4 7.2 L1002.8 16.6 L994.3 30.0 L971.0 30.0Z"/><path d="M1006.6 19.4 L1013.4 7.1 L1022.4 8.4 L1033.5 19.2 L1024.8 30.0 L1007.2 30.0Z"/><path d="M1036.4 12.5 L1043.4 8.4 L1064.7 8.9 L1076.7 15.7 L1066.0 30.0 L1048.4 30.0Z"/><path d="M1080.8 17.5 L1092.7 17.0 L1119.0 16.8 L1133.3 21.0 L1123.1 30.0 L1092.4 30.0Z"/><path d="M1142.8 17.9 L1153.7 13.8 L1177.0 11.4 L1188.8 19.9 L1182.1 30.0 L1151.9 30.0Z"/><path d="M1197.4 18.8 L1208.0 14.4 L1214.6 14.3 L1232.3 19.5 L1222.7 30.0 L1202.5 30.0Z"/></g></svg><div class="wrap foot-in"><div><p class="foot-name"><svg class="mast-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="10.6" y="1.5" width="2.8" height="21" rx="1.4" fill="url(#gBamboo)"/><rect x="4.6" y="5" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/><rect x="4.6" y="12.4" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/></svg><span>炭火焼鳥 とりや</span></p><p class="foot-sub">RESC制作サンプル ／ これはサンプルサイトです。実店舗ではありません。</p><p class="foot-sub">福岡県福岡市〇〇区〇〇9-3-7 ／ 営業 <span class="num">17:00</span>〜<span class="num">23:00</span>（定休日:日曜日）</p></div><nav class="foot-links" aria-label="フッター"><a href="yakitori-standard-detail.html">お品書き</a><a href="yakitori-standard-info.html">店とご予約</a><a href="mailto:info@example.com">info@example.com</a><a href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a><a href="../hp-service/index.html">RESCのサイトに戻る</a></nav></div></footer>
 <script>
-  /* ── ページ切り替え（retail-standard.html より移植） ── */
-  function showPage(page) {
-    closeNav(); closeMenu();
-    document.body.className = (page === 'top') ? '' : (page + '-page');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 
-  /* ── ハンバーガーメニュー（retail-standard.html のナビ実装を移植） ── */
-  function toggleNav() {
-    var nav = document.getElementById('nav');
-    var isOpen = nav.classList.toggle('open');
-    document.getElementById('navToggle').setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  }
-  function closeNav() {
-    document.getElementById('nav').classList.remove('open');
-    document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
-  }
-  /* yakitori-standardにはメニューオーバーレイを実装していないため何もしない（showPageからの呼び出し用スタブ） */
-  function closeMenu() {}
+(function(){
+"use strict";
+var root=document.documentElement;
+var mq=window.matchMedia?window.matchMedia("(prefers-reduced-motion: reduce)"):null;
+var reduce=!!(mq&&mq.matches);
 
-  /* ── .reveal スクロールフェードイン（retail-standard.html より移植・無変更） ── */
-  (function () {
-    const targets = document.querySelectorAll('.reveal');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ---- 明転（読み込み） ---- */
+function lit(){root.classList.add("lit");}
+if(reduce){lit();}
+else{
+  if(document.readyState==="complete"){setTimeout(lit,40);}
+  else{window.addEventListener("load",function(){setTimeout(lit,40);});}
+  setTimeout(lit,1600); /* 保険 */
+}
+window.addEventListener("pageshow",function(){root.classList.remove("leaving");lit();});
 
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      targets.forEach(el => el.classList.add('is-visible'));
-      return;
+/* ---- 暗転（ページ遷移：火の粉が舞い上がってから） ---- */
+document.addEventListener("click",function(e){
+  if(reduce)return;
+  if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+  var a=e.target&&e.target.closest?e.target.closest("a[href]"):null;
+  if(!a)return;
+  var raw=a.getAttribute("href")||"";
+  if(!raw||raw.charAt(0)==="#")return;
+  if(/^(mailto:|tel:|javascript:)/i.test(raw))return;
+  if(a.target&&a.target!=="_self")return;
+  if(a.hasAttribute("download"))return;
+  var u;
+  try{u=new URL(a.href,location.href);}catch(err){return;}
+  if(u.origin!==location.origin)return;
+  if(u.pathname===location.pathname&&u.search===location.search)return;
+  e.preventDefault();
+  root.classList.remove("lit");
+  /* 火の粉のアニメーションを毎回頭から流す */
+  var f=document.querySelector(".cfire");
+  if(f){var c=f.cloneNode(true);f.parentNode.replaceChild(c,f);}
+  root.classList.add("leaving");
+  var go=function(){location.href=a.href;};
+  setTimeout(go,720);
+},false);
+
+/* ---- リビール ---- */
+var rvs=[].slice.call(document.querySelectorAll(".rv"));
+function show(el){el.classList.add("in");}
+if(reduce||!("IntersectionObserver" in window)){
+  rvs.forEach(show);
+}else{
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){show(en.target);io.unobserve(en.target);}});
+  },{rootMargin:"0px 0px -6% 0px",threshold:0.06});
+  rvs.forEach(function(el){io.observe(el);});
+  var tick=false;
+  function sweep(){
+    tick=false;
+    var vh=window.innerHeight||800;
+    for(var i=0;i<rvs.length;i++){
+      var el=rvs[i];
+      if(el.classList.contains("in"))continue;
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.94){show(el);io.unobserve(el);}
     }
+  }
+  function onS(){if(!tick){tick=true;requestAnimationFrame(sweep);}}
+  window.addEventListener("scroll",onS,{passive:true});
+  window.addEventListener("resize",onS,{passive:true});
+  window.addEventListener("load",onS);
+  sweep();
+}
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-    targets.forEach(el => observer.observe(el));
-  })();
-</script>
-
-<style>
-  /* ---- FAQ Chatbot(キーワードマッチ式。retail-standard.html 460-619行目の実装を移植。
-       var(--accent)→var(--honoo)、var(--ai-deep)→背景は var(--sumi-light)/文字は var(--tomoshibi)、
-       var(--kinari)→var(--sumi) に置換(すべて yakitori-standard.html の :root に実在する変数)。
-       botメッセージ・input文字色は #2B2420 ハードコードをやめ var(--tomoshibi) を使用。
-       chatbotパネル自体の背景を #fff → var(--sumi-light) に変更したため、
-       もとの茶色系半透明ボーダー rgba(92,59,36,x) は rgba(240,235,227,x) に、
-       ドロップシャドウは rgba(92,59,36,x) → rgba(0,0,0,x) の中立な黒に変更。
-       入力欄(input)は元々背景指定がなくブラウザ既定の白背景になっていたため、
-       暗背景パネルの中で浮かないよう新たに background: var(--sumi) を追加) ---- */
-  .faq-chatbot-toggle {
-    position: fixed; bottom: 26px; right: 26px; z-index: 200;
-    width: 56px; height: 56px; border-radius: 50%;
-    background: var(--honoo); border: 1px solid rgba(255,255,255,0.25);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-    transition: transform 0.15s ease;
-  }
-  .faq-chatbot-toggle:hover { transform: translateY(-2px); }
-  .faq-chatbot-toggle svg { width: 26px; height: 26px; }
-  .faq-chatbot-panel {
-    position: fixed; bottom: 94px; right: 26px; z-index: 200;
-    width: 340px; max-width: calc(100vw - 40px); max-height: 70vh;
-    background: var(--sumi-light); border: 1px solid rgba(240,235,227,0.15); border-radius: 14px;
-    box-shadow: 0 24px 48px rgba(0,0,0,0.45);
-    display: flex; flex-direction: column; overflow: hidden;
-    font-family: 'Noto Sans JP', sans-serif;
-    opacity: 0; visibility: hidden; pointer-events: none;
-    transform: translateY(12px);
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
-  }
-  .faq-chatbot-panel.open {
-    opacity: 1; visibility: visible; pointer-events: auto;
-    transform: translateY(0);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  .faq-cb-header {
-    background: var(--sumi-light); color: var(--tomoshibi); padding: 14px 16px;
-    display: flex; align-items: center; justify-content: space-between; font-size: 13.5px; font-weight: 700;
-    border-bottom: 1px solid rgba(240,235,227,0.12);
-  }
-  .faq-cb-close { cursor: pointer; font-size: 18px; line-height: 1; opacity: 0.8; }
-  .faq-cb-close:hover { opacity: 1; }
-  .faq-cb-messages {
-    flex: 1; overflow-y: auto; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
-    max-height: 320px; background: var(--sumi);
-  }
-  .faq-cb-msg { font-size: 13px; line-height: 1.7; padding: 10px 13px; border-radius: 10px; max-width: 85%; white-space: pre-line; }
-  .faq-cb-msg.bot { background: var(--sumi-light); color: var(--tomoshibi); align-self: flex-start; border: 1px solid rgba(240,235,227,0.12); }
-  .faq-cb-msg.user { background: var(--honoo); color: var(--tomoshibi); align-self: flex-end; }
-  .faq-cb-msg a { color: var(--honoo); }
-  .faq-cb-inputrow { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid rgba(240,235,227,0.12); background: var(--sumi-light); }
-  .faq-cb-inputrow input {
-    flex: 1; min-width: 0; background: var(--sumi); border: 1px solid rgba(240,235,227,0.2); border-radius: 20px;
-    padding: 9px 14px; font-family: 'Noto Sans JP', sans-serif; font-size: 13px; color: var(--tomoshibi);
-  }
-  .faq-cb-inputrow input:focus { outline: none; border-color: var(--honoo); }
-  .faq-cb-send {
-    background: var(--honoo); color: var(--tomoshibi); border: none; border-radius: 20px;
-    padding: 0 18px; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;
-  }
-  .faq-cb-send:hover { background: var(--sumi); }
-  @media (max-width: 480px) {
-    .faq-chatbot-toggle { right: 16px; bottom: 16px; }
-    .faq-chatbot-panel { right: 16px; bottom: 82px; }
-  }
-</style>
-
-<div class="faq-chatbot-toggle" id="faq-cb-toggle" role="button" aria-label="チャットを開く">
-  <svg viewBox="0 0 24 24" fill="none" stroke="var(--tomoshibi)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-  </svg>
-</div>
-
-<div class="faq-chatbot-panel" id="faq-cb-panel">
-  <div class="faq-cb-header">
-    <span>炭火焼鳥 とりや チャット</span>
-    <span class="faq-cb-close" id="faq-cb-close">×</span>
-  </div>
-  <div class="faq-cb-messages" id="faq-cb-messages">
-    <div class="faq-cb-msg bot">こんにちは！炭火焼鳥 とりやです。ご質問をどうぞ（営業時間・アクセス・メニューなど）</div>
-  </div>
-  <div class="faq-cb-inputrow">
-    <input type="text" id="faq-cb-input" placeholder="質問を入力...">
-    <button class="faq-cb-send" id="faq-cb-send">送信</button>
-  </div>
-</div>
-
-<script>
-(function () {
-  const FAQ = {
-    hours: { match: ["営業時間", "何時"], answer: "営業時間は17:00〜23:00です。定休日は毎週日曜日です。" },
-    closed: { match: ["定休日", "休み"], answer: "定休日は毎週日曜日です。それ以外は営業しております。" },
-    access: { match: ["場所", "アクセス", "住所", "行き方"], answer: "福岡県福岡市〇〇区〇〇9-3-7にございます。詳しくは下部のアクセス欄をご覧ください。" },
-    course: { match: ["コース", "宴会", "飲み放題"], answer: "コース料理や宴会のご相談、飲み放題のご案内も承っております。内容やご予算に応じてご提案いたしますので、お気軽にお問い合わせください。" },
-    menu: { match: ["メニュー", "串", "おすすめ"], answer: "おまかせ盛り合わせをはじめ、もも・つくね・皮・レバーなどの定番串、季節の一品もご用意しております。詳しくはメニュー欄をご覧ください。" },
-    reserve: { match: ["予約"], answer: "ご予約はお問い合わせフォームより承っております。" },
-    smoking: { match: ["喫煙", "タバコ", "煙草"], answer: "喫煙に関するご案内は、お問い合わせフォームよりご確認いただけますと幸いです。" },
-    parking: { match: ["駐車"], answer: "駐車場に関するご案内は、お問い合わせフォームよりご確認いただけますと幸いです。" }
+/* ---- 火床の断面：火加減を切り替える ---- */
+var bed=document.getElementById("bed");
+if(bed){
+  var btns=[].slice.call(bed.querySelectorAll(".bed-btn"));
+  var dt=document.getElementById("bedName");
+  var dd=document.getElementById("bedText");
+  var zones={near:document.getElementById("zNear"),mid:document.getElementById("zMid"),far:document.getElementById("zFar")};
+  var zt={near:document.getElementById("ztNear"),mid:document.getElementById("ztMid"),far:document.getElementById("ztFar")};
+  var DATA={
+    near:["強火","炭のいちばん近くに置きます。表面を先に焼き固めて、香ばしさを立たせる置き方です。"],
+    mid:["中火","少し離した高さ。表面と中の火の通り方のつり合いを見ながら、返す回数で調整します。"],
+    far:["遠火","いちばん離した高さ。急がずに火を通したいときに、この段まで上げます。"]
   };
-  const FALLBACK = "お問い合わせフォームからご連絡ください。ページ下部のアクセス欄もご覧いただけます。";
-
-  const toggle = document.getElementById('faq-cb-toggle');
-  const panel = document.getElementById('faq-cb-panel');
-  const closeBtn = document.getElementById('faq-cb-close');
-  const messages = document.getElementById('faq-cb-messages');
-  const input = document.getElementById('faq-cb-input');
-  const sendBtn = document.getElementById('faq-cb-send');
-
-  function addMsg(text, who) {
-    const div = document.createElement('div');
-    div.className = 'faq-cb-msg ' + who;
-    div.textContent = text;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function addFallback() {
-    const div = document.createElement('div');
-    div.className = 'faq-cb-msg bot';
-    div.innerHTML = FALLBACK + '<br><a href="mailto:info@example.com">お問い合わせフォームへ</a>';
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function respond(text) {
-    const lower = text.toLowerCase();
-    let hit = null;
-    for (const key in FAQ) {
-      if (FAQ[key].match.some(k => lower.includes(k.toLowerCase()))) { hit = FAQ[key]; break; }
+  function setLv(k){
+    bed.className=bed.className.replace(/\s*lv-\w+/g,"")+" lv-"+k;
+    for(var i=0;i<btns.length;i++){
+      var on=btns[i].getAttribute("data-lv")===k;
+      btns[i].setAttribute("aria-pressed",on?"true":"false");
     }
-    setTimeout(() => {
-      if (hit) addMsg(hit.answer, 'bot');
-      else addFallback();
-    }, 350);
+    for(var z in zones){if(zones[z]){zones[z].classList.toggle("on",z===k);}}
+    for(var y in zt){if(zt[y]){zt[y].classList.toggle("on",y===k);}}
+    if(dt)dt.textContent=DATA[k][0];
+    if(dd)dd.textContent=DATA[k][1];
   }
+  btns.forEach(function(b){b.addEventListener("click",function(){setLv(b.getAttribute("data-lv"));});});
+  setLv("mid");
+}
 
-  let userClosed = false;
-
-  toggle.addEventListener('click', () => { panel.classList.add('open'); toggle.style.display = 'none'; });
-  closeBtn.addEventListener('click', () => {
-    panel.classList.remove('open');
-    toggle.style.display = 'flex';
-    userClosed = true;
-  });
-
-  // ページ読み込み後、少し間を置いて自動的にチャットを開く(スマホ幅では邪魔になるため無効)
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      if (userClosed || window.innerWidth <= 480) return;
-      panel.classList.add('open');
-      toggle.style.display = 'none';
-    }, 900);
-  });
-
-  sendBtn.addEventListener('click', () => {
-    const val = input.value.trim();
-    if (!val) return;
-    addMsg(val, 'user');
-    respond(val);
-    input.value = '';
-  });
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') sendBtn.click();
-  });
 })();
-</script>
 
+</script>
 </body>
 </html>

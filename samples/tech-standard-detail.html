@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>サービスと進め方｜株式会社NextGrid（LAYER 02 構造）</title>
+<meta name="description" content="株式会社NextGridの6つのサービス（Webサイト制作／Webアプリ開発／システム開発／DXコンサルティング／業務システム改善／保守・運用サポート）と、要件から運用までの進め方をご紹介します。費用は要相談です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   株式会社NextGrid — STANDARD / 3層構造（LAYER 01-03）
+   白＋墨＋電光ブルー／幾何サンセリフ／ノードと線
+   ========================================================== */
+:root{
+  --paper:#FFFFFF;
+  --paper-2:#F5F7FA;
+  --paper-3:#EEF2F7;
+  --tint:#EDF3FF;
+  --ink:#0D1218;
+  --ink-2:#39434F;
+  --ink-3:#5B6673;
+  --line:#DDE4EC;
+  --line-2:#C3CCD8;
+  --acc:#0B57E0;
+  --acc-soft:rgba(11,87,224,.14);
+  --acc-lite:#7FA9F5;
+  --maxw:1280px;
+  --gut:clamp(20px,4.2vw,64px);
+  --r:3px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x:clip}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Noto Sans CJK JP","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+  font-weight:500;line-height:1.9;letter-spacing:.015em;
+  font-feature-settings:"palt" 1;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4,p,dl,dd,figure,ul,ol,fieldset{margin:0}
+ul,ol{padding:0;list-style:none}
+fieldset{border:0;padding:0;min-width:0}
+button{font:inherit;color:inherit;background:none;border:0;padding:0}
+:focus-visible{outline:2.5px solid var(--acc);outline-offset:3px}
+.mono{font-family:"IBM Plex Mono","DejaVu Sans Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:500;letter-spacing:.1em;font-feature-settings:normal}
+.lat{font-family:"Space Grotesk","Zen Kaku Gothic New",system-ui,sans-serif;letter-spacing:-.01em}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:-9999px;top:0;z-index:210}
+.skip:focus{left:8px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;z-index:210}
+
+/* ---------- 告知バー ---------- */
+.notice{background:var(--ink);color:#fff}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:center;justify-content:space-between;padding-block:9px}
+.notice p{font-size:11.5px;line-height:1.6;letter-spacing:.06em}
+.notice a{font-size:11.5px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:1px;white-space:nowrap}
+.notice a:hover{border-bottom-color:#fff}
+
+/* ---------- ヘッダー ---------- */
+.hd{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;gap:clamp(10px,2vw,24px);min-height:64px;padding-block:8px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.brand svg{display:block;flex:none}
+.brand b{font-size:16.5px;font-weight:700;letter-spacing:.01em;display:block}
+.brand span span{display:block;font-size:9.5px;color:var(--ink-3);letter-spacing:.18em;line-height:1.3;margin-top:-2px}
+.lnav{display:flex;align-items:stretch;gap:4px}
+.lnav a{display:flex;flex-direction:column;justify-content:center;gap:1px;text-decoration:none;color:var(--ink-2);padding:6px 11px;border:1px solid transparent;border-radius:var(--r);transition:background .25s,color .25s,border-color .25s;line-height:1.35}
+.lnav .lv{font-size:9.5px;color:var(--ink-3);letter-spacing:.1em;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.lnav .lt{font-size:11.5px;white-space:nowrap}
+.lnav a:hover{background:var(--paper-2);color:var(--acc)}
+.lnav a:hover .lv{color:var(--acc)}
+.lnav a[aria-current="page"]{background:var(--tint);border-color:var(--line-2);color:var(--acc)}
+.lnav a[aria-current="page"] .lv{color:var(--acc)}
+.hd-cta{font-size:11.5px;text-decoration:none;border:1px solid var(--ink);padding:8px 15px;border-radius:var(--r);white-space:nowrap;transition:background .25s,color .25s;flex:none}
+.hd-cta:hover{background:var(--ink);color:#fff}
+
+/* ---------- ボタン ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:13px;padding:13px 22px;border-radius:var(--r);border:1px solid var(--ink);transition:background .25s,color .25s,border-color .25s;cursor:pointer}
+.btn--fill{background:var(--ink);color:#fff}
+.btn--fill:hover{background:var(--acc);border-color:var(--acc)}
+.btn--line:hover{background:var(--paper-3)}
+.btn i{font-style:normal;font-size:10px;letter-spacing:.12em;opacity:.7}
+
+/* ---------- レイヤー・マストヘッド ---------- */
+.mast{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--paper)}
+.mast--l2{background:var(--paper-2)}
+.mast--l3{background:var(--paper-3)}
+.mast-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.mast-bg .mb-l{fill:none;stroke:var(--line);stroke-width:1}
+.mast-bg .mb-a{stroke:var(--line-2)}
+.mast-bg .mb-d{fill:var(--acc);opacity:.5}
+.mast .wrap{position:relative;padding-block:clamp(46px,7vw,86px) clamp(38px,5.4vw,66px)}
+.mast-head{display:flex;align-items:flex-start;justify-content:space-between;gap:clamp(18px,3vw,40px);flex-wrap:wrap}
+.mast-main{flex:1 1 420px;min-width:0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;color:var(--ink-3);margin-bottom:clamp(16px,2.4vw,26px)}
+.eyebrow i{display:block;width:26px;height:1px;background:var(--line-2);font-style:normal}
+.eyebrow b{color:var(--acc);font-weight:500}
+h1{font-weight:700;line-height:1.16;letter-spacing:-.005em;font-size:clamp(27px,5.2vw,54px);max-width:17em}
+h1 .h1-jp{display:block;font-size:.4em;font-weight:700;letter-spacing:.1em;color:var(--ink-3);line-height:1.5;margin-bottom:.55em}
+h1 .h1-en{display:block;font-family:"Space Grotesk","Zen Kaku Gothic New",system-ui,sans-serif;font-weight:700}
+.mast-catch{margin-top:clamp(18px,2.6vw,30px);font-size:clamp(14.5px,1.5vw,19px);font-weight:700;line-height:1.85;max-width:32em}
+.mast-catch br{display:inline}
+.mast-catch::before{content:"";display:block;width:44px;height:2px;background:var(--acc);margin-bottom:18px}
+.mast-lead{margin-top:16px;font-size:13.5px;line-height:2.05;color:var(--ink-2);max-width:38em}
+.mast-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(24px,3.4vw,38px)}
+.mast-meta{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:clamp(26px,4vw,44px);font-size:10.5px;color:var(--ink-3)}
+.mast-meta span{display:inline-flex;gap:9px;align-items:center}
+.mast-meta span::before{content:"";width:5px;height:5px;background:var(--acc);flex:none}
+
+/* レイヤー・インジケータ */
+.lind{flex:0 0 auto;border:1px solid var(--line);background:rgba(255,255,255,.72);border-radius:var(--r);padding:14px 16px 12px;display:flex;gap:14px;align-items:center}
+.lind svg{display:block;flex:none;width:74px;height:58px}
+.lind .mp{fill:#fff;stroke:var(--line-2);stroke-width:1.4}
+.lind .mp.is-on{fill:var(--tint);stroke:var(--acc);stroke-width:2}
+.lind-tx b{display:block;font-size:11px;color:var(--acc);letter-spacing:.14em;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.lind-tx span{display:block;font-size:10.5px;color:var(--ink-3);line-height:1.7;margin-top:3px}
+
+/* ---------- 写真バンド ---------- */
+.band{position:relative;overflow:hidden;background:var(--paper-3);border-bottom:1px solid var(--line)}
+.band img{width:100%;height:100%;object-fit:cover;object-position:50% 100%;aspect-ratio:1440/300}
+.band-cap{position:absolute;left:var(--gut);bottom:10px;font-size:10px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.7);letter-spacing:.12em}
+
+/* ---------- セクション共通 ---------- */
+.sec{padding-block:clamp(58px,8vw,110px)}
+.sec--alt{background:var(--paper-2);border-block:1px solid var(--line)}
+.sec--deep{background:var(--paper-3);border-block:1px solid var(--line)}
+.shead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(24px,3.4vw,42px)}
+.shead .idx{font-size:10.5px;color:var(--acc)}
+.shead h2{font-size:clamp(20px,2.6vw,30px);font-weight:700;line-height:1.4;letter-spacing:.01em}
+.shead .en{font-size:10.5px;color:var(--ink-3);margin-left:auto}
+.rule{height:1px;background:var(--line);margin-bottom:clamp(24px,3.2vw,38px)}
+.lead{font-size:13.5px;color:var(--ink-2);line-height:2.1;max-width:46em}
+
+/* ---------- 出現 ---------- */
+.js .rev{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.8,.3,1)}
+.js .rev.in{opacity:1;transform:none}
+
+/* ---------- 層めくりナビ（下の層へ） ---------- */
+.dive{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.dive--1{grid-template-columns:minmax(0,1fr)}
+.dcard{display:block;text-decoration:none;border:1px solid var(--line-2);border-radius:var(--r);background:var(--paper);padding:clamp(20px,2.6vw,30px);position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
+.dcard::after{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.dcard:hover{border-color:var(--acc);box-shadow:0 6px 22px rgba(13,18,24,.07);transform:translateY(-2px)}
+.dcard:hover::after{transform:scaleX(1)}
+.dcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.dcard .dc-lv{font-size:10px;color:var(--acc);letter-spacing:.14em}
+.dcard svg{display:block;flex:none;width:60px;height:48px}
+.dcard .mp{fill:#fff;stroke:var(--line-2);stroke-width:1.4}
+.dcard .mp.is-on{fill:var(--tint);stroke:var(--acc);stroke-width:2}
+.dcard h3{margin-top:14px;font-size:clamp(16px,1.9vw,20px);font-weight:700;line-height:1.5}
+.dcard p{margin-top:9px;font-size:12.5px;color:var(--ink-3);line-height:1.95}
+.dcard .go{display:inline-flex;align-items:center;gap:9px;margin-top:16px;font-size:11px;color:var(--acc)}
+
+/* ---------- フッター ---------- */
+.ft{background:var(--ink);color:#fff;padding-block:34px}
+.ft .wrap{display:flex;flex-wrap:wrap;gap:18px 30px;align-items:center;justify-content:space-between}
+.ft-brand{display:flex;align-items:center;gap:11px}
+.ft-brand b{font-size:14.5px;font-weight:700}
+.ft-nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+.ft-nav a{font-size:11px;color:rgba(255,255,255,.82);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+.ft-nav a:hover{color:#fff;border-bottom-color:var(--acc-lite)}
+.ft-nav a[aria-current="page"]{color:var(--acc-lite)}
+.ft small{font-size:10.5px;color:rgba(255,255,255,.6);letter-spacing:.08em}
+.ft :focus-visible{outline-color:var(--acc-lite)}
+
+/* ---------- デジタル・ディゾルブ（ページ遷移） ---------- */
+.dsv{position:fixed;inset:0;z-index:200;display:grid;pointer-events:none;
+  grid-template-columns:repeat(var(--cols,8),1fr);grid-template-rows:repeat(var(--rows,6),1fr)}
+.dsv i{display:block;background:var(--paper);box-shadow:inset -1px -1px 0 var(--line);
+  transition:opacity .34s ease var(--d,0ms),transform .34s cubic-bezier(.4,0,.2,1) var(--d,0ms)}
+.dsv i.k{background:var(--tint);box-shadow:inset -1px -1px 0 var(--line-2)}
+.dsv--in i{opacity:1;transform:none}
+.dsv--in.run i{opacity:0;transform:scale(.84)}
+.dsv--out i{opacity:0;transform:scale(1.16)}
+.dsv--out.run i{opacity:1;transform:none}
+
+/* ---------- レスポンシブ（共通） ---------- */
+@media (max-width:1060px){
+  .lnav .lt{display:none}
+  .lnav a{padding:8px 10px;align-items:center}
+}
+@media (max-width:760px){
+  .band img{aspect-ratio:2.3/1;transform:scale(2);transform-origin:50% 100%}
+  .band-cap{bottom:8px}
+  .shead .en{margin-left:0;flex-basis:100%}
+  .dive{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  .hd-cta{display:none}
+  .brand b{font-size:15px}
+}
+@media (max-width:520px){
+  .btn{width:100%;justify-content:space-between}
+  .mast-acts{gap:10px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rev{opacity:1!important;transform:none!important}
+}
+
+/* ---------- 断面マトリクス ---------- */
+.mx{margin:0;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);padding:clamp(14px,2.2vw,26px)}
+.mx figcaption{font-size:10px;color:var(--ink-3);margin-bottom:clamp(14px,2vw,20px)}
+.mx-grid{display:grid;grid-template-columns:118px repeat(6,minmax(0,1fr));grid-auto-rows:minmax(0,auto);gap:4px}
+.mx-corner{grid-column:1;grid-row:1;font-size:9px;color:var(--ink-3);display:flex;align-items:flex-end;padding-bottom:8px;line-height:1.5}
+.mx-sv{grid-column:calc(var(--c) + 1);grid-row:1;display:flex;flex-direction:column;gap:2px;text-decoration:none;padding:6px 6px 9px;border-bottom:1.5px solid var(--line-2);transition:border-color .25s,color .25s;min-width:0}
+.mx-sv b{font-size:12px;font-weight:700;line-height:1.4;overflow-wrap:anywhere}
+.mx-sv span{font-size:9px;color:var(--ink-3)}
+.mx-sv:hover,.mx-sv:focus-visible{border-bottom-color:var(--acc);color:var(--acc)}
+.mx-sv:hover span{color:var(--acc)}
+.mx-st{grid-column:1;grid-row:calc(var(--r) + 1);display:flex;flex-direction:column;justify-content:center;gap:2px;padding-right:10px}
+.mx-st b{font-size:12px;font-weight:700;line-height:1.4}
+.mx-st span{font-size:9px;color:var(--ink-3)}
+.mx-st .st-en{display:inline}
+.mx-st .st-short{display:none}
+.mx-cell{grid-column:calc(var(--c) + 1);grid-row:calc(var(--r) + 1);min-height:44px;border:1px solid var(--line);border-radius:2px;background:var(--paper);position:relative;transition:opacity .3s ease}
+.mx-cell::before{content:"";position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;background:var(--acc);opacity:0;transform:rotate(45deg) scale(.3);transition:opacity .5s ease var(--d,0ms),transform .5s cubic-bezier(.34,1.3,.64,1) var(--d,0ms)}
+.mx-cell.on{background:var(--tint);border-color:#9CBAF2}
+.mx.in .mx-cell.on::before{opacity:1;transform:rotate(45deg) scale(1)}
+html:not(.js) .mx-cell.on::before{opacity:1;transform:rotate(45deg) scale(1)}
+.mx-grid[data-hl] .mx-cell{opacity:.22}
+.mx-grid[data-hl="1"] .c1,.mx-grid[data-hl="2"] .c2,.mx-grid[data-hl="3"] .c3,
+.mx-grid[data-hl="4"] .c4,.mx-grid[data-hl="5"] .c5,.mx-grid[data-hl="6"] .c6{opacity:1}
+.mx-note{margin-top:14px;font-size:11.5px;color:var(--ink-3);line-height:1.9}
+
+/* ---------- サービス詳細 ---------- */
+.svcs{display:flex;flex-direction:column;gap:clamp(28px,4.4vw,64px)}
+.svc{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(18px,3vw,44px);align-items:center;scroll-margin-top:96px}
+.svc:nth-child(even) .svc-fig{order:2}
+.svc-fig{margin:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--paper-3)}
+.svc-fig img{width:100%;height:auto;aspect-ratio:800/597;object-fit:cover}
+.svc-code{font-size:10px;color:var(--acc)}
+.svc h3{margin-top:10px;font-size:clamp(18px,2.2vw,25px);font-weight:700;line-height:1.45}
+.svc-copy{margin-top:10px;font-size:14px;font-weight:700;line-height:1.9;color:var(--ink)}
+.svc-desc{margin-top:10px;font-size:13px;color:var(--ink-2);line-height:2.05}
+.svc-depth{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.svc-depth>span{font-size:9.5px;color:var(--ink-3)}
+.dchips{display:flex;gap:4px}
+.dchips li{width:34px;height:12px;border:1px solid var(--line-2);border-radius:2px;background:var(--paper-2)}
+.dchips li.on{background:var(--acc);border-color:var(--acc)}
+.svc-meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.svc-meta div{display:flex;align-items:baseline;gap:10px}
+.svc-meta dt{font-size:9.5px;color:var(--ink-3)}
+.svc-meta dd{font-size:13px;font-weight:700}
+
+/* ---------- 進め方（積み上がる層） ---------- */
+.pro{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.pro article{border:1px solid var(--line);border-radius:var(--r);background:var(--paper);overflow:hidden;display:flex;flex-direction:column}
+.pro .pf-img{background:var(--paper-3);border-bottom:1px solid var(--line)}
+.pro .pf-img img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.pro-body{padding:clamp(14px,1.8vw,20px);display:flex;flex-direction:column;flex:1}
+.pro-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.pro-num{font-size:9.5px;color:var(--acc)}
+.pro svg.stk{display:block;flex:none;width:64px;height:50px}
+.stk .kp{fill:#fff;stroke:var(--line-2);stroke-width:1.3}
+.stk .kp.is-on{fill:var(--tint);stroke:var(--acc);stroke-width:1.8}
+.pro h3{margin-top:10px;font-size:15.5px;font-weight:700;line-height:1.5}
+.pro p{margin-top:8px;font-size:12.5px;color:var(--ink-3);line-height:1.95;flex:1}
+.pro .pro-out{margin-top:12px;padding-top:11px;border-top:1px dashed var(--line);font-size:10.5px;color:var(--ink-3)}
+.pro .pro-out b{display:block;font-size:11.5px;color:var(--ink);font-weight:700;margin-top:3px}
+.pro-note{margin-top:16px;font-size:11.5px;color:var(--ink-3);line-height:1.9}
+
+/* ---------- ご相談の入り口 ---------- */
+.scn{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.scn article{border:1px solid var(--line-2);border-radius:var(--r);background:var(--paper);padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;position:relative}
+.scn article::before{content:"";position:absolute;left:0;top:0;width:3px;height:100%;background:var(--line-2)}
+.scn article:hover::before{background:var(--acc)}
+.scn .sc-code{font-size:9.5px;color:var(--acc)}
+.scn h3{margin-top:12px;font-size:16px;font-weight:700;line-height:1.6}
+.scn h3 .q{color:var(--ink-3);font-weight:500}
+.scn .sc-steps{margin-top:16px;display:flex;flex-direction:column;gap:0}
+.scn .sc-steps li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;font-size:12.5px;color:var(--ink-2);line-height:1.9;padding-block:9px;border-top:1px dashed var(--line)}
+.scn .sc-steps li:first-child{border-top:0;padding-top:0}
+.scn .sc-steps i{font-style:normal;font-size:9.5px;color:var(--ink-3);font-family:"IBM Plex Mono",ui-monospace,monospace;padding-top:5px}
+.scn .sc-go{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:11.5px;color:var(--ink-3);line-height:1.9}
+.scn .sc-go b{display:block;color:var(--ink);font-size:12.5px;font-weight:700;margin-top:2px}
+.scn-note{margin-top:16px;font-size:11.5px;color:var(--ink-3);line-height:1.9}
+
+@media (max-width:1000px){
+  .pro{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .scn{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:860px){
+  .mx-grid{grid-template-columns:96px repeat(4,minmax(0,1fr))}
+  .mx-corner{grid-column:1;grid-row:1}
+  .mx-sv{grid-column:1;grid-row:calc(var(--c) + 1);border-bottom:0;border-right:1.5px solid var(--line-2);justify-content:center;padding:8px 10px 8px 0}
+  .mx-sv:hover,.mx-sv:focus-visible{border-right-color:var(--acc)}
+  .mx-st{grid-column:calc(var(--r) + 1);grid-row:1;justify-content:flex-end;padding:0 0 8px}
+  .mx-st .st-full{display:none}
+  .mx-st .st-short{display:block}
+  .mx-st .st-en{display:none}
+  .mx-cell{grid-column:calc(var(--r) + 1);grid-row:calc(var(--c) + 1);min-height:40px}
+}
+@media (max-width:760px){
+  .svc{grid-template-columns:minmax(0,1fr)}
+  .svc:nth-child(even) .svc-fig{order:0}
+  .pro{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:420px){
+  .mx-grid{grid-template-columns:74px repeat(4,minmax(0,1fr));gap:3px}
+  .mx-sv b{font-size:11px}
+  .mx-st b{font-size:11px}
+}
+</style>
+<script>document.documentElement.className+=" js";</script>
+</head>
+<body id="top">
+<script>
+(function(){
+  try{
+    if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if(!document.body) return;
+    var vw = window.innerWidth || 1024, vh = window.innerHeight || 768;
+    var cols = Math.max(5, Math.min(15, Math.round(vw/104)));
+    var rows = Math.max(4, Math.min(13, Math.round(vh/104)));
+    var ov = document.createElement("div");
+    ov.className = "dsv dsv--in";
+    ov.setAttribute("aria-hidden","true");
+    ov.style.setProperty("--cols", cols);
+    ov.style.setProperty("--rows", rows);
+    var mc = cols>1?cols-1:1, mr = rows>1?rows-1:1, html = "";
+    for(var y=0;y<rows;y++){
+      for(var x=0;x<cols;x++){
+        var d = (1 - x/mc)*0.46 + (1 - y/mr)*0.54;
+        d = d*0.8 + Math.random()*0.2;
+        html += '<i class="' + (Math.random()<0.09?'k':'') + '" style="--d:' + Math.round(d*300) + 'ms"></i>';
+      }
+    }
+    ov.innerHTML = html;
+    document.body.appendChild(ov);
+    var killed = false;
+    function kill(){ if(killed) return; killed = true; if(ov.parentNode) ov.parentNode.removeChild(ov); }
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        ov.classList.add("run");
+        setTimeout(kill, 900);
+      });
+    });
+    setTimeout(kill, 2200);
+  }catch(e){
+    var n = document.querySelector(".dsv"); if(n && n.parentNode) n.parentNode.removeChild(n);
+  }
+})();
+</script>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<div class="notice">
+  <div class="wrap">
+    <p class="mono">これはRESCが作成したサンプルサイトです。実店舗ではありません。</p>
+    <a class="mono" href="../hp-service/index.html">RESCのサイトに戻る</a>
+  </div>
+</div>
+
+<header class="hd">
+  <div class="wrap">
+    <a class="brand" href="tech-standard.html">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" focusable="false">
+        <path d="M5 5H13V13H5z" fill="none" stroke="#0D1218" stroke-width="1.6"/>
+        <path d="M13 13H21V21H13z" fill="none" stroke="#0B57E0" stroke-width="1.6"/>
+        <path d="M13 9H21M9 13V21" fill="none" stroke="#C3CCD8" stroke-width="1.4"/>
+        <circle cx="21" cy="9" r="2" fill="#0B57E0"/>
+        <circle cx="9" cy="21" r="2" fill="#0D1218"/>
+      </svg>
+      <span><b class="lat">NextGrid</b><span class="mono">IT / OFFICE</span></span>
+    </a>
+    <nav class="lnav" aria-label="レイヤーナビゲーション">
+      <a href="tech-standard.html" aria-label="LAYER 01 概要"><span class="lv">L01</span><span class="lt">概要</span></a>
+      <a href="tech-standard-detail.html" aria-current="page" aria-label="LAYER 02 サービス・進め方"><span class="lv">L02</span><span class="lt">サービス・進め方</span></a>
+      <a href="tech-standard-info.html" aria-label="LAYER 03 会社情報・お問い合わせ"><span class="lv">L03</span><span class="lt">会社情報・お問い合わせ</span></a>
+    </nav>
+    <a class="hd-cta mono" href="tech-standard-info.html#contact">お問い合わせ</a>
+  </div>
+</header>
+<main id="main">
+
+<!-- ===== LAYER 02 マストヘッド ===== -->
+<section class="mast mast--l2">
+  <svg class="mast-bg" viewBox="0 0 1440 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <g class="mb-l">
+      <path d="M-40 240L360 40L760 240L360 440Z"/>
+      <path d="M-40 320L360 120L760 320L360 520Z"/>
+      <path d="M680 180L1080 -20L1480 180L1080 380Z"/>
+      <path d="M680 260L1080 60L1480 260L1080 460Z"/>
+    </g>
+    <g class="mb-l mb-a"><path d="M160 240V320M560 240V320M880 180V260M1280 180V260"/></g>
+    <circle class="mb-d" cx="360" cy="120" r="5"/>
+    <circle class="mb-d" cx="1080" cy="60" r="5"/>
+  </svg>
+  <div class="wrap">
+    <div class="mast-head">
+      <div class="mast-main">
+        <p class="eyebrow mono"><i></i>LAYER 02 — STRUCTURE<i></i>SERVICE / PROCESS</p>
+        <h1>
+          <span class="h1-jp mono">サービスと</span>
+          <span class="h1-en lat">Structure</span>
+        </h1>
+        <p class="mast-catch">画面の下に、業務があり、データがあり、<br>それを動かし続ける基盤がある。</p>
+        <p class="mast-lead">ここは構造の層です。6つのサービスが業務のどこまで届くのか、要件から運用までどう進むのかを、上の層より一段細かく見られます。</p>
+        <div class="mast-acts">
+          <a class="btn btn--fill mono" href="#matrix">断面図を見る <i>↓</i></a>
+          <a class="btn btn--line mono" href="tech-standard-info.html#contact">相談してみる <i>→</i></a>
+        </div>
+        <p class="mast-meta mono">
+          <span>6つのサービス</span><span>4つの層</span><span>4フェーズ</span><span>費用は要相談</span>
+        </p>
+      </div>
+      <div class="lind">
+        <svg viewBox="0 0 74 58" aria-hidden="true" focusable="false"><polygon class="mp" points="11,44 37,31 63,44 37,57"/><polygon class="mp is-on" points="11,32 37,19 63,32 37,45"/><polygon class="mp" points="11,20 37,7 63,20 37,33"/></svg>
+        <span class="lind-tx"><b>LAYER 02</b><span>構造 / STRUCTURE<br>仕組みを見る層</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 断面マトリクス ===== -->
+<section class="sec" id="matrix">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">01</span>
+      <h2>どこまで届く仕事なのか</h2>
+      <span class="en mono">CROSS SECTION</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rev" style="margin-bottom:clamp(22px,3vw,34px)">業務のシステムは、画面・業務ロジック・データ・運用基盤の4つの層でできています。6つのサービスは、それぞれ届く深さが違います。サービス名にカーソルを合わせると、その並びだけが残ります（マウス操作時）。</p>
+
+    <p class="vh">Webサイト制作（S-01）が届く層は 画面・体験 です。Webアプリ開発（S-02）が届く層は 画面・体験、業務ロジック、データ です。システム開発（S-03）が届く層は 業務ロジック、データ、運用・基盤 です。DXコンサルティング（S-04）が届く層は 画面・体験、業務ロジック、データ、運用・基盤 です。業務システム改善（S-05）が届く層は 画面・体験、業務ロジック、データ です。保守・運用サポート（S-06）が届く層は データ、運用・基盤 です。</p>
+
+    <figure class="mx rev" id="mxFig">
+      <figcaption class="mono">FIG.L2-01 — サービス × 層の断面</figcaption>
+      <div class="mx-grid" id="mxGrid">
+      <span class="mx-corner mono">層 / サービス</span>
+      <a class="mx-sv" href="#s-01" style="--c:1" data-col="1"><b>Web</b><span class="mono">S-01</span></a>
+      <a class="mx-sv" href="#s-02" style="--c:2" data-col="2"><b>アプリ</b><span class="mono">S-02</span></a>
+      <a class="mx-sv" href="#s-03" style="--c:3" data-col="3"><b>システム</b><span class="mono">S-03</span></a>
+      <a class="mx-sv" href="#s-04" style="--c:4" data-col="4"><b>DX</b><span class="mono">S-04</span></a>
+      <a class="mx-sv" href="#s-05" style="--c:5" data-col="5"><b>改善</b><span class="mono">S-05</span></a>
+      <a class="mx-sv" href="#s-06" style="--c:6" data-col="6"><b>保守</b><span class="mono">S-06</span></a>
+      <div class="mx-st" style="--r:1"><b class="st-full">画面・体験</b><b class="st-short">画面</b><span class="mono">ST-01<span class="st-en"> / INTERFACE</span></span></div>
+      <div class="mx-st" style="--r:2"><b class="st-full">業務ロジック</b><b class="st-short">業務</b><span class="mono">ST-02<span class="st-en"> / LOGIC</span></span></div>
+      <div class="mx-st" style="--r:3"><b class="st-full">データ</b><b class="st-short">データ</b><span class="mono">ST-03<span class="st-en"> / DATA</span></span></div>
+      <div class="mx-st" style="--r:4"><b class="st-full">運用・基盤</b><b class="st-short">基盤</b><span class="mono">ST-04<span class="st-en"> / PLATFORM</span></span></div>
+      <span class="mx-cell c1 r1 on" style="--c:1;--r:1;--d:84ms" aria-hidden="true"></span>
+      <span class="mx-cell c1 r2" style="--c:1;--r:2;--d:122ms" aria-hidden="true"></span>
+      <span class="mx-cell c1 r3" style="--c:1;--r:3;--d:160ms" aria-hidden="true"></span>
+      <span class="mx-cell c1 r4" style="--c:1;--r:4;--d:198ms" aria-hidden="true"></span>
+      <span class="mx-cell c2 r1 on" style="--c:2;--r:1;--d:130ms" aria-hidden="true"></span>
+      <span class="mx-cell c2 r2 on" style="--c:2;--r:2;--d:168ms" aria-hidden="true"></span>
+      <span class="mx-cell c2 r3 on" style="--c:2;--r:3;--d:206ms" aria-hidden="true"></span>
+      <span class="mx-cell c2 r4" style="--c:2;--r:4;--d:244ms" aria-hidden="true"></span>
+      <span class="mx-cell c3 r1" style="--c:3;--r:1;--d:176ms" aria-hidden="true"></span>
+      <span class="mx-cell c3 r2 on" style="--c:3;--r:2;--d:214ms" aria-hidden="true"></span>
+      <span class="mx-cell c3 r3 on" style="--c:3;--r:3;--d:252ms" aria-hidden="true"></span>
+      <span class="mx-cell c3 r4 on" style="--c:3;--r:4;--d:290ms" aria-hidden="true"></span>
+      <span class="mx-cell c4 r1 on" style="--c:4;--r:1;--d:222ms" aria-hidden="true"></span>
+      <span class="mx-cell c4 r2 on" style="--c:4;--r:2;--d:260ms" aria-hidden="true"></span>
+      <span class="mx-cell c4 r3 on" style="--c:4;--r:3;--d:298ms" aria-hidden="true"></span>
+      <span class="mx-cell c4 r4 on" style="--c:4;--r:4;--d:336ms" aria-hidden="true"></span>
+      <span class="mx-cell c5 r1 on" style="--c:5;--r:1;--d:268ms" aria-hidden="true"></span>
+      <span class="mx-cell c5 r2 on" style="--c:5;--r:2;--d:306ms" aria-hidden="true"></span>
+      <span class="mx-cell c5 r3 on" style="--c:5;--r:3;--d:344ms" aria-hidden="true"></span>
+      <span class="mx-cell c5 r4" style="--c:5;--r:4;--d:382ms" aria-hidden="true"></span>
+      <span class="mx-cell c6 r1" style="--c:6;--r:1;--d:314ms" aria-hidden="true"></span>
+      <span class="mx-cell c6 r2" style="--c:6;--r:2;--d:352ms" aria-hidden="true"></span>
+      <span class="mx-cell c6 r3 on" style="--c:6;--r:3;--d:390ms" aria-hidden="true"></span>
+      <span class="mx-cell c6 r4 on" style="--c:6;--r:4;--d:428ms" aria-hidden="true"></span>
+      </div>
+      <p class="mx-note">図はサービスの守備範囲をイメージで表したものです。実際の範囲はご相談の内容によって変わります。</p>
+    </figure>
+  </div>
+</section>
+
+<!-- ===== サービス詳細 ===== -->
+<section class="sec sec--alt" id="service">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">02</span>
+      <h2>6つのサービス</h2>
+      <span class="en mono">SERVICE</span>
+    </div>
+    <div class="rule"></div>
+    <div class="svcs">
+      <article class="svc rev" id="s-01">
+        <figure class="svc-fig"><img src="images/tech/tech_menu_web.webp" loading="lazy" alt="Webサイト制作の打ち合わせ。デザイン画面を表示した大きなモニターに向かうスタッフ"></figure>
+        <div class="svc-body">
+          <p class="svc-code mono">SERVICE S-01 / BUILD</p>
+          <h3>Webサイト制作</h3>
+          <p class="svc-copy">会社の"顔"となる、伝わるWebサイトを。</p>
+          <p class="svc-desc">誰に何を伝えるサイトなのかを決めるところから始めます。掲載する情報の優先順位を整理し、更新のしやすさまで含めて設計します。</p>
+          <div class="svc-depth">
+            <span class="mono">届く層</span>
+            <ul class="dchips" aria-hidden="true"><li class="on"></li><li class=""></li><li class=""></li><li class=""></li></ul>
+            <span class="vh">この仕事が届く層：画面・体験</span>
+          </div>
+          <dl class="svc-meta">
+            <div><dt class="mono">費用</dt><dd>要相談</dd></div>
+            <div><dt class="mono">系統</dt><dd>つくる</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="svc rev" id="s-02">
+        <figure class="svc-fig"><img src="images/tech/tech_menu_app.webp" loading="lazy" alt="Webアプリ開発の作業風景。コードと管理画面を並べた複数モニター"></figure>
+        <div class="svc-body">
+          <p class="svc-code mono">SERVICE S-02 / BUILD</p>
+          <h3>Webアプリ開発</h3>
+          <p class="svc-copy">業務にフィットする、使われ続けるアプリを。</p>
+          <p class="svc-desc">毎日使うものだからこそ、画面の数や入力の手間を削ります。裏側のデータの持ち方まで含めて、業務の流れに合わせて組み立てます。</p>
+          <div class="svc-depth">
+            <span class="mono">届く層</span>
+            <ul class="dchips" aria-hidden="true"><li class="on"></li><li class="on"></li><li class="on"></li><li class=""></li></ul>
+            <span class="vh">この仕事が届く層：画面・体験、業務ロジック、データ</span>
+          </div>
+          <dl class="svc-meta">
+            <div><dt class="mono">費用</dt><dd>要相談</dd></div>
+            <div><dt class="mono">系統</dt><dd>つくる</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="svc rev" id="s-03">
+        <figure class="svc-fig"><img src="images/tech/tech_menu_system.webp" loading="lazy" alt="システム開発の画面。構成図とダッシュボードを表示したモニター"></figure>
+        <div class="svc-body">
+          <p class="svc-code mono">SERVICE S-03 / BUILD</p>
+          <h3>システム開発</h3>
+          <p class="svc-copy">自社の業務に合わせた、オーダーメイドの仕組みを。</p>
+          <p class="svc-desc">既製品に業務を合わせるのではなく、いまの業務に合う形をつくります。ルールとデータ、そして動かし続ける土台まで一続きで考えます。</p>
+          <div class="svc-depth">
+            <span class="mono">届く層</span>
+            <ul class="dchips" aria-hidden="true"><li class=""></li><li class="on"></li><li class="on"></li><li class="on"></li></ul>
+            <span class="vh">この仕事が届く層：業務ロジック、データ、運用・基盤</span>
+          </div>
+          <dl class="svc-meta">
+            <div><dt class="mono">費用</dt><dd>要相談</dd></div>
+            <div><dt class="mono">系統</dt><dd>つくる</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="svc rev" id="s-04">
+        <figure class="svc-fig"><img src="images/tech/tech_menu_dx.webp" loading="lazy" alt="DXコンサルティングの様子。ホワイトボードに業務フローを描いて説明するスタッフ"></figure>
+        <div class="svc-body">
+          <p class="svc-code mono">SERVICE S-04 / TUNE</p>
+          <h3>DXコンサルティング</h3>
+          <p class="svc-copy">何から始めるか、から一緒に整理します。</p>
+          <p class="svc-desc">つくる前に、どこが詰まっているのかを見ます。画面の話に見えて原因がデータ側にあることも多いので、4つの層を一度ぜんぶ並べて考えます。</p>
+          <div class="svc-depth">
+            <span class="mono">届く層</span>
+            <ul class="dchips" aria-hidden="true"><li class="on"></li><li class="on"></li><li class="on"></li><li class="on"></li></ul>
+            <span class="vh">この仕事が届く層：画面・体験、業務ロジック、データ、運用・基盤</span>
+          </div>
+          <dl class="svc-meta">
+            <div><dt class="mono">費用</dt><dd>要相談</dd></div>
+            <div><dt class="mono">系統</dt><dd>ととのえる</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="svc rev" id="s-05">
+        <figure class="svc-fig"><img src="images/tech/tech_menu_improve.webp" loading="lazy" alt="業務システム改善の打ち合わせ。画面を指しながら課題を洗い出すチーム"></figure>
+        <div class="svc-body">
+          <p class="svc-code mono">SERVICE S-05 / TUNE</p>
+          <h3>業務システム改善</h3>
+          <p class="svc-copy">使いにくさの原因を見つけ、丁寧に直す。</p>
+          <p class="svc-desc">使いにくさは、たいてい画面だけの問題ではありません。入力の手順やデータの持ち方までさかのぼって、直す場所を決めてから手を入れます。</p>
+          <div class="svc-depth">
+            <span class="mono">届く層</span>
+            <ul class="dchips" aria-hidden="true"><li class="on"></li><li class="on"></li><li class="on"></li><li class=""></li></ul>
+            <span class="vh">この仕事が届く層：画面・体験、業務ロジック、データ</span>
+          </div>
+          <dl class="svc-meta">
+            <div><dt class="mono">費用</dt><dd>要相談</dd></div>
+            <div><dt class="mono">系統</dt><dd>ととのえる</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="svc rev" id="s-06">
+        <figure class="svc-fig"><img src="images/tech/tech_menu_support.webp" loading="lazy" alt="保守・運用サポートの現場。サーバールームと監視画面"></figure>
+        <div class="svc-body">
+          <p class="svc-code mono">SERVICE S-06 / TUNE</p>
+          <h3>保守・運用サポート</h3>
+          <p class="svc-copy">リリース後も、安心して任せられる体制を。</p>
+          <p class="svc-desc">動き続けている状態を保つ仕事です。データの増え方や動かしている環境を見ながら、直す・足す・整えるを続けます。</p>
+          <div class="svc-depth">
+            <span class="mono">届く層</span>
+            <ul class="dchips" aria-hidden="true"><li class=""></li><li class=""></li><li class="on"></li><li class="on"></li></ul>
+            <span class="vh">この仕事が届く層：データ、運用・基盤</span>
+          </div>
+          <dl class="svc-meta">
+            <div><dt class="mono">費用</dt><dd>要相談</dd></div>
+            <div><dt class="mono">系統</dt><dd>ととのえる</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+    <p class="svl-foot mono rev" style="margin-top:clamp(24px,3vw,36px);font-size:11.5px;color:var(--ink-3)">費用はすべて要相談です。まずは今の状況をお聞かせください。</p>
+  </div>
+</section>
+
+<!-- ===== 進め方 ===== -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">03</span>
+      <h2>層を積み上げるように進めます</h2>
+      <span class="en mono">PROCESS</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rev" style="margin-bottom:clamp(22px,3vw,34px)">要件・開発・リリース・運用。フェーズが進むごとに、決まったことが一枚ずつ積み重なっていきます。積み上がったものは、あとから下だけ差し替えることもできます。</p>
+    <div class="pro">
+      <article class="rev">
+        <div class="pf-img"><img src="images/tech/tech_flow2.webp" loading="lazy" alt="ホワイトボードの前で、業務の流れを指しながら話し合う2人のスタッフ"></div>
+        <div class="pro-body">
+          <div class="pro-top">
+            <span class="pro-num mono">PHASE 01</span>
+            <svg class="stk" viewBox="0 0 110 92" aria-hidden="true" focusable="false"><polygon class="kp is-on" points="17,66 55,47 93,66 55,85"/><polygon class="kp" points="17,52 55,33 93,52 55,71"/><polygon class="kp" points="17,38 55,19 93,38 55,57"/><polygon class="kp" points="17,24 55,5 93,24 55,43"/></svg>
+          </div>
+          <h3>要件</h3>
+          <p>やりたいことを、つくれる形にほどく。必要な機能とそうでない機能を分けます。</p>
+          <p class="pro-out mono">この時点で決まること<b>つくるもの / つくらないもの</b></p>
+        </div>
+      </article>
+      <article class="rev">
+        <div class="pf-img"><img src="images/tech/tech_flow3.webp" loading="lazy" alt="デスクのキーボードに手を置き、2枚のモニターで作業する開発メンバー"></div>
+        <div class="pro-body">
+          <div class="pro-top">
+            <span class="pro-num mono">PHASE 02</span>
+            <svg class="stk" viewBox="0 0 110 92" aria-hidden="true" focusable="false"><polygon class="kp is-on" points="17,66 55,47 93,66 55,85"/><polygon class="kp is-on" points="17,52 55,33 93,52 55,71"/><polygon class="kp" points="17,38 55,19 93,38 55,57"/><polygon class="kp" points="17,24 55,5 93,24 55,43"/></svg>
+          </div>
+          <h3>開発</h3>
+          <p>小さく作って見せる、を繰り返す。認識のズレを早いうちに潰します。</p>
+          <p class="pro-out mono">この時点で決まること<b>画面と処理の実物</b></p>
+        </div>
+      </article>
+      <article class="rev">
+        <div class="pf-img"><img src="images/tech/tech_flow1.webp" loading="lazy" alt="会議テーブルを囲み、資料を前に打ち合わせをする3人"></div>
+        <div class="pro-body">
+          <div class="pro-top">
+            <span class="pro-num mono">PHASE 03</span>
+            <svg class="stk" viewBox="0 0 110 92" aria-hidden="true" focusable="false"><polygon class="kp is-on" points="17,66 55,47 93,66 55,85"/><polygon class="kp is-on" points="17,52 55,33 93,52 55,71"/><polygon class="kp is-on" points="17,38 55,19 93,38 55,57"/><polygon class="kp" points="17,24 55,5 93,24 55,43"/></svg>
+          </div>
+          <h3>リリース</h3>
+          <p>公開はゴールではなく、使われ方が見えはじめる起点です。</p>
+          <p class="pro-out mono">この時点で決まること<b>実際の使われ方</b></p>
+        </div>
+      </article>
+      <article class="rev">
+        <div class="pf-img"><img src="images/tech/tech_flow4.webp" loading="lazy" alt="ノートパソコンを開いたテーブルで向かい合って話す2人"></div>
+        <div class="pro-body">
+          <div class="pro-top">
+            <span class="pro-num mono">PHASE 04</span>
+            <svg class="stk" viewBox="0 0 110 92" aria-hidden="true" focusable="false"><polygon class="kp is-on" points="17,66 55,47 93,66 55,85"/><polygon class="kp is-on" points="17,52 55,33 93,52 55,71"/><polygon class="kp is-on" points="17,38 55,19 93,38 55,57"/><polygon class="kp is-on" points="17,24 55,5 93,24 55,43"/></svg>
+          </div>
+          <h3>運用</h3>
+          <p>直す、足す、整える。使われ続ける状態を保ちます。</p>
+          <p class="pro-out mono">この時点で決まること<b>次に直すところ</b></p>
+        </div>
+      </article>
+    </div>
+    <p class="pro-note rev">運用（PHASE 04）で見えてきたことは、次の要件に戻します。納品して終わりにはしません。図は進め方をイメージで表したものです。</p>
+  </div>
+</section>
+
+<!-- ===== ご相談の入り口 ===== -->
+<section class="sec sec--alt" id="cases">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">04</span>
+      <h2>ご相談の入り口</h2>
+      <span class="en mono">STARTING POINTS</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rev" style="margin-bottom:clamp(22px,3vw,34px)">要件が固まっていない状態でのご相談がほとんどです。よくある入り口を3つ、進め方の順番とあわせて並べました。</p>
+    <div class="scn">
+      <article class="rev">
+        <p class="sc-code mono">CASE A</p>
+        <h3><span class="q">「</span>エクセルでの管理が、そろそろ限界<span class="q">」</span></h3>
+        <ol class="sc-steps"><li><i>01</i><span>いまのファイルと運用をそのまま見せてもらう</span></li><li><i>02</i><span>どこが手作業で詰まっているかを層ごとに切り分ける</span></li><li><i>03</i><span>直すのか、つくり直すのかを一緒に決める</span></li></ol>
+        <p class="sc-go mono">入口になりやすいサービス<b>業務システム改善 / システム開発</b></p>
+      </article>
+      <article class="rev">
+        <p class="sc-code mono">CASE B</p>
+        <h3><span class="q">「</span>サイトはあるが、伝わっている実感がない<span class="q">」</span></h3>
+        <ol class="sc-steps"><li><i>01</i><span>誰に何を伝えたいのかを言葉にする</span></li><li><i>02</i><span>載せる情報の順番を組み直す</span></li><li><i>03</i><span>更新を続けられる形にして渡す</span></li></ol>
+        <p class="sc-go mono">入口になりやすいサービス<b>Webサイト制作</b></p>
+      </article>
+      <article class="rev">
+        <p class="sc-code mono">CASE C</p>
+        <h3><span class="q">「</span>何から手をつければいいか、わからない<span class="q">」</span></h3>
+        <ol class="sc-steps"><li><i>01</i><span>困っていることを、そのまま話してもらう</span></li><li><i>02</i><span>画面・業務・データ・基盤の4つに並べ替える</span></li><li><i>03</i><span>いちばん効くところから小さく試す</span></li></ol>
+        <p class="sc-go mono">入口になりやすいサービス<b>DXコンサルティング</b></p>
+      </article>
+    </div>
+    <p class="scn-note rev">※これはRESCが作成したサンプルサイトです。掲載しているのは想定されるご相談の例で、特定の実績を示すものではありません。</p>
+  </div>
+</section>
+
+<!-- ===== 層の移動 ===== -->
+<section class="sec sec--deep" id="dive">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">05</span>
+      <h2>層を移動する</h2>
+      <span class="en mono">MOVE LAYER</span>
+    </div>
+    <div class="rule"></div>
+    <div class="dive rev">
+      <a class="dcard" href="tech-standard-info.html">
+        <span class="dcard-top">
+          <span class="dc-lv mono">LAYER 03 — FOUNDATION</span>
+          <svg viewBox="0 0 74 58" aria-hidden="true" focusable="false"><polygon class="mp is-on" points="11,44 37,31 63,44 37,57"/><polygon class="mp" points="11,32 37,19 63,32 37,45"/><polygon class="mp" points="11,20 37,7 63,20 37,33"/></svg>
+        </span>
+        <h3>会社情報とお問い合わせ</h3>
+        <p>会社概要、チームの働き方、アクセス。ご相談のフォームとよくあるご質問も、この層にまとめています。</p>
+        <span class="go mono">基盤の層へ降りる <i aria-hidden="true">→</i></span>
+      </a>
+      <a class="dcard" href="tech-standard.html">
+        <span class="dcard-top">
+          <span class="dc-lv mono">LAYER 01 — SURFACE</span>
+          <svg viewBox="0 0 74 58" aria-hidden="true" focusable="false"><polygon class="mp" points="11,44 37,31 63,44 37,57"/><polygon class="mp" points="11,32 37,19 63,32 37,45"/><polygon class="mp is-on" points="11,20 37,7 63,20 37,33"/></svg>
+        </span>
+        <h3>概要にもどる</h3>
+        <p>会社の考え方と、3層の見取り図。全体をもう一度つかみ直したいときはこちらへ。</p>
+        <span class="go mono">表層の層へ上がる <i aria-hidden="true">→</i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-brand">
+      <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true" focusable="false">
+        <path d="M5 5H13V13H5z" fill="none" stroke="#fff" stroke-width="1.6"/>
+        <path d="M13 13H21V21H13z" fill="none" stroke="#7FA9F5" stroke-width="1.6"/>
+        <circle cx="21" cy="9" r="2" fill="#7FA9F5"/>
+        <circle cx="9" cy="21" r="2" fill="#fff"/>
+      </svg>
+      <b class="lat">株式会社NextGrid</b>
+    </div>
+    <nav class="ft-nav" aria-label="フッターナビゲーション">
+        <a class="mono" href="tech-standard.html">LAYER 01 — 概要</a>
+        <a class="mono" href="tech-standard-detail.html" aria-current="page">LAYER 02 — サービス・進め方</a>
+        <a class="mono" href="tech-standard-info.html">LAYER 03 — 会社情報・お問い合わせ</a>
+    </nav>
+    <small class="mono">RESC制作サンプル</small>
+  </div>
+</footer>
+
+<script>
+/* ============ 共通：出現・ページ遷移 ============ */
+(function(){
+  "use strict";
+  var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.NG = {reduce:REDUCE};
+
+  /* ---- 出現（IO＋スクロール掃引の二重化：飛ばしても取りこぼさない） ---- */
+  var revs = [].slice.call(document.querySelectorAll(".rev"));
+  var io = null;
+  function done(el){ el.classList.add("in"); if(io){ try{io.unobserve(el);}catch(e){} } }
+  if(REDUCE || !("IntersectionObserver" in window)){
+    revs.forEach(done); revs.length = 0;
+  }else{
+    io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ done(e.target); var i=revs.indexOf(e.target); if(i>=0) revs.splice(i,1); }
+      });
+    },{rootMargin:"0px 0px -6% 0px",threshold:0});
+    revs.forEach(function(el){ io.observe(el); });
+  }
+  function sweep(){
+    if(!revs.length) return;
+    var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+    for(var i=revs.length-1;i>=0;i--){
+      var r = revs[i].getBoundingClientRect();
+      if(r.top < vh*0.94){ done(revs[i]); revs.splice(i,1); }
+    }
+  }
+
+  /* ---- スクロール購読（rAF スロットル） ---- */
+  var subs = [], ticking = false;
+  window.NG.onScroll = function(fn){ subs.push(fn); };
+  function run(){ sweep(); for(var i=0;i<subs.length;i++){ try{ subs[i](); }catch(e){} } ticking=false; }
+  function tick(){ if(ticking) return; ticking=true; requestAnimationFrame(run); }
+  window.addEventListener("scroll", tick, {passive:true});
+  window.addEventListener("resize", tick);
+  window.addEventListener("orientationchange", tick);
+  window.addEventListener("load", function(){ tick(); setTimeout(tick,220); });
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(tick).catch(function(){}); }
+  tick();
+
+  /* ---- デジタル・ディゾルブ（退出側） ---- */
+  var INTERNAL = /^tech-standard(-detail|-info)?\.html(#.*)?$/;
+  function build(kind){
+    var vw = window.innerWidth || 1024, vh = window.innerHeight || 768;
+    var cols = Math.max(5, Math.min(15, Math.round(vw/104)));
+    var rows = Math.max(4, Math.min(13, Math.round(vh/104)));
+    var ov = document.createElement("div");
+    ov.className = "dsv dsv--" + kind;
+    ov.setAttribute("aria-hidden","true");
+    ov.style.setProperty("--cols", cols);
+    ov.style.setProperty("--rows", rows);
+    var frag = document.createDocumentFragment();
+    var mc = cols>1?cols-1:1, mr = rows>1?rows-1:1;
+    for(var y=0;y<rows;y++){
+      for(var x=0;x<cols;x++){
+        var c = document.createElement("i");
+        var d = (x/mc)*0.58 + (y/mr)*0.42;
+        d = d*0.84 + Math.random()*0.16;
+        c.style.setProperty("--d", Math.round(d*300) + "ms");
+        if(Math.random() < 0.09) c.className = "k";
+        frag.appendChild(c);
+      }
+    }
+    ov.appendChild(frag);
+    return ov;
+  }
+  function clearOverlays(){
+    var ns = document.querySelectorAll(".dsv");
+    for(var i=0;i<ns.length;i++){ if(ns[i].parentNode) ns[i].parentNode.removeChild(ns[i]); }
+  }
+  window.addEventListener("pageshow", function(ev){ if(ev.persisted) clearOverlays(); });
+
+  if(!REDUCE){
+    document.addEventListener("click", function(ev){
+      if(ev.defaultPrevented || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+      var a = ev.target && ev.target.closest ? ev.target.closest("a[href]") : null;
+      if(!a) return;
+      if(a.hasAttribute("download")) return;
+      if(a.target && a.target !== "_self") return;
+      var href = a.getAttribute("href") || "";
+      if(!INTERNAL.test(href)) return;
+      var here = location.pathname.split("/").pop() || "tech-standard.html";
+      if(href.split("#")[0] === here) return;      /* 同一ページ内はそのまま */
+      ev.preventDefault();
+      var ov = build("out");
+      document.body.appendChild(ov);
+      /* 強制リフロー → 開始 */
+      void ov.offsetWidth;
+      ov.classList.add("run");
+      setTimeout(function(){ location.href = href; }, 480);
+    }, false);
+  }
+})();
+
+/* ============ 断面マトリクス ============ */
+(function(){
+  "use strict";
+  var grid = document.getElementById("mxGrid");
+  if(!grid) return;
+  var cols = [].slice.call(grid.querySelectorAll(".mx-sv"));
+  function hl(v){ if(v){ grid.setAttribute("data-hl", v); } else { grid.removeAttribute("data-hl"); } }
+  cols.forEach(function(a){
+    var v = a.getAttribute("data-col");
+    a.addEventListener("mouseenter", function(){ hl(v); });
+    a.addEventListener("mouseleave", function(){ hl(null); });
+    a.addEventListener("focus", function(){ hl(v); });
+    a.addEventListener("blur", function(){ hl(null); });
+  });
+})();
+</script>
+</body>
+</html>

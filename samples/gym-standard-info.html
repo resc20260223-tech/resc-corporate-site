@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FORGE｜パーソナルジム（福岡市中央区・天神）</title>
-<meta name="description" content="福岡市中央区・天神の完全予約制パーソナルジム FORGE。マンツーマン指導で、トレーニング経験がない方も無理なく。3セット構成でジムの全体像・プログラム・料金・トレーナー・アクセスをご案内します。">
+<title>トレーナー・設備・アクセス／体験申込｜FORGE（福岡・天神のパーソナルジム）</title>
+<meta name="description" content="FORGEのトレーナー3名の紹介、シャワー・更衣室・ラウンジなどの設備、福岡市中央区天神の所在地と営業時間、体験セッションのお申し込みフォームをご案内します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -327,82 +327,98 @@ h1{display:block;margin:0}
 }
 
 
-:root{--stop:2px}
-.hero__media img{aspect-ratio:1376/768}
+:root{--stop:4px}
+.phero__media img{aspect-ratio:1200/670}
 
-/* set map */
-.setmap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--rule-strong)}
-.setmap__i{display:block;text-decoration:none;padding:clamp(18px,2.6vw,30px) clamp(14px,2vw,26px)
-  clamp(20px,2.8vw,34px) 0;border-right:1px solid var(--rule);position:relative;transition:background .25s}
-.setmap__i:last-child{border-right:0}
-.setmap__i:hover{background:#00000008}
-.setmap__n{font-family:var(--num);font-weight:700;font-size:clamp(40px,6vw,78px);line-height:.85;
-  letter-spacing:.01em;display:block}
-.setmap__n span{color:#6F6E68}
-.setmap__t{display:block;font-weight:900;font-size:clamp(15px,1.9vw,20px);line-height:1.5;margin-top:12px}
-.setmap__d{display:block;font-size:13px;line-height:1.9;color:var(--muted);margin-top:8px}
-.setmap__go{display:inline-block;margin-top:12px;font-family:var(--num);font-weight:700;font-size:12px;
-  letter-spacing:.16em;border-bottom:2px solid var(--ink);padding-bottom:2px}
-.setmap__i[aria-current="page"]{background:var(--ink);color:var(--on-dark);
-  padding-left:clamp(14px,2vw,26px);margin-left:calc(-1 * clamp(14px,2vw,26px))}
-.setmap__i[aria-current="page"] .setmap__n span{color:#6A6B63}
-.setmap__i[aria-current="page"] .setmap__d{color:var(--on-dark-mute)}
-.setmap__i[aria-current="page"] .setmap__here{display:inline-block;margin-top:12px;font-family:var(--num);
-  font-weight:700;font-size:12px;letter-spacing:.16em;color:var(--ink);background:var(--lime);padding:2px 9px 0}
+/* trainers */
+.trainers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,26px)}
+.tcard{border:1px solid var(--dark-rule);background:var(--ink-2);padding:clamp(18px,2.4vw,28px);
+  display:flex;flex-direction:column;gap:12px}
+.tcard__plate{width:clamp(88px,12vw,116px);height:auto;display:block}
+.tcard__name{font-weight:900;font-size:clamp(19px,2.4vw,26px);line-height:1.35}
+.tcard__lic{display:inline-block;border:1px solid var(--lime);color:var(--lime);font-size:12px;font-weight:700;
+  letter-spacing:.04em;padding:5px 12px;line-height:1.4;align-self:flex-start}
+.tcard p:not(.tcard__lic){font-size:13.5px;line-height:2;color:var(--on-dark-mute)}
+.tcard__tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:6px}
+.tcard__tags li{font-size:11.5px;letter-spacing:.04em;border:1px solid var(--dark-rule);color:var(--on-dark);
+  padding:4px 10px;line-height:1.5}
+.motto{margin-top:clamp(26px,3.6vw,44px);border-top:1px solid var(--dark-rule);padding-top:clamp(20px,2.8vw,30px);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:center}
+.motto__q{font-weight:900;font-size:clamp(20px,3.2vw,34px);line-height:1.5}
+.motto__q b{color:var(--lime);font-weight:900}
+.motto p:not(.motto__q){font-size:13.5px;line-height:2.05;color:var(--on-dark-mute)}
 
-/* reason cards */
-.rcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,26px)}
-.rcard{border-top:2px solid var(--rule-strong);padding-top:14px}
-.rcard__hd{display:flex;align-items:baseline;gap:12px}
-.rcard__no{font-family:var(--num);font-weight:700;font-size:clamp(38px,5vw,62px);line-height:.85}
-.rcard__no span{color:#6F6E68}
-.rcard__en{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;color:var(--muted)}
-.rcard__fig{margin:14px 0 0}
-.rcard__fig img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(.12) contrast(1.05)}
-.rcard h3{font-weight:900;font-size:clamp(17px,2.1vw,23px);line-height:1.5;margin-top:16px}
-.rcard>p{font-size:13.5px;line-height:2;color:var(--muted);margin-top:9px}
+/* facility grid */
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.4vw,18px)}
+.fcard{margin:0;background:var(--concrete)}
+.fcard img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.fcard figcaption{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  border-top:2px solid var(--rule-strong);padding-top:9px;margin-top:9px}
+.fcard b{font-weight:900;font-size:14.5px}
+.fcard span{font-family:var(--num);font-weight:600;font-size:11px;letter-spacing:.18em;color:var(--muted)}
+.fspec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(20px,3vw,44px);
+  margin-top:clamp(24px,3.2vw,40px);border-top:2px solid var(--rule-strong);padding-top:6px}
+.fspec li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:baseline;
+  border-bottom:1px solid var(--rule);padding:11px 0;font-size:13.5px;line-height:1.8}
+.fspec em{font-style:normal;font-family:var(--num);font-weight:700;font-size:13px;letter-spacing:.12em;color:var(--muted)}
 
-/* plate figure */
-.plate{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:clamp(20px,3.4vw,52px);align-items:start}
-.plate__lead{font-size:14.5px;line-height:2.05;color:var(--on-dark)}
-.plate__lead b{color:var(--lime);font-weight:900}
-.plate__list{margin-top:22px;border-top:1px solid var(--dark-rule)}
-.plate__list li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:baseline;
-  border-bottom:1px solid var(--dark-rule-2);padding:12px 0}
-.plate__list em{font-style:normal;font-family:var(--num);font-weight:700;font-size:19px;letter-spacing:.06em;color:var(--lime)}
-.plate__list span{font-size:13.5px;line-height:1.85;color:var(--on-dark)}
-.plate__fig{margin:0;min-width:0;background:var(--ink-2);border:1px solid var(--dark-rule);padding:clamp(14px,2.2vw,26px)}
-.plate__fig svg{width:100%;height:auto;display:block}
-.pl-plate{transform-box:fill-box;transform-origin:center;
-  transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.3,1)}
-.js .pl-plate{opacity:0;transform:scale(.4)}
-.is-in .pl-plate{opacity:1;transform:scale(1)}
-.is-in .pl-r2 .pl-plate{transition-delay:.16s}
-.is-in .pl-r3 .pl-plate{transition-delay:.3s}
+/* access */
+.access{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(22px,3.4vw,50px);align-items:start}
+.info{border-top:1px solid var(--lime)}
+.info div{display:grid;grid-template-columns:minmax(88px,.45fr) minmax(0,1.55fr);gap:10px 18px;
+  border-bottom:1px solid var(--dark-rule);padding:14px 0}
+.info dt{font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--on-dark-mute);padding-top:3px}
+.info dd{margin:0;font-size:14px;line-height:1.85;font-weight:500}
+.mapfig{margin:0;min-width:0;border:1px solid var(--dark-rule);background:var(--ink-2);padding:clamp(12px,1.8vw,20px)}
+.mapfig svg{width:100%;height:auto;display:block}
+.mapfig figcaption{font-size:12px;line-height:1.85;color:var(--on-dark-mute);border-top:1px solid var(--dark-rule);
+  padding-top:10px;margin-top:12px}
+.exfig{margin:clamp(18px,2.4vw,28px) 0 0}
+.exfig img{width:100%;aspect-ratio:1200/670;object-fit:cover}
+.exfig figcaption{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.18em;
+  color:var(--on-dark-mute);border-top:1px solid var(--dark-rule);padding-top:8px;margin-top:9px}
 
-/* price digest */
-.pdig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
-.pdig__i{border:1px solid var(--rule-strong);padding:clamp(16px,2.2vw,26px);display:flex;flex-direction:column;gap:8px}
-.pdig__en{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;color:var(--muted)}
-.pdig__n{font-weight:900;font-size:clamp(16px,2vw,21px);line-height:1.4}
-.pdig__y{font-family:var(--num);font-weight:700;font-size:clamp(40px,5.6vw,64px);line-height:.9;margin-top:6px}
-.pdig__u{font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.04em}
-.pdig__d{font-size:13px;line-height:1.9;color:var(--muted);margin-top:4px}
-.pdig__foot{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;margin-top:22px}
-.pdig__link{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;font-size:14px;
-  border-bottom:2px solid var(--ink);padding-bottom:4px}
-.pdig__link em{font-style:normal;font-family:var(--num);font-size:12px;letter-spacing:.16em;color:var(--muted)}
+/* form */
+.trial{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(22px,3.4vw,54px);align-items:start}
+.trial__aside{border-top:2px solid var(--rule-strong);padding-top:16px}
+.trial__aside h3{font-weight:900;font-size:clamp(17px,2.1vw,22px);line-height:1.5}
+.trial__aside p:not(.note){font-size:13.5px;line-height:2;color:var(--muted);margin-top:10px}
+.trial__flow{margin-top:18px}
+.trial__flow li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:baseline;
+  border-top:1px solid var(--rule);padding:11px 0;font-size:13.5px;line-height:1.8}
+.trial__flow em{font-style:normal;font-family:var(--num);font-weight:700;font-size:20px;letter-spacing:.04em}
+.form{border-top:2px solid var(--rule-strong);padding-top:22px;display:grid;gap:16px}
+.f-row{display:grid;gap:7px}
+.f-row label{font-size:12.5px;font-weight:700;letter-spacing:.06em}
+.f-req{font-size:10.5px;font-weight:700;letter-spacing:.12em;background:var(--ink);
+  color:var(--lime);padding:3px 9px;margin-left:9px;line-height:1}
+.f-opt{font-family:var(--num);font-weight:600;font-size:11px;letter-spacing:.1em;color:var(--muted);margin-left:8px}
+.form input,.form select,.form textarea{
+  font:inherit;font-size:14.5px;width:100%;padding:12px 13px;background:var(--concrete);
+  border:1px solid var(--muted);color:var(--ink);border-radius:0
+}
+.form textarea{min-height:120px;resize:vertical;line-height:1.8}
+.form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible{outline:3px solid var(--ink);outline-offset:1px}
+.f-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-err{font-size:12.5px;font-weight:700;color:#8A2B12}
+.f-note{font-size:12px;line-height:1.9;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+.f-done{border:2px solid var(--ink);background:var(--paper);padding:clamp(20px,3vw,34px)}
+.f-done b{display:block;font-weight:900;font-size:clamp(18px,2.4vw,24px);line-height:1.5}
+.f-done p{font-size:13.5px;line-height:2;color:var(--muted);margin-top:10px}
+.f-done__k{font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.2em;background:var(--lime);
+  color:var(--ink);padding:2px 10px 0;display:inline-block;margin-bottom:12px}
 
 @media (max-width:900px){
-  .plate{grid-template-columns:1fr}
+  .trainers{grid-template-columns:1fr}
+  .motto{grid-template-columns:1fr}
+  .access{grid-template-columns:1fr}
+  .trial{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
 }
-@media (max-width:760px){
-  .setmap{grid-template-columns:1fr}
-  .setmap__i{border-right:0;border-bottom:1px solid var(--rule);padding-right:0}
-  .setmap__i:last-child{border-bottom:0}
-  .rcards{grid-template-columns:1fr}
-  .rcard__fig img{aspect-ratio:16/9}
-  .pdig{grid-template-columns:1fr}
+@media (max-width:560px){
+  .fgrid{grid-template-columns:1fr}
+  .fspec{grid-template-columns:1fr}
+  .f-two{grid-template-columns:1fr}
 }
 
 </style>
@@ -426,9 +442,9 @@ h1{display:block;margin:0}
     </a>
     <nav class="setnav" aria-label="セット（ページ）">
       <ol class="setnav__list">
-        <li><a class="setnav__i" href="gym-standard.html" data-set="01" aria-current="page"><span class="setnav__n">SET 01</span><span class="setnav__l">はじめに</span></a></li>
-        <li><a class="setnav__i" href="gym-standard-detail.html" data-set="02"><span class="setnav__n">SET 02</span><span class="setnav__l">プログラムと料金</span></a></li>
-        <li><a class="setnav__i" href="gym-standard-info.html" data-set="03"><span class="setnav__n">SET 03</span><span class="setnav__l">人と場所・申込</span></a></li>
+        <li><a class="setnav__i is-done" href="gym-standard.html" data-set="01"><span class="setnav__n">SET 01</span><span class="setnav__l">はじめに</span></a></li>
+        <li><a class="setnav__i is-done" href="gym-standard-detail.html" data-set="02"><span class="setnav__n">SET 02</span><span class="setnav__l">プログラムと料金</span></a></li>
+        <li><a class="setnav__i" href="gym-standard-info.html" data-set="03" aria-current="page"><span class="setnav__n">SET 03</span><span class="setnav__l">人と場所・申込</span></a></li>
       </ol>
     </nav>
     <a class="head__cta" href="gym-standard-info.html#trial" data-set="03">体験を申し込む</a>
@@ -437,219 +453,272 @@ h1{display:block;margin:0}
 
 <main id="main">
 
-<section class="hero">
-  <div class="hero__media">
-    <img src="images/gym/gym_hero.webp" alt="FORGEのトレーニングフロア。窓際に並んだダンベルラック" fetchpriority="high" decoding="async">
-    <span class="hero__veil" aria-hidden="true"></span>
+<section class="phero">
+  <div class="phero__media">
+    <img src="images/gym/gym_trainer_2.webp" alt="クリップボードを持ってトレーニングを見ているトレーナー" fetchpriority="high" decoding="async">
+    <span class="phero__veil" aria-hidden="true"></span>
   </div>
-  <div class="wrap hero__inner">
-    <p class="hero__eye">FUKUOKA CHUO-KU TENJIN / 完全予約制</p>
-    <h1>
-      <span class="h1-brand">FORGE</span>
-      <span class="h1-catch">本気になった日から、<br><em>変わりはじめる。</em></span>
-    </h1>
-    <p class="hero__lead">福岡市中央区、完全予約制のマンツーマン指導。トレーニング経験がない方も、無理なく確実に。シャワー・ウェアは無料でご用意しています。</p>
+  <div class="wrap phero__inner">
+    <p class="phero__tag"><span>SET 03</span>TRAINER / FACILITY / ACCESS</p>
+    <h1>誰が見て、どこでやるか。<br><em>そして、申し込み。</em></h1>
+    <span class="phero__en">FINAL SET</span>
+    <p class="phero__lead">最終セットです。担当するトレーナー、実際の設備、天神からの行き方まで。読み終わったら、そのまま体験セッションをお申し込みいただけます。</p>
       <div class="meter">
-        <div class="meter__bar" aria-hidden="true"><span class="meter__seg on"></span><span class="meter__seg"></span><span class="meter__seg"></span></div>
-        <p class="meter__cap"><b>SET 01 / 03</b><span>軽いセットから。まずはFORGEの全体像。</span></p>
+        <div class="meter__bar" aria-hidden="true"><span class="meter__seg on"></span><span class="meter__seg on"></span><span class="meter__seg on"></span></div>
+        <p class="meter__cap"><b>SET 03 / 03</b><span>ラストセット。ここで決めきる。</span></p>
       </div>
   </div>
 </section>
 
-<section class="strip" aria-label="FORGEの基本方針">
-  <div class="wrap">
-    <div class="strip__grid">
-      <div class="strip__cell"><span class="strip__k">01 / SYSTEM</span><span class="strip__v">完全予約制のマンツーマン</span></div>
-      <div class="strip__cell"><span class="strip__k">02 / LEVEL</span><span class="strip__v">初心者歓迎</span></div>
-      <div class="strip__cell"><span class="strip__k">03 / AMENITY</span><span class="strip__v">シャワー・ウェア無料</span></div>
-    </div>
+<nav class="subnav" aria-label="このページの内容">
+  <div class="wrap subnav__row">
+    <span class="subnav__k">IN THIS SET</span>
+    <a href="#trainer"><em>01</em>トレーナー</a>
+    <a href="#facility"><em>02</em>設備</a>
+    <a href="#access"><em>03</em>アクセス</a>
+    <a href="#trial"><em>04</em>体験申込</a>
   </div>
-</section>
+</nav>
 
-<!-- ===== SET MAP ===== -->
-<section class="sec" id="setmap" aria-labelledby="setmap-t">
+<!-- ===== TRAINER ===== -->
+<section class="sec sec--dark dark" id="trainer" aria-labelledby="trainer-t">
   <div class="wrap">
     <div class="shead rv">
-      <div class="shead__row"><span class="shead__no">01</span><span class="shead__en">HOW THIS SITE WORKS</span></div>
-      <h2 id="setmap-t">このサイトは、3セットで組んでいます。</h2>
-      <p class="shead__note">トレーニングと同じで、いきなり全部は重すぎます。1セット目は全体像、2セット目は中身の数字、3セット目は人と場所と申し込み。進むほど内容は濃くなります。</p>
+      <div class="shead__row"><span class="shead__no">01</span><span class="shead__en">TRAINER</span></div>
+      <h2 id="trainer-t">担当トレーナー</h2>
+      <p class="shead__note">3名が在籍しています。得意分野が違うので、目的と体の状態に合わせて担当をご相談ください。</p>
     </div>
 
-    <nav class="setmap rv" aria-label="3つのセット">
-      <a class="setmap__i" href="gym-standard.html" data-set="01" aria-current="page">
-        <span class="setmap__n" aria-hidden="true"><span>0</span>1</span>
-        <span class="setmap__t">はじめに</span>
-        <span class="setmap__d">FORGEがどんなジムか、選ばれている理由と重さの決め方、料金の目安まで。</span>
-        <span class="setmap__here">YOU ARE HERE</span>
-      </a>
-      <a class="setmap__i" href="gym-standard-detail.html" data-set="02">
-        <span class="setmap__n" aria-hidden="true"><span>0</span>2</span>
-        <span class="setmap__t">プログラムと料金</span>
-        <span class="setmap__d">12週間の進み方、1回60分の流れ、3プランの中身をすべて表で比べられます。</span>
-        <span class="setmap__go">SET 02 &gt;&gt;</span>
-      </a>
-      <a class="setmap__i" href="gym-standard-info.html" data-set="03">
-        <span class="setmap__n" aria-hidden="true"><span>0</span>3</span>
-        <span class="setmap__t">人と場所・申込</span>
-        <span class="setmap__d">トレーナー3名の紹介、設備の写真、アクセス、体験セッションの申し込みまで。</span>
-        <span class="setmap__go">SET 03 &gt;&gt;</span>
-      </a>
-    </nav>
-  </div>
-</section>
-
-<!-- ===== REASON ===== -->
-<section class="sec sec--paper" id="reason" aria-labelledby="reason-t">
-  <div class="wrap">
-    <div class="shead rv">
-      <div class="shead__row"><span class="shead__no">02</span><span class="shead__en">REASON</span></div>
-      <h2 id="reason-t">選ばれる理由</h2>
-    </div>
-
-    <div class="rcards">
-      <article class="rcard rv">
-        <div class="rcard__hd">
-          <p class="rcard__no" aria-hidden="true"><span>0</span>1</p>
-          <p class="rcard__en">SYSTEM</p>
-        </div>
-        <figure class="rcard__fig">
-          <img src="images/gym/gym_trainer_1.webp" alt="フロアで一人だけがトレーニングに向かう様子" loading="lazy" decoding="async">
-        </figure>
-        <h3>完全予約制のマンツーマン</h3>
-        <p>他のお客様と時間が重なることはありません。専属トレーナーが、あなたの体だけを見て指導します。</p>
-      </article>
-
-      <article class="rcard rv">
-        <div class="rcard__hd">
-          <p class="rcard__no" aria-hidden="true"><span>0</span>2</p>
-          <p class="rcard__en">LEVEL</p>
-        </div>
-        <figure class="rcard__fig">
-          <img src="images/gym/gym_training_4.webp" alt="バーベルのシャフトを握る手元。フォームを確認しているところ" loading="lazy" decoding="async">
-        </figure>
-        <h3>初心者歓迎</h3>
-        <p>運動経験がなくても大丈夫。フォームの作り方から、無理のないペース配分まで丁寧にお伝えします。</p>
-      </article>
-
-      <article class="rcard rv">
-        <div class="rcard__hd">
-          <p class="rcard__no" aria-hidden="true"><span>0</span>3</p>
-          <p class="rcard__en">AMENITY</p>
-        </div>
-        <figure class="rcard__fig">
-          <img src="images/gym/gym_facility_3.webp" alt="ガラス張りのシャワーブースとたたんだタオル" loading="lazy" decoding="async">
-        </figure>
-        <h3>シャワー・ウェア無料</h3>
-        <p>お仕事帰りでも手ぶらで通えます。タオル・シャワーウェアはすべて無料でご用意しています。</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== LOAD / PLATE MATH ===== -->
-<section class="sec sec--dark dark" id="load" aria-labelledby="load-t">
-  <div class="wrap">
-    <div class="shead rv">
-      <div class="shead__row"><span class="shead__no">03</span><span class="shead__en">HOW WE LOAD</span></div>
-      <h2 id="load-t">重さは、足していくもの。</h2>
-      <p class="shead__note">最初から重いものを持つ必要はありません。バーだけの1セットから始めて、フォームが安定したぶんだけプレートを足していく。FORGEの負荷の決め方は、これだけです。</p>
-    </div>
-
-    <div class="plate rv" id="platefig">
-      <div>
-        <p class="plate__lead">「今日は何キロ持てたか」より、<b>「同じフォームで何回積めたか」</b>を見ています。数字が動かない日があっても、フォームが整えばそれは前進です。</p>
-        <ul class="plate__list">
-          <li><em>STEP 1</em><span>シャフトだけで動きを覚える。可動域と呼吸の確認から。</span></li>
-          <li><em>STEP 2</em><span>左右に同じプレートを1枚ずつ。ここで一度、フォームを止めて見直します。</span></li>
-          <li><em>STEP 3</em><span>安定して同じ回数がこなせたら、次の1枚。焦って飛ばしません。</span></li>
-        </ul>
-        <p class="note">図は一般的なバーベルの構成を表したイメージです。実際に扱う重さは、カウンセリングと当日の体調をもとにトレーナーが決めます。効果や進み方には個人差があります。</p>
-      </div>
-
-      <figure class="plate__fig">
-        <div class="svgscroll svgscroll--plate">
-        <svg viewBox="0 0 620 404" role="img" aria-label="バーベルの重さの足し方を表した図。シャフトのみで20キロ、左右にプレートを1枚ずつ足して40キロ、さらに1枚ずつ足して60キロ。">
-          <g class="pl-r1">
-            <text x="0" y="18" fill="#9E9E97" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="600" letter-spacing="3">STEP 1</text>
-            <text x="88" y="18" fill="#E8E7E2" font-family="Zen Kaku Gothic New, sans-serif" font-size="14.5" font-weight="700">シャフトのみ</text>
-            <rect x="30" y="74" width="440" height="9" fill="#7E7E76"/>
-            <rect x="176" y="67" width="8" height="23" fill="#5A5A54"/>
-            <rect x="316" y="67" width="8" height="23" fill="#5A5A54"/>
-            <text x="506" y="94" fill="#E8E7E2" font-family="Barlow Condensed, sans-serif" font-size="46" font-weight="700">20<tspan font-size="20" fill="#9E9E97">kg</tspan></text>
-          </g>
-          <g class="pl-r2">
-            <text x="0" y="142" fill="#9E9E97" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="600" letter-spacing="3">STEP 2</text>
-            <text x="88" y="142" fill="#E8E7E2" font-family="Zen Kaku Gothic New, sans-serif" font-size="14.5" font-weight="700">プレートを1枚ずつ</text>
-            <rect x="30" y="198" width="440" height="9" fill="#7E7E76"/>
-            <rect x="176" y="191" width="8" height="23" fill="#5A5A54"/>
-            <rect x="316" y="191" width="8" height="23" fill="#5A5A54"/>
-            <rect class="pl-plate" x="140" y="165" width="26" height="74" rx="3" fill="#262724" stroke="#C3F53C" stroke-width="2"/>
-            <rect class="pl-plate" x="334" y="165" width="26" height="74" rx="3" fill="#262724" stroke="#C3F53C" stroke-width="2"/>
-            <text x="506" y="218" fill="#E8E7E2" font-family="Barlow Condensed, sans-serif" font-size="46" font-weight="700">40<tspan font-size="20" fill="#9E9E97">kg</tspan></text>
-          </g>
-          <g class="pl-r3">
-            <text x="0" y="266" fill="#9E9E97" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="600" letter-spacing="3">STEP 3</text>
-            <text x="88" y="266" fill="#E8E7E2" font-family="Zen Kaku Gothic New, sans-serif" font-size="14.5" font-weight="700">さらに1枚ずつ</text>
-            <rect x="30" y="322" width="440" height="9" fill="#7E7E76"/>
-            <rect x="176" y="315" width="8" height="23" fill="#5A5A54"/>
-            <rect x="316" y="315" width="8" height="23" fill="#5A5A54"/>
-            <rect class="pl-plate" x="140" y="289" width="26" height="74" rx="3" fill="#262724" stroke="#C3F53C" stroke-width="2"/>
-            <rect class="pl-plate" x="334" y="289" width="26" height="74" rx="3" fill="#262724" stroke="#C3F53C" stroke-width="2"/>
-            <rect class="pl-plate" x="104" y="273" width="28" height="106" rx="3" fill="#1C1D1B" stroke="#C3F53C" stroke-width="3"/>
-            <rect class="pl-plate" x="368" y="273" width="28" height="106" rx="3" fill="#1C1D1B" stroke="#C3F53C" stroke-width="3"/>
-            <text x="506" y="342" fill="#C3F53C" font-family="Barlow Condensed, sans-serif" font-size="46" font-weight="700">60<tspan font-size="20" fill="#9E9E97">kg</tspan></text>
-          </g>
-          <line x1="0" y1="382" x2="620" y2="382" stroke="#3A3B37" stroke-width="1"/>
-          <text x="0" y="398" fill="#9E9E97" font-family="Zen Kaku Gothic New, sans-serif" font-size="12.5">同じフォームで回数がそろってから、次の1枚へ。</text>
+    <div class="trainers">
+      <article class="tcard rv">
+        <svg class="tcard__plate" viewBox="0 0 120 120" role="img" aria-label="HEADのイニシャルを刻んだプレート型のマーク">
+          <circle cx="60" cy="60" r="56" fill="#121211" stroke="#C3F53C" stroke-width="3"/>
+          <circle cx="60" cy="60" r="44" fill="none" stroke="#3A3B37" stroke-width="1"/>
+          <circle cx="60" cy="60" r="17" fill="#1C1D1B" stroke="#3A3B37" stroke-width="1"/>
+          <text x="60" y="52" text-anchor="middle" fill="#E8E7E2" font-family="Barlow Condensed, sans-serif" font-size="34" font-weight="700" letter-spacing="2">ST</text>
+          <text x="60" y="95" text-anchor="middle" fill="#C3F53C" font-family="Barlow Condensed, sans-serif" font-size="11.5" font-weight="600" letter-spacing="1.5">HEAD</text>
         </svg>
+        <h3 class="tcard__name">佐藤 healthy太郎</h3>
+        <p class="tcard__lic">NSCA認定パーソナルトレーナー</p>
+        <p>大手フィットネスクラブでの指導経験を経てFORGEを開業。「無理な追い込みより、続けられる負荷」がモットー。</p>
+        <ul class="tcard__tags"><li>ボディメイク</li><li>姿勢改善</li><li>初心者指導</li></ul>
+      </article>
+
+      <article class="tcard rv">
+        <svg class="tcard__plate" viewBox="0 0 120 120" role="img" aria-label="TRAINERのイニシャルを刻んだプレート型のマーク">
+          <circle cx="60" cy="60" r="56" fill="#121211" stroke="#C3F53C" stroke-width="3"/>
+          <circle cx="60" cy="60" r="44" fill="none" stroke="#3A3B37" stroke-width="1"/>
+          <circle cx="60" cy="60" r="17" fill="#1C1D1B" stroke="#3A3B37" stroke-width="1"/>
+          <text x="60" y="52" text-anchor="middle" fill="#E8E7E2" font-family="Barlow Condensed, sans-serif" font-size="34" font-weight="700" letter-spacing="2">TR</text>
+          <text x="60" y="95" text-anchor="middle" fill="#C3F53C" font-family="Barlow Condensed, sans-serif" font-size="11.5" font-weight="600" letter-spacing="1.5">TRAINER</text>
+        </svg>
+        <h3 class="tcard__name">田中 りな</h3>
+        <p class="tcard__lic">JATI認定トレーニング指導者</p>
+        <p>女性・シニア層の指導を得意とし、関節への負担が少ないメニュー作りに定評。産後のボディケア相談も対応しています。</p>
+        <ul class="tcard__tags"><li>女性・シニア</li><li>関節にやさしい設計</li><li>産後のケア相談</li></ul>
+      </article>
+
+      <article class="tcard rv">
+        <svg class="tcard__plate" viewBox="0 0 120 120" role="img" aria-label="TRAINERのイニシャルを刻んだプレート型のマーク">
+          <circle cx="60" cy="60" r="56" fill="#121211" stroke="#C3F53C" stroke-width="3"/>
+          <circle cx="60" cy="60" r="44" fill="none" stroke="#3A3B37" stroke-width="1"/>
+          <circle cx="60" cy="60" r="17" fill="#1C1D1B" stroke="#3A3B37" stroke-width="1"/>
+          <text x="60" y="52" text-anchor="middle" fill="#E8E7E2" font-family="Barlow Condensed, sans-serif" font-size="34" font-weight="700" letter-spacing="2">YT</text>
+          <text x="60" y="95" text-anchor="middle" fill="#C3F53C" font-family="Barlow Condensed, sans-serif" font-size="11.5" font-weight="600" letter-spacing="1.5">TRAINER</text>
+        </svg>
+        <h3 class="tcard__name">山本 剛</h3>
+        <p class="tcard__lic">元実業団アスリート</p>
+        <p>競技経験を活かし、スポーツパフォーマンス向上を目的とした指導が専門。学生アスリートの指導実績も豊富です。</p>
+        <ul class="tcard__tags"><li>競技パフォーマンス</li><li>学生アスリート</li><li>フリーウェイト</li></ul>
+      </article>
+    </div>
+
+    <div class="motto rv">
+      <p class="motto__q">無理な追い込みより、<br><b>続けられる負荷。</b></p>
+      <p>3名に共通しているのはこの一行です。フォームが崩れた時点でセットを止めますし、体調が悪い日はメニューを軽くします。今日いちばん重い数字を出すことより、来週も来ていただけることを優先します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FACILITY ===== -->
+<section class="sec sec--paper" id="facility" aria-labelledby="facility-t">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">02</span><span class="shead__en">FACILITY</span></div>
+      <h2 id="facility-t">設備</h2>
+      <p class="shead__note">完全予約制なので、この空間を1組で使っていただきます。シャワー・ウェア・タオルはすべて無料です。</p>
+    </div>
+
+    <div class="fgrid rv">
+      <figure class="fcard">
+        <img src="images/gym/gym_facility_1.webp" alt="FORGEの受付カウンターとエントランス" loading="lazy" decoding="async">
+        <figcaption><b>受付</b><span>ENTRANCE</span></figcaption>
+      </figure>
+      <figure class="fcard">
+        <img src="images/gym/gym_facility_2.webp" alt="ミラーとラックが並ぶトレーニングフロア全景" loading="lazy" decoding="async">
+        <figcaption><b>トレーニングフロア</b><span>FLOOR</span></figcaption>
+      </figure>
+      <figure class="fcard">
+        <img src="images/gym/gym_training_1.webp" alt="重さ順に並んだダンベルラック" loading="lazy" decoding="async">
+        <figcaption><b>フリーウェイト</b><span>FREE WEIGHT</span></figcaption>
+      </figure>
+      <figure class="fcard">
+        <img src="images/gym/gym_facility_3.webp" alt="ガラス張りのシャワーブースとたたんだタオル" loading="lazy" decoding="async">
+        <figcaption><b>シャワールーム</b><span>SHOWER</span></figcaption>
+      </figure>
+      <figure class="fcard">
+        <img src="images/gym/gym_facility_4.webp" alt="ベンチとタオルが置かれた更衣スペース" loading="lazy" decoding="async">
+        <figcaption><b>更衣スペース</b><span>LOCKER</span></figcaption>
+      </figure>
+      <figure class="fcard">
+        <img src="images/gym/gym_misc_3.webp" alt="ソファとテーブルを置いたラウンジスペース" loading="lazy" decoding="async">
+        <figcaption><b>ラウンジ</b><span>LOUNGE</span></figcaption>
+      </figure>
+    </div>
+
+    <ul class="fspec rv">
+      <li><em>01</em><span>シャワールーム・アメニティ（無料）</span></li>
+      <li><em>02</em><span>トレーニングウェア・タオル貸出（無料）</span></li>
+      <li><em>03</em><span>更衣スペース</span></li>
+      <li><em>04</em><span>ラウンジ（カウンセリング・食事相談）</span></li>
+      <li><em>05</em><span>バーベル・ダンベル・ケトルベル</span></li>
+      <li><em>06</em><span>トレーニングバンド・マット</span></li>
+    </ul>
+    <p class="note rv">手ぶらでお越しいただけます。お持ちいただくものは特にありません。</p>
+  </div>
+</section>
+
+<!-- ===== ACCESS ===== -->
+<section class="sec sec--dark2 dark" id="access" aria-labelledby="access-t">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">03</span><span class="shead__en">ACCESS</span></div>
+      <h2 id="access-t">アクセス・営業時間</h2>
+    </div>
+
+    <div class="access rv">
+      <div>
+        <dl class="info">
+          <div><dt>店舗名</dt><dd>FORGE（フォージ）</dd></div>
+          <div><dt>所在地</dt><dd>〒810-0001<br>福岡県福岡市中央区天神4丁目2-10 天神フォージビル3F</dd></div>
+          <div><dt>営業時間</dt><dd>平日 7:00〜22:00<br>土日 9:00〜20:00</dd></div>
+          <div><dt>定休日</dt><dd>水曜日</dd></div>
+          <div><dt>予約方法</dt><dd>完全予約制（下記フォームより）</dd></div>
+        </dl>
+        <figure class="exfig">
+          <img src="images/gym/gym_misc_2.webp" alt="夜のビル1階にあるFORGEの入口外観" loading="lazy" decoding="async">
+          <figcaption>ENTRANCE / TENJIN 4-2-10</figcaption>
+        </figure>
+      </div>
+
+      <figure class="mapfig">
+        <div class="svgscroll svgscroll--map">
+        <svg viewBox="0 0 620 400" role="img" aria-label="FORGEの位置を示した簡略図。天神4丁目の区画にビルがあり、3階が店舗です。">
+        <rect x="0" y="0" width="620" height="400" fill="#141513"/>
+        <g stroke="#2C2D29" stroke-width="26" stroke-linecap="square">
+          <line x1="-10" y1="118" x2="630" y2="118"/>
+          <line x1="-10" y1="300" x2="630" y2="300"/>
+          <line x1="176" y1="-10" x2="176" y2="410"/>
+          <line x1="440" y1="-10" x2="440" y2="410"/>
+        </g>
+        <g fill="#20211E" stroke="#33342E" stroke-width="1">
+          <rect x="30" y="146" width="118" height="126"/>
+          <rect x="206" y="146" width="200" height="126"/>
+          <rect x="470" y="146" width="120" height="126"/>
+          <rect x="30" y="16" width="118" height="76"/>
+          <rect x="206" y="16" width="200" height="76"/>
+          <rect x="470" y="16" width="120" height="76"/>
+          <rect x="30" y="328" width="118" height="60"/>
+          <rect x="206" y="328" width="200" height="60"/>
+          <rect x="470" y="328" width="120" height="60"/>
+        </g>
+        <rect x="262" y="172" width="114" height="76" fill="#121211" stroke="#C3F53C" stroke-width="3"/>
+        <text x="319" y="205" text-anchor="middle" fill="#C3F53C" font-family="Barlow Condensed, sans-serif" font-size="23" font-weight="700" letter-spacing="2">FORGE</text>
+        <text x="319" y="231" text-anchor="middle" fill="#E8E7E2" font-family="Zen Kaku Gothic New, sans-serif" font-size="13" font-weight="700">3F</text>
+        <path d="M319 150 L309 130 L329 130 Z" fill="#C3F53C"/>
+        <circle cx="319" cy="122" r="11" fill="#C3F53C"/>
+        <circle cx="319" cy="122" r="4" fill="#121211"/>
+        <text x="14" y="112" fill="#9E9E97" font-family="Zen Kaku Gothic New, sans-serif" font-size="17">天神4丁目</text>
+        <text x="466" y="292" fill="#9E9E97" font-family="Barlow Condensed, sans-serif" font-size="16" letter-spacing="2">TENJIN 4-2-10</text>
+      </svg>
         </div>
-        <p class="svgscroll__hint">※図は横にスクロールできます。</p>
+        <figcaption>上図は位置関係をわかりやすくした簡略図です。実際の道路・建物の形状とは異なります。正確な位置は地図アプリで「福岡市中央区天神4丁目2-10」をご確認ください。</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<div class="band">
-  <img src="images/gym/gym_training_5.webp" alt="ケトルベルとトレーニングバンドを並べた床面" loading="lazy" decoding="async">
-  <img src="images/gym/gym_facility_1.webp" alt="FORGEの受付カウンターとエントランス" loading="lazy" decoding="async">
-</div>
-
-<!-- ===== PRICE DIGEST ===== -->
-<section class="sec sec--paper" id="price" aria-labelledby="price-t">
+<!-- ===== TRIAL ===== -->
+<section class="sec sec--paper" id="trial" aria-labelledby="trial-t">
   <div class="wrap">
     <div class="shead rv">
-      <div class="shead__row"><span class="shead__no">04</span><span class="shead__en">PRICE / DIGEST</span></div>
-      <h2 id="price-t">料金の目安</h2>
-      <p class="shead__note">3つのプランをご用意しています。ここでは金額だけ。回数・セッション時間・食事アドバイスの有無まで並べた比較表は、SET 02にあります。</p>
+      <div class="shead__row"><span class="shead__no">04</span><span class="shead__en">TRIAL / CONTACT</span></div>
+      <h2 id="trial-t">体験セッションのお申し込み</h2>
+      <p class="shead__note">完全予約制のため、事前のご予約をお願いしています。ご希望の曜日・時間帯をお知らせください。折り返しご連絡します。</p>
     </div>
 
-    <div class="pdig rv">
-      <article class="pdig__i">
-        <span class="pdig__en">PLAN A</span>
-        <h3 class="pdig__n">体験セッション</h3>
-        <p class="pdig__y">¥5,000</p>
-        <p class="pdig__u">／回</p>
-        <p class="pdig__d">カウンセリング込み60分。まず試してみたい方へ。</p>
-      </article>
-      <article class="pdig__i">
-        <span class="pdig__en">PLAN B</span>
-        <h3 class="pdig__n">スタンダード</h3>
-        <p class="pdig__y">¥28,000</p>
-        <p class="pdig__u">／月4回（週1回）</p>
-        <p class="pdig__d">無理なく継続したい方の標準プラン。食事アドバイス付き。</p>
-      </article>
-      <article class="pdig__i">
-        <span class="pdig__en">PLAN C</span>
-        <h3 class="pdig__n">プレミアム</h3>
-        <p class="pdig__y">¥52,000</p>
-        <p class="pdig__u">／月8回（週2回）</p>
-        <p class="pdig__d">週2回でしっかり取り組みたい方へ。LINE相談付き。</p>
-      </article>
-    </div>
+    <div class="trial rv">
+      <div class="trial__aside">
+        <h3>当日の流れ</h3>
+        <p>体験セッションは60分です。着替えとシャワーの時間を含めて、90分ほど見ておいていただくと余裕があります。</p>
+        <ol class="trial__flow">
+          <li><em>1</em><span>カウンセリング（目的・運動歴・体調の確認）</span></li>
+          <li><em>2</em><span>体組成測定</span></li>
+          <li><em>3</em><span>トレーニング体験</span></li>
+          <li><em>4</em><span>プランのご案内（その場でのご契約は不要です）</span></li>
+        </ol>
+        <p class="note">体調・既往症によっては内容を調整、またはご案内を控える場合があります。トレーニングの効果や感じ方には個人差があります。</p>
+      </div>
 
-    <div class="pdig__foot rv">
-      <p class="note" style="border:0;margin:0;padding:0">表示は税抜価格です。入会金・初期費用はいただいておりません。プラン変更はいつでも可能です。</p>
-      <a class="pdig__link" href="gym-standard-detail.html#price" data-set="02"><span>3プランを表で比べる</span><em>SET 02</em></a>
+      <div>
+        <form class="form" id="trialform" action="#" method="post" novalidate>
+          <div class="f-row">
+            <label for="f-name">お名前<span class="f-req">必須</span></label>
+            <input type="text" id="f-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="f-two">
+            <div class="f-row">
+              <label for="f-mail">メールアドレス<span class="f-req">必須</span></label>
+              <input type="email" id="f-mail" name="email" autocomplete="email" required>
+            </div>
+            <div class="f-row">
+              <label for="f-tel">電話番号<span class="f-opt">任意</span></label>
+              <input type="tel" id="f-tel" name="tel" autocomplete="tel">
+            </div>
+          </div>
+          <div class="f-two">
+            <div class="f-row">
+              <label for="f-plan">ご興味のあるプラン<span class="f-opt">任意</span></label>
+              <select id="f-plan" name="plan">
+                <option value="">選択してください</option>
+                <option>体験セッション</option>
+                <option>スタンダード（月4回）</option>
+                <option>プレミアム（月8回）</option>
+                <option>まだ決めていない</option>
+              </select>
+            </div>
+            <div class="f-row">
+              <label for="f-day">ご希望の曜日・時間帯<span class="f-opt">任意</span></label>
+              <input type="text" id="f-day" name="day" placeholder="例：平日の19時以降">
+            </div>
+          </div>
+          <div class="f-row">
+            <label for="f-msg">ご相談内容<span class="f-opt">任意</span></label>
+            <textarea id="f-msg" name="message" placeholder="運動経験や、気になっていることがあればお書きください。"></textarea>
+          </div>
+          <p class="f-err" id="f-err" role="alert" hidden>お名前とメールアドレスをご入力ください。</p>
+          <div>
+            <button class="btn btn--solid" type="submit"><span>この内容で申し込む</span><em>SEND</em></button>
+          </div>
+          <p class="f-note">このページはRESCが制作したサンプルです。実際の送信は行われず、入力内容はどこにも保存されません。パスワードやカード番号などの情報は入力しないでください。</p>
+        </form>
+
+        <div class="f-done" id="f-done" role="status" hidden>
+          <span class="f-done__k">SAMPLE</span>
+          <b>送信の完了イメージです。</b>
+          <p>実際のサイトでは、この位置に「お申し込みを受け付けました」という完了メッセージが表示され、入力内容が店舗へ届きます。このサンプルサイトでは送信は行われません。</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -657,22 +726,22 @@ h1{display:block;margin:0}
 <section class="nextset" aria-labelledby="next-t">
     <div class="nextset__in">
       <div class="nextset__txt">
-        <p class="nextset__k">NEXT SET</p>
-        <span class="nextset__n" aria-hidden="true">02</span>
-        <h2 id="next-t">重さを上げる。<br>中身を数字で見る。<span class="phero__en" style="margin-top:8px">PROGRAM &amp; PRICE</span></h2>
-        <p>12週間をどう進むのか、1回60分に何をするのか、プランの違いはどこか。SET 02では、言葉ではなく構成と表でお見せします。</p>
-        <a class="nextset__go" href="gym-standard-detail.html" data-set="02"><span>SET 02 に進む</span><em>&gt;&gt;</em></a>
+        <p class="nextset__k">BACK TO SET</p>
+        <span class="nextset__n" aria-hidden="true">01</span>
+        <h2 id="next-t">もう一度、<br>1セット目から。<span class="phero__en" style="margin-top:8px">BACK TO START</span></h2>
+        <p>全体像をもう一度見直したいときは、SET 01へ。料金やプログラムの詳細はSET 02にまとまっています。</p>
+        <a class="nextset__go" href="gym-standard.html" data-set="01"><span>SET 01に戻る</span><em>&gt;&gt;</em></a>
       </div>
       <figure class="nextset__fig">
-        <img src="images/gym/gym_training_2.webp" alt="床に置かれたバーベルとプレート" loading="lazy" decoding="async">
+        <img src="images/gym/gym_hero.webp" alt="FORGEのトレーニングフロア。窓際に並んだダンベルラック" loading="lazy" decoding="async">
       </figure>
     </div>
 </section>
 
 <section class="cta" aria-labelledby="cta-t">
   <div class="wrap">
-    <h2 id="cta-t"><span class="cta__en">CONTACT</span>まずは体験セッションから。</h2>
-    <p>完全予約制のため、事前のご予約をお願いしています。ご希望の曜日・時間帯をお知らせください。</p>
+    <h2 id="cta-t"><span class="cta__en">CONTACT</span>ご予約・ご相談はこちらから。</h2>
+    <p>完全予約制のため、事前のご連絡をお願いしています。上のフォーム、またはメールでお気軽にどうぞ。</p>
     <div class="cta__btns">
       <a class="btn btn--solid" href="gym-standard-info.html#trial" data-set="03"><span>体験セッションを申し込む</span><em>FORM</em></a>
       <a class="btn btn--ghost" href="mailto:info@example.com"><span>メールで問い合わせる</span><em>MAIL</em></a>
@@ -733,7 +802,7 @@ h1{display:block;margin:0}
   "use strict";
   var html = document.documentElement;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var CUR = 1;
+  var CUR = 3;
 
   /* ---------- reveal: sweep-based so big scroll jumps never lose content ---------- */
   var targets = Array.prototype.slice.call(document.querySelectorAll('.rv, .fx'));
@@ -829,6 +898,30 @@ h1{display:block;margin:0}
       t.focus({preventScroll:true});
     });
   });
+
+  /* ---------- trial form (no real submission) ---------- */
+  var form = document.getElementById('trialform');
+  var done = document.getElementById('f-done');
+  var err  = document.getElementById('f-err');
+  if (form) {
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var name = document.getElementById('f-name');
+      var mail = document.getElementById('f-mail');
+      var ok = name.value.trim() !== '' && mail.value.trim() !== '';
+      if (!ok) {
+        err.hidden = false;
+        (name.value.trim() === '' ? name : mail).focus();
+        return;
+      }
+      err.hidden = true;
+      form.hidden = true;
+      done.hidden = false;
+      done.setAttribute('tabindex','-1');
+      done.focus({preventScroll:true});
+      done.scrollIntoView({behavior:'auto', block:'center'});
+    });
+  }
 
 })();
 </script>

@@ -2,617 +2,854 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>株式会社NextGrid｜IT・オフィス</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社NextGrid｜IT・オフィス（LAYER 01 概要）</title>
+<meta name="description" content="株式会社NextGridは福岡のITパートナーです。業務システムの新規開発、Webサイト・Webアプリの制作、既存システムの改善から、リリース後の運用・保守まで伴走します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy-deep: #0F1B2E;
-    --slate-blue: #2D4059;
-    --base-light: #F7F9FC;
-    --white: #FFFFFF;
-    --text-dark: #1A2B42;
-    --text-muted: #5A6B80;
-    --accent: #00D4FF;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans JP', sans-serif; background: var(--base-light); color: var(--text-dark); line-height: 1.8; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  .notice {
-    background: var(--navy-deep); color: #fff; text-align: center;
-    font-size: 12.5px; padding: 8px 16px;
-  }
-  .notice a { color: #fff; text-decoration: underline; }
+/* ==========================================================
+   株式会社NextGrid — STANDARD / 3層構造（LAYER 01-03）
+   白＋墨＋電光ブルー／幾何サンセリフ／ノードと線
+   ========================================================== */
+:root{
+  --paper:#FFFFFF;
+  --paper-2:#F5F7FA;
+  --paper-3:#EEF2F7;
+  --tint:#EDF3FF;
+  --ink:#0D1218;
+  --ink-2:#39434F;
+  --ink-3:#5B6673;
+  --line:#DDE4EC;
+  --line-2:#C3CCD8;
+  --acc:#0B57E0;
+  --acc-soft:rgba(11,87,224,.14);
+  --acc-lite:#7FA9F5;
+  --maxw:1280px;
+  --gut:clamp(20px,4.2vw,64px);
+  --r:3px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x:clip}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Noto Sans CJK JP","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+  font-weight:500;line-height:1.9;letter-spacing:.015em;
+  font-feature-settings:"palt" 1;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4,p,dl,dd,figure,ul,ol,fieldset{margin:0}
+ul,ol{padding:0;list-style:none}
+fieldset{border:0;padding:0;min-width:0}
+button{font:inherit;color:inherit;background:none;border:0;padding:0}
+:focus-visible{outline:2.5px solid var(--acc);outline-offset:3px}
+.mono{font-family:"IBM Plex Mono","DejaVu Sans Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:500;letter-spacing:.1em;font-feature-settings:normal}
+.lat{font-family:"Space Grotesk","Zen Kaku Gothic New",system-ui,sans-serif;letter-spacing:-.01em}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:-9999px;top:0;z-index:210}
+.skip:focus{left:8px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;z-index:210}
 
-  /* ---- Nav（retail-standard.html のナビ実装を移植し、techの配色に変更） ---- */
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(15,27,46,.95); backdrop-filter: blur(6px);
-    height: 64px;
-  }
-  .nav-in {
-    max-width: 900px; margin: 0 auto; height: 100%;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 24px;
-  }
-  .logo { font-family: 'Inter', 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: .02em; color: #fff; cursor: pointer; }
-  .logo span { color: var(--accent); }
-  .nav-links { display: flex; align-items: center; gap: 26px; }
-  .nav-links a { color: rgba(255,255,255,.85); font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a.nav-cta { background: var(--accent); color: var(--navy-deep); padding: 9px 18px; border-radius: 4px; }
-  .nav-toggle {
-    display: none;
-    width: 44px; height: 44px;
-    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-    background: transparent; border: none; cursor: pointer;
-  }
-  .nav-toggle-bar { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+/* ---------- 告知バー ---------- */
+.notice{background:var(--ink);color:#fff}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:center;justify-content:space-between;padding-block:9px}
+.notice p{font-size:11.5px;line-height:1.6;letter-spacing:.06em}
+.notice a{font-size:11.5px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:1px;white-space:nowrap}
+.notice a:hover{border-bottom-color:#fff}
 
-  .hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; }
-  .hero-video, .hero-video-fallback { width: 100%; height: 100%; object-fit: cover; }
-  .hero-video-fallback { display: none; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.18); }
-  .hero-text { display: none; }
-  .hero-text .label { font-size: 12px; letter-spacing: 3px; opacity: 0.9; margin-bottom: 14px; }
-  .hero-text h1 {
-    font-family: 'Inter', 'Noto Sans JP', sans-serif; font-size: clamp(24px, 4vw, 38px); font-weight: 700; margin-bottom: 16px;
-    animation: hero-fade-in 0.9s ease-out both;
-  }
-  .hero-text p { font-size: 14px; max-width: 480px; animation: hero-fade-in 0.9s ease-out both; animation-delay: 0.3s; }
-  @keyframes hero-fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-video { display: none; }
-    .hero-video-fallback { display: block; }
-    .hero-text h1, .hero-text p { animation: none; }
-  }
-  section { max-width: 900px; margin: 0 auto; padding: 70px 24px; }
-  .section-title { font-family: 'Inter', 'Noto Sans JP', sans-serif; font-size: 26px; font-weight: 700; color: var(--navy-deep); margin-bottom: 24px; text-align: center; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  .about-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; box-shadow: 0 16px 36px rgba(15,27,46,0.15); }
-  .about-content { text-align: left; }
-  .about-content .section-title { text-align: left; }
-  .about p { font-size: 14.5px; color: var(--text-dark); margin-bottom: 14px; }
-  .about p:last-child { margin-bottom: 0; }
-  @media (max-width: 700px) {
-    .about-grid { grid-template-columns: 1fr; gap: 28px; }
-    .about-content, .about-content .section-title { text-align: center; }
-  }
+/* ---------- ヘッダー ---------- */
+.hd{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;gap:clamp(10px,2vw,24px);min-height:64px;padding-block:8px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.brand svg{display:block;flex:none}
+.brand b{font-size:16.5px;font-weight:700;letter-spacing:.01em;display:block}
+.brand span span{display:block;font-size:9.5px;color:var(--ink-3);letter-spacing:.18em;line-height:1.3;margin-top:-2px}
+.lnav{display:flex;align-items:stretch;gap:4px}
+.lnav a{display:flex;flex-direction:column;justify-content:center;gap:1px;text-decoration:none;color:var(--ink-2);padding:6px 11px;border:1px solid transparent;border-radius:var(--r);transition:background .25s,color .25s,border-color .25s;line-height:1.35}
+.lnav .lv{font-size:9.5px;color:var(--ink-3);letter-spacing:.1em;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.lnav .lt{font-size:11.5px;white-space:nowrap}
+.lnav a:hover{background:var(--paper-2);color:var(--acc)}
+.lnav a:hover .lv{color:var(--acc)}
+.lnav a[aria-current="page"]{background:var(--tint);border-color:var(--line-2);color:var(--acc)}
+.lnav a[aria-current="page"] .lv{color:var(--acc)}
+.hd-cta{font-size:11.5px;text-decoration:none;border:1px solid var(--ink);padding:8px 15px;border-radius:var(--r);white-space:nowrap;transition:background .25s,color .25s;flex:none}
+.hd-cta:hover{background:var(--ink);color:#fff}
 
-  /* ---- about抜粋（page-top） ---- */
-  .about-excerpt p { font-size: 14.5px; color: var(--text-dark); margin-bottom: 22px; }
-  .about-excerpt .more-link {
-    display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent);
-    border-bottom: 1px solid var(--accent); padding-bottom: 2px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit;
-  }
+/* ---------- ボタン ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:13px;padding:13px 22px;border-radius:var(--r);border:1px solid var(--ink);transition:background .25s,color .25s,border-color .25s;cursor:pointer}
+.btn--fill{background:var(--ink);color:#fff}
+.btn--fill:hover{background:var(--acc);border-color:var(--acc)}
+.btn--line:hover{background:var(--paper-3)}
+.btn i{font-style:normal;font-size:10px;letter-spacing:.12em;opacity:.7}
 
-  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .menu-card {
-    display: flex; flex-direction: column; text-align: center;
-    background: #fff; border: 1px solid var(--accent); border-radius: 12px; padding: 18px 18px 22px;
-  }
-  .menu-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
-  .menu-card .menu-name { margin-top: 14px; font-size: 15px; font-weight: 700; color: var(--navy-deep); }
-  .menu-card .menu-copy { margin-top: 8px; font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.6; flex: 1; }
-  .menu-card .menu-price { margin-top: 16px; font-size: 15px; font-weight: 700; color: var(--slate-blue); }
-  @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .menu-grid { grid-template-columns: 1fr; } }
-  .gallery-marquee { overflow: hidden; }
-  .gallery-track { display: flex; width: max-content; animation: gallery-scroll 36s linear infinite; }
-  .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
-  .gallery-item { flex: 0 0 auto; width: 320px; aspect-ratio: 16 / 9; border-radius: 6px; margin-right: 16px; overflow: hidden; }
-  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-  .gallery-item:hover img { transform: scale(1.05); }
-  @keyframes gallery-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gallery-track { animation: none; }
-    .gallery-marquee { overflow-x: auto; }
-  }
-  .contact { background: var(--base-light); color: var(--navy-deep); text-align: center; }
-  .contact .section-title { color: var(--navy-deep); }
-  .contact-box {
-    width: fit-content; margin: 0 auto 24px; padding: 26px 42px;
-    background: #fff; border: 1px solid var(--accent); border-radius: 12px;
-  }
-  .contact p { font-size: 14px; margin-bottom: 8px; color: var(--navy-deep); }
-  .contact p:last-of-type { margin-bottom: 0; }
-  .contact .btn {
-    display: inline-block; margin-top: 24px; background: var(--accent); color: var(--navy-deep);
-    border: 1px solid var(--accent); padding: 12px 34px; border-radius: 999px;
-    font-weight: 700; font-size: 13.5px; transition: background 0.25s ease, color 0.25s ease;
-  }
-  .contact .btn:hover { background: var(--navy-deep); color: var(--accent); }
-  footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); background: var(--base-light); }
+/* ---------- レイヤー・マストヘッド ---------- */
+.mast{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--paper)}
+.mast--l2{background:var(--paper-2)}
+.mast--l3{background:var(--paper-3)}
+.mast-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.mast-bg .mb-l{fill:none;stroke:var(--line);stroke-width:1}
+.mast-bg .mb-a{stroke:var(--line-2)}
+.mast-bg .mb-d{fill:var(--acc);opacity:.5}
+.mast .wrap{position:relative;padding-block:clamp(46px,7vw,86px) clamp(38px,5.4vw,66px)}
+.mast-head{display:flex;align-items:flex-start;justify-content:space-between;gap:clamp(18px,3vw,40px);flex-wrap:wrap}
+.mast-main{flex:1 1 420px;min-width:0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;color:var(--ink-3);margin-bottom:clamp(16px,2.4vw,26px)}
+.eyebrow i{display:block;width:26px;height:1px;background:var(--line-2);font-style:normal}
+.eyebrow b{color:var(--acc);font-weight:500}
+h1{font-weight:700;line-height:1.16;letter-spacing:-.005em;font-size:clamp(27px,5.2vw,54px);max-width:17em}
+h1 .h1-jp{display:block;font-size:.4em;font-weight:700;letter-spacing:.1em;color:var(--ink-3);line-height:1.5;margin-bottom:.55em}
+h1 .h1-en{display:block;font-family:"Space Grotesk","Zen Kaku Gothic New",system-ui,sans-serif;font-weight:700}
+.mast-catch{margin-top:clamp(18px,2.6vw,30px);font-size:clamp(14.5px,1.5vw,19px);font-weight:700;line-height:1.85;max-width:32em}
+.mast-catch br{display:inline}
+.mast-catch::before{content:"";display:block;width:44px;height:2px;background:var(--acc);margin-bottom:18px}
+.mast-lead{margin-top:16px;font-size:13.5px;line-height:2.05;color:var(--ink-2);max-width:38em}
+.mast-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(24px,3.4vw,38px)}
+.mast-meta{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:clamp(26px,4vw,44px);font-size:10.5px;color:var(--ink-3)}
+.mast-meta span{display:inline-flex;gap:9px;align-items:center}
+.mast-meta span::before{content:"";width:5px;height:5px;background:var(--acc);flex:none}
 
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
-  .menu-grid .menu-card:nth-child(3n+1) { transition-delay: 0s; }
-  .menu-grid .menu-card:nth-child(3n+2) { transition-delay: 0.1s; }
-  .menu-grid .menu-card:nth-child(3n+3) { transition-delay: 0.2s; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
+/* レイヤー・インジケータ */
+.lind{flex:0 0 auto;border:1px solid var(--line);background:rgba(255,255,255,.72);border-radius:var(--r);padding:14px 16px 12px;display:flex;gap:14px;align-items:center}
+.lind svg{display:block;flex:none;width:74px;height:58px}
+.lind .mp{fill:#fff;stroke:var(--line-2);stroke-width:1.4}
+.lind .mp.is-on{fill:var(--tint);stroke:var(--acc);stroke-width:2}
+.lind-tx b{display:block;font-size:11px;color:var(--acc);letter-spacing:.14em;font-family:"IBM Plex Mono",ui-monospace,monospace}
+.lind-tx span{display:block;font-size:10.5px;color:var(--ink-3);line-height:1.7;margin-top:3px}
 
-  /* ---- LINE連携ボタン（cafe-light.html と同一実装） ---- */
-  .line-btn {
-    display: inline-block; background: #06C755; color: #fff; font-weight: 700; font-size: 14px;
-    border: none; padding: 14px 34px; border-radius: 4px; cursor: pointer; text-decoration: none;
-    line-height: 21px;
-  }
-  .line-note { font-size: 11.5px; color: rgba(255,255,255,.5); margin-top: 10px; margin-bottom: 18px; }
-  .contact .line-wrap { margin-top: 18px; }
+/* ---------- 写真バンド ---------- */
+.band{position:relative;overflow:hidden;background:var(--paper-3);border-bottom:1px solid var(--line)}
+.band img{width:100%;height:100%;object-fit:cover;object-position:50% 100%;aspect-ratio:1440/300}
+.band-cap{position:absolute;left:var(--gut);bottom:10px;font-size:10px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.7);letter-spacing:.12em}
 
-  /* ---- 地図プレースホルダー（page-access。色はtech-light.html内で既に使われている
-       var(--accent)のボーダー・var(--text-muted)の控えめテキストを再利用） ---- */
-  .map-placeholder {
-    background: #fff; border: 1px dashed var(--accent); border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    align-self: stretch; min-height: 300px;
-  }
-  .map-placeholder span { font-size: 11.5px; color: var(--text-muted); }
+/* ---------- セクション共通 ---------- */
+.sec{padding-block:clamp(58px,8vw,110px)}
+.sec--alt{background:var(--paper-2);border-block:1px solid var(--line)}
+.sec--deep{background:var(--paper-3);border-block:1px solid var(--line)}
+.shead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(24px,3.4vw,42px)}
+.shead .idx{font-size:10.5px;color:var(--acc)}
+.shead h2{font-size:clamp(20px,2.6vw,30px);font-weight:700;line-height:1.4;letter-spacing:.01em}
+.shead .en{font-size:10.5px;color:var(--ink-3);margin-left:auto}
+.rule{height:1px;background:var(--line);margin-bottom:clamp(24px,3.2vw,38px)}
+.lead{font-size:13.5px;color:var(--ink-2);line-height:2.1;max-width:46em}
 
-  /* ---- page-access 2カラムレイアウト（左:情報 / 右:地図・retail-standard.html を移植） ---- */
-  .contact-layout {
-    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: start;
-  }
-  @media (max-width: 800px) {
-    .contact-layout { grid-template-columns: 1fr; }
-  }
+/* ---------- 出現 ---------- */
+.js .rev{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.8,.3,1)}
+.js .rev.in{opacity:1;transform:none}
 
-  /* ---- Instagram（デモ表示・cafe-standard.html の insta-sec を移植） ---- */
-  .insta-note {
-    display: inline-block; font-size: 11.5px; color: var(--text-muted);
-    border: 1px dashed rgba(0,0,0,0.15); border-radius: 4px; padding: 6px 12px; margin-bottom: 24px;
-  }
-  .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .insta-item { aspect-ratio: 1/1; border-radius: 6px; width: 100%; height: auto; object-fit: cover; }
-  @media (max-width: 700px) { .insta-grid { grid-template-columns: repeat(2, 1fr); } }
+/* ---------- 層めくりナビ（下の層へ） ---------- */
+.dive{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.dive--1{grid-template-columns:minmax(0,1fr)}
+.dcard{display:block;text-decoration:none;border:1px solid var(--line-2);border-radius:var(--r);background:var(--paper);padding:clamp(20px,2.6vw,30px);position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
+.dcard::after{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.dcard:hover{border-color:var(--acc);box-shadow:0 6px 22px rgba(13,18,24,.07);transform:translateY(-2px)}
+.dcard:hover::after{transform:scaleX(1)}
+.dcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.dcard .dc-lv{font-size:10px;color:var(--acc);letter-spacing:.14em}
+.dcard svg{display:block;flex:none;width:60px;height:48px}
+.dcard .mp{fill:#fff;stroke:var(--line-2);stroke-width:1.4}
+.dcard .mp.is-on{fill:var(--tint);stroke:var(--acc);stroke-width:2}
+.dcard h3{margin-top:14px;font-size:clamp(16px,1.9vw,20px);font-weight:700;line-height:1.5}
+.dcard p{margin-top:9px;font-size:12.5px;color:var(--ink-3);line-height:1.95}
+.dcard .go{display:inline-flex;align-items:center;gap:9px;margin-top:16px;font-size:11px;color:var(--acc)}
 
-  /* ---- 各ページへの導線カード（page-top） ---- */
-  .link-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .link-card {
-    display: block; background: #fff; border: 1px solid var(--accent); border-radius: 12px;
-    padding: 26px 22px; cursor: pointer; text-align: left; font-family: inherit;
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(15,27,46,.12); }
-  .link-card .tag { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: .12em; margin-bottom: 10px; }
-  .link-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--navy-deep); }
-  .link-card p { font-size: 13px; color: var(--text-muted); }
-  .link-card .go { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 700; color: var(--accent); }
-  @media (max-width: 700px) { .link-grid { grid-template-columns: 1fr; } }
+/* ---------- フッター ---------- */
+.ft{background:var(--ink);color:#fff;padding-block:34px}
+.ft .wrap{display:flex;flex-wrap:wrap;gap:18px 30px;align-items:center;justify-content:space-between}
+.ft-brand{display:flex;align-items:center;gap:11px}
+.ft-brand b{font-size:14.5px;font-weight:700}
+.ft-nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+.ft-nav a{font-size:11px;color:rgba(255,255,255,.82);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+.ft-nav a:hover{color:#fff;border-bottom-color:var(--acc-lite)}
+.ft-nav a[aria-current="page"]{color:var(--acc-lite)}
+.ft small{font-size:10.5px;color:rgba(255,255,255,.6);letter-spacing:.08em}
+.ft :focus-visible{outline-color:var(--acc-lite)}
 
-  /* ---- ページ切り替え（cafe-standard.html のCSSパターンを移植） ---- */
-  #page-top { display: block; }
-  #page-menu, #page-about, #page-access { display: none; }
-  body[class*="-page"] #page-top { display: none; }
-  body.menu-page #page-menu { display: block; }
-  body.about-page #page-about { display: block; }
-  body.access-page #page-access { display: block; }
+/* ---------- デジタル・ディゾルブ（ページ遷移） ---------- */
+.dsv{position:fixed;inset:0;z-index:200;display:grid;pointer-events:none;
+  grid-template-columns:repeat(var(--cols,8),1fr);grid-template-rows:repeat(var(--rows,6),1fr)}
+.dsv i{display:block;background:var(--paper);box-shadow:inset -1px -1px 0 var(--line);
+  transition:opacity .34s ease var(--d,0ms),transform .34s cubic-bezier(.4,0,.2,1) var(--d,0ms)}
+.dsv i.k{background:var(--tint);box-shadow:inset -1px -1px 0 var(--line-2)}
+.dsv--in i{opacity:1;transform:none}
+.dsv--in.run i{opacity:0;transform:scale(.84)}
+.dsv--out i{opacity:0;transform:scale(1.16)}
+.dsv--out.run i{opacity:1;transform:none}
 
-  /* ---- レスポンシブ ---- */
-  @media (max-width: 860px) {
-    .nav-links { display: none; }
-    .nav-toggle { display: flex; }
-    .nav.open .nav-links {
-      display: flex; flex-direction: column; align-items: stretch; gap: 4px;
-      position: absolute; top: 64px; left: 0; right: 0;
-      background: var(--navy-deep); padding: 12px 24px 20px;
-    }
-    .nav.open .nav-links a { padding: .8em .2em; }
-    .nav.open .nav-links a.nav-cta { margin-top: 10px; text-align: center; }
-  }
+/* ---------- レスポンシブ（共通） ---------- */
+@media (max-width:1060px){
+  .lnav .lt{display:none}
+  .lnav a{padding:8px 10px;align-items:center}
+}
+@media (max-width:760px){
+  .band img{aspect-ratio:2.3/1;transform:scale(2);transform-origin:50% 100%}
+  .band-cap{bottom:8px}
+  .shead .en{margin-left:0;flex-basis:100%}
+  .dive{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  .hd-cta{display:none}
+  .brand b{font-size:15px}
+}
+@media (max-width:520px){
+  .btn{width:100%;justify-content:space-between}
+  .mast-acts{gap:10px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rev{opacity:1!important;transform:none!important}
+}
+
+/* ---------- ABOUT ---------- */
+.about-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3.2vw,52px)}
+.about-body p{font-size:14.5px;line-height:2.15;color:var(--ink-2)}
+.pull{margin-top:clamp(30px,4vw,50px);border-top:1px solid var(--ink);border-bottom:1px solid var(--line);padding-block:clamp(22px,3vw,34px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(16px,3vw,44px);align-items:center}
+.pull q{quotes:none;font-size:clamp(18px,2.4vw,27px);font-weight:700;line-height:1.62;letter-spacing:.01em;display:block}
+.pull q b{color:var(--acc);font-weight:700}
+.pull p{font-size:12.5px;color:var(--ink-3);line-height:2}
+
+/* ---------- 見取り図（アイソメ・レイヤースタック） ---------- */
+.iso{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(18px,3vw,48px);align-items:center}
+.iso-fig{margin:0;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);padding:clamp(8px,1.4vw,16px)}
+.iso-fig figcaption{display:flex;align-items:center;justify-content:space-between;gap:10px 14px;flex-wrap:wrap;font-size:10px;color:var(--ink-3);padding:4px 6px 12px}
+.iso-tg{font-size:10px;color:var(--ink-3);border:1px solid var(--line-2);border-radius:var(--r);padding:6px 12px;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s,color .2s}
+.iso-tg:hover{border-color:var(--acc);color:var(--acc)}
+.iso-tg[aria-pressed="true"]{background:var(--tint);border-color:var(--acc);color:var(--acc)}
+.iso-svg{display:block;width:100%;height:auto;overflow:visible}
+.pf{fill:var(--paper-3);stroke:var(--line-2);stroke-width:1.2}
+.pf--r{fill:var(--paper-2)}
+.ps{fill:#fff;stroke:var(--ink);stroke-width:1.7}
+.pg{fill:none;stroke:var(--line);stroke-width:1}
+.pw{fill:none;stroke:var(--acc);stroke-width:1.9;stroke-linejoin:round}
+.pn{fill:#fff;stroke:var(--acc);stroke-width:1.9}
+.pn--a{fill:var(--acc)}
+.pin{stroke:var(--line-2);stroke-width:1.2}
+.pinc{fill:var(--line-2)}
+.plead{fill:none;stroke:var(--line-2);stroke-width:1}
+.pcode{font-family:"IBM Plex Mono","DejaVu Sans Mono",ui-monospace,monospace;font-size:21px;font-weight:600;fill:var(--acc);letter-spacing:.04em}
+.pjp{font-size:16px;fill:var(--ink-3);font-weight:700}
+.pl{transform:translateY(calc((var(--i) - 1) * var(--sep,0) * 1px))}
+.iso-lg{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:10px;padding:0 6px;font-size:10px;color:var(--ink-3)}
+.iso-lg li{display:inline-flex;align-items:center;gap:8px}
+.iso-lg svg{display:block;flex:none}
+
+.lcards{display:flex;flex-direction:column;gap:11px}
+.lcards>p{font-size:11.5px;color:var(--ink-3);line-height:1.9}
+.lcard{display:block;text-decoration:none;border:1px solid var(--line);border-left:3px solid var(--line-2);border-radius:var(--r);background:var(--paper);padding:15px 18px;transition:border-color .45s ease,box-shadow .45s ease,transform .35s ease}
+.lcard:hover{border-color:var(--acc);border-left-color:var(--acc);transform:translateX(2px)}
+.lcard.on{border-left-color:var(--acc);box-shadow:0 2px 0 var(--acc-soft)}
+.lc-h{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap}
+.lc-code{font-size:10px;color:var(--ink-3);transition:color .45s ease}
+.lcard.on .lc-code{color:var(--acc)}
+.lcard h3{font-size:15.5px;font-weight:700;line-height:1.5}
+.lcard p{margin-top:7px;font-size:12.5px;color:var(--ink-3);line-height:1.95}
+.lcard .go{display:inline-flex;align-items:center;gap:8px;margin-top:11px;font-size:10.5px;color:var(--acc)}
+
+/* ---------- サービス一覧（概要） ---------- */
+.svl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.svl a{display:flex;flex-direction:column;background:var(--paper);padding:clamp(18px,2.2vw,26px);text-decoration:none;transition:background .25s ease}
+.svl a:hover{background:var(--tint)}
+.svl .sv-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.svl .sv-code{font-size:9.5px;color:var(--ink-3)}
+.svl a:hover .sv-code{color:var(--acc)}
+.g{width:40px;height:40px;flex:none}
+.g *{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.g .tn{fill:var(--tint);stroke:var(--line-2)}
+.g .fl{fill:var(--line-2);stroke:none}
+.g .ac{fill:var(--acc);stroke:none}
+.svl h3{margin-top:16px;font-size:15px;font-weight:700;line-height:1.55}
+.svl p{margin-top:8px;font-size:12.5px;color:var(--ink-3);line-height:1.95;flex:1}
+.svl .pr{margin-top:14px;display:flex;align-items:baseline;gap:10px;font-size:10px;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:11px}
+.svl .pr b{font-size:12.5px;color:var(--ink);font-weight:700}
+.svl-foot{margin-top:14px;font-size:11.5px;color:var(--ink-3)}
+
+/* ---------- 伴走 ---------- */
+.pt2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3.4vw,56px);align-items:center}
+.pt2 p{font-size:14px;line-height:2.15;color:var(--ink-2)}
+.pt2 p+p{margin-top:1.3em}
+.stair{border:1px solid var(--line);border-radius:var(--r);background:var(--paper);padding:clamp(16px,2.2vw,26px)}
+.stair figcaption{font-size:10px;color:var(--ink-3);margin-bottom:14px}
+.stair svg{display:block;width:100%;height:auto}
+.stair .sb{fill:var(--paper-3);stroke:var(--line-2);stroke-width:1.2}
+.stair .sb--a{fill:var(--tint);stroke:var(--acc);stroke-width:1.6}
+.stair .sl{fill:none;stroke:var(--acc);stroke-width:1.6;stroke-dasharray:5 4}
+.stair .sl-a{fill:none;stroke:var(--acc);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.stair .st{font-size:12px;fill:var(--ink-3);font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:.06em}
+.stair .st--a{fill:var(--acc)}
+.stair-note{margin-top:12px;font-size:11.5px;color:var(--ink-3);line-height:1.9}
+
+/* ---------- オフィス ---------- */
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,26px)}
+.gal figure{margin:0}
+.gal .fw{border:1px solid var(--line);background:var(--paper-3);overflow:hidden;border-radius:var(--r)}
+.gal img{width:100%;height:auto;aspect-ratio:1200/670;object-fit:cover}
+.gal figcaption{display:flex;gap:10px;align-items:baseline;margin-top:11px;font-size:11.5px;color:var(--ink-3);line-height:1.75}
+.gal figcaption b{font-size:9.5px;color:var(--acc);font-weight:500;flex:none}
+
+@media (max-width:940px){
+  .iso{grid-template-columns:minmax(0,1fr)}
+  .pt2{grid-template-columns:minmax(0,1fr)}
+  .svl{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .about-body{grid-template-columns:minmax(0,1fr)}
+  .pull{grid-template-columns:minmax(0,1fr)}
+  .gal{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .svl{grid-template-columns:minmax(0,1fr)}
+}
 </style>
+<script>document.documentElement.className+=" js";</script>
 </head>
-<body>
-
-<div class="notice">これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></div>
-
-<nav class="nav" id="nav">
-  <div class="nav-in">
-    <a class="logo" onclick="showPage('top')">株式会社<span>NextGrid</span></a>
-    <div class="nav-links">
-      <a onclick="showPage('top')">TOP</a>
-      <a onclick="showPage('menu')">メニュー・サービス</a>
-      <a onclick="showPage('about')">こだわり</a>
-      <a class="nav-cta" onclick="showPage('access')">アクセス・お問い合わせ</a>
-    </div>
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="メニュー" aria-expanded="false" onclick="toggleNav()">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
-  </div>
-</nav>
-
-<!-- ════ PAGE: TOP ════ -->
-<div id="page-top">
-
-  <div class="hero">
-    <video class="hero-video" id="hero-video" autoplay muted playsinline preload="metadata" poster="images/tech/tech_hero_last.webp">
-      <source src="images/tech/tech_hero.mp4" type="video/mp4">
-    </video>
-    <img class="hero-video-fallback" src="images/tech/tech_hero_last.webp" alt="株式会社NextGrid">
-    <div class="hero-text">
-      <div class="label">IT・オフィス</div>
-      <h1>株式会社NextGrid</h1>
-      <p>業務システムの開発から運用まで、伴走するITパートナー。</p>
-    </div>
-  </div>
-  <script>
-  (function () {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var v = document.getElementById('hero-video');
-      if (v) { v.pause(); v.removeAttribute('autoplay'); }
-    }
-  })();
-  </script>
-
-  <section class="about-excerpt">
-    <div class="section-title">こだわり</div>
-    <p>少人数精鋭のチームだからこそ、意思決定はスピーディーに、要件のすり合わせはきめ細かく。</p>
-    <a class="more-link" onclick="showPage('about')">こだわりをもっと見る →</a>
-  </section>
-
-  <section style="background:#fff;">
-    <div class="section-title">Instagram</div>
-    <div style="text-align:center;">
-      <span class="insta-note">Instagramの投稿がここに自動表示されます（デモ表示中）</span>
-    </div>
-    <div class="insta-grid">
-      <img class="insta-item" src="images/tech/tech_gallery1.webp" alt="オフィス風景1">
-      <img class="insta-item" src="images/tech/tech_gallery2.webp" alt="オフィス風景2">
-      <img class="insta-item" src="images/tech/tech_gallery3.webp" alt="オフィス風景3">
-      <img class="insta-item" src="images/tech/tech_gallery4.webp" alt="オフィス風景4">
-      <img class="insta-item" src="images/tech/tech_gallery5.webp" alt="オフィス風景5">
-      <img class="insta-item" src="images/tech/tech_gallery6.webp" alt="オフィス風景6">
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">詳しく見る</div>
-    <div class="link-grid">
-      <button class="link-card" onclick="showPage('menu')">
-        <div class="tag">Menu</div>
-        <h3>メニュー・サービス</h3>
-        <p>Webサイト制作からDXコンサルティングまでご紹介します。</p>
-        <span class="go">詳しく見る →</span>
-      </button>
-      <button class="link-card" onclick="showPage('about')">
-        <div class="tag">About</div>
-        <h3>こだわり・ギャラリー</h3>
-        <p>私たちのこだわりと、オフィスの様子をご覧いただけます。</p>
-        <span class="go">詳しく見る →</span>
-      </button>
-      <button class="link-card" onclick="showPage('access')">
-        <div class="tag">Access</div>
-        <h3>アクセス・お問い合わせ</h3>
-        <p>営業時間・所在地のご案内と、お問い合わせ先です。</p>
-        <span class="go">詳しく見る →</span>
-      </button>
-    </div>
-  </section>
-
-</div><!-- /page-top -->
-
-<!-- ════ PAGE: メニュー・サービス ════ -->
-<div id="page-menu">
-  <section style="background:#fff;">
-    <div class="section-title">メニュー・サービス</div>
-    <div class="menu-grid">
-      <div class="menu-card reveal">
-        <img src="images/tech/tech_menu_web.webp" alt="Webサイト制作">
-        <div class="menu-name">Webサイト制作</div>
-        <div class="menu-copy">会社の"顔"となる、伝わるWebサイトを。</div>
-        <div class="menu-price">要相談</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/tech/tech_menu_app.webp" alt="Webアプリ開発">
-        <div class="menu-name">Webアプリ開発</div>
-        <div class="menu-copy">業務にフィットする、使われ続けるアプリを。</div>
-        <div class="menu-price">要相談</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/tech/tech_menu_system.webp" alt="システム開発">
-        <div class="menu-name">システム開発</div>
-        <div class="menu-copy">自社の業務に合わせた、オーダーメイドの仕組みを。</div>
-        <div class="menu-price">要相談</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/tech/tech_menu_dx.webp" alt="DXコンサルティング">
-        <div class="menu-name">DXコンサルティング</div>
-        <div class="menu-copy">何から始めるか、から一緒に整理します。</div>
-        <div class="menu-price">要相談</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/tech/tech_menu_improve.webp" alt="業務システム改善">
-        <div class="menu-name">業務システム改善</div>
-        <div class="menu-copy">使いにくさの原因を見つけ、丁寧に直す。</div>
-        <div class="menu-price">要相談</div>
-      </div>
-      <div class="menu-card reveal">
-        <img src="images/tech/tech_menu_support.webp" alt="保守・運用サポート">
-        <div class="menu-name">保守・運用サポート</div>
-        <div class="menu-copy">リリース後も、安心して任せられる体制を。</div>
-        <div class="menu-price">要相談</div>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-menu -->
-
-<!-- ════ PAGE: こだわり ════ -->
-<div id="page-about">
-  <section class="about reveal">
-    <div class="about-grid">
-      <div class="about-photo">
-        <img src="images/tech/tech_gallery1.webp" alt="株式会社NextGridの開放的なオフィス全景">
-      </div>
-      <div class="about-content">
-        <div class="section-title">こだわり</div>
-        <p>少人数精鋭のチームだからこそ、意思決定はスピーディーに、要件のすり合わせはきめ細かく。無駄な工程を省き、本当に必要な機能に集中して開発を進めます。</p>
-        <p>業務システムの新規開発からWebサイト・Webアプリの制作、既存システムの改善まで、企業の"ちょうどいいIT"を一緒に形にしていきます。</p>
-        <p>納品して終わりにはしません。リリース後の運用・保守まで見据えたご提案と、長くお付き合いできる伴走型のサポート体制を大切にしています。</p>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#fff;">
-    <div class="section-title reveal">ギャラリー</div>
-    <div class="gallery-marquee">
-      <div class="gallery-track">
-        <div class="gallery-item"><img src="images/tech/tech_gallery1.webp" alt="オフィス風景1"></div>
-        <div class="gallery-item"><img src="images/tech/tech_gallery2.webp" alt="オフィス風景2"></div>
-        <div class="gallery-item"><img src="images/tech/tech_gallery3.webp" alt="オフィス風景3"></div>
-        <div class="gallery-item"><img src="images/tech/tech_gallery4.webp" alt="オフィス風景4"></div>
-        <div class="gallery-item"><img src="images/tech/tech_gallery5.webp" alt="オフィス風景5"></div>
-        <div class="gallery-item"><img src="images/tech/tech_gallery6.webp" alt="オフィス風景6"></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery1.webp" alt=""></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery2.webp" alt=""></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery3.webp" alt=""></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery4.webp" alt=""></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery5.webp" alt=""></div>
-        <div class="gallery-item" aria-hidden="true"><img src="images/tech/tech_gallery6.webp" alt=""></div>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-about -->
-
-<!-- ════ PAGE: アクセス・お問い合わせ ════ -->
-<div id="page-access">
-  <section class="contact reveal">
-    <div class="section-title">アクセス・お問い合わせ</div>
-    <div class="contact-layout">
-      <div class="contact-info">
-        <div class="contact-box">
-          <p>福岡県福岡市〇〇区〇〇8-6-2</p>
-          <p>営業時間:9:30〜18:30（土日祝休み）</p>
-        </div>
-        <a class="btn" href="mailto:info@example.com">お問い合わせ</a>
-        <div class="line-wrap">
-          <a class="line-btn" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる</a>
-          <p class="line-note">LINEでのお問い合わせも承っています。</p>
-        </div>
-      </div>
-      <div class="map-placeholder">
-        <span>地図がここに表示されます（デモ表示中）</span>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-access -->
-
-<footer class="reveal">株式会社NextGrid（RESC制作サンプル）</footer>
-
+<body id="top">
 <script>
-  /* ── ページ切り替え（retail-standard.html より移植） ── */
-  function showPage(page) {
-    closeNav(); closeMenu();
-    document.body.className = (page === 'top') ? '' : (page + '-page');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  /* ── ハンバーガーメニュー（retail-standard.html のナビ実装を移植） ── */
-  function toggleNav() {
-    var nav = document.getElementById('nav');
-    var isOpen = nav.classList.toggle('open');
-    document.getElementById('navToggle').setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  }
-  function closeNav() {
-    document.getElementById('nav').classList.remove('open');
-    document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
-  }
-  /* tech-standardにはメニューオーバーレイを実装していないため何もしない（showPageからの呼び出し用スタブ） */
-  function closeMenu() {}
-
-  /* ── .reveal スクロールフェードイン（tech-light.html より移植・無変更） ── */
-  (function () {
-    const targets = document.querySelectorAll('.reveal');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      targets.forEach(el => el.classList.add('is-visible'));
-      return;
+(function(){
+  try{
+    if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if(!document.body) return;
+    var vw = window.innerWidth || 1024, vh = window.innerHeight || 768;
+    var cols = Math.max(5, Math.min(15, Math.round(vw/104)));
+    var rows = Math.max(4, Math.min(13, Math.round(vh/104)));
+    var ov = document.createElement("div");
+    ov.className = "dsv dsv--in";
+    ov.setAttribute("aria-hidden","true");
+    ov.style.setProperty("--cols", cols);
+    ov.style.setProperty("--rows", rows);
+    var mc = cols>1?cols-1:1, mr = rows>1?rows-1:1, html = "";
+    for(var y=0;y<rows;y++){
+      for(var x=0;x<cols;x++){
+        var d = (1 - x/mc)*0.46 + (1 - y/mr)*0.54;
+        d = d*0.8 + Math.random()*0.2;
+        html += '<i class="' + (Math.random()<0.09?'k':'') + '" style="--d:' + Math.round(d*300) + 'ms"></i>';
+      }
     }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
+    ov.innerHTML = html;
+    document.body.appendChild(ov);
+    var killed = false;
+    function kill(){ if(killed) return; killed = true; if(ov.parentNode) ov.parentNode.removeChild(ov); }
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        ov.classList.add("run");
+        setTimeout(kill, 900);
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-    targets.forEach(el => observer.observe(el));
-  })();
-</script>
-
-<style>
-  /* ---- FAQ Chatbot(キーワードマッチ式。cafe.html 196-253行目のCSSを移植。
-       var(--primary)→var(--accent)、var(--primary-dark)→var(--navy-deep)、var(--bg)→var(--base-light) に置換(すべて tech-standard.html の :root に実在する変数)。
-       font-family は tech-standard.html で読み込まれていない 'Zen Kaku Gothic New' の代わりに、body と同じ 'Noto Sans JP' を使用) ---- */
-  .faq-chatbot-toggle {
-    position: fixed; bottom: 26px; right: 26px; z-index: 200;
-    width: 56px; height: 56px; border-radius: 50%;
-    background: var(--accent); border: 1px solid rgba(255,255,255,0.25);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; box-shadow: 0 10px 30px rgba(92,59,36,0.35);
-    transition: transform 0.15s ease;
+    });
+    setTimeout(kill, 2200);
+  }catch(e){
+    var n = document.querySelector(".dsv"); if(n && n.parentNode) n.parentNode.removeChild(n);
   }
-  .faq-chatbot-toggle:hover { transform: translateY(-2px); }
-  .faq-chatbot-toggle svg { width: 26px; height: 26px; }
-  .faq-chatbot-panel {
-    position: fixed; bottom: 94px; right: 26px; z-index: 200;
-    width: 340px; max-width: calc(100vw - 40px); max-height: 70vh;
-    background: #fff; border: 1px solid rgba(92,59,36,0.15); border-radius: 14px;
-    box-shadow: 0 24px 48px rgba(92,59,36,0.25);
-    display: flex; flex-direction: column; overflow: hidden;
-    font-family: 'Noto Sans JP', sans-serif;
-    opacity: 0; visibility: hidden; pointer-events: none;
-    transform: translateY(12px);
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
-  }
-  .faq-chatbot-panel.open {
-    opacity: 1; visibility: visible; pointer-events: auto;
-    transform: translateY(0);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  .faq-cb-header {
-    background: var(--navy-deep); color: #fff; padding: 14px 16px;
-    display: flex; align-items: center; justify-content: space-between; font-size: 13.5px; font-weight: 700;
-  }
-  .faq-cb-close { cursor: pointer; font-size: 18px; line-height: 1; opacity: 0.8; }
-  .faq-cb-close:hover { opacity: 1; }
-  .faq-cb-messages {
-    flex: 1; overflow-y: auto; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
-    max-height: 320px; background: var(--base-light);
-  }
-  .faq-cb-msg { font-size: 13px; line-height: 1.7; padding: 10px 13px; border-radius: 10px; max-width: 85%; white-space: pre-line; }
-  .faq-cb-msg.bot { background: #fff; color: #2B2420; align-self: flex-start; border: 1px solid rgba(92,59,36,0.12); }
-  .faq-cb-msg.user { background: var(--accent); color: #fff; align-self: flex-end; }
-  .faq-cb-msg a { color: var(--accent); }
-  .faq-cb-inputrow { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid rgba(92,59,36,0.12); background: #fff; }
-  .faq-cb-inputrow input {
-    flex: 1; min-width: 0; border: 1px solid rgba(92,59,36,0.2); border-radius: 20px;
-    padding: 9px 14px; font-family: 'Noto Sans JP', sans-serif; font-size: 13px; color: #2B2420;
-  }
-  .faq-cb-inputrow input:focus { outline: none; border-color: var(--accent); }
-  .faq-cb-send {
-    background: var(--accent); color: #fff; border: none; border-radius: 20px;
-    padding: 0 18px; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;
-  }
-  .faq-cb-send:hover { background: var(--navy-deep); }
-  @media (max-width: 480px) {
-    .faq-chatbot-toggle { right: 16px; bottom: 16px; }
-    .faq-chatbot-panel { right: 16px; bottom: 82px; }
-  }
-</style>
-
-<div class="faq-chatbot-toggle" id="faq-cb-toggle" role="button" aria-label="チャットを開く">
-  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-  </svg>
-</div>
-
-<div class="faq-chatbot-panel" id="faq-cb-panel">
-  <div class="faq-cb-header">
-    <span>株式会社NextGrid チャット</span>
-    <span class="faq-cb-close" id="faq-cb-close">×</span>
-  </div>
-  <div class="faq-cb-messages" id="faq-cb-messages">
-    <div class="faq-cb-msg bot">こんにちは！株式会社NextGridです。ご質問をどうぞ（サービス内容・お見積り・対応範囲など）</div>
-  </div>
-  <div class="faq-cb-inputrow">
-    <input type="text" id="faq-cb-input" placeholder="質問を入力...">
-    <button class="faq-cb-send" id="faq-cb-send">送信</button>
-  </div>
-</div>
-
-<script>
-(function () {
-  const FAQ = {
-    hours: { match: ["営業時間", "何時"], answer: "営業時間は9:30〜18:30です。土日祝はお休みをいただいております。" },
-    closed: { match: ["定休日", "休み", "土日", "休業"], answer: "土曜・日曜・祝日はお休みをいただいております。" },
-    access: { match: ["場所", "アクセス", "住所"], answer: "福岡県福岡市〇〇区〇〇8-6-2にございます。詳しくは下部のアクセス欄をご覧ください。" },
-    menu: { match: ["サービス", "何ができ", "対応"], answer: "Webサイト制作、Webアプリ開発、システム開発、DXコンサルティング、業務システム改善、保守・運用サポートの6つのサービスをご提供しております。詳しくはサービス欄をご覧ください。" },
-    estimate: { match: ["見積", "費用", "料金", "いくら"], answer: "内容により費用は異なりますため、お見積りは個別にご相談を承っております。お気軽にお問い合わせください。" },
-    period: { match: ["期間", "納期", "どのくらい", "いつまで"], answer: "内容によって納期は異なります。まずは要件定義からご相談させてください。" },
-    support: { match: ["保守", "運用", "納品後", "サポート"], answer: "納品後の運用・保守までサポートしております。リリース後も安心してお任せいただけます。" }
-  };
-  const FALLBACK = "お問い合わせフォームからご連絡ください。ページ下部のアクセス欄もご覧いただけます。";
-
-  const toggle = document.getElementById('faq-cb-toggle');
-  const panel = document.getElementById('faq-cb-panel');
-  const closeBtn = document.getElementById('faq-cb-close');
-  const messages = document.getElementById('faq-cb-messages');
-  const input = document.getElementById('faq-cb-input');
-  const sendBtn = document.getElementById('faq-cb-send');
-
-  function addMsg(text, who) {
-    const div = document.createElement('div');
-    div.className = 'faq-cb-msg ' + who;
-    div.textContent = text;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function addFallback() {
-    const div = document.createElement('div');
-    div.className = 'faq-cb-msg bot';
-    div.innerHTML = FALLBACK + '<br><a href="mailto:info@example.com">お問い合わせフォームへ</a>';
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function respond(text) {
-    const lower = text.toLowerCase();
-    let hit = null;
-    for (const key in FAQ) {
-      if (FAQ[key].match.some(k => lower.includes(k.toLowerCase()))) { hit = FAQ[key]; break; }
-    }
-    setTimeout(() => {
-      if (hit) addMsg(hit.answer, 'bot');
-      else addFallback();
-    }, 350);
-  }
-
-  let userClosed = false;
-
-  toggle.addEventListener('click', () => { panel.classList.add('open'); toggle.style.display = 'none'; });
-  closeBtn.addEventListener('click', () => {
-    panel.classList.remove('open');
-    toggle.style.display = 'flex';
-    userClosed = true;
-  });
-
-  // ページ読み込み後、少し間を置いて自動的にチャットを開く(スマホ幅では邪魔になるため無効)
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      if (userClosed || window.innerWidth <= 480) return;
-      panel.classList.add('open');
-      toggle.style.display = 'none';
-    }, 900);
-  });
-
-  sendBtn.addEventListener('click', () => {
-    const val = input.value.trim();
-    if (!val) return;
-    addMsg(val, 'user');
-    respond(val);
-    input.value = '';
-  });
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') sendBtn.click();
-  });
 })();
 </script>
+<a class="skip" href="#main">本文へスキップ</a>
 
+<div class="notice">
+  <div class="wrap">
+    <p class="mono">これはRESCが作成したサンプルサイトです。実店舗ではありません。</p>
+    <a class="mono" href="../hp-service/index.html">RESCのサイトに戻る</a>
+  </div>
+</div>
+
+<header class="hd">
+  <div class="wrap">
+    <a class="brand" href="tech-standard.html">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" focusable="false">
+        <path d="M5 5H13V13H5z" fill="none" stroke="#0D1218" stroke-width="1.6"/>
+        <path d="M13 13H21V21H13z" fill="none" stroke="#0B57E0" stroke-width="1.6"/>
+        <path d="M13 9H21M9 13V21" fill="none" stroke="#C3CCD8" stroke-width="1.4"/>
+        <circle cx="21" cy="9" r="2" fill="#0B57E0"/>
+        <circle cx="9" cy="21" r="2" fill="#0D1218"/>
+      </svg>
+      <span><b class="lat">NextGrid</b><span class="mono">IT / OFFICE</span></span>
+    </a>
+    <nav class="lnav" aria-label="レイヤーナビゲーション">
+      <a href="tech-standard.html" aria-current="page" aria-label="LAYER 01 概要"><span class="lv">L01</span><span class="lt">概要</span></a>
+      <a href="tech-standard-detail.html" aria-label="LAYER 02 サービス・進め方"><span class="lv">L02</span><span class="lt">サービス・進め方</span></a>
+      <a href="tech-standard-info.html" aria-label="LAYER 03 会社情報・お問い合わせ"><span class="lv">L03</span><span class="lt">会社情報・お問い合わせ</span></a>
+    </nav>
+    <a class="hd-cta mono" href="tech-standard-info.html#contact">お問い合わせ</a>
+  </div>
+</header>
+<main id="main">
+
+<!-- ===== LAYER 01 マストヘッド ===== -->
+<section class="mast mast--l1">
+  <svg class="mast-bg" viewBox="0 0 1440 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <g class="mb-l">
+      <path d="M-40 300L360 100L760 300L360 500Z"/>
+      <path d="M-40 220L360 20L760 220L360 420Z"/>
+      <path d="M680 400L1080 200L1480 400L1080 600Z"/>
+      <path d="M680 320L1080 120L1480 320L1080 520Z"/>
+    </g>
+    <g class="mb-l mb-a">
+      <path d="M160 200V280M560 200V280M880 300V380M1280 300V380"/>
+    </g>
+    <circle class="mb-d" cx="360" cy="20" r="5"/>
+    <circle class="mb-d" cx="1080" cy="120" r="5"/>
+  </svg>
+  <div class="wrap">
+    <div class="mast-head">
+      <div class="mast-main">
+        <p class="eyebrow mono"><i></i>LAYER 01 — SURFACE<i></i>IT・オフィス / FUKUOKA</p>
+        <h1>
+          <span class="h1-jp mono">株式会社</span>
+          <span class="h1-en">NextGrid</span>
+        </h1>
+        <p class="mast-catch">業務システムの開発から運用まで、<br>伴走するITパートナー。</p>
+        <p class="mast-lead">このサイトは3つの層でできています。上の層ほど概要、下の層ほど詳細。まずはいちばん上の層、表層からどうぞ。</p>
+        <div class="mast-acts">
+          <a class="btn btn--fill mono" href="#map">見取り図を見る <i>↓</i></a>
+          <a class="btn btn--line mono" href="tech-standard-detail.html">LAYER 02 へ降りる <i>→</i></a>
+        </div>
+        <p class="mast-meta mono">
+          <span>開発</span><span>改善</span><span>運用・保守</span><span>DX</span>
+        </p>
+      </div>
+      <div class="lind">
+        <svg viewBox="0 0 74 58" aria-hidden="true" focusable="false"><polygon class="mp" points="11,44 37,31 63,44 37,57"/><polygon class="mp" points="11,32 37,19 63,32 37,45"/><polygon class="mp is-on" points="11,20 37,7 63,20 37,33"/></svg>
+        <span class="lind-tx"><b>LAYER 01</b><span>表層 / SURFACE<br>全体像をつかむ層</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 写真バンド ===== -->
+<div class="band">
+  <img src="images/tech/tech_hero_last.webp" alt="NextGridのオフィス。窓際のデスクにノートパソコンとマグカップが置かれている">
+  <p class="band-cap mono">NEXTGRID OFFICE — FUKUOKA</p>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">01</span>
+      <h2>少人数精鋭で、決めて、つくる。</h2>
+      <span class="en mono">ABOUT</span>
+    </div>
+    <div class="rule"></div>
+    <div class="about-body rev">
+      <p>少人数精鋭のチームだからこそ、意思決定はスピーディーに、要件のすり合わせはきめ細かく。無駄な工程を省き、本当に必要な機能に集中して開発を進めます。</p>
+      <p>業務システムの新規開発からWebサイト・Webアプリの制作、既存システムの改善まで、企業の"ちょうどいいIT"を一緒に形にしていきます。</p>
+    </div>
+    <div class="pull rev">
+      <q>見えている画面の下には、<b>いつも仕組みと基盤</b>がある。</q>
+      <p>私たちが向き合うのは、画面だけではありません。その下でデータがどう流れ、リリースのあとどう運用されるのか。層をまたいで考えるほど、あとから効いてきます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 見取り図 ===== -->
+<section class="sec sec--alt" id="map">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">02</span>
+      <h2>このサイトの見取り図</h2>
+      <span class="en mono">STRUCTURE MAP</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rev" style="margin-bottom:clamp(22px,3vw,36px)">私たちの仕事は「表層・構造・基盤」の3層でできています。スクロールすると層が分かれ、それぞれのあいだにある支柱が見えてきます。3つの層は、このサイトの3つのページにそのまま対応しています。</p>
+
+    <p class="vh">NextGridの構成は3層です。上から順に、LAYER 01 表層（会社の考え方とサービスの概要）、LAYER 02 構造（サービスの内容と進め方の詳細）、LAYER 03 基盤（会社情報・チーム・お問い合わせ）。各層は支柱でつながっています。</p>
+
+    <div class="iso rev">
+      <figure class="iso-fig" id="isoFig">
+        <figcaption>
+          <span class="mono">FIG.L1-01 — 3層のレイヤー構成（アイソメトリック）</span>
+          <button class="iso-tg mono" type="button" id="isoTg" aria-pressed="false">層を分けたまま固定する</button>
+        </figcaption>
+        <svg class="iso-svg" viewBox="0 0 760 600" aria-hidden="true" focusable="false">
+      <g class="pl" style="--i:0">
+        <path class="pf" d="M128 436L380 562L380 575L128 449Z"/>
+        <path class="pf pf--r" d="M380 562L632 436L632 449L380 575Z"/>
+        <polygon class="ps" points="128,436 380,310 632,436 380,562"/>
+        <path class="pg" d="M170 415L422 541M170 457L422 331M212 394L464 520M212 478L464 352M254 373L506 499M254 499L506 373M296 352L548 478M296 520L548 394M338 331L590 457M338 541L590 415"/>
+        <path class="pw" d="M259 476.3L390.1 481.4M390.1 481.4L501 491.4M501 491.4L526.2 453.6"/>
+        <circle class="pn pn--a" cx="259" cy="476.3" r="6"/>
+        <circle class="pn" cx="501" cy="491.4" r="6"/>
+        <circle class="pn" cx="526.2" cy="453.6" r="6"/>
+        <circle class="pn" cx="390.1" cy="481.4" r="6"/>
+        <path class="plead" d="M640 436H674"/>
+        <text class="pcode" x="682" y="433">L03</text>
+        <text class="pjp" x="682" y="457">基盤</text>
+      </g>
+      <g class="pl" style="--i:1">
+        <path class="pf" d="M128 318L380 444L380 457L128 331Z"/>
+        <path class="pf pf--r" d="M380 444L632 318L632 331L380 457Z"/>
+        <polygon class="ps" points="128,318 380,192 632,318 380,444"/>
+        <path class="pg" d="M170 297L422 423M170 339L422 213M212 276L464 402M212 360L464 234M254 255L506 381M254 381L506 255M296 234L548 360M296 402L548 276M338 213L590 339M338 423L590 297"/>
+        <path class="pw" d="M254 345.7L395.1 376M395.1 376L475.8 376M475.8 376L546.3 335.6"/>
+        <circle class="pn pn--a" cx="254" cy="345.7" r="6"/>
+        <circle class="pn" cx="475.8" cy="376" r="6"/>
+        <circle class="pn" cx="546.3" cy="335.6" r="6"/>
+        <circle class="pn" cx="395.1" cy="376" r="6"/>
+        <path class="plead" d="M640 318H674"/>
+        <text class="pcode" x="682" y="315">L02</text>
+        <text class="pjp" x="682" y="339">構造</text>
+      </g>
+      <g class="pl" style="--i:2">
+        <path class="pf" d="M128 200L380 326L380 339L128 213Z"/>
+        <path class="pf pf--r" d="M380 326L632 200L632 213L380 339Z"/>
+        <polygon class="ps" points="128,200 380,74 632,200 380,326"/>
+        <path class="pg" d="M170 179L422 305M170 221L422 95M212 158L464 284M212 242L464 116M254 137L506 263M254 263L506 137M296 116L548 242M296 284L548 158M338 95L590 221M338 305L590 179"/>
+        <path class="pw" d="M243.9 197.5L334.6 132M334.6 132L425.4 152.1M243.9 197.5L455.6 247.9"/>
+        <circle class="pn pn--a" cx="243.9" cy="197.5" r="6"/>
+        <circle class="pn" cx="425.4" cy="152.1" r="6"/>
+        <circle class="pn" cx="455.6" cy="247.9" r="6"/>
+        <circle class="pn" cx="334.6" cy="132" r="6"/>
+        <path class="plead" d="M640 200H674"/>
+        <text class="pcode" x="682" y="197">L01</text>
+        <text class="pjp" x="682" y="221">表層</text>
+      </g>
+      <g class="pl pl--pin" style="--i:0">
+        <line class="pin" x1="243.9" y1="438.5" x2="243.9" y2="320.5"/>
+        <circle class="pinc" cx="243.9" cy="438.5" r="2.6"/>
+        <line class="pin" x1="425.4" y1="398.2" x2="425.4" y2="280.2"/>
+        <circle class="pinc" cx="425.4" cy="398.2" r="2.6"/>
+        <line class="pin" x1="455.6" y1="488.9" x2="455.6" y2="370.9"/>
+        <circle class="pinc" cx="455.6" cy="488.9" r="2.6"/>
+      </g>
+      <g class="pl pl--pin" style="--i:1">
+        <line class="pin" x1="243.9" y1="320.5" x2="243.9" y2="202.5"/>
+        <circle class="pinc" cx="243.9" cy="320.5" r="2.6"/>
+        <line class="pin" x1="425.4" y1="280.2" x2="425.4" y2="162.2"/>
+        <circle class="pinc" cx="425.4" cy="280.2" r="2.6"/>
+        <line class="pin" x1="455.6" y1="370.9" x2="455.6" y2="252.9"/>
+        <circle class="pinc" cx="455.6" cy="370.9" r="2.6"/>
+      </g>
+
+        </svg>
+        <ul class="iso-lg mono">
+          <li><svg width="26" height="10" viewBox="0 0 26 10" aria-hidden="true" focusable="false"><path d="M0 5H26" fill="none" stroke="#0B57E0" stroke-width="1.9"/></svg>層のなかのつながり</li>
+          <li><svg width="26" height="10" viewBox="0 0 26 10" aria-hidden="true" focusable="false"><path d="M13 0V10" fill="none" stroke="#C3CCD8" stroke-width="1.2"/></svg>層と層をつなぐ支柱</li>
+        </ul>
+      </figure>
+      <div class="lcards">
+        <a class="lcard" href="tech-standard.html#service" data-lc>
+          <span class="lc-h"><span class="lc-code mono">LAYER 01</span><h3>表層</h3></span>
+          <p>このページ。会社の考え方と、6つのサービスの見取り図。まず全体をつかむ層です。</p>
+          <span class="go mono">この層へ <i aria-hidden="true">→</i></span>
+        </a>
+        <a class="lcard" href="tech-standard-detail.html" data-lc>
+          <span class="lc-h"><span class="lc-code mono">LAYER 02</span><h3>構造</h3></span>
+          <p>サービスが業務のどの層まで届くのか、進め方はどうなるのか。仕組みの層。</p>
+          <span class="go mono">この層へ <i aria-hidden="true">→</i></span>
+        </a>
+        <a class="lcard" href="tech-standard-info.html" data-lc>
+          <span class="lc-h"><span class="lc-code mono">LAYER 03</span><h3>基盤</h3></span>
+          <p>会社情報、チームの働き方、そしてお問い合わせ。いちばん下で全体を支える層。</p>
+          <span class="go mono">この層へ <i aria-hidden="true">→</i></span>
+        </a>
+        <p>※図は構成をイメージで表したものです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== サービス ===== -->
+<section class="sec" id="service">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">03</span>
+      <h2>6つのサービス</h2>
+      <span class="en mono">SERVICE</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rev" style="margin-bottom:clamp(22px,3vw,34px)">つくる（BUILD）が3つ、ととのえる（TUNE）が3つ。ここでは名前と一行だけ。それぞれが業務のどの層まで届くのかは、LAYER 02 で詳しく見られます。</p>
+    <div class="svl rev">
+      <a href="tech-standard-detail.html#s-01">
+        <span class="sv-top"><svg class="g" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="4" y="7" width="32" height="24" rx="2"/><path d="M4 14H36"/><circle cx="8.5" cy="10.5" r="1.4" class="fl"/><circle cx="13" cy="10.5" r="1.4" class="fl"/><path d="M11 20H23M11 25H29"/><circle cx="29" cy="20" r="2.6" class="ac"/></svg><span class="sv-code mono">S-01</span></span>
+        <h3>Webサイト制作</h3>
+        <p>会社の"顔"となる、伝わるWebサイトを。</p>
+        <span class="pr"><span class="mono">つくる / BUILD</span><b>費用：要相談</b></span>
+      </a>
+      <a href="tech-standard-detail.html#s-02">
+        <span class="sv-top"><svg class="g" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="4" y="6" width="20" height="26" rx="2"/><rect x="18" y="13" width="18" height="19" rx="2" class="tn"/><path d="M8 12H20M8 17H16"/><path d="M22 20H32M22 25H28"/><circle cx="32" cy="25" r="2.6" class="ac"/></svg><span class="sv-code mono">S-02</span></span>
+        <h3>Webアプリ開発</h3>
+        <p>業務にフィットする、使われ続けるアプリを。</p>
+        <span class="pr"><span class="mono">つくる / BUILD</span><b>費用：要相談</b></span>
+      </a>
+      <a href="tech-standard-detail.html#s-03">
+        <span class="sv-top"><svg class="g" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="4" y="5" width="13" height="10" rx="1.5"/><rect x="23" y="5" width="13" height="10" rx="1.5"/><rect x="13.5" y="25" width="13" height="10" rx="1.5" class="tn"/><path d="M10.5 15V20H29.5V15"/><path d="M20 20V25"/><circle cx="20" cy="20" r="2.6" class="ac"/></svg><span class="sv-code mono">S-03</span></span>
+        <h3>システム開発</h3>
+        <p>自社の業務に合わせた、オーダーメイドの仕組みを。</p>
+        <span class="pr"><span class="mono">つくる / BUILD</span><b>費用：要相談</b></span>
+      </a>
+      <a href="tech-standard-detail.html#s-04">
+        <span class="sv-top"><svg class="g" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M5 20H14"/><path d="M14 20L24 9H34"/><path d="M14 20L24 31H34"/><circle cx="5" cy="20" r="2.6" class="ac"/><circle cx="14" cy="20" r="2.8" class="fl"/><circle cx="34" cy="9" r="2.6"/><circle cx="34" cy="31" r="2.6"/></svg><span class="sv-code mono">S-04</span></span>
+        <h3>DXコンサルティング</h3>
+        <p>何から始めるか、から一緒に整理します。</p>
+        <span class="pr"><span class="mono">ととのえる / TUNE</span><b>費用：要相談</b></span>
+      </a>
+      <a href="tech-standard-detail.html#s-05">
+        <span class="sv-top"><svg class="g" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="8" y="12" width="24" height="20" rx="2" class="tn"/><path d="M12 19H24M12 25H20"/><path d="M11 8.5A11 11 0 0 1 31 6.5"/><path d="M31 1.5V7H25.5"/><circle cx="27" cy="25" r="2.6" class="ac"/></svg><span class="sv-code mono">S-05</span></span>
+        <h3>業務システム改善</h3>
+        <p>使いにくさの原因を見つけ、丁寧に直す。</p>
+        <span class="pr"><span class="mono">ととのえる / TUNE</span><b>費用：要相談</b></span>
+      </a>
+      <a href="tech-standard-detail.html#s-06">
+        <span class="sv-top"><svg class="g" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M6 11H34M6 20H34M6 29H34"/><circle cx="13" cy="11" r="2.6" class="fl"/><circle cx="22" cy="20" r="2.6" class="ac"/><circle cx="29" cy="29" r="2.6" class="fl"/><path d="M13 11V20H22V29"/></svg><span class="sv-code mono">S-06</span></span>
+        <h3>保守・運用サポート</h3>
+        <p>リリース後も、安心して任せられる体制を。</p>
+        <span class="pr"><span class="mono">ととのえる / TUNE</span><b>費用：要相談</b></span>
+      </a>
+    </div>
+    <p class="svl-foot mono rev">費用はすべて要相談です。まずは今の状況をお聞かせください。</p>
+  </div>
+</section>
+
+<!-- ===== 伴走 ===== -->
+<section class="sec sec--alt" id="partner">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">04</span>
+      <h2>納品して終わりにしない。</h2>
+      <span class="en mono">PARTNERSHIP</span>
+    </div>
+    <div class="rule"></div>
+    <div class="pt2 rev">
+      <div>
+        <p>納品して終わりにはしません。リリース後の運用・保守まで見据えたご提案と、長くお付き合いできる伴走型のサポート体制を大切にしています。</p>
+        <p>層は、上から下へ降りるだけのものではありません。運用でわかったことは要件に戻り、また上の層から積み直されます。この折り返しがある前提で、最初の設計をしています。</p>
+        <p style="margin-top:1.6em"><a class="btn btn--line mono" href="tech-standard-detail.html#process">進め方を詳しく見る <i>→</i></a></p>
+      </div>
+      <figure class="stair">
+        <figcaption class="mono">FIG.L1-02 — 降りて、また戻る</figcaption>
+        <svg viewBox="0 0 500 194" aria-hidden="true" focusable="false">
+          <rect class="sb" x="20" y="40" width="96" height="26" rx="2"/><text class="st" x="22" y="31">要件</text><rect class="sb" x="138" y="76" width="96" height="26" rx="2"/><text class="st" x="140" y="67">開発</text><rect class="sb" x="256" y="112" width="96" height="26" rx="2"/><text class="st" x="258" y="103">リリース</text><rect class="sb sb--a" x="374" y="148" width="96" height="26" rx="2"/><text class="st st--a" x="376" y="139">運用</text>
+          <path class="sl" d="M470 161H486V22H68V34"/>
+          <path class="sl-a" d="M62 30L68 40L74 30"/>
+        </svg>
+        <p class="stair-note">運用（PHASE 04）で見えてきたことを、次の要件に戻します。図は進み方をイメージで表したものです。</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== オフィス ===== -->
+<section class="sec" id="office">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">05</span>
+      <h2>オフィスの様子</h2>
+      <span class="en mono">OFFICE</span>
+    </div>
+    <div class="rule"></div>
+    <div class="gal">
+      <figure class="rev">
+        <div class="fw"><img src="images/tech/tech_gallery1.webp" loading="lazy" alt="窓際に並ぶ開発デスクと、ガラスの奥に見えるサーバーラック"></div>
+        <figcaption><b class="mono">OFF-01</b>開発フロア。手前がワークスペース、奥が機材室です。</figcaption>
+      </figure>
+      <figure class="rev">
+        <div class="fw"><img src="images/tech/tech_gallery3.webp" loading="lazy" alt="窓に面した明るいフロアで、それぞれのデスクに向かう開発メンバー"></div>
+        <figcaption><b class="mono">OFF-02</b>フロアはひと続き。声をかければすぐ相談できる距離です。</figcaption>
+      </figure>
+      <figure class="rev">
+        <div class="fw"><img src="images/tech/tech_gallery6.webp" loading="lazy" alt="観葉植物が置かれた明るい受付カウンターとスタッフ"></div>
+        <figcaption><b class="mono">OFF-03</b>受付。打ち合わせスペースも同じフロアにあります。</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 下の層へ ===== -->
+<section class="sec sec--deep" id="dive">
+  <div class="wrap">
+    <div class="shead rev">
+      <span class="idx mono">06</span>
+      <h2>下の層へ降りる</h2>
+      <span class="en mono">GO DEEPER</span>
+    </div>
+    <div class="rule"></div>
+    <div class="dive rev">
+      <a class="dcard" href="tech-standard-detail.html">
+        <span class="dcard-top">
+          <span class="dc-lv mono">LAYER 02 — STRUCTURE</span>
+          <svg viewBox="0 0 74 58" aria-hidden="true" focusable="false"><polygon class="mp" points="11,44 37,31 63,44 37,57"/><polygon class="mp is-on" points="11,32 37,19 63,32 37,45"/><polygon class="mp" points="11,20 37,7 63,20 37,33"/></svg>
+        </span>
+        <h3>サービスと進め方</h3>
+        <p>6つのサービスがそれぞれ業務のどの層まで届くのか。要件から運用までの進め方と、よくあるご相談の入り口も。</p>
+        <span class="go mono">構造の層へ <i aria-hidden="true">→</i></span>
+      </a>
+      <a class="dcard" href="tech-standard-info.html">
+        <span class="dcard-top">
+          <span class="dc-lv mono">LAYER 03 — FOUNDATION</span>
+          <svg viewBox="0 0 74 58" aria-hidden="true" focusable="false"><polygon class="mp is-on" points="11,44 37,31 63,44 37,57"/><polygon class="mp" points="11,32 37,19 63,32 37,45"/><polygon class="mp" points="11,20 37,7 63,20 37,33"/></svg>
+        </span>
+        <h3>会社情報とお問い合わせ</h3>
+        <p>会社概要、チームの働き方、アクセス。ご相談のフォームとよくあるご質問も、この層にまとめています。</p>
+        <span class="go mono">基盤の層へ <i aria-hidden="true">→</i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-brand">
+      <svg width="24" height="24" viewBox="0 0 26 26" aria-hidden="true" focusable="false">
+        <path d="M5 5H13V13H5z" fill="none" stroke="#fff" stroke-width="1.6"/>
+        <path d="M13 13H21V21H13z" fill="none" stroke="#7FA9F5" stroke-width="1.6"/>
+        <circle cx="21" cy="9" r="2" fill="#7FA9F5"/>
+        <circle cx="9" cy="21" r="2" fill="#fff"/>
+      </svg>
+      <b class="lat">株式会社NextGrid</b>
+    </div>
+    <nav class="ft-nav" aria-label="フッターナビゲーション">
+        <a class="mono" href="tech-standard.html" aria-current="page">LAYER 01 — 概要</a>
+        <a class="mono" href="tech-standard-detail.html">LAYER 02 — サービス・進め方</a>
+        <a class="mono" href="tech-standard-info.html">LAYER 03 — 会社情報・お問い合わせ</a>
+    </nav>
+    <small class="mono">RESC制作サンプル</small>
+  </div>
+</footer>
+
+<script>
+/* ============ 共通：出現・ページ遷移 ============ */
+(function(){
+  "use strict";
+  var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.NG = {reduce:REDUCE};
+
+  /* ---- 出現（IO＋スクロール掃引の二重化：飛ばしても取りこぼさない） ---- */
+  var revs = [].slice.call(document.querySelectorAll(".rev"));
+  var io = null;
+  function done(el){ el.classList.add("in"); if(io){ try{io.unobserve(el);}catch(e){} } }
+  if(REDUCE || !("IntersectionObserver" in window)){
+    revs.forEach(done); revs.length = 0;
+  }else{
+    io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ done(e.target); var i=revs.indexOf(e.target); if(i>=0) revs.splice(i,1); }
+      });
+    },{rootMargin:"0px 0px -6% 0px",threshold:0});
+    revs.forEach(function(el){ io.observe(el); });
+  }
+  function sweep(){
+    if(!revs.length) return;
+    var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+    for(var i=revs.length-1;i>=0;i--){
+      var r = revs[i].getBoundingClientRect();
+      if(r.top < vh*0.94){ done(revs[i]); revs.splice(i,1); }
+    }
+  }
+
+  /* ---- スクロール購読（rAF スロットル） ---- */
+  var subs = [], ticking = false;
+  window.NG.onScroll = function(fn){ subs.push(fn); };
+  function run(){ sweep(); for(var i=0;i<subs.length;i++){ try{ subs[i](); }catch(e){} } ticking=false; }
+  function tick(){ if(ticking) return; ticking=true; requestAnimationFrame(run); }
+  window.addEventListener("scroll", tick, {passive:true});
+  window.addEventListener("resize", tick);
+  window.addEventListener("orientationchange", tick);
+  window.addEventListener("load", function(){ tick(); setTimeout(tick,220); });
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(tick).catch(function(){}); }
+  tick();
+
+  /* ---- デジタル・ディゾルブ（退出側） ---- */
+  var INTERNAL = /^tech-standard(-detail|-info)?\.html(#.*)?$/;
+  function build(kind){
+    var vw = window.innerWidth || 1024, vh = window.innerHeight || 768;
+    var cols = Math.max(5, Math.min(15, Math.round(vw/104)));
+    var rows = Math.max(4, Math.min(13, Math.round(vh/104)));
+    var ov = document.createElement("div");
+    ov.className = "dsv dsv--" + kind;
+    ov.setAttribute("aria-hidden","true");
+    ov.style.setProperty("--cols", cols);
+    ov.style.setProperty("--rows", rows);
+    var frag = document.createDocumentFragment();
+    var mc = cols>1?cols-1:1, mr = rows>1?rows-1:1;
+    for(var y=0;y<rows;y++){
+      for(var x=0;x<cols;x++){
+        var c = document.createElement("i");
+        var d = (x/mc)*0.58 + (y/mr)*0.42;
+        d = d*0.84 + Math.random()*0.16;
+        c.style.setProperty("--d", Math.round(d*300) + "ms");
+        if(Math.random() < 0.09) c.className = "k";
+        frag.appendChild(c);
+      }
+    }
+    ov.appendChild(frag);
+    return ov;
+  }
+  function clearOverlays(){
+    var ns = document.querySelectorAll(".dsv");
+    for(var i=0;i<ns.length;i++){ if(ns[i].parentNode) ns[i].parentNode.removeChild(ns[i]); }
+  }
+  window.addEventListener("pageshow", function(ev){ if(ev.persisted) clearOverlays(); });
+
+  if(!REDUCE){
+    document.addEventListener("click", function(ev){
+      if(ev.defaultPrevented || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+      var a = ev.target && ev.target.closest ? ev.target.closest("a[href]") : null;
+      if(!a) return;
+      if(a.hasAttribute("download")) return;
+      if(a.target && a.target !== "_self") return;
+      var href = a.getAttribute("href") || "";
+      if(!INTERNAL.test(href)) return;
+      var here = location.pathname.split("/").pop() || "tech-standard.html";
+      if(href.split("#")[0] === here) return;      /* 同一ページ内はそのまま */
+      ev.preventDefault();
+      var ov = build("out");
+      document.body.appendChild(ov);
+      /* 強制リフロー → 開始 */
+      void ov.offsetWidth;
+      ov.classList.add("run");
+      setTimeout(function(){ location.href = href; }, 480);
+    }, false);
+  }
+})();
+
+/* ============ アイソメ・レイヤースタック ============ */
+(function(){
+  "use strict";
+  var fig = document.getElementById("isoFig");
+  if(!fig) return;
+  var GAPMAX = 118, GAPMIN = 30, SPAN = GAPMAX - GAPMIN;
+  var pins = [].slice.call(fig.querySelectorAll(".pin")).map(function(el){
+    return {el:el, y1: parseFloat(el.getAttribute("y1"))};
+  });
+  var cards = [].slice.call(document.querySelectorAll("[data-lc]"));
+  var tg = document.getElementById("isoTg");
+  var locked = false;
+  var TH = [0.20, 0.46, 0.72];
+  var last = -1;
+
+  function apply(p){
+    if(Math.abs(p - last) < 0.004) return;
+    last = p;
+    var gap = GAPMIN + SPAN * p;
+    fig.style.setProperty("--sep", (SPAN * (1 - p)).toFixed(2));
+    for(var i=0;i<pins.length;i++){
+      pins[i].el.setAttribute("y2", (pins[i].y1 - gap).toFixed(1));
+    }
+    for(var k=0;k<cards.length;k++){
+      cards[k].classList.toggle("on", p >= TH[k]);
+    }
+  }
+  function progress(){
+    var r = fig.getBoundingClientRect();
+    var vh = window.innerHeight || 1;
+    var start = vh * 0.92, end = vh * 0.30;
+    var p = (start - r.top) / Math.max(1, (start - end));
+    return p < 0 ? 0 : (p > 1 ? 1 : p);
+  }
+  function lock(on){
+    locked = on;
+    if(tg) tg.setAttribute("aria-pressed", on ? "true" : "false");
+    apply(on ? 1 : progress());
+  }
+  if(tg) tg.addEventListener("click", function(){ lock(!locked); });
+
+  if(window.NG && window.NG.reduce){ lock(true); return; }
+  apply(0);
+  window.NG.onScroll(function(){ if(!locked) apply(progress()); });
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プログラムと料金｜FORGE（福岡・天神のパーソナルジム）</title>
+<meta name="description" content="FORGEの12週間プログラムの進み方、1回60分のセッションの流れ、3プラン（体験セッション／スタンダード／プレミアム）の料金と比較表をご案内します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+(function(){
+  var h=document.documentElement;
+  h.className+=' js';
+  try{
+    if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){
+      h.className+=' x-closed';
+      setTimeout(function(){h.className=h.className.replace(/\bx-closed\b/,'');},1600);
+    }
+  }catch(e){}
+})();
+</script>
+<style>
+
+/* ============ tokens ============ */
+:root{
+  --ink:#121211;
+  --ink-2:#1C1D1B;
+  --ink-3:#262724;
+  --ink-4:#080908;
+  --concrete:#CFCEC9;
+  --paper:#DCDBD6;
+  --muted:#4A4A45;
+  --muted-2:#5C5C56;
+  --rule:#9E9D96;
+  --rule-strong:#121211;
+  --on-dark:#E8E7E2;
+  --on-dark-mute:#9E9E97;
+  --dark-rule:#3A3B37;
+  --dark-rule-2:#2C2D29;
+  --lime:#C3F53C;
+  --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif;
+  --pad:clamp(18px,5vw,64px);
+  --maxw:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--concrete);color:var(--ink);
+  font-family:var(--jp);font-weight:400;line-height:1.85;
+  font-size:15px;letter-spacing:.02em;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure,fieldset{margin:0;padding:0}
+fieldset{border:0}
+ul,ol{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.dark :focus-visible,.notice :focus-visible,.head :focus-visible,
+.foot :focus-visible,.phero :focus-visible,.hero :focus-visible{outline-color:var(--lime)}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.skip{position:absolute;left:-9999px;top:0;z-index:300}
+.skip:focus{left:8px;top:8px;background:var(--ink);color:var(--lime);padding:10px 16px}
+[hidden]{display:none !important}
+
+/* ============ sample notice ============ */
+.notice{background:var(--ink);color:var(--on-dark);font-size:12.5px;line-height:1.6;position:relative;z-index:5}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;padding-block:9px}
+.notice__tag{
+  font-family:var(--num);font-weight:700;font-size:13px;letter-spacing:.14em;
+  background:var(--lime);color:var(--ink);padding:1px 8px 0
+}
+.notice a{color:var(--lime);text-decoration:underline;text-underline-offset:3px;font-weight:500}
+
+/* ============ header ============ */
+.head{background:var(--ink);color:var(--on-dark);border-bottom:1px solid var(--dark-rule);position:relative;z-index:5}
+.head .wrap{display:flex;flex-wrap:wrap;gap:12px clamp(14px,2.4vw,32px);align-items:center;padding-block:13px}
+.brand{display:flex;align-items:baseline;gap:10px;flex:0 0 auto;text-decoration:none}
+.brand__mark{font-family:var(--num);font-weight:700;font-size:30px;letter-spacing:.18em;line-height:1}
+.brand__sub{font-size:10.5px;letter-spacing:.18em;color:var(--on-dark-mute)}
+/* set indicator = main nav */
+.setnav{margin-left:auto}
+.setnav__list{display:flex;gap:clamp(6px,1.2vw,14px)}
+.setnav__i{
+  display:block;text-decoration:none;min-width:clamp(74px,9vw,124px);
+  border-top:4px solid var(--dark-rule);padding-top:7px;transition:border-color .25s,color .25s
+}
+.setnav__n{
+  display:block;font-family:var(--num);font-weight:700;font-size:13px;
+  letter-spacing:.16em;color:var(--on-dark-mute);line-height:1.1;transition:color .25s
+}
+.setnav__l{display:block;font-size:11.5px;letter-spacing:.06em;color:var(--on-dark);line-height:1.5;white-space:nowrap}
+.setnav__i:hover{border-top-color:var(--on-dark-mute)}
+.setnav__i.is-done{border-top-color:#6E7A46}
+.setnav__i.is-done .setnav__n{color:#A9B888}
+.setnav__i[aria-current="page"]{border-top-color:var(--lime)}
+.setnav__i[aria-current="page"] .setnav__n{color:var(--lime)}
+.head__cta{
+  flex:0 0 auto;background:var(--lime);color:var(--ink);text-decoration:none;
+  font-weight:700;font-size:12.5px;letter-spacing:.06em;padding:10px 16px;white-space:nowrap
+}
+.head__cta:hover{background:#D3FF5E}
+
+/* ============ hero (SET 01) ============ */
+.hero{position:relative;background:var(--ink);color:var(--on-dark);overflow:hidden}
+.hero__media{position:absolute;inset:0}
+.hero__media img{width:100%;height:100%;object-fit:cover;opacity:.46}
+.hero__veil{position:absolute;inset:0;background:linear-gradient(102deg,#0C0C0Bf2 0%,#0C0C0Bdb 44%,#0C0C0B6b 100%)}
+.hero__inner{position:relative;padding-block:clamp(56px,11vw,132px)}
+.hero__eye{
+  display:inline-flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.16em;
+  color:var(--on-dark);margin-bottom:clamp(18px,3.6vw,30px)
+}
+.hero__eye::before{content:"";width:26px;height:8px;background:var(--lime);flex:0 0 auto}
+h1{display:block;margin:0}
+.h1-brand{
+  display:block;font-family:var(--num);font-weight:700;
+  font-size:clamp(72px,16vw,196px);line-height:.82;letter-spacing:.02em;color:var(--on-dark)
+}
+.h1-catch{
+  display:block;font-weight:900;line-height:1.32;letter-spacing:.01em;
+  font-size:clamp(20px,4.2vw,42px);margin-top:clamp(16px,2.8vw,28px)
+}
+.h1-catch em{font-style:normal;color:var(--lime)}
+.hero__lead{
+  position:relative;margin-top:clamp(22px,3.4vw,34px);max-width:44em;
+  font-size:clamp(13.5px,1.35vw,15.5px);line-height:2.05;color:var(--on-dark);
+  border-left:2px solid var(--lime);padding-left:18px
+}
+
+/* ============ page hero (SET 02 / 03) ============ */
+.phero{position:relative;background:var(--ink);color:var(--on-dark);overflow:hidden}
+.phero__media{position:absolute;inset:0}
+.phero__media img{width:100%;height:100%;object-fit:cover;opacity:.34}
+.phero__veil{position:absolute;inset:0;background:linear-gradient(100deg,#0A0A09f7 0%,#0A0A09e0 48%,#0A0A0982 100%)}
+.phero__inner{position:relative;padding-block:clamp(40px,7vw,86px)}
+.phero__tag{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--num);font-weight:600;
+  font-size:13px;letter-spacing:.24em;color:var(--on-dark-mute)}
+.phero__tag span{background:var(--lime);color:var(--ink);font-weight:700;letter-spacing:.14em;padding:2px 9px 0}
+.phero h1{font-weight:900;font-size:clamp(30px,6vw,68px);line-height:1.18;letter-spacing:.01em;margin-top:14px}
+.phero h1 em{font-style:normal;color:var(--lime)}
+.phero__en{display:block;font-family:var(--num);font-weight:700;font-size:clamp(15px,2vw,22px);
+  letter-spacing:.22em;color:var(--on-dark-mute);margin-top:12px}
+.phero__lead{margin-top:clamp(18px,2.6vw,26px);max-width:42em;font-size:clamp(13.5px,1.3vw,15px);
+  line-height:2.05;color:var(--on-dark);border-left:2px solid var(--lime);padding-left:16px}
+
+/* ============ set meter ============ */
+.meter{margin-top:clamp(24px,4vw,40px);border-top:1px solid var(--dark-rule);padding-top:16px;
+  display:grid;grid-template-columns:minmax(0,1fr);gap:10px;max-width:640px}
+.meter__bar{display:flex;gap:5px}
+.meter__seg{flex:1;height:10px;background:var(--dark-rule);position:relative;overflow:hidden}
+.meter__seg::after{content:"";position:absolute;inset:0;background:var(--lime);
+  transform:scaleX(0);transform-origin:left center;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.meter__seg.on::after{transform:scaleX(1)}
+.meter__seg:nth-child(2)::after{transition-delay:.12s}
+.meter__seg:nth-child(3)::after{transition-delay:.24s}
+.meter__cap{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;font-size:12.5px;color:var(--on-dark-mute)}
+.meter__cap b{font-family:var(--num);font-weight:700;font-size:15px;letter-spacing:.16em;color:var(--lime)}
+
+/* ============ sub nav ============ */
+.subnav{background:var(--ink-2);color:var(--on-dark);border-top:1px solid var(--dark-rule);
+  border-bottom:1px solid var(--dark-rule)}
+.subnav__row{display:flex;flex-wrap:wrap;gap:8px clamp(14px,2.4vw,30px);align-items:center;padding-block:12px}
+.subnav__k{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.24em;color:var(--lime)}
+.subnav a{font-size:12.5px;letter-spacing:.04em;text-decoration:none;color:var(--on-dark);position:relative;padding-bottom:3px}
+.subnav a em{font-style:normal;font-family:var(--num);font-weight:700;letter-spacing:.1em;color:var(--on-dark-mute);margin-right:7px}
+.subnav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--lime);transition:right .25s}
+.subnav a:hover::after{right:0}
+
+/* ============ strip ============ */
+.strip{background:var(--ink-2);border-top:1px solid var(--dark-rule);color:var(--on-dark)}
+.strip__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.strip__cell{padding:clamp(16px,2.6vw,26px) clamp(10px,2vw,26px);border-left:1px solid var(--dark-rule)}
+.strip__cell:first-child{border-left:0;padding-left:0}
+.strip__k{font-family:var(--num);font-weight:600;font-size:12px;letter-spacing:.2em;color:var(--lime);display:block}
+.strip__v{display:block;font-weight:700;font-size:clamp(13px,1.7vw,19px);line-height:1.5;margin-top:4px}
+
+/* ============ section shell ============ */
+.sec{padding-block:clamp(54px,8vw,110px)}
+.sec--paper{background:var(--paper)}
+.sec--dark{background:var(--ink);color:var(--on-dark)}
+.sec--dark2{background:var(--ink-2);color:var(--on-dark)}
+.shead{border-top:var(--stop,2px) solid var(--rule-strong);padding-top:16px;margin-bottom:clamp(28px,4.2vw,52px)}
+.sec--dark .shead,.sec--dark2 .shead{border-color:var(--lime)}
+.shead__row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.shead__no{font-family:var(--num);font-weight:700;font-size:15px;letter-spacing:.14em;color:var(--muted)}
+.sec--dark .shead__no,.sec--dark2 .shead__no{color:var(--on-dark-mute)}
+.shead__en{font-family:var(--num);font-weight:600;font-size:15px;letter-spacing:.24em;color:var(--muted)}
+.sec--dark .shead__en,.sec--dark2 .shead__en{color:var(--lime)}
+.shead h2{font-weight:900;font-size:clamp(24px,4vw,44px);line-height:1.28;letter-spacing:.01em;margin-top:8px}
+.shead__note{margin-top:12px;max-width:46em;font-size:14px;line-height:1.95;color:var(--muted)}
+.sec--dark .shead__note,.sec--dark2 .shead__note{color:var(--on-dark-mute)}
+
+/* ============ note / disclaimer ============ */
+.note{font-size:12px;line-height:1.9;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px;margin-top:16px}
+.sec--dark .note,.sec--dark2 .note{color:var(--on-dark-mute);border-color:var(--dark-rule)}
+
+/* ============ photo band ============ */
+.band{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--ink)}
+.band img{width:100%;aspect-ratio:1200/670;object-fit:cover}
+
+/* ============ buttons / cta ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:12px;text-decoration:none;
+  font-weight:700;font-size:14.5px;letter-spacing:.04em;padding:16px 26px;border:2px solid var(--ink);
+  cursor:pointer
+}
+.btn--solid{background:var(--ink);color:var(--lime)}
+.btn--solid:hover{background:#000}
+.btn--ghost:hover{background:#0000000f}
+.btn em{font-style:normal;font-family:var(--num);font-weight:700;letter-spacing:.14em;font-size:12px;opacity:.75}
+.cta{background:var(--lime);color:var(--ink)}
+.cta .wrap{padding-block:clamp(42px,5.6vw,76px)}
+.cta h2{font-weight:900;font-size:clamp(23px,3.8vw,44px);line-height:1.3}
+.cta__en{font-family:var(--num);font-weight:700;font-size:13px;letter-spacing:.26em;display:block;margin-bottom:10px}
+.cta p{margin-top:14px;font-size:14px;line-height:1.95;max-width:38em}
+.cta__btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(20px,2.8vw,32px)}
+
+/* ============ next set panel ============ */
+.nextset{background:var(--ink-4);color:var(--on-dark);overflow:hidden}
+.nextset__in{display:grid;align-items:stretch;
+  grid-template-columns:
+    minmax(var(--pad),1fr)
+    minmax(0,calc((var(--maxw) - 2 * var(--pad)) * .54))
+    minmax(0,calc((var(--maxw) - 2 * var(--pad)) * .46))
+    minmax(var(--pad),1fr)}
+.nextset__txt{grid-column:2;padding:clamp(30px,5vw,66px) clamp(18px,4vw,56px) clamp(30px,5vw,66px) 0}
+.nextset__fig{grid-column:3 / -1}
+.nextset__k{font-family:var(--num);font-weight:700;font-size:12.5px;letter-spacing:.26em;color:var(--lime)}
+.nextset__n{font-family:var(--num);font-weight:700;font-size:clamp(64px,12vw,150px);line-height:.82;
+  letter-spacing:.02em;margin-top:8px;display:block}
+.nextset h2{font-weight:900;font-size:clamp(20px,2.8vw,32px);line-height:1.4;margin-top:14px}
+.nextset p:not(.nextset__k){margin-top:12px;font-size:13.5px;line-height:2;color:var(--on-dark-mute);max-width:34em}
+.nextset__go{display:inline-flex;align-items:center;gap:14px;margin-top:clamp(18px,2.6vw,28px);
+  text-decoration:none;font-weight:700;font-size:14.5px;background:var(--lime);color:var(--ink);padding:15px 24px}
+.nextset__go:hover{background:#D3FF5E}
+.nextset__go em{font-style:normal;font-family:var(--num);letter-spacing:.14em;font-size:12px}
+.nextset__fig{margin:0;position:relative;min-height:200px}
+.nextset__fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72}
+
+/* ============ footer ============ */
+.foot{background:var(--ink);color:var(--on-dark-mute);font-size:12px}
+.foot__top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:clamp(20px,3vw,50px);
+  padding-block:clamp(34px,4.4vw,54px);border-bottom:1px solid var(--dark-rule)}
+.foot__brand{font-family:var(--num);font-weight:700;font-size:28px;letter-spacing:.18em;color:var(--on-dark);display:block}
+.foot__addr{margin-top:12px;line-height:1.95;font-size:12.5px}
+.foot__nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.foot__nav h2{font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.2em;color:var(--lime);margin-bottom:10px}
+.foot__nav a{display:block;text-decoration:none;color:var(--on-dark);font-size:12.5px;line-height:2.1}
+.foot__nav a:hover{color:var(--lime)}
+.foot__btm{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between;padding-block:18px}
+.foot__dis{max-width:60em;line-height:1.9}
+
+/* ============ scrollable svg figures (small screens) ============ */
+.svgscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
+.svgscroll>svg{display:block;width:100%;height:auto}
+.svgscroll__hint{display:none;font-size:11.5px;line-height:1.7;color:var(--on-dark-mute);margin-top:10px}
+@media (max-width:760px){
+  .svgscroll--stair>svg{min-width:560px}
+  .svgscroll--plate>svg{min-width:470px}
+  .svgscroll--map>svg{min-width:430px}
+  .svgscroll__hint{display:block}
+}
+
+/* ============ reveal ============ */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.is-in{opacity:1;transform:none}
+
+/* ============ page transition (barbell) ============ */
+.xover{position:fixed;inset:0;z-index:200;pointer-events:none;visibility:hidden;contain:strict}
+.js .xover{visibility:visible}
+.xover__bar{position:absolute;left:0;right:0;height:50.4%;background:var(--ink-4);
+  transition:transform .5s cubic-bezier(.66,0,.26,1)}
+.xover__bar--t{top:0;transform:translateY(-100.5%);border-bottom:2px solid var(--dark-rule)}
+.xover__bar--b{bottom:0;transform:translateY(100.5%);border-top:2px solid var(--dark-rule)}
+.x-closed .xover__bar{transform:translateY(0)}
+.xover__shaft{position:absolute;left:0;right:0;top:50%;height:3px;margin-top:-1.5px;background:var(--lime);
+  transform:scaleX(0);transition:transform .42s .06s cubic-bezier(.66,0,.26,1)}
+.x-closed .xover__shaft{transform:scaleX(1)}
+.xnum{position:absolute;left:0;right:0;top:50%;display:flex;justify-content:center;align-items:center;gap:.1em;
+  transform:translateY(-50%);color:var(--on-dark);font-family:var(--num);font-weight:700;
+  font-size:clamp(84px,20vw,190px);line-height:1;opacity:0;transition:opacity .22s}
+.x-closed .xnum{opacity:1;transition-delay:.2s}
+.xnum__k{font-size:.14em;letter-spacing:.34em;color:var(--lime);align-self:center;margin-right:.6em;
+  transform:translateY(-.1em)}
+.xnum__reel{display:block;height:1em;width:.56em;overflow:hidden}
+.xnum__strip{display:block;transition:transform .66s cubic-bezier(.5,0,.15,1)}
+.xnum__strip i{display:block;height:1em;line-height:1;font-style:normal;text-align:center}
+
+/* ============ responsive ============ */
+@media (max-width:1080px){
+  .setnav__i{min-width:66px}
+  .setnav__l{font-size:11px}
+}
+@media (max-width:900px){
+  .head .wrap{padding-block:11px}
+  .setnav{order:3;margin-left:0;width:100%;border-top:1px solid var(--dark-rule);padding-top:10px}
+  .setnav__list{gap:8px}
+  .setnav__i{flex:1;min-width:0}
+  .setnav__l{white-space:normal}
+  .head__cta{margin-left:auto}
+  .nextset__in{grid-template-columns:minmax(var(--pad),1fr) minmax(0,calc(var(--maxw) - 2 * var(--pad))) minmax(var(--pad),1fr)}
+  .nextset__txt{grid-column:2;padding-right:0;padding-bottom:clamp(24px,4vw,40px)}
+  .nextset__fig{grid-column:1 / -1}
+  .nextset__fig{min-height:210px;aspect-ratio:16/9}
+  .foot__top{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .strip__grid{grid-template-columns:1fr}
+  .strip__cell{border-left:0;border-top:1px solid var(--dark-rule);padding-left:0;padding-right:0}
+  .strip__cell:first-child{border-top:0}
+  .band{grid-template-columns:1fr}
+  .btn{width:100%;justify-content:space-between}
+  .foot__nav{grid-template-columns:1fr;gap:14px}
+}
+@media (max-width:420px){
+  .brand__sub{display:none}
+  .setnav__l{font-size:10.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .js .rv{opacity:1 !important;transform:none !important}
+  .meter__seg.on::after{transform:scaleX(1) !important}
+  .xover{display:none !important}
+}
+
+
+:root{--stop:3px}
+.phero__media img{aspect-ratio:1200/670}
+
+/* 12 week staircase */
+.stair{margin:0;min-width:0;background:var(--ink-2);border:1px solid var(--dark-rule);padding:clamp(14px,2.4vw,30px)}
+.stair svg{width:100%;height:auto;display:block}
+.stair__lgd{display:flex;flex-wrap:wrap;gap:8px 24px;margin-bottom:16px;font-size:12px;color:var(--on-dark-mute)}
+.stair__lgd span{display:inline-flex;align-items:center;gap:8px}
+.stair__lgd i{width:20px;height:4px;background:var(--lime);flex:0 0 auto}
+.stair__lgd .l2 i{height:13px;width:15px;background:#2C2D23;border:1px solid #6E6E66}
+.st-top{stroke:#C3F53C;fill:none;stroke-linecap:square;
+  transition:stroke-dashoffset .9s cubic-bezier(.3,.7,.3,1)}
+.js .st-top{stroke-dasharray:var(--len,300);stroke-dashoffset:var(--len,300)}
+.is-in .st-top{stroke-dashoffset:0}
+.is-in .st-2{transition-delay:.28s}
+.is-in .st-3{transition-delay:.56s}
+.st-block{transition:opacity .6s ease}
+.js .st-block{opacity:0}
+.is-in .st-block{opacity:1}
+.is-in .st-b2{transition-delay:.24s}
+.is-in .st-b3{transition-delay:.48s}
+
+.phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,24px);
+  margin-top:clamp(24px,3.4vw,40px)}
+.phase{border-top:3px solid var(--lime);padding-top:14px}
+.phase__k{font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.2em;color:var(--lime)}
+.phase__w{font-family:var(--num);font-weight:700;font-size:clamp(30px,4vw,46px);line-height:.95;
+  letter-spacing:.02em;display:block;margin-top:6px}
+.phase__w small{font-size:.42em;letter-spacing:.1em;color:var(--on-dark-mute);margin-left:6px}
+.phase h3{font-weight:900;font-size:clamp(16px,2vw,21px);line-height:1.5;margin-top:12px}
+.phase p:not(.phase__k){font-size:13.5px;line-height:2;color:var(--on-dark-mute);margin-top:8px}
+
+/* session steps */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--rule-strong)}
+.step{border-right:1px solid var(--rule);padding:clamp(16px,2.2vw,26px) clamp(14px,1.8vw,24px)
+  clamp(20px,2.6vw,32px) 0}
+.step:last-child{border-right:0}
+.step__n{font-family:var(--num);font-weight:700;font-size:clamp(46px,7vw,92px);line-height:.82;letter-spacing:.01em}
+.step__n span{color:#6F6E68}
+.step h3{font-weight:900;font-size:clamp(15px,1.8vw,19px);line-height:1.5;margin-top:12px}
+.step p:not(.step__n){font-size:13px;line-height:1.95;color:var(--muted);margin-top:8px}
+.sesfig{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:clamp(24px,3.4vw,40px);background:var(--ink)}
+.sesfig img{width:100%;aspect-ratio:16/9;object-fit:cover}
+
+/* plans */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.plan{border:1px solid var(--rule-strong);background:var(--paper);color:var(--ink);display:flex;flex-direction:column}
+.plan--hl{background:var(--ink);color:var(--on-dark);border-color:var(--ink)}
+.plan__hd{padding:clamp(16px,2vw,24px);border-bottom:1px solid var(--rule-strong)}
+.plan--hl .plan__hd{border-color:var(--dark-rule)}
+.plan__en{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;color:var(--muted);
+  display:block;margin-bottom:6px}
+.plan--hl .plan__en{color:var(--lime)}
+.plan__name{font-weight:900;font-size:clamp(15px,1.9vw,20px);line-height:1.4}
+.plan__price{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-top:12px}
+.plan__yen{font-family:var(--num);font-weight:700;font-size:clamp(38px,5.4vw,60px);line-height:.9}
+.plan__unit{flex:0 0 100%;font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.04em;margin-top:6px}
+.plan--hl .plan__unit{color:var(--on-dark-mute)}
+.plan__body{padding:clamp(16px,2vw,24px);display:flex;flex-direction:column;gap:14px;flex:1}
+.plan__desc{font-size:13.5px;line-height:1.9;color:var(--muted)}
+.plan--hl .plan__desc{color:var(--on-dark-mute)}
+.plan__list{display:flex;flex-direction:column;gap:8px;font-size:13.5px;line-height:1.65}
+.plan__list li{display:grid;grid-template-columns:14px 1fr;gap:8px;align-items:start}
+.plan__list li::before{content:"";width:8px;height:8px;background:var(--ink);margin-top:8px}
+.plan--hl .plan__list li::before{background:var(--lime)}
+.plan__tag{display:inline-block;font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.16em;
+  background:var(--lime);color:var(--ink);padding:2px 9px 0;margin-bottom:10px}
+
+/* compare table */
+.tablewrap{overflow-x:auto;margin-top:clamp(26px,3.6vw,44px);-webkit-overflow-scrolling:touch}
+.ctable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px}
+.ctable caption{text-align:left;font-size:12px;color:var(--muted);padding-bottom:10px;letter-spacing:.06em}
+.ctable th,.ctable td{border-bottom:1px solid var(--rule);padding:13px 14px;text-align:left;vertical-align:top;line-height:1.7}
+.ctable thead th{background:var(--ink);color:var(--on-dark);border-bottom:0;font-weight:700;font-size:13.5px}
+.ctable thead th span{display:block;font-family:var(--num);font-weight:600;font-size:11px;letter-spacing:.18em;
+  color:var(--lime);margin-bottom:3px}
+.ctable thead th:first-child{color:var(--on-dark-mute);font-size:11.5px;letter-spacing:.14em}
+.ctable tbody th{font-weight:700;font-size:12.5px;letter-spacing:.06em;color:var(--muted);white-space:nowrap;
+  background:#00000006}
+.ctable td b{font-family:var(--num);font-weight:700;font-size:20px;letter-spacing:.02em}
+.ctable td.no{color:var(--muted-2)}
+
+/* faq */
+.faq{border-top:3px solid var(--lime)}
+.faq__item{border-bottom:1px solid var(--dark-rule)}
+.faq__btn{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;
+  text-align:left;padding:clamp(15px,2vw,22px) clamp(10px,1.4vw,16px);cursor:pointer;transition:background .25s}
+.faq__q{font-weight:700;font-size:clamp(14.5px,1.7vw,17px);line-height:1.6}
+.faq__no{font-family:var(--num);font-weight:700;font-size:clamp(20px,2.4vw,28px);line-height:1;color:var(--on-dark-mute)}
+.faq__mk{position:relative;width:22px;height:16px;flex:0 0 auto}
+.faq__mk i{position:absolute;left:0;width:22px;height:2px;background:var(--on-dark);transition:transform .3s,background .25s}
+.faq__mk i:nth-child(1){top:4px}
+.faq__mk i:nth-child(2){top:10px}
+.faq__item.open .faq__btn{background:var(--ink-3)}
+.faq__item.open .faq__no{color:var(--lime)}
+.faq__item.open .faq__mk i{background:var(--lime)}
+.faq__item.open .faq__mk i:nth-child(1){transform:translateY(3px)}
+.faq__item.open .faq__mk i:nth-child(2){transform:translateY(-3px)}
+.faq__panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.faq__item.open .faq__panel{grid-template-rows:1fr}
+.faq__inner{overflow:hidden}
+.faq__a{padding:0 clamp(10px,1.4vw,16px) clamp(16px,2.2vw,24px) clamp(44px,5.6vw,68px);
+  font-size:13.5px;line-height:2.05;color:var(--on-dark-mute)}
+
+@media (max-width:900px){
+  .phases{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:0}
+  .step:nth-child(1),.step:nth-child(2){border-bottom:1px solid var(--rule)}
+  .plans{grid-template-columns:1fr}
+  .plan__price{margin-top:8px}
+}
+@media (max-width:560px){
+  .steps{grid-template-columns:1fr}
+  .step{border-right:0;border-bottom:1px solid var(--rule);padding-right:0}
+  .step:last-child{border-bottom:0}
+  .sesfig{grid-template-columns:1fr}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<div class="notice">
+  <div class="wrap">
+    <span class="notice__tag">SAMPLE</span>
+    <span>これはRESCが作成したサンプルサイトです。実店舗ではありません。</span>
+    <a href="../hp-service/index.html">RESCのサイトに戻る</a>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap">
+    <a class="brand" href="gym-standard.html" data-set="01">
+      <span class="brand__mark">FORGE</span>
+      <span class="brand__sub">PERSONAL GYM / FUKUOKA</span>
+    </a>
+    <nav class="setnav" aria-label="セット（ページ）">
+      <ol class="setnav__list">
+        <li><a class="setnav__i is-done" href="gym-standard.html" data-set="01"><span class="setnav__n">SET 01</span><span class="setnav__l">はじめに</span></a></li>
+        <li><a class="setnav__i" href="gym-standard-detail.html" data-set="02" aria-current="page"><span class="setnav__n">SET 02</span><span class="setnav__l">プログラムと料金</span></a></li>
+        <li><a class="setnav__i" href="gym-standard-info.html" data-set="03"><span class="setnav__n">SET 03</span><span class="setnav__l">人と場所・申込</span></a></li>
+      </ol>
+    </nav>
+    <a class="head__cta" href="gym-standard-info.html#trial" data-set="03">体験を申し込む</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="phero">
+  <div class="phero__media">
+    <img src="images/gym/gym_training_2.webp" alt="床に置かれたバーベルとプレート" fetchpriority="high" decoding="async">
+    <span class="phero__veil" aria-hidden="true"></span>
+  </div>
+  <div class="wrap phero__inner">
+    <p class="phero__tag"><span>SET 02</span>PROGRAM &amp; PRICE</p>
+    <h1>プログラムと、<em>料金の中身。</em></h1>
+    <span class="phero__en">12 WEEKS / 60 MIN / 3 PLANS</span>
+    <p class="phero__lead">2セット目は、重さを一段上げます。12週間をどう進むのか、1回60分に何をするのか、プランの違いはどこか。数字と表でそのまま出します。</p>
+      <div class="meter">
+        <div class="meter__bar" aria-hidden="true"><span class="meter__seg on"></span><span class="meter__seg on"></span><span class="meter__seg"></span></div>
+        <p class="meter__cap"><b>SET 02 / 03</b><span>負荷アップ。ここからは具体的な数字。</span></p>
+      </div>
+  </div>
+</section>
+
+<nav class="subnav" aria-label="このページの内容">
+  <div class="wrap subnav__row">
+    <span class="subnav__k">IN THIS SET</span>
+    <a href="#program"><em>01</em>12週間の進み方</a>
+    <a href="#session"><em>02</em>1回の流れ</a>
+    <a href="#price"><em>03</em>料金プラン</a>
+    <a href="#compare"><em>04</em>3プラン比較</a>
+    <a href="#faq"><em>05</em>よくある質問</a>
+  </div>
+</nav>
+
+<!-- ===== PROGRAM ===== -->
+<section class="sec sec--dark dark" id="program" aria-labelledby="program-t">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">01</span><span class="shead__en">12 WEEKS</span></div>
+      <h2 id="program-t">12週間の進み方</h2>
+      <p class="shead__note">4週ずつ、3つのフェーズに分けて組み立てます。段は一気に上がりません。ひとつ上がったら、そこで安定するまで待ちます。</p>
+    </div>
+
+    <figure class="stair rv" id="stairfig">
+      <div class="stair__lgd">
+        <span><i></i>フェーズごとの目安ライン</span>
+        <span class="l2"><i></i>その期間に取り組む内容の量</span>
+      </div>
+    <div class="svgscroll svgscroll--stair">
+    <svg viewBox="0 0 760 358" role="img" aria-label="12週間を4週ずつ3つのフェーズに分けた階段状の図。第1フェーズはフォーム作り、第2フェーズは回数と重さを重ね、第3フェーズは続け方を身につける。段は右へ進むほど上がる。">
+      <line x1="46" y1="94" x2="46" y2="296" stroke="#3A3B37" stroke-width="1"/>
+      <line x1="46" y1="296" x2="734" y2="296" stroke="#6E6E66" stroke-width="1"/>
+      <line x1="102.7" y1="104" x2="102.7" y2="296" stroke="#2A2B27" stroke-width="1"/>
+      <line x1="159.3" y1="104" x2="159.3" y2="296" stroke="#2A2B27" stroke-width="1"/>
+      <line x1="216.0" y1="104" x2="216.0" y2="296" stroke="#2A2B27" stroke-width="1"/>
+      <line x1="272.7" y1="104" x2="272.7" y2="296" stroke="#2A2B27" stroke-width="1"/>
+      <line x1="329.3" y1="104" x2="329.3" y2="296" stroke="#2A2B27" stroke-width="1"/>
+      <line x1="386.0" y1="104" x2="386.0" y2="296" stroke="#2A2B27" stroke-width="1"/>
+      <line x1="442.7" y1="104" x2="442.7" y2="296" stroke="#2A2B27" stroke-width="1"/>
+      <line x1="499.3" y1="104" x2="499.3" y2="296" stroke="#2A2B27" stroke-width="1"/>
+      <line x1="556.0" y1="104" x2="556.0" y2="296" stroke="#2A2B27" stroke-width="1"/>
+      <line x1="612.7" y1="104" x2="612.7" y2="296" stroke="#2A2B27" stroke-width="1"/>
+      <line x1="669.3" y1="104" x2="669.3" y2="296" stroke="#2A2B27" stroke-width="1"/>
+      <rect class="st-block st-b1" x="46.0" y="230" width="226.7" height="66" fill="#202119"/>
+      <path class="st-top st-1" d="M46.0 230 L272.7 230" stroke-width="3"/>
+      <text x="62.0" y="260" fill="#C3F53C" font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="700" letter-spacing="3">PHASE 01</text>
+      <text x="62.0" y="286" fill="#E8E7E2" font-family="Zen Kaku Gothic New, sans-serif" font-size="15" font-weight="700">フォームを作る</text>
+      <text x="62.0" y="344" fill="#9E9E97" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" letter-spacing="2">WEEK 1-4</text>
+      <rect class="st-block st-b2" x="272.7" y="178" width="226.7" height="118" fill="#26271E"/>
+      <path class="st-top st-2" d="M272.7 230 L272.7 178" stroke-width="4"/>
+      <path class="st-top st-2" d="M272.7 178 L499.3 178" stroke-width="4"/>
+      <text x="288.7" y="208" fill="#C3F53C" font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="700" letter-spacing="3">PHASE 02</text>
+      <text x="288.7" y="234" fill="#E8E7E2" font-family="Zen Kaku Gothic New, sans-serif" font-size="15" font-weight="700">回数と重さを重ねる</text>
+      <text x="288.7" y="344" fill="#9E9E97" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" letter-spacing="2">WEEK 5-8</text>
+      <rect class="st-block st-b3" x="499.3" y="126" width="226.7" height="170" fill="#2C2D23"/>
+      <path class="st-top st-3" d="M499.3 178 L499.3 126" stroke-width="5"/>
+      <path class="st-top st-3" d="M499.3 126 L726.0 126" stroke-width="5"/>
+      <text x="515.3" y="156" fill="#C3F53C" font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="700" letter-spacing="3">PHASE 03</text>
+      <text x="515.3" y="182" fill="#E8E7E2" font-family="Zen Kaku Gothic New, sans-serif" font-size="15" font-weight="700">続け方を身につける</text>
+      <text x="515.3" y="344" fill="#9E9E97" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" letter-spacing="2">WEEK 9-12</text>
+      <text x="74.3" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">1</text>
+      <text x="131.0" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">2</text>
+      <text x="187.7" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">3</text>
+      <text x="244.3" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">4</text>
+      <text x="301.0" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">5</text>
+      <text x="357.7" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">6</text>
+      <text x="414.3" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">7</text>
+      <text x="471.0" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">8</text>
+      <text x="527.7" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">9</text>
+      <text x="584.3" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">10</text>
+      <text x="641.0" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">11</text>
+      <text x="697.7" y="316" fill="#6E6E66" font-family="Barlow Condensed, sans-serif" font-size="13" font-weight="600" text-anchor="middle">12</text>
+      <text x="0" y="40" fill="#9E9E97" font-family="Zen Kaku Gothic New, sans-serif" font-size="12.5">負荷と内容の目安（LOAD）</text>
+    </svg>
+    </div>
+      <p class="svgscroll__hint">※図は横にスクロールできます。</p>
+      <figcaption class="note">この図はプログラムの進め方の考え方を表したイメージで、成果や数値を示すものではありません。実際の進み方・期間は体力や生活リズムによって変わり、効果には個人差があります。体調や既往症に応じて内容を調整します。</figcaption>
+    </figure>
+
+    <div class="phases">
+      <article class="phase rv">
+        <p class="phase__k">PHASE 01</p>
+        <span class="phase__w">1-4<small>WEEK</small></span>
+        <h3>フォームを作る</h3>
+        <p>重さより先に、動きの形を作ります。関節の動かし方と呼吸、そして「どこに効いているか」を自分で言えるところまで。</p>
+      </article>
+      <article class="phase rv">
+        <p class="phase__k">PHASE 02</p>
+        <span class="phase__w">5-8<small>WEEK</small></span>
+        <h3>回数と重さを重ねる</h3>
+        <p>フォームが安定したぶんだけ、回数とプレートを足していきます。記録を毎回残して、前回との差だけを見ます。</p>
+      </article>
+      <article class="phase rv">
+        <p class="phase__k">PHASE 03</p>
+        <span class="phase__w">9-12<small>WEEK</small></span>
+        <h3>続け方を身につける</h3>
+        <p>忙しい週、疲れている週の落とし方まで含めて設計します。やめないための組み方を、一緒に決めていきます。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SESSION ===== -->
+<section class="sec sec--paper" id="session" aria-labelledby="session-t">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">02</span><span class="shead__en">ONE SESSION / 60 MIN</span></div>
+      <h2 id="session-t">1回60分の流れ</h2>
+      <p class="shead__note">どのプランも1回60分です。中でやることは、大きく4つ。時間の配分はその日の体調に合わせて調整します。</p>
+    </div>
+
+    <div class="steps rv">
+      <article class="step">
+        <p class="step__n" aria-hidden="true"><span>0</span>1</p>
+        <h3>体調と記録の確認</h3>
+        <p>睡眠・食事・筋肉痛の残り方を聞き取り、前回の記録と見比べてその日のメニューを決めます。</p>
+      </article>
+      <article class="step">
+        <p class="step__n" aria-hidden="true"><span>0</span>2</p>
+        <h3>ウォームアップ</h3>
+        <p>関節を動かして可動域を出してから、シャフトなど軽い負荷で動きを確認します。</p>
+      </article>
+      <article class="step">
+        <p class="step__n" aria-hidden="true"><span>0</span>3</p>
+        <h3>メインのセット</h3>
+        <p>種目ごとにセットを重ねます。フォームが崩れた時点で止め、無理に回数を追いません。</p>
+      </article>
+      <article class="step">
+        <p class="step__n" aria-hidden="true"><span>0</span>4</p>
+        <h3>クールダウンと次回の設計</h3>
+        <p>整理運動のあと、記録をまとめて次回の重さと回数を決めます。食事のご相談もここで。</p>
+      </article>
+    </div>
+
+    <div class="sesfig rv">
+      <img src="images/gym/gym_training_3.webp" alt="バーベルを床から引き上げる動作のシルエット" loading="lazy" decoding="async">
+      <img src="images/gym/gym_misc_1.webp" alt="ベンチに置かれたタオルとドリンクボトル" loading="lazy" decoding="async">
+    </div>
+    <p class="note rv">セッションの内容は目的・体力・当日の体調に応じて組み替えます。効果や感じ方には個人差があります。</p>
+  </div>
+</section>
+
+<!-- ===== PRICE ===== -->
+<section class="sec sec--dark2 dark" id="price" aria-labelledby="price-t">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">03</span><span class="shead__en">PRICE</span></div>
+      <h2 id="price-t">料金プラン</h2>
+      <p class="shead__note">目的とペースに合わせて3つのコースからお選びいただけます。表示は税抜価格です。</p>
+    </div>
+
+    <div class="plans rv">
+      <article class="plan">
+        <div class="plan__hd">
+          <span class="plan__en">PLAN A</span>
+          <h3 class="plan__name">体験セッション</h3>
+          <p class="plan__price"><span class="plan__yen">¥5,000</span><span class="plan__unit">／回（1回のみ）</span></p>
+        </div>
+        <div class="plan__body">
+          <p class="plan__desc">初めての方へ。カウンセリング込み60分。</p>
+          <ul class="plan__list">
+            <li>カウンセリング</li>
+            <li>体組成測定</li>
+            <li>トレーニング体験60分</li>
+            <li>シャワー・ウェア無料</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="plan plan--hl">
+        <div class="plan__hd">
+          <span class="plan__tag">STANDARD</span>
+          <span class="plan__en">PLAN B</span>
+          <h3 class="plan__name">スタンダード</h3>
+          <p class="plan__price"><span class="plan__yen">¥28,000</span><span class="plan__unit">／月4回（週1回）</span></p>
+        </div>
+        <div class="plan__body">
+          <p class="plan__desc">週1回のペースでじっくり。継続しやすい標準プラン。</p>
+          <ul class="plan__list">
+            <li>月4回・60分/回</li>
+            <li>食事アドバイス</li>
+            <li>トレーニング記録の管理</li>
+            <li>シャワー・ウェア無料</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div class="plan__hd">
+          <span class="plan__en">PLAN C</span>
+          <h3 class="plan__name">プレミアム</h3>
+          <p class="plan__price"><span class="plan__yen">¥52,000</span><span class="plan__unit">／月8回（週2回）</span></p>
+        </div>
+        <div class="plan__body">
+          <p class="plan__desc">週2回でしっかり取り組みたい方に。</p>
+          <ul class="plan__list">
+            <li>月8回・60分/回</li>
+            <li>食事アドバイス</li>
+            <li>LINE相談</li>
+            <li>シャワー・ウェア無料</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <p class="note rv">入会金・初期費用はいただいておりません。プラン変更はいつでも可能です。表示は税抜価格です。</p>
+  </div>
+</section>
+
+<!-- ===== COMPARE ===== -->
+<section class="sec sec--paper" id="compare" aria-labelledby="compare-t">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">04</span><span class="shead__en">COMPARE</span></div>
+      <h2 id="compare-t">3プランを並べて比べる</h2>
+      <p class="shead__note">迷ったときは、この表の「おすすめの方」の行だけ見ていただければ十分です。</p>
+    </div>
+
+    <div class="tablewrap rv">
+      <table class="ctable">
+        <caption>プラン比較表（税抜）</caption>
+        <thead>
+          <tr>
+            <th scope="col">項目</th>
+            <th scope="col"><span>PLAN A</span>体験セッション</th>
+            <th scope="col"><span>PLAN B</span>スタンダード</th>
+            <th scope="col"><span>PLAN C</span>プレミアム</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">料金</th><td><b>¥5,000</b>／回</td><td><b>¥28,000</b>／月</td><td><b>¥52,000</b>／月</td></tr>
+          <tr><th scope="row">回数・頻度</th><td>1回のみ</td><td>月4回（週1回）</td><td>月8回（週2回）</td></tr>
+          <tr><th scope="row">セッション時間</th><td>60分（カウンセリング込み）</td><td>60分</td><td>60分</td></tr>
+          <tr><th scope="row">食事アドバイス</th><td class="no">なし</td><td>あり</td><td>あり（LINE相談つき）</td></tr>
+          <tr><th scope="row">シャワー・ウェア</th><td>無料</td><td>無料</td><td>無料</td></tr>
+          <tr><th scope="row">おすすめの方</th><td>まず試してみたい方</td><td>無理なく継続したい方</td><td>しっかり結果を出したい方</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note rv">入会金・初期費用はいただいておりません。プラン変更はいつでも可能です。トレーニングの成果や感じ方には個人差があります。</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec sec--dark dark" id="faq" aria-labelledby="faq-t">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="shead__row"><span class="shead__no">05</span><span class="shead__en">FAQ / PRICE</span></div>
+      <h2 id="faq-t">料金まわりのよくある質問</h2>
+    </div>
+
+    <div class="faq rv">
+      <div class="faq__item">
+        <h3>
+          <button class="faq__btn" type="button" aria-expanded="false" aria-controls="faq-p1" id="faq-b1">
+            <span class="faq__no" aria-hidden="true">01</span>
+            <span class="faq__q">入会金や初期費用はかかりますか？</span>
+            <span class="faq__mk" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </h3>
+        <div class="faq__panel" id="faq-p1" role="region" aria-labelledby="faq-b1">
+          <div class="faq__inner"><p class="faq__a">いただいておりません。表示している月額（税抜）のみです。プラン変更もいつでも可能です。</p></div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <h3>
+          <button class="faq__btn" type="button" aria-expanded="false" aria-controls="faq-p2" id="faq-b2">
+            <span class="faq__no" aria-hidden="true">02</span>
+            <span class="faq__q">支払い方法は何がありますか？</span>
+            <span class="faq__mk" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </h3>
+        <div class="faq__panel" id="faq-p2" role="region" aria-labelledby="faq-b2">
+          <div class="faq__inner"><p class="faq__a">クレジットカード決済、口座振替のほか、店頭での現金・電子マネー決済にも対応しています。詳しくはカウンセリング時にご案内いたします。</p></div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <h3>
+          <button class="faq__btn" type="button" aria-expanded="false" aria-controls="faq-p3" id="faq-b3">
+            <span class="faq__no" aria-hidden="true">03</span>
+            <span class="faq__q">キャンセルはいつまで可能ですか？</span>
+            <span class="faq__mk" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </h3>
+        <div class="faq__panel" id="faq-p3" role="region" aria-labelledby="faq-b3">
+          <div class="faq__inner"><p class="faq__a">予約の前日20時までのご連絡でキャンセル料はかかりません。それ以降のキャンセル・無断欠席は所定のキャンセル料を頂戴する場合がございます。</p></div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <h3>
+          <button class="faq__btn" type="button" aria-expanded="false" aria-controls="faq-p4" id="faq-b4">
+            <span class="faq__no" aria-hidden="true">04</span>
+            <span class="faq__q">体験セッションだけでも受けられますか？</span>
+            <span class="faq__mk" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </h3>
+        <div class="faq__panel" id="faq-p4" role="region" aria-labelledby="faq-b4">
+          <div class="faq__inner"><p class="faq__a">はい。ご入会前に体験セッションのみのご利用も可能です。実際のトレーニング内容や店内の雰囲気を確認いただいてからご検討ください。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nextset" aria-labelledby="next-t">
+    <div class="nextset__in">
+      <div class="nextset__txt">
+        <p class="nextset__k">NEXT SET</p>
+        <span class="nextset__n" aria-hidden="true">03</span>
+        <h2 id="next-t">誰が見て、<br>どこでやるのか。<span class="phero__en" style="margin-top:8px">TRAINER / FACILITY / ACCESS</span></h2>
+        <p>最後のセットです。トレーナー3名の紹介、設備の写真、天神からの行き方、そして体験セッションの申し込みまで。</p>
+        <a class="nextset__go" href="gym-standard-info.html" data-set="03"><span>SET 03 に進む</span><em>&gt;&gt;</em></a>
+      </div>
+      <figure class="nextset__fig">
+        <img src="images/gym/gym_trainer_3.webp" alt="バーベルにプレートを差し込むトレーナーの手元" loading="lazy" decoding="async">
+      </figure>
+    </div>
+</section>
+
+<section class="cta" aria-labelledby="cta-t">
+  <div class="wrap">
+    <h2 id="cta-t"><span class="cta__en">CONTACT</span>プランに迷ったら、体験から。</h2>
+    <p>体験セッションでは、現在の体力や目的をお伺いしたうえで、どのプランが合いそうかをその場でご提案します。</p>
+    <div class="cta__btns">
+      <a class="btn btn--solid" href="gym-standard-info.html#trial" data-set="03"><span>体験セッションを申し込む</span><em>FORM</em></a>
+      <a class="btn btn--ghost" href="mailto:info@example.com"><span>メールで問い合わせる</span><em>MAIL</em></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <span class="foot__brand">FORGE</span>
+        <p class="foot__addr">〒810-0001<br>福岡県福岡市中央区天神4丁目2-10 天神フォージビル3F<br>平日 7:00〜22:00／土日 9:00〜20:00／水曜定休</p>
+      </div>
+      <nav class="foot__nav" aria-label="フッター">
+        <div>
+          <h2>SET 01</h2>
+          <a href="gym-standard.html" data-set="01">トップ</a>
+          <a href="gym-standard.html#reason" data-set="01">選ばれる理由</a>
+          <a href="gym-standard.html#load" data-set="01">重さの足し方</a>
+        </div>
+        <div>
+          <h2>SET 02</h2>
+          <a href="gym-standard-detail.html#program" data-set="02">12週間の進み方</a>
+          <a href="gym-standard-detail.html#session" data-set="02">1回の流れ</a>
+          <a href="gym-standard-detail.html#price" data-set="02">料金プラン</a>
+        </div>
+        <div>
+          <h2>SET 03</h2>
+          <a href="gym-standard-info.html#trainer" data-set="03">トレーナー</a>
+          <a href="gym-standard-info.html#facility" data-set="03">設備</a>
+          <a href="gym-standard-info.html#access" data-set="03">アクセス</a>
+          <a href="gym-standard-info.html#trial" data-set="03">体験申込</a>
+        </div>
+      </nav>
+    </div>
+    <div class="foot__btm">
+      <p class="foot__dis">※トレーニングの効果や感じ方には個人差があります。体調・既往症により内容を調整します。<br>FORGE（RESC制作サンプル）</p>
+    </div>
+  </div>
+</footer>
+
+<div class="xover" id="xover" aria-hidden="true">
+  <div class="xover__bar xover__bar--t"></div>
+  <div class="xover__bar xover__bar--b"></div>
+  <span class="xover__shaft"></span>
+  <div class="xnum">
+    <span class="xnum__k">SET</span>
+    <span class="xnum__reel"><span class="xnum__strip" id="reelA"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span></span>
+    <span class="xnum__reel"><span class="xnum__strip" id="reelB"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span></span>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var html = document.documentElement;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var CUR = 2;
+
+  /* ---------- reveal: sweep-based so big scroll jumps never lose content ---------- */
+  var targets = Array.prototype.slice.call(document.querySelectorAll('.rv, .fx'));
+  function activate(el){ el.classList.add('is-in'); }
+  if (reduce) {
+    targets.forEach(activate);
+  } else {
+    var ticking = false;
+    function sweep(){
+      ticking = false;
+      var vh = window.innerHeight || 800;
+      for (var i = targets.length - 1; i >= 0; i--) {
+        var el = targets[i];
+        var r = el.getBoundingClientRect();
+        if (r.top < vh * 0.94 && r.bottom > -vh * 0.5) { activate(el); targets.splice(i,1); }
+        else if (r.bottom <= 0) { activate(el); targets.splice(i,1); }
+      }
+    }
+    function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(sweep); } }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll, {passive:true});
+    window.addEventListener('load', sweep);
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if (e.isIntersecting) { activate(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
+      targets.forEach(function(el){ io.observe(el); });
+    }
+    sweep();
+    setTimeout(sweep, 400);
+  }
+
+  /* ---------- SVG dash length setup ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.st-top'), function(p){
+    try { var l = p.getTotalLength(); p.style.setProperty('--len', l); } catch(e){}
+  });
+
+  /* ---------- page transition: bars close, counter rolls, bars open ---------- */
+  var reelA = document.getElementById('reelA');
+  var reelB = document.getElementById('reelB');
+  function setReel(el, n, instant){
+    if (!el) return;
+    if (instant) { el.style.transition = 'none'; }
+    el.style.transform = 'translateY(-' + n + 'em)';
+    if (instant) { void el.offsetHeight; el.style.transition = ''; }
+  }
+  function reset(){
+    html.classList.remove('x-closed');
+    setReel(reelA, 0, true);
+    setReel(reelB, CUR, true);
+    navigating = false;
+  }
+  var navigating = false;
+  setReel(reelA, 0, true);
+  setReel(reelB, CUR, true);
+
+  if (!reduce) {
+    requestAnimationFrame(function(){
+      setTimeout(function(){ html.classList.remove('x-closed'); }, 90);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('a[data-set]'), function(a){
+      a.addEventListener('click', function(ev){
+        if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
+        var target = parseInt(a.getAttribute('data-set'), 10);
+        var url = a.getAttribute('href');
+        if (!url || url.charAt(0) === '#') return;
+        if (url.split('#')[0] === location.pathname.split('/').pop()) return;
+        if (navigating) { ev.preventDefault(); return; }
+        ev.preventDefault();
+        navigating = true;
+        html.classList.add('x-closed');
+        setTimeout(function(){ setReel(reelA, 10, false); setReel(reelB, 20 + target, false); }, 300);
+        setTimeout(function(){ location.href = url; }, 1000);
+        setTimeout(function(){ if (navigating) reset(); }, 3200);
+      });
+    });
+  } else {
+    html.classList.remove('x-closed');
+  }
+  window.addEventListener('pageshow', function(){ reset(); });
+  window.addEventListener('unload', function(){});
+
+  /* ---------- smooth in-page anchors ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('a[href^="#"]:not(.skip)'), function(a){
+    a.addEventListener('click', function(ev){
+      var id = a.getAttribute('href');
+      if (id === '#') return;
+      var t = document.querySelector(id);
+      if (!t) return;
+      ev.preventDefault();
+      t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      if (t.hasAttribute('tabindex') === false) t.setAttribute('tabindex','-1');
+      t.focus({preventScroll:true});
+    });
+  });
+
+  /* ---------- FAQ ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.faq__btn'), function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentNode.parentNode;
+      var open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nail Salon Fleur｜03 SALON サロン・アクセス・ご予約</title>
+<meta name="description" content="Nail Salon Fleurのサロン紹介、スタッフ、アクセス、ご予約フォーム。福岡県福岡市〇〇区〇〇7-1-4／営業時間10:00〜19:00（定休日:不定休）／完全予約制。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   Nail Salon Fleur — Standard / 色見本帳（カラーチャート）を骨格に
+   01 COLOR / 02 MENU / 03 SALON
+   ========================================================== */
+:root{
+  --bg:#FBF7F5;
+  --bg2:#F5ECE8;
+  --bg3:#FFFFFF;
+  --ink:#463A3C;
+  --muted:#6E5E60;
+  --line:#E7D8D2;
+  --line-soft:#F0E4DF;
+  --pink:#E9CFC4;
+  --pink-soft:#F5E4DC;
+  --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --en:"Jost","Zen Kaku Gothic New",sans-serif;
+  --pad:clamp(20px,5vw,56px);
+  --maxw:1180px;
+  --r-lg:clamp(20px,3vw,34px);
+}
+/* --- 章ごとのキーカラー --- */
+body.p1{--key:#B98CA0;--key-ink:#8C5C70;--key-deep:#7A4A5E;--key-tint:#F4E7EC}
+body.p2{--key:#C0765F;--key-ink:#9C5540;--key-deep:#82442F;--key-tint:#F8E8E0}
+body.p3{--key:#7E9B85;--key-ink:#4F6B57;--key-deep:#3D5745;--key-tint:#E8F0E9}
+body{--accent:var(--key);--pick:var(--key)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--jp);font-weight:400;font-size:16px;line-height:2.0;
+  letter-spacing:.03em;font-feature-settings:"palt" 1;overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3,h4,p,ul,ol,li,figure,dl,dd,dt,table{margin:0;padding:0}
+ul,ol{list-style:none}
+button,input,select,textarea{font:inherit;color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--key-ink);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.wrap-n{max-width:920px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.sec{padding:clamp(52px,7.6vw,102px) 0}
+.sec[id],.anc{scroll-margin-top:24px}
+
+.skip{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip:focus{position:fixed;left:10px;top:10px;z-index:990;width:auto;height:auto;clip-path:none;
+  background:var(--key-ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px}
+
+/* ---------- 見出し ---------- */
+.eyebrow{
+  font-family:var(--en);font-weight:300;font-size:12px;letter-spacing:.42em;
+  text-transform:uppercase;color:var(--key-ink);margin-bottom:14px;line-height:1.6;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);flex:none;
+  transition:background-color .55s ease}
+.h-sec{font-weight:300;font-size:clamp(23px,4vw,37px);line-height:1.62;letter-spacing:.06em}
+.h-sub{font-weight:400;font-size:clamp(17px,2.2vw,21px);letter-spacing:.1em;line-height:1.7}
+.lead{color:var(--muted);font-weight:300;line-height:2.15;font-size:clamp(14.5px,1.6vw,16px)}
+.note-s{font-size:12px;color:var(--muted);font-weight:300;letter-spacing:.08em;line-height:1.9}
+
+/* ---------- 告知バー ---------- */
+.notice{background:#4A3A40;color:#FBF1EE;font-size:12.5px;line-height:1.7;letter-spacing:.02em}
+.notice-in{max-width:var(--maxw);margin:0 auto;padding:9px var(--pad);
+  display:flex;flex-wrap:wrap;gap:4px 20px;align-items:baseline;justify-content:space-between}
+.notice a{color:#F2D8DF;text-underline-offset:3px;white-space:nowrap}
+.notice a:hover{color:#fff}
+.notice a:focus-visible{outline-color:#F2D8DF}
+
+/* ---------- ヘッダー（章＝色見本のタブ） ---------- */
+.hd{position:relative;z-index:5;background:var(--bg);border-bottom:1px solid var(--line-soft)}
+.hd-in{max-width:1280px;margin:0 auto;padding:15px var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:12px 22px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand-mark{width:26px;height:32px;flex:none}
+.brand-t{font-family:var(--en);font-weight:400;font-size:17px;letter-spacing:.2em;line-height:1.2}
+.brand-s{display:block;font-family:var(--jp);font-weight:300;font-size:10.5px;letter-spacing:.3em;color:var(--muted);margin-top:3px}
+.chs{display:flex;align-items:stretch;gap:4px}
+.ch{display:flex;align-items:center;gap:9px;text-decoration:none;
+  padding:7px 13px 7px 10px;border-radius:999px;border:1px solid transparent;
+  transition:border-color .3s,background-color .3s,transform .3s}
+.ch-dot{width:13px;height:16px;border-radius:60% 60% 46% 46%/70% 70% 34% 34%;
+  background:var(--c);box-shadow:inset 0 0 0 1px rgba(80,50,60,.16);flex:none}
+.ch-txt{display:flex;align-items:baseline;gap:8px}
+.ch-n{font-family:var(--en);font-size:11px;letter-spacing:.2em;color:var(--muted)}
+.ch-l{font-family:var(--en);font-size:12.5px;letter-spacing:.14em;line-height:1.4}
+.ch-j{font-size:10.5px;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.ch:hover{background:#fff;border-color:var(--line);transform:translateY(-1px)}
+.ch[aria-current="page"]{background:#fff;border-color:var(--c)}
+.ch[aria-current="page"] .ch-n{color:var(--key-ink)}
+.btn-line{
+  display:inline-flex;align-items:center;gap:8px;background:var(--key-ink);color:#fff;
+  font-size:12.5px;letter-spacing:.12em;text-decoration:none;
+  padding:10px 18px;border-radius:999px;transition:background-color .3s,transform .3s;white-space:nowrap;
+}
+.btn-line:hover{background:var(--key-deep);transform:translateY(-1px)}
+.btn-line svg{width:15px;height:15px;flex:none}
+
+/* ---------- 章バッジ / ページ見出し ---------- */
+.ph{padding-top:clamp(30px,5vw,58px)}
+.hero-h1{font-weight:300;margin:18px 0 0}
+.ph-en{display:block;font-family:var(--en);font-weight:300;font-size:clamp(12px,1.5vw,14px);
+  letter-spacing:.46em;text-indent:.46em;color:var(--key-ink);margin-bottom:clamp(16px,2.6vw,26px)}
+.ph-jp{display:block;font-size:clamp(27px,5.9vw,58px);line-height:1.5;letter-spacing:.09em}
+.ph-jp .ln{display:inline-block}
+.ph-sub{margin-top:clamp(18px,2.8vw,28px);color:var(--muted);font-weight:300;
+  font-size:clamp(13px,1.6vw,15px);letter-spacing:.14em}
+.ch-badge{display:inline-flex;align-items:center;gap:11px;
+  border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 17px 6px 8px}
+.ch-badge .b-dot{width:14px;height:17px;border-radius:60% 60% 46% 46%/70% 70% 34% 34%;
+  background:var(--key);box-shadow:inset 0 0 0 1px rgba(80,50,60,.16);flex:none}
+.ch-badge .b-n{font-family:var(--en);font-size:11.5px;letter-spacing:.24em;color:var(--key-ink)}
+.ch-badge .b-l{font-family:var(--en);font-size:11.5px;letter-spacing:.24em;color:var(--muted)}
+
+/* 選んだ色の引き継ぎ表示 */
+.pickbar{display:inline-flex;align-items:center;gap:10px;margin-top:18px;
+  border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 18px 6px 9px;
+  font-size:12.5px;letter-spacing:.08em;color:var(--muted);text-decoration:none}
+.pickbar .p-dot{width:14px;height:17px;border-radius:60% 60% 46% 46%/70% 70% 34% 34%;
+  background:var(--pick);box-shadow:inset 0 0 0 1px rgba(80,50,60,.16);flex:none;
+  transition:background-color .55s ease}
+.pickbar b{font-weight:500;color:var(--ink)}
+.pickbar:hover{border-color:var(--key)}
+
+/* ---------- 弧の装飾 ---------- */
+.arc-a{fill:var(--accent);transition:fill .55s ease}
+.arc-s{stroke:var(--accent);fill:none;transition:stroke .55s ease}
+.rule{display:block;width:100%;height:26px;color:var(--line);margin:clamp(30px,5vw,54px) 0}
+
+/* ---------- ボタン / CTA ---------- */
+.ctas{display:flex;flex-direction:column;gap:12px;margin-top:24px;max-width:400px}
+.cta{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  padding:14px 26px;border-radius:999px;font-size:13.5px;letter-spacing:.12em;text-decoration:none;
+  transition:background-color .3s,color .3s,transform .3s,border-color .3s}
+.cta-1{background:var(--key-ink);color:#fff}
+.cta-1:hover{background:var(--key-deep);transform:translateY(-2px)}
+.cta-2{border:1px solid var(--key-ink);color:var(--key-ink);background:#fff}
+.cta-2:hover{background:var(--key-tint);transform:translateY(-2px)}
+.cta svg{width:16px;height:16px;flex:none}
+.tlink{
+  font-size:12.5px;letter-spacing:.12em;color:var(--key-ink);text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid var(--line);
+  transition:border-color .3s,gap .3s;padding-bottom:3px;
+}
+.tlink svg{width:16px;height:8px;flex:none}
+.tlink:hover{border-color:var(--key);gap:12px}
+
+/* ---------- 次章への大きな導線 ---------- */
+.nextnav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.4vw,22px);
+  margin-top:clamp(30px,5vw,56px)}
+.nx{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:clamp(20px,3vw,30px);position:relative;overflow:hidden;
+  transition:transform .35s,box-shadow .35s,border-color .35s}
+.nx:hover{transform:translateY(-3px);box-shadow:0 22px 46px -34px rgba(105,70,80,.6);border-color:var(--c)}
+.nx-arc{position:absolute;right:-46px;bottom:-58px;width:150px;height:150px;border-radius:50%;
+  background:var(--c);opacity:.2}
+.nx-n{display:block;font-family:var(--en);font-size:11.5px;letter-spacing:.26em;color:var(--muted);position:relative}
+.nx-t{display:block;font-weight:400;font-size:clamp(16px,2.1vw,20px);letter-spacing:.1em;margin-top:7px;position:relative;line-height:1.6}
+.nx-d{display:block;color:var(--muted);font-weight:300;font-size:13px;line-height:1.9;margin-top:8px;position:relative}
+.nx-go{display:inline-flex;align-items:center;gap:8px;margin-top:14px;position:relative;
+  font-size:12px;letter-spacing:.12em;color:var(--key-ink)}
+.nx-go svg{width:16px;height:8px}
+
+/* ---------- 店舗情報 ---------- */
+.dl-info{margin-top:6px}
+.dl-info>div{display:grid;grid-template-columns:112px minmax(0,1fr);gap:6px 16px;
+  padding:15px 0;border-bottom:1px solid var(--line)}
+.dl-info dt{font-size:12px;letter-spacing:.18em;color:var(--key-ink);font-weight:400;padding-top:3px}
+.dl-info dd{font-weight:300;line-height:1.95;font-size:15px}
+.card{background:#fff;border-radius:var(--r-lg);padding:clamp(22px,3.6vw,40px);
+  box-shadow:0 22px 54px -38px rgba(105,70,80,.42)}
+
+/* ---------- フッター ---------- */
+.ft{background:#4A3A40;color:#F6EAE7;margin-top:clamp(40px,7vw,88px)}
+.ft-in{max-width:var(--maxw);margin:0 auto;padding:clamp(30px,4.6vw,50px) var(--pad)}
+.ft-top{display:flex;flex-wrap:wrap;gap:18px 30px;align-items:center;justify-content:space-between}
+.ft-brand{font-family:var(--en);font-size:15px;letter-spacing:.22em;font-weight:300}
+.ft-nav{display:flex;flex-wrap:wrap;gap:8px 22px}
+.ft-nav a{font-size:12.5px;letter-spacing:.14em;color:#F0DDDD;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px}
+.ft-nav a:hover{color:#fff}
+.ft-nav .f-dot{width:10px;height:12px;border-radius:60% 60% 46% 46%/70% 70% 34% 34%;background:var(--c);flex:none}
+.ft-note{font-size:12px;letter-spacing:.08em;color:#DCC5C9;font-weight:300;margin-top:22px;
+  padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+.ft a{color:#F2D8DF;text-underline-offset:3px}
+.ft a:focus-visible{outline-color:#F2D8DF}
+
+/* ---------- ページ遷移：円弧が塗り広がる ---------- */
+.paint{position:fixed;inset:0;z-index:900;pointer-events:none;overflow:hidden}
+.pd{position:absolute;left:50%;width:240vmax;height:240vmax;margin-left:-120vmax;margin-top:-120vmax;
+  border-radius:50%;transform:scale(0);will-change:transform}
+.pd-lead{top:100%;background:var(--paint,#B98CA0);filter:brightness(1.18) saturate(.9)}
+.pd-out{top:100%;background:var(--paint,#B98CA0);box-shadow:inset 0 0 0 8px rgba(255,255,255,.3)}
+.pd-in{top:0;background:var(--key)}
+
+/* ---------- モーション ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .paint.go .pd-lead{transform:scale(1);transition:transform .56s cubic-bezier(.48,.02,.34,1)}
+  .paint.go .pd-out{transform:scale(1);transition:transform .62s cubic-bezier(.48,.02,.34,1) .075s}
+  .pd-in{animation:unpaint .8s cubic-bezier(.34,.02,.2,1) both}
+  @keyframes unpaint{0%{transform:scale(1.02)}100%{transform:scale(0)}}
+
+  .rv{opacity:0;transform:translateY(24px);
+    transition:opacity .9s cubic-bezier(.22,.7,.2,1),transform .9s cubic-bezier(.22,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .rv-d1{transition-delay:.11s}.rv-d2{transition-delay:.22s}.rv-d3{transition-delay:.33s}
+
+  .ph-en{opacity:0;animation:rise .9s .32s cubic-bezier(.22,.7,.2,1) forwards}
+  .ph-jp{opacity:0;animation:rise 1s .44s cubic-bezier(.22,.7,.2,1) forwards}
+  .ph-sub{opacity:0;animation:rise .95s .6s cubic-bezier(.22,.7,.2,1) forwards}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  .pd{display:none}
+}
+
+/* ---------- レスポンシブ（共通） ---------- */
+@media (max-width:1279px){ .ch-j{display:none} }
+@media (max-width:860px){
+  .nextnav{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  .hd-in{justify-content:center;text-align:center;gap:14px}
+  .chs{order:3;width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .ch{flex-direction:column;gap:5px;padding:9px 5px;text-align:center;border-color:var(--line-soft)}
+  .ch-txt{flex-direction:column;align-items:center;gap:1px}
+  .ch-j{display:block;font-size:10px}
+}
+@media (max-width:760px){
+  body{line-height:1.95}
+}
+@media (max-width:520px){
+  .dl-info>div{grid-template-columns:1fr}
+}
+
+/* ========== 03 SALON ========== */
+.ph-in{position:relative;padding-bottom:clamp(20px,3.4vw,38px)}
+.ph-in .ph-jp{font-size:clamp(26px,5vw,48px)}
+.ph-lead{margin-top:20px;max-width:640px}
+.ph-arc{position:absolute;right:-16px;top:-30px;width:clamp(110px,17vw,210px);height:auto;
+  pointer-events:none;z-index:0;opacity:.32}
+.ph-in>*:not(.ph-arc){position:relative;z-index:1}
+
+/* ---- サロン ---- */
+.salon{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,4vw,54px);align-items:center}
+.salon-fig img{width:100%;aspect-ratio:16/11;object-fit:cover;border-radius:clamp(20px,3.4vw,40px)}
+
+/* ---- サロンのパレット ---- */
+.pal-sec{background:var(--bg2)}
+.pal{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,4vw,52px);align-items:start}
+.pchips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.pchip{background:#fff;border:1px solid var(--line);border-radius:14px;cursor:pointer;
+  padding:9px 9px 11px;display:flex;flex-direction:column;gap:8px;text-align:left;
+  transition:border-color .3s,transform .3s,box-shadow .3s}
+.pchip i{display:block;height:38px;border-radius:10px 10px 14px 14px;background:var(--c);
+  box-shadow:inset 0 0 0 1px rgba(80,50,60,.12)}
+.pchip span{font-size:11.5px;letter-spacing:.04em;line-height:1.5}
+.pchip:hover{border-color:var(--key);transform:translateY(-2px)}
+.pchip[aria-pressed="true"]{border-color:var(--key-ink);box-shadow:0 0 0 1px var(--key-ink)}
+.pal-out{background:#fff;border-radius:var(--r-lg);padding:clamp(20px,3vw,30px);
+  box-shadow:0 22px 50px -40px rgba(105,70,80,.5)}
+.pal-face{height:clamp(70px,10vw,104px);border-radius:16px 16px clamp(30px,5vw,52px) clamp(30px,5vw,52px);
+  background:var(--pal,#F3EBE4);box-shadow:inset 0 0 0 1px rgba(80,50,60,.1);transition:background-color .5s ease}
+.pal-name{font-size:clamp(17px,2.2vw,20px);font-weight:400;letter-spacing:.1em;margin-top:16px}
+.pal-desc{color:var(--muted);font-weight:300;font-size:13.5px;line-height:1.95;margin-top:8px}
+
+/* ---- 店内2枚 ---- */
+.rooms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,32px);
+  margin-top:clamp(24px,4vw,44px)}
+.rooms figure{margin:0}
+.rooms .rph{overflow:hidden;border-radius:clamp(18px,2.6vw,30px);background:#fff}
+.rooms img{width:100%;aspect-ratio:16/11;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.rooms figure:hover img{transform:scale(1.05)}
+.rcap{margin-top:11px;font-size:12.5px;color:var(--muted);font-weight:300;letter-spacing:.09em;
+  display:flex;align-items:baseline;gap:11px}
+.rcap .rn{font-family:var(--en);font-size:11px;letter-spacing:.24em;color:var(--key-ink)}
+
+/* ---- スタッフ ---- */
+.staff{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,34px);
+  margin-top:clamp(26px,4vw,46px)}
+.stf{margin:0}
+.stf .sph{overflow:hidden;border-radius:clamp(80px,14vw,150px) clamp(80px,14vw,150px) clamp(18px,2.6vw,28px) clamp(18px,2.6vw,28px);
+  background:var(--bg2)}
+.stf img{width:100%;aspect-ratio:3/3.6;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.stf:hover img{transform:scale(1.04)}
+.stf-n{font-family:var(--en);font-size:11px;letter-spacing:.24em;color:var(--key-ink);margin-top:16px;display:block}
+.stf-t{font-weight:400;font-size:15.5px;letter-spacing:.09em;line-height:1.7;margin-top:5px}
+.stf-d{color:var(--muted);font-weight:300;font-size:13px;line-height:1.9;margin-top:6px}
+
+/* ---- アクセス ---- */
+.acc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,52px);align-items:start}
+.mapbox{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(12px,2vw,18px)}
+.mapbox svg{display:block;width:100%;height:auto;border-radius:calc(var(--r-lg) - 10px)}
+.map-note{font-size:11.5px;color:var(--muted);font-weight:300;letter-spacing:.06em;margin-top:10px;line-height:1.8}
+.shopfig{margin:clamp(18px,3vw,26px) 0 0}
+.shopfig .sfph{overflow:hidden;border-radius:clamp(18px,2.6vw,28px);background:var(--bg2)}
+.shopfig img{width:100%;aspect-ratio:16/11;object-fit:cover}
+.shopfig figcaption{font-size:12.5px;color:var(--muted);font-weight:300;letter-spacing:.09em;margin-top:11px}
+
+/* ---- 予約フォーム ---- */
+.form-sec{background:var(--bg2)}
+.fwrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,52px);align-items:start}
+.frm{background:#fff;border-radius:var(--r-lg);padding:clamp(20px,3.4vw,38px);
+  box-shadow:0 24px 56px -42px rgba(105,70,80,.5)}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+.fld{display:flex;flex-direction:column;gap:7px}
+.fld.wide{grid-column:1/3}
+.fld label{font-size:12px;letter-spacing:.12em;color:var(--key-ink);display:flex;align-items:center;gap:8px}
+.req{font-size:10px;letter-spacing:.1em;background:var(--key-tint);color:var(--key-deep);
+  border-radius:999px;padding:2px 8px;font-weight:400}
+.fld input,.fld select,.fld textarea{
+  width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;
+  padding:11px 13px;font-size:14px;font-weight:300;line-height:1.7;color:var(--ink);
+  transition:border-color .3s,background-color .3s}
+.fld textarea{min-height:104px;resize:vertical}
+.fld input:hover,.fld select:hover,.fld textarea:hover{border-color:var(--key)}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--key-ink);background:#fff}
+.fld input:focus-visible,.fld select:focus-visible,.fld textarea:focus-visible{outline:2px solid var(--key-ink);outline-offset:2px}
+.fld .cdot{width:12px;height:15px;border-radius:60% 60% 46% 46%/70% 70% 34% 34%;background:var(--pick);
+  box-shadow:inset 0 0 0 1px rgba(80,50,60,.14);flex:none;transition:background-color .5s ease}
+.fsubmit{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;margin-top:22px}
+.btn-send{background:var(--key-ink);color:#fff;border:none;border-radius:999px;
+  padding:14px 34px;font-size:13.5px;letter-spacing:.14em;cursor:pointer;
+  transition:background-color .3s,transform .3s}
+.btn-send:hover{background:var(--key-deep);transform:translateY(-2px)}
+.fdone{background:#fff;border-radius:var(--r-lg);padding:clamp(24px,4vw,44px);text-align:center;
+  box-shadow:0 24px 56px -42px rgba(105,70,80,.5)}
+.fdone svg{width:64px;height:64px;margin:0 auto}
+.fdone h3{font-weight:400;font-size:clamp(18px,2.4vw,22px);letter-spacing:.1em;margin-top:16px}
+.fdone p{color:var(--muted);font-weight:300;font-size:14px;line-height:2;margin-top:12px}
+.btn-back{margin-top:20px;background:#fff;border:1px solid var(--key-ink);color:var(--key-ink);
+  border-radius:999px;padding:11px 26px;font-size:13px;letter-spacing:.12em;cursor:pointer;
+  transition:background-color .3s}
+.btn-back:hover{background:var(--key-tint)}
+
+@media (max-width:960px){
+  .salon,.pal,.acc,.fwrap{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .rooms{grid-template-columns:1fr}
+  .staff{grid-template-columns:1fr;gap:26px}
+  .stf .sph{border-radius:clamp(60px,20vw,110px) clamp(60px,20vw,110px) 20px 20px}
+  .stf img{aspect-ratio:4/3.6}
+}
+@media (max-width:520px){
+  .fgrid{grid-template-columns:1fr}
+  .fld.wide{grid-column:1/2}
+  .pchips{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body class="p3">
+<a class="skip" href="#main">本文へスキップ</a>
+
+<div class="notice">
+  <div class="notice-in">
+    <span>これはRESCが作成したサンプルサイトです。実店舗ではありません。</span>
+    <a href="../hp-service/index.html">RESCのサイトに戻る</a>
+  </div>
+</div>
+
+<header class="hd">
+  <div class="hd-in">
+    <a class="brand" href="nail-standard.html">
+      <svg class="brand-mark" viewBox="0 0 26 32" aria-hidden="true">
+        <path d="M13 1.6C6.9 1.6 2.4 6 2.4 12.2c0 7.6 5.4 13.9 10.6 18.2 5.2-4.3 10.6-10.6 10.6-18.2C23.6 6 19.1 1.6 13 1.6Z" fill="none" stroke="#B98CA0" stroke-width="1.3"/>
+        <path d="M13 7.4c-3 0-5.2 2.2-5.2 5.3 0 3.9 2.8 7 5.2 9.2 2.4-2.2 5.2-5.3 5.2-9.2 0-3.1-2.2-5.3-5.2-5.3Z" fill="#E9CFC4"/>
+      </svg>
+      <span class="brand-t">Nail Salon Fleur<span class="brand-s">ネイルサロン フルール</span></span>
+    </a>
+    <nav class="chs" aria-label="サイト内の章">
+      <a class="ch" href="nail-standard.html" style="--c:#B98CA0">
+        <span class="ch-dot" aria-hidden="true"></span>
+        <span class="ch-txt"><span class="ch-n">01</span><span class="ch-l">COLOR</span><span class="ch-j">カラーチャート</span></span>
+      </a>
+      <a class="ch" href="nail-standard-detail.html" style="--c:#C0765F">
+        <span class="ch-dot" aria-hidden="true"></span>
+        <span class="ch-txt"><span class="ch-n">02</span><span class="ch-l">MENU</span><span class="ch-j">メニュー・料金</span></span>
+      </a>
+      <a class="ch" href="nail-standard-info.html" style="--c:#7E9B85" aria-current="page">
+        <span class="ch-dot" aria-hidden="true"></span>
+        <span class="ch-txt"><span class="ch-n">03</span><span class="ch-l">SALON</span><span class="ch-j">サロン・ご予約</span></span>
+      </a>
+    </nav>
+    <a class="btn-line" href="https://lin.ee/z3rP0hO"><svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 1.4c3.9 0 7 2.5 7 5.6 0 1.2-.5 2.4-1.4 3.4-1.3 1.5-4.2 3.4-4.9 3.7-.6.3-.6-.2-.5-.5l.2-1c0-.2 0-.5-.1-.6-.2-.1-.4-.2-.7-.2C3.5 11.4.9 9.2 1 6.9 1.1 3.9 4.1 1.4 8 1.4Z"/></svg>LINEで問い合わせる</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="ph" aria-labelledby="h1">
+    <div class="wrap ph-in">
+      <svg class="ph-arc" viewBox="0 0 240 150" aria-hidden="true" fill="none">
+        <path class="arc-a" d="M8 142C8 68 62 12 130 12s102 46 102 106c-16-44-52-72-102-72S26 92 8 142Z" opacity=".55"/>
+      </svg>
+      <p class="ch-badge"><span class="b-dot" aria-hidden="true"></span>
+        <span class="b-n">03</span><span class="b-l">SALON</span></p>
+      <h1 class="hero-h1" id="h1" style="font-weight:300;margin:18px 0 0">
+        <span class="ph-en">Salon &amp; Reservation</span>
+        <span class="ph-jp">サロンと、ご予約</span>
+      </h1>
+      <p class="lead ph-lead ph-sub">お店そのものも、ひとつの色見本です。壁の白から什器のオークまで、色を落ち着かせて、指先の色がいちばんきれいに見えるようにしています。アクセスとご予約もこのページから。</p>
+      <a class="pickbar" id="pickbar" href="nail-standard.html#chart" hidden>
+        <span class="p-dot" aria-hidden="true"></span>
+        01 COLORで選んだ色：<b id="pickName">—</b>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ サロンについて ============ -->
+  <section class="sec" id="salon" aria-labelledby="salon-h">
+    <div class="wrap salon">
+      <figure class="salon-fig rv" style="margin:0">
+        <img src="images/nail/nail_facility1.webp" alt="白い壁と木の什器でまとめられたサロンの施術スペース" loading="lazy" decoding="async">
+      </figure>
+      <div class="rv rv-d1">
+        <p class="eyebrow">About the Salon</p>
+        <h2 class="h-sec" id="salon-h">指先の色が、<br>いちばんきれいに見える部屋。</h2>
+        <p class="lead" style="margin-top:18px">一人ひとりの手の形や普段のライフスタイルに合わせたデザインをご提案。丁寧なケアと心地よい時間で、指先からリフレッシュしていただけます。部屋の色数をしぼっているのは、選んだ色をそのまま確かめていただくためです。</p>
+        <dl class="dl-info">
+          <div><dt>営業時間</dt><dd>10:00〜19:00（定休日:不定休）</dd></div>
+          <div><dt>ご予約</dt><dd>完全予約制</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ サロンのパレット ============ -->
+  <section class="sec pal-sec" id="palette" aria-labelledby="pal-h">
+    <div class="wrap">
+      <div class="rv" style="max-width:640px">
+        <p class="eyebrow">Salon Palette</p>
+        <h2 class="h-sec" id="pal-h">この部屋を<br>つくっている色。</h2>
+        <p class="lead" style="margin-top:16px">店内から6色を抜き出して、色見本にしました。チップを選ぶと、その色がどこの色なのかをご覧いただけます。</p>
+      </div>
+      <div class="pal" style="margin-top:clamp(24px,4vw,44px)">
+        <div class="rv">
+          <div class="pchips" id="pchips" role="group" aria-labelledby="pal-h">
+          <button type="button" class="pchip" style="--c:#F3EBE4" data-c="#F3EBE4" data-n="ミルクホワイト" data-d="壁と天井にあたる色。いちばん面積が大きく、部屋全体の明るさを決めています。" aria-pressed="true">
+            <i aria-hidden="true"></i><span>ミルクホワイト</span>
+          </button>
+          <button type="button" class="pchip" style="--c:#E6C7C7" data-c="#E6C7C7" data-n="ダスティピンク" data-d="チェアとソファの色。座ったときにいちばん近くに見える色です。" aria-pressed="false">
+            <i aria-hidden="true"></i><span>ダスティピンク</span>
+          </button>
+          <button type="button" class="pchip" style="--c:#C4A281" data-c="#C4A281" data-n="オークブラウン" data-d="棚とテーブルの色。カラーボトルやサンプルを並べている什器です。" aria-pressed="false">
+            <i aria-hidden="true"></i><span>オークブラウン</span>
+          </button>
+          <button type="button" class="pchip" style="--c:#A8BCA6" data-c="#A8BCA6" data-n="セージグリーン" data-d="植物と葉の色。待合まわりに置いて、白い壁のあいだに入れています。" aria-pressed="false">
+            <i aria-hidden="true"></i><span>セージグリーン</span>
+          </button>
+          <button type="button" class="pchip" style="--c:#B9A0A4" data-c="#B9A0A4" data-n="ローズグレー" data-d="影になる部分の色。ラグやクッションのまわりに落ちています。" aria-pressed="false">
+            <i aria-hidden="true"></i><span>ローズグレー</span>
+          </button>
+          <button type="button" class="pchip" style="--c:#DEC79A" data-c="#DEC79A" data-n="シャンパンゴールド" data-d="照明とミラーのふちの色。夕方の光と混ざると強く出ます。" aria-pressed="false">
+            <i aria-hidden="true"></i><span>シャンパンゴールド</span>
+          </button>
+          </div>
+        </div>
+        <div class="rv rv-d1">
+          <div class="pal-out">
+            <div class="pal-face" id="palFace" style="--pal:#F3EBE4" aria-hidden="true"></div>
+            <p class="pal-name" id="palName" aria-live="polite">ミルクホワイト</p>
+            <p class="pal-desc" id="palDesc">壁と天井にあたる色。いちばん面積が大きく、部屋全体の明るさを決めています。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rooms">
+        <figure class="rv">
+          <div class="rph"><img src="images/nail/nail_gallery3.webp" alt="花と観葉植物が置かれた明るいサロンの待合スペース" loading="lazy" decoding="async"></div>
+          <figcaption class="rcap"><span class="rn">01</span>光と花のある、待ち時間</figcaption>
+        </figure>
+        <figure class="rv rv-d1">
+          <div class="rph"><img src="images/nail/nail_gallery6.webp" alt="ピンクのソファとカラーサンプルの棚が並ぶくつろぎスペース" loading="lazy" decoding="async"></div>
+          <figcaption class="rcap"><span class="rn">02</span>カラーサンプルの棚と、ソファ</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ スタッフ ============ -->
+  <section class="sec" id="staff" aria-labelledby="staff-h">
+    <div class="wrap">
+      <div class="rv" style="max-width:640px">
+        <p class="eyebrow">Staff</p>
+        <h2 class="h-sec" id="staff-h">決まっていない、<br>から始めて大丈夫です。</h2>
+        <p class="lead" style="margin-top:16px">カウンセリングでは、手の形やお仕事のことを伺いながら、一緒に決めていきます。「なんとなくこういう気分」だけでも、そこから色をしぼっていけます。</p>
+      </div>
+      <div class="staff">
+        <figure class="stf rv">
+          <div class="sph"><img src="images/nail/nail_staff1.webp" alt="カラーボトルの棚の前に立つスタッフ" loading="lazy" decoding="async"></div>
+          <span class="stf-n">STAFF 01</span>
+          <h3 class="stf-t">お出迎えとカウンセリング</h3>
+          <p class="stf-d">その日の予定や気分を伺うところから始めます。急ぎの日は、そのようにお伝えください。</p>
+        </figure>
+        <figure class="stf rv rv-d1">
+          <div class="sph"><img src="images/nail/nail_staff2.webp" alt="デザインサンプルのボードを手に持つスタッフ" loading="lazy" decoding="async"></div>
+          <span class="stf-n">STAFF 02</span>
+          <h3 class="stf-t">デザインのご案内</h3>
+          <p class="stf-d">サンプルをお見せしながら、爪の長さや形に合うかたちを一緒に考えます。</p>
+        </figure>
+        <figure class="stf rv rv-d2">
+          <div class="sph"><img src="images/nail/nail_staff3.webp" alt="ドライフラワーを背に、カラーサンプルを手に持つスタッフ" loading="lazy" decoding="async"></div>
+          <span class="stf-n">STAFF 03</span>
+          <h3 class="stf-t">カラーのご相談</h3>
+          <p class="stf-d">色見本を手元の光に当てながら、実際の見え方を確かめていただきます。</p>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ アクセス ============ -->
+  <section class="sec" id="access" aria-labelledby="access-h">
+    <div class="wrap acc">
+      <div class="rv">
+        <p class="eyebrow">Access</p>
+        <h2 class="h-sec" id="access-h">アクセス</h2>
+        <dl class="dl-info">
+          <div><dt>住所</dt><dd>福岡県福岡市〇〇区〇〇7-1-4</dd></div>
+          <div><dt>営業時間</dt><dd>10:00〜19:00</dd></div>
+          <div><dt>定休日</dt><dd>不定休</dd></div>
+          <div><dt>ご予約</dt><dd>完全予約制</dd></div>
+        </dl>
+        <div class="ctas">
+          <a class="cta cta-1" href="https://lin.ee/z3rP0hO"><svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 1.4c3.9 0 7 2.5 7 5.6 0 1.2-.5 2.4-1.4 3.4-1.3 1.5-4.2 3.4-4.9 3.7-.6.3-.6-.2-.5-.5l.2-1c0-.2 0-.5-.1-.6-.2-.1-.4-.2-.7-.2C3.5 11.4.9 9.2 1 6.9 1.1 3.9 4.1 1.4 8 1.4Z"/></svg>LINEで問い合わせる</a>
+          <a class="cta cta-2" href="mailto:info@example.com"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1.2" y="3" width="13.6" height="10" rx="2"/><path d="M1.8 4.2 8 8.6l6.2-4.4"/></svg>メールで問い合わせる</a>
+        </div>
+      </div>
+      <div class="rv rv-d1">
+        <div class="mapbox">
+          <svg viewBox="0 0 520 340" role="img" aria-label="サロンの位置を示したイメージ図。実際の地図ではありません">
+            <rect width="520" height="340" fill="#F7F2EF"/>
+            <g stroke="#E7D8D2" stroke-width="1">
+              <path d="M0 60h520M0 150h520M0 250h520M90 0v340M250 0v340M400 0v340"/>
+            </g>
+            <path d="M0 150h520" stroke="#EADFD8" stroke-width="26"/>
+            <path d="M250 0v340" stroke="#EADFD8" stroke-width="18"/>
+            <path d="M0 150h520" stroke="#fff" stroke-width="1" stroke-dasharray="12 12"/>
+            <g fill="#EFE7E1">
+              <rect x="112" y="176" width="112" height="56" rx="6"/>
+              <rect x="300" y="72" width="76" height="56" rx="6"/>
+              <rect x="420" y="180" width="70" height="48" rx="6"/>
+              <rect x="24" y="72" width="46" height="56" rx="6"/>
+            </g>
+            <g fill="#DCE7DA">
+              <circle cx="440" cy="92" r="24"/><circle cx="470" cy="112" r="15"/>
+            </g>
+            <g transform="translate(286,186)">
+              <path class="arc-a" d="M0 0c-15 0-27 12-27 27 0 20 20 36 27 44 7-8 27-24 27-44C27 12 15 0 0 0Z" transform="translate(0,-58)"/>
+              <circle cx="0" cy="-31" r="10" fill="#fff"/>
+              <text x="20" y="-24" font-family="Jost, sans-serif" font-size="15" letter-spacing="2" fill="#463A3C">Fleur</text>
+            </g>
+            <g transform="translate(474,286)">
+              <path d="M0-20 6 0-6 0Z" fill="#8C7A7C"/><path d="M0 0 6 0-6 0 0 14Z" fill="#C9BCBC"/>
+              <text x="-5" y="-26" font-family="Jost, sans-serif" font-size="12" fill="#6E5E60">N</text>
+            </g>
+          </svg>
+          <p class="map-note">※ 上の図はイメージです。サンプルサイトのため、実際の地図・所在地は表示していません。</p>
+        </div>
+        <figure class="shopfig">
+          <div class="sfph"><img src="images/nail/nail_facility2.webp" alt="ピンクのひさしと木の扉がある小さな路面店の外観" loading="lazy" decoding="async"></div>
+          <figcaption>ピンクのひさしと、木の扉が目印です。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ご予約 ============ -->
+  <section class="sec form-sec" id="reserve" aria-labelledby="rsv-h">
+    <div class="wrap fwrap">
+      <div class="rv">
+        <p class="eyebrow">Reservation</p>
+        <h2 class="h-sec" id="rsv-h">ご予約・<br>ご相談フォーム</h2>
+        <p class="lead" style="margin-top:16px">ご希望の日にちと、気になっている色を教えてください。決まっていない項目は空欄のままで大丈夫です。お急ぎの場合はLINEからのご連絡が確実です。</p>
+        <p class="note-s" style="margin-top:18px;border-left:2px solid var(--key);padding-left:14px">※ これはサンプルサイトです。このフォームからは実際には送信されません。入力内容はどこにも保存されません。</p>
+      </div>
+
+      <div class="rv rv-d1">
+        <form class="frm" id="rsvForm" action="#" method="post" novalidate>
+          <div class="fgrid">
+            <div class="fld">
+              <label for="f-name">お名前<span class="req">必須</span></label>
+              <input type="text" id="f-name" name="name" autocomplete="name" required placeholder="福岡 花子">
+            </div>
+            <div class="fld">
+              <label for="f-mail">メールアドレス<span class="req">必須</span></label>
+              <input type="email" id="f-mail" name="email" autocomplete="email" required placeholder="hanako@example.com">
+            </div>
+            <div class="fld">
+              <label for="f-menu">ご希望のメニュー</label>
+              <select id="f-menu" name="menu">
+                <option>ハンドネイル（¥6,600）</option>
+                <option>アートネイル（¥8,800）</option>
+                <option>ブライダルネイル（¥13,200）</option>
+                <option>フットネイル（¥7,700）</option>
+                <option>ネイルケア（¥3,300）</option>
+                <option>ジェルオフ（¥2,200）</option>
+                <option>まだ決まっていない</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label for="f-date">ご希望の日にち</label>
+              <input type="date" id="f-date" name="date">
+            </div>
+            <div class="fld">
+              <label for="f-time">ご希望の時間帯</label>
+              <select id="f-time" name="time">
+                <option>10:00〜12:00</option>
+                <option>12:00〜15:00</option>
+                <option>15:00〜19:00</option>
+                <option>まだ決まっていない</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label for="f-color"><span class="cdot" aria-hidden="true"></span>気になっている色</label>
+              <select id="f-color" name="color">
+                <option value="">まだ決まっていない</option>
+                <option value="ミルクホワイト">No.01 ミルクホワイト</option>
+                <option value="ピンクベージュ">No.02 ピンクベージュ</option>
+                <option value="ダスティローズ">No.03 ダスティローズ</option>
+                <option value="グレージュ">No.04 グレージュ</option>
+                <option value="シャンパン">No.05 シャンパン</option>
+                <option value="テラコッタ">No.06 テラコッタ</option>
+                <option value="モーヴ">No.07 モーヴ</option>
+                <option value="スモーキーラベンダー">No.08 スモーキーラベンダー</option>
+                <option value="セージ">No.09 セージ</option>
+                <option value="ミント">No.10 ミント</option>
+                <option value="ネイビーグレー">No.11 ネイビーグレー</option>
+                <option value="ボルドー">No.12 ボルドー</option>
+              </select>
+            </div>
+            <div class="fld wide">
+              <label for="f-msg">ご相談・ご希望</label>
+              <textarea id="f-msg" name="message" placeholder="仕事柄あまり長くできません／来週の結婚式に合わせたいです など"></textarea>
+            </div>
+          </div>
+          <div class="fsubmit">
+            <button type="submit" class="btn-send">送信内容を確認する</button>
+            <p class="note-s" style="margin:0">送信は行われません（サンプル）</p>
+          </div>
+        </form>
+
+        <div class="fdone" id="rsvDone" hidden tabindex="-1" role="status">
+          <svg viewBox="0 0 64 64" aria-hidden="true" fill="none">
+            <circle cx="32" cy="32" r="30" fill="#E8F0E9"/>
+            <path d="M20 33.5 28.5 42 45 24" stroke="#4F6B57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>送信されたことにしました</h3>
+          <p>これはRESCが作成したサンプルサイトです。実際のご予約は受け付けておらず、入力内容はどこにも送信・保存されていません。<br>実際のサイトでは、この画面のあとにサロンから返信が届く流れになります。</p>
+          <button type="button" class="btn-back" id="rsvBack">もう一度入力する</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:clamp(36px,5vw,64px)">
+    <div class="wrap">
+<nav class="nextnav" aria-label="次に読む章">
+  <a class="nx rv" href="nail-standard.html" style="--c:#B98CA0">
+    <span class="nx-arc" aria-hidden="true"></span>
+    <span class="nx-n">01 / COLOR</span>
+    <span class="nx-t">カラーチャート</span>
+    <span class="nx-d">12色の色見本から、気になる色を選べます。選んだ色はこのページのフォームにも引き継がれます。</span>
+    <span class="nx-go">このページを見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none"><path d="M0 4h13.6M10.2.8 14 4l-3.8 3.2" stroke="currentColor" stroke-width="1"/></svg></span>
+  </a>
+  <a class="nx rv" href="nail-standard-detail.html" style="--c:#C0765F">
+    <span class="nx-arc" aria-hidden="true"></span>
+    <span class="nx-n">02 / MENU</span>
+    <span class="nx-t">メニュー・料金</span>
+    <span class="nx-d">6つのメニューを、色帯のついた一覧と写真でご紹介します。</span>
+    <span class="nx-go">このページを見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none"><path d="M0 4h13.6M10.2.8 14 4l-3.8 3.2" stroke="currentColor" stroke-width="1"/></svg></span>
+  </a>
+</nav>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <div class="ft-in">
+    <div class="ft-top">
+      <p class="ft-brand">Nail Salon Fleur</p>
+      <nav class="ft-nav" aria-label="フッター">
+      <a href="nail-standard.html" style="--c:#B98CA0"><span class="f-dot" aria-hidden="true"></span>01 COLOR／カラーチャート</a>
+      <a href="nail-standard-detail.html" style="--c:#C0765F"><span class="f-dot" aria-hidden="true"></span>02 MENU／メニュー・料金</a>
+      <a href="nail-standard-info.html" style="--c:#7E9B85"><span class="f-dot" aria-hidden="true"></span>03 SALON／サロン・ご予約</a>
+      </nav>
+    </div>
+    <p class="ft-note">これはRESCが作成したサンプルサイトです。実店舗ではありません。／ Nail Salon Fleur（RESC制作サンプル）／ <a href="../hp-service/index.html">RESCのサイトに戻る</a></p>
+  </div>
+</footer>
+
+<div class="paint" id="paint" aria-hidden="true">
+  <span class="pd pd-lead"></span>
+  <span class="pd pd-out"></span>
+  <span class="pd pd-in"></span>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var RM = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  /* ---------- スクロールで表示（取りこぼし防止の掃き出し付き） ---------- */
+  var rv = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+  function show(el){ el.classList.add('in'); }
+  if (RM || !('IntersectionObserver' in window)) {
+    rv.forEach(show);
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ show(e.target); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -6% 0px', threshold:0});
+    rv.forEach(function(el){ io.observe(el); });
+    var queued = false;
+    function sweep(){
+      queued = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+      for (var i=0;i<rv.length;i++){
+        var el = rv[i];
+        if (el.classList.contains('in')) continue;
+        if (el.getBoundingClientRect().top < vh*0.94){ show(el); io.unobserve(el); }
+      }
+    }
+    function queue(){ if(!queued){ queued=true; requestAnimationFrame(sweep); } }
+    window.addEventListener('scroll', queue, {passive:true});
+    window.addEventListener('resize', queue);
+    window.addEventListener('load', queue);
+    setTimeout(sweep, 80);
+  }
+
+  /* ---------- ページ遷移：次章のキーカラーが円弧で塗り広がる ---------- */
+  var KEYS = {
+    'nail-standard.html':'#B98CA0',
+    'nail-standard-detail.html':'#C0765F',
+    'nail-standard-info.html':'#7E9B85'
+  };
+  var paint = document.getElementById('paint');
+  var here = (location.pathname.split('/').pop() || 'nail-standard.html');
+  if (paint && !RM) {
+    document.addEventListener('click', function(e){
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      if (a.target && a.target !== '_self') return;
+      if (a.hasAttribute('download')) return;
+      var href = a.getAttribute('href') || '';
+      var file = href.split('#')[0].split('?')[0];
+      if (!KEYS[file] || file === here) return;
+      e.preventDefault();
+      paint.style.setProperty('--paint', KEYS[file]);
+      paint.classList.add('go');
+      var moved = false;
+      var go = function(){ if(moved) return; moved = true; location.href = href; };
+      setTimeout(go, 600);
+    });
+  }
+  window.addEventListener('pageshow', function(){ if(paint) paint.classList.remove('go'); });
+
+  /* ---------- 章をまたいで「選んだ色」を引き継ぐ ---------- */
+  window.FLEUR = {
+    save: function(hex, name){
+      try { sessionStorage.setItem('fleur-color', hex + '|' + name); } catch(err){}
+    },
+    load: function(){
+      try {
+        var v = sessionStorage.getItem('fleur-color');
+        if (!v) return null;
+        var p = v.split('|');
+        if (p.length !== 2 || !/^#[0-9A-Fa-f]{6}$/.test(p[0])) return null;
+        return {hex:p[0], name:p[1]};
+      } catch(err){ return null; }
+    }
+  };
+  var bar = document.getElementById('pickbar');
+  if (bar) {
+    var picked = window.FLEUR.load();
+    if (picked) {
+      document.body.style.setProperty('--pick', picked.hex);
+      var nm = document.getElementById('pickName');
+      if (nm) nm.textContent = picked.name;
+      bar.hidden = false;
+    }
+  }
+})();
+
+(function(){
+  "use strict";
+  /* ---------- サロンのパレット ---------- */
+  var pcs = Array.prototype.slice.call(document.querySelectorAll('#pchips .pchip'));
+  var face = document.getElementById('palFace'),
+      pn = document.getElementById('palName'),
+      pd = document.getElementById('palDesc');
+  function pickPal(btn){
+    pcs.forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
+    if (face) face.style.setProperty('--pal', btn.getAttribute('data-c'));
+    if (pn) pn.textContent = btn.getAttribute('data-n');
+    if (pd) pd.textContent = btn.getAttribute('data-d');
+  }
+  pcs.forEach(function(b, i){
+    b.addEventListener('click', function(){ pickPal(b); });
+    b.addEventListener('keydown', function(ev){
+      var k = ev.key, n = -1;
+      if (k === 'ArrowRight' || k === 'ArrowDown') n = (i + 1) % pcs.length;
+      else if (k === 'ArrowLeft' || k === 'ArrowUp') n = (i - 1 + pcs.length) % pcs.length;
+      else if (k === 'Home') n = 0;
+      else if (k === 'End') n = pcs.length - 1;
+      if (n < 0) return;
+      ev.preventDefault(); pcs[n].focus(); pickPal(pcs[n]);
+    });
+  });
+
+  /* ---------- 予約フォーム（サンプル：送信しません） ---------- */
+  var form = document.getElementById('rsvForm'),
+      done = document.getElementById('rsvDone'),
+      back = document.getElementById('rsvBack');
+  if (form) {
+    var sel = document.getElementById('f-color');
+    var picked = window.FLEUR && window.FLEUR.load();
+    if (sel && picked) {
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === picked.name) { sel.selectedIndex = i; break; }
+      }
+    }
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+      form.hidden = true;
+      done.hidden = false;
+      done.focus();
+    });
+    if (back) back.addEventListener('click', function(){
+      done.hidden = true; form.hidden = false; form.reset();
+      var f = document.getElementById('f-name'); if (f) f.focus();
+    });
+  }
+})();
+</script>
+</body>
+</html>
