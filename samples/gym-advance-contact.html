@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アクセス・体験申込｜FORGE（福岡・天神のパーソナルジム）｜STEP 10</title>
+<meta name="description" content="FORGEへの行き方と体験セッションのお申し込み。福岡市中央区天神4丁目2-10 天神フォージビル3F。営業時間・略図・連絡手段・申込フォームをまとめています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+/* js クラス：JS無効時は .rv を隠さない／遷移オーバーレイも出さない。
+   x-hold は失敗時の保険として 1.6秒で必ず解除する。 */
+(function(){
+  var h=document.documentElement;
+  h.className+=' js';
+  try{
+    if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){
+      h.className+=' x-hold';
+      setTimeout(function(){h.className=h.className.replace(/\bx-hold\b/,'');},1600);
+    }
+  }catch(e){}
+})();
+</script>
+<style>
+
+/* ============================================================
+   FORGE ADVANCE ／ 共通スタイル
+   全10ページでこの <style> を丸ごとコピーして使う。
+   未使用のクラスが混ざっていても消さないこと。
+   ============================================================ */
+
+/* ============ 1. tokens ============ */
+:root{
+  --ink:#121211;
+  --ink-2:#1C1D1B;
+  --ink-3:#262724;
+  --ink-4:#080908;
+  --concrete:#CFCEC9;
+  --paper:#DCDBD6;
+  --paper-2:#E4E3DE;
+  --muted:#4A4A45;
+  --muted-2:#5C5C56;
+  --rule:#9E9D96;
+  --rule-2:#B7B6AF;
+  --rule-strong:#121211;
+  --on-dark:#E8E7E2;
+  --on-dark-mute:#9E9E97;
+  --dark-rule:#3A3B37;
+  --dark-rule-2:#2C2D29;
+  --lime:#C3F53C;
+  --lime-deep:#6E7A46;
+
+  --jp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --num:"Barlow Condensed","Arial Narrow",sans-serif;
+
+  --pad:clamp(18px,5vw,64px);
+  --maxw:1240px;
+
+  /* 段（STEP）の目盛り。セクションの左インデントに使う */
+  --riseu:clamp(0px,1.15vw,18px);
+  /* 階段インデックスの1段ぶんの奥行き */
+  --stairu:clamp(6px,1.7vw,26px);
+
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --ease-io:cubic-bezier(.72,0,.24,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--concrete);color:var(--ink);
+  font-family:var(--jp);font-weight:400;line-height:1.85;
+  font-size:15px;letter-spacing:.02em;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure,fieldset,table{margin:0;padding:0}
+fieldset{border:0}
+ul,ol{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.sec--dark :focus-visible,.sec--dark2 :focus-visible,.notice :focus-visible,
+.head :focus-visible,.foot :focus-visible,.hero :focus-visible,
+.nextstep :focus-visible{outline-color:var(--lime)}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.skip{position:absolute;left:-9999px;top:0;z-index:400}
+.skip:focus{left:8px;top:8px;background:var(--ink);color:var(--lime);padding:10px 16px}
+[hidden]{display:none !important}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* 追従ヘッダーの実寸より必ず大きくする（アンカー着地の被り防止） */
+section[id],div[id].anchor,li[id]{scroll-margin-top:170px}
+
+/* ============ 2. deck（遷移で沈む面） ============ */
+.deck{transition:transform .46s var(--ease-io),opacity .38s ease}
+html.x-hold .deck{transform:translateY(16px) scale(.994);opacity:0}
+html.x-land .deck{transform:none;opacity:1}
+html.x-go   .deck{transform:translateY(10px) scale(.955);opacity:.42}
+
+/* ============ 3. サンプル注記 ============ */
+.notice{background:var(--ink);color:var(--on-dark);font-size:12.5px;line-height:1.6;position:relative;z-index:60}
+.notice .wrap{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;padding-block:9px}
+.notice__tag{font-family:var(--num);font-weight:700;font-size:13px;letter-spacing:.14em;
+  background:var(--lime);color:var(--ink);padding:1px 8px 0}
+.notice a{color:var(--lime);text-decoration:underline;text-underline-offset:3px;font-weight:500}
+
+/* ============ 4. ヘッダー（2段・追従） ============ */
+.head{position:sticky;top:0;z-index:50;background:var(--ink);color:var(--on-dark)}
+.hd-main{position:relative;border-bottom:1px solid var(--dark-rule-2)}
+.hd-main > .wrap{display:flex;flex-wrap:nowrap;gap:clamp(10px,2vw,28px);align-items:center;padding-block:11px}
+.brand{display:flex;align-items:baseline;gap:9px;flex:0 0 auto;text-decoration:none}
+.brand__mark{font-family:var(--num);font-weight:700;font-size:clamp(24px,2.4vw,30px);letter-spacing:.18em;line-height:1}
+.brand__sub{font-size:10.5px;letter-spacing:.18em;color:var(--on-dark-mute);white-space:nowrap}
+
+/* 4群ナビ（10項目をベタ並べにしない） */
+.tiernav{margin-left:auto}
+.tiernav ol{display:flex;gap:clamp(4px,1vw,14px)}
+.tiernav a{display:block;text-decoration:none;padding:5px 9px 6px;border-top:3px solid var(--dark-rule);
+  transition:border-color .25s,background .25s}
+.tiernav a:hover{border-top-color:var(--on-dark-mute);background:#ffffff0a}
+.tiernav .t{display:block;font-size:11.5px;letter-spacing:.06em;color:var(--on-dark);line-height:1.5;white-space:nowrap}
+.tiernav .r{display:block;font-family:var(--num);font-weight:700;font-size:11px;letter-spacing:.16em;
+  color:var(--on-dark-mute);line-height:1.2;white-space:nowrap}
+.tiernav a[aria-current]{border-top-color:var(--lime)}
+.tiernav a[aria-current] .r{color:var(--lime)}
+
+/* STEP INDEX ドロワー（JSなしで開閉できる） */
+.idx{flex:0 0 auto}
+.idx__btn{display:flex;align-items:center;gap:9px;cursor:pointer;list-style:none;
+  font-family:var(--num);font-weight:700;font-size:12.5px;letter-spacing:.16em;
+  border:1px solid var(--dark-rule);padding:8px 12px;white-space:nowrap}
+.idx__btn::-webkit-details-marker{display:none}
+.idx__btn:hover{border-color:var(--on-dark-mute)}
+.idx__bars{display:grid;gap:3px;width:15px}
+.idx__bars i{display:block;height:2px;background:var(--lime)}
+.idx__bars i:nth-child(2){width:72%}
+.idx__bars i:nth-child(3){width:44%}
+.idx__ct{background:var(--lime);color:var(--ink);padding:0 6px;font-size:11.5px}
+.idx[open] .idx__bars i:nth-child(2),.idx[open] .idx__bars i:nth-child(3){width:100%}
+.idx[open] .idx__panel{display:block}
+.idx__panel{display:none;position:absolute;left:0;right:0;top:100%;background:var(--ink-2);
+  border-top:1px solid var(--dark-rule);border-bottom:2px solid var(--lime);
+  box-shadow:0 30px 60px -30px #000000cc;z-index:70}
+.idx__panel .wrap{padding-block:clamp(18px,2.6vw,30px)}
+.idx__cap{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.24em;
+  color:var(--lime);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.idx__cap i{flex:1;height:1px;background:var(--dark-rule)}
+.idx__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,26px)}
+.idx__g h2{font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.2em;
+  color:var(--on-dark-mute);border-top:2px solid var(--dark-rule);padding-top:8px;margin-bottom:6px}
+.idx__g a{display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;align-items:baseline;
+  text-decoration:none;padding:5px 0;font-size:12.5px;line-height:1.6}
+.idx__g a em{font-style:normal;font-family:var(--num);font-weight:700;font-size:12.5px;
+  letter-spacing:.1em;color:var(--on-dark-mute)}
+.idx__g a:hover span{color:var(--lime)}
+.idx__g a[aria-current="page"] em{color:var(--lime)}
+.idx__g a[aria-current="page"] span{font-weight:700}
+
+.head__cta{flex:0 0 auto;background:var(--lime);color:var(--ink);text-decoration:none;
+  font-weight:700;font-size:12.5px;letter-spacing:.06em;padding:10px 15px;white-space:nowrap}
+.head__cta:hover{background:#D3FF5E}
+
+/* 下段：段バー */
+.hd-riser{background:var(--ink-2);border-bottom:1px solid var(--dark-rule)}
+.hd-riser .wrap{display:flex;flex-wrap:nowrap;align-items:center;gap:clamp(10px,2vw,24px);padding-block:8px}
+.rz{display:flex;align-items:baseline;gap:8px;flex:0 0 auto;min-width:0}
+.rz__k{font-family:var(--num);font-weight:600;font-size:11px;letter-spacing:.24em;color:var(--on-dark-mute)}
+.rz__n{font-family:var(--num);font-weight:700;font-size:19px;letter-spacing:.08em;color:var(--lime);line-height:1}
+.rz__of{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.12em;color:var(--on-dark-mute)}
+.rz__nm{font-size:12.5px;color:var(--on-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rz__bar{display:flex;gap:3px;flex:0 0 auto;margin-left:auto}
+.rz__bar li{width:clamp(7px,1.1vw,15px);height:9px;background:var(--dark-rule-2);border-bottom:2px solid var(--dark-rule)}
+.rz__bar li.done{background:var(--lime-deep);border-bottom-color:var(--lime-deep)}
+.rz__bar li.on{background:var(--lime);border-bottom-color:var(--lime);height:15px}
+.rz__pn{display:flex;gap:14px;align-items:center;flex:0 0 auto;font-family:var(--num);font-weight:700;
+  font-size:11.5px;letter-spacing:.14em}
+.rz__pn a{text-decoration:none;color:var(--on-dark);white-space:nowrap}
+.rz__pn a:hover{color:var(--lime)}
+.rz__pn .dis{color:#85867E;white-space:nowrap}
+
+/* ============ 5. パンくず（トップ以外の9ページで必須） ============ */
+.crumb{background:var(--paper);border-bottom:1px solid var(--rule-2)}
+.crumb ol{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;padding-block:10px;font-size:12px}
+.crumb li{display:flex;align-items:center;gap:10px;color:var(--muted)}
+.crumb li+li::before{content:"/";color:var(--rule);font-family:var(--num)}
+.crumb a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule-2)}
+.crumb a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.crumb [aria-current="page"]{color:var(--ink);font-weight:700}
+
+/* ============ 6. ヒーロー／ページ見出し ============ */
+.hero{position:relative;background:var(--ink);color:var(--on-dark);overflow:hidden}
+.hero__media{position:absolute;inset:0}
+.hero__media img{width:100%;height:100%;object-fit:cover;opacity:.42;aspect-ratio:1376/768}
+.hero__veil{position:absolute;inset:0;
+  background:linear-gradient(102deg,#0C0C0Bf5 0%,#0C0C0Be0 46%,#0C0C0B70 100%)}
+.hero__inner{position:relative;padding-block:clamp(48px,9.5vw,120px)}
+.hero__eye{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.16em;
+  color:var(--on-dark);margin-bottom:clamp(16px,3.2vw,28px)}
+.hero__eye::before{content:"";width:26px;height:8px;background:var(--lime);flex:0 0 auto}
+h1{display:block;margin:0}
+.h1-brand{display:block;font-family:var(--num);font-weight:700;
+  font-size:clamp(66px,15vw,188px);line-height:.82;letter-spacing:.02em;color:var(--on-dark)}
+.h1-catch{display:block;font-weight:900;line-height:1.34;letter-spacing:.01em;
+  font-size:clamp(19px,4vw,40px);margin-top:clamp(14px,2.6vw,26px)}
+.h1-catch em{font-style:normal;color:var(--lime)}
+.hero__lead{margin-top:clamp(20px,3.2vw,32px);max-width:44em;
+  font-size:clamp(13.5px,1.35vw,15.5px);line-height:2.05;color:var(--on-dark);
+  border-left:2px solid var(--lime);padding-left:18px}
+.hero__foot{margin-top:clamp(24px,4vw,42px);border-top:1px solid var(--dark-rule);padding-top:16px;
+  display:flex;flex-wrap:wrap;gap:10px 26px;align-items:baseline}
+.hero__foot b{font-family:var(--num);font-weight:700;font-size:15px;letter-spacing:.16em;color:var(--lime)}
+.hero__foot span{font-size:12.5px;color:var(--on-dark-mute)}
+
+/* 下位9ページ用のページ見出し */
+.phead{position:relative;background:var(--ink);color:var(--on-dark);overflow:hidden}
+.phead__media{position:absolute;inset:0}
+.phead__media img{width:100%;height:100%;object-fit:cover;opacity:.3}
+.phead__veil{position:absolute;inset:0;
+  background:linear-gradient(100deg,#0A0A09f7 0%,#0A0A09e4 50%,#0A0A0988 100%)}
+.phead__inner{position:relative;padding-block:clamp(34px,6vw,78px)}
+.phead__tag{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--num);font-weight:600;
+  font-size:12.5px;letter-spacing:.24em;color:var(--on-dark-mute)}
+.phead__tag b{background:var(--lime);color:var(--ink);font-weight:700;letter-spacing:.14em;padding:2px 9px 0}
+.phead h1{font-weight:900;font-size:clamp(28px,5.6vw,64px);line-height:1.2;letter-spacing:.01em;margin-top:14px}
+.phead h1 em{font-style:normal;color:var(--lime)}
+.phead__en{display:block;font-family:var(--num);font-weight:700;font-size:clamp(14px,1.9vw,21px);
+  letter-spacing:.22em;color:var(--on-dark-mute);margin-top:10px}
+.phead__lead{margin-top:clamp(16px,2.4vw,24px);max-width:42em;font-size:clamp(13.5px,1.3vw,15px);
+  line-height:2.05;color:var(--on-dark);border-left:2px solid var(--lime);padding-left:16px}
+
+/* ============ 7. 帯（3項目） ============ */
+.strip{background:var(--ink-2);color:var(--on-dark);border-top:1px solid var(--dark-rule)}
+.strip__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.strip__cell{padding:clamp(16px,2.6vw,26px) clamp(10px,2vw,26px);border-left:1px solid var(--dark-rule)}
+.strip__cell:first-child{border-left:0;padding-left:0}
+.strip__k{font-family:var(--num);font-weight:600;font-size:12px;letter-spacing:.2em;color:var(--lime);display:block}
+.strip__v{display:block;font-weight:700;font-size:clamp(13px,1.7vw,19px);line-height:1.5;margin-top:4px}
+
+/* ============ 8. セクションの器と段鼻 ============ */
+.sec{padding-block:clamp(50px,7.5vw,104px);--acc:var(--ink);--acc2:var(--ink)}
+.sec--paper{background:var(--paper)}
+.sec--dark{background:var(--ink);color:var(--on-dark);--acc:var(--lime);--acc2:var(--lime)}
+.sec--dark2{background:var(--ink-2);color:var(--on-dark);--acc:var(--lime);--acc2:var(--lime)}
+
+/* 段：セクションが進むほど一段ぶん右へ寄る */
+/* 段：背景を持つブロックでも段差が出るよう margin で寄せる */
+.rise{margin-left:calc(var(--rise,0) * var(--riseu))}
+.r1{--rise:1}.r2{--rise:2}.r3{--rise:3}.r4{--rise:4}.r5{--rise:5}.r6{--rise:6}
+
+.shead{position:relative;border-top:2px solid var(--rule-strong);padding-top:18px;
+  margin-bottom:clamp(26px,4vw,50px)}
+.sec--dark .shead,.sec--dark2 .shead{border-top-color:var(--dark-rule)}
+.shead::before{content:"";position:absolute;left:0;top:-2px;width:6px;height:26px;background:var(--acc)}
+.shead__row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-left:18px}
+.shead__no{font-family:var(--num);font-weight:700;font-size:15px;letter-spacing:.14em;color:var(--muted)}
+.sec--dark .shead__no,.sec--dark2 .shead__no{color:var(--on-dark-mute)}
+.shead__en{font-family:var(--num);font-weight:600;font-size:14px;letter-spacing:.24em;color:var(--muted)}
+.sec--dark .shead__en,.sec--dark2 .shead__en{color:var(--lime)}
+.shead h2{font-weight:900;font-size:clamp(23px,3.8vw,42px);line-height:1.3;letter-spacing:.01em;
+  margin-top:8px;padding-left:18px}
+.shead__note{margin-top:12px;max-width:46em;font-size:14px;line-height:1.95;color:var(--muted);padding-left:18px}
+.sec--dark .shead__note,.sec--dark2 .shead__note{color:var(--on-dark-mute)}
+
+/* ============ 9. 注記 ============ */
+.note{font-size:12px;line-height:1.9;color:var(--muted);border-top:1px solid var(--rule);
+  padding-top:12px;margin-top:18px}
+.sec--dark .note,.sec--dark2 .note,.nextstep .note{color:var(--on-dark-mute);border-top-color:var(--dark-rule)}
+.note--strong{border-top-width:2px;border-top-color:var(--rule-strong)}
+.sec--dark .note--strong,.sec--dark2 .note--strong{border-top-color:var(--lime)}
+
+/* ============ 10. 階段インデックス（10段） ============ */
+.stair{border-top:2px solid var(--rule-strong)}
+.stair__i{padding-left:calc((var(--n) - 1) * var(--stairu))}
+.stair__a{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px clamp(12px,2vw,26px);
+  align-items:center;text-decoration:none;border-bottom:1px solid var(--rule);
+  border-left:3px solid var(--rule-strong);padding:clamp(12px,1.6vw,18px) 0 clamp(13px,1.7vw,19px) clamp(12px,1.4vw,20px);
+  transition:background .22s}
+.stair__i:last-child .stair__a{border-bottom:0}
+.stair__a:hover{background:#0000000d}
+.stair__no{font-family:var(--num);font-weight:700;font-size:clamp(28px,3.6vw,46px);line-height:.9;
+  letter-spacing:.02em;grid-row:span 2}
+.stair__no span{color:#6F6E68}
+.stair__t{display:block;font-weight:900;font-size:clamp(15px,1.8vw,20px);line-height:1.5}
+.stair__d{display:block;font-size:12.5px;line-height:1.8;color:var(--muted);margin-top:2px}
+.stair__tier{font-family:var(--num);font-weight:600;font-size:11px;letter-spacing:.2em;color:var(--muted);
+  grid-row:span 2;text-align:right;white-space:nowrap}
+.stair__i--here .stair__a{background:var(--ink);color:var(--on-dark);border-left-color:var(--lime)}
+.stair__i--here .stair__a:hover{background:var(--ink)}
+.stair__i--here .stair__no span{color:#6A6B63}
+.stair__i--here .stair__d,.stair__i--here .stair__tier{color:var(--on-dark-mute)}
+.stair__here{display:inline-block;font-family:var(--num);font-weight:700;font-size:11px;letter-spacing:.16em;
+  background:var(--lime);color:var(--ink);padding:1px 8px 0;margin-top:6px}
+.stairfoot{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline;margin-top:18px;
+  font-size:12.5px;color:var(--muted)}
+.stairfoot b{font-family:var(--num);font-weight:700;font-size:14px;letter-spacing:.16em;color:var(--ink)}
+
+/* ============ 11. LOAD MARK（種目の記号。人体は描かない） ============ */
+.lm{display:block;width:100%;height:auto;color:currentColor}
+.lm-ax{stroke:currentColor;stroke-width:2.6;stroke-linecap:round;fill:none}
+.lm-fx{fill:currentColor}
+.lm-mv{stroke:var(--acc2);stroke-width:2;stroke-linecap:round;fill:none}
+.lm-hd{fill:var(--acc2)}
+.lm-ld{fill:var(--acc2)}
+.lm-gd{stroke:currentColor;stroke-width:1;stroke-dasharray:3 5;opacity:.42;fill:none}
+
+.moves{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;
+  border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.move{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding:clamp(12px,1.6vw,18px) clamp(10px,1.2vw,16px) clamp(14px,1.8vw,20px)}
+.move__no{font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.16em;color:var(--muted);display:block}
+.move__fig{margin:10px 0 12px;max-width:96px}
+.move h3{font-weight:900;font-size:clamp(13px,1.35vw,15.5px);line-height:1.5}
+.move__p{display:block;font-size:11.5px;line-height:1.7;color:var(--muted);margin-top:5px}
+.move--pick{background:var(--ink);color:var(--on-dark);--acc2:var(--lime)}
+.move--pick .move__no{color:var(--lime)}
+.move--pick .move__p{color:var(--on-dark-mute)}
+.move__pick{display:inline-block;font-family:var(--num);font-weight:700;font-size:10.5px;letter-spacing:.14em;
+  background:var(--lime);color:var(--ink);padding:1px 7px 0;margin-top:9px}
+.lmkey{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.6vw,22px);margin-top:22px;
+  border-top:1px solid var(--rule);padding-top:16px}
+.lmkey li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:10px;align-items:center;
+  font-size:12px;line-height:1.7;color:var(--muted)}
+.lmkey svg{width:32px;height:32px;display:block}
+
+/* ============ 12. カード（理由・目的） ============ */
+.rcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,26px)}
+.rcard{border-top:2px solid var(--rule-strong);padding-top:14px}
+.sec--dark .rcard,.sec--dark2 .rcard{border-top-color:var(--lime)}
+.rcard__hd{display:flex;align-items:baseline;gap:12px}
+.rcard__no{font-family:var(--num);font-weight:700;font-size:clamp(34px,4.6vw,58px);line-height:.85}
+.rcard__no span{color:#6F6E68}
+.sec--dark .rcard__no span,.sec--dark2 .rcard__no span{color:#63645E}
+.rcard__en{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;color:var(--muted)}
+.sec--dark .rcard__en,.sec--dark2 .rcard__en{color:var(--on-dark-mute)}
+.rcard__fig{margin:14px 0 0}
+.rcard__fig img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(.12) contrast(1.05)}
+.rcard h3{font-weight:900;font-size:clamp(16px,2vw,22px);line-height:1.5;margin-top:15px}
+.rcard>p{font-size:13.5px;line-height:2;color:var(--muted);margin-top:9px}
+.sec--dark .rcard>p,.sec--dark2 .rcard>p{color:var(--on-dark-mute)}
+
+/* 目的別プログラム */
+.aims{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.aim{border:1px solid var(--rule-strong);padding:clamp(14px,1.8vw,22px);display:flex;flex-direction:column;
+  text-decoration:none;transition:background .22s}
+.aim:hover{background:#0000000d}
+.aim__id{font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.18em;color:var(--muted)}
+.aim h3{font-weight:900;font-size:clamp(17px,2.1vw,23px);line-height:1.4;margin-top:8px}
+.aim__en{display:block;font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;
+  color:var(--muted);margin-top:4px}
+.aim__nums{display:flex;gap:16px;align-items:flex-end;margin-top:14px;border-top:1px solid var(--rule);padding-top:12px}
+.aim__num b{display:block;font-family:var(--num);font-weight:700;font-size:clamp(34px,4.4vw,52px);line-height:.86}
+.aim__num span{display:block;font-size:11px;letter-spacing:.08em;color:var(--muted);margin-top:4px}
+.aim__num i{font-style:normal;font-size:.42em;letter-spacing:.04em;margin-left:2px}
+.aim__d{font-size:12.5px;line-height:1.9;color:var(--muted);margin-top:12px}
+.aim__go{margin-top:auto;padding-top:14px;font-family:var(--num);font-weight:700;font-size:11.5px;
+  letter-spacing:.16em;color:var(--ink)}
+
+/* ============ 13. セッションの4ブロック ============ */
+.blocks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--dark-rule)}
+.block{background:var(--ink-2);padding:clamp(16px,2vw,24px)}
+.block__no{font-family:var(--num);font-weight:700;font-size:clamp(30px,3.8vw,46px);line-height:.86;
+  color:var(--on-dark)}
+.block__no span{color:#6E6F68}
+.block__min{display:inline-block;font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.12em;
+  background:var(--lime);color:var(--ink);padding:1px 8px 0;margin-top:10px}
+.block h3{font-weight:900;font-size:clamp(14.5px,1.6vw,17px);line-height:1.55;margin-top:12px}
+.block p{font-size:12.5px;line-height:1.9;color:var(--on-dark-mute);margin-top:8px}
+
+/* ============ 14. 料金 ============ */
+.pdig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.pdig__i{border:1px solid var(--dark-rule);padding:clamp(16px,2.2vw,26px);display:flex;flex-direction:column;gap:7px}
+.pdig__i--mark{border-color:var(--lime)}
+.pdig__en{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;color:var(--on-dark-mute)}
+.pdig__n{font-weight:900;font-size:clamp(16px,2vw,21px);line-height:1.4}
+.pdig__y{font-family:var(--num);font-weight:700;font-size:clamp(38px,5.2vw,60px);line-height:.9;margin-top:6px}
+.pdig__u{font-size:12.5px;font-weight:700;color:var(--on-dark-mute);letter-spacing:.04em}
+.pdig__d{font-size:12.5px;line-height:1.9;color:var(--on-dark-mute);margin-top:4px}
+
+/* 回数券（券面） */
+.tickets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
+.ticket{position:relative;background:var(--ink-2);border:2px dashed var(--dark-rule);
+  padding:clamp(14px,1.8vw,20px);display:flex;flex-direction:column;gap:6px}
+.ticket::before,.ticket::after{content:"";position:absolute;width:14px;height:14px;background:var(--ink);
+  border-radius:50%;top:50%;margin-top:-7px}
+.ticket::before{left:-9px}
+.ticket::after{right:-9px}
+.ticket__id{font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.2em;color:var(--lime)}
+.ticket__n{font-weight:900;font-size:clamp(15px,1.8vw,19px)}
+.ticket__lim{font-family:var(--num);font-weight:700;font-size:clamp(30px,4vw,46px);line-height:.9;margin-top:6px}
+.ticket__lim i{font-style:normal;font-size:.4em;letter-spacing:.06em;margin-left:3px}
+.ticket__p{font-size:12.5px;color:var(--on-dark-mute);line-height:1.85}
+
+/* 続け方の3か条 */
+.keeps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--dark-rule);margin-top:clamp(22px,3vw,34px)}
+.keep{background:var(--ink);padding:clamp(16px,2vw,24px)}
+.keep__k{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;color:var(--lime)}
+.keep__v{display:block;font-family:var(--num);font-weight:700;font-size:clamp(30px,4vw,50px);line-height:.92;margin-top:8px}
+.keep__v i{font-style:normal;font-size:.38em;letter-spacing:.06em;margin-left:4px}
+.keep p{font-size:12.5px;line-height:1.9;color:var(--on-dark-mute);margin-top:10px}
+
+/* ============ 15. 表 ============ */
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl caption{text-align:left;font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;
+  color:var(--muted);padding-bottom:10px}
+.sec--dark .tbl caption,.sec--dark2 .tbl caption{color:var(--on-dark-mute)}
+.tbl th,.tbl td{text-align:left;vertical-align:top;padding:12px 14px 12px 0;line-height:1.8;
+  border-bottom:1px solid var(--rule)}
+.sec--dark .tbl th,.sec--dark .tbl td,.sec--dark2 .tbl th,.sec--dark2 .tbl td{border-bottom-color:var(--dark-rule)}
+.tbl thead th{font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.14em;color:var(--muted);
+  border-bottom:2px solid var(--rule-strong);padding-bottom:9px}
+.sec--dark .tbl thead th,.sec--dark2 .tbl thead th{color:var(--on-dark-mute);border-bottom-color:var(--lime)}
+.tbl tbody th{font-weight:900}
+.tbl .num{font-family:var(--num);font-weight:700;font-size:17px;letter-spacing:.04em;white-space:nowrap}
+
+/* ============ 16. ボタン・CTA ============ */
+.btn{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;font-size:14.5px;
+  letter-spacing:.04em;padding:16px 26px;border:2px solid var(--ink);cursor:pointer}
+.btn--solid{background:var(--ink);color:var(--lime)}
+.btn--solid:hover{background:#000}
+.btn--ghost:hover{background:#0000000f}
+.btn em{font-style:normal;font-family:var(--num);font-weight:700;letter-spacing:.14em;font-size:12px;opacity:.78}
+.cta{background:var(--lime);color:var(--ink)}
+.cta .wrap{padding-block:clamp(40px,5.4vw,74px)}
+.cta__en{font-family:var(--num);font-weight:700;font-size:13px;letter-spacing:.26em;display:block;margin-bottom:10px}
+.cta h2{font-weight:900;font-size:clamp(22px,3.6vw,42px);line-height:1.32}
+.cta p{margin-top:14px;font-size:14px;line-height:1.95;max-width:38em}
+.cta__btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(18px,2.6vw,30px)}
+.cta__note{margin-top:20px;font-size:12px;line-height:1.9;border-top:1px solid #12121140;padding-top:12px;max-width:52em}
+
+/* 次の段へ送る帯 */
+.morelink{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;justify-content:space-between;
+  text-decoration:none;background:var(--ink);color:var(--on-dark);padding:clamp(16px,2.2vw,24px) clamp(16px,2.4vw,28px);
+  margin-top:clamp(22px,3vw,34px);transition:background .22s}
+.morelink:hover{background:#000}
+.morelink b{font-weight:900;font-size:clamp(15px,1.9vw,20px);line-height:1.5}
+.morelink span{font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.16em;color:var(--lime);white-space:nowrap}
+.morelink--ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.morelink--ghost:hover{background:#0000000f}
+.morelink--ghost span{color:var(--muted)}
+
+/* ============ 17. 次の段パネル ============ */
+.nextstep{background:var(--ink-4);color:var(--on-dark);overflow:hidden}
+.nextstep .wrap{padding-block:clamp(34px,5.4vw,72px)}
+.nextstep__k{font-family:var(--num);font-weight:700;font-size:12.5px;letter-spacing:.26em;color:var(--lime)}
+.nextstep__grid{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,3.4vw,52px);align-items:start;margin-top:12px}
+.nextstep__n{font-family:var(--num);font-weight:700;font-size:clamp(72px,13vw,170px);line-height:.8;letter-spacing:.02em}
+.nextstep__n span{color:#6E6F68}
+.nextstep h2{font-weight:900;font-size:clamp(20px,2.8vw,32px);line-height:1.42}
+.nextstep__grid p{margin-top:12px;font-size:13.5px;line-height:2;color:var(--on-dark-mute);max-width:36em}
+.nextstep__grid .nextstep__n{margin-top:0;max-width:none;color:var(--on-dark);
+  font-family:var(--num);font-weight:700;font-size:clamp(72px,13vw,170px);line-height:.8;letter-spacing:.02em}
+.nextstep__go{display:inline-flex;align-items:center;gap:14px;margin-top:clamp(16px,2.4vw,26px);
+  text-decoration:none;font-weight:700;font-size:14.5px;background:var(--lime);color:var(--ink);padding:15px 24px}
+.nextstep__go:hover{background:#D3FF5E}
+.nextstep__go em{font-style:normal;font-family:var(--num);letter-spacing:.14em;font-size:12px}
+
+/* ============ 18. 写真つき図版 ============ */
+.figfr{margin:0}
+.figfr img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.figfr--r169 img{aspect-ratio:16/9}
+.figfr--r43 img{aspect-ratio:4/3}
+.figfr figcaption{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-between;
+  font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.16em;color:var(--muted);
+  border-top:1px solid var(--rule);padding-top:8px;margin-top:8px}
+.sec--dark .figfr figcaption,.sec--dark2 .figfr figcaption{color:var(--on-dark-mute);border-top-color:var(--dark-rule)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,24px)}
+
+/* 定義リスト */
+.dl{border-top:2px solid var(--rule-strong)}
+.sec--dark .dl,.sec--dark2 .dl{border-top-color:var(--lime)}
+.dl>div{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:6px 20px;
+  border-bottom:1px solid var(--rule);padding:13px 0}
+.sec--dark .dl>div,.sec--dark2 .dl>div{border-bottom-color:var(--dark-rule)}
+.dl dt{font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.14em;color:var(--muted);padding-top:3px}
+.sec--dark .dl dt,.sec--dark2 .dl dt{color:var(--on-dark-mute)}
+.dl dd{font-size:13.5px;line-height:1.95}
+.dl dd small{display:block;font-size:11.5px;color:var(--muted);margin-top:2px}
+
+/* ============ 19. フッター ============ */
+.foot{background:var(--ink);color:var(--on-dark-mute);font-size:12px}
+.foot__top{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);gap:clamp(20px,3vw,50px);
+  padding-block:clamp(32px,4.2vw,52px);border-bottom:1px solid var(--dark-rule)}
+.foot__brand{font-family:var(--num);font-weight:700;font-size:28px;letter-spacing:.18em;color:var(--on-dark);display:block}
+.foot__addr{margin-top:12px;line-height:1.95;font-size:12.5px}
+.foot__ct{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 16px}
+.foot__ct a{color:var(--lime);text-decoration:underline;text-underline-offset:3px;font-size:12.5px}
+.foot__nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.foot__nav h2{font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.2em;color:var(--lime);
+  border-top:1px solid var(--dark-rule);padding-top:9px;margin-bottom:8px}
+.foot__nav a{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;text-decoration:none;
+  color:var(--on-dark);font-size:12.5px;line-height:2}
+.foot__nav a em{font-style:normal;font-family:var(--num);font-weight:700;color:var(--on-dark-mute)}
+.foot__nav a:hover span{color:var(--lime)}
+.foot__nav a[aria-current="page"] em{color:var(--lime)}
+.foot__btm{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between;padding-block:18px}
+.foot__dis{max-width:66em;line-height:1.95}
+.foot__dis a{color:var(--lime);text-decoration:underline;text-underline-offset:3px}
+
+/* ============ 20. スクロール出現 ============ */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s var(--ease)}
+.js .rv.is-in{opacity:1;transform:none}
+
+/* ============ 21. ページ遷移（プレートが上から一段積まれる） ============ */
+.xover{position:fixed;inset:0;z-index:300;pointer-events:none;visibility:hidden}
+.js .xover{visibility:visible}
+.xplate{position:absolute;inset:0;background:var(--ink-4);color:var(--on-dark);
+  display:grid;align-items:end;transform:translateY(-101%);
+  transition:transform .46s var(--ease-io),opacity .3s ease}
+.xplate::before{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--lime)}
+.xplate__in{padding:clamp(24px,5vw,64px) var(--pad) clamp(30px,6vw,74px);width:100%;max-width:var(--maxw);
+  margin-inline:auto}
+.xplate__k{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.26em;color:var(--on-dark-mute)}
+.xplate__row{display:flex;align-items:center;gap:14px;margin-top:14px;font-family:var(--num);font-weight:700;
+  font-size:clamp(16px,2.2vw,24px);letter-spacing:.14em;color:#63645E}
+.xplate__row i{display:block;width:clamp(28px,5vw,64px);height:2px;background:var(--dark-rule)}
+.xplate__to{color:var(--lime)}
+.xplate__nm{font-weight:900;font-size:clamp(26px,6vw,64px);line-height:1.16;margin-top:10px}
+html.x-hold .xplate,html.x-go .xplate{transform:translateY(0)}
+html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
+  transition:transform .62s var(--ease),opacity .5s ease}
+
+/* ============ 22. レスポンシブ ============ */
+@media (max-width:1180px){
+  .moves{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:1080px){
+  /* 群ナビから段番号のレンジを落として幅を詰める */
+  .tiernav .r{display:none}
+  .tiernav a{padding-top:7px}
+}
+@media (max-width:1080px){
+  .aims{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .blocks{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .idx__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot__nav{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:960px){
+  .tiernav{display:none}
+  .idx{margin-left:auto}
+  .hd-main > .wrap{padding-block:9px}
+  .rz__nm{display:none}
+  .foot__top{grid-template-columns:1fr}
+  .lmkey{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .moves{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  :root{--riseu:0px;--stairu:5px}
+  .rcards{grid-template-columns:1fr}
+  .rcard__fig img{aspect-ratio:16/9}
+  .pdig,.tickets,.keeps{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr}
+  .nextstep__grid{grid-template-columns:1fr;gap:8px}
+  .stair__tier{display:none}
+  .stair__a{grid-template-columns:auto minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .strip__grid{grid-template-columns:1fr}
+  .strip__cell{border-left:0;border-top:1px solid var(--dark-rule);padding-left:0;padding-right:0}
+  .strip__cell:first-child{border-top:0}
+  .btn{width:100%;justify-content:space-between}
+  .moves{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .aims{grid-template-columns:1fr}
+  .blocks{grid-template-columns:1fr}
+  .dl>div{grid-template-columns:1fr}
+  .idx__grid{grid-template-columns:1fr}
+  .foot__nav{grid-template-columns:1fr}
+  /* 表を縦積みに */
+  .tbl thead{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .tbl tr{display:block;border-bottom:2px solid var(--rule-strong);padding-block:8px}
+  .sec--dark .tbl tr,.sec--dark2 .tbl tr{border-bottom-color:var(--lime)}
+  .tbl tr:last-child{border-bottom:0}
+  .tbl th,.tbl td{display:block;border:0;padding:4px 0}
+  .tbl tbody th{font-size:15.5px;padding-top:6px}
+  .tbl td::before{content:attr(data-h);display:block;font-family:var(--num);font-weight:700;
+    font-size:11px;letter-spacing:.16em;color:var(--muted)}
+  .sec--dark .tbl td::before,.sec--dark2 .tbl td::before{color:var(--on-dark-mute)}
+}
+@media (max-width:760px){
+  .brand__sub{display:none}
+  .idx__btn .lb,.head__cta .lb,.rz__pn .lb{display:none}
+  .rz__pn .dis{display:none}
+  .idx__btn{padding:8px 10px}
+  .head__cta{padding:10px 12px}
+}
+@media (max-width:359px){
+  /* 最小幅。ヘッダー上段だけ2行に折り返す */
+  .hd-main > .wrap{flex-wrap:wrap}
+  .idx{margin-left:auto}
+}
+@media (max-width:430px){
+  .rz__bar li{width:6px}
+  .move__fig{max-width:72px}
+  .move h3{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .js .rv{opacity:1 !important;transform:none !important}
+  .deck{transform:none !important;opacity:1 !important}
+  .xover{display:none !important}
+}
+
+
+/* ============================================================
+   23. ページ拡張（STEP 02 / 03 / 04 で使う共通の追加パーツ）
+   既存トークンだけで組む。新しい色・余白は増やさない。
+   ============================================================ */
+
+/* 23-1. 段内インデックス（同一ページ内のアンカー） */
+.inpage{background:var(--ink-2);color:var(--on-dark);border-top:1px solid var(--dark-rule)}
+.inpage .wrap{display:flex;flex-wrap:wrap;gap:9px 10px;align-items:center;padding-block:14px}
+.inpage__k{font-family:var(--num);font-weight:600;font-size:11px;letter-spacing:.24em;
+  color:var(--on-dark-mute);margin-right:4px}
+.inpage a{display:inline-flex;align-items:baseline;gap:9px;text-decoration:none;color:var(--on-dark);
+  border:1px solid var(--dark-rule);padding:7px 13px;font-size:12.5px;line-height:1.5;
+  transition:background .22s,border-color .22s}
+.inpage a em{font-style:normal;font-family:var(--num);font-weight:700;font-size:11.5px;
+  letter-spacing:.14em;color:var(--lime)}
+.inpage a:hover{background:#ffffff12;border-color:var(--on-dark-mute)}
+
+/* 23-2. 引用ブロック */
+.pull{border-left:5px solid var(--acc,var(--ink));padding-left:clamp(16px,2.6vw,30px)}
+.pull b{display:block;font-weight:900;font-size:clamp(19px,3.2vw,36px);line-height:1.45;letter-spacing:.01em;max-width:15em}
+.pull span{display:block;margin-top:14px;font-size:13.5px;line-height:2;color:var(--muted);max-width:38em}
+.sec--dark .pull span,.sec--dark2 .pull span{color:var(--on-dark-mute)}
+
+/* 23-3. 60分のマス目（1マス＝1分。STEP 02） */
+.mmap{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:clamp(2px,.45vw,5px)}
+.mmap i{display:block;aspect-ratio:1;background:var(--dark-rule-2)}
+.mmap i.m1{background:var(--on-dark-mute)}
+.mmap i.m2{background:var(--lime-deep)}
+.mmap i.m3{background:var(--lime)}
+.mmap i.m4{background:transparent;box-shadow:inset 0 0 0 2px var(--on-dark-mute)}
+.mkey{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.6vw,24px);
+  margin-top:clamp(18px,2.4vw,28px);border-top:1px solid var(--dark-rule);padding-top:16px}
+.mkey li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:11px;align-items:start;
+  font-size:12px;line-height:1.75;color:var(--on-dark-mute)}
+.mkey i{display:block;width:20px;height:20px;margin-top:3px;background:var(--dark-rule-2)}
+.mkey i.m1{background:var(--on-dark-mute)}
+.mkey i.m2{background:var(--lime-deep)}
+.mkey i.m3{background:var(--lime)}
+.mkey i.m4{background:transparent;box-shadow:inset 0 0 0 2px var(--on-dark-mute)}
+.mkey b{display:block;color:var(--on-dark);font-size:12.5px;font-weight:900}
+.mkey em{font-style:normal;font-family:var(--num);font-weight:700;font-size:16px;
+  letter-spacing:.06em;color:var(--lime);margin-right:5px}
+
+/* 23-4. 時間軸に沿った4ブロック（STEP 02） */
+.tstep{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(12px,3vw,46px);
+  border-top:1px solid var(--rule);padding:clamp(20px,3vw,36px) 0}
+.tsteps>.tstep:first-child{border-top:2px solid var(--rule-strong)}
+.tstep__no{font-family:var(--num);font-weight:700;font-size:clamp(50px,7.6vw,100px);line-height:.82;
+  letter-spacing:.02em}
+.tstep__no span{color:#6F6E68}
+.tstep__min{display:inline-block;font-family:var(--num);font-weight:700;font-size:13px;letter-spacing:.12em;
+  background:var(--ink);color:var(--lime);padding:2px 10px 1px;margin-top:12px}
+.tstep h3{font-weight:900;font-size:clamp(18px,2.4vw,26px);line-height:1.45}
+.tstep__p{font-size:13.5px;line-height:2;color:var(--muted);margin-top:10px;max-width:44em}
+.tstep__qa{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,26px);
+  margin-top:clamp(14px,2vw,22px)}
+.tstep__qa>div{border-top:2px solid var(--rule-strong);padding-top:10px}
+.tstep__qa dt{font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.16em;color:var(--muted)}
+.tstep__qa dd{font-size:13px;line-height:1.95;margin-top:5px}
+.tstep .figfr{margin-top:clamp(16px,2.2vw,24px)}
+
+/* 23-5. 種目一覧（拡大版・STEP 03） */
+.moves--lg{grid-template-columns:repeat(3,minmax(0,1fr))}
+.moves--lg .move{padding:clamp(16px,2vw,24px) clamp(14px,1.6vw,20px) clamp(18px,2.2vw,26px)}
+.moves--lg .move__fig{max-width:112px;margin:12px 0 14px}
+.moves--lg .move h3{font-size:clamp(15px,1.8vw,19px)}
+.moves--lg .move__p{font-size:12.5px}
+.move__tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.move__tag{font-family:var(--num);font-weight:700;font-size:10.5px;letter-spacing:.1em;
+  border:1px solid var(--rule);color:var(--muted);padding:2px 8px 1px}
+.move--pick .move__tag{border-color:var(--lime-deep);color:var(--on-dark)}
+.move__cau{display:block;font-size:12px;line-height:1.85;color:var(--muted);margin-top:12px;
+  border-top:1px solid var(--rule);padding-top:10px}
+.move--pick .move__cau{color:var(--on-dark-mute);border-top-color:var(--dark-rule)}
+.move__cau b{display:block;font-family:var(--num);font-weight:700;font-size:10.5px;letter-spacing:.16em;
+  color:var(--muted);margin-bottom:2px}
+.move--pick .move__cau b{color:var(--lime)}
+
+/* 群の見出し（STEP 03） */
+.gtitle{display:flex;align-items:baseline;gap:8px 16px;flex-wrap:wrap;
+  border-top:2px solid var(--rule-strong);padding-top:12px;
+  margin:clamp(30px,4.4vw,52px) 0 clamp(14px,2vw,22px)}
+.gtitle--first{margin-top:0}
+.gtitle b{font-family:var(--num);font-weight:700;font-size:clamp(24px,3.2vw,38px);line-height:1;letter-spacing:.04em}
+.gtitle h3{font-weight:900;font-size:clamp(16px,2vw,21px);line-height:1.4}
+.gtitle span{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;
+  color:var(--muted);margin-left:auto}
+.sec--dark .gtitle span,.sec--dark2 .gtitle span{color:var(--on-dark-mute)}
+
+/* 大きい凡例（STEP 03 の記号の読み方） */
+.lmkey--lg{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.6vw,32px)}
+.lmkey--lg li{grid-template-columns:64px minmax(0,1fr);align-items:start;font-size:13px;line-height:1.95}
+.lmkey--lg svg{width:64px;height:64px}
+.lmkey--lg b{display:block;font-size:14.5px;font-weight:900;margin-bottom:2px}
+.sec--dark .lmkey,.sec--dark2 .lmkey{border-top-color:var(--dark-rule)}
+.sec--dark .lmkey li,.sec--dark2 .lmkey li{color:var(--on-dark-mute)}
+.sec--dark .lmkey b,.sec--dark2 .lmkey b{color:var(--on-dark)}
+
+/* 23-6. M-01 の分解（STEP 04） */
+.decomp{display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:clamp(24px,4.5vw,64px);
+  align-items:center}
+.decomp__fig{margin:0;width:100%;max-width:520px}
+.decomp__fig figcaption{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-between;
+  font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.18em;color:var(--on-dark-mute);
+  border-top:1px solid var(--dark-rule);padding-top:10px;margin-top:16px}
+.dl--lm dt{display:flex;align-items:center;gap:9px;letter-spacing:.1em}
+.dl--lm dt svg{width:26px;height:26px;flex:0 0 auto}
+
+/* 23-7. 帯の中の数字 */
+.strip__v em{font-style:normal;font-family:var(--num);font-weight:700;font-size:1.5em;
+  letter-spacing:.02em;margin-right:3px}
+
+/* 23-8. 拡張分のレスポンシブ（既存の指定より後ろに置いて上書きする） */
+@media (max-width:1080px){
+  .moves--lg{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:960px){
+  .decomp{grid-template-columns:1fr}
+  .decomp__fig{margin-inline:auto}
+}
+@media (max-width:760px){
+  .tstep{grid-template-columns:1fr;gap:10px}
+  .tstep__qa{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .moves--lg{grid-template-columns:1fr}
+  .lmkey--lg{grid-template-columns:1fr}
+  .mkey{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gtitle span{margin-left:0}
+}
+@media (max-width:430px){
+  .moves--lg .move__fig{max-width:96px}
+}
+
+/* ============================================================
+   24. ページ拡張（STEP 05 / 06 / 07 で使う追加パーツ）
+   既存トークンだけで組む。新しい色・余白は増やさない。
+   ============================================================ */
+
+/* 24-1. 目的別プログラムの型カード（STEP 05・極大数字） */
+.ptypes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.2vw,28px)}
+.ptype{border:1px solid var(--rule-strong);padding:clamp(16px,2.4vw,30px);display:flex;flex-direction:column}
+.sec--dark .ptype,.sec--dark2 .ptype{border-color:var(--dark-rule)}
+.ptype__id{font-family:var(--num);font-weight:700;font-size:12.5px;letter-spacing:.2em;color:var(--muted)}
+.ptype h3{font-weight:900;font-size:clamp(21px,3vw,32px);line-height:1.35;margin-top:8px}
+.ptype__en{display:block;font-family:var(--num);font-weight:600;font-size:12px;letter-spacing:.22em;
+  color:var(--muted);margin-top:5px}
+.ptype__nums{display:flex;flex-wrap:wrap;gap:10px clamp(18px,3.4vw,44px);align-items:flex-end;
+  margin-top:clamp(14px,2vw,22px);border-top:1px solid var(--rule);padding-top:clamp(12px,1.8vw,18px)}
+.ptype__num b{display:block;font-family:var(--num);font-weight:700;font-size:clamp(48px,8vw,96px);
+  line-height:.84;letter-spacing:.01em}
+.ptype__num b i{font-style:normal;font-size:.3em;letter-spacing:.04em;margin-left:4px}
+.ptype__num span{display:block;font-size:11.5px;letter-spacing:.08em;color:var(--muted);margin-top:8px}
+.ptype__d{font-size:13.5px;line-height:2;color:var(--muted);margin-top:clamp(12px,1.6vw,18px)}
+.ptype__mvk{display:block;font-family:var(--num);font-weight:600;font-size:11px;letter-spacing:.2em;
+  color:var(--muted);margin-top:auto;padding-top:clamp(12px,1.8vw,18px)}
+.ptype__mv{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.ptype__mv b{font-family:var(--num);font-weight:700;font-size:11px;letter-spacing:.1em;
+  border:1px solid var(--rule);color:var(--muted);padding:2px 8px 1px}
+
+/* 24-2. LOAD MARK の大判（STEP 05） */
+.pmarks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.4vw,32px)}
+.pmark{border-top:2px solid var(--lime);padding-top:clamp(14px,2vw,20px)}
+.pmark__k{display:block;font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.2em;color:var(--lime)}
+.pmark__t{display:block;font-weight:900;font-size:clamp(15px,1.7vw,18px);line-height:1.5;margin-top:6px}
+.pmark__fig{margin:clamp(12px,2vw,20px) auto clamp(12px,1.8vw,18px);max-width:200px}
+.pmark__no{display:block;font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.16em;
+  color:var(--on-dark-mute);margin-bottom:3px}
+.pmark h3{font-weight:900;font-size:clamp(14.5px,1.6vw,17px);line-height:1.5}
+.pmark p{font-size:12.5px;line-height:1.9;color:var(--on-dark-mute);margin-top:9px}
+
+/* 24-3. 番号つきの決めごとリスト（STEP 05 / 06 / 07） */
+.olist{border-top:2px solid var(--rule-strong)}
+.sec--dark .olist,.sec--dark2 .olist{border-top-color:var(--lime)}
+.olist li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px clamp(14px,2vw,26px);
+  align-items:baseline;border-bottom:1px solid var(--rule);padding:clamp(12px,1.6vw,16px) 0}
+.sec--dark .olist li,.sec--dark2 .olist li{border-bottom-color:var(--dark-rule)}
+.olist em{font-style:normal;font-family:var(--num);font-weight:700;font-size:clamp(20px,2.4vw,28px);
+  line-height:1.1;letter-spacing:.06em;color:var(--muted)}
+.sec--dark .olist em,.sec--dark2 .olist em{color:var(--lime)}
+.olist b{display:block;font-weight:900;font-size:clamp(14.5px,1.6vw,17px);line-height:1.55}
+.olist p{font-size:13px;line-height:1.95;color:var(--muted);margin-top:5px}
+.sec--dark .olist p,.sec--dark2 .olist p{color:var(--on-dark-mute)}
+
+/* 24-4. 締切の極大タイポ（STEP 07） */
+.dline{border-top:2px solid var(--lime);padding-top:clamp(14px,2vw,22px)}
+.dline__k{display:block;font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.24em;color:var(--lime)}
+.dline__v{display:block;font-weight:900;font-size:clamp(22px,3.4vw,38px);line-height:1.32;
+  margin-top:clamp(10px,1.6vw,16px)}
+.dline__n{display:block;font-family:var(--num);font-weight:700;font-size:clamp(56px,12vw,150px);
+  line-height:.84;letter-spacing:.01em;margin-top:clamp(4px,1vw,10px)}
+.dline__n i{font-style:normal;font-size:.24em;letter-spacing:.06em;margin-left:10px}
+.dline__p{font-size:13.5px;line-height:2;color:var(--on-dark-mute);margin-top:clamp(14px,2vw,22px);max-width:44em}
+
+/* 24-5. 例外の一覧（STEP 07） */
+.exc{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--dark-rule);
+  border:1px solid var(--dark-rule);margin-top:clamp(16px,2.4vw,26px)}
+.exc li{background:var(--ink);padding:clamp(14px,1.8vw,22px)}
+.exc em{font-style:normal;font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.16em;color:var(--lime)}
+.exc b{display:block;font-weight:900;font-size:clamp(14px,1.5vw,16.5px);line-height:1.55;margin-top:9px}
+.exc p{font-size:12px;line-height:1.85;color:var(--on-dark-mute);margin-top:7px}
+
+/* 24-6. 表の見出し列の幅と、対応表のセル（STEP 05 / 06 / 07） */
+.tbl--cmp tbody th,.tbl--cmp thead th:first-child{width:18%}
+.tbl--cmp thead th:nth-child(2){width:13%}
+.tbl--cmp thead th:nth-child(3){width:12%}
+.tbl--th24 tbody th,.tbl--th24 thead th:first-child{width:24%}
+.tbl--mx tbody th{width:34%}
+.tbl--mx thead th:not(:first-child),.tbl--mx td{text-align:center}
+.tbl--mx td{font-family:var(--num);font-weight:700;font-size:19px;letter-spacing:.02em}
+/* 暗い面の定義リストの補足（明るい面用の --muted のままだとAAを割る） */
+.sec--dark .dl dd small,.sec--dark2 .dl dd small{color:var(--on-dark-mute)}
+/* F-01 形式の段番号は横に伸びるので、折り返さない大きさにする（STEP 06） */
+.tstep__no--f{font-size:clamp(38px,5.2vw,70px);white-space:nowrap}
+
+/* 24-7. 2枚の対照ブロック（STEP 06） */
+.dbox{border-top:2px solid var(--rule-strong);padding-top:clamp(12px,1.8vw,18px)}
+.sec--dark .dbox,.sec--dark2 .dbox{border-top-color:var(--lime)}
+.dbox__k{display:block;font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.2em;color:var(--muted)}
+.sec--dark .dbox__k,.sec--dark2 .dbox__k{color:var(--lime)}
+.dbox h3{font-weight:900;font-size:clamp(17px,2.2vw,24px);line-height:1.45;margin-top:7px}
+.dbox ul{margin-top:clamp(8px,1.4vw,12px)}
+.dbox li{position:relative;padding-left:22px;font-size:13.5px;line-height:1.95;margin-top:9px}
+.dbox li::before{content:"";position:absolute;left:0;top:.85em;width:11px;height:2px;background:var(--acc)}
+.dbox p{font-size:12.5px;line-height:1.9;color:var(--muted);margin-top:12px}
+.sec--dark .dbox p,.sec--dark2 .dbox p{color:var(--on-dark-mute)}
+
+/* 24-7b. 3項目の補足グリッド（STEP 06） */
+.tstep__qa--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+/* 24-8. 拡張分のレスポンシブ（既存の指定より後ろに置いて上書きする） */
+@media (max-width:1080px){
+  .pmarks{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .exc{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .ptypes{grid-template-columns:1fr}
+  .tstep__qa--3{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .exc{grid-template-columns:1fr}
+  .olist li{grid-template-columns:1fr;gap:2px}
+  .tbl--cmp tbody th,.tbl--th24 tbody th,.tbl--mx tbody th{width:auto}
+  .tbl--mx thead th:not(:first-child),.tbl--mx td{text-align:left}
+  .tbl--mx td{font-size:16px}
+  /* 縦積みでは記号だけだと意味が取れないので、読み上げ用の語を表に出す */
+  .tbl--mx td .vh{position:static;width:auto;height:auto;margin:0;overflow:visible;
+    clip:auto;white-space:normal;font-family:var(--jp);font-weight:400;font-size:13px;margin-left:7px}
+}
+
+/* ============================================================
+   25. ページ拡張（STEP 08 / 09 / 10 で使う追加パーツ）
+   既存トークンだけで組む。新しい色・余白は増やさない。
+   ============================================================ */
+
+/* 25-1. トレーナーカード（顔写真の素材が無いので、記号＋文字組みで組む） */
+.tcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
+.tcard{border-top:2px solid var(--lime);padding-top:clamp(14px,2vw,20px);display:flex;flex-direction:column}
+.tcard__plate{display:block;width:clamp(86px,10vw,116px);height:auto;margin-bottom:clamp(12px,1.8vw,18px)}
+.tcard__id{font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.2em;color:var(--lime)}
+.tcard h3{font-weight:900;font-size:clamp(20px,2.5vw,27px);line-height:1.4;margin-top:7px}
+.tcard__role{display:block;font-size:12.5px;line-height:1.8;color:var(--on-dark-mute);margin-top:6px}
+.tcard__meta{margin-top:clamp(12px,1.8vw,18px);border-top:1px solid var(--dark-rule)}
+.tcard__meta>div{display:grid;grid-template-columns:minmax(0,84px) minmax(0,1fr);gap:3px 14px;
+  border-bottom:1px solid var(--dark-rule);padding:9px 0}
+.tcard__meta dt{font-family:var(--num);font-weight:700;font-size:11px;letter-spacing:.16em;
+  color:var(--on-dark-mute);padding-top:3px}
+.tcard__meta dd{font-size:13px;line-height:1.85;color:var(--on-dark)}
+.tcard__tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:clamp(12px,1.8vw,16px)}
+.tcard__tags li{font-size:11.5px;line-height:1.6;letter-spacing:.03em;border:1px solid var(--dark-rule);
+  color:var(--on-dark);padding:3px 10px 2px}
+.tcard__say{margin-top:auto;padding-top:clamp(14px,2vw,20px);font-size:13.5px;line-height:1.95;color:var(--on-dark)}
+.tcard__say b{display:block;font-family:var(--num);font-weight:700;font-size:11px;letter-spacing:.2em;
+  color:var(--lime);margin-bottom:7px}
+
+/* 25-2. 施設の見出し付きブロック（写真が主役になるページ） */
+.fbox{border-top:2px solid var(--rule-strong);padding-top:clamp(12px,1.8vw,16px)}
+.sec--dark .fbox,.sec--dark2 .fbox{border-top-color:var(--lime)}
+.fbox__k{display:block;font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.2em;color:var(--muted)}
+.sec--dark .fbox__k,.sec--dark2 .fbox__k{color:var(--lime)}
+.fbox h3{font-weight:900;font-size:clamp(16px,2vw,21px);line-height:1.5;margin-top:7px}
+.fbox p{font-size:13px;line-height:1.95;color:var(--muted);margin-top:9px}
+.sec--dark .fbox p,.sec--dark2 .fbox p{color:var(--on-dark-mute)}
+.fbox .figfr{margin-top:clamp(12px,1.8vw,16px)}
+
+/* 25-3. よくある質問のアコーディオン（JS無効でも全文が読める） */
+.qa{--qw:clamp(58px,8vw,106px);border-top:2px solid var(--rule-strong)}
+.sec--dark .qa,.sec--dark2 .qa{border-top-color:var(--lime)}
+.qa__i{border-bottom:1px solid var(--rule);scroll-margin-top:170px}
+.sec--dark .qa__i,.sec--dark2 .qa__i{border-bottom-color:var(--dark-rule)}
+.qa__q{display:flex;align-items:center;gap:10px clamp(12px,2vw,26px);list-style:none;cursor:pointer;
+  padding:clamp(13px,1.9vw,19px) 0;transition:background .22s}
+.qa__q::-webkit-details-marker{display:none}
+.qa__q:hover{background:#00000010}
+.sec--dark .qa__q:hover,.sec--dark2 .qa__q:hover{background:#ffffff10}
+.qa__no{flex:0 0 var(--qw);font-family:var(--num);font-weight:700;font-size:clamp(25px,3.3vw,44px);
+  line-height:.9;letter-spacing:.01em;white-space:nowrap}
+.qa__no span{color:#6F6E68}
+.sec--dark .qa__no span,.sec--dark2 .qa__no span{color:#6E6F68}
+.qa__t{flex:1 1 auto;font-weight:900;font-size:clamp(14.5px,1.85vw,19px);line-height:1.6}
+.qa__mk{position:relative;flex:0 0 auto;width:20px;height:20px;margin-left:auto}
+.qa__mk::before,.qa__mk::after{content:"";position:absolute;left:0;top:9px;width:20px;height:2px;background:var(--acc)}
+.qa__mk::after{transform:rotate(90deg);transition:transform .3s var(--ease)}
+.qa__i[open] .qa__mk::after{transform:rotate(0deg)}
+.qa__a{display:grid;grid-template-columns:var(--qw) minmax(0,1fr);gap:clamp(12px,2vw,26px);
+  padding:0 0 clamp(16px,2.4vw,26px)}
+.qa__ak{font-family:var(--num);font-weight:700;font-size:clamp(25px,3.3vw,44px);line-height:.9;color:var(--acc)}
+.qa__b p{font-size:13.5px;line-height:2;max-width:46em}
+.qa__b p+p{margin-top:10px}
+.qa__b ul{margin-top:9px}
+.qa__b ul li{position:relative;padding-left:20px;font-size:13px;line-height:1.9;margin-top:5px}
+.qa__b ul li::before{content:"";position:absolute;left:0;top:.9em;width:10px;height:2px;background:var(--acc)}
+.qa__b .note{margin-top:14px}
+.qa__b .morelink{margin-top:clamp(14px,2vw,20px)}
+.qa__go{display:inline-block;margin-top:12px;font-family:var(--num);font-weight:700;font-size:11.5px;
+  letter-spacing:.14em;color:var(--muted);border-bottom:1px solid var(--rule);text-decoration:none;padding-bottom:2px}
+.sec--dark .qa__go,.sec--dark2 .qa__go{color:var(--lime);border-bottom-color:var(--lime-deep)}
+.qa__go:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.sec--dark .qa__go:hover,.sec--dark2 .qa__go:hover{color:var(--on-dark);border-bottom-color:var(--on-dark)}
+.tbl--q tbody th{width:15%;white-space:nowrap}
+.tbl--q thead th:nth-child(3){width:26%}
+
+/* 25-4. アクセスの略図（自作SVG。実際の地図ではない） */
+.acc2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(20px,3.4vw,48px);align-items:start}
+.mapfig{margin:0;min-width:0;border:1px solid var(--dark-rule);background:var(--ink-2);padding:clamp(12px,1.8vw,22px)}
+.mapfig svg{display:block;width:100%;height:auto}
+.mapfig figcaption{font-size:12px;line-height:1.9;color:var(--on-dark-mute);
+  border-top:1px solid var(--dark-rule);padding-top:12px;margin-top:14px}
+.svgscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}
+.svgscroll>svg{display:block;width:100%;height:auto}
+.svgscroll__hint{display:none;font-size:11.5px;line-height:1.75;color:var(--on-dark-mute);margin-top:10px}
+
+/* 25-5. 連絡手段（3つだけ） */
+.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--dark-rule);
+  border:1px solid var(--dark-rule)}
+.way{background:var(--ink);color:var(--on-dark);text-decoration:none;display:flex;flex-direction:column;
+  padding:clamp(16px,2.2vw,26px);transition:background .22s}
+.way:hover{background:#000}
+.way__k{font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.2em;color:var(--lime)}
+.way b{display:block;font-weight:900;font-size:clamp(16px,2vw,21px);line-height:1.45;margin-top:9px}
+.way p{font-size:12.5px;line-height:1.9;color:var(--on-dark-mute);margin-top:9px}
+.way__go{margin-top:auto;padding-top:clamp(12px,1.8vw,18px);font-family:var(--num);font-weight:700;
+  font-size:11.5px;letter-spacing:.16em;color:var(--lime)}
+
+/* 25-6. 体験申込フォーム（送信は行わない） */
+.trial{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(22px,3.6vw,56px);align-items:start}
+.trial__aside{border-top:2px solid var(--rule-strong);padding-top:clamp(12px,1.8vw,16px)}
+.trial__aside h3{font-weight:900;font-size:clamp(17px,2.1vw,23px);line-height:1.5}
+.trial__aside>p{font-size:13px;line-height:2;color:var(--muted);margin-top:10px}
+.form{border-top:2px solid var(--rule-strong);padding-top:clamp(18px,2.4vw,26px);display:grid;gap:clamp(15px,2vw,21px)}
+.f-row{display:grid;gap:8px;align-content:start}
+.f-row>label,.f-lg{font-size:13px;font-weight:700;letter-spacing:.04em;line-height:1.7}
+.f-req{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.12em;background:var(--ink);
+  color:var(--lime);padding:3px 9px 2px;margin-left:9px;line-height:1.2}
+.f-opt{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;
+  color:var(--muted);border:1px solid var(--rule);padding:2px 8px 1px;margin-left:9px;line-height:1.4}
+.f-set{border:0;padding:0;margin:0;min-width:0}
+.f-set legend{padding:0;font-size:13px;font-weight:700;letter-spacing:.04em;line-height:1.7;margin-bottom:9px}
+.f-set .f-help{margin-top:9px}
+.f-help{font-size:12px;line-height:1.85;color:var(--muted)}
+.form input[type="text"],.form input[type="email"],.form select,.form textarea{
+  font:inherit;font-size:15px;width:100%;padding:12px 13px;background:var(--paper-2);
+  border:1px solid var(--muted);color:var(--ink);border-radius:0}
+.form textarea{min-height:108px;resize:vertical;line-height:1.85}
+.form ::placeholder{color:var(--muted-2);opacity:1}
+.form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible{outline:3px solid var(--ink);outline-offset:1px}
+.form input[aria-invalid="true"],.form select[aria-invalid="true"],.form textarea[aria-invalid="true"]{
+  border-width:2px;border-color:#8A2B12;background:#EFE0DB}
+.f-two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(15px,2vw,21px)}
+.f-choice{display:flex;flex-wrap:wrap;gap:9px 20px;margin-top:2px}
+.f-choice label{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:400;line-height:1.6}
+.f-choice input{width:18px;height:18px;flex:0 0 auto;accent-color:#121211;margin:0}
+.f-msg{font-size:13.5px;font-weight:700;line-height:1.8;color:#8A2B12;border-left:4px solid #8A2B12;padding-left:13px}
+.f-msg ul{margin-top:5px}
+.f-msg li{font-weight:400;font-size:12.5px;line-height:1.85}
+.f-note{font-size:12px;line-height:1.9;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+.f-done{border:2px solid var(--ink);background:var(--paper-2);padding:clamp(20px,3vw,34px)}
+.f-done__k{display:inline-block;font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.2em;
+  background:var(--lime);color:var(--ink);padding:2px 10px 0;margin-bottom:13px}
+.f-done b{display:block;font-weight:900;font-size:clamp(18px,2.4vw,25px);line-height:1.5}
+.f-done p{font-size:13.5px;line-height:2;color:var(--muted);margin-top:12px}
+
+/* 25-7. 拡張分のレスポンシブ（既存の指定より後ろに置いて上書きする） */
+@media (max-width:960px){
+  .tcards{grid-template-columns:1fr}
+  .acc2{grid-template-columns:1fr}
+  .trial{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .ways{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .f-two{grid-template-columns:1fr}
+  .tbl--q tbody th{width:auto;white-space:normal}
+  .svgscroll--map>svg{min-width:430px}
+  .svgscroll__hint{display:block}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<div class="deck">
+
+<div class="notice">
+  <div class="wrap">
+    <span class="notice__tag">SAMPLE</span>
+    <span>これはRESCが作成したサンプルサイトです。実店舗ではありません。</span>
+    <a href="../hp-service/index.html">RESCのサイトに戻る</a>
+  </div>
+</div>
+
+<header class="head">
+  <div class="hd-main">
+    <div class="wrap">
+      <a class="brand" href="gym-advance.html" data-step="01" data-name="トップ">
+        <span class="brand__mark">FORGE</span>
+        <span class="brand__sub">PERSONAL GYM / FUKUOKA</span>
+      </a>
+
+      <nav class="tiernav" aria-label="メインナビゲーション">
+        <ol>
+          <li><a href="gym-advance.html" data-step="01" data-name="トップ">
+            <span class="t">土台</span><span class="r">01&#8212;02</span></a></li>
+          <li><a href="gym-advance-works.html" data-step="03" data-name="種目一覧">
+            <span class="t">動き</span><span class="r">03&#8212;05</span></a></li>
+          <li><a href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ">
+            <span class="t">続ける</span><span class="r">06&#8212;07</span></a></li>
+          <li><a href="gym-advance-company.html" data-step="08" data-name="トレーナー・施設案内" aria-current="true">
+            <span class="t">人と場所</span><span class="r">08&#8212;10</span></a></li>
+        </ol>
+      </nav>
+
+      <details class="idx" id="idx">
+        <summary class="idx__btn" aria-expanded="false">
+          <span class="idx__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="lb">STEP </span>INDEX<span class="idx__ct">10</span>
+        </summary>
+        <div class="idx__panel">
+          <div class="wrap">
+            <p class="idx__cap">STAIR OF 10 STEPS<i></i>10段すべて</p>
+            <div class="idx__grid">
+              <div class="idx__g">
+                <h2>GROUND / 土台</h2>
+                <a href="gym-advance.html" data-step="01" data-name="トップ"><em>01</em><span>トップ</span></a>
+                <a href="gym-advance-service.html" data-step="02" data-name="セッションの中身"><em>02</em><span>セッションの中身</span></a>
+              </div>
+              <div class="idx__g">
+                <h2>MOVE / 動き</h2>
+                <a href="gym-advance-works.html" data-step="03" data-name="種目一覧"><em>03</em><span>種目一覧</span></a>
+                <a href="gym-advance-work-detail.html" data-step="04" data-name="種目詳細 M-01 バーベルスクワット"><em>04</em><span>種目詳細 M-01</span></a>
+                <a href="gym-advance-program.html" data-step="05" data-name="目的別プログラム"><em>05</em><span>目的別プログラム</span></a>
+              </div>
+              <div class="idx__g">
+                <h2>KEEP / 続ける</h2>
+                <a href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ"><em>06</em><span>入会からの流れ</span></a>
+                <a href="gym-advance-price.html" data-step="07" data-name="料金と続け方"><em>07</em><span>料金と続け方</span></a>
+              </div>
+              <div class="idx__g">
+                <h2>PLACE / 人と場所</h2>
+                <a href="gym-advance-company.html" data-step="08" data-name="トレーナー・施設案内"><em>08</em><span>トレーナー・施設案内</span></a>
+                <a href="gym-advance-faq.html" data-step="09" data-name="よくある質問"><em>09</em><span>よくある質問</span></a>
+                <a href="gym-advance-contact.html" data-step="10" data-name="アクセス・体験申込" aria-current="page"><em>10</em><span>アクセス・体験申込</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <a class="head__cta" href="gym-advance-contact.html#trial" data-step="10" data-name="アクセス・体験申込"><span class="lb">体験を</span>申し込む</a>
+    </div>
+  </div>
+
+  <div class="hd-riser">
+    <div class="wrap">
+      <p class="rz">
+        <span class="rz__k">STEP</span>
+        <span class="rz__n">10</span>
+        <span class="rz__of">/ 10</span>
+        <span class="rz__nm">アクセス・体験申込</span>
+      </p>
+      <ol class="rz__bar" aria-hidden="true">
+        <li class="done"></li><li class="done"></li><li class="done"></li><li class="done"></li><li class="done"></li><li class="done"></li><li class="done"></li><li class="done"></li><li class="done"></li><li class="on"></li>
+      </ol>
+      <p class="rz__pn">
+        <a href="gym-advance-faq.html" data-step="09" data-name="よくある質問">&#9664; 09<span class="lb">&nbsp;&nbsp;PREV STEP</span></a>
+        <span class="dis"><span class="lb">NEXT &#9654;</span></span>
+      </p>
+    </div>
+  </div>
+</header>
+
+<nav class="crumb" aria-label="パンくず">
+  <div class="wrap">
+    <ol>
+      <li><a href="gym-advance.html" data-step="01" data-name="トップ">STEP 01 トップ</a></li>
+      <li><span>PLACE 人と場所</span></li>
+      <li><span aria-current="page">STEP 10 アクセス・体験申込</span></li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ 10-01 PAGE HEAD ============ -->
+<section class="phead" aria-labelledby="h1">
+  <div class="phead__media">
+    <img src="images/gym/gym_misc_2.webp" alt="夜のビル1階にあるFORGEの入口外観" fetchpriority="high" decoding="async">
+    <span class="phead__veil" aria-hidden="true"></span>
+  </div>
+  <div class="wrap phead__inner">
+    <p class="phead__tag"><b>STEP 10</b>PLACE / 人と場所<span>ACCESS &amp; TRIAL</span></p>
+    <h1 id="h1">最後の一段は、<em>行き方と申し込み。</em></h1>
+    <span class="phead__en">ACCESS &amp; TRIAL</span>
+    <p class="phead__lead">天神フォージビルの3階です。エレベーターで上がって、降りたところが受付。ここまでの行き方と、体験セッションの申し込みを、この段にまとめました。</p>
+  </div>
+</section>
+
+<section class="strip" aria-label="アクセスの基本">
+  <div class="wrap">
+    <div class="strip__grid">
+      <div class="strip__cell"><span class="strip__k">01 / ADDRESS</span><span class="strip__v">天神4丁目2-10 天神フォージビル<em>3</em>F</span></div>
+      <div class="strip__cell"><span class="strip__k">02 / OPEN</span><span class="strip__v">平日 <em>7:00</em>〜22:00 ／ 土日 <em>9:00</em>〜20:00</span></div>
+      <div class="strip__cell"><span class="strip__k">03 / CLOSED</span><span class="strip__v">水曜定休・完全予約制</span></div>
+    </div>
+  </div>
+</section>
+
+<nav class="inpage" aria-label="このページの目次">
+  <div class="wrap">
+    <span class="inpage__k">IN THIS STEP</span>
+    <a href="#access"><em>10-02</em><span>場所と略図</span></a>
+    <a href="#route"><em>10-03</em><span>3階までの行き方</span></a>
+    <a href="#day"><em>10-04</em><span>体験当日の流れ</span></a>
+    <a href="#ways"><em>10-05</em><span>連絡手段は3つ</span></a>
+    <a href="#trial"><em>10-06</em><span>体験申込フォーム</span></a>
+  </div>
+</nav>
+
+<!-- ============ 10-02 ACCESS ============ -->
+<section class="sec sec--dark2" id="access" aria-labelledby="access-t">
+  <div class="wrap">
+    <div class="shead rv">
+      <p class="shead__row"><span class="shead__no">10-02</span><span class="shead__en">ACCESS</span></p>
+      <h2 id="access-t">天神4丁目、ビルの3階です。</h2>
+      <p class="shead__note">住所は〒810-0001 福岡県福岡市中央区天神4丁目2-10、天神フォージビルの3階。エレベーターがあります。駐車場は用意していないので、お車の場合は近隣のコインパーキングをご利用ください。</p>
+    </div>
+
+    <div class="acc2 rv">
+      <dl class="dl">
+        <div><dt>ADDRESS</dt><dd>〒810-0001<br>福岡県福岡市中央区天神4丁目2-10<br>天神フォージビル3F<small>エレベーターがあります。</small></dd></div>
+        <div><dt>OPEN</dt><dd>平日 7:00〜22:00 ／ 土日 9:00〜20:00</dd></div>
+        <div><dt>CLOSED</dt><dd>水曜日<small>水曜にいただいたご連絡への返信は、木曜以降になります。</small></dd></div>
+        <div><dt>BOOKING</dt><dd>完全予約制（フォーム・メール・LINE）<small>1枠を1組で使っていただくため、当日ふらりとお立ち寄りいただくことはできません。</small></dd></div>
+        <div><dt>SLOTS</dt><dd>平日は 7:00 / 8:30 / 10:00 / 11:30 / 13:00 / 14:30 / 16:00 / 17:30 / 19:00 / 20:30 開始の10枠。土日は 9:00 から 18:30 までの7枠です。<small>いずれも60分＋前後の入れ替えの時間をとっています。</small></dd></div>
+        <div><dt>PARKING</dt><dd>駐車場はありません。近隣のコインパーキングをご利用ください。<small>駐輪はビル裏手に2台分あります。</small></dd></div>
+      </dl>
+
+      <figure class="mapfig">
+        <div class="svgscroll svgscroll--map">
+          <svg viewBox="0 0 620 400" role="img" aria-label="FORGEの位置を示した簡略図。天神4丁目の区画の中ほどにビルがあり、その3階が店舗です。実際の道路の形とは異なります。">
+            <rect x="0" y="0" width="620" height="400" fill="#141513"/>
+            <g stroke="#2C2D29" stroke-width="26" stroke-linecap="square">
+              <line x1="-10" y1="112" x2="630" y2="112"/>
+              <line x1="-10" y1="304" x2="630" y2="304"/>
+              <line x1="172" y1="-10" x2="172" y2="410"/>
+              <line x1="452" y1="-10" x2="452" y2="410"/>
+            </g>
+            <g fill="#20211E" stroke="#33342E" stroke-width="1">
+              <rect x="28" y="140" width="118" height="136"/>
+              <rect x="202" y="140" width="224" height="136"/>
+              <rect x="482" y="140" width="112" height="136"/>
+              <rect x="28" y="14" width="118" height="72"/>
+              <rect x="202" y="14" width="224" height="72"/>
+              <rect x="482" y="14" width="112" height="72"/>
+              <rect x="28" y="332" width="118" height="56"/>
+              <rect x="202" y="332" width="224" height="56"/>
+              <rect x="482" y="332" width="112" height="56"/>
+            </g>
+            <rect x="256" y="164" width="120" height="82" fill="#121211" stroke="#C3F53C" stroke-width="3"/>
+            <text x="316" y="198" text-anchor="middle" fill="#C3F53C" font-family="Barlow Condensed, sans-serif" font-size="24" font-weight="700" letter-spacing="2">FORGE</text>
+            <text x="316" y="226" text-anchor="middle" fill="#E8E7E2" font-family="Zen Kaku Gothic New, sans-serif" font-size="14" font-weight="700">3F</text>
+            <path d="M316 142 L306 122 L326 122 Z" fill="#C3F53C"/>
+            <circle cx="316" cy="114" r="11" fill="#C3F53C"/>
+            <circle cx="316" cy="114" r="4" fill="#121211"/>
+            <line x1="316" y1="246" x2="316" y2="290" stroke="#C3F53C" stroke-width="2" stroke-dasharray="4 5"/>
+            <rect x="292" y="290" width="48" height="16" fill="#C3F53C"/>
+            <text x="316" y="330" text-anchor="middle" fill="#9E9E97" font-family="Barlow Condensed, sans-serif" font-size="14" font-weight="600" letter-spacing="2">ENTRANCE</text>
+            <text x="14" y="104" fill="#9E9E97" font-family="Zen Kaku Gothic New, sans-serif" font-size="17">天神4丁目</text>
+            <text x="478" y="296" fill="#9E9E97" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" letter-spacing="2">TENJIN 4-2-10</text>
+          </svg>
+        </div>
+        <p class="svgscroll__hint">※ 図は横にスクロールできます。</p>
+        <figcaption>上図は位置関係をわかりやすくした簡略図です。<b>実際の道路・建物の形状とは異なります。</b>正確な位置は地図アプリで「福岡市中央区天神4丁目2-10」をご確認ください。</figcaption>
+      </figure>
+    </div>
+
+    <p class="note rv">※ これはRESCが作成したサンプルサイトです。実店舗ではありません。図に描いた道路・周囲の建物は、位置関係を説明するためのものです。</p>
+  </div>
+</section>
+
+<!-- ============ 10-03 ROUTE ============ -->
+<section class="sec sec--paper" id="route" aria-labelledby="route-t">
+  <div class="wrap">
+    <div class="shead rise r1 rv">
+      <p class="shead__row"><span class="shead__no">10-03</span><span class="shead__en">ROUTE / 1F &#8594; 3F</span></p>
+      <h2 id="route-t">1階から、3階まで。</h2>
+      <p class="shead__note">初めての方がいちばん迷うのは、建物に入ってからだと思います。4手順だけです。着いたら受付でお声がけください。</p>
+    </div>
+
+    <div class="acc2 rise r1 rv">
+      <ul class="olist">
+        <li><em>01</em><div><b>ビルの1階へ</b><p>天神4丁目2-10、天神フォージビルです。1階のガラス扉から入ります。夜は入口まわりの照明が点いています。</p></div></li>
+        <li><em>02</em><div><b>エレベーターで3階へ</b><p>入って正面がエレベーターです。3階を押してください。階段でも上がれます。</p></div></li>
+        <li><em>03</em><div><b>降りたところが受付</b><p>エレベーターを降りてすぐが受付です。到着したらここでお声がけください。シューズはここで履き替えていただきます。</p></div></li>
+        <li><em>04</em><div><b>着替えて、フロアへ</b><p>更衣スペースは2室、鍵つきロッカーが4つあります。ウェアとシューズは無料でお貸しするので、手ぶらで来ていただけます。</p></div></li>
+      </ul>
+
+      <div class="fbox">
+        <span class="fbox__k">3F / RECEPTION</span>
+        <h3>受付</h3>
+        <p>エレベーターを降りた正面です。予約の時間より少し早く着いても、ここでお待ちいただけます。ラウンジには水をご用意しています。</p>
+        <figure class="figfr figfr--r43">
+          <img src="images/gym/gym_facility_1.webp" alt="受付カウンターとエントランス" loading="lazy" decoding="async">
+          <figcaption><span>受付カウンター</span><span>RECEPTION / 3F</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <p class="note rise r1 rv">※ 駐車場はありません。近隣のコインパーキングをご利用ください。駐輪はビル裏手に2台分あります。</p>
+  </div>
+</section>
+
+<!-- ============ 10-04 THE DAY ============ -->
+<section class="sec" id="day" aria-labelledby="day-t">
+  <div class="wrap">
+    <div class="shead rise r2 rv">
+      <p class="shead__row"><span class="shead__no">10-04</span><span class="shead__en">THE DAY</span></p>
+      <h2 id="day-t">体験の日にやることは、4つ。</h2>
+      <p class="shead__note">セッションは60分です。着替えとシャワーの時間を含めて90分ほど見ておいていただくと余裕があります。その場でのご契約は不要です。</p>
+    </div>
+
+    <ul class="olist rise r2 rv">
+      <li><em>01</em><div><b>カウンセリング</b><p>目的（体を絞る／重さを上げる／姿勢を整える／体力を保つ／その他）と、いつごろまでに。運動歴、生活リズム、通える曜日と時間、食事の習慣、体調・既往症・けが・通院や服薬の有無、苦手な種目。ラウンジで伺います。</p></div></li>
+      <li><em>02</em><div><b>体組成測定</b><p>体重・体脂肪率・筋肉量を測って、現在の状態を一緒に確認します。診断ではありません。</p></div></li>
+      <li><em>03</em><div><b>トレーニング体験</b><p>シャフトだけで動きを確認するところから始めます。フォームが崩れた時点でセットを止めます。無理に回数を追いません。</p></div></li>
+      <li><em>04</em><div><b>プランのご案内</b><p>PLAN A / B / C と回数券のご案内をします。<b>その場でのご契約は不要です。</b>持ち帰って決めていただいて構いません。</p></div></li>
+    </ul>
+
+    <div class="pull rise r2 rv" style="margin-top:clamp(30px,4.4vw,54px)">
+      <b>持ち物は、ありません。<br>手ぶらでどうぞ。</b>
+      <span>ウェア（上下 S / M / L / LL）、シューズ（23.0〜29.0cm）、バスタオルとフェイスタオル、シャンプー・トリートメント・ボディソープ・ドライヤー、水。すべて無料で用意しています。動きやすい服装でお越しください。ジーンズなど硬い素材は動きが制限されます。</span>
+    </div>
+
+    <p class="note note--strong rise r2 rv">※ 体験セッション（PLAN A）は¥5,000（税抜）、おひとり1回までです。<b>体験当日にご入会いただいた場合、¥5,000は初回の月会費から差し引きます。</b><br>※ トレーニングの効果や感じ方には<b>個人差</b>があります。体調・既往症により内容を調整、またはご案内を控える場合があります。</p>
+
+    <a class="morelink morelink--ghost rise r2 rv" href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ">
+      <b>申し込みから2回目までの流れを見る</b>
+      <span>STEP 06 &nbsp;/&nbsp; JOINING &#8594;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ 10-05 WAYS ============ -->
+<section class="sec sec--dark" id="ways" aria-labelledby="ways-t">
+  <div class="wrap">
+    <div class="shead rise r3 rv">
+      <p class="shead__row"><span class="shead__no">10-05</span><span class="shead__en">CONTACT / 3 WAYS</span></p>
+      <h2 id="ways-t">連絡の入口は、3つです。</h2>
+      <p class="shead__note">下のフォーム、メール、LINE。どれでも構いません。返信は営業日中に順次お送りします。水曜（定休）にいただいたご連絡は、木曜以降の返信になります。</p>
+    </div>
+
+    <div class="ways rise r3 rv">
+      <a class="way" href="#trial">
+        <span class="way__k">01 / FORM</span>
+        <b>体験申込フォーム</b>
+        <p>このページの下にあります。お名前・メールアドレス・目的の3つだけ必須です。ご希望の曜日と時間帯まで書いていただけると、枠を探しやすくなります。</p>
+        <span class="way__go">下のフォームへ &#8594;</span>
+      </a>
+      <a class="way" href="mailto:info@example.com">
+        <span class="way__k">02 / MAIL</span>
+        <b>info@example.com</b>
+        <p>フォームに収まらないご相談はメールで。体験の予約でも、通っている途中のご相談でも構いません。</p>
+        <span class="way__go">メールを書く &#8594;</span>
+      </a>
+      <a class="way" href="https://lin.ee/z3rP0hO">
+        <span class="way__k">03 / LINE</span>
+        <b>LINEで問い合わせる</b>
+        <p>短いやりとりはLINEが早いです。予約の変更・振替のご連絡もこちらで受けます（前日20:00まで）。</p>
+        <span class="way__go">LINEを開く &#8594;</span>
+      </a>
+    </div>
+
+    <p class="note rise r3 rv">※ 連絡手段はフォーム・メール・LINEの3つです。<br>※ 予約の変更・振替は前日20:00までのご連絡で承ります。過ぎた場合は1回分を消化します（別途の現金のお支払いは発生しません）。</p>
+  </div>
+</section>
+
+<!-- ============ 10-06 TRIAL FORM ============ -->
+<section class="sec sec--paper" id="trial" aria-labelledby="trial-t">
+  <div class="wrap">
+    <div class="shead rise r4 rv">
+      <p class="shead__row"><span class="shead__no">10-06</span><span class="shead__en">TRIAL / FORM</span></p>
+      <h2 id="trial-t">体験セッションを申し込む。</h2>
+      <p class="shead__note">完全予約制のため、事前のご予約をお願いしています。3日前までのご連絡がスムーズです。空きがあれば当日もお受けできます。折り返しご連絡します。</p>
+    </div>
+
+    <div class="trial rise r4 rv">
+      <div class="trial__aside">
+        <h3>書いていただくのは3つだけ</h3>
+        <p>必須はお名前・メールアドレス・目的の3つです。残りは空欄のままで構いません。書いていただいたぶんだけ、当日の準備が早くなります。</p>
+        <ul class="olist" style="margin-top:clamp(14px,2vw,20px)">
+          <li><em>01</em><div><b>お名前とメールアドレス</b><p>折り返しのご連絡に使います。</p></div></li>
+          <li><em>02</em><div><b>いま気になっていること（目的）</b><p>4つのプログラムのどれに近いか。決まっていなければ「まだ決めていない」で構いません。</p></div></li>
+          <li><em>03</em><div><b>運動の経験と、気になる症状</b><p>当日のメニューを組むために伺っています。空欄でも申し込めます。</p></div></li>
+        </ul>
+        <p class="note note--strong">※ FORGEは医療機関ではありません。<b>医療行為は行いません。気になる症状があるときは、まず医療機関にご相談ください。</b>通院中・服薬中の方には、主治医にご相談のうえでのご参加をお願いする場合があります。</p>
+        <p class="note">※ トレーニングの効果や感じ方には<b>個人差</b>があります。体調・既往症により内容を調整、またはご案内を控える場合があります。</p>
+      </div>
+
+      <div>
+        <form class="form" id="trialform" action="#" method="post" novalidate aria-describedby="f-lead">
+          <p class="f-help" id="f-lead"><b>このフォームはサンプルのため、実際には送信されません。</b>入力内容はどこにも保存されず、どこにも届きません。パスワードやカード番号などの情報は入力しないでください。</p>
+
+          <div class="f-row">
+            <label for="f-name">お名前<span class="f-req">必須</span></label>
+            <input type="text" id="f-name" name="name" autocomplete="name" required aria-required="true">
+          </div>
+
+          <div class="f-two">
+            <div class="f-row">
+              <label for="f-mail">メールアドレス<span class="f-req">必須</span></label>
+              <input type="email" id="f-mail" name="email" autocomplete="email" required aria-required="true" aria-describedby="f-mail-h">
+              <p class="f-help" id="f-mail-h">折り返しのご連絡に使います。</p>
+            </div>
+            <div class="f-row">
+              <label for="f-day">ご希望の曜日・時間帯<span class="f-opt">任意</span></label>
+              <input type="text" id="f-day" name="day" placeholder="例：平日の19時以降、土曜の午前" aria-describedby="f-day-h">
+              <p class="f-help" id="f-day-h">平日は7:00〜20:30開始の10枠、土日は9:00〜18:30の7枠です。</p>
+            </div>
+          </div>
+
+          <div class="f-row">
+            <label for="f-aim">いま気になっていること（目的）<span class="f-req">必須</span></label>
+            <select id="f-aim" name="aim" required aria-required="true" aria-describedby="f-aim-h">
+              <option value="">選択してください</option>
+              <option value="p01">P-01 体を絞る（BODY MAKE）</option>
+              <option value="p02">P-02 重さを上げる（STRENGTH）</option>
+              <option value="p03">P-03 姿勢を整える（POSTURE）</option>
+              <option value="p04">P-04 体力を保つ（KEEP）</option>
+              <option value="none">まだ決めていない</option>
+              <option value="other">その他（下の欄に書きます）</option>
+            </select>
+            <p class="f-help" id="f-aim-h">当日のカウンセリングで、あらためて詳しく伺います。ここでの選択は後から変えられます。</p>
+          </div>
+
+          <fieldset class="f-set">
+            <legend class="f-lg">運動の経験<span class="f-opt">任意</span></legend>
+            <div class="f-choice">
+              <label for="f-exp1"><input type="radio" id="f-exp1" name="exp" value="none">ほとんどない</label>
+              <label for="f-exp2"><input type="radio" id="f-exp2" name="exp" value="past">以前していた（いまは離れている）</label>
+              <label for="f-exp3"><input type="radio" id="f-exp3" name="exp" value="now">いまも続けている</label>
+            </div>
+            <p class="f-help">運動経験がない方も始められます。最初はシャフトだけで動きを確認するところからです。</p>
+          </fieldset>
+
+          <div class="f-row">
+            <label for="f-body">気になる症状やけががあるか<span class="f-opt">任意</span></label>
+            <textarea id="f-body" name="body" placeholder="例：腰に違和感が出ることがある／右膝を以前いためた／通院中の科がある" aria-describedby="f-body-h"></textarea>
+            <p class="f-help" id="f-body-h"><b>FORGEでは医療行為は行いません。気になる症状があるときは、まず医療機関にご相談ください。</b>ここに書いていただいた内容は、当日のメニューを調整するために伺っています。通院中・服薬中の方には、主治医にご相談のうえでのご参加をお願いする場合があります。</p>
+          </div>
+
+          <div class="f-row">
+            <label for="f-msg">そのほか、聞いておきたいこと<span class="f-opt">任意</span></label>
+            <textarea id="f-msg" name="message" placeholder="苦手な種目、通える頻度、料金のことなど。空欄で構いません。"></textarea>
+          </div>
+
+          <div class="f-msg" id="f-err" role="alert" aria-live="assertive" hidden>
+            <p>入力内容をご確認ください。</p>
+            <ul id="f-errlist"></ul>
+          </div>
+
+          <div>
+            <button class="btn btn--solid" type="submit">この内容で申し込む <em>SEND</em></button>
+          </div>
+
+          <p class="f-note">※ <b>サンプルのため実際には送信されません。</b>入力内容はどこにも保存されず、店舗にも届きません。パスワード・カード番号・マイナンバーなどの情報は入力しないでください。<br>※ 体験セッション（PLAN A）は¥5,000（税抜）、おひとり1回までです。表示は税抜価格です。その場でのご契約は不要です。</p>
+        </form>
+
+        <div class="f-done" id="f-done" role="status" aria-live="polite" hidden>
+          <span class="f-done__k">SAMPLE</span>
+          <b>送信の完了イメージです。</b>
+          <p>実際のサイトでは、ここに「お申し込みを受け付けました」という完了メッセージが表示され、入力内容が店舗へ届きます。<b>このサンプルサイトでは送信は行われず、入力内容はどこにも保存されていません。</b></p>
+          <p>実際のご連絡は、メール（info@example.com）またはLINEでお願いします。折り返しのご連絡は営業日中に順次お送りします。水曜（定休）にいただいたご連絡は、木曜以降になります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEXT STEP ============ -->
+<section class="nextstep" aria-labelledby="next-t">
+  <div class="wrap">
+    <p class="nextstep__k">LAST STEP &#8212; 10 / 10</p>
+    <div class="nextstep__grid">
+      <p class="nextstep__n"><span>0</span>1</p>
+      <div>
+        <h2 id="next-t">10段、上りきりました。<br>もう一度、下から。</h2>
+        <p>ここが最後の段です。全体をもう一度見直したいときは1段目へ。10段の一覧はトップの階段インデックスにまとまっています。どの段からでも読み直せます。</p>
+        <a class="nextstep__go" href="gym-advance.html" data-step="01" data-name="トップ">
+          STEP 01 に戻る <em>&#8594;</em>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta" id="contact" aria-labelledby="cta-t">
+  <div class="wrap">
+    <span class="cta__en">CONTACT / TRIAL</span>
+    <h2 id="cta-t">迷ったら、一度だけ試してください。</h2>
+    <p>体験セッション（PLAN A）は¥5,000（税抜）、おひとり1回まで。当日にご入会いただいた場合、この¥5,000は初回の月会費から差し引きます。完全予約制のため、ご希望の曜日・時間帯をお知らせください。その場でのご契約は不要です。</p>
+    <div class="cta__btns">
+      <a class="btn btn--solid" href="#trial">上の申込フォームへ <em>FORM</em></a>
+      <a class="btn btn--ghost" href="mailto:info@example.com">メールで問い合わせる <em>MAIL</em></a>
+      <a class="btn btn--ghost" href="https://lin.ee/z3rP0hO">LINEで問い合わせる <em>LINE</em></a>
+    </div>
+    <p class="cta__note">※ 表示はすべて税抜価格です。入会金・初期費用はいただいておりません。<br>※ 体調・既往症によっては内容を調整、またはご案内を控える場合があります。効果や感じ方には個人差があります。</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <span class="foot__brand">FORGE</span>
+        <p class="foot__addr">〒810-0001<br>福岡県福岡市中央区天神4丁目2-10 天神フォージビル3F<br>平日 7:00〜22:00／土日 9:00〜20:00／水曜定休</p>
+        <p class="foot__ct">
+          <a href="mailto:info@example.com">info@example.com</a>
+          <a href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a>
+        </p>
+      </div>
+      <nav class="foot__nav" aria-label="フッター">
+        <div>
+          <h2>GROUND / 土台</h2>
+          <a href="gym-advance.html" data-step="01" data-name="トップ"><em>01</em><span>トップ</span></a>
+          <a href="gym-advance-service.html" data-step="02" data-name="セッションの中身"><em>02</em><span>セッションの中身</span></a>
+        </div>
+        <div>
+          <h2>MOVE / 動き</h2>
+          <a href="gym-advance-works.html" data-step="03" data-name="種目一覧"><em>03</em><span>種目一覧</span></a>
+          <a href="gym-advance-work-detail.html" data-step="04" data-name="種目詳細 M-01 バーベルスクワット"><em>04</em><span>種目詳細 M-01</span></a>
+          <a href="gym-advance-program.html" data-step="05" data-name="目的別プログラム"><em>05</em><span>目的別プログラム</span></a>
+        </div>
+        <div>
+          <h2>KEEP / 続ける</h2>
+          <a href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ"><em>06</em><span>入会からの流れ</span></a>
+          <a href="gym-advance-price.html" data-step="07" data-name="料金と続け方"><em>07</em><span>料金と続け方</span></a>
+        </div>
+        <div>
+          <h2>PLACE / 人と場所</h2>
+          <a href="gym-advance-company.html" data-step="08" data-name="トレーナー・施設案内"><em>08</em><span>トレーナー・施設案内</span></a>
+          <a href="gym-advance-faq.html" data-step="09" data-name="よくある質問"><em>09</em><span>よくある質問</span></a>
+          <a href="gym-advance-contact.html" data-step="10" data-name="アクセス・体験申込" aria-current="page"><em>10</em><span>アクセス・体験申込</span></a>
+        </div>
+      </nav>
+    </div>
+    <div class="foot__btm">
+      <p class="foot__dis">※ トレーニングの効果や感じ方には個人差があります。体調・既往症により内容を調整します。痛みやしびれなど気になる症状があるときは、まず医療機関にご相談ください。<br>これはRESCが作成したサンプルサイトです。実店舗ではありません。 <a href="../hp-service/index.html">RESCのサイトに戻る</a></p>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /.deck -->
+
+<div class="xover" id="xover" aria-hidden="true">
+  <div class="xplate">
+    <div class="xplate__in">
+      <p class="xplate__k">FORGE &#8212; STAIR OF 10 STEPS</p>
+      <p class="xplate__row">
+        <span id="xFrom">STEP 01</span><i></i><span class="xplate__to">STEP <b id="xTo">02</b></span>
+      </p>
+      <p class="xplate__nm" id="xNm">セッションの中身</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+
+  "use strict";
+
+  /* ==== このページの識別子。ページごとに直すのはこの2行だけ ==== */
+  var CURRENT  = '10';
+  var PAGENAME = 'アクセス・体験申込';
+  /* ============================================================ */
+
+  var html   = document.documentElement;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- 1. スクロール出現（IO ＋ rAFの sweep 併用） ----------
+     IntersectionObserver だけだと大きくスクロールを飛ばした時に取りこぼすので、
+     sweep() が「画面上端より上に行ってしまった .rv」も必ず拾う。ここは削らないこと。 */
+  var targets = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+  function activate(el){ el.classList.add('is-in'); }
+  if (reduce) {
+    targets.forEach(activate);
+  } else {
+    var ticking = false;
+    function sweep(){
+      ticking = false;
+      var vh = window.innerHeight || 800;
+      for (var i = targets.length - 1; i >= 0; i--) {
+        var el = targets[i], r = el.getBoundingClientRect();
+        if (r.top < vh * 0.94 && r.bottom > -vh * 0.5) { activate(el); targets.splice(i,1); }
+        else if (r.bottom <= 0) { activate(el); targets.splice(i,1); }
+      }
+    }
+    function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(sweep); } }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll, {passive:true});
+    window.addEventListener('load', sweep);
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if (e.isIntersecting) { activate(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
+      targets.forEach(function(el){ io.observe(el); });
+    }
+    sweep();
+    setTimeout(sweep, 400);
+  }
+
+  /* ---------- 2. ページ遷移：プレートが上から一段積まれる ---------- */
+  var xover = document.getElementById('xover');
+  var xFrom = document.getElementById('xFrom');
+  var xTo   = document.getElementById('xTo');
+  var xNm   = document.getElementById('xNm');
+  var navigating = false, landTimer = null, goTimer = null, failTimer = null;
+
+  function park(){
+    if (!xover) return;
+    html.classList.remove('x-hold','x-go','x-land');
+    xover.style.visibility = 'hidden';
+    navigating = false;
+  }
+  function setPlate(step, name){
+    if (xTo)   xTo.textContent   = step;
+    if (xNm)   xNm.textContent   = name;
+    if (xFrom) xFrom.textContent = 'STEP ' + CURRENT;
+  }
+
+  if (!reduce && xover) {
+    /* 着地：直前の段から積まれてきた、という顔で入る */
+    try {
+      var from = window.sessionStorage.getItem('fgFrom');
+      if (xFrom) xFrom.textContent = from ? ('STEP ' + from) : 'STAIR';
+    } catch(e){}
+    if (xTo) xTo.textContent = CURRENT;
+    if (xNm) xNm.textContent = PAGENAME;
+
+    requestAnimationFrame(function(){
+      setTimeout(function(){
+        html.classList.remove('x-hold');
+        html.classList.add('x-land');
+        landTimer = setTimeout(park, 780);
+      }, 60);
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('a[data-step]'), function(a){
+      a.addEventListener('click', function(ev){
+        if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
+        var url = a.getAttribute('href');
+        if (!url || url.charAt(0) === '#') return;
+        var step = a.getAttribute('data-step') || '';
+        if (step === CURRENT) return;                       /* 自分の段へのリンクは素通り */
+        if (url.split('#')[0] === location.pathname.split('/').pop()) return;
+        if (navigating) { ev.preventDefault(); return; }
+        ev.preventDefault();
+        navigating = true;
+        if (landTimer) { clearTimeout(landTimer); landTimer = null; }
+        setPlate(step, a.getAttribute('data-name') || '');
+        try { window.sessionStorage.setItem('fgFrom', CURRENT); } catch(e){}
+        xover.style.visibility = '';
+        html.classList.remove('x-land');
+        html.classList.add('x-go');
+        goTimer   = setTimeout(function(){ location.href = url; }, 560);
+        failTimer = setTimeout(function(){ if (navigating) park(); }, 3200);
+      });
+    });
+  } else {
+    html.classList.remove('x-hold');
+  }
+
+  /* 焼き付き対策。bfcache 戻り・離脱・タイマーの4重でリセットする */
+  window.addEventListener('pageshow', function(){
+    if (goTimer) clearTimeout(goTimer);
+    if (failTimer) clearTimeout(failTimer);
+    park();
+  });
+  window.addEventListener('pagehide', function(){ park(); });
+  setTimeout(function(){ if (!navigating) park(); }, 2000);
+
+  /* ---------- 3. STEP INDEX ドロワーの補助（開閉自体は <details>） ---------- */
+  var idx = document.getElementById('idx');
+  if (idx) {
+    var btn = idx.querySelector('summary');
+    idx.addEventListener('toggle', function(){
+      if (btn) btn.setAttribute('aria-expanded', idx.open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(e){
+      if (idx.open && !idx.contains(e.target)) idx.open = false;
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && idx.open) { idx.open = false; if (btn) btn.focus(); }
+    });
+  }
+
+  /* ---------- 5. 体験申込フォーム（送信は行わない） ----------
+     action はダミー。submit を止めて、その場で完了表示に切り替える。
+     未入力のときは日本語のエラーを aria-live の領域に出す。URLは変わらない。 */
+  var form    = document.getElementById('trialform');
+  var done    = document.getElementById('f-done');
+  var err     = document.getElementById('f-err');
+  var errList = document.getElementById('f-errlist');
+  if (form && done && err && errList) {
+    var REQS = [
+      { id: 'f-name', msg: 'お名前をご入力ください。' },
+      { id: 'f-mail', msg: 'メールアドレスをご入力ください。' },
+      { id: 'f-aim',  msg: 'いま気になっていること（目的）をお選びください。' }
+    ];
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var bad = [], first = null;
+      REQS.forEach(function(r){
+        var el = document.getElementById(r.id);
+        if (!el) return;
+        var v = (el.value || '').replace(/^\s+|\s+$/g, '');
+        var ng = false, msg = r.msg;
+        if (v === '') {
+          ng = true;
+        } else if (r.id === 'f-mail' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+          ng = true; msg = 'メールアドレスの形をご確認ください（例：info@example.com）。';
+        }
+        el.setAttribute('aria-invalid', ng ? 'true' : 'false');
+        if (ng) { bad.push(msg); if (!first) first = el; }
+      });
+      if (bad.length) {
+        while (errList.firstChild) errList.removeChild(errList.firstChild);
+        bad.forEach(function(m){
+          var li = document.createElement('li');
+          li.textContent = m;
+          errList.appendChild(li);
+        });
+        err.hidden = false;
+        if (first) first.focus();
+        return;
+      }
+      err.hidden = true;
+      form.hidden = true;
+      done.hidden = false;
+      done.setAttribute('tabindex', '-1');
+      done.focus({ preventScroll: true });
+      done.scrollIntoView({ behavior: 'auto', block: 'center' });
+    });
+    /* 入力し直したら、その欄のエラー表示を解く */
+    Array.prototype.forEach.call(form.querySelectorAll('input,select,textarea'), function(el){
+      el.addEventListener('input', function(){
+        if (el.getAttribute('aria-invalid') === 'true') el.setAttribute('aria-invalid', 'false');
+      });
+      el.addEventListener('change', function(){
+        if (el.getAttribute('aria-invalid') === 'true') el.setAttribute('aria-invalid', 'false');
+      });
+    });
+  }
+
+  /* ---------- 4. ページ内アンカー ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('a[href^="#"]:not(.skip)'), function(a){
+    a.addEventListener('click', function(ev){
+      var id = a.getAttribute('href');
+      if (id === '#') return;
+      var t = document.querySelector(id);
+      if (!t) return;
+      ev.preventDefault();
+      t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      if (!t.hasAttribute('tabindex')) t.setAttribute('tabindex','-1');
+      t.focus({preventScroll:true});
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

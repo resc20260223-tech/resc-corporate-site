@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>株式会社NextGrid｜IT・オフィス（v1.0 トップ）</title>
-<meta name="description" content="株式会社NextGridは福岡のITパートナーです。業務システムの新規開発、Webサイト・Webアプリの制作、既存システムの改善から、リリース後の運用・保守まで。相談・設計・実装・運用・次の版という循環で進めます。">
+<title>メンバー・会社案内｜株式会社NextGrid（v4.0）</title>
+<meta name="description" content="株式会社NextGridのメンバー3名と、チームの働き方、会社概要をまとめた版です。9名の会社で、1案件の窓口は1人に固定しています。所在地は福岡県福岡市、営業時間は9:30〜18:30（土日祝休み）です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -559,6 +559,15 @@ a.cl-i:hover h4{color:var(--acc)}
 }
 @media(max-width:340px){.cur .nm{display:none}}
 </style>
+<style>
+/* ---------- v4.0 ページ固有：メンバーの札 ---------- */
+.mcard{display:flex;flex-direction:column;gap:9px}
+.mcard .mname{font-size:clamp(15px,1.8vw,18px);font-weight:700;line-height:1.5}
+.mcard .mname small{display:block;font-size:10.5px;font-weight:500;color:var(--ink-3);letter-spacing:.06em;margin-top:3px}
+.mcard .mrole{font-size:11px;color:var(--ink-2);line-height:1.8;border-top:1px solid var(--line);padding-top:8px}
+.mcard .mrole b{display:block;font-family:var(--f-mono);font-size:9.5px;color:var(--ink-3);letter-spacing:.1em;font-weight:500}
+.mcard .mq{font-size:12.5px;color:var(--ink-2);line-height:1.95;border-left:2px solid var(--acc);padding-left:12px}
+</style>
 </head>
 <body id="top">
 <a class="skip" href="#main">本文へスキップ</a>
@@ -568,8 +577,8 @@ a.cl-i:hover h4{color:var(--acc)}
   <div class="pt-lines" id="ptLines"></div>
   <div class="pt-card">
     <p class="pt-act mono">APPLYING DIFF</p>
-    <p class="pt-ver lat"><span id="ptFrom">v1.0</span><i aria-hidden="true">&#8594;</i><span class="to" id="ptTo">v1.1</span></p>
-    <p class="pt-name" id="ptName">サービス詳細</p>
+    <p class="pt-ver lat"><span id="ptFrom">v1.0</span><i aria-hidden="true">&#8594;</i><span class="to" id="ptTo">v4.0</span></p>
+    <p class="pt-name" id="ptName">メンバー・会社案内</p>
     <p class="pt-br mono">NEXTGRID &#8212; 10 REVISIONS</p>
   </div>
 </div>
@@ -595,13 +604,13 @@ a.cl-i:hover h4{color:var(--acc)}
       </a>
 
       <nav class="gnav" aria-label="版グループナビゲーション">
-        <a href="tech-advance.html" data-ver="v1.0" data-name="トップ" aria-current="page">
+        <a href="tech-advance.html" data-ver="v1.0" data-name="トップ">
           <span class="gv">v1</span><span class="gt">総論</span></a>
         <a href="tech-advance-works.html" data-ver="v2.0" data-name="導入事例 一覧">
           <span class="gv">v2</span><span class="gt">記録</span></a>
         <a href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制">
           <span class="gv">v3</span><span class="gt">土台</span></a>
-        <a href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内">
+        <a href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内" aria-current="page">
           <span class="gv">v4</span><span class="gt">会社</span></a>
       </nav>
 
@@ -616,12 +625,11 @@ a.cl-i:hover h4{color:var(--acc)}
           <div class="chggrp">
             <p class="mono">v1 &#8212; GENERAL / 総論</p>
             <ol>
-              <li><span class="now"><span class="v">v1.0</span><span class="n">トップ</span></span></li>
+              <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ"><span class="v">v1.0</span><span class="n">トップ</span></a></li>
               <li><a href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細"><span class="v">v1.1</span><span class="n">サービス詳細</span></a></li>
               <li><a href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方"><span class="v">v1.2</span><span class="n">進め方</span></a></li>
             </ol>
           </div>
-
           <div class="chggrp">
             <p class="mono">v2 &#8212; RECORD / 記録</p>
             <ol>
@@ -629,7 +637,6 @@ a.cl-i:hover h4{color:var(--acc)}
               <li class="sub"><a href="tech-advance-work-detail.html" data-ver="v2.1" data-name="導入事例 詳細 CASE-02"><span class="v">v2.1</span><span class="n">導入事例 詳細（CASE-02）</span></a></li>
             </ol>
           </div>
-
           <div class="chggrp">
             <p class="mono">v3 &#8212; PLATFORM / 土台</p>
             <ol>
@@ -637,11 +644,10 @@ a.cl-i:hover h4{color:var(--acc)}
               <li><a href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問"><span class="v">v3.1</span><span class="n">よくある質問</span></a></li>
             </ol>
           </div>
-
           <div class="chggrp">
             <p class="mono">v4 &#8212; COMPANY / 会社</p>
             <ol>
-              <li><a href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内"><span class="v">v4.0</span><span class="n">メンバー・会社案内</span></a></li>
+              <li><span class="now"><span class="v">v4.0</span><span class="n">メンバー・会社案内</span></span></li>
               <li><a href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報"><span class="v">v4.1</span><span class="n">採用情報</span></a></li>
               <li><a href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ"><span class="v">v4.2</span><span class="n">アクセス・お問い合わせ</span></a></li>
             </ol>
@@ -656,59 +662,67 @@ a.cl-i:hover h4{color:var(--acc)}
   <div class="hd-ver">
     <div class="wrap">
       <p class="cur mono">
-        <span class="no">v1.0</span>
-        <span class="gp">GENERAL &#8212; 総論</span>
-        <span class="nm">トップ</span>
+        <span class="no">v4.0</span>
+        <span class="gp">COMPANY &#8212; 会社</span>
+        <span class="nm">メンバー・会社案内</span>
       </p>
       <p class="pn mono">
-        <span class="dis">&#9664; PREV</span>
-        <a href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細">NEXT &nbsp;v1.1 &#9654;</a>
+        <a href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問">&#9664; PREV &nbsp;v3.1</a>
+        <a href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報">NEXT &nbsp;v4.1 &#9654;</a>
       </p>
     </div>
   </div>
 </header>
 
-<main id="main">
+<nav class="crumb" aria-label="パンくず">
+  <div class="wrap">
+    <ol>
+      <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ">v1.0 トップ</a></li>
+      <li><span class="mono">v4 COMPANY / 会社</span></li>
+      <li><span aria-current="page">v4.0 メンバー・会社案内</span></li>
+    </ol>
+  </div>
+</nav>
 
-<!-- ===== v1.0 マストヘッド ===== -->
-<section class="mast" aria-labelledby="h1">
+<main id="main">
+<!-- ===== v4.0 マストヘッド ===== -->
+<section class="mast sub" aria-labelledby="h1">
   <svg class="mast-bg" viewBox="0 0 1440 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
     <path class="mb-l" d="M700,70 H1440 M700,150 H1440 M700,230 H1440 M700,310 H1440 M700,390 H1440"/>
-    <path class="mb-l mb-a" d="M980,70 H1440 M1060,150 H1440 M900,230 H1440 M1140,310 H1440 M1020,390 H1440"/>
-    <circle class="mb-d" cx="980" cy="70" r="4"/><circle class="mb-d" cx="1060" cy="150" r="4"/>
-    <circle class="mb-d" cx="900" cy="230" r="4"/><circle class="mb-d" cx="1140" cy="310" r="4"/>
-    <circle class="mb-d" cx="1020" cy="390" r="4"/>
+    <path class="mb-l mb-a" d="M900,70 H1440 M1140,150 H1440 M1000,230 H1440 M1200,310 H1440 M960,390 H1440"/>
+    <circle class="mb-d" cx="900" cy="70" r="4"/><circle class="mb-d" cx="1140" cy="150" r="4"/>
+    <circle class="mb-d" cx="1000" cy="230" r="4"/><circle class="mb-d" cx="1200" cy="310" r="4"/>
+    <circle class="mb-d" cx="960" cy="390" r="4"/>
   </svg>
   <div class="wrap">
     <div class="mast-head">
       <div class="mast-main">
-        <p class="eyebrow mono"><i></i>REVISION v1.0 &#8212; GENERAL<i></i>IT・オフィス / FUKUOKA</p>
+        <p class="eyebrow mono"><i></i>REVISION v4.0 &#8212; COMPANY<i></i>MEMBER / TEAM / PROFILE</p>
         <h1 id="h1">
-          <span class="h1-jp mono">株式会社</span>
-          <span class="h1-en">NextGrid</span>
+          <span class="h1-jp mono">メンバー・会社案内</span>
+          <span class="h1-en">Company</span>
         </h1>
-        <p class="mast-catch">つくって終わりにしない。<br>版を重ねて、育てる。</p>
-        <p class="mast-lead">業務システムの開発から運用まで、伴走するITパートナーです。このサイトは10の版でできています。相談・設計・実装・運用、そして次の版へ。ソフトウェアと同じ順番で並べました。いま見ているのは起点の v1.0 です。</p>
+        <p class="mast-catch">つくっているのは、<br>この人たちです。</p>
+        <p class="mast-lead">ここまでの版で書いてきたサービス・事例・技術を、実際に手を動かしてつくっている人と、会社そのものの話です。9名の会社で、1案件の窓口は1人に固定しています。相談から運用まで、同じ人が見続ける形です。</p>
         <div class="mast-acts">
-          <a class="btn btn--fill mono" href="#cycle">開発の循環を見る <i>&#8595;</i></a>
-          <a class="btn btn--line mono" href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細">サービスを見る <i>&#8594;</i></a>
+          <a class="btn btn--fill mono" href="#members">メンバー3名を見る <i>&#8595;</i></a>
+          <a class="btn btn--line mono" href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ">連絡先を見る <i>&#8594;</i></a>
         </div>
         <p class="mast-meta mono">
-          <span>開発</span><span>改善</span><span>運用・保守</span><span>DX</span>
+          <span>設立 2016年4月</span><span>従業員 9名</span><span>窓口は1案件1人</span>
         </p>
       </div>
-
       <div class="vlad" aria-hidden="true">
         <p class="vlad-h mono"><span>REVISIONS</span><span>10</span></p>
         <ol class="mono">
-          <li class="on"><span>v1.0</span><i style="--w:1"></i></li>
+          <li><span>v1.0</span><i style="--w:1"></i></li>
           <li><span>v1.1</span><i style="--w:.86"></i></li>
           <li><span>v1.2</span><i style="--w:.72"></i></li>
           <li class="hd2"><span>v2.0</span><i style="--w:.92"></i></li>
           <li><span>v2.1</span><i style="--w:.55"></i></li>
           <li class="hd2"><span>v3.0</span><i style="--w:.80"></i></li>
           <li><span>v3.1</span><i style="--w:.62"></i></li>
-          <li class="hd2"><span>v4.0</span><i style="--w:.88"></i></li>
+          <li class="hd2 on"><span>v4.0</span><i style="--w:.88"></i></li>
           <li><span>v4.1</span><i style="--w:.70"></i></li>
           <li><span>v4.2</span><i style="--w:.58"></i></li>
         </ol>
@@ -717,498 +731,220 @@ a.cl-i:hover h4{color:var(--acc)}
   </div>
 </section>
 
-<div class="band">
-  <img src="images/tech/tech_hero.png" alt="NextGridのオフィス。窓に面したデスクにモニターとノートパソコンが並んでいる" fetchpriority="high" decoding="async">
-  <p class="band-cap mono">NEXTGRID OFFICE &#8212; FUKUOKA</p>
-</div>
-
-<!-- ===== v1.0-01 ABOUT ===== -->
-<section class="sec" id="about">
+<!-- ===== v4.0-01 メンバー ===== -->
+<section class="sec" id="members">
   <div class="wrap">
     <div class="shead rv">
-      <span class="idx mono">v1.0-01</span>
-      <h2>一度で完成させない、と決めています</h2>
-      <span class="en mono">ABOUT</span>
+      <span class="idx mono">v4.0-01</span>
+      <h2>つくっている人</h2>
+      <span class="en mono">MEMBER</span>
     </div>
     <div class="rule"></div>
-    <div class="sg2 wide rv">
-      <div>
-        <p class="body-t">少人数精鋭のチームだからこそ、意思決定はスピーディーに、要件のすり合わせはきめ細かく。無駄な工程を省き、本当に必要な機能に集中して開発を進めます。</p>
-        <p class="body-t">業務システムの新規開発からWebサイト・Webアプリの制作、既存システムの改善まで、企業の&quot;ちょうどいいIT&quot;を一緒に形にしていきます。</p>
-        <p class="body-t">そのうえで、最初にお伝えしていることがひとつあります。ソフトウェアは、つくった日がいちばん良い状態ではありません。使ってはじめて分かることがあり、業務のほうも変わっていきます。だから私たちは、はじめから版を重ねる前提で設計します。</p>
-      </div>
-      <div>
-        <div class="pull" style="margin-top:0">
-          <q>最初の版は、<b>いちばん小さく</b>つくる。</q>
-          <p>全部入りをつくってから直すより、要るものだけを先に動かして、使いながら足したほうが早く着きます。つくらないものを決めるのが、設計のいちばん大事な仕事です。</p>
-        </div>
-        <p class="note-s">この考え方は、既存のライト版・スタンダード版でお伝えしている「納品して終わりにしない」をそのまま引き継いだものです。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== v1.0-02 開発の循環 ===== -->
-<section class="sec sec--alt" id="cycle">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-02</span>
-      <h2>相談から、次の版まで</h2>
-      <span class="en mono">RELEASE CYCLE</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">相談・設計・実装・リリース・運用。ここまでで一周です。運用で見えてきたことは要望として溜まり、次の版の設計に戻ります。このサイトの10ページも、この順番のまま並べてあります。</p>
-
-    <p class="vh">開発の循環は5つの段階でできています。01 相談、02 設計、03 実装、04 リリース、05 運用の順に進み、05 運用で見えてきたことが 01 相談に戻って、次の版がはじまります。</p>
-
-    <div class="dwbox rv mt6">
-      <svg class="dw dw--wide" viewBox="0 0 1000 300" role="img" aria-label="相談・設計・実装・リリース・運用の5段階が左から右へ並び、運用から折り返す線が相談に戻って次の版がはじまることを示した図">
-        <path class="thin" d="M23,58 H978"/>
-        <text class="ta" x="23" y="46">v1.0</text>
-        <text class="ta" x="978" y="46" text-anchor="end">v1.1</text>
-
-        <rect class="fp" x="23"  y="76" width="167" height="96"/>
-        <rect class="fp" x="220" y="76" width="167" height="96"/>
-        <rect class="fp" x="417" y="76" width="167" height="96"/>
-        <rect class="fp" x="614" y="76" width="167" height="96"/>
-        <rect class="ft" x="811" y="76" width="167" height="96"/>
-
-        <text class="ta" x="37"  y="108">01</text><text class="tb" x="37"  y="140">SCOPE</text>
-        <text class="ta" x="234" y="108">02</text><text class="tb" x="234" y="140">DESIGN</text>
-        <text class="ta" x="431" y="108">03</text><text class="tb" x="431" y="140">BUILD</text>
-        <text class="ta" x="628" y="108">04</text><text class="tb" x="628" y="140">RELEASE</text>
-        <text class="ta" x="825" y="108">05</text><text class="tb" x="825" y="140">OPERATE</text>
-
-        <path class="l" d="M196,124 H213"/><path class="bold" d="M209,119 L217,124 L209,129"/>
-        <path class="l" d="M393,124 H410"/><path class="bold" d="M406,119 L414,124 L406,129"/>
-        <path class="l" d="M590,124 H607"/><path class="bold" d="M603,119 L611,124 L603,129"/>
-        <path class="l" d="M787,124 H804"/><path class="bold" d="M800,119 L808,124 L800,129"/>
-
-        <path class="acc ray" style="--len:1120" d="M894,172 V244 Q894,258 880,258 H120 Q106,258 106,244 V184"/>
-        <path class="acc" d="M99,192 L106,178 L113,192"/>
-        <rect class="fp" x="410" y="240" width="180" height="36"/>
-        <text class="ta" x="500" y="264" text-anchor="middle">NEXT REV</text>
-      </svg>
-
-      <svg class="dw dw--tall" viewBox="0 0 480 740" role="img" aria-label="相談・設計・実装・リリース・運用の5段階が上から下へ並び、運用から折り返す線が相談に戻って次の版がはじまることを示した図">
-        <path class="thin" d="M16,30 H464"/>
-        <text class="ta" x="16" y="20">v1.0</text>
-        <text class="ta" x="464" y="20" text-anchor="end">v1.1</text>
-
-        <rect class="fp" x="16" y="52"  width="280" height="96"/>
-        <rect class="fp" x="16" y="184" width="280" height="96"/>
-        <rect class="fp" x="16" y="316" width="280" height="96"/>
-        <rect class="fp" x="16" y="448" width="280" height="96"/>
-        <rect class="ft" x="16" y="580" width="280" height="96"/>
-
-        <text class="ta" x="34" y="92">01</text><text class="tb" x="34" y="124">SCOPE</text>
-        <text class="ta" x="34" y="224">02</text><text class="tb" x="34" y="256">DESIGN</text>
-        <text class="ta" x="34" y="356">03</text><text class="tb" x="34" y="388">BUILD</text>
-        <text class="ta" x="34" y="488">04</text><text class="tb" x="34" y="520">RELEASE</text>
-        <text class="ta" x="34" y="620">05</text><text class="tb" x="34" y="652">OPERATE</text>
-
-        <path class="l" d="M156,152 V175"/><path class="bold" d="M151,171 L156,179 L161,171"/>
-        <path class="l" d="M156,284 V307"/><path class="bold" d="M151,303 L156,311 L161,303"/>
-        <path class="l" d="M156,416 V439"/><path class="bold" d="M151,435 L156,443 L161,435"/>
-        <path class="l" d="M156,548 V571"/><path class="bold" d="M151,567 L156,575 L161,567"/>
-
-        <path class="acc ray" style="--len:800" d="M296,628 H416 Q430,628 430,614 V114 Q430,100 416,100 H314"/>
-        <path class="acc" d="M322,93 L308,100 L322,107"/>
-        <rect class="fp" x="330" y="350" width="140" height="36"/>
-        <text class="ta" x="400" y="374" text-anchor="middle">NEXT REV</text>
-      </svg>
-      <p class="dwcap mono"><span>FIG.v1.0-01 &#8212; RELEASE CYCLE</span><span>図は進め方をイメージで表したものです</span></p>
-      <ul class="dwlegend">
-        <li class="i">この版のなかで進む向き</li>
-        <li class="a">運用で見えたことを、次の版に戻す線</li>
-      </ul>
-    </div>
-
-    <div class="cards c5 rv mt6">
-      <div class="card st">
-        <span class="top mono"><span class="no">01</span><span>SCOPE</span></span>
-        <h3>相談</h3>
-        <p>困っていることを、そのまま聞かせてください。資料をつくっていただく必要はありません。</p>
-        <span class="go mono">目安 1〜2週間<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">02</span><span>DESIGN</span></span>
-        <h3>設計</h3>
-        <p>つくるものと、つくらないものを分けます。お見積りはこの段階で出します。</p>
-        <span class="go mono">目安 2〜4週間<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">03</span><span>BUILD</span></span>
-        <h3>実装</h3>
-        <p>2週間をひと区切りにして、区切りごとに動くものをお見せしながらつくります。</p>
-        <span class="go mono">目安 2〜4ヶ月<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">04</span><span>RELEASE</span></span>
-        <h3>リリース</h3>
-        <p>検証環境で確認してから本番へ。使い方の説明と、切り戻しの手順の共有もここで。</p>
-        <span class="go mono">目安 2〜3週間<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">05</span><span>OPERATE</span></span>
-        <h3>運用（次の版へ）</h3>
-        <p>直す・足す・整える。月次で状況を見て、次の版に入れるものを一緒に決めます。</p>
-        <span class="go mono">継続<i></i></span>
-      </div>
-    </div>
-
-    <p class="note-s rv">相談から最初のリリースまでは4〜7ヶ月が目安です。規模とご要望の量によって前後します。期間を先に決めたい場合は、入れる機能の範囲のほうを先に決める進め方もご提案できます。</p>
-
-    <div class="mores mt6 rv">
-      <a class="morelink" href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方">
-        <b>各段階でやることを、もっと細かく見る</b>
-        <span>v1.2 &nbsp;進め方 &nbsp;&#8594;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== v1.0-03 サービス ===== -->
-<section class="sec" id="service">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-03</span>
-      <h2>6つのサービス</h2>
-      <span class="en mono">SERVICE</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">つくる（BUILD）が3つ、ととのえる（TUNE）が3つ。ここでは名前と一行だけです。それぞれが何をどこまでやるのかは v1.1 にまとめました。費用はすべて要相談です。</p>
+    <p class="lead rv">9名の会社です。そのうち、お客さまの前に出るのはこの3名です。少人数精鋭で、決めて、つくる。相談から決定までに挟まる人が少ないほど、確認の往復も手戻りも減ります。1案件の窓口は1人に固定していて、相談からリリース後の運用まで、同じ人が見続けます。</p>
 
     <div class="cards rv mt6">
-      <a class="card" href="tech-advance-service.html#s-01" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_web.webp" loading="lazy" decoding="async" alt="Webサイト制作の打ち合わせ。デザイン画面を表示した大きなモニターに向かうスタッフ"></span>
-        <span class="top mono"><span class="no">S-01</span><span>つくる / BUILD</span></span>
-        <h3>Webサイト制作</h3>
-        <p>会社の&quot;顔&quot;となる、伝わるWebサイトを。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-02" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_app.webp" loading="lazy" decoding="async" alt="Webアプリ開発の作業風景。コードと管理画面を並べた複数モニター"></span>
-        <span class="top mono"><span class="no">S-02</span><span>つくる / BUILD</span></span>
-        <h3>Webアプリ開発</h3>
-        <p>業務にフィットする、使われ続けるアプリを。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-03" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_system.webp" loading="lazy" decoding="async" alt="システム開発の画面。構成図とダッシュボードを表示したモニター"></span>
-        <span class="top mono"><span class="no">S-03</span><span>つくる / BUILD</span></span>
-        <h3>システム開発</h3>
-        <p>自社の業務に合わせた、オーダーメイドの仕組みを。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-04" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_dx.webp" loading="lazy" decoding="async" alt="DXコンサルティングの様子。ホワイトボードに業務フローを描いて説明するスタッフ"></span>
-        <span class="top mono"><span class="no">S-04</span><span>ととのえる / TUNE</span></span>
-        <h3>DXコンサルティング</h3>
-        <p>何から始めるか、から一緒に整理します。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-05" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_improve.webp" loading="lazy" decoding="async" alt="業務システム改善の打ち合わせ。画面を指しながら課題を洗い出すチーム"></span>
-        <span class="top mono"><span class="no">S-05</span><span>ととのえる / TUNE</span></span>
-        <h3>業務システム改善</h3>
-        <p>使いにくさの原因を見つけ、丁寧に直す。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-06" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_support.webp" loading="lazy" decoding="async" alt="保守・運用サポートの現場。サーバールームと監視画面"></span>
-        <span class="top mono"><span class="no">S-06</span><span>ととのえる / TUNE</span></span>
-        <h3>保守・運用サポート</h3>
-        <p>リリース後も、安心して任せられる体制を。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
+      <div class="mcard">
+        <figure class="figfr r34">
+          <span class="im"><img src="images/tech/tech_staff1.webp" loading="lazy" decoding="async" alt="明るい窓を背にして立つメンバー"></span>
+          <figcaption class="mono"><b>CMP-01</b><span>MEMBER 01</span></figcaption>
+        </figure>
+        <p class="mname">桑野 拓真<small>くわの たくま ／ 代表取締役・テックリード</small></p>
+        <p class="mrole"><b>担当領域</b>要件定義・システム設計・バックエンド実装</p>
+        <p class="mq">打ち合わせは、専門用語をできるだけ使わずに話します。</p>
+      </div>
+      <div class="mcard">
+        <figure class="figfr r34">
+          <span class="im"><img src="images/tech/tech_staff2.webp" loading="lazy" decoding="async" alt="ノートパソコンを手に持ってオフィスに立つメンバー"></span>
+          <figcaption class="mono"><b>CMP-02</b><span>MEMBER 02</span></figcaption>
+        </figure>
+        <p class="mname">白石 実咲<small>デザイン・フロントエンド</small></p>
+        <p class="mrole"><b>担当領域</b>画面設計・フロントエンド実装・アクセシビリティ</p>
+        <p class="mq">要件は、その場で書き出しながらすり合わせます。</p>
+      </div>
+      <div class="mcard">
+        <figure class="figfr r34">
+          <span class="im"><img src="images/tech/tech_staff3.webp" loading="lazy" decoding="async" alt="タブレットを持ってオフィスに立つメンバー"></span>
+          <figcaption class="mono"><b>CMP-03</b><span>MEMBER 03</span></figcaption>
+        </figure>
+        <p class="mname">江上 諒<small>ディレクション・運用</small></p>
+        <p class="mrole"><b>担当領域</b>進行管理・運用保守・お問い合わせ窓口</p>
+        <p class="mq">リリース後も同じメンバーで見続けます。</p>
+      </div>
     </div>
+    <p class="note-s rv">※写真はイメージです。これはRESCが作成したサンプルサイトのため、実在の担当者を示すものではありません。</p>
 
-    <p class="note-s rv">費用はすべて要相談です。規模と内容によって変わるため、個別にお見積りします。お見積りは「02 設計」の段階で、機能の単位に分解した形でお出しします。</p>
+    <div class="rv mt6">
+      <table class="tbl">
+        <caption class="mono">MEMBERS</caption>
+        <thead>
+          <tr><th scope="col">メンバー</th><th scope="col">役割</th><th scope="col">担当領域</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">MEMBER 01<br>桑野 拓真</th><td data-l="役割">代表取締役／テックリード</td><td data-l="担当領域">要件定義・システム設計・バックエンド実装</td></tr>
+          <tr><th scope="row">MEMBER 02<br>白石 実咲</th><td data-l="役割">デザイン／フロントエンド</td><td data-l="担当領域">画面設計・フロントエンド実装・アクセシビリティ</td></tr>
+          <tr><th scope="row">MEMBER 03<br>江上 諒</th><td data-l="役割">ディレクション／運用</td><td data-l="担当領域">進行管理・運用保守・お問い合わせ窓口</td></tr>
+        </tbody>
+      </table>
+      <p class="note-s">3名のほかに、実装を担当するエンジニアと管理の担当がいます。1案件あたりは3〜4名（テックリード1／実装1〜2／ディレクション1）で組みます。体制の詳しい話は v3.0 の技術と開発体制にあります。</p>
+    </div>
   </div>
 </section>
 
-<!-- ===== v1.0-04 導入事例（差分） ===== -->
-<section class="sec sec--alt" id="record">
+<!-- ===== v4.0-02 チームの働き方 ===== -->
+<section class="sec sec--alt" id="way">
   <div class="wrap">
     <div class="shead rv">
-      <span class="idx mono">v1.0-04</span>
-      <h2>つくったものを、差分で書く</h2>
-      <span class="en mono">RECORD</span>
+      <span class="idx mono">v4.0-02</span>
+      <h2>チームの働き方</h2>
+      <span class="en mono">TEAM WAY</span>
     </div>
     <div class="rule"></div>
-    <p class="lead rv">「何をつくったか」より、「何がどう変わったか」のほうが伝わると思っています。6件の事例を、<b>−（前の状態）</b>と <b>＋（次の版でやったこと）</b>の2行だけで並べました。</p>
+
+    <div class="sg2 narrow rv">
+      <div>
+        <figure class="figfr r43">
+          <span class="im"><img src="images/tech/tech_facility1.webp" loading="lazy" decoding="async" alt="窓に面したオフィスのデスク。モニターとキーボードが並び、奥にホワイトボードがある"></span>
+          <figcaption class="mono"><b>CMP-04</b><span>打ち合わせも開発も同じフロアです</span></figcaption>
+        </figure>
+        <p class="note-s">※写真はイメージです。これはRESCが作成したサンプルサイトのため、実在の拠点を示すものではありません。</p>
+      </div>
+      <div>
+        <p class="lead">働き方は3つの型に落としています。どれも、手戻りを減らすためにやっていることです。仕様書だけで進めない、決まっていないことを決まっていないまま持ち越さない、渡したあとも同じ人が見続ける。この3つを、案件の大小にかかわらず同じようにやっています。</p>
+        <p class="body-t mt4">2週間を1区切りにして、区切りごとに動くものをお見せします。定例は週1回で、決まったこと・決まっていないことを、その場で書き出して共有します。書き出したものは、そのままお渡しします。</p>
+      </div>
+    </div>
 
     <ul class="dfl rv mt6">
       <li>
         <div class="df-h">
-          <p class="code mono">CASE-01</p>
-          <h3>製造業A社</h3>
-          <p class="meta mono">従業員50名規模 / S-02</p>
+          <p class="code mono">WAY-01</p>
+          <h3>まず、いまを見せてもらう</h3>
+          <p class="meta mono">相談の入口</p>
         </div>
         <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>生産日報が紙とExcelに分かれていて、同じ内容を二度書いていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>入力画面をひとつにまとめた社内Webアプリ。現場のタブレットからそのまま入力できるようにした</span></li>
+          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>相談の前に、要件をまとめた資料をつくらないといけない</span></li>
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やっていること：</span>実際に使っているファイルや画面を、そのまま見せてもらうところから始めます。資料をつくっていただく必要はありません</span></li>
         </ul>
       </li>
       <li>
         <div class="df-h">
-          <p class="code mono">CASE-02</p>
-          <h3>卸売業B社</h3>
-          <p class="meta mono">従業員120名規模 / S-03</p>
+          <p class="code mono">WAY-02</p>
+          <h3>小さく作って、見せる</h3>
+          <p class="meta mono">設計と実装</p>
         </div>
         <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>受注をFAXとメールと電話で受けていて、在庫の数がその場で分からなかった</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>受注入力と在庫参照をひとつにまとめた業務システム。既存の販売管理とはデータ連携でつないだ</span></li>
+          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>仕様書だけで進み、できあがってから認識のズレに気づく</span></li>
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やっていること：</span>2週間を1区切りにして、区切りごとに動くものをお見せします。ズレは早いうちに潰します</span></li>
         </ul>
       </li>
       <li>
         <div class="df-h">
-          <p class="code mono">CASE-03</p>
-          <h3>建設業C社</h3>
-          <p class="meta mono">従業員30名規模 / S-02</p>
+          <p class="code mono">WAY-03</p>
+          <h3>渡したあとも、見続ける</h3>
+          <p class="meta mono">リリース後</p>
         </div>
         <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>現場写真の整理と報告書づくりを、事務所に戻ってから手作業でやっていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>スマートフォンから写真と報告を送れる仕組み。報告書の形に組むところまで用意した</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-04</p>
-          <h3>医療法人D</h3>
-          <p class="meta mono">職員80名規模 / S-01・S-02</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>予約と問い合わせが電話に集中し、受付が別の作業に取りかかれなかった</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>Webからの予約受付と、お知らせの配信をまとめた画面をつくった</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-05</p>
-          <h3>教育事業E社</h3>
-          <p class="meta mono">従業員20名規模 / S-01</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>案内サイトを自社で更新できず、内容が古いまま止まっていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>載せる情報の順番から組み直し、自社で更新できるWebサイトにつくり直した</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-06</p>
-          <h3>物流業F社</h3>
-          <p class="meta mono">従業員200名規模 / S-06</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>リリース済みのシステムに手が入らず、現場からの要望が溜まっていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>保守運用を引き継ぎ、月次で直すもの・足すものを決めて版を重ねる形にした</span></li>
+          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>納品で担当が切れ、次に相談する相手が分からなくなる</span></li>
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やっていること：</span>納品して終わりにしません。月次で状況を見て、直すもの・足すものを次の版に入れます。窓口は変わりません</span></li>
         </ul>
       </li>
     </ul>
 
-    <p class="note-s rv">掲載しているのは、サンプルとして作成した導入事例です。実在の企業・案件を示すものではありません。企業名は伏せ、成果を数値で示すことはしていません。</p>
-
-    <div class="mores mt6 rv">
-      <a class="morelink" href="tech-advance-works.html" data-ver="v2.0" data-name="導入事例 一覧">
-        <b>6件の事例を、背景から読む</b>
-        <span>v2.0 &nbsp;導入事例 一覧 &nbsp;&#8594;</span>
-      </a>
-      <a class="morelink ghost" href="tech-advance-work-detail.html" data-ver="v2.1" data-name="導入事例 詳細 CASE-02">
-        <b>CASE-02 卸売業B社を、1件だけ深く見る</b>
-        <span>v2.1 &nbsp;導入事例 詳細 &nbsp;&#8594;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== v1.0-05 技術と開発体制 ===== -->
-<section class="sec" id="platform">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-05</span>
-      <h2>この版に入っているもの</h2>
-      <span class="en mono">PLATFORM</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">使っている技術を、5つの区分でそのまま並べます。案件ごとに選ぶものは変わるので、ここにあるものを全部使うわけではありません。相談の段階で、どれを使うかも一緒に決めます。</p>
-
-    <div class="sg2 wide rv mt6">
-      <div class="mnf">
-        <p class="mnf-h mono"><span>MANIFEST &#8212; <b>NEXTGRID v1.0</b></span><span>5 GROUPS</span></p>
-        <div class="mnf-row">
-          <p class="mnf-k mono">front <em>フロント</em></p>
-          <p class="mnf-v"><span>TypeScript</span><span>React</span><span>Next.js</span><span>Vue.js</span><span>HTML / CSS</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">back <em>バックエンド</em></p>
-          <p class="mnf-v"><span>Node.js</span><span>PHP / Laravel</span><span>Python</span><span>REST API</span><span>GraphQL</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">infra <em>インフラ</em></p>
-          <p class="mnf-v"><span>AWS</span><span>Docker</span><span>Terraform</span><span>Linux</span><span>CDN</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">data <em>データ</em></p>
-          <p class="mnf-v"><span>PostgreSQL</span><span>MySQL</span><span>Redis</span><span>Object Storage</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">devops <em>開発基盤</em></p>
-          <p class="mnf-v"><span>Git / GitHub</span><span>GitHub Actions</span><span>Jest</span><span>Playwright</span><span>エラー監視</span></p>
-        </div>
-      </div>
-
-      <div>
-        <figure class="figfr r169">
-          <span class="im"><img src="images/tech/tech_gallery1.webp" loading="lazy" decoding="async" alt="窓際に並ぶ開発デスクと、ガラスの奥に見えるサーバーラック"></span>
-          <figcaption class="mono"><b>PLT-01</b><span>開発フロア。手前がワークスペース、奥が機材室です</span></figcaption>
-        </figure>
-
-        <ul class="dlines mt4">
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>1案件あたり3〜4名。窓口は1人に固定します</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>2週間をひと区切りに、区切りごとに動くものを見せます</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>変更はすべてプルリクエストにして、別のメンバーが読んでからマージします</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>自動テストとリリース前の手動確認を組み合わせています</span></li>
-        </ul>
-
-        <p class="note-s">セキュリティは、アクセス管理・データの取り扱い・バックアップ・脆弱性への対応の4つで対策を行っています。リスクをゼロにはできない前提で、起きたときに気づける・戻せる形にしています。詳しくは v3.0 に書きました。</p>
-      </div>
+    <div class="pull rv">
+      <q>相談から決定までに<b>挟まる人が少ない</b>ほど、<br>確認の往復も手戻りも減ります。</q>
+      <p>9名の会社なので、決めるまでの距離が短いです。打ち合わせで出た話をその日のうちに実装の担当まで通せることを、いちばんの持ち味だと思っています。</p>
     </div>
 
     <div class="mores mt6 rv">
-      <a class="morelink" href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制">
-        <b>技術・開発体制・セキュリティを詳しく見る</b>
+      <a class="morelink ghost" href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制">
+        <b>体制・レビュー・リリースの手順は、土台の版へ</b>
         <span>v3.0 &nbsp;技術と開発体制 &nbsp;&#8594;</span>
       </a>
-      <a class="morelink ghost" href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問">
-        <b>費用・納期・契約のことは、よくある質問へ</b>
-        <span>v3.1 &nbsp;よくある質問 &nbsp;&#8594;</span>
-      </a>
     </div>
   </div>
 </section>
 
-<!-- ===== v1.0-06 会社 ===== -->
-<section class="sec sec--alt" id="company">
+<!-- ===== v4.0-03 会社概要 ===== -->
+<section class="sec" id="profile">
   <div class="wrap">
     <div class="shead rv">
-      <span class="idx mono">v1.0-06</span>
-      <h2>つくっている人と、会社のこと</h2>
-      <span class="en mono">COMPANY</span>
+      <span class="idx mono">v4.0-03</span>
+      <h2>会社概要</h2>
+      <span class="en mono">PROFILE</span>
     </div>
     <div class="rule"></div>
-    <div class="sg2 narrow rv">
-      <div>
-        <figure class="figfr r169">
-          <span class="im"><img src="images/tech/tech_facility1.webp" loading="lazy" decoding="async" alt="窓に面したオフィスのデスク。モニターとキーボードが並び、奥にホワイトボードがある"></span>
-          <figcaption class="mono"><b>CMP-01</b><span>打ち合わせも開発も同じフロア。声をかければすぐ相談できる距離です</span></figcaption>
-        </figure>
-        <p class="note-s">※写真はイメージです。これはRESCが作成したサンプルサイトのため、実在の担当者・拠点を示すものではありません。</p>
-      </div>
+    <p class="lead rv">会社の基本的なところをまとめました。所在地・営業時間・連絡先など、来社や連絡に関わることは v4.2 のアクセス・お問い合わせに詳しく書いています。</p>
+
+    <div class="sg2 wide rv mt6">
       <div>
         <dl class="spec">
           <div><dt class="mono">社名</dt><dd>株式会社NextGrid</dd></div>
           <div><dt class="mono">設立</dt><dd>2016年4月</dd></div>
+          <div><dt class="mono">資本金</dt><dd>500万円</dd></div>
           <div><dt class="mono">代表者</dt><dd>代表取締役 桑野 拓真</dd></div>
           <div><dt class="mono">所在地</dt><dd>福岡県福岡市〇〇区〇〇8-6-2</dd></div>
           <div><dt class="mono">従業員数</dt><dd>9名<small>エンジニア5／デザイナー1／ディレクター2／管理1</small></dd></div>
+          <div><dt class="mono">事業内容</dt><dd>業務システムの受託開発／Webサイト・Webアプリの受託制作／既存システムの改善／DXの相談・整理／リリース後の運用・保守</dd></div>
           <div><dt class="mono">営業時間</dt><dd>9:30〜18:30<small>土曜・日曜・祝日はお休みです</small></dd></div>
-          <div><dt class="mono">事業内容</dt><dd>Webサイト制作／Webアプリ開発／システム開発／DXコンサルティング／業務システム改善／保守・運用サポート</dd></div>
-          <div><dt class="mono">費用</dt><dd>要相談<small>内容によって異なるため、個別にご相談を承っています。</small></dd></div>
+          <div><dt class="mono">取引形態</dt><dd>準委任・請負のいずれも<small>契約の形は案件ごとに相談して決めます</small></dd></div>
+          <div><dt class="mono">連絡</dt><dd>info@example.com ／ LINE ／ お問い合わせフォーム</dd></div>
+          <div><dt class="mono">費用</dt><dd>要相談<small>規模と内容によって変わるため、個別にお見積りします</small></dd></div>
         </dl>
+      </div>
+      <div>
+        <div class="mnf">
+          <p class="mnf-h mono"><span>SERVICES &#8212; <b>NEXTGRID</b></span><span>6 ITEMS</span></p>
+          <div class="mnf-row">
+            <p class="mnf-k mono">build <em>つくる</em></p>
+            <p class="mnf-v"><span>S-01 Webサイト制作</span><span>S-02 Webアプリ開発</span><span>S-03 システム開発</span></p>
+          </div>
+          <div class="mnf-row">
+            <p class="mnf-k mono">tune <em>ととのえる</em></p>
+            <p class="mnf-v"><span>S-04 DXコンサルティング</span><span>S-05 業務システム改善</span><span>S-06 保守・運用サポート</span></p>
+          </div>
+        </div>
+        <ul class="dlines mt4">
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>まだ要件が固まっていなくても、大丈夫です。何から手をつけるか、の整理からご一緒します</span></li>
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>オンラインでの打ち合わせにも対応しています</span></li>
+        </ul>
+        <p class="note-s">掲載している設立年・資本金・従業員数・代表者名は、サンプルとして作成した設定です。実在の企業・人物を示すものではありません。</p>
       </div>
     </div>
 
     <div class="mores mt6 rv">
-      <a class="morelink" href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内">
-        <b>メンバー3名と、会社のことを見る</b>
-        <span>v4.0 &nbsp;メンバー・会社案内 &nbsp;&#8594;</span>
+      <a class="morelink ghost" href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細">
+        <b>6つのサービスが、どこからどこまでをやるか</b>
+        <span>v1.1 &nbsp;サービス詳細 &nbsp;&#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== v4.0-04 次の版へ ===== -->
+<section class="sec sec--deep" id="next">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="idx mono">v4.0-04</span>
+      <h2>この版の次に読むもの</h2>
+      <span class="en mono">NEXT REVISION</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rv">会社の話はここまでです。この先は、仲間を探している話（v4.1）と、実際に連絡をとるための版（v4.2）が続きます。v4.2 がこのサイトの最後の版です。</p>
+
+    <div class="mores mt6 rv">
+      <a class="morelink" href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ">
+        <b>相談してみる。所在地・連絡先・フォームはこちら</b>
+        <span>v4.2 &nbsp;アクセス・お問い合わせ &nbsp;&#8594;</span>
       </a>
       <a class="morelink ghost" href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報">
         <b>いま2職種で仲間を探しています</b>
         <span>v4.1 &nbsp;採用情報 &nbsp;&#8594;</span>
       </a>
     </div>
+
+    <p class="note-s rv">掲載している社名・住所・メンバー・会社概要は、すべてサンプルとして作成したものです。実在の企業・人物を示すものではありません。</p>
   </div>
 </section>
-
-<!-- ===== v1.0-07 このサイトの全10版 ===== -->
-<section class="sec sec--deep" id="changelog">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-07</span>
-      <h2>このサイトの全10版</h2>
-      <span class="en mono">CHANGELOG</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">10ページを、4つの版グループに分けています。番号の左が群、右がその中の順番です。いま見ているのは v1.0、いちばん最初の版です。</p>
-
-    <div class="cl rv mt6">
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v1</span><h3>総論</h3><span class="gd mono">GENERAL &#8212; 何をして、どう進めるか</span>
-        </div>
-        <ul class="cl-l">
-          <li><span class="cl-i now"><span class="v mono">v1.0</span><span><h4>トップ</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>版を重ねるという考え方と、開発の循環</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>6つのサービスと導入事例の差分</span></li></ul></span></span></li>
-          <li><a class="cl-i" href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細"><span class="v mono">v1.1</span><span><h4>サービス詳細</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>S-01〜S-06 が何をどこまでやるか</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>お見積りの出し方と保守契約の考え方</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方"><span class="v mono">v1.2</span><span><h4>進め方</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>相談から運用までの5段階と期間の目安</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>各段階で決まること・お願いすること</span></li></ul></span></a></li>
-        </ul>
-      </div>
-
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v2</span><h3>記録</h3><span class="gd mono">RECORD &#8212; つくったもの</span>
-        </div>
-        <ul class="cl-l">
-          <li><a class="cl-i" href="tech-advance-works.html" data-ver="v2.0" data-name="導入事例 一覧"><span class="v mono">v2.0</span><span><h4>導入事例 一覧</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>CASE-01〜CASE-06 の背景とやったこと</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>業種・規模・関わったサービスの一覧表</span></li></ul></span></a></li>
-          <li><a class="cl-i sub" href="tech-advance-work-detail.html" data-ver="v2.1" data-name="導入事例 詳細 CASE-02"><span class="v mono">v2.1</span><span><h4>導入事例 詳細（CASE-02）</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>卸売業B社の1件を、版ごとに分解</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>決めたこと・決めなかったことの記録</span></li></ul></span></a></li>
-        </ul>
-      </div>
-
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v3</span><h3>土台</h3><span class="gd mono">PLATFORM &#8212; 技術と土台</span>
-        </div>
-        <ul class="cl-l">
-          <li><a class="cl-i" href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制"><span class="v mono">v3.0</span><span><h4>技術と開発体制</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>5区分の技術スタックと、選び方の考え方</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>チーム構成・レビュー・テスト・リリース</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>セキュリティで行っている対策</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問"><span class="v mono">v3.1</span><span><h4>よくある質問</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>費用・納期・契約・引き継ぎのこと</span></li></ul></span></a></li>
-        </ul>
-      </div>
-
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v4</span><h3>会社</h3><span class="gd mono">COMPANY &#8212; 人と窓口</span>
-        </div>
-        <ul class="cl-l">
-          <li><a class="cl-i" href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内"><span class="v mono">v4.0</span><span><h4>メンバー・会社案内</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>メンバー3名の役割と担当領域</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>会社概要と、チームの働き方</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報"><span class="v mono">v4.1</span><span><h4>採用情報</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>2職種の募集要項（労働条件をすべて明示）</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>選考の流れと応募方法</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ"><span class="v mono">v4.2</span><span><h4>アクセス・お問い合わせ</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>所在地・営業時間・お問い合わせフォーム</span></li></ul></span></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 </main>
 
 <footer class="ft">
@@ -1231,7 +967,7 @@ a.cl-i:hover h4{color:var(--acc)}
       <nav aria-label="v1 総論">
         <h3>v1 &#8212; GENERAL / 総論</h3>
         <ul>
-          <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ" aria-current="page"><span class="v">v1.0</span><span>トップ</span></a></li>
+          <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ"><span class="v">v1.0</span><span>トップ</span></a></li>
           <li><a href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細"><span class="v">v1.1</span><span>サービス詳細</span></a></li>
           <li><a href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方"><span class="v">v1.2</span><span>進め方</span></a></li>
         </ul>
@@ -1253,7 +989,7 @@ a.cl-i:hover h4{color:var(--acc)}
       <nav aria-label="v4 会社">
         <h3>v4 &#8212; COMPANY / 会社</h3>
         <ul>
-          <li><a href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内"><span class="v">v4.0</span><span>メンバー・会社案内</span></a></li>
+          <li><a href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内" aria-current="page"><span class="v">v4.0</span><span>メンバー・会社案内</span></a></li>
           <li><a href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報"><span class="v">v4.1</span><span>採用情報</span></a></li>
           <li><a href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ"><span class="v">v4.2</span><span>アクセス・お問い合わせ</span></a></li>
         </ul>
@@ -1289,8 +1025,8 @@ a.cl-i:hover h4{color:var(--acc)}
    NextGrid ADVANCE 共通JS（全10ページ同一）
    ページごとに変えるのは、下の CURRENT と PAGENAME の2行だけ。
    ========================================================== */
-var CURRENT  = 'v1.0';
-var PAGENAME = 'トップ';
+var CURRENT  = 'v4.0';
+var PAGENAME = 'メンバー・会社案内';
 
 (function(){
   "use strict";

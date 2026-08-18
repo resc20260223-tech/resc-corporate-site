@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>炭火焼鳥 とりや｜焼き鳥｜福岡</title>
-<meta name="description" content="福岡の炭火焼鳥 とりや。仕入れ・仕込み・火入れ・焼き・お見送りまで、一本の串ができる一日の順に店のことをまとめました。営業時間17:00〜23:00（定休日:日曜日）。ご予約はフォーム・LINEから。">
+<title>串の一覧｜炭火焼鳥 とりや｜焼き鳥｜福岡</title>
+<meta name="description" content="炭火焼鳥 とりやの串は K-01 から K-09 までの9種類。部位ごとに、味の方向・焼き加減・タレと塩・価格をまとめました。価格はすべて税込です。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 <script>
 /* js クラス：JS無効時は .rv を隠さない／遷移オーバーレイも出さない。
@@ -22,7 +22,7 @@
 /* ==========================================================
    炭火焼鳥 とりや — ADVANCE（全10ページ共通スタイル）
    骨格：一本の串の一日。仕入 → 仕込 → 焼 → 供 → 締。
-   工程 00 火入れ（このページ）／ 01〜09 が続く。
+   このページは 工程 02 串の一覧。全10ページ共通のスタイルです。
    ページ遷移：煙が横に流れて画面を払う。
    ========================================================== */
 :root{
@@ -645,20 +645,20 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
 <header class="hd">
   <div class="hd-main">
     <div class="wrap">
-      <a class="brand" href="yakitori-advance.html" aria-current="page">
+      <a class="brand" href="yakitori-advance.html" data-ko="00" data-nm="火入れ">
         <svg class="mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="10.6" y="1.5" width="2.8" height="21" rx="1.4" fill="url(#gBamboo)"/><rect x="4.6" y="5" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/><rect x="4.6" y="12.4" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/></svg>
         <span>炭火焼鳥 とりや<em>TORIYA</em></span>
       </a>
 
       <nav class="gnav" aria-label="メインナビゲーション">
-        <details class="gr" data-gr="1">
+        <details class="gr cur" data-gr="1">
           <summary aria-expanded="false"><span class="kz">01&#8211;03</span>仕込<span class="cv" aria-hidden="true"></span></summary>
           <div class="grp">
             <div class="wrap">
               <p class="gh">一 ／ 仕込　PREP<span>仕入れて、さばいて、串を打つ</span></p>
               <div class="grl">
                 <a href="yakitori-advance-company.html" data-ko="01" data-nm="店主・店の案内"><span class="kn">01</span><span><b>店主・店の案内</b><small>仕入れと、焼き場に立つ人。</small></span></a>
-                <a href="yakitori-advance-works.html" data-ko="02" data-nm="串の一覧"><span class="kn">02</span><span><b>串の一覧</b><small>部位ごとに、9種類の串。</small></span></a>
+                <a href="yakitori-advance-works.html" data-ko="02" data-nm="串の一覧" aria-current="page"><span class="kn">02</span><span><b>串の一覧</b><small>部位ごとに、9種類の串。</small></span></a>
                 <a href="yakitori-advance-work-detail.html" data-ko="03" data-nm="つくねの一本"><span class="kn">03</span><span><b>つくねの一本</b><small>K-03 を、刻むところから。</small></span></a>
               </div>
             </div>
@@ -711,622 +711,394 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
 
   <div class="hd-now">
     <div class="wrap">
-      <p class="cur"><span class="kn">工程 00</span><span class="gp">序 ／ 火入れ</span><span class="nm">トップ</span></p>
+      <p class="cur"><span class="kn">工程 02</span><span class="gp">一 ／ 仕込</span><span class="nm">串の一覧</span></p>
       <p class="pn">
-        <span class="dis">&#9664; PREV</span>
-        <a href="yakitori-advance-company.html" data-ko="01" data-nm="店主・店の案内">NEXT 　工程 01<span class="pw">店主・店の案内</span> &#9654;</a>
+        <a href="yakitori-advance-company.html" data-ko="01" data-nm="店主・店の案内">&#9664; PREV　工程 01<span class="pw">店主・店の案内</span></a>
+        <a href="yakitori-advance-work-detail.html" data-ko="03" data-nm="つくねの一本">NEXT　工程 03<span class="pw">つくねの一本</span> &#9654;</a>
       </p>
     </div>
   </div>
 </header>
 
+<nav class="crumb" aria-label="パンくず">
+  <div class="wrap">
+    <ol>
+      <li><a href="yakitori-advance.html" data-ko="00" data-nm="火入れ">工程 00 トップ</a></li>
+      <li><span>一 ／ 仕込</span></li>
+      <li><span aria-current="page">工程 02 串の一覧</span></li>
+    </ol>
+  </div>
+</nav>
+
 <main id="main">
 
-<!-- ============ 00-a ヒーロー ============ -->
-<section class="hero" aria-labelledby="h1">
-  <img class="hero-img" src="images/yakitori/yakitori_hero.webp" alt="炭火の焼き場が見えるカウンター席。串が炭の上に並び、提灯の灯りがともる夜の店内" fetchpriority="high" decoding="async">
-  <div class="hero-scrim"></div>
-  <div class="hero-smoke" aria-hidden="true">
-    <i style="--y:18%;--h:24vh;--sp:30s;--d:0s"></i>
-    <i style="--y:44%;--h:20vh;--sp:38s;--d:-9s"></i>
-    <i style="--y:66%;--h:26vh;--sp:34s;--d:-18s"></i>
-  </div>
-  <div class="hero-in">
+<!-- ============ 02-a ページ見出し ============ -->
+<section class="phd" aria-labelledby="h1">
+  <img class="phd-img" src="images/yakitori/yakitori_flow3.webp" alt="炭の上に並べた串を、手で返している焼き場の手元" fetchpriority="high" decoding="async">
+  <div class="phd-scrim"></div>
+  <div class="phd-in">
     <div class="wrap">
-      <p class="koutei"><span class="k1">工程 00</span><span class="k2">火入れ</span><span class="k3">FIRE UP ／ 一本の串の一日</span></p>
-      <h1 id="h1"><span>一本の串は、</span><span>一日をかけて</span><span class="hot">出てきます。</span></h1>
-      <p class="hero-lead">備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。仕入れて、さばいて、串を打って、炭に火を入れて、お出しして、のれんを下ろす。その一日の順番のまま、店のことを10のページに並べました。</p>
-      <p class="hero-meta"><span>炭火焼鳥 とりや</span><span>福岡</span><span>営業 <span class="num">17:00</span> 〜 <span class="num">23:00</span></span><span>定休日 <b>日曜日</b></span><span>全 <span class="num">24</span> 席</span></p>
-      <p class="hero-cta">
-        <a class="pri" href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約">ご予約・お問い合わせ<svg class="ar" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg></a>
-        <a href="yakitori-advance-service.html" data-ko="04" data-nm="お品書き">お品書きを見る<svg class="ar" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg></a>
-      </p>
+      <p class="koutei"><span class="k1">工程 02</span><span class="k2">串を打つ</span><span class="k3">PREP ／ 串の一覧</span></p>
+      <h1 id="h1">串の一覧<em>SKEWERS K-01 &#8211; K-09</em></h1>
+      <p class="phd-lead">K-01 から K-09 まで、<span class="num">9</span> 種類。部位の来るところで四つに分けて並べました。味の方向、焼き加減、タレか塩か、価格。一本ずつご注文いただけます。価格はすべて税込です。</p>
     </div>
-  </div>
-  <svg class="hero-bed" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <rect class="hb-glow" x="0" y="14" width="1200" height="76"/>
-    <path class="hb-dark" d="M0,52 L58,40 L126,49 L196,36 L268,47 L338,33 L410,45 L482,34 L556,48 L628,37 L700,50 L772,35 L846,46 L918,33 L990,47 L1062,38 L1132,50 L1200,41 L1200,90 L0,90 Z"/>
-  </svg>
-</section>
-
-<!-- ============ 00-b 一日の帳 ============ -->
-<section class="sec" id="day" aria-labelledby="dayH">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <p class="no"><i></i>00-b ／ THE DAY</p>
-      <h2 id="dayH">一日の帳（ちょう）。</h2>
-      <p class="sub">10のページは、店の一日と同じ順に並んでいます。</p>
-      <div class="rule"></div>
-    </div>
-    <p class="lede rv" style="margin-bottom:var(--blk)">14時に荷が届いて、23時にのれんを下ろすまで。<br>読みたいところから、どうぞ。</p>
-
-    <ol class="day">
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">14:00</span><span class="tl">仕入れ</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 01</span><span class="gp">一 ／ 仕込</span></p>
-          <h3>その日の鶏が、届く。</h3>
-          <p>福岡県産と宮崎県産を、その日の入荷で使い分けています。届いたものを見てから、今日の品書きを決めます。焼き場に立つ人のことも、ここに書きました。</p>
-          <a class="dgo" href="yakitori-advance-company.html" data-ko="01" data-nm="店主・店の案内">店主・店の案内へ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <path class="gl-p" d="M14,34 h92 l-10,42 h-72 Z"/>
-          <rect class="gl-c" x="8" y="26" width="104" height="10" rx="5"/>
-          <ellipse class="gl-n" cx="44" cy="30" rx="17" ry="9"/>
-          <ellipse class="gl-n" cx="76" cy="31" rx="15" ry="8"/>
-          <rect class="gl-k" x="30" y="44" width="60" height="4" rx="2"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">15:00</span><span class="tl">仕込み</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 02</span><span class="ko">工程 03</span><span class="gp">一 ／ 仕込</span></p>
-          <h3>さばいて、串を打つ。</h3>
-          <p>串一本ごとに肉の厚みや脂の乗り方を見極めて、火からの距離と時間を決めていきます。部位は9種類。つくねの一本は、刻むところから別のページにまとめました。</p>
-          <a class="dgo" href="yakitori-advance-works.html" data-ko="02" data-nm="串の一覧">串の一覧へ<span aria-hidden="true">&#8594;</span></a>
-          <a class="dgo" href="yakitori-advance-work-detail.html" data-ko="03" data-nm="つくねの一本">つくねの一本へ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <rect class="gl-p" x="10" y="46" width="100" height="12" rx="3"/>
-          <rect class="gl-w" x="16" y="24" width="88" height="4" rx="2"/>
-          <rect class="gl-w" x="16" y="34" width="88" height="4" rx="2"/>
-          <rect class="gl-n" x="40" y="20" width="20" height="12" rx="6"/>
-          <rect class="gl-n" x="64" y="20" width="18" height="12" rx="6"/>
-          <rect class="gl-n" x="40" y="30" width="19" height="12" rx="6"/>
-          <rect class="gl-n" x="63" y="30" width="21" height="12" rx="6"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">16:30</span><span class="tl">火入れ</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 00</span><span class="gp">序 ／ 火入れ</span></p>
-          <h3>備長炭に、火を入れる。</h3>
-          <p>炭が落ち着くのを待ってから、はじめの一本を置きます。急いで置いても、いい焼き上がりにはなりません。いま読んでいるこのページが、その工程にあたります。</p>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <rect class="gl-p" x="8" y="40" width="104" height="30" rx="4"/>
-          <ellipse class="gl-e" cx="60" cy="48" rx="46" ry="12"/>
-          <ellipse class="gl-c" cx="34" cy="48" rx="16" ry="7"/>
-          <ellipse class="gl-c" cx="66" cy="50" rx="18" ry="7"/>
-          <ellipse class="gl-c" cx="94" cy="47" rx="13" ry="6"/>
-          <rect class="gl-w" x="14" y="30" width="92" height="4" rx="2"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">17:00</span><span class="tl">開店</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 04</span><span class="ko">工程 05</span><span class="gp">二 ／ 焼</span></p>
-          <h3>のれんを出して、焼きはじめる。</h3>
-          <p>ご注文をいただいてから焼きはじめます。串は一本から、コースは3種類から。飲みものと飲み放題の条件も、こちらにまとめています。</p>
-          <a class="dgo" href="yakitori-advance-service.html" data-ko="04" data-nm="お品書き">お品書きへ<span aria-hidden="true">&#8594;</span></a>
-          <a class="dgo" href="yakitori-advance-course.html" data-ko="05" data-nm="コースと飲みもの">コースと飲みものへ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <rect class="gl-c" x="10" y="14" width="100" height="8" rx="3"/>
-          <path class="gl-n" d="M14,22 h30 v34 q-15,8 -30,0 Z"/>
-          <path class="gl-n" d="M46,22 h28 v34 q-14,8 -28,0 Z" opacity=".82"/>
-          <path class="gl-n" d="M76,22 h30 v34 q-15,8 -30,0 Z" opacity=".64"/>
-          <rect class="gl-k" x="10" y="66" width="100" height="4" rx="2"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">18:00</span><span class="tl">お出しする</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 06</span><span class="ko">工程 07</span><span class="gp">三 ／ 供</span></p>
-          <h3>焼き上がった順に、出す。</h3>
-          <p>カウンター10席、テーブル8席、お座敷6席。席のこと、注文からお会計までの流れ、貸切のご相談は、それぞれのページに分けました。</p>
-          <a class="dgo" href="yakitori-advance-flow.html" data-ko="06" data-nm="店での過ごし方">店での過ごし方へ<span aria-hidden="true">&#8594;</span></a>
-          <a class="dgo" href="yakitori-advance-private.html" data-ko="07" data-nm="貸切・宴会">貸切・宴会へ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <ellipse class="gl-p" cx="60" cy="52" rx="48" ry="16"/>
-          <ellipse class="gl-c" cx="60" cy="49" rx="38" ry="11"/>
-          <rect class="gl-w" x="24" y="30" width="72" height="3.4" rx="1.7"/>
-          <rect class="gl-w" x="24" y="38" width="72" height="3.4" rx="1.7"/>
-          <rect class="gl-n" x="46" y="27" width="17" height="10" rx="5"/>
-          <rect class="gl-n" x="48" y="35" width="18" height="10" rx="5"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">22:30</span><span class="tl">ラストオーダー</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 08</span><span class="gp">四 ／ 締</span></p>
-          <h3>最後の一本を、受ける。</h3>
-          <p>お食事・お飲みものとも <span class="num">22:30</span> がラストオーダーです。ご予約のこと、お子さま連れのこと、お支払いのこと。先に聞かれることを、先に書いておきました。</p>
-          <a class="dgo" href="yakitori-advance-faq.html" data-ko="08" data-nm="よくある質問">よくある質問へ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <rect class="gl-p" x="18" y="18" width="84" height="52" rx="4"/>
-          <rect class="gl-c" x="28" y="30" width="64" height="6" rx="3"/>
-          <rect class="gl-c" x="28" y="42" width="46" height="6" rx="3"/>
-          <rect class="gl-e" x="28" y="54" width="26" height="6" rx="3"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">23:00</span><span class="tl">締め</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 09</span><span class="gp">四 ／ 締</span></p>
-          <h3>のれんを下ろして、片づける。</h3>
-          <p>炭を落として、明日の仕込みの下ごしらえまでが一日です。ご予約とお問い合わせは、フォーム・LINE・メールから。<span class="num">14:00</span>〜<span class="num">17:00</span> のあいだにまとめてお返しします。</p>
-          <a class="dgo" href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約">アクセス・ご予約へ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <rect class="gl-c" x="10" y="16" width="100" height="6" rx="3"/>
-          <path class="gl-n" d="M14,22 h92 v34 h-92 Z" opacity=".75"/>
-          <rect class="gl-p" x="52" y="22" width="6" height="34"/>
-          <rect class="gl-p" x="74" y="22" width="6" height="34"/>
-          <rect class="gl-k" x="10" y="62" width="100" height="4" rx="2"/>
-        </svg>
-      </li>
-    </ol>
-    <p class="note rv">※ 時刻は仕込みの流れをお伝えするためのサンプルの目安です。実際はその日の入荷と仕込みの量によって前後します。</p>
   </div>
 </section>
 
-<!-- ============ 00-c 一本の串 ============ -->
-<section class="sec sec--alt" id="skewer" aria-labelledby="skwH">
+<!-- ============ 02-b 索引 ============ -->
+<section class="sec" id="index" aria-labelledby="indexH">
   <div class="wrap">
     <div class="sec-h rv">
-      <p class="no"><i></i>00-c ／ ONE SKEWER</p>
-      <h2 id="skwH">同じ串でも、その日で変わる。</h2>
-      <p class="sub">元・中・先。一本の中でも、火の当たり方は同じではありません。</p>
+      <p class="no"><i></i>02-b ／ INDEX</p>
+      <h2 id="indexH">九本の索引。</h2>
+      <p class="sub">番号を押すと、その串のところへ移ります。</p>
       <div class="rule"></div>
     </div>
 
-    <div class="grid2 wide">
-      <div class="skwbox rv">
-        <svg class="skw" viewBox="0 0 940 330" role="img" aria-label="一本の串を横から見た図。竹串の持ち手側から順に、元・中・先の三点にねたが並び、中の一点だけが炭のいちばん強いところにあたる位置に描かれている。">
-          <rect x="0" y="0" width="940" height="330" fill="none"/>
-          <!-- 炭床 -->
-          <rect x="0" y="216" width="940" height="114" fill="#0D0907"/>
-          <g opacity=".95">
-            <ellipse fill="url(#gOki)" cx="200" cy="262" rx="72" ry="17"/>
-            <ellipse fill="url(#gOki)" cx="342" cy="268" rx="64" ry="15"/>
-            <ellipse fill="url(#gOki)" cx="482" cy="260" rx="78" ry="18"/>
-            <ellipse fill="url(#gOki)" cx="622" cy="268" rx="66" ry="15"/>
-            <ellipse fill="url(#gOki)" cx="752" cy="263" rx="58" ry="14"/>
-          </g>
-          <g>
-            <ellipse class="gl-c" cx="168" cy="254" rx="54" ry="14"/>
-            <ellipse class="gl-c" cx="268" cy="261" rx="44" ry="11"/>
-            <ellipse class="gl-c" cx="372" cy="253" rx="50" ry="13"/>
-            <ellipse class="gl-c" cx="470" cy="263" rx="46" ry="11"/>
-            <ellipse class="gl-c" cx="566" cy="254" rx="54" ry="14"/>
-            <ellipse class="gl-c" cx="668" cy="262" rx="44" ry="11"/>
-            <ellipse class="gl-c" cx="766" cy="253" rx="48" ry="12"/>
-          </g>
-          <ellipse cx="470" cy="232" rx="368" ry="62" fill="url(#gEmber)" opacity=".42"/>
-          <!-- 串 -->
-          <rect class="gl-w" x="80" y="158" width="792" height="13" rx="6.5"/>
-          <rect class="gl-k" x="80" y="158" width="196" height="13" rx="6.5" opacity=".5"/>
-          <!-- ねた -->
-          <rect class="gl-n" x="330" y="128" width="150" height="74" rx="34"/>
-          <rect class="gl-n" x="496" y="120" width="156" height="88" rx="40"/>
-          <rect class="gl-n" x="668" y="130" width="140" height="70" rx="32"/>
-          <!-- 位置の印 -->
-          <rect x="401" y="94" width="8" height="34" fill="#AFA495" opacity=".45"/>
-          <rect x="570" y="82" width="8" height="38" fill="#FFB25C" opacity=".55"/>
-          <rect x="734" y="96" width="8" height="34" fill="#AFA495" opacity=".45"/>
-          <circle cx="405" cy="94" r="9" fill="#AFA495"/>
-          <circle cx="574" cy="82" r="11" fill="#FFB25C"/>
-          <circle cx="738" cy="96" r="9" fill="#AFA495"/>
-          <text class="lb" x="405" y="64" text-anchor="middle">元</text>
-          <text class="lb on" x="574" y="52" text-anchor="middle">中</text>
-          <text class="lb" x="738" y="66" text-anchor="middle">先</text>
-        </svg>
-        <ul class="skwleg">
-          <li><span class="k">元（もと）</span><p>持ち手に近いところ。火から少し外れやすいので、返す向きでつり合いを取ります。</p></li>
-          <li><span class="k">中（なか）</span><p>炭のいちばん強いところにあたります。ここを基準に、一本ぜんぶの火の入り方を見ます。</p></li>
-          <li><span class="k">先（さき）</span><p>先端は火が回りやすい。焦がさないように、置く時間を短くします。</p></li>
-        </ul>
-        <p class="note">※ 上の図は火の当たり方の考え方を示したものです。実際の寸法や配置を表すものではありません。</p>
-      </div>
-
-      <div class="stack">
-        <div class="rv">
-          <h3 class="lh">仕込みで決めて、<br>焼き場で直す。</h3>
-          <p class="lead-p" style="margin-top:14px">仕込みでは串一本ごとに肉の厚みや脂の乗り方を見極め、火からの距離と時間を細かく調整します。同じ串でも、その日の素材の状態によって焼き加減は変わります。</p>
-          <p class="lead-p">だから、焼きはじめてからも見ています。決めたとおりに焼くのではなく、その一本の様子を見て、置く高さと返す回数を変えます。</p>
-        </div>
-        <figure class="figfr r43 rv rv-d1">
-          <img src="images/yakitori/yakitori_gallery3.webp" alt="まな板の上で、手作業で串を打っている仕込みの様子" loading="lazy" decoding="async">
-          <figcaption><span class="pl">PHOTO 01</span><span>仕込み ／ 串を打つ</span></figcaption>
-        </figure>
-        <figure class="figfr r43 rv rv-d2">
-          <img src="images/yakitori/yakitori_flow3.webp" alt="炭の上に並べた串を、手で返している焼き場の手元" loading="lazy" decoding="async">
-          <figcaption><span class="pl">PHOTO 02</span><span>焼き場 ／ 返しながら見る</span></figcaption>
-        </figure>
-      </div>
+    <div class="kcards rv">
+      <a class="kcard" href="#k01"><span class="kn">K-01</span><b>もも</b><p>旨みそのままの、ジューシーな一本。</p><span class="gp">強火 ／ タレ ／ ¥260</span></a>
+      <a class="kcard" href="#k05"><span class="kn">K-05</span><b>ねぎま</b><p>葱の甘さと肉の噛み合わせ。</p><span class="gp">中火 ／ 塩 ／ ¥250</span></a>
+      <a class="kcard" href="#k06"><span class="kn">K-06</span><b>手羽先</b><p>皮の香ばしさと、骨まわりの旨み。</p><span class="gp">中火から強火 ／ 塩 ／ ¥300</span></a>
+      <a class="kcard" href="#k02"><span class="kn">K-02</span><b>皮</b><p>パリッと香ばしく。</p><span class="gp">強火 ／ タレ ／ ¥220</span></a>
+      <a class="kcard" href="#k08"><span class="kn">K-08</span><b>ぼんじり</b><p>脂の甘さ。</p><span class="gp">中火 ／ 塩 ／ ¥250</span></a>
+      <a class="kcard" href="#k04"><span class="kn">K-04</span><b>レバー</b><p>臭みを抑え、しっとりと。</p><span class="gp">遠火 ／ タレ ／ ¥240</span></a>
+      <a class="kcard" href="#k07"><span class="kn">K-07</span><b>砂ずり</b><p>歯ごたえのある一本。</p><span class="gp">強火 ／ 塩 ／ ¥230</span></a>
+      <a class="kcard" href="#k03"><span class="kn">K-03</span><b>つくね</b><p>刻んで、練って、やわらかい一本。</p><span class="gp">中火 ／ タレ ／ ¥280</span></a>
+      <a class="kcard" href="#k09"><span class="kn">K-09</span><b>野菜の串</b><p>その日の野菜を、一本ずつ。</p><span class="gp">中火 ／ 塩 ／ ¥180</span></a>
     </div>
 
-    <div class="morelist rv" style="margin-top:var(--blk)">
-      <a class="morelink" href="yakitori-advance-works.html" data-ko="02" data-nm="串の一覧">
-        <b><em>工程 02 ／ 一 仕込</em>串の一覧を見る（K-01 〜 K-09）</b>
-        <span class="go">9 KINDS &nbsp;&#8594;</span>
-      </a>
-      <a class="morelink ghost" href="yakitori-advance-work-detail.html" data-ko="03" data-nm="つくねの一本">
-        <b><em>工程 03 ／ 一 仕込</em>つくねの一本を、刻むところから</b>
-        <span class="go">K-03 &nbsp;&#8594;</span>
-      </a>
-    </div>
+    <p class="note rv rv-d1">※ タレ・塩はお好みでお選びいただけます。おすすめは上のとおりです。<br>※ 鶏は福岡県産と宮崎県産を、その日の入荷で使い分けています。<br>※ アレルギーやお召し上がりになれないものがあれば、ご注文のときにお気軽にお尋ねください。</p>
   </div>
 </section>
 
-<!-- ============ 00-d 品書きから ============ -->
-<section class="sec" id="menu" aria-labelledby="menuH">
+<!-- ============ 02-c 脚と羽のところ ============ -->
+<section class="sec sec--alt" id="ashi" aria-labelledby="ashiH">
   <div class="wrap">
     <div class="sec-h rv">
-      <p class="no"><i></i>00-d ／ MENU</p>
-      <h2 id="menuH">お品書きから、三品。</h2>
-      <p class="sub">数は多くありません。その分、一本ずつ。価格はすべて税込です。</p>
+      <p class="no"><i></i>02-c ／ LEG &amp; WING</p>
+      <h2 id="ashiH">脚と、羽のところ。</h2>
+      <p class="sub">よく動くところ。噛んだときの弾力が持ち味です。</p>
       <div class="rule"></div>
     </div>
 
     <div class="mcards">
-      <article class="mcard rv">
-        <span class="im"><img src="images/yakitori/yakitori_menu_moriawase.webp" alt="おまかせ盛り合わせ（6本）。一枚の器に串を並べて盛り付けた様子" loading="lazy" decoding="async"></span>
-        <div class="bd">
-          <p class="kn">MORIAWASE</p>
-          <h3>おまかせ盛り合わせ（6本）</h3>
-          <p>まずはこの一皿から、店の味を。六本それぞれ、炭からの高さを変えて焼いています。</p>
-          <p class="pr"><span class="y">¥1,380</span><span class="hv">串ごとに変える</span></p>
-        </div>
-      </article>
-      <article class="mcard rv rv-d1">
+      <article class="mcard rv" id="k01">
         <span class="im"><img src="images/yakitori/yakitori_menu_momo.webp" alt="もも串。焼き上がった串を器に盛り付けた様子" loading="lazy" decoding="async"></span>
         <div class="bd">
           <p class="kn">K-01 &nbsp;MOMO</p>
-          <h3>もも串</h3>
-          <p>旨みそのままの、ジューシーな一本。表面を先に焼き固めてから、中まで火を入れます。</p>
-          <p class="pr"><span class="y">¥260</span><span class="hv">強火</span></p>
+          <h3>もも</h3>
+          <p>旨みそのままの、ジューシーな一本。強火で表面を先に焼き固めて、そのあと中まで火を入れます。</p>
+          <p class="pr"><span class="y">¥260</span><span class="hv">強火 ／ タレ</span></p>
         </div>
       </article>
-      <article class="mcard rv rv-d2">
-        <span class="im"><img src="images/yakitori/yakitori_menu_tsukune.webp" alt="つくねの串を器に盛り、卵黄を添えた様子" loading="lazy" decoding="async"></span>
+
+      <article class="mcard rv rv-d1" id="k05">
+        <span class="im">
+          <svg class="skw" viewBox="0 0 640 480" role="img" aria-label="ねぎまの串を横から見た塗りの図。竹串に、焼けた肉と葱が交互に刺さっている。">
+            <rect x="0" y="0" width="640" height="480" fill="none"/>
+            <ellipse cx="320" cy="352" rx="290" ry="86" fill="url(#gEmber)" opacity=".35"/>
+            <rect x="0" y="372" width="640" height="108" fill="#0D0907"/>
+            <ellipse fill="url(#gOki)" cx="180" cy="404" rx="74" ry="16" opacity=".9"/>
+            <ellipse fill="url(#gOki)" cx="400" cy="410" rx="86" ry="17" opacity=".9"/>
+            <ellipse class="gl-c" cx="132" cy="398" rx="56" ry="15"/>
+            <ellipse class="gl-c" cx="266" cy="406" rx="48" ry="13"/>
+            <ellipse class="gl-c" cx="392" cy="397" rx="58" ry="15"/>
+            <ellipse class="gl-c" cx="520" cy="407" rx="50" ry="13"/>
+            <rect class="gl-w" x="44" y="228" width="556" height="15" rx="7.5"/>
+            <rect class="gl-k" x="44" y="228" width="132" height="15" rx="7.5" opacity=".5"/>
+            <rect class="gl-n" x="188" y="186" width="94" height="100" rx="30"/>
+            <rect x="292" y="194" width="76" height="84" rx="24" fill="#6E6244"/>
+            <rect x="292" y="194" width="76" height="30" rx="15" fill="#8A7F4E"/>
+            <rect class="gl-n" x="378" y="186" width="94" height="100" rx="30"/>
+            <rect x="482" y="196" width="72" height="80" rx="24" fill="#6E6244"/>
+            <rect x="482" y="196" width="72" height="28" rx="14" fill="#8A7F4E"/>
+            <circle cx="236" cy="162" r="5" fill="#F6F0E6" opacity=".7"/>
+            <circle cx="330" cy="152" r="4" fill="#F6F0E6" opacity=".6"/>
+            <circle cx="424" cy="164" r="5" fill="#F6F0E6" opacity=".7"/>
+            <circle cx="516" cy="156" r="4" fill="#F6F0E6" opacity=".6"/>
+          </svg>
+        </span>
         <div class="bd">
-          <p class="kn">K-03 &nbsp;TSUKUNE</p>
-          <h3>つくね</h3>
-          <p>刻んで、練って、丁寧に一本。卵黄は別皿でお出しします。お好みでどうぞ。</p>
-          <p class="pr"><span class="y">¥280</span><span class="hv">中火</span></p>
+          <p class="kn">K-05 &nbsp;NEGIMA</p>
+          <h3>ねぎま</h3>
+          <p>葱の甘さと肉の噛み合わせ。もも肉と葱を交互に打ち、中火で葱の面から先に焼きます。</p>
+          <p class="pr"><span class="y">¥250</span><span class="hv">中火 ／ 塩</span></p>
+        </div>
+      </article>
+
+      <article class="mcard rv rv-d2" id="k06">
+        <span class="im">
+          <svg class="skw" viewBox="0 0 640 480" role="img" aria-label="手羽先の串を横から見た塗りの図。竹串に、関節で折れたかたちの羽が二つ刺さり、骨の先が出ている。">
+            <rect x="0" y="0" width="640" height="480" fill="none"/>
+            <ellipse cx="320" cy="352" rx="290" ry="86" fill="url(#gEmber)" opacity=".38"/>
+            <rect x="0" y="372" width="640" height="108" fill="#0D0907"/>
+            <ellipse fill="url(#gOki)" cx="210" cy="404" rx="84" ry="17" opacity=".9"/>
+            <ellipse fill="url(#gOki)" cx="440" cy="408" rx="80" ry="16" opacity=".9"/>
+            <ellipse class="gl-c" cx="140" cy="398" rx="54" ry="14"/>
+            <ellipse class="gl-c" cx="286" cy="407" rx="48" ry="13"/>
+            <ellipse class="gl-c" cx="424" cy="397" rx="58" ry="15"/>
+            <ellipse class="gl-c" cx="556" cy="406" rx="44" ry="12"/>
+            <rect class="gl-w" x="44" y="228" width="556" height="15" rx="7.5"/>
+            <rect class="gl-k" x="44" y="228" width="122" height="15" rx="7.5" opacity=".5"/>
+            <g>
+              <rect x="184" y="100" width="22" height="62" rx="11" fill="#AFA495" transform="rotate(-22 195 131)"/>
+              <ellipse cx="190" cy="106" rx="17" ry="12" fill="#D9CFC0" transform="rotate(-22 190 106)"/>
+              <rect class="gl-n" x="172" y="146" width="54" height="132" rx="27" transform="rotate(-16 199 212)"/>
+              <rect class="gl-n" x="192" y="234" width="124" height="54" rx="27" transform="rotate(10 254 261)"/>
+              <ellipse cx="200" cy="192" rx="14" ry="34" fill="#FFD9A0" opacity=".16" transform="rotate(-16 200 192)"/>
+            </g>
+            <g transform="translate(200,0)">
+              <rect x="184" y="100" width="22" height="62" rx="11" fill="#AFA495" transform="rotate(-22 195 131)"/>
+              <ellipse cx="190" cy="106" rx="17" ry="12" fill="#D9CFC0" transform="rotate(-22 190 106)"/>
+              <rect class="gl-n" x="172" y="146" width="54" height="132" rx="27" transform="rotate(-16 199 212)"/>
+              <rect class="gl-n" x="192" y="234" width="124" height="54" rx="27" transform="rotate(10 254 261)"/>
+              <ellipse cx="200" cy="192" rx="14" ry="34" fill="#FFD9A0" opacity=".16" transform="rotate(-16 200 192)"/>
+            </g>
+            <circle cx="330" cy="96" r="5" fill="#F6F0E6" opacity=".7"/>
+            <circle cx="452" cy="88" r="4" fill="#F6F0E6" opacity=".6"/>
+          </svg>
+        </span>
+        <div class="bd">
+          <p class="kn">K-06 &nbsp;TEBASAKI</p>
+          <h3>手羽先</h3>
+          <p>皮の香ばしさと、骨まわりの旨み。中火で時間をかけ、仕上げだけ強火にあてて皮を焼きます。</p>
+          <p class="pr"><span class="y">¥300</span><span class="hv">中火から強火 ／ 塩</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02-d 皮と脂のところ ============ -->
+<section class="sec" id="kawa" aria-labelledby="kawaH">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <p class="no"><i></i>02-d ／ SKIN &amp; FAT</p>
+      <h2 id="kawaH">皮と、脂のところ。</h2>
+      <p class="sub">脂を落としながら焼きます。落ちた脂が炭にあたって、香りが立ちます。</p>
+      <div class="rule"></div>
+    </div>
+
+    <div class="mcards">
+      <article class="mcard rv" id="k02">
+        <span class="im"><img src="images/yakitori/yakitori_menu_kawa.webp" alt="皮の串を器に盛り、くし切りのレモンを添えた様子" loading="lazy" decoding="async"></span>
+        <div class="bd">
+          <p class="kn">K-02 &nbsp;KAWA</p>
+          <h3>皮</h3>
+          <p>パリッと香ばしく、じっくり焼く。強火にあてながら、脂を落として時間をかけます。</p>
+          <p class="pr"><span class="y">¥220</span><span class="hv">強火 ／ タレ</span></p>
+        </div>
+      </article>
+
+      <article class="mcard rv rv-d1" id="k08">
+        <span class="im">
+          <svg class="skw" viewBox="0 0 640 480" role="img" aria-label="ぼんじりの串を横から見た塗りの図。竹串に、しっぽの先がとがったふくらんだねたが三つ刺さっている。">
+            <rect x="0" y="0" width="640" height="480" fill="none"/>
+            <ellipse cx="320" cy="352" rx="290" ry="86" fill="url(#gEmber)" opacity=".38"/>
+            <rect x="0" y="372" width="640" height="108" fill="#0D0907"/>
+            <ellipse fill="url(#gOki)" cx="210" cy="404" rx="84" ry="17" opacity=".9"/>
+            <ellipse fill="url(#gOki)" cx="440" cy="408" rx="80" ry="16" opacity=".9"/>
+            <ellipse class="gl-c" cx="140" cy="398" rx="54" ry="14"/>
+            <ellipse class="gl-c" cx="286" cy="407" rx="48" ry="13"/>
+            <ellipse class="gl-c" cx="424" cy="397" rx="58" ry="15"/>
+            <ellipse class="gl-c" cx="556" cy="406" rx="44" ry="12"/>
+            <rect class="gl-w" x="44" y="228" width="556" height="15" rx="7.5"/>
+            <rect class="gl-k" x="44" y="228" width="122" height="15" rx="7.5" opacity=".5"/>
+            <path class="gl-n" d="M188,206 L250,164 L212,232 Z"/>
+            <ellipse class="gl-n" cx="170" cy="240" rx="50" ry="52"/>
+            <ellipse cx="156" cy="212" rx="24" ry="13" fill="#FFD9A0" opacity=".22"/>
+            <path class="gl-n" d="M338,206 L400,164 L362,232 Z"/>
+            <ellipse class="gl-n" cx="320" cy="240" rx="50" ry="52"/>
+            <ellipse cx="306" cy="212" rx="24" ry="13" fill="#FFD9A0" opacity=".22"/>
+            <path class="gl-n" d="M488,206 L550,164 L512,232 Z"/>
+            <ellipse class="gl-n" cx="470" cy="240" rx="50" ry="52"/>
+            <ellipse cx="456" cy="212" rx="24" ry="13" fill="#FFD9A0" opacity=".22"/>
+            <circle cx="256" cy="140" r="5" fill="#F6F0E6" opacity=".7"/>
+            <circle cx="406" cy="132" r="4" fill="#F6F0E6" opacity=".6"/>
+            <circle cx="540" cy="146" r="5" fill="#F6F0E6" opacity=".6"/>
+          </svg>
+        </span>
+        <div class="bd">
+          <p class="kn">K-08 &nbsp;BONJIRI</p>
+          <h3>ぼんじり</h3>
+          <p>脂の甘さ。中火で脂を落としながら、まわりだけ香ばしくなるまで転がします。</p>
+          <p class="pr"><span class="y">¥250</span><span class="hv">中火 ／ 塩</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02-e 中のところ ============ -->
+<section class="sec sec--deep" id="naka" aria-labelledby="nakaH">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <p class="no"><i></i>02-e ／ INSIDE</p>
+      <h2 id="nakaH">中のところ。</h2>
+      <p class="sub">火の入れ方がいちばん分かれるところです。</p>
+      <div class="rule"></div>
+    </div>
+
+    <div class="mcards">
+      <article class="mcard rv" id="k04">
+        <span class="im"><img src="images/yakitori/yakitori_menu_lever.webp" alt="レバーの串を器に盛り、薬味を添えた様子" loading="lazy" decoding="async"></span>
+        <div class="bd">
+          <p class="kn">K-04 &nbsp;LEVER</p>
+          <h3>レバー</h3>
+          <p>臭みを抑え、しっとりと焼き上げる。遠火で時間をかけて、中心まで火を通します。</p>
+          <p class="pr"><span class="y">¥240</span><span class="hv">遠火 ／ タレ</span></p>
+        </div>
+      </article>
+
+      <article class="mcard rv rv-d1" id="k07">
+        <span class="im">
+          <svg class="skw" viewBox="0 0 640 480" role="img" aria-label="砂ずりの串を横から見た塗りの図。竹串に、切り口が平らな厚みのあるねたが三つ刺さり、粗塩がふられている。">
+            <rect x="0" y="0" width="640" height="480" fill="none"/>
+            <ellipse cx="320" cy="352" rx="290" ry="86" fill="url(#gEmber)" opacity=".38"/>
+            <rect x="0" y="372" width="640" height="108" fill="#0D0907"/>
+            <ellipse fill="url(#gOki)" cx="210" cy="404" rx="84" ry="17" opacity=".9"/>
+            <ellipse fill="url(#gOki)" cx="440" cy="408" rx="80" ry="16" opacity=".9"/>
+            <ellipse class="gl-c" cx="140" cy="398" rx="54" ry="14"/>
+            <ellipse class="gl-c" cx="286" cy="407" rx="48" ry="13"/>
+            <ellipse class="gl-c" cx="424" cy="397" rx="58" ry="15"/>
+            <ellipse class="gl-c" cx="556" cy="406" rx="44" ry="12"/>
+            <rect class="gl-w" x="44" y="228" width="556" height="15" rx="7.5"/>
+            <rect class="gl-k" x="44" y="228" width="122" height="15" rx="7.5" opacity=".5"/>
+            <path class="gl-n" d="M122,214 L238,214 A 58 53 0 0 1 122,214 Z"/>
+            <rect x="122" y="208" width="116" height="11" rx="5.5" fill="#D9CFC0" opacity=".32"/>
+            <path class="gl-n" d="M266,214 L374,214 A 54 49 0 0 1 266,214 Z"/>
+            <rect x="266" y="208" width="108" height="11" rx="5.5" fill="#D9CFC0" opacity=".32"/>
+            <path class="gl-n" d="M400,214 L512,214 A 56 51 0 0 1 400,214 Z"/>
+            <rect x="400" y="208" width="112" height="11" rx="5.5" fill="#D9CFC0" opacity=".32"/>
+            <circle cx="216" cy="150" r="6" fill="#F6F0E6" opacity=".78"/>
+            <circle cx="300" cy="136" r="5" fill="#F6F0E6" opacity=".68"/>
+            <circle cx="376" cy="152" r="6" fill="#F6F0E6" opacity=".72"/>
+            <circle cx="466" cy="138" r="5" fill="#F6F0E6" opacity=".62"/>
+            <circle cx="524" cy="156" r="4" fill="#F6F0E6" opacity=".6"/>
+          </svg>
+        </span>
+        <div class="bd">
+          <p class="kn">K-07 &nbsp;SUNAZURI</p>
+          <h3>砂ずり</h3>
+          <p>歯ごたえのある一本。強火で短く。塩をふって、コリコリとした食感をそのまま。</p>
+          <p class="pr"><span class="y">¥230</span><span class="hv">強火 ／ 塩</span></p>
         </div>
       </article>
     </div>
 
-    <p class="note rv" style="margin-top:22px">※ 鶏は福岡県産と宮崎県産を、その日の入荷で使い分けています。<br>※ アレルギーやお召し上がりになれないものがあれば、ご注文のときにお気軽にお尋ねください。</p>
+    <p class="note--box rv rv-d2" style="margin-top:var(--blk)">レバーは遠火で時間をかけて、中心まで火を通してからお出しします。焼き上がりにお時間をいただくことがあります。</p>
+  </div>
+</section>
 
-    <div class="morelist rv" style="margin-top:var(--blk)">
-      <a class="morelink" href="yakitori-advance-service.html" data-ko="04" data-nm="お品書き">
-        <b><em>工程 04 ／ 二 焼</em>お品書きをぜんぶ見る</b>
-        <span class="go">MENU &nbsp;&#8594;</span>
+<!-- ============ 02-f 練りものと野菜 ============ -->
+<section class="sec" id="neri" aria-labelledby="neriH">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <p class="no"><i></i>02-f ／ TSUKUNE &amp; VEGETABLE</p>
+      <h2 id="neriH">練りものと、野菜。</h2>
+      <p class="sub">刻むところから作る一本と、その日の野菜。</p>
+      <div class="rule"></div>
+    </div>
+
+    <div class="mcards">
+      <article class="mcard rv" id="k03">
+        <span class="im"><img src="images/yakitori/yakitori_menu_tsukune.webp" alt="つくねの串を器に盛り、卵黄を添えた様子" loading="lazy" decoding="async"></span>
+        <div class="bd">
+          <p class="kn">K-03 &nbsp;TSUKUNE</p>
+          <h3>つくね</h3>
+          <p>刻んで、練って、やわらかい一本。中火で転がしながら、返す回数で中まで火を入れます。卵黄を別皿で添えます。</p>
+          <p class="pr"><span class="y">¥280</span><span class="hv">中火 ／ タレ</span></p>
+        </div>
+      </article>
+
+      <article class="mcard rv rv-d1" id="k09">
+        <span class="im"><img src="images/yakitori/yakitori_menu_seasonal.webp" alt="焼き上げた椎茸とねぎの串を器に盛った様子" loading="lazy" decoding="async"></span>
+        <div class="bd">
+          <p class="kn">K-09 &nbsp;YASAI</p>
+          <h3>野菜の串</h3>
+          <p>その日の野菜を、一本ずつ。椎茸・ねぎ・ししとうから、入荷のあったものをお出しします。</p>
+          <p class="pr"><span class="y">¥180</span><span class="hv">中火 ／ 塩</span></p>
+        </div>
+      </article>
+    </div>
+
+    <div class="morelist rv rv-d2" style="margin-top:var(--blk)">
+      <a class="morelink" href="yakitori-advance-work-detail.html" data-ko="03" data-nm="つくねの一本">
+        <b><em>工程 03 ／ 一 仕込</em>K-03 つくねの一本を、刻むところから焼き上がりまで</b>
+        <span class="go">K-03 IN DETAIL &nbsp;&#8594;</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ============ 00-e コースと飲みもの ============ -->
-<section class="sec sec--alt" id="course" aria-labelledby="courseH">
+<!-- ============ 02-g 一覧表 ============ -->
+<section class="sec sec--alt" id="list" aria-labelledby="listH">
   <div class="wrap">
     <div class="sec-h rv">
-      <p class="no"><i></i>00-e ／ COURSE &amp; DRINK</p>
-      <h2 id="courseH">献立を組む。</h2>
-      <p class="sub">コースは3種類。ご予約制で、前日までにお申し込みください。</p>
+      <p class="no"><i></i>02-g ／ LIST</p>
+      <h2 id="listH">九本を、一枚に。</h2>
+      <p class="sub">価格はすべて税込です。おすすめのタレ・塩と、火力の目安を添えました。</p>
       <div class="rule"></div>
     </div>
 
     <div class="grid2 wide">
-      <div class="stack">
-        <div class="tblwrap rv">
-          <table class="tbl">
-            <caption>COURSE &#8212; コース 3種（税込）</caption>
-            <thead><tr><th scope="col">コース</th><th scope="col">品数</th><th scope="col">価格</th><th scope="col">所要時間の目安</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">C-01 五本</th><td data-l="品数">全7品（串5本）</td><td class="y" data-l="価格">¥3,300</td><td data-l="所要時間の目安">約90分</td></tr>
-              <tr><th scope="row">C-02 八本</th><td data-l="品数">全10品（串8本）</td><td class="y" data-l="価格">¥4,800</td><td data-l="所要時間の目安">約120分</td></tr>
-              <tr><th scope="row">C-03 おまかせ</th><td data-l="品数">全12品（串おまかせ）</td><td class="y" data-l="価格">¥6,500</td><td data-l="所要時間の目安">約150分</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="tblwrap rv rv-d1">
-          <table class="tbl">
-            <caption>FREE DRINK &#8212; 飲み放題の条件</caption>
-            <thead><tr><th scope="col">項目</th><th scope="col">内容</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">時間</th><td>単品でのご注文は90分／コースに付ける場合は最長120分</td></tr>
-              <tr><th scope="row">料金</th><td>単品 ¥1,800 ／ コースに付ける場合 +¥1,500（いずれも税込）</td></tr>
-              <tr><th scope="row">ラストオーダー</th><td>90分のときは開始から80分／120分のときは終了30分前</td></tr>
-              <tr><th scope="row">対象</th><td>生ビール（中）／ハイボール／焼酎（麦・芋・米・蕎麦）／日本酒は「小灯（純米）」の1種／梅酒／サワー各種／ソフトドリンク全種</td></tr>
-              <tr><th scope="row">対象外</th><td>日本酒の「今月の一本」、季節の生酒、ボトルのご注文。別料金でご案内します</td></tr>
-              <tr><th scope="row">延長</th><td>30分ごと +¥700（税込）。<span class="num">22:30</span> を超える延長はできません</td></tr>
-              <tr><th scope="row">ご注文の単位</th><td>同じお席の20歳以上の方全員でのご注文をお願いしています</td></tr>
-              <tr><th scope="row">20歳未満の方</th><td>ソフトドリンクのみの飲み放題 ¥800（90分）。お酒は提供しません</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="note--law rv rv-d2"><b>お酒について</b>20歳未満の方の飲酒は法律で禁止されています。20歳未満の方への酒類の提供はいたしません。お車でお越しの方へのお酒の提供もいたしません。</p>
+      <div class="tblwrap rv">
+        <table class="tbl">
+          <caption>SKEWERS &#8212; K-01 &#8211; K-09（税込・一本の価格）</caption>
+          <thead><tr><th scope="col">串</th><th scope="col">タレ ／ 塩</th><th scope="col">火力の目安</th><th scope="col">価格</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">K-01 もも</th><td data-l="タレ ／ 塩">タレ（塩も可）</td><td data-l="火力の目安">強火</td><td class="y" data-l="価格">¥260</td></tr>
+            <tr><th scope="row">K-02 皮</th><td data-l="タレ ／ 塩">タレ（塩も可）</td><td data-l="火力の目安">強火</td><td class="y" data-l="価格">¥220</td></tr>
+            <tr><th scope="row">K-03 つくね</th><td data-l="タレ ／ 塩">タレ（卵黄を添えます）</td><td data-l="火力の目安">中火</td><td class="y" data-l="価格">¥280</td></tr>
+            <tr><th scope="row">K-04 レバー</th><td data-l="タレ ／ 塩">タレ</td><td data-l="火力の目安">遠火</td><td class="y" data-l="価格">¥240</td></tr>
+            <tr><th scope="row">K-05 ねぎま</th><td data-l="タレ ／ 塩">塩（タレも可）</td><td data-l="火力の目安">中火</td><td class="y" data-l="価格">¥250</td></tr>
+            <tr><th scope="row">K-06 手羽先</th><td data-l="タレ ／ 塩">塩</td><td data-l="火力の目安">中火から強火</td><td class="y" data-l="価格">¥300</td></tr>
+            <tr><th scope="row">K-07 砂ずり</th><td data-l="タレ ／ 塩">塩</td><td data-l="火力の目安">強火</td><td class="y" data-l="価格">¥230</td></tr>
+            <tr><th scope="row">K-08 ぼんじり</th><td data-l="タレ ／ 塩">塩</td><td data-l="火力の目安">中火</td><td class="y" data-l="価格">¥250</td></tr>
+            <tr><th scope="row">K-09 野菜の串</th><td data-l="タレ ／ 塩">塩</td><td data-l="火力の目安">中火</td><td class="y" data-l="価格">¥180</td></tr>
+          </tbody>
+        </table>
       </div>
 
-      <div class="stack">
-        <figure class="figfr r43 rv">
-          <img src="images/yakitori/yakitori_voice1.webp" alt="提灯の灯るカウンター席で、ビールのグラスを手にしている男性のお客" loading="lazy" decoding="async">
-          <figcaption><span class="pl">PHOTO 03</span><span>カウンター ／ 一杯目</span></figcaption>
-        </figure>
-        <div class="rv rv-d1">
-          <h3 class="lh">飲みものは、<br>銘柄まで書きました。</h3>
-          <p class="lead-p" style="margin-top:14px">日本酒4種、焼酎4種、ビールとサワー、ソフトドリンク。産地と価格まで工程05のページに出しています。飲み放題の対象かどうかも、そこに書いてあります。</p>
-          <p class="note">※ 日本酒・焼酎の銘柄名は、このサンプルサイトのために作った架空の名前です。</p>
-        </div>
-        <a class="morelink rv rv-d2" href="yakitori-advance-course.html" data-ko="05" data-nm="コースと飲みもの">
-          <b><em>工程 05 ／ 二 焼</em>コースと飲みものを見る</b>
-          <span class="go">DRINK &nbsp;&#8594;</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 00-f 席のこと ============ -->
-<section class="sec" id="seat" aria-labelledby="seatH">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <p class="no"><i></i>00-f ／ SEATS</p>
-      <h2 id="seatH">全24席。焼き場の前と、奥の畳。</h2>
-      <p class="sub">カウンター10席 ／ テーブル8席（4名卓×2） ／ お座敷6席</p>
-      <div class="rule"></div>
-    </div>
-
-    <div class="grid2 wide">
-      <div class="skwbox rv">
-        <svg class="plan" viewBox="0 0 960 470" role="img" aria-label="店内の席の配置を上から見た図。左上に焼き場、その手前に一枚板のカウンター10席。右側に4名掛けのテーブルが2卓。左下に暖簾で仕切ったお座敷6席。右下が入口。">
-          <rect x="0" y="0" width="960" height="470" fill="#0C0908"/>
-          <!-- 焼き場 -->
-          <rect class="gl-p" x="52" y="42" width="528" height="52" rx="6"/>
-          <rect x="66" y="56" width="500" height="24" rx="12" fill="url(#gOki)" opacity=".8"/>
-          <text x="52" y="30">焼き場</text>
-          <!-- カウンター -->
-          <rect class="gl-w" x="44" y="116" width="544" height="40" rx="6"/>
-          <circle class="gl-k" cx="76" cy="196" r="18"/>
-          <circle class="gl-k" cx="132" cy="196" r="18"/>
-          <circle class="gl-k" cx="188" cy="196" r="18"/>
-          <circle class="gl-k" cx="244" cy="196" r="18"/>
-          <circle class="gl-k" cx="300" cy="196" r="18"/>
-          <circle class="gl-k" cx="356" cy="196" r="18"/>
-          <circle class="gl-k" cx="412" cy="196" r="18"/>
-          <circle class="gl-k" cx="468" cy="196" r="18"/>
-          <circle class="gl-k" cx="524" cy="196" r="18"/>
-          <circle class="gl-k" cx="580" cy="196" r="18"/>
-          <text x="44" y="248">カウンター</text>
-          <text class="pn" x="204" y="249">10</text>
-          <!-- テーブル -->
-          <rect class="gl-p" x="706" y="66" width="196" height="84" rx="5"/>
-          <circle class="gl-k" cx="742" cy="44" r="16"/><circle class="gl-k" cx="866" cy="44" r="16"/>
-          <circle class="gl-k" cx="742" cy="172" r="16"/><circle class="gl-k" cx="866" cy="172" r="16"/>
-          <rect class="gl-p" x="706" y="248" width="196" height="84" rx="5"/>
-          <circle class="gl-k" cx="742" cy="226" r="16"/><circle class="gl-k" cx="866" cy="226" r="16"/>
-          <circle class="gl-k" cx="742" cy="354" r="16"/><circle class="gl-k" cx="866" cy="354" r="16"/>
-          <text x="706" y="400">テーブル</text>
-          <text class="pn" x="846" y="401">8</text>
-          <!-- お座敷 -->
-          <text x="44" y="300">お座敷</text>
-          <text class="pn" x="164" y="301">6</text>
-          <rect x="44" y="316" width="440" height="130" rx="4" fill="url(#gTatami)"/>
-          <rect class="gl-w" x="150" y="344" width="230" height="72" rx="4"/>
-          <rect class="gl-k" x="152" y="322" width="54" height="18" rx="6"/>
-          <rect class="gl-k" x="238" y="322" width="54" height="18" rx="6"/>
-          <rect class="gl-k" x="324" y="322" width="54" height="18" rx="6"/>
-          <rect class="gl-k" x="152" y="420" width="54" height="18" rx="6"/>
-          <rect class="gl-k" x="238" y="420" width="54" height="18" rx="6"/>
-          <rect class="gl-k" x="324" y="420" width="54" height="18" rx="6"/>
-          <!-- 暖簾（仕切り） -->
-          <rect class="gl-n" x="500" y="316" width="13" height="34" rx="4"/>
-          <rect class="gl-n" x="500" y="356" width="13" height="34" rx="4"/>
-          <rect class="gl-n" x="500" y="396" width="13" height="34" rx="4"/>
-          <!-- 入口 -->
-          <text x="600" y="404">入口</text>
-          <rect class="gl-n" x="600" y="418" width="96" height="14" rx="5"/>
-        </svg>
-        <p class="planleg">
-          <span><i style="background:#8C8073"></i>お席</span>
-          <span><i style="background:#4A4038"></i>焼き場・卓</span>
-          <span><i style="background:#D9B683"></i>一枚板・座卓</span>
-          <span><i style="background:#A85718"></i>暖簾</span>
-        </p>
-        <p class="note">※ 上の図は席の配置をお伝えするためのイメージです。実際の間取りを示すものではありません。</p>
-      </div>
-
-      <div class="stack">
-        <div class="rv">
-          <h3 class="lh">おひとりならカウンター、<br>ゆっくりならお座敷。</h3>
-          <p class="lead-p" style="margin-top:14px">カウンターは焼き場の目の前です。炭火の音と香りを感じながら、焼き上がりをそのままお出しします。おひとりでも、ふらりと。</p>
-          <p class="lead-p">奥のお座敷は暖簾で仕切る半個室です。完全な個室ではありませんが、腰を落ち着けたいときに。お子さま連れのご案内は、こちらのお席のみとなります。</p>
-        </div>
-        <div class="figduo">
-          <figure class="figfr r11 rv rv-d1">
-            <img src="images/yakitori/yakitori_facility1.webp" alt="提灯の下に続く一枚板のカウンター席" loading="lazy" decoding="async">
-            <figcaption><span class="pl">PHOTO 04</span><span>カウンター</span></figcaption>
-          </figure>
-          <figure class="figfr r11 rv rv-d2">
-            <img src="images/yakitori/yakitori_facility2.webp" alt="畳のお座敷。低い座卓と座布団が置かれている" loading="lazy" decoding="async">
-            <figcaption><span class="pl">PHOTO 05</span><span>お座敷</span></figcaption>
-          </figure>
-        </div>
-        <a class="morelink rv rv-d3" href="yakitori-advance-flow.html" data-ko="06" data-nm="店での過ごし方">
-          <b><em>工程 06 ／ 三 供</em>店での過ごし方を見る</b>
-          <span class="go">SEAT &amp; ORDER &nbsp;&#8594;</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 00-g 貸切・宴会 ============ -->
-<section class="sec sec--deep" id="private" aria-labelledby="privH">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <p class="no"><i></i>00-g ／ PRIVATE</p>
-      <h2 id="privH">店ごと、貸し切れます。</h2>
-      <p class="sub">14名様から24名様まで。貸切料はいただいていません。</p>
-      <div class="rule"></div>
-    </div>
-
-    <div class="grid2">
-      <div class="stack">
-        <div class="tblwrap rv">
-          <table class="tbl">
-            <caption>PRIVATE &#8212; 貸切の条件（税込）</caption>
-            <thead><tr><th scope="col">時間帯</th><th scope="col">時間</th><th scope="col">お一人あたりの目安</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">前半</th><td data-l="時間"><span class="num">17:00</span>〜<span class="num">19:30</span></td><td class="y" data-l="お一人あたりの目安">¥4,800</td></tr>
-              <tr><th scope="row">後半</th><td data-l="時間"><span class="num">20:00</span>〜<span class="num">23:00</span></td><td class="y" data-l="お一人あたりの目安">¥5,500</td></tr>
-              <tr><th scope="row">通し</th><td data-l="時間"><span class="num">17:00</span>〜<span class="num">23:00</span></td><td class="y" data-l="お一人あたりの目安">¥6,500</td></tr>
-              <tr><th scope="row">お座敷のみ</th><td data-l="時間">時間帯は問いません（6〜10名様）</td><td class="y" data-l="お一人あたりの目安">¥4,800</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <ul class="nlist rv rv-d1">
-          <li><span class="id">P-01</span><div><h4>「お一人あたり × ご人数」で見ます</h4><p>貸切料そのものはいただきません。ご利用金額の合計が目安に届かなかった場合だけ、差額をご精算いただきます。C-02 八本（¥4,800）に飲み放題（+¥1,500）を付けると、後半の目安に届きます。</p></div></li>
-          <li><span class="id">P-02</span><div><h4>お申し込みは2週間前まで</h4><p>仮のお押さえは1週間お預かりします。人数の変更は3日前まで。キャンセルは3日前まで無料、前々日50%、前日・当日100%です。</p></div></li>
-          <li><span class="id">P-03</span><div><h4>持ち込みと飾りつけ</h4><p>お飲みものの持ち込みはできません。ケーキはホールのみ、事前にご相談いただければお預かりします（持ち込み料 ¥550・1台）。紙の飾りつけは大丈夫ですが、火を使うものはお断りしています。炭を扱う店のためです。</p></div></li>
-        </ul>
-      </div>
-
-      <div class="stack">
-        <figure class="figfr r43 rv">
-          <img src="images/yakitori/yakitori_voice3.webp" alt="畳のお座敷で、串の皿と徳利を囲んで座っているお客" loading="lazy" decoding="async">
-          <figcaption><span class="pl">PHOTO 06</span><span>お座敷 ／ 腰を落ち着けて</span></figcaption>
-        </figure>
-        <p class="note--law rv rv-d1"><b>お酒について</b>20歳未満の方の飲酒は法律で禁止されています。20歳未満の方への酒類の提供はいたしません。お車でお越しの方へのお酒の提供もいたしません。</p>
-        <a class="morelink rv rv-d2" href="yakitori-advance-private.html" data-ko="07" data-nm="貸切・宴会">
-          <b><em>工程 07 ／ 三 供</em>貸切・宴会のご案内を見る</b>
-          <span class="go">14 &#8211; 24 &nbsp;&#8594;</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 00-h 焼き場に立つ人 ============ -->
-<section class="sec" id="people" aria-labelledby="peoH">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <p class="no"><i></i>00-h ／ PEOPLE</p>
-      <h2 id="peoH">炭の前に立つ人。</h2>
-      <p class="sub">2016年10月から、この場所で焼いています。</p>
-      <div class="rule"></div>
-    </div>
-
-    <div class="grid2">
-      <figure class="figfr r43 rv">
-        <img src="images/yakitori/yakitori_staff1.webp" alt="焼き場の前に立つ店主。手ぬぐいを巻き、腕を組んでいる" loading="lazy" decoding="async">
-        <figcaption><span class="pl">PHOTO 07</span><span>店主 ／ 鳥居 誠</span></figcaption>
-      </figure>
       <div class="stack">
         <div class="rv rv-d1">
-          <p class="fuda">店主 ／ 鳥居 誠（とりい まこと）</p>
-          <h3 class="lh" style="margin-top:14px">見ているのは、<br>炭の火加減だけ。</h3>
-          <p class="lead-p" style="margin-top:14px">備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。炭が落ち着くのを待ってから、はじめの一本を置きます。</p>
-          <p class="lead-p">串と向き合う時間を、いちばん大切にしています。</p>
+          <h3 class="lh">打つのも、焼くのも、<br>店でやっています。</h3>
+          <p class="lead-p" style="margin-top:14px">仕込みでは串一本ごとに肉の厚みや脂の乗り方を見極め、火からの距離と時間を細かく調整します。同じ串でも、その日の素材の状態によって焼き加減は変わります。</p>
+          <p class="lead-p">上の火力は目安です。備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。</p>
         </div>
-        <dl class="dl rv rv-d2">
-          <dt>OPEN</dt><dd>2016年<span class="num">10</span>月<small>この場所で焼きはじめました</small></dd>
-          <dt>WORK</dt><dd>仕込み <span class="num">14:00</span> ／ 火入れ <span class="num">16:30</span> ／ 開店 <span class="num">17:00</span><small>ラストオーダー 22:30、閉店 23:00</small></dd>
-        </dl>
-        <a class="morelink rv rv-d3" href="yakitori-advance-company.html" data-ko="01" data-nm="店主・店の案内">
-          <b><em>工程 01 ／ 一 仕込</em>店主・店の案内を見る</b>
-          <span class="go">ABOUT &nbsp;&#8594;</span>
-        </a>
+        <figure class="figfr r43 rv rv-d2">
+          <img src="images/yakitori/yakitori_gallery3.webp" alt="まな板の上で、手作業で串を打っている仕込みの様子" loading="lazy" decoding="async">
+          <figcaption><span class="pl">PHOTO 01</span><span>仕込み ／ 一本ずつ打つ</span></figcaption>
+        </figure>
+        <figure class="figfr r43 rv rv-d3">
+          <img src="images/yakitori/yakitori_staff2.webp" alt="団扇を手に、炭の火加減を見ているスタッフ" loading="lazy" decoding="async">
+          <figcaption><span class="pl">PHOTO 02</span><span>焼き場 ／ 火加減を見る</span></figcaption>
+        </figure>
       </div>
     </div>
+
+    <p class="note rv" style="margin-top:22px">※ 上のイラストは、写真をご用意できていない串のかたちをお伝えするための図です。実際の盛り付けや大きさを示すものではありません。</p>
   </div>
 </section>
 
-<!-- ============ 00-i 店のこと ============ -->
-<section class="sec sec--alt" id="info" aria-labelledby="infoH">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <p class="no"><i></i>00-i ／ INFORMATION</p>
-      <h2 id="infoH">お店について。</h2>
-      <p class="sub">ご予約・お問い合わせは、フォーム・LINE・メールから。</p>
-      <div class="rule"></div>
-    </div>
-
-    <div class="grid2">
-      <dl class="dl rv">
-        <dt>店名</dt><dd>炭火焼鳥 とりや</dd>
-        <dt>住所</dt><dd>福岡県福岡市〇〇区〇〇9-3-7</dd>
-        <dt>営業時間</dt><dd><span class="num">17:00</span> 〜 <span class="num">23:00</span><small>ラストオーダー 22:30（お食事・お飲みものとも）／ 定休日:日曜日</small></dd>
-        <dt>席</dt><dd>全<span class="num">24</span>席<small>カウンター10席 ／ テーブル8席（4名卓×2） ／ お座敷6席（暖簾で仕切る半個室）</small></dd>
-        <dt>お支払い</dt><dd>現金 ／ クレジットカード ／ 交通系IC ／ QRコード決済<small>VISA・Mastercard・JCB・American Express に対応しています。お通しは ¥400（税込）、サービス料はいただきません</small></dd>
-        <dt>喫煙</dt><dd>全席禁煙<small>加熱式たばこも店内ではご遠慮いただいています。店の外に灰皿があります（21:00まで）</small></dd>
-        <dt>お子さま連れ</dt><dd>お座敷のみご案内しています<small>カウンターは背の高い椅子のため、お子さま連れではご案内していません。取り皿・スプーン・フォークはご用意しています</small></dd>
-      </dl>
-
-      <div class="stack">
-        <div class="cta rv rv-d1">
-          <a class="btn btn--hi" href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約">
-            <span>ご予約フォームへ<small>工程 09 ／ アクセス・ご予約</small></span>
-            <svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg>
-          </a>
-          <a class="btn" href="https://lin.ee/z3rP0hO">
-            <span>LINEで問い合わせる<small>当日のご予約もこちらから</small></span>
-            <svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg>
-          </a>
-          <a class="btn" href="mailto:info@example.com">
-            <span>メールで問い合わせる<small>info@example.com</small></span>
-            <svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg>
-          </a>
-          <p class="cta-note">営業時間内は焼き場に立っているため、返信が遅くなることがあります。<span class="num">14:00</span>〜<span class="num">17:00</span> のあいだにまとめてお返しします。日曜日は定休日のため、ご予約を承っておりません。</p>
-        </div>
-        <p class="note--box rv rv-d2">ご予約なしでもお席が空いていればご案内します。赤提灯が目印です。ご希望のお席がある場合は、ご予約のときにお知らせください。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 00-j 次の工程へ ============ -->
+<!-- ============ 02-h 次の工程へ ============ -->
 <section class="sec" id="next" aria-labelledby="nextH">
   <div class="wrap">
     <div class="sec-h rv">
-      <p class="no"><i></i>00-j ／ NEXT</p>
-      <h2 id="nextH">続きは、この順で。</h2>
-      <p class="sub">工程 01 から 09 まで。どこから読んでも構いません。</p>
+      <p class="no"><i></i>02-h ／ NEXT</p>
+      <h2 id="nextH">次は、一本を深く。</h2>
+      <p class="sub">それとも、お品書きをぜんぶ見るか。</p>
       <div class="rule"></div>
     </div>
-    <div class="kcards rv">
-      <a class="kcard" href="yakitori-advance-company.html" data-ko="01" data-nm="店主・店の案内"><span class="kn">01</span><b>店主・店の案内</b><p>仕入れと、焼き場に立つ人のこと。</p><span class="gp">一 ／ 仕込</span></a>
-      <a class="kcard" href="yakitori-advance-works.html" data-ko="02" data-nm="串の一覧"><span class="kn">02</span><b>串の一覧</b><p>K-01 から K-09 まで、部位ごとに。</p><span class="gp">一 ／ 仕込</span></a>
-      <a class="kcard" href="yakitori-advance-work-detail.html" data-ko="03" data-nm="つくねの一本"><span class="kn">03</span><b>つくねの一本</b><p>K-03 を、刻むところから焼き上がりまで。</p><span class="gp">一 ／ 仕込</span></a>
-      <a class="kcard" href="yakitori-advance-service.html" data-ko="04" data-nm="お品書き"><span class="kn">04</span><b>お品書き</b><p>串と一品。価格はすべて税込です。</p><span class="gp">二 ／ 焼</span></a>
-      <a class="kcard" href="yakitori-advance-course.html" data-ko="05" data-nm="コースと飲みもの"><span class="kn">05</span><b>コースと飲みもの</b><p>3コースと、飲み放題の条件。</p><span class="gp">二 ／ 焼</span></a>
-      <a class="kcard" href="yakitori-advance-flow.html" data-ko="06" data-nm="店での過ごし方"><span class="kn">06</span><b>店での過ごし方</b><p>席・注文・お会計のこと。</p><span class="gp">三 ／ 供</span></a>
-      <a class="kcard" href="yakitori-advance-private.html" data-ko="07" data-nm="貸切・宴会"><span class="kn">07</span><b>貸切・宴会</b><p>14〜24名。条件をぜんぶ書きました。</p><span class="gp">三 ／ 供</span></a>
-      <a class="kcard" href="yakitori-advance-faq.html" data-ko="08" data-nm="よくある質問"><span class="kn">08</span><b>よくある質問</b><p>先に聞かれることを、先に。</p><span class="gp">四 ／ 締</span></a>
-      <a class="kcard" href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約"><span class="kn">09</span><b>アクセス・ご予約</b><p>フォーム・LINE・メールから。</p><span class="gp">四 ／ 締</span></a>
+    <div class="morelist rv">
+      <a class="morelink" href="yakitori-advance-work-detail.html" data-ko="03" data-nm="つくねの一本">
+        <b><em>工程 03 ／ 一 仕込</em>つくねの一本（K-03）</b>
+        <span class="go">MINCE &#8594; GRILL &nbsp;&#8594;</span>
+      </a>
+      <a class="morelink ghost" href="yakitori-advance-service.html" data-ko="04" data-nm="お品書き">
+        <b><em>工程 04 ／ 二 焼</em>お品書きをぜんぶ見る（一品と〆、甘味まで）</b>
+        <span class="go">MENU &nbsp;&#8594;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1344,14 +1116,14 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
       <div>
         <h3>序 ／ 火入れ<span>PROLOGUE</span></h3>
         <ul>
-          <li><a href="yakitori-advance.html" aria-current="page"><span class="kn">00</span>トップ</a></li>
+          <li><a href="yakitori-advance.html" data-ko="00" data-nm="火入れ"><span class="kn">00</span>トップ</a></li>
         </ul>
       </div>
       <div>
         <h3>一 ／ 仕込<span>PREP</span></h3>
         <ul>
           <li><a href="yakitori-advance-company.html" data-ko="01" data-nm="店主・店の案内"><span class="kn">01</span>店主・店の案内</a></li>
-          <li><a href="yakitori-advance-works.html" data-ko="02" data-nm="串の一覧"><span class="kn">02</span>串の一覧</a></li>
+          <li><a href="yakitori-advance-works.html" data-ko="02" data-nm="串の一覧" aria-current="page"><span class="kn">02</span>串の一覧</a></li>
           <li><a href="yakitori-advance-work-detail.html" data-ko="03" data-nm="つくねの一本"><span class="kn">03</span>つくねの一本</a></li>
         </ul>
       </div>
@@ -1408,8 +1180,8 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
 "use strict";
 
 /* ====== このページの識別（差し替えるのはこの2行だけ） ====== */
-var CURRENT  = "00";
-var PAGENAME = "火入れ";
+var CURRENT  = "02";
+var PAGENAME = "串の一覧";
 /* ========================================================= */
 
 var root = document.documentElement;

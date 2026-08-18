@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>株式会社NextGrid｜IT・オフィス（v1.0 トップ）</title>
-<meta name="description" content="株式会社NextGridは福岡のITパートナーです。業務システムの新規開発、Webサイト・Webアプリの制作、既存システムの改善から、リリース後の運用・保守まで。相談・設計・実装・運用・次の版という循環で進めます。">
+<title>アクセス・お問い合わせ｜株式会社NextGrid（v4.2）</title>
+<meta name="description" content="株式会社NextGridの所在地（福岡県福岡市〇〇区〇〇8-6-2）と略図、営業時間9:30〜18:30、連絡手段（メール・LINE・フォーム）をまとめた、10版の最後の版です。フォームはサンプルのため実際には送信されません。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -559,6 +559,63 @@ a.cl-i:hover h4{color:var(--acc)}
 }
 @media(max-width:340px){.cur .nm{display:none}}
 </style>
+<style>
+/* ---------- v4.2 ページ固有：ヒーロー帯・お問い合わせフォーム ---------- */
+/* 社名が焼き込まれた写真なので、文字が切れない位置で寄せる */
+.band--last img{object-position:50% 42%}
+
+.ct2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:clamp(20px,3.2vw,48px);align-items:start}
+@media(max-width:900px){.ct2{grid-template-columns:minmax(0,1fr)}}
+
+.form{border:1px solid var(--line-2);border-radius:var(--r);background:var(--paper);padding:clamp(18px,2.6vw,30px)}
+.ferr{font-size:12.5px;color:#B3261E;line-height:1.9;background:var(--paper-3);
+  border:1px solid var(--line-2);border-left:3px solid #B3261E;padding:11px 14px;margin-bottom:18px}
+.ferr:empty{display:none}
+.ferr b{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;display:block}
+.frow{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.frow>label{font-size:11px;color:var(--ink-3);display:flex;align-items:center;gap:8px;letter-spacing:.06em}
+.freq{font-style:normal;font-family:var(--f-mono);font-size:9.5px;color:var(--acc);
+  border:1px solid var(--acc);border-radius:2px;padding:1px 5px;letter-spacing:.08em}
+.fopt2{font-style:normal;font-family:var(--f-mono);font-size:9.5px;color:var(--ink-3);
+  border:1px solid var(--line-2);border-radius:2px;padding:1px 5px;letter-spacing:.08em}
+.frow input,.frow textarea{font:inherit;font-size:13.5px;font-weight:500;color:var(--ink);
+  background:var(--paper-2);border:1px solid var(--line-2);border-radius:var(--r);padding:11px 13px;width:100%;
+  transition:border-color .2s,background .2s,box-shadow .2s}
+.frow textarea{min-height:132px;resize:vertical;line-height:1.9}
+.frow input:focus,.frow textarea:focus{background:var(--paper);border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-soft)}
+.frow input[aria-invalid="true"],.frow textarea[aria-invalid="true"]{border-color:#B3261E;background:var(--paper)}
+.fmsg{font-size:11.5px;color:#B3261E;line-height:1.8;font-weight:700}
+.fmsg:empty{display:none}
+.fhint{font-size:11px;color:var(--ink-3);line-height:1.85}
+
+.fset{border:1px solid var(--line-2);border-radius:var(--r);padding:12px 14px 14px;margin:0 0 16px}
+.fset legend{font-size:11px;color:var(--ink-3);display:flex;align-items:center;gap:8px;letter-spacing:.06em;padding-inline:6px}
+.fopts{display:grid;gap:8px;margin-top:10px}
+.fopt{display:flex;align-items:flex-start;gap:11px;border:1px solid var(--line);background:var(--paper-2);
+  padding:10px 13px;border-radius:var(--r);transition:border-color .2s,background .2s}
+.fopt input{flex:none;width:16px;height:16px;margin:5px 0 0;accent-color:var(--acc)}
+.fopt label{cursor:pointer;min-width:0}
+.fopt label b{display:block;font-size:13px;font-weight:700;line-height:1.6}
+.fopt label span{display:block;font-size:11.5px;color:var(--ink-3);line-height:1.8;margin-top:2px}
+.fopt.on{border-color:var(--acc);background:var(--tint)}
+.fopt.on label span{color:var(--ink-2)}
+.fset[data-invalid="1"]{border-color:#B3261E}
+
+.form-foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.form-foot p{font-size:11px;color:var(--ink-3);line-height:1.8;flex:1 1 200px}
+.form-done{border:1px solid var(--acc);border-radius:var(--r);background:var(--tint);padding:clamp(20px,2.8vw,32px)}
+.form-done .fd-code{font-family:var(--f-mono);font-size:10px;color:var(--acc);letter-spacing:.1em;margin-top:6px}
+.form-done h3{margin-top:10px;font-size:18px;font-weight:700;line-height:1.6}
+.form-done p{margin-top:10px;font-size:12.5px;color:var(--ink-2);line-height:2}
+.form-done dl{margin-top:16px;border-top:1px solid var(--line-2);padding-top:12px;display:grid;gap:6px}
+.form-done dl div{display:grid;grid-template-columns:minmax(0,7em) minmax(0,1fr);gap:6px 14px}
+.form-done dt{font-family:var(--f-mono);font-size:10px;color:var(--ink-3);letter-spacing:.08em;padding-top:.3em}
+.form-done dd{font-size:12.5px;line-height:1.8}
+.asideh{font-size:clamp(15px,1.7vw,17px);font-weight:700;line-height:1.6}
+.aside-acts{display:grid;gap:10px;margin-top:16px}
+.aside-acts .btn{justify-content:space-between}
+</style>
 </head>
 <body id="top">
 <a class="skip" href="#main">本文へスキップ</a>
@@ -568,8 +625,8 @@ a.cl-i:hover h4{color:var(--acc)}
   <div class="pt-lines" id="ptLines"></div>
   <div class="pt-card">
     <p class="pt-act mono">APPLYING DIFF</p>
-    <p class="pt-ver lat"><span id="ptFrom">v1.0</span><i aria-hidden="true">&#8594;</i><span class="to" id="ptTo">v1.1</span></p>
-    <p class="pt-name" id="ptName">サービス詳細</p>
+    <p class="pt-ver lat"><span id="ptFrom">v1.0</span><i aria-hidden="true">&#8594;</i><span class="to" id="ptTo">v4.2</span></p>
+    <p class="pt-name" id="ptName">アクセス・お問い合わせ</p>
     <p class="pt-br mono">NEXTGRID &#8212; 10 REVISIONS</p>
   </div>
 </div>
@@ -595,13 +652,13 @@ a.cl-i:hover h4{color:var(--acc)}
       </a>
 
       <nav class="gnav" aria-label="版グループナビゲーション">
-        <a href="tech-advance.html" data-ver="v1.0" data-name="トップ" aria-current="page">
+        <a href="tech-advance.html" data-ver="v1.0" data-name="トップ">
           <span class="gv">v1</span><span class="gt">総論</span></a>
         <a href="tech-advance-works.html" data-ver="v2.0" data-name="導入事例 一覧">
           <span class="gv">v2</span><span class="gt">記録</span></a>
         <a href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制">
           <span class="gv">v3</span><span class="gt">土台</span></a>
-        <a href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内">
+        <a href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内" aria-current="true">
           <span class="gv">v4</span><span class="gt">会社</span></a>
       </nav>
 
@@ -616,12 +673,11 @@ a.cl-i:hover h4{color:var(--acc)}
           <div class="chggrp">
             <p class="mono">v1 &#8212; GENERAL / 総論</p>
             <ol>
-              <li><span class="now"><span class="v">v1.0</span><span class="n">トップ</span></span></li>
+              <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ"><span class="v">v1.0</span><span class="n">トップ</span></a></li>
               <li><a href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細"><span class="v">v1.1</span><span class="n">サービス詳細</span></a></li>
               <li><a href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方"><span class="v">v1.2</span><span class="n">進め方</span></a></li>
             </ol>
           </div>
-
           <div class="chggrp">
             <p class="mono">v2 &#8212; RECORD / 記録</p>
             <ol>
@@ -629,7 +685,6 @@ a.cl-i:hover h4{color:var(--acc)}
               <li class="sub"><a href="tech-advance-work-detail.html" data-ver="v2.1" data-name="導入事例 詳細 CASE-02"><span class="v">v2.1</span><span class="n">導入事例 詳細（CASE-02）</span></a></li>
             </ol>
           </div>
-
           <div class="chggrp">
             <p class="mono">v3 &#8212; PLATFORM / 土台</p>
             <ol>
@@ -637,13 +692,12 @@ a.cl-i:hover h4{color:var(--acc)}
               <li><a href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問"><span class="v">v3.1</span><span class="n">よくある質問</span></a></li>
             </ol>
           </div>
-
           <div class="chggrp">
             <p class="mono">v4 &#8212; COMPANY / 会社</p>
             <ol>
               <li><a href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内"><span class="v">v4.0</span><span class="n">メンバー・会社案内</span></a></li>
               <li><a href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報"><span class="v">v4.1</span><span class="n">採用情報</span></a></li>
-              <li><a href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ"><span class="v">v4.2</span><span class="n">アクセス・お問い合わせ</span></a></li>
+              <li><span class="now"><span class="v">v4.2</span><span class="n">アクセス・お問い合わせ</span></span></li>
             </ol>
           </div>
         </div>
@@ -656,52 +710,60 @@ a.cl-i:hover h4{color:var(--acc)}
   <div class="hd-ver">
     <div class="wrap">
       <p class="cur mono">
-        <span class="no">v1.0</span>
-        <span class="gp">GENERAL &#8212; 総論</span>
-        <span class="nm">トップ</span>
+        <span class="no">v4.2</span>
+        <span class="gp">COMPANY &#8212; 会社</span>
+        <span class="nm">アクセス・お問い合わせ</span>
       </p>
       <p class="pn mono">
-        <span class="dis">&#9664; PREV</span>
-        <a href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細">NEXT &nbsp;v1.1 &#9654;</a>
+        <a href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報">&#9664; PREV &nbsp;v4.1</a>
+        <span class="dis">NEXT &#9654;</span>
       </p>
     </div>
   </div>
 </header>
 
-<main id="main">
+<nav class="crumb" aria-label="パンくず">
+  <div class="wrap">
+    <ol>
+      <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ">v1.0 トップ</a></li>
+      <li><span class="mono">v4 COMPANY / 会社</span></li>
+      <li><span aria-current="page">v4.2 アクセス・お問い合わせ</span></li>
+    </ol>
+  </div>
+</nav>
 
-<!-- ===== v1.0 マストヘッド ===== -->
-<section class="mast" aria-labelledby="h1">
+<main id="main">
+<!-- ===== v4.2 マストヘッド ===== -->
+<section class="mast sub" aria-labelledby="h1">
   <svg class="mast-bg" viewBox="0 0 1440 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
     <path class="mb-l" d="M700,70 H1440 M700,150 H1440 M700,230 H1440 M700,310 H1440 M700,390 H1440"/>
-    <path class="mb-l mb-a" d="M980,70 H1440 M1060,150 H1440 M900,230 H1440 M1140,310 H1440 M1020,390 H1440"/>
-    <circle class="mb-d" cx="980" cy="70" r="4"/><circle class="mb-d" cx="1060" cy="150" r="4"/>
-    <circle class="mb-d" cx="900" cy="230" r="4"/><circle class="mb-d" cx="1140" cy="310" r="4"/>
-    <circle class="mb-d" cx="1020" cy="390" r="4"/>
+    <path class="mb-l mb-a" d="M860,70 H1440 M1160,150 H1440 M940,230 H1440 M1080,310 H1440 M1240,390 H1440"/>
+    <circle class="mb-d" cx="860" cy="70" r="4"/><circle class="mb-d" cx="1160" cy="150" r="4"/>
+    <circle class="mb-d" cx="940" cy="230" r="4"/><circle class="mb-d" cx="1080" cy="310" r="4"/>
+    <circle class="mb-d" cx="1240" cy="390" r="4"/>
   </svg>
   <div class="wrap">
     <div class="mast-head">
       <div class="mast-main">
-        <p class="eyebrow mono"><i></i>REVISION v1.0 &#8212; GENERAL<i></i>IT・オフィス / FUKUOKA</p>
+        <p class="eyebrow mono"><i></i>REVISION v4.2 &#8212; COMPANY<i></i>ACCESS / CONTACT / FORM</p>
         <h1 id="h1">
-          <span class="h1-jp mono">株式会社</span>
-          <span class="h1-en">NextGrid</span>
+          <span class="h1-jp mono">アクセス・お問い合わせ</span>
+          <span class="h1-en">Contact</span>
         </h1>
-        <p class="mast-catch">つくって終わりにしない。<br>版を重ねて、育てる。</p>
-        <p class="mast-lead">業務システムの開発から運用まで、伴走するITパートナーです。このサイトは10の版でできています。相談・設計・実装・運用、そして次の版へ。ソフトウェアと同じ順番で並べました。いま見ているのは起点の v1.0 です。</p>
+        <p class="mast-catch">最後の版は、<br>連絡先です。</p>
+        <p class="mast-lead">10版のいちばん最後です。連絡の手段は、メール・LINE・このページのフォームの3つ。どれでも同じ窓口に届きます。まだ要件が固まっていなくても、大丈夫です。何から手をつけるか、の整理からご一緒します。</p>
         <div class="mast-acts">
-          <a class="btn btn--fill mono" href="#cycle">開発の循環を見る <i>&#8595;</i></a>
-          <a class="btn btn--line mono" href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細">サービスを見る <i>&#8594;</i></a>
+          <a class="btn btn--fill mono" href="#form">フォームで相談する <i>&#8595;</i></a>
+          <a class="btn btn--line mono" href="#access">所在地と略図を見る <i>&#8595;</i></a>
         </div>
         <p class="mast-meta mono">
-          <span>開発</span><span>改善</span><span>運用・保守</span><span>DX</span>
+          <span>連絡手段 3つ</span><span>受付 9:30〜18:30</span><span>オンライン打ち合わせ可</span>
         </p>
       </div>
-
       <div class="vlad" aria-hidden="true">
         <p class="vlad-h mono"><span>REVISIONS</span><span>10</span></p>
         <ol class="mono">
-          <li class="on"><span>v1.0</span><i style="--w:1"></i></li>
+          <li><span>v1.0</span><i style="--w:1"></i></li>
           <li><span>v1.1</span><i style="--w:.86"></i></li>
           <li><span>v1.2</span><i style="--w:.72"></i></li>
           <li class="hd2"><span>v2.0</span><i style="--w:.92"></i></li>
@@ -710,505 +772,402 @@ a.cl-i:hover h4{color:var(--acc)}
           <li><span>v3.1</span><i style="--w:.62"></i></li>
           <li class="hd2"><span>v4.0</span><i style="--w:.88"></i></li>
           <li><span>v4.1</span><i style="--w:.70"></i></li>
-          <li><span>v4.2</span><i style="--w:.58"></i></li>
+          <li class="on"><span>v4.2</span><i style="--w:.58"></i></li>
         </ol>
       </div>
     </div>
   </div>
 </section>
 
-<div class="band">
-  <img src="images/tech/tech_hero.png" alt="NextGridのオフィス。窓に面したデスクにモニターとノートパソコンが並んでいる" fetchpriority="high" decoding="async">
-  <p class="band-cap mono">NEXTGRID OFFICE &#8212; FUKUOKA</p>
+<div class="band band--last">
+  <img src="images/tech/tech_hero_last.webp" loading="lazy" decoding="async" alt="窓の大きいオフィスの写真に、社名「株式会社NextGrid」と「業務システムの開発から運用まで、伴走するITパートナー。」の文字が重ねてある">
+  <p class="band-cap mono">NEXTGRID &#8212; LAST REVISION v4.2</p>
 </div>
 
-<!-- ===== v1.0-01 ABOUT ===== -->
-<section class="sec" id="about">
+<!-- ===== v4.2-01 連絡のとり方 ===== -->
+<section class="sec" id="ways">
   <div class="wrap">
     <div class="shead rv">
-      <span class="idx mono">v1.0-01</span>
-      <h2>一度で完成させない、と決めています</h2>
-      <span class="en mono">ABOUT</span>
+      <span class="idx mono">v4.2-01</span>
+      <h2>連絡のとり方</h2>
+      <span class="en mono">CONTACT</span>
     </div>
     <div class="rule"></div>
-    <div class="sg2 wide rv">
-      <div>
-        <p class="body-t">少人数精鋭のチームだからこそ、意思決定はスピーディーに、要件のすり合わせはきめ細かく。無駄な工程を省き、本当に必要な機能に集中して開発を進めます。</p>
-        <p class="body-t">業務システムの新規開発からWebサイト・Webアプリの制作、既存システムの改善まで、企業の&quot;ちょうどいいIT&quot;を一緒に形にしていきます。</p>
-        <p class="body-t">そのうえで、最初にお伝えしていることがひとつあります。ソフトウェアは、つくった日がいちばん良い状態ではありません。使ってはじめて分かることがあり、業務のほうも変わっていきます。だから私たちは、はじめから版を重ねる前提で設計します。</p>
-      </div>
-      <div>
-        <div class="pull" style="margin-top:0">
-          <q>最初の版は、<b>いちばん小さく</b>つくる。</q>
-          <p>全部入りをつくってから直すより、要るものだけを先に動かして、使いながら足したほうが早く着きます。つくらないものを決めるのが、設計のいちばん大事な仕事です。</p>
-        </div>
-        <p class="note-s">この考え方は、既存のライト版・スタンダード版でお伝えしている「納品して終わりにしない」をそのまま引き継いだものです。</p>
-      </div>
+    <p class="lead rv">メール、LINE、このページのフォーム。3つとも同じ窓口に届きます。急ぎかどうか、書きたい量がどれくらいか、で選んでいただければ大丈夫です。受付は9:30〜18:30、土曜・日曜・祝日はお休みです。お休みの日にいただいたご連絡は、翌営業日以降のご返信になります。</p>
+
+    <div class="cta2 rv mt6">
+      <a href="mailto:info@example.com"><span><span class="lb">メールで問い合わせる</span><span class="sb mono">info@example.com</span></span><span class="ar" aria-hidden="true">&#8594;</span></a>
+      <a class="ghost" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener"><span><span class="lb">LINEで問い合わせる</span><span class="sb mono">LINE &#8212; 別のタブで開きます</span></span><span class="ar" aria-hidden="true">&#8594;</span></a>
     </div>
-  </div>
-</section>
-
-<!-- ===== v1.0-02 開発の循環 ===== -->
-<section class="sec sec--alt" id="cycle">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-02</span>
-      <h2>相談から、次の版まで</h2>
-      <span class="en mono">RELEASE CYCLE</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">相談・設計・実装・リリース・運用。ここまでで一周です。運用で見えてきたことは要望として溜まり、次の版の設計に戻ります。このサイトの10ページも、この順番のまま並べてあります。</p>
-
-    <p class="vh">開発の循環は5つの段階でできています。01 相談、02 設計、03 実装、04 リリース、05 運用の順に進み、05 運用で見えてきたことが 01 相談に戻って、次の版がはじまります。</p>
-
-    <div class="dwbox rv mt6">
-      <svg class="dw dw--wide" viewBox="0 0 1000 300" role="img" aria-label="相談・設計・実装・リリース・運用の5段階が左から右へ並び、運用から折り返す線が相談に戻って次の版がはじまることを示した図">
-        <path class="thin" d="M23,58 H978"/>
-        <text class="ta" x="23" y="46">v1.0</text>
-        <text class="ta" x="978" y="46" text-anchor="end">v1.1</text>
-
-        <rect class="fp" x="23"  y="76" width="167" height="96"/>
-        <rect class="fp" x="220" y="76" width="167" height="96"/>
-        <rect class="fp" x="417" y="76" width="167" height="96"/>
-        <rect class="fp" x="614" y="76" width="167" height="96"/>
-        <rect class="ft" x="811" y="76" width="167" height="96"/>
-
-        <text class="ta" x="37"  y="108">01</text><text class="tb" x="37"  y="140">SCOPE</text>
-        <text class="ta" x="234" y="108">02</text><text class="tb" x="234" y="140">DESIGN</text>
-        <text class="ta" x="431" y="108">03</text><text class="tb" x="431" y="140">BUILD</text>
-        <text class="ta" x="628" y="108">04</text><text class="tb" x="628" y="140">RELEASE</text>
-        <text class="ta" x="825" y="108">05</text><text class="tb" x="825" y="140">OPERATE</text>
-
-        <path class="l" d="M196,124 H213"/><path class="bold" d="M209,119 L217,124 L209,129"/>
-        <path class="l" d="M393,124 H410"/><path class="bold" d="M406,119 L414,124 L406,129"/>
-        <path class="l" d="M590,124 H607"/><path class="bold" d="M603,119 L611,124 L603,129"/>
-        <path class="l" d="M787,124 H804"/><path class="bold" d="M800,119 L808,124 L800,129"/>
-
-        <path class="acc ray" style="--len:1120" d="M894,172 V244 Q894,258 880,258 H120 Q106,258 106,244 V184"/>
-        <path class="acc" d="M99,192 L106,178 L113,192"/>
-        <rect class="fp" x="410" y="240" width="180" height="36"/>
-        <text class="ta" x="500" y="264" text-anchor="middle">NEXT REV</text>
-      </svg>
-
-      <svg class="dw dw--tall" viewBox="0 0 480 740" role="img" aria-label="相談・設計・実装・リリース・運用の5段階が上から下へ並び、運用から折り返す線が相談に戻って次の版がはじまることを示した図">
-        <path class="thin" d="M16,30 H464"/>
-        <text class="ta" x="16" y="20">v1.0</text>
-        <text class="ta" x="464" y="20" text-anchor="end">v1.1</text>
-
-        <rect class="fp" x="16" y="52"  width="280" height="96"/>
-        <rect class="fp" x="16" y="184" width="280" height="96"/>
-        <rect class="fp" x="16" y="316" width="280" height="96"/>
-        <rect class="fp" x="16" y="448" width="280" height="96"/>
-        <rect class="ft" x="16" y="580" width="280" height="96"/>
-
-        <text class="ta" x="34" y="92">01</text><text class="tb" x="34" y="124">SCOPE</text>
-        <text class="ta" x="34" y="224">02</text><text class="tb" x="34" y="256">DESIGN</text>
-        <text class="ta" x="34" y="356">03</text><text class="tb" x="34" y="388">BUILD</text>
-        <text class="ta" x="34" y="488">04</text><text class="tb" x="34" y="520">RELEASE</text>
-        <text class="ta" x="34" y="620">05</text><text class="tb" x="34" y="652">OPERATE</text>
-
-        <path class="l" d="M156,152 V175"/><path class="bold" d="M151,171 L156,179 L161,171"/>
-        <path class="l" d="M156,284 V307"/><path class="bold" d="M151,303 L156,311 L161,303"/>
-        <path class="l" d="M156,416 V439"/><path class="bold" d="M151,435 L156,443 L161,435"/>
-        <path class="l" d="M156,548 V571"/><path class="bold" d="M151,567 L156,575 L161,567"/>
-
-        <path class="acc ray" style="--len:800" d="M296,628 H416 Q430,628 430,614 V114 Q430,100 416,100 H314"/>
-        <path class="acc" d="M322,93 L308,100 L322,107"/>
-        <rect class="fp" x="330" y="350" width="140" height="36"/>
-        <text class="ta" x="400" y="374" text-anchor="middle">NEXT REV</text>
-      </svg>
-      <p class="dwcap mono"><span>FIG.v1.0-01 &#8212; RELEASE CYCLE</span><span>図は進め方をイメージで表したものです</span></p>
-      <ul class="dwlegend">
-        <li class="i">この版のなかで進む向き</li>
-        <li class="a">運用で見えたことを、次の版に戻す線</li>
-      </ul>
-    </div>
-
-    <div class="cards c5 rv mt6">
-      <div class="card st">
-        <span class="top mono"><span class="no">01</span><span>SCOPE</span></span>
-        <h3>相談</h3>
-        <p>困っていることを、そのまま聞かせてください。資料をつくっていただく必要はありません。</p>
-        <span class="go mono">目安 1〜2週間<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">02</span><span>DESIGN</span></span>
-        <h3>設計</h3>
-        <p>つくるものと、つくらないものを分けます。お見積りはこの段階で出します。</p>
-        <span class="go mono">目安 2〜4週間<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">03</span><span>BUILD</span></span>
-        <h3>実装</h3>
-        <p>2週間をひと区切りにして、区切りごとに動くものをお見せしながらつくります。</p>
-        <span class="go mono">目安 2〜4ヶ月<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">04</span><span>RELEASE</span></span>
-        <h3>リリース</h3>
-        <p>検証環境で確認してから本番へ。使い方の説明と、切り戻しの手順の共有もここで。</p>
-        <span class="go mono">目安 2〜3週間<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">05</span><span>OPERATE</span></span>
-        <h3>運用（次の版へ）</h3>
-        <p>直す・足す・整える。月次で状況を見て、次の版に入れるものを一緒に決めます。</p>
-        <span class="go mono">継続<i></i></span>
-      </div>
-    </div>
-
-    <p class="note-s rv">相談から最初のリリースまでは4〜7ヶ月が目安です。規模とご要望の量によって前後します。期間を先に決めたい場合は、入れる機能の範囲のほうを先に決める進め方もご提案できます。</p>
-
-    <div class="mores mt6 rv">
-      <a class="morelink" href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方">
-        <b>各段階でやることを、もっと細かく見る</b>
-        <span>v1.2 &nbsp;進め方 &nbsp;&#8594;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== v1.0-03 サービス ===== -->
-<section class="sec" id="service">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-03</span>
-      <h2>6つのサービス</h2>
-      <span class="en mono">SERVICE</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">つくる（BUILD）が3つ、ととのえる（TUNE）が3つ。ここでは名前と一行だけです。それぞれが何をどこまでやるのかは v1.1 にまとめました。費用はすべて要相談です。</p>
-
-    <div class="cards rv mt6">
-      <a class="card" href="tech-advance-service.html#s-01" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_web.webp" loading="lazy" decoding="async" alt="Webサイト制作の打ち合わせ。デザイン画面を表示した大きなモニターに向かうスタッフ"></span>
-        <span class="top mono"><span class="no">S-01</span><span>つくる / BUILD</span></span>
-        <h3>Webサイト制作</h3>
-        <p>会社の&quot;顔&quot;となる、伝わるWebサイトを。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-02" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_app.webp" loading="lazy" decoding="async" alt="Webアプリ開発の作業風景。コードと管理画面を並べた複数モニター"></span>
-        <span class="top mono"><span class="no">S-02</span><span>つくる / BUILD</span></span>
-        <h3>Webアプリ開発</h3>
-        <p>業務にフィットする、使われ続けるアプリを。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-03" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_system.webp" loading="lazy" decoding="async" alt="システム開発の画面。構成図とダッシュボードを表示したモニター"></span>
-        <span class="top mono"><span class="no">S-03</span><span>つくる / BUILD</span></span>
-        <h3>システム開発</h3>
-        <p>自社の業務に合わせた、オーダーメイドの仕組みを。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-04" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_dx.webp" loading="lazy" decoding="async" alt="DXコンサルティングの様子。ホワイトボードに業務フローを描いて説明するスタッフ"></span>
-        <span class="top mono"><span class="no">S-04</span><span>ととのえる / TUNE</span></span>
-        <h3>DXコンサルティング</h3>
-        <p>何から始めるか、から一緒に整理します。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-05" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_improve.webp" loading="lazy" decoding="async" alt="業務システム改善の打ち合わせ。画面を指しながら課題を洗い出すチーム"></span>
-        <span class="top mono"><span class="no">S-05</span><span>ととのえる / TUNE</span></span>
-        <h3>業務システム改善</h3>
-        <p>使いにくさの原因を見つけ、丁寧に直す。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-06" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_support.webp" loading="lazy" decoding="async" alt="保守・運用サポートの現場。サーバールームと監視画面"></span>
-        <span class="top mono"><span class="no">S-06</span><span>ととのえる / TUNE</span></span>
-        <h3>保守・運用サポート</h3>
-        <p>リリース後も、安心して任せられる体制を。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-    </div>
-
-    <p class="note-s rv">費用はすべて要相談です。規模と内容によって変わるため、個別にお見積りします。お見積りは「02 設計」の段階で、機能の単位に分解した形でお出しします。</p>
-  </div>
-</section>
-
-<!-- ===== v1.0-04 導入事例（差分） ===== -->
-<section class="sec sec--alt" id="record">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-04</span>
-      <h2>つくったものを、差分で書く</h2>
-      <span class="en mono">RECORD</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">「何をつくったか」より、「何がどう変わったか」のほうが伝わると思っています。6件の事例を、<b>−（前の状態）</b>と <b>＋（次の版でやったこと）</b>の2行だけで並べました。</p>
-
-    <ul class="dfl rv mt6">
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-01</p>
-          <h3>製造業A社</h3>
-          <p class="meta mono">従業員50名規模 / S-02</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>生産日報が紙とExcelに分かれていて、同じ内容を二度書いていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>入力画面をひとつにまとめた社内Webアプリ。現場のタブレットからそのまま入力できるようにした</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-02</p>
-          <h3>卸売業B社</h3>
-          <p class="meta mono">従業員120名規模 / S-03</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>受注をFAXとメールと電話で受けていて、在庫の数がその場で分からなかった</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>受注入力と在庫参照をひとつにまとめた業務システム。既存の販売管理とはデータ連携でつないだ</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-03</p>
-          <h3>建設業C社</h3>
-          <p class="meta mono">従業員30名規模 / S-02</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>現場写真の整理と報告書づくりを、事務所に戻ってから手作業でやっていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>スマートフォンから写真と報告を送れる仕組み。報告書の形に組むところまで用意した</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-04</p>
-          <h3>医療法人D</h3>
-          <p class="meta mono">職員80名規模 / S-01・S-02</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>予約と問い合わせが電話に集中し、受付が別の作業に取りかかれなかった</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>Webからの予約受付と、お知らせの配信をまとめた画面をつくった</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-05</p>
-          <h3>教育事業E社</h3>
-          <p class="meta mono">従業員20名規模 / S-01</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>案内サイトを自社で更新できず、内容が古いまま止まっていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>載せる情報の順番から組み直し、自社で更新できるWebサイトにつくり直した</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-06</p>
-          <h3>物流業F社</h3>
-          <p class="meta mono">従業員200名規模 / S-06</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>リリース済みのシステムに手が入らず、現場からの要望が溜まっていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>保守運用を引き継ぎ、月次で直すもの・足すものを決めて版を重ねる形にした</span></li>
-        </ul>
-      </li>
-    </ul>
-
-    <p class="note-s rv">掲載しているのは、サンプルとして作成した導入事例です。実在の企業・案件を示すものではありません。企業名は伏せ、成果を数値で示すことはしていません。</p>
-
-    <div class="mores mt6 rv">
-      <a class="morelink" href="tech-advance-works.html" data-ver="v2.0" data-name="導入事例 一覧">
-        <b>6件の事例を、背景から読む</b>
-        <span>v2.0 &nbsp;導入事例 一覧 &nbsp;&#8594;</span>
-      </a>
-      <a class="morelink ghost" href="tech-advance-work-detail.html" data-ver="v2.1" data-name="導入事例 詳細 CASE-02">
-        <b>CASE-02 卸売業B社を、1件だけ深く見る</b>
-        <span>v2.1 &nbsp;導入事例 詳細 &nbsp;&#8594;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== v1.0-05 技術と開発体制 ===== -->
-<section class="sec" id="platform">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-05</span>
-      <h2>この版に入っているもの</h2>
-      <span class="en mono">PLATFORM</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">使っている技術を、5つの区分でそのまま並べます。案件ごとに選ぶものは変わるので、ここにあるものを全部使うわけではありません。相談の段階で、どれを使うかも一緒に決めます。</p>
 
     <div class="sg2 wide rv mt6">
-      <div class="mnf">
-        <p class="mnf-h mono"><span>MANIFEST &#8212; <b>NEXTGRID v1.0</b></span><span>5 GROUPS</span></p>
-        <div class="mnf-row">
-          <p class="mnf-k mono">front <em>フロント</em></p>
-          <p class="mnf-v"><span>TypeScript</span><span>React</span><span>Next.js</span><span>Vue.js</span><span>HTML / CSS</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">back <em>バックエンド</em></p>
-          <p class="mnf-v"><span>Node.js</span><span>PHP / Laravel</span><span>Python</span><span>REST API</span><span>GraphQL</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">infra <em>インフラ</em></p>
-          <p class="mnf-v"><span>AWS</span><span>Docker</span><span>Terraform</span><span>Linux</span><span>CDN</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">data <em>データ</em></p>
-          <p class="mnf-v"><span>PostgreSQL</span><span>MySQL</span><span>Redis</span><span>Object Storage</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">devops <em>開発基盤</em></p>
-          <p class="mnf-v"><span>Git / GitHub</span><span>GitHub Actions</span><span>Jest</span><span>Playwright</span><span>エラー監視</span></p>
-        </div>
-      </div>
-
       <div>
-        <figure class="figfr r169">
-          <span class="im"><img src="images/tech/tech_gallery1.webp" loading="lazy" decoding="async" alt="窓際に並ぶ開発デスクと、ガラスの奥に見えるサーバーラック"></span>
-          <figcaption class="mono"><b>PLT-01</b><span>開発フロア。手前がワークスペース、奥が機材室です</span></figcaption>
-        </figure>
-
-        <ul class="dlines mt4">
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>1案件あたり3〜4名。窓口は1人に固定します</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>2週間をひと区切りに、区切りごとに動くものを見せます</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>変更はすべてプルリクエストにして、別のメンバーが読んでからマージします</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>自動テストとリリース前の手動確認を組み合わせています</span></li>
+        <table class="tbl">
+          <caption class="mono">CONTACT</caption>
+          <thead>
+            <tr><th scope="col">手段</th><th scope="col">宛先</th><th scope="col">向いている場面</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">メール</th><td data-l="宛先">info@example.com</td><td data-l="向いている場面">資料や画面のキャプチャを添えて送りたいとき</td></tr>
+            <tr><th scope="row">LINE</th><td data-l="宛先">LINEの窓口</td><td data-l="向いている場面">短いやりとりで済ませたいとき</td></tr>
+            <tr><th scope="row">フォーム</th><td data-l="宛先">このページの下</td><td data-l="向いている場面">何から書けばよいか決めかねているとき</td></tr>
+          </tbody>
+        </table>
+        <p class="note-s">窓口は1案件1人に固定しています。最初にご連絡いただいた人が、そのまま相談・設計・リリース後の運用まで担当します。</p>
+      </div>
+      <div>
+        <ul class="dlines">
+          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">よくある状態：</span>問い合わせる前に、要件をまとめた資料をつくらないといけない気がしている</span></li>
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">こちらの受け方：</span>資料をつくっていただく必要はありません。いま使っているファイルや画面を、そのまま見せてください</span></li>
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">こちらの受け方：</span>決まっていないことは、決まっていないまま書いていただいて構いません</span></li>
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">こちらの受け方：</span>オンラインでの打ち合わせにも対応しています</span></li>
         </ul>
-
-        <p class="note-s">セキュリティは、アクセス管理・データの取り扱い・バックアップ・脆弱性への対応の4つで対策を行っています。リスクをゼロにはできない前提で、起きたときに気づける・戻せる形にしています。詳しくは v3.0 に書きました。</p>
-      </div>
-    </div>
-
-    <div class="mores mt6 rv">
-      <a class="morelink" href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制">
-        <b>技術・開発体制・セキュリティを詳しく見る</b>
-        <span>v3.0 &nbsp;技術と開発体制 &nbsp;&#8594;</span>
-      </a>
-      <a class="morelink ghost" href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問">
-        <b>費用・納期・契約のことは、よくある質問へ</b>
-        <span>v3.1 &nbsp;よくある質問 &nbsp;&#8594;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== v1.0-06 会社 ===== -->
-<section class="sec sec--alt" id="company">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-06</span>
-      <h2>つくっている人と、会社のこと</h2>
-      <span class="en mono">COMPANY</span>
-    </div>
-    <div class="rule"></div>
-    <div class="sg2 narrow rv">
-      <div>
-        <figure class="figfr r169">
-          <span class="im"><img src="images/tech/tech_facility1.webp" loading="lazy" decoding="async" alt="窓に面したオフィスのデスク。モニターとキーボードが並び、奥にホワイトボードがある"></span>
-          <figcaption class="mono"><b>CMP-01</b><span>打ち合わせも開発も同じフロア。声をかければすぐ相談できる距離です</span></figcaption>
-        </figure>
-        <p class="note-s">※写真はイメージです。これはRESCが作成したサンプルサイトのため、実在の担当者・拠点を示すものではありません。</p>
-      </div>
-      <div>
-        <dl class="spec">
-          <div><dt class="mono">社名</dt><dd>株式会社NextGrid</dd></div>
-          <div><dt class="mono">設立</dt><dd>2016年4月</dd></div>
-          <div><dt class="mono">代表者</dt><dd>代表取締役 桑野 拓真</dd></div>
-          <div><dt class="mono">所在地</dt><dd>福岡県福岡市〇〇区〇〇8-6-2</dd></div>
-          <div><dt class="mono">従業員数</dt><dd>9名<small>エンジニア5／デザイナー1／ディレクター2／管理1</small></dd></div>
-          <div><dt class="mono">営業時間</dt><dd>9:30〜18:30<small>土曜・日曜・祝日はお休みです</small></dd></div>
-          <div><dt class="mono">事業内容</dt><dd>Webサイト制作／Webアプリ開発／システム開発／DXコンサルティング／業務システム改善／保守・運用サポート</dd></div>
-          <div><dt class="mono">費用</dt><dd>要相談<small>内容によって異なるため、個別にご相談を承っています。</small></dd></div>
+        <dl class="spec mt4">
+          <div><dt class="mono">受付時間</dt><dd>9:30〜18:30</dd></div>
+          <div><dt class="mono">定休日</dt><dd>土曜・日曜・祝日</dd></div>
+          <div><dt class="mono">費用</dt><dd>要相談<small>規模と内容によって変わるため、個別にお見積りします</small></dd></div>
         </dl>
       </div>
     </div>
 
+    <div class="pull rv">
+      <q>まだ要件が固まっていなくても、<b>大丈夫です。</b></q>
+      <p>「何から手をつけるか」の整理からご一緒します。困っていることを、そのままの言葉でお聞かせください。相談の段階で概算のお見積りはお出ししていませんが、決めるべきことの一覧と、決める順番はお渡しします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== v4.2-02 アクセス ===== -->
+<section class="sec sec--alt" id="access">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="idx mono">v4.2-02</span>
+      <h2>アクセス</h2>
+      <span class="en mono">ACCESS</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rv">福岡市内の事務所です。ご来社の前にご連絡いただけると、打ち合わせスペースを空けてお待ちできます。オンラインでの打ち合わせにも対応しているので、初回はオンラインで、という形でも構いません。</p>
+
+    <div class="sg2 narrow rv mt6">
+      <div>
+        <figure class="figfr r169">
+          <span class="im"><img src="images/tech/tech_facility2.webp" loading="lazy" decoding="async" alt="木目のカウンターと観葉植物が置かれたオフィスの入口"></span>
+          <figcaption class="mono"><b>ACC-01</b><span>入口を入ってすぐが受付です</span></figcaption>
+        </figure>
+        <p class="note-s">※写真はイメージです。これはRESCが作成したサンプルサイトのため、実在の拠点を示すものではありません。</p>
+      </div>
+      <div>
+        <dl class="spec">
+          <div><dt class="mono">所在地</dt><dd>福岡県福岡市〇〇区〇〇8-6-2</dd></div>
+          <div><dt class="mono">営業時間</dt><dd>9:30〜18:30</dd></div>
+          <div><dt class="mono">定休日</dt><dd>土曜・日曜・祝日</dd></div>
+          <div><dt class="mono">ご来社</dt><dd>事前にご連絡ください<small>打ち合わせスペースを空けてお待ちできます</small></dd></div>
+          <div><dt class="mono">オンライン</dt><dd>打ち合わせに対応しています</dd></div>
+          <div><dt class="mono">連絡</dt><dd>info@example.com ／ LINE ／ このページのフォーム</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <p class="vh">下の図は、オフィスの位置関係を表した略図です。南北にのびる通り（ST.02）と東西にのびる通り（ST.01）が交わっていて、その交差点から南東側の区画に事務所があります。入口は南北の通りに面した西側です。図に描いた道路の形・建物の配置・方角は、実際とは異なります。</p>
+
+    <div class="dwbox rv mt6">
+      <svg class="dw dw--wide" viewBox="0 0 1000 460" role="img" aria-label="オフィスの位置関係を表した略図です。南北にのびる通りと東西にのびる通りが交わり、その交差点から南東の区画にオフィスがあります。入口は通りに面した西側です。実際の道路とは異なります。">
+        <rect class="fp" x="0" y="0" width="1000" height="460"/>
+        <g class="fp">
+          <rect x="30" y="30" width="170" height="80"/><rect x="215" y="30" width="195" height="80"/>
+          <rect x="30" y="120" width="110" height="80"/><rect x="155" y="120" width="255" height="80"/>
+          <rect x="500" y="30" width="180" height="80"/><rect x="695" y="30" width="120" height="80"/>
+          <rect x="830" y="30" width="140" height="80"/>
+          <rect x="500" y="120" width="150" height="80"/><rect x="665" y="120" width="150" height="80"/>
+          <rect x="830" y="120" width="140" height="80"/>
+          <rect x="30" y="275" width="150" height="70"/><rect x="195" y="275" width="215" height="70"/>
+          <rect x="30" y="360" width="110" height="70"/><rect x="155" y="360" width="255" height="70"/>
+          <rect x="715" y="275" width="120" height="60"/><rect x="850" y="275" width="120" height="60"/>
+          <rect x="715" y="350" width="255" height="80"/>
+        </g>
+        <path class="l" d="M0,205 H1000 M0,270 H1000 M415,0 V460 M495,0 V460"/>
+        <path class="thin" d="M0,237 H1000" stroke-dasharray="18 14"/>
+        <path class="thin" d="M455,0 V460" stroke-dasharray="18 14"/>
+        <rect class="ft" x="500" y="280" width="200" height="130"/>
+        <text class="tb" x="600" y="352" text-anchor="middle">NG</text>
+        <rect class="fa" x="492" y="330" width="14" height="32"/>
+        <path class="acc ray" style="--len:60" d="M455,346 H484"/>
+        <path class="acc" d="M478,339 L490,346 L478,353"/>
+        <text x="16" y="260">ST.01</text>
+        <text x="455" y="450" text-anchor="middle">ST.02</text>
+        <path class="fi" d="M455,18 L462,40 L455,34 L448,40 Z"/>
+        <text x="455" y="62" text-anchor="middle">N</text>
+      </svg>
+      <svg class="dw dw--tall" viewBox="0 0 480 720" role="img" aria-label="オフィスの位置関係を表した略図です。南北にのびる通りと東西にのびる通りが交わり、その交差点から南東の区画にオフィスがあります。入口は通りに面した西側です。実際の道路とは異なります。">
+        <rect class="fp" x="0" y="0" width="480" height="720"/>
+        <g class="fp">
+          <rect x="16" y="16" width="169" height="120"/><rect x="16" y="150" width="169" height="80"/>
+          <rect x="16" y="244" width="169" height="81"/>
+          <rect x="265" y="16" width="199" height="90"/><rect x="265" y="120" width="90" height="90"/>
+          <rect x="365" y="120" width="99" height="90"/><rect x="265" y="224" width="199" height="101"/>
+          <rect x="16" y="405" width="169" height="100"/><rect x="16" y="519" width="169" height="90"/>
+          <rect x="16" y="623" width="169" height="81"/>
+          <rect x="265" y="566" width="199" height="60"/><rect x="265" y="640" width="90" height="64"/>
+          <rect x="365" y="640" width="99" height="64"/>
+        </g>
+        <path class="l" d="M0,328 H480 M0,402 H480 M188,0 V720 M262,0 V720"/>
+        <path class="thin" d="M0,365 H480" stroke-dasharray="18 14"/>
+        <path class="thin" d="M225,0 V720" stroke-dasharray="18 14"/>
+        <rect class="ft" x="265" y="410" width="199" height="140"/>
+        <text class="tb" x="364" y="490" text-anchor="middle">NG</text>
+        <rect class="fa" x="257" y="470" width="14" height="34"/>
+        <path class="acc ray" style="--len:60" d="M225,487 H249"/>
+        <path class="acc" d="M243,480 L255,487 L243,494"/>
+        <text x="12" y="394">ST.01</text>
+        <text x="230" y="710" text-anchor="middle">ST.02</text>
+        <path class="fi" d="M225,20 L233,44 L225,37 L217,44 Z"/>
+        <text x="225" y="70" text-anchor="middle">N</text>
+      </svg>
+      <p class="dwcap mono"><span>FIG.v4.2-01 &#8212; SITE PLAN</span><span>地図がここに表示されます（デモ表示中）</span></p>
+      <ul class="dwlegend">
+        <li>まわりの建物（イメージ）</li>
+        <li class="i">通りの名前と方角の記号</li>
+        <li class="a">NextGridの事務所と、通りから入口までの向き</li>
+      </ul>
+    </div>
+    <p class="note-s rv">この図は位置関係のイメージを描いた略図で、実際の地図ではありません。実際の道路とは異なります。建物の配置・道路の形・方角も、実際のものとは違います。ご来社の際は、事前にご連絡いただければ、当日の行き方をあらためてお送りします。</p>
+
     <div class="mores mt6 rv">
-      <a class="morelink" href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内">
-        <b>メンバー3名と、会社のことを見る</b>
+      <a class="morelink ghost" href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内">
+        <b>お迎えするメンバーと、会社概要はこちら</b>
         <span>v4.0 &nbsp;メンバー・会社案内 &nbsp;&#8594;</span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== v4.2-03 お問い合わせフォーム ===== -->
+<section class="sec" id="form">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="idx mono">v4.2-03</span>
+      <h2>お問い合わせフォーム</h2>
+      <span class="en mono">FORM</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rv">必要なのは4つだけです。お名前、メールアドレス、いまどの段階か、ご相談の内容。「いまどの段階か」は、こちらが最初に確認する内容を変えるために伺っています。あとから変わっても構いません。</p>
+
+    <div class="ct2 rv mt6">
+      <div>
+        <form class="form" id="cform" action="#" method="post" novalidate>
+          <p class="ferr" id="formErr" role="alert" aria-live="assertive"></p>
+
+          <div class="frow">
+            <label for="f-name">お名前 <em class="freq">必須</em></label>
+            <input type="text" id="f-name" name="name" autocomplete="name" aria-describedby="e-name">
+            <span class="fmsg" id="e-name"></span>
+          </div>
+
+          <div class="frow">
+            <label for="f-corp">会社名・団体名 <em class="fopt2">任意</em></label>
+            <input type="text" id="f-corp" name="company" autocomplete="organization">
+          </div>
+
+          <div class="frow">
+            <label for="f-mail">メールアドレス <em class="freq">必須</em></label>
+            <input type="email" id="f-mail" name="email" autocomplete="email" aria-describedby="e-mail">
+            <span class="fmsg" id="e-mail"></span>
+          </div>
+
+          <fieldset class="fset" id="fsStage">
+            <legend>いまどの段階ですか <em class="freq">必須</em></legend>
+            <p class="fhint" id="h-stage">1つお選びください。段階によって、こちらから最初にお聞きすることが変わります。あとから変わっても構いません。</p>
+            <div class="fopts">
+              <div class="fopt" id="op1">
+                <input type="radio" id="f-st1" name="stage" value="構想中" aria-describedby="h-stage e-stage">
+                <label for="f-st1"><b>構想中</b><span>やりたいことはあるが、要件はこれから。01 相談から一緒に整理します</span></label>
+              </div>
+              <div class="fopt" id="op2">
+                <input type="radio" id="f-st2" name="stage" value="要件がある程度決まっている" aria-describedby="h-stage e-stage">
+                <label for="f-st2"><b>要件がある程度決まっている</b><span>つくるもの・つくらないものを分ける 02 設計からご相談できます</span></label>
+              </div>
+              <div class="fopt" id="op3">
+                <input type="radio" id="f-st3" name="stage" value="すでに動いているものがある" aria-describedby="h-stage e-stage">
+                <label for="f-st3"><b>すでに動いているものがある</b><span>改善・保守運用の引き継ぎとして、いまの状態を読むところから始めます</span></label>
+              </div>
+            </div>
+            <span class="fmsg" id="e-stage"></span>
+          </fieldset>
+
+          <div class="frow">
+            <label for="f-body">ご相談の内容 <em class="freq">必須</em></label>
+            <textarea id="f-body" name="message" aria-describedby="e-body" placeholder="いま困っていることを、そのままお書きください。要件が固まっていなくて構いません。"></textarea>
+            <span class="fmsg" id="e-body"></span>
+          </div>
+
+          <div class="form-foot">
+            <button class="btn btn--fill mono" type="submit">送信する <i>&#8594;</i></button>
+            <p>※このフォームはサンプルのため、実際には送信されません。入力された内容はどこにも保存されず、どこにも送られません。</p>
+          </div>
+        </form>
+
+        <div class="form-done" id="formDone" tabindex="-1" role="status" hidden>
+          <svg width="36" height="30" viewBox="0 0 36 30" aria-hidden="true" focusable="false">
+            <polygon points="2,15 18,7 34,15 18,23" fill="#EDF3FF" stroke="#0B57E0" stroke-width="1.8"/>
+            <path d="M11 15l5 4 9-8" fill="none" stroke="#0B57E0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="fd-code">FORM &#8212; SAMPLE</p>
+          <h3>送信の完了イメージです。</h3>
+          <p>実際のサイトでは、この場所に受付完了のご案内が表示されます。このサイトはRESCが作成したサンプルのため、入力内容はどこにも送信されていません。</p>
+          <dl>
+            <div><dt>STAGE</dt><dd id="doneStage">&#8212;</dd></div>
+            <div><dt>NEXT</dt><dd>実際のサイトでは、この段階に合わせた確認事項をご返信します</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div>
+        <div class="dwbox">
+          <p class="asideh">フォームが合わないときは、メールでも構いません。</p>
+          <p class="body-t mt4">書きたいことが多いとき、資料を添えたいときは、メールのほうが楽だと思います。LINEでも同じ窓口に届きます。</p>
+          <div class="aside-acts">
+            <a class="btn btn--fill mono" href="mailto:info@example.com">メールで問い合わせる <i>&#8594;</i></a>
+            <a class="btn btn--line mono" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで問い合わせる <i>&#8594;</i></a>
+          </div>
+          <dl class="spec mt4">
+            <div><dt class="mono">受付</dt><dd>9:30〜18:30<small>土曜・日曜・祝日はお休みです</small></dd></div>
+            <div><dt class="mono">費用</dt><dd>要相談<small>規模と内容によって変わるため、個別にお見積りします</small></dd></div>
+          </dl>
+        </div>
+        <ul class="dlines mt4">
+          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">よくある状態：</span>問い合わせフォームを送ったあと、何がどう進むのか分からない</span></li>
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">実際のサイトでは：</span>受付のご連絡をお送りしたうえで、選んでいただいた段階に合わせて最初の確認事項をご返信します</span></li>
+        </ul>
+        <p class="note-s">このページのフォームはサンプルのため、送信されません。動きを確かめる目的でお使いください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== v4.2-04 もう一周する ===== -->
+<section class="sec sec--deep" id="next">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="idx mono">v4.2-04</span>
+      <h2>次の版へ ／ もう一周する</h2>
+      <span class="en mono">NEXT REVISION</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rv">v4.2 がこのサイトの最後の版です。ソフトウェアと同じで、最後の版のあとにはまた次の版が来ます。10版をひととおり読んだうえで、もう一度トップから見ていただくと、番号の並びの意味が通ると思います。</p>
+
+    <div class="mores mt6 rv">
+      <a class="morelink" href="tech-advance.html" data-ver="v1.0" data-name="トップ">
+        <b>次の版へ。v1.0 から、もう一周する</b>
+        <span>v1.0 &nbsp;トップ &nbsp;&#8594;</span>
+      </a>
       <a class="morelink ghost" href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報">
-        <b>いま2職種で仲間を探しています</b>
+        <b>一緒につくる側から見てみる</b>
         <span>v4.1 &nbsp;採用情報 &nbsp;&#8594;</span>
       </a>
     </div>
+
+    <p class="note-s rv">掲載している社名・住所・所在地の略図・連絡先は、すべてサンプルとして作成したものです。実在の企業・拠点を示すものではありません。お問い合わせフォームは動きを確かめるためのもので、実際には送信されません。</p>
   </div>
 </section>
 
-<!-- ===== v1.0-07 このサイトの全10版 ===== -->
-<section class="sec sec--deep" id="changelog">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-07</span>
-      <h2>このサイトの全10版</h2>
-      <span class="en mono">CHANGELOG</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">10ページを、4つの版グループに分けています。番号の左が群、右がその中の順番です。いま見ているのは v1.0、いちばん最初の版です。</p>
+<script>
+/* v4.2 固有：お問い合わせフォーム（サンプル。実際には送信しません）
+   - 送信は常に打ち消すので、URL は変わりません
+   - 未入力・形式ちがいは日本語で伝え、まとめの文は aria-live で読み上げに乗せます
+   - JavaScript が無効な環境では、フォームの下の注記のとおり、送信そのものが行われません */
+(function(){
+  "use strict";
+  var form = document.getElementById('cform');
+  var done = document.getElementById('formDone');
+  if(!form || !done) return;
+  var sum = document.getElementById('formErr');
+  var stageSet = document.getElementById('fsStage');
 
-    <div class="cl rv mt6">
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v1</span><h3>総論</h3><span class="gd mono">GENERAL &#8212; 何をして、どう進めるか</span>
-        </div>
-        <ul class="cl-l">
-          <li><span class="cl-i now"><span class="v mono">v1.0</span><span><h4>トップ</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>版を重ねるという考え方と、開発の循環</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>6つのサービスと導入事例の差分</span></li></ul></span></span></li>
-          <li><a class="cl-i" href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細"><span class="v mono">v1.1</span><span><h4>サービス詳細</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>S-01〜S-06 が何をどこまでやるか</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>お見積りの出し方と保守契約の考え方</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方"><span class="v mono">v1.2</span><span><h4>進め方</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>相談から運用までの5段階と期間の目安</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>各段階で決まること・お願いすること</span></li></ul></span></a></li>
-        </ul>
-      </div>
+  var FIELDS = [
+    {id:'f-name', msg:'e-name', label:'お名前',        err:'お名前を入力してください。'},
+    {id:'f-mail', msg:'e-mail', label:'メールアドレス', err:'メールアドレスを入力してください。'},
+    {id:'f-body', msg:'e-body', label:'ご相談の内容',   err:'ご相談の内容を入力してください。'}
+  ];
+  var MAILRE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v2</span><h3>記録</h3><span class="gd mono">RECORD &#8212; つくったもの</span>
-        </div>
-        <ul class="cl-l">
-          <li><a class="cl-i" href="tech-advance-works.html" data-ver="v2.0" data-name="導入事例 一覧"><span class="v mono">v2.0</span><span><h4>導入事例 一覧</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>CASE-01〜CASE-06 の背景とやったこと</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>業種・規模・関わったサービスの一覧表</span></li></ul></span></a></li>
-          <li><a class="cl-i sub" href="tech-advance-work-detail.html" data-ver="v2.1" data-name="導入事例 詳細 CASE-02"><span class="v mono">v2.1</span><span><h4>導入事例 詳細（CASE-02）</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>卸売業B社の1件を、版ごとに分解</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>決めたこと・決めなかったことの記録</span></li></ul></span></a></li>
-        </ul>
-      </div>
+  function setMsg(id, text){
+    var el = document.getElementById(id);
+    if(el) el.textContent = text || '';
+  }
+  function stageChecked(){
+    return form.querySelector('input[name="stage"]:checked');
+  }
+  function paintStage(){
+    [].slice.call(form.querySelectorAll('.fopt')).forEach(function(box){
+      var r = box.querySelector('input[type="radio"]');
+      box.classList.toggle('on', !!(r && r.checked));
+    });
+  }
+  form.addEventListener('change', function(ev){
+    if(ev.target && ev.target.name === 'stage'){
+      paintStage();
+      setMsg('e-stage', '');
+      if(stageSet) stageSet.removeAttribute('data-invalid');
+    }
+  });
+  paintStage();
 
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v3</span><h3>土台</h3><span class="gd mono">PLATFORM &#8212; 技術と土台</span>
-        </div>
-        <ul class="cl-l">
-          <li><a class="cl-i" href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制"><span class="v mono">v3.0</span><span><h4>技術と開発体制</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>5区分の技術スタックと、選び方の考え方</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>チーム構成・レビュー・テスト・リリース</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>セキュリティで行っている対策</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問"><span class="v mono">v3.1</span><span><h4>よくある質問</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>費用・納期・契約・引き継ぎのこと</span></li></ul></span></a></li>
-        </ul>
-      </div>
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();                 /* サンプルなので送信しません。URL も変えません */
 
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v4</span><h3>会社</h3><span class="gd mono">COMPANY &#8212; 人と窓口</span>
-        </div>
-        <ul class="cl-l">
-          <li><a class="cl-i" href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内"><span class="v mono">v4.0</span><span><h4>メンバー・会社案内</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>メンバー3名の役割と担当領域</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>会社概要と、チームの働き方</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報"><span class="v mono">v4.1</span><span><h4>採用情報</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>2職種の募集要項（労働条件をすべて明示）</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>選考の流れと応募方法</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ"><span class="v mono">v4.2</span><span><h4>アクセス・お問い合わせ</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>所在地・営業時間・お問い合わせフォーム</span></li></ul></span></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+    var missing = [], firstBad = null;
+    FIELDS.forEach(function(f){
+      var el = document.getElementById(f.id);
+      if(!el) return;
+      var v = (el.value || '').replace(/^\s+|\s+$/g, '');
+      var bad = '';
+      if(!v){ bad = f.err; }
+      else if(f.id === 'f-mail' && !MAILRE.test(v)){ bad = 'メールアドレスの形をご確認ください。'; }
+      if(bad){
+        missing.push(f.label);
+        el.setAttribute('aria-invalid', 'true');
+        setMsg(f.msg, bad);
+        if(!firstBad) firstBad = el;
+      }else{
+        el.removeAttribute('aria-invalid');
+        setMsg(f.msg, '');
+      }
+    });
 
+    if(!stageChecked()){
+      missing.push('いまどの段階か');
+      setMsg('e-stage', 'いまどの段階かを1つお選びください。');
+      if(stageSet) stageSet.setAttribute('data-invalid', '1');
+      if(!firstBad) firstBad = document.getElementById('f-st1');
+    }else{
+      setMsg('e-stage', '');
+      if(stageSet) stageSet.removeAttribute('data-invalid');
+    }
+
+    if(missing.length){
+      if(sum){
+        sum.textContent = '';
+        var b = document.createElement('b');
+        b.className = 'mono';
+        b.textContent = 'INPUT ERROR ' + missing.length;
+        sum.appendChild(b);
+        sum.appendChild(document.createTextNode(
+          '入力を確認してください。' + missing.join('、') + 'が未入力、または形がちがいます。'));
+      }
+      if(firstBad){ try{ firstBad.focus(); }catch(e){} }
+      return;
+    }
+
+    if(sum) sum.textContent = '';
+    var st = stageChecked();
+    var dst = document.getElementById('doneStage');
+    if(dst) dst.textContent = st ? st.value : '\u2014';
+    form.hidden = true;
+    done.hidden = false;
+    try{ done.focus(); }catch(e){}
+  });
+})();
+</script>
 </main>
 
 <footer class="ft">
@@ -1231,7 +1190,7 @@ a.cl-i:hover h4{color:var(--acc)}
       <nav aria-label="v1 総論">
         <h3>v1 &#8212; GENERAL / 総論</h3>
         <ul>
-          <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ" aria-current="page"><span class="v">v1.0</span><span>トップ</span></a></li>
+          <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ"><span class="v">v1.0</span><span>トップ</span></a></li>
           <li><a href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細"><span class="v">v1.1</span><span>サービス詳細</span></a></li>
           <li><a href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方"><span class="v">v1.2</span><span>進め方</span></a></li>
         </ul>
@@ -1255,7 +1214,7 @@ a.cl-i:hover h4{color:var(--acc)}
         <ul>
           <li><a href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内"><span class="v">v4.0</span><span>メンバー・会社案内</span></a></li>
           <li><a href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報"><span class="v">v4.1</span><span>採用情報</span></a></li>
-          <li><a href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ"><span class="v">v4.2</span><span>アクセス・お問い合わせ</span></a></li>
+          <li><a href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ" aria-current="page"><span class="v">v4.2</span><span>アクセス・お問い合わせ</span></a></li>
         </ul>
       </nav>
     </div>
@@ -1289,8 +1248,8 @@ a.cl-i:hover h4{color:var(--acc)}
    NextGrid ADVANCE 共通JS（全10ページ同一）
    ページごとに変えるのは、下の CURRENT と PAGENAME の2行だけ。
    ========================================================== */
-var CURRENT  = 'v1.0';
-var PAGENAME = 'トップ';
+var CURRENT  = 'v4.2';
+var PAGENAME = 'アクセス・お問い合わせ';
 
 (function(){
   "use strict";

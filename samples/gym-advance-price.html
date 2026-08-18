@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FORGE｜パーソナルジム（福岡市中央区・天神）｜STEP 01 トップ</title>
-<meta name="description" content="福岡市中央区・天神の完全予約制パーソナルジム FORGE。10段の構成で、セッションの中身・10種目・目的別プログラム・料金と続け方・トレーナー・アクセスまでご案内します。">
+<title>料金と続け方｜FORGE（福岡・天神のパーソナルジム）｜STEP 07</title>
+<meta name="description" content="FORGEの月額プラン・回数券の有効期限・休会・キャンセルと振替・中途解約の決まりをまとめたページ。入会金と違約金はいただいておりません。表示は税抜価格です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -600,6 +600,257 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
   .xover{display:none !important}
 }
 
+
+/* ============================================================
+   23. ページ拡張（STEP 02 / 03 / 04 で使う共通の追加パーツ）
+   既存トークンだけで組む。新しい色・余白は増やさない。
+   ============================================================ */
+
+/* 23-1. 段内インデックス（同一ページ内のアンカー） */
+.inpage{background:var(--ink-2);color:var(--on-dark);border-top:1px solid var(--dark-rule)}
+.inpage .wrap{display:flex;flex-wrap:wrap;gap:9px 10px;align-items:center;padding-block:14px}
+.inpage__k{font-family:var(--num);font-weight:600;font-size:11px;letter-spacing:.24em;
+  color:var(--on-dark-mute);margin-right:4px}
+.inpage a{display:inline-flex;align-items:baseline;gap:9px;text-decoration:none;color:var(--on-dark);
+  border:1px solid var(--dark-rule);padding:7px 13px;font-size:12.5px;line-height:1.5;
+  transition:background .22s,border-color .22s}
+.inpage a em{font-style:normal;font-family:var(--num);font-weight:700;font-size:11.5px;
+  letter-spacing:.14em;color:var(--lime)}
+.inpage a:hover{background:#ffffff12;border-color:var(--on-dark-mute)}
+
+/* 23-2. 引用ブロック */
+.pull{border-left:5px solid var(--acc,var(--ink));padding-left:clamp(16px,2.6vw,30px)}
+.pull b{display:block;font-weight:900;font-size:clamp(19px,3.2vw,36px);line-height:1.45;letter-spacing:.01em;max-width:15em}
+.pull span{display:block;margin-top:14px;font-size:13.5px;line-height:2;color:var(--muted);max-width:38em}
+.sec--dark .pull span,.sec--dark2 .pull span{color:var(--on-dark-mute)}
+
+/* 23-3. 60分のマス目（1マス＝1分。STEP 02） */
+.mmap{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:clamp(2px,.45vw,5px)}
+.mmap i{display:block;aspect-ratio:1;background:var(--dark-rule-2)}
+.mmap i.m1{background:var(--on-dark-mute)}
+.mmap i.m2{background:var(--lime-deep)}
+.mmap i.m3{background:var(--lime)}
+.mmap i.m4{background:transparent;box-shadow:inset 0 0 0 2px var(--on-dark-mute)}
+.mkey{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.6vw,24px);
+  margin-top:clamp(18px,2.4vw,28px);border-top:1px solid var(--dark-rule);padding-top:16px}
+.mkey li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:11px;align-items:start;
+  font-size:12px;line-height:1.75;color:var(--on-dark-mute)}
+.mkey i{display:block;width:20px;height:20px;margin-top:3px;background:var(--dark-rule-2)}
+.mkey i.m1{background:var(--on-dark-mute)}
+.mkey i.m2{background:var(--lime-deep)}
+.mkey i.m3{background:var(--lime)}
+.mkey i.m4{background:transparent;box-shadow:inset 0 0 0 2px var(--on-dark-mute)}
+.mkey b{display:block;color:var(--on-dark);font-size:12.5px;font-weight:900}
+.mkey em{font-style:normal;font-family:var(--num);font-weight:700;font-size:16px;
+  letter-spacing:.06em;color:var(--lime);margin-right:5px}
+
+/* 23-4. 時間軸に沿った4ブロック（STEP 02） */
+.tstep{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(12px,3vw,46px);
+  border-top:1px solid var(--rule);padding:clamp(20px,3vw,36px) 0}
+.tsteps>.tstep:first-child{border-top:2px solid var(--rule-strong)}
+.tstep__no{font-family:var(--num);font-weight:700;font-size:clamp(50px,7.6vw,100px);line-height:.82;
+  letter-spacing:.02em}
+.tstep__no span{color:#6F6E68}
+.tstep__min{display:inline-block;font-family:var(--num);font-weight:700;font-size:13px;letter-spacing:.12em;
+  background:var(--ink);color:var(--lime);padding:2px 10px 1px;margin-top:12px}
+.tstep h3{font-weight:900;font-size:clamp(18px,2.4vw,26px);line-height:1.45}
+.tstep__p{font-size:13.5px;line-height:2;color:var(--muted);margin-top:10px;max-width:44em}
+.tstep__qa{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,26px);
+  margin-top:clamp(14px,2vw,22px)}
+.tstep__qa>div{border-top:2px solid var(--rule-strong);padding-top:10px}
+.tstep__qa dt{font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.16em;color:var(--muted)}
+.tstep__qa dd{font-size:13px;line-height:1.95;margin-top:5px}
+.tstep .figfr{margin-top:clamp(16px,2.2vw,24px)}
+
+/* 23-5. 種目一覧（拡大版・STEP 03） */
+.moves--lg{grid-template-columns:repeat(3,minmax(0,1fr))}
+.moves--lg .move{padding:clamp(16px,2vw,24px) clamp(14px,1.6vw,20px) clamp(18px,2.2vw,26px)}
+.moves--lg .move__fig{max-width:112px;margin:12px 0 14px}
+.moves--lg .move h3{font-size:clamp(15px,1.8vw,19px)}
+.moves--lg .move__p{font-size:12.5px}
+.move__tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.move__tag{font-family:var(--num);font-weight:700;font-size:10.5px;letter-spacing:.1em;
+  border:1px solid var(--rule);color:var(--muted);padding:2px 8px 1px}
+.move--pick .move__tag{border-color:var(--lime-deep);color:var(--on-dark)}
+.move__cau{display:block;font-size:12px;line-height:1.85;color:var(--muted);margin-top:12px;
+  border-top:1px solid var(--rule);padding-top:10px}
+.move--pick .move__cau{color:var(--on-dark-mute);border-top-color:var(--dark-rule)}
+.move__cau b{display:block;font-family:var(--num);font-weight:700;font-size:10.5px;letter-spacing:.16em;
+  color:var(--muted);margin-bottom:2px}
+.move--pick .move__cau b{color:var(--lime)}
+
+/* 群の見出し（STEP 03） */
+.gtitle{display:flex;align-items:baseline;gap:8px 16px;flex-wrap:wrap;
+  border-top:2px solid var(--rule-strong);padding-top:12px;
+  margin:clamp(30px,4.4vw,52px) 0 clamp(14px,2vw,22px)}
+.gtitle--first{margin-top:0}
+.gtitle b{font-family:var(--num);font-weight:700;font-size:clamp(24px,3.2vw,38px);line-height:1;letter-spacing:.04em}
+.gtitle h3{font-weight:900;font-size:clamp(16px,2vw,21px);line-height:1.4}
+.gtitle span{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;
+  color:var(--muted);margin-left:auto}
+.sec--dark .gtitle span,.sec--dark2 .gtitle span{color:var(--on-dark-mute)}
+
+/* 大きい凡例（STEP 03 の記号の読み方） */
+.lmkey--lg{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.6vw,32px)}
+.lmkey--lg li{grid-template-columns:64px minmax(0,1fr);align-items:start;font-size:13px;line-height:1.95}
+.lmkey--lg svg{width:64px;height:64px}
+.lmkey--lg b{display:block;font-size:14.5px;font-weight:900;margin-bottom:2px}
+.sec--dark .lmkey,.sec--dark2 .lmkey{border-top-color:var(--dark-rule)}
+.sec--dark .lmkey li,.sec--dark2 .lmkey li{color:var(--on-dark-mute)}
+.sec--dark .lmkey b,.sec--dark2 .lmkey b{color:var(--on-dark)}
+
+/* 23-6. M-01 の分解（STEP 04） */
+.decomp{display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:clamp(24px,4.5vw,64px);
+  align-items:center}
+.decomp__fig{margin:0;width:100%;max-width:520px}
+.decomp__fig figcaption{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-between;
+  font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.18em;color:var(--on-dark-mute);
+  border-top:1px solid var(--dark-rule);padding-top:10px;margin-top:16px}
+.dl--lm dt{display:flex;align-items:center;gap:9px;letter-spacing:.1em}
+.dl--lm dt svg{width:26px;height:26px;flex:0 0 auto}
+
+/* 23-7. 帯の中の数字 */
+.strip__v em{font-style:normal;font-family:var(--num);font-weight:700;font-size:1.5em;
+  letter-spacing:.02em;margin-right:3px}
+
+/* 23-8. 拡張分のレスポンシブ（既存の指定より後ろに置いて上書きする） */
+@media (max-width:1080px){
+  .moves--lg{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:960px){
+  .decomp{grid-template-columns:1fr}
+  .decomp__fig{margin-inline:auto}
+}
+@media (max-width:760px){
+  .tstep{grid-template-columns:1fr;gap:10px}
+  .tstep__qa{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .moves--lg{grid-template-columns:1fr}
+  .lmkey--lg{grid-template-columns:1fr}
+  .mkey{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gtitle span{margin-left:0}
+}
+@media (max-width:430px){
+  .moves--lg .move__fig{max-width:96px}
+}
+
+/* ============================================================
+   24. ページ拡張（STEP 05 / 06 / 07 で使う追加パーツ）
+   既存トークンだけで組む。新しい色・余白は増やさない。
+   ============================================================ */
+
+/* 24-1. 目的別プログラムの型カード（STEP 05・極大数字） */
+.ptypes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.2vw,28px)}
+.ptype{border:1px solid var(--rule-strong);padding:clamp(16px,2.4vw,30px);display:flex;flex-direction:column}
+.sec--dark .ptype,.sec--dark2 .ptype{border-color:var(--dark-rule)}
+.ptype__id{font-family:var(--num);font-weight:700;font-size:12.5px;letter-spacing:.2em;color:var(--muted)}
+.ptype h3{font-weight:900;font-size:clamp(21px,3vw,32px);line-height:1.35;margin-top:8px}
+.ptype__en{display:block;font-family:var(--num);font-weight:600;font-size:12px;letter-spacing:.22em;
+  color:var(--muted);margin-top:5px}
+.ptype__nums{display:flex;flex-wrap:wrap;gap:10px clamp(18px,3.4vw,44px);align-items:flex-end;
+  margin-top:clamp(14px,2vw,22px);border-top:1px solid var(--rule);padding-top:clamp(12px,1.8vw,18px)}
+.ptype__num b{display:block;font-family:var(--num);font-weight:700;font-size:clamp(48px,8vw,96px);
+  line-height:.84;letter-spacing:.01em}
+.ptype__num b i{font-style:normal;font-size:.3em;letter-spacing:.04em;margin-left:4px}
+.ptype__num span{display:block;font-size:11.5px;letter-spacing:.08em;color:var(--muted);margin-top:8px}
+.ptype__d{font-size:13.5px;line-height:2;color:var(--muted);margin-top:clamp(12px,1.6vw,18px)}
+.ptype__mvk{display:block;font-family:var(--num);font-weight:600;font-size:11px;letter-spacing:.2em;
+  color:var(--muted);margin-top:auto;padding-top:clamp(12px,1.8vw,18px)}
+.ptype__mv{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.ptype__mv b{font-family:var(--num);font-weight:700;font-size:11px;letter-spacing:.1em;
+  border:1px solid var(--rule);color:var(--muted);padding:2px 8px 1px}
+
+/* 24-2. LOAD MARK の大判（STEP 05） */
+.pmarks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.4vw,32px)}
+.pmark{border-top:2px solid var(--lime);padding-top:clamp(14px,2vw,20px)}
+.pmark__k{display:block;font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.2em;color:var(--lime)}
+.pmark__t{display:block;font-weight:900;font-size:clamp(15px,1.7vw,18px);line-height:1.5;margin-top:6px}
+.pmark__fig{margin:clamp(12px,2vw,20px) auto clamp(12px,1.8vw,18px);max-width:200px}
+.pmark__no{display:block;font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.16em;
+  color:var(--on-dark-mute);margin-bottom:3px}
+.pmark h3{font-weight:900;font-size:clamp(14.5px,1.6vw,17px);line-height:1.5}
+.pmark p{font-size:12.5px;line-height:1.9;color:var(--on-dark-mute);margin-top:9px}
+
+/* 24-3. 番号つきの決めごとリスト（STEP 05 / 06 / 07） */
+.olist{border-top:2px solid var(--rule-strong)}
+.sec--dark .olist,.sec--dark2 .olist{border-top-color:var(--lime)}
+.olist li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px clamp(14px,2vw,26px);
+  align-items:baseline;border-bottom:1px solid var(--rule);padding:clamp(12px,1.6vw,16px) 0}
+.sec--dark .olist li,.sec--dark2 .olist li{border-bottom-color:var(--dark-rule)}
+.olist em{font-style:normal;font-family:var(--num);font-weight:700;font-size:clamp(20px,2.4vw,28px);
+  line-height:1.1;letter-spacing:.06em;color:var(--muted)}
+.sec--dark .olist em,.sec--dark2 .olist em{color:var(--lime)}
+.olist b{display:block;font-weight:900;font-size:clamp(14.5px,1.6vw,17px);line-height:1.55}
+.olist p{font-size:13px;line-height:1.95;color:var(--muted);margin-top:5px}
+.sec--dark .olist p,.sec--dark2 .olist p{color:var(--on-dark-mute)}
+
+/* 24-4. 締切の極大タイポ（STEP 07） */
+.dline{border-top:2px solid var(--lime);padding-top:clamp(14px,2vw,22px)}
+.dline__k{display:block;font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.24em;color:var(--lime)}
+.dline__v{display:block;font-weight:900;font-size:clamp(22px,3.4vw,38px);line-height:1.32;
+  margin-top:clamp(10px,1.6vw,16px)}
+.dline__n{display:block;font-family:var(--num);font-weight:700;font-size:clamp(56px,12vw,150px);
+  line-height:.84;letter-spacing:.01em;margin-top:clamp(4px,1vw,10px)}
+.dline__n i{font-style:normal;font-size:.24em;letter-spacing:.06em;margin-left:10px}
+.dline__p{font-size:13.5px;line-height:2;color:var(--on-dark-mute);margin-top:clamp(14px,2vw,22px);max-width:44em}
+
+/* 24-5. 例外の一覧（STEP 07） */
+.exc{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--dark-rule);
+  border:1px solid var(--dark-rule);margin-top:clamp(16px,2.4vw,26px)}
+.exc li{background:var(--ink);padding:clamp(14px,1.8vw,22px)}
+.exc em{font-style:normal;font-family:var(--num);font-weight:700;font-size:12px;letter-spacing:.16em;color:var(--lime)}
+.exc b{display:block;font-weight:900;font-size:clamp(14px,1.5vw,16.5px);line-height:1.55;margin-top:9px}
+.exc p{font-size:12px;line-height:1.85;color:var(--on-dark-mute);margin-top:7px}
+
+/* 24-6. 表の見出し列の幅と、対応表のセル（STEP 05 / 06 / 07） */
+.tbl--cmp tbody th,.tbl--cmp thead th:first-child{width:18%}
+.tbl--cmp thead th:nth-child(2){width:13%}
+.tbl--cmp thead th:nth-child(3){width:12%}
+.tbl--th24 tbody th,.tbl--th24 thead th:first-child{width:24%}
+.tbl--mx tbody th{width:34%}
+.tbl--mx thead th:not(:first-child),.tbl--mx td{text-align:center}
+.tbl--mx td{font-family:var(--num);font-weight:700;font-size:19px;letter-spacing:.02em}
+/* 暗い面の定義リストの補足（明るい面用の --muted のままだとAAを割る） */
+.sec--dark .dl dd small,.sec--dark2 .dl dd small{color:var(--on-dark-mute)}
+/* F-01 形式の段番号は横に伸びるので、折り返さない大きさにする（STEP 06） */
+.tstep__no--f{font-size:clamp(38px,5.2vw,70px);white-space:nowrap}
+
+/* 24-7. 2枚の対照ブロック（STEP 06） */
+.dbox{border-top:2px solid var(--rule-strong);padding-top:clamp(12px,1.8vw,18px)}
+.sec--dark .dbox,.sec--dark2 .dbox{border-top-color:var(--lime)}
+.dbox__k{display:block;font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.2em;color:var(--muted)}
+.sec--dark .dbox__k,.sec--dark2 .dbox__k{color:var(--lime)}
+.dbox h3{font-weight:900;font-size:clamp(17px,2.2vw,24px);line-height:1.45;margin-top:7px}
+.dbox ul{margin-top:clamp(8px,1.4vw,12px)}
+.dbox li{position:relative;padding-left:22px;font-size:13.5px;line-height:1.95;margin-top:9px}
+.dbox li::before{content:"";position:absolute;left:0;top:.85em;width:11px;height:2px;background:var(--acc)}
+.dbox p{font-size:12.5px;line-height:1.9;color:var(--muted);margin-top:12px}
+.sec--dark .dbox p,.sec--dark2 .dbox p{color:var(--on-dark-mute)}
+
+/* 24-7b. 3項目の補足グリッド（STEP 06） */
+.tstep__qa--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+/* 24-8. 拡張分のレスポンシブ（既存の指定より後ろに置いて上書きする） */
+@media (max-width:1080px){
+  .pmarks{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .exc{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .ptypes{grid-template-columns:1fr}
+  .tstep__qa--3{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .exc{grid-template-columns:1fr}
+  .olist li{grid-template-columns:1fr;gap:2px}
+  .tbl--cmp tbody th,.tbl--th24 tbody th,.tbl--mx tbody th{width:auto}
+  .tbl--mx thead th:not(:first-child),.tbl--mx td{text-align:left}
+  .tbl--mx td{font-size:16px}
+  /* 縦積みでは記号だけだと意味が取れないので、読み上げ用の語を表に出す */
+  .tbl--mx td .vh{position:static;width:auto;height:auto;margin:0;overflow:visible;
+    clip:auto;white-space:normal;font-family:var(--jp);font-weight:400;font-size:13px;margin-left:7px}
+}
+
 </style>
 </head>
 <body>
@@ -625,11 +876,11 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
 
       <nav class="tiernav" aria-label="メインナビゲーション">
         <ol>
-          <li><a href="gym-advance.html" data-step="01" data-name="トップ" aria-current="page">
+          <li><a href="gym-advance.html" data-step="01" data-name="トップ">
             <span class="t">土台</span><span class="r">01&#8212;02</span></a></li>
           <li><a href="gym-advance-works.html" data-step="03" data-name="種目一覧">
             <span class="t">動き</span><span class="r">03&#8212;05</span></a></li>
-          <li><a href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ">
+          <li><a href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ" aria-current="true">
             <span class="t">続ける</span><span class="r">06&#8212;07</span></a></li>
           <li><a href="gym-advance-company.html" data-step="08" data-name="トレーナー・施設案内">
             <span class="t">人と場所</span><span class="r">08&#8212;10</span></a></li>
@@ -647,7 +898,7 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
             <div class="idx__grid">
               <div class="idx__g">
                 <h2>GROUND / 土台</h2>
-                <a href="gym-advance.html" data-step="01" data-name="トップ" aria-current="page"><em>01</em><span>トップ</span></a>
+                <a href="gym-advance.html" data-step="01" data-name="トップ"><em>01</em><span>トップ</span></a>
                 <a href="gym-advance-service.html" data-step="02" data-name="セッションの中身"><em>02</em><span>セッションの中身</span></a>
               </div>
               <div class="idx__g">
@@ -659,7 +910,7 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
               <div class="idx__g">
                 <h2>KEEP / 続ける</h2>
                 <a href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ"><em>06</em><span>入会からの流れ</span></a>
-                <a href="gym-advance-price.html" data-step="07" data-name="料金と続け方"><em>07</em><span>料金と続け方</span></a>
+                <a href="gym-advance-price.html" data-step="07" data-name="料金と続け方" aria-current="page"><em>07</em><span>料金と続け方</span></a>
               </div>
               <div class="idx__g">
                 <h2>PLACE / 人と場所</h2>
@@ -680,528 +931,163 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
     <div class="wrap">
       <p class="rz">
         <span class="rz__k">STEP</span>
-        <span class="rz__n">01</span>
+        <span class="rz__n">07</span>
         <span class="rz__of">/ 10</span>
-        <span class="rz__nm">トップ</span>
+        <span class="rz__nm">料金と続け方</span>
       </p>
       <ol class="rz__bar" aria-hidden="true">
-        <li class="on"></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+        <li class="done"></li><li class="done"></li><li class="done"></li><li class="done"></li><li class="done"></li><li class="done"></li><li class="on"></li><li></li><li></li><li></li>
       </ol>
       <p class="rz__pn">
-        <span class="dis"><span class="lb">&#9664; PREV</span></span>
-        <a href="gym-advance-service.html" data-step="02" data-name="セッションの中身"><span class="lb">NEXT STEP&nbsp;&nbsp;</span>02 &#9654;</a>
+        <a href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ">&#9664; 06<span class="lb">&nbsp;&nbsp;PREV STEP</span></a>
+        <a href="gym-advance-company.html" data-step="08" data-name="トレーナー・施設案内"><span class="lb">NEXT STEP&nbsp;&nbsp;</span>08 &#9654;</a>
       </p>
     </div>
   </div>
 </header>
 
+<nav class="crumb" aria-label="パンくず">
+  <div class="wrap">
+    <ol>
+      <li><a href="gym-advance.html" data-step="01" data-name="トップ">STEP 01 トップ</a></li>
+      <li><span>KEEP 続ける</span></li>
+      <li><span aria-current="page">STEP 07 料金と続け方</span></li>
+    </ol>
+  </div>
+</nav>
+
+
 <main id="main">
 
-<!-- ============ 01-01 HERO ============ -->
-<section class="hero" aria-labelledby="h1">
-  <div class="hero__media">
-    <img src="images/gym/gym_hero.webp" alt="FORGEのトレーニングフロア。窓際に並んだダンベルラック" fetchpriority="high" decoding="async">
-    <span class="hero__veil" aria-hidden="true"></span>
-  </div>
-  <div class="wrap hero__inner">
-    <p class="hero__eye">FUKUOKA CHUO-KU TENJIN / 完全予約制</p>
-    <h1 id="h1">
-      <span class="h1-brand">FORGE</span>
-      <span class="h1-catch">一段ずつしか、上がらない。<br><em>だから、上がる。</em></span>
-    </h1>
-    <p class="hero__lead">福岡市中央区・天神の完全予約制パーソナルジム。マンツーマンで、トレーニング経験がない方も無理なく。シャワー・ウェアは無料でご用意しています。</p>
-    <div class="hero__foot">
-      <b>STEP 01 / 10</b>
-      <span>いちばん下の段です。ここでFORGEの全体像と、10段ぶんの地図をお見せします。</span>
-    </div>
+<!-- ============ 07-01 PAGE HEAD ============ -->
+<section class="phead" aria-labelledby="h1">
+  <div class="wrap phead__inner">
+    <p class="phead__tag"><b>STEP 07</b>KEEP / 続ける<span>PRICE &amp; KEEPING</span></p>
+    <h1 id="h1">料金と、<em>続け方。</em></h1>
+    <span class="phead__en">PRICE &amp; KEEPING</span>
+    <p class="phead__lead">金額だけなら3行で終わります。このページで長く書いているのは、行けない週が出たときにどうなるか、やめたくなったときに何が起きるか、のほうです。続けられるかどうかは、たぶんそちらで決まると思っています。</p>
   </div>
 </section>
 
-<section class="strip" aria-label="FORGEの基本方針">
+<section class="strip" aria-label="料金と続け方の基本">
   <div class="wrap">
     <div class="strip__grid">
-      <div class="strip__cell"><span class="strip__k">01 / SYSTEM</span><span class="strip__v">完全予約制のマンツーマン</span></div>
-      <div class="strip__cell"><span class="strip__k">02 / LEVEL</span><span class="strip__v">初心者歓迎</span></div>
-      <div class="strip__cell"><span class="strip__k">03 / AMENITY</span><span class="strip__v">シャワー・ウェア無料</span></div>
+      <div class="strip__cell"><span class="strip__k">01 / JOINING FEE</span><span class="strip__v">入会金・初期費用は<em>&yen;0</em></span></div>
+      <div class="strip__cell"><span class="strip__k">02 / CHANGE</span><span class="strip__v">変更・振替は前日<em>20:00</em>まで</span></div>
+      <div class="strip__cell"><span class="strip__k">03 / PENALTY</span><span class="strip__v">違約金・解約手数料は<em>&yen;0</em></span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ 01-02 THE STAIR ============ -->
-<section class="sec sec--paper" id="stair" aria-labelledby="stair-t">
+<nav class="inpage" aria-label="このページの目次">
+  <div class="wrap">
+    <span class="inpage__k">IN THIS STEP</span>
+    <a href="#plans"><em>07-02</em><span>月額プラン</span></a>
+    <a href="#tickets"><em>07-03</em><span>回数券と有効期限</span></a>
+    <a href="#rest"><em>07-04</em><span>休会</span></a>
+    <a href="#cancel"><em>07-05</em><span>キャンセルと振替</span></a>
+    <a href="#quit"><em>07-06</em><span>中途解約・退会</span></a>
+    <a href="#notes"><em>07-07</em><span>20日の締切と表示</span></a>
+  </div>
+</nav>
+
+<!-- ============ 07-02 PLANS ============ -->
+<section class="sec sec--dark2" id="plans" aria-labelledby="plans-t">
   <div class="wrap">
     <div class="shead rv">
-      <p class="shead__row"><span class="shead__no">01-02</span><span class="shead__en">THE STAIR</span></p>
-      <h2 id="stair-t">10ページを、10段にしました。</h2>
-      <p class="shead__note">トレーニングは、扱える重さが少しずつ上がっていく階段です。このサイトも同じ組み方にしました。左の段ほど基礎、右へ一段ずつ進むほど具体的になります。どこから読んでも構いませんが、迷ったら01から順に踏んでいってください。</p>
+      <p class="shead__row"><span class="shead__no">07-02</span><span class="shead__en">PLANS / A &#8212; C</span></p>
+      <h2 id="plans-t">月額は、3つだけ。</h2>
+      <p class="shead__note">違うのは回数です。セッションの中身も1回60分という長さも、どのプランでも変わりません。入会金・初期費用はいただきません。表示はすべて税抜です。</p>
     </div>
 
-    <ol class="stair rv">
-      <li class="stair__i stair__i--here" style="--n:1">
-        <a class="stair__a" href="gym-advance.html" data-step="01" data-name="トップ" aria-current="page">
-          <span class="stair__no"><span>0</span>1</span>
-          <span><span class="stair__t">トップ</span><span class="stair__d">FORGEの全体像と、10段ぶんの地図。</span><span class="stair__here">YOU ARE HERE</span></span>
-          <span class="stair__tier">GROUND</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:2">
-        <a class="stair__a" href="gym-advance-service.html" data-step="02" data-name="セッションの中身">
-          <span class="stair__no"><span>0</span>2</span>
-          <span><span class="stair__t">セッションの中身</span><span class="stair__d">60分をどう使うか。4つのブロックの中身を、分単位で。</span></span>
-          <span class="stair__tier">GROUND</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:3">
-        <a class="stair__a" href="gym-advance-works.html" data-step="03" data-name="種目一覧">
-          <span class="stair__no"><span>0</span>3</span>
-          <span><span class="stair__t">種目一覧</span><span class="stair__d">M-01からM-10まで。どこを使う種目なのかで並べた索引。</span></span>
-          <span class="stair__tier">MOVE</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:4">
-        <a class="stair__a" href="gym-advance-work-detail.html" data-step="04" data-name="種目詳細 M-01 バーベルスクワット">
-          <span class="stair__no"><span>0</span>4</span>
-          <span><span class="stair__t">種目詳細 M-01 バーベルスクワット</span><span class="stair__d">1種目だけを、支点と荷重まで分解して。</span></span>
-          <span class="stair__tier">MOVE</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:5">
-        <a class="stair__a" href="gym-advance-program.html" data-step="05" data-name="目的別プログラム">
-          <span class="stair__no"><span>0</span>5</span>
-          <span><span class="stair__t">目的別プログラム</span><span class="stair__d">絞る・上げる・整える・保つ。4つの進み方と期間の目安。</span></span>
-          <span class="stair__tier">MOVE</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:6">
-        <a class="stair__a" href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ">
-          <span class="stair__no"><span>0</span>6</span>
-          <span><span class="stair__t">入会からの流れ</span><span class="stair__d">申し込みから、通いはじめて習慣になるまで。</span></span>
-          <span class="stair__tier">KEEP</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:7">
-        <a class="stair__a" href="gym-advance-price.html" data-step="07" data-name="料金と続け方">
-          <span class="stair__no"><span>0</span>7</span>
-          <span><span class="stair__t">料金と続け方</span><span class="stair__d">回数券の有効期限、休会、キャンセル、退会まで全部。</span></span>
-          <span class="stair__tier">KEEP</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:8">
-        <a class="stair__a" href="gym-advance-company.html" data-step="08" data-name="トレーナー・施設案内">
-          <span class="stair__no"><span>0</span>8</span>
-          <span><span class="stair__t">トレーナー・施設案内</span><span class="stair__d">3名の担当と、約90㎡に置いてあるもの。</span></span>
-          <span class="stair__tier">PLACE</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:9">
-        <a class="stair__a" href="gym-advance-faq.html" data-step="09" data-name="よくある質問">
-          <span class="stair__no"><span>0</span>9</span>
-          <span><span class="stair__t">よくある質問</span><span class="stair__d">体験・トレーニング・料金と手続き・体のこと。</span></span>
-          <span class="stair__tier">PLACE</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:10">
-        <a class="stair__a" href="gym-advance-contact.html" data-step="10" data-name="アクセス・体験申込">
-          <span class="stair__no">10</span>
-          <span><span class="stair__t">アクセス・体験申込</span><span class="stair__d">天神4-2-10。いちばん上の段が、申し込みです。</span></span>
-          <span class="stair__tier">PLACE</span>
-        </a>
-      </li>
-    </ol>
-
-    <p class="stairfoot rv">
-      <b>4 TIERS</b>
-      <span>GROUND 土台（01&#8211;02）／ MOVE 動き（03&#8211;05）／ KEEP 続ける（06&#8211;07）／ PLACE 人と場所（08&#8211;10）</span>
-    </p>
-  </div>
-</section>
-
-<!-- ============ 01-03 REASON ============ -->
-<section class="sec" id="reason" aria-labelledby="reason-t">
-  <div class="wrap">
-    <div class="shead rise r1 rv">
-      <p class="shead__row"><span class="shead__no">01-03</span><span class="shead__en">REASON</span></p>
-      <h2 id="reason-t">選ばれる理由</h2>
-      <p class="shead__note">この3つは、ライト版・スタンダード版から変えていません。FORGEの土台にあたる部分です。</p>
-    </div>
-
-    <div class="rcards rise r1 rv">
-      <div class="rcard">
-        <p class="rcard__hd"><span class="rcard__no"><span>0</span>1</span><span class="rcard__en">SYSTEM</span></p>
-        <figure class="rcard__fig">
-          <img src="images/gym/gym_trainer_1.webp" alt="フロアで一人だけがトレーニングに向かう様子" loading="lazy" decoding="async">
-        </figure>
-        <h3>完全予約制のマンツーマン</h3>
-        <p>他のお客様と時間が重なることはありません。専属トレーナーが、あなたの体だけを見て指導します。</p>
-      </div>
-      <div class="rcard">
-        <p class="rcard__hd"><span class="rcard__no"><span>0</span>2</span><span class="rcard__en">LEVEL</span></p>
-        <h3>初心者歓迎</h3>
-        <p>運動経験がなくても大丈夫。フォームの作り方から、無理のないペース配分まで丁寧にお伝えします。シャフトだけの1セットから始めて、フォームが安定したぶんだけプレートを足していきます。</p>
-      </div>
-      <div class="rcard">
-        <p class="rcard__hd"><span class="rcard__no"><span>0</span>3</span><span class="rcard__en">AMENITY</span></p>
-        <h3>シャワー・ウェア無料</h3>
-        <p>お仕事帰りでも手ぶらで通えます。ウェア（上下）・シューズ・タオル・シャワーアメニティは、すべて無料でご用意しています。</p>
-      </div>
-    </div>
-
-    <p class="note rise r1 rv">※ トレーニングの効果や感じ方には個人差があります。体調・既往症により内容を調整します。</p>
-  </div>
-</section>
-
-<!-- ============ 01-04 ONE SESSION ============ -->
-<section class="sec sec--dark2" id="session" aria-labelledby="session-t">
-  <div class="wrap">
-    <div class="shead rise r2 rv">
-      <p class="shead__row"><span class="shead__no">01-04</span><span class="shead__en">ONE SESSION / 60 MIN</span></p>
-      <h2 id="session-t">1回60分の、中身。</h2>
-      <p class="shead__note">どのプランも1回60分です。中でやることは大きく4つ。時間の配分は、その日の体調に合わせて調整します。</p>
-    </div>
-
-    <div class="blocks rise r2 rv">
-      <div class="block">
-        <p class="block__no"><span>0</span>1</p>
-        <span class="block__min">約5分</span>
-        <h3>体調と記録の確認</h3>
-        <p>睡眠・食事・筋肉痛の残り方を聞き取り、前回の記録と見比べて、その日のメニューを決めます。</p>
-      </div>
-      <div class="block">
-        <p class="block__no"><span>0</span>2</p>
-        <span class="block__min">約10分</span>
-        <h3>ウォームアップ</h3>
-        <p>関節を動かして可動域を出してから、シャフトなど軽い負荷で動きを確認します。</p>
-      </div>
-      <div class="block">
-        <p class="block__no"><span>0</span>3</p>
-        <span class="block__min">約35分</span>
-        <h3>メインのセット</h3>
-        <p>種目ごとにセットを重ねます。フォームが崩れた時点で止め、無理に回数を追いません。</p>
-      </div>
-      <div class="block">
-        <p class="block__no"><span>0</span>4</p>
-        <span class="block__min">約10分</span>
-        <h3>クールダウンと次回の設計</h3>
-        <p>整理運動のあと、記録をまとめて次回の重さと回数を決めます。食事のご相談もここで。</p>
-      </div>
-    </div>
-
-    <a class="morelink rise r2 rv" href="gym-advance-service.html" data-step="02" data-name="セッションの中身">
-      <b>60分の中身を、もっと細かく見る</b>
-      <span>STEP 02 &nbsp;/&nbsp; セッションの中身 &#8594;</span>
-    </a>
-
-    <p class="note rise r2 rv">※ セッションの内容は目的・体力・当日の体調に応じて組み替えます。効果や感じ方には個人差があります。</p>
-  </div>
-</section>
-
-<!-- ============ 01-05 MOVES ============ -->
-<section class="sec sec--paper" id="moves" aria-labelledby="moves-t">
-  <div class="wrap">
-    <div class="shead rise r3 rv">
-      <p class="shead__row"><span class="shead__no">01-05</span><span class="shead__en">MOVES / M-01 &#8212; M-10</span></p>
-      <h2 id="moves-t">10種目を、記号で。</h2>
-      <p class="shead__note">種目の図に人の絵は使っていません。<b>どこが支点になり（&#9679;）、どこへ動き（&#8594;）、どこに荷重がかかるか（&#9660;）</b>の3つだけを書いた記号です。写真より、この3つのほうが伝わると思ったからです。種目の詳しい説明はSTEP 03に、M-01の分解はSTEP 04にあります。</p>
-    </div>
-
-    <div class="moves rise r3 rv">
-
-      <div class="move move--pick">
-        <span class="move__no">M-01</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="バーベルスクワットの記号。肩に荷重、股関節と膝が支点、上下に動く">
-            <line class="lm-ax" x1="60" y1="32" x2="60" y2="104"/>
-            <path class="lm-ld" d="M60,28 L70,10 L50,10 Z"/>
-            <circle class="lm-fx" cx="60" cy="62" r="5.5"/>
-            <circle class="lm-fx" cx="60" cy="86" r="5.5"/>
-            <line class="lm-mv" x1="96" y1="48" x2="96" y2="76"/>
-            <path class="lm-hd" d="M96,38 L101,50 L91,50 Z"/>
-            <path class="lm-hd" d="M96,86 L101,74 L91,74 Z"/>
-            <line class="lm-gd" x1="26" y1="104" x2="94" y2="104"/>
-          </svg>
-        </figure>
-        <h3>バーベルスクワット</h3>
-        <span class="move__p">大腿四頭筋・臀筋・脊柱起立筋</span>
-        <span class="move__pick">STEP 04 で分解</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-02</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="デッドリフトの記号。股関節が支点、上体が前に倒れ、床の位置に荷重">
-            <line class="lm-ax" x1="24" y1="42" x2="84" y2="60"/>
-            <line class="lm-ax" x1="84" y1="60" x2="84" y2="104"/>
-            <circle class="lm-fx" cx="84" cy="60" r="5.5"/>
-            <line class="lm-gd" x1="34" y1="46" x2="34" y2="82"/>
-            <path class="lm-ld" d="M34,98 L44,82 L24,82 Z"/>
-            <path class="lm-mv" d="M56,22 A34,34 0 0 1 82,40"/>
-            <path class="lm-hd" d="M86,46 L74,42 L80,32 Z"/>
-          </svg>
-        </figure>
-        <h3>デッドリフト</h3>
-        <span class="move__p">ハムストリングス・臀筋・広背筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-03</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ベンチプレスの記号。台に置いた体が支点、胸の上で荷重が上下する">
-            <line class="lm-ax" x1="18" y1="88" x2="102" y2="88"/>
-            <circle class="lm-fx" cx="34" cy="88" r="5.5"/>
-            <circle class="lm-fx" cx="86" cy="88" r="5.5"/>
-            <path class="lm-ld" d="M60,42 L70,24 L50,24 Z"/>
-            <line class="lm-mv" x1="60" y1="52" x2="60" y2="72"/>
-            <path class="lm-hd" d="M60,46 L65,58 L55,58 Z"/>
-            <path class="lm-hd" d="M60,80 L65,68 L55,68 Z"/>
-            <line class="lm-gd" x1="18" y1="98" x2="102" y2="98"/>
-          </svg>
-        </figure>
-        <h3>ベンチプレス</h3>
-        <span class="move__p">大胸筋・三角筋前部・上腕三頭筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-04</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ラットプルダウンの記号。肩が支点、上から下へ引く">
-            <line class="lm-ax" x1="60" y1="46" x2="60" y2="104"/>
-            <circle class="lm-fx" cx="60" cy="52" r="5.5"/>
-            <path class="lm-ld" d="M60,20 L70,38 L50,38 Z"/>
-            <line class="lm-mv" x1="94" y1="30" x2="94" y2="72"/>
-            <path class="lm-hd" d="M94,82 L99,68 L89,68 Z"/>
-            <line class="lm-gd" x1="30" y1="24" x2="90" y2="24"/>
-          </svg>
-        </figure>
-        <h3>ラットプルダウン</h3>
-        <span class="move__p">広背筋・僧帽筋下部</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-05</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ショルダープレスの記号。体幹が支点、頭上へ押し上げる">
-            <line class="lm-ax" x1="60" y1="44" x2="60" y2="104"/>
-            <circle class="lm-fx" cx="60" cy="70" r="5.5"/>
-            <path class="lm-ld" d="M60,40 L70,22 L50,22 Z"/>
-            <line class="lm-mv" x1="94" y1="38" x2="94" y2="76"/>
-            <path class="lm-hd" d="M94,28 L99,42 L89,42 Z"/>
-            <line class="lm-gd" x1="30" y1="104" x2="90" y2="104"/>
-          </svg>
-        </figure>
-        <h3>ショルダープレス</h3>
-        <span class="move__p">三角筋・上腕三頭筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-06</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ルーマニアンデッドリフトの記号。股関節だけを支点に上体を折る">
-            <line class="lm-ax" x1="26" y1="52" x2="80" y2="64"/>
-            <line class="lm-ax" x1="80" y1="64" x2="80" y2="102"/>
-            <circle class="lm-fx" cx="80" cy="64" r="6.5"/>
-            <line class="lm-gd" x1="38" y1="56" x2="38" y2="76"/>
-            <path class="lm-ld" d="M38,92 L48,76 L28,76 Z"/>
-            <path class="lm-mv" d="M52,30 A32,32 0 0 1 76,46"/>
-            <path class="lm-hd" d="M80,52 L68,48 L74,38 Z"/>
-          </svg>
-        </figure>
-        <h3>ルーマニアンデッドリフト</h3>
-        <span class="move__p">ハムストリングス・臀筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-07</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ブルガリアンスクワットの記号。前脚だけが支点、片脚で上下する">
-            <line class="lm-ax" x1="44" y1="40" x2="44" y2="104"/>
-            <line class="lm-ax" x1="82" y1="66" x2="82" y2="88"/>
-            <circle class="lm-fx" cx="44" cy="76" r="6.5"/>
-            <path class="lm-ld" d="M44,36 L54,18 L34,18 Z"/>
-            <line class="lm-mv" x1="18" y1="54" x2="18" y2="80"/>
-            <path class="lm-hd" d="M18,46 L23,58 L13,58 Z"/>
-            <path class="lm-hd" d="M18,88 L23,76 L13,76 Z"/>
-            <line class="lm-gd" x1="70" y1="88" x2="98" y2="88"/>
-          </svg>
-        </figure>
-        <h3>ブルガリアンスクワット</h3>
-        <span class="move__p">臀筋・大腿四頭筋（片脚）</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-08</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ワンハンドロウの記号。肩が支点、荷重を手前に引く">
-            <line class="lm-ax" x1="20" y1="56" x2="96" y2="56"/>
-            <circle class="lm-fx" cx="76" cy="56" r="5.5"/>
-            <line class="lm-gd" x1="44" y1="56" x2="44" y2="88"/>
-            <path class="lm-ld" d="M44,104 L54,88 L34,88 Z"/>
-            <line class="lm-mv" x1="44" y1="76" x2="44" y2="66"/>
-            <path class="lm-hd" d="M44,58 L49,72 L39,72 Z"/>
-            <line class="lm-gd" x1="20" y1="104" x2="96" y2="104"/>
-          </svg>
-        </figure>
-        <h3>ワンハンドロウ</h3>
-        <span class="move__p">広背筋・菱形筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-09</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="プランクとデッドバグの記号。両端が支点、動かさずにまっすぐ保つ">
-            <line class="lm-ax" x1="20" y1="62" x2="100" y2="62"/>
-            <circle class="lm-fx" cx="24" cy="62" r="5.5"/>
-            <circle class="lm-fx" cx="96" cy="62" r="5.5"/>
-            <line class="lm-gd" x1="20" y1="62" x2="100" y2="62"/>
-            <path class="lm-mv" d="M32,86 L32,94 L88,94 L88,86"/>
-            <path class="lm-ld" d="M60,80 L70,62 L50,62 Z" opacity=".22"/>
-            <line class="lm-mv" x1="52" y1="94" x2="68" y2="94"/>
-          </svg>
-        </figure>
-        <h3>プランク／デッドバグ</h3>
-        <span class="move__p">腹横筋・腹斜筋・多裂筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-10</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ケトルベルスイングの記号。股関節を支点に、荷重が弧を描いて振れる">
-            <circle class="lm-fx" cx="60" cy="34" r="6.5"/>
-            <line class="lm-ax" x1="60" y1="40" x2="60" y2="104"/>
-            <path class="lm-gd" d="M60,34 L34,96"/>
-            <path class="lm-mv" d="M34,96 A64,64 0 0 1 24,44"/>
-            <path class="lm-hd" d="M20,34 L30,46 L16,48 Z"/>
-            <path class="lm-ld" d="M34,96 L44,80 L24,80 Z"/>
-          </svg>
-        </figure>
-        <h3>ケトルベルスイング</h3>
-        <span class="move__p">臀筋・ハムストリングス・心肺</span>
-      </div>
-
-    </div>
-
-    <ul class="lmkey rise r3 rv">
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="lm-fx" cx="16" cy="16" r="6"/></svg>
-        <span><b>支点</b>：動かさずに支えるところ</span>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><line class="lm-mv" x1="16" y1="26" x2="16" y2="12"/><path class="lm-hd" d="M16,4 L22,16 L10,16 Z"/></svg>
-        <span><b>動き</b>：力を出す方向</span>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="lm-ld" d="M16,28 L26,8 L6,8 Z"/></svg>
-        <span><b>荷重</b>：重さがかかるところ</span>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><line class="lm-gd" x1="4" y1="16" x2="28" y2="16"/></svg>
-        <span><b>補助線</b>：床・器具・腕の位置</span>
-      </li>
-    </ul>
-
-    <a class="morelink morelink--ghost rise r3 rv" href="gym-advance-works.html" data-step="03" data-name="種目一覧">
-      <b>10種目の一覧を見る</b>
-      <span>STEP 03 &nbsp;/&nbsp; M-01 &#8212; M-10 &#8594;</span>
-    </a>
-
-    <p class="note rise r3 rv">※ 種目の選び方・順番・重さは、目的・体力・当日の体調に合わせてトレーナーが組みます。フォームが崩れた時点でセットを止めます。</p>
-  </div>
-</section>
-
-<!-- ============ 01-06 AIM ============ -->
-<section class="sec" id="aim" aria-labelledby="aim-t">
-  <div class="wrap">
-    <div class="shead rise r4 rv">
-      <p class="shead__row"><span class="shead__no">01-06</span><span class="shead__en">AIM / P-01 &#8212; P-04</span></p>
-      <h2 id="aim-t">目的が違えば、段の上がり方も違う。</h2>
-      <p class="shead__note">同じ種目でも、何のためにやるかで頻度も期間も変わります。FORGEは4つの型を用意しています。どれに当てはまるかは、初回のカウンセリングで一緒に決めます。途中で変えても構いません。</p>
-    </div>
-
-    <div class="aims rise r4 rv">
-      <a class="aim" href="gym-advance-program.html" data-step="05" data-name="目的別プログラム">
-        <span class="aim__id">P-01</span>
-        <h3>体を絞る</h3>
-        <span class="aim__en">BODY MAKE</span>
-        <span class="aim__nums">
-          <span class="aim__num"><b>2<i>回/週</i></b><span>頻度</span></span>
-          <span class="aim__num"><b>12<i>週</i></b><span>期間の目安</span></span>
-        </span>
-        <span class="aim__d">大きい種目を一巡してから、セット数を増やして休憩を少し短くします。食事は考え方までお伝えします。</span>
-        <span class="aim__go">STEP 05 &#8594;</span>
-      </a>
-      <a class="aim" href="gym-advance-program.html" data-step="05" data-name="目的別プログラム">
-        <span class="aim__id">P-02</span>
-        <h3>重さを上げる</h3>
-        <span class="aim__en">STRENGTH</span>
-        <span class="aim__nums">
-          <span class="aim__num"><b>2<i>回/週</i></b><span>頻度</span></span>
-          <span class="aim__num"><b>16<i>週</i></b><span>期間の目安</span></span>
-        </span>
-        <span class="aim__d">スクワット・デッドリフト・ベンチプレスの3種目が軸。休憩を長めに取って、記録の差だけを見ます。</span>
-        <span class="aim__go">STEP 05 &#8594;</span>
-      </a>
-      <a class="aim" href="gym-advance-program.html" data-step="05" data-name="目的別プログラム">
-        <span class="aim__id">P-03</span>
-        <h3>姿勢を整える</h3>
-        <span class="aim__en">POSTURE</span>
-        <span class="aim__nums">
-          <span class="aim__num"><b>1<i>&#8211;2回/週</i></b><span>頻度</span></span>
-          <span class="aim__num"><b>8<i>週</i></b><span>期間の目安</span></span>
-        </span>
-        <span class="aim__d">いま動かせる範囲を測ってから、背中と体幹の種目で支える力をつけていきます。</span>
-        <span class="aim__go">STEP 05 &#8594;</span>
-      </a>
-      <a class="aim" href="gym-advance-program.html" data-step="05" data-name="目的別プログラム">
-        <span class="aim__id">P-04</span>
-        <h3>体力を保つ</h3>
-        <span class="aim__en">KEEP</span>
-        <span class="aim__nums">
-          <span class="aim__num"><b>1<i>回/週</i></b><span>頻度</span></span>
-          <span class="aim__num"><b>&#8212;</b><span>期限は決めない</span></span>
-        </span>
-        <span class="aim__d">毎回、全身を軽く一巡します。疲れている日は迷わずメニューを落とします。続けることが目的です。</span>
-        <span class="aim__go">STEP 05 &#8594;</span>
-      </a>
-    </div>
-
-    <p class="note note--strong rise r4 rv">※ 期間はあくまで目安です。進み方・体の変わり方には<b>個人差</b>があり、期間や数値をお約束するものではありません。<br>※ 痛みやしびれなど気になる症状があるときは、まず医療機関にご相談ください。FORGEでは症状の診断や治療は行いません。</p>
-  </div>
-</section>
-
-<!-- ============ 01-07 PRICE ============ -->
-<section class="sec sec--dark" id="price" aria-labelledby="price-t">
-  <div class="wrap">
-    <div class="shead rise r5 rv">
-      <p class="shead__row"><span class="shead__no">01-07</span><span class="shead__en">PRICE &amp; KEEPING</span></p>
-      <h2 id="price-t">料金と、続け方。</h2>
-      <p class="shead__note">月額プランは3つ。それとは別に、必要なぶんだけ通える回数券があります。休会・キャンセル・退会の決まりまで含めた全部は、STEP 07にまとめました。</p>
-    </div>
-
-    <div class="pdig rise r5 rv">
+    <div class="pdig rv">
       <div class="pdig__i">
-        <span class="pdig__en">PLAN A</span>
-        <span class="pdig__n">体験セッション</span>
-        <span class="pdig__y">&yen;5,000</span>
-        <span class="pdig__u">／回（1回のみ）</span>
-        <span class="pdig__d">カウンセリング込み60分。まず試してみたい方へ。</span>
+        <span class="pdig__en">PLAN A</span><span class="pdig__n">体験セッション</span>
+        <span class="pdig__y">&yen;5,000</span><span class="pdig__u">／回（1回のみ）</span>
+        <span class="pdig__d">カウンセリング・体組成測定・トレーニング体験60分。おひとり1回まで。当日にご入会いただいた場合、初回の月会費から差し引きます。</span>
       </div>
       <div class="pdig__i pdig__i--mark">
-        <span class="pdig__en">PLAN B</span>
-        <span class="pdig__n">スタンダード</span>
-        <span class="pdig__y">&yen;28,000</span>
-        <span class="pdig__u">／月4回（週1回）</span>
-        <span class="pdig__d">無理なく継続したい方の標準プラン。食事アドバイス付き。</span>
+        <span class="pdig__en">PLAN B</span><span class="pdig__n">スタンダード</span>
+        <span class="pdig__y">&yen;28,000</span><span class="pdig__u">／月4回（週1回）</span>
+        <span class="pdig__d">60分/回。食事アドバイスと記録の管理つき。週1回のペースで続けたい方の標準です。</span>
       </div>
       <div class="pdig__i">
-        <span class="pdig__en">PLAN C</span>
-        <span class="pdig__n">プレミアム</span>
-        <span class="pdig__y">&yen;52,000</span>
-        <span class="pdig__u">／月8回（週2回）</span>
-        <span class="pdig__d">週2回でしっかり取り組みたい方へ。LINE相談付き。</span>
+        <span class="pdig__en">PLAN C</span><span class="pdig__n">プレミアム</span>
+        <span class="pdig__y">&yen;52,000</span><span class="pdig__u">／月8回（週2回）</span>
+        <span class="pdig__d">60分/回。食事アドバイスに加えてLINE相談つき。週2回のペースで取り組みたい方に。</span>
       </div>
     </div>
 
-    <h3 class="vh">回数券</h3>
-    <div class="tickets rise r5 rv" style="margin-top:clamp(22px,3vw,34px)">
+    <div class="rv" style="margin-top:clamp(28px,3.6vw,44px)">
+      <table class="tbl">
+        <caption>PLANS &#8212; プラン比較（税抜）</caption>
+        <thead>
+          <tr>
+            <th scope="col">項目</th>
+            <th scope="col">PLAN A 体験セッション</th>
+            <th scope="col">PLAN B スタンダード</th>
+            <th scope="col">PLAN C プレミアム</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">料金</th>
+            <td data-h="PLAN A" class="num">&yen;5,000／回</td>
+            <td data-h="PLAN B" class="num">&yen;28,000／月</td>
+            <td data-h="PLAN C" class="num">&yen;52,000／月</td></tr>
+          <tr><th scope="row">回数・頻度</th>
+            <td data-h="PLAN A">1回のみ</td>
+            <td data-h="PLAN B">月4回（週1回）</td>
+            <td data-h="PLAN C">月8回（週2回）</td></tr>
+          <tr><th scope="row">セッション時間</th>
+            <td data-h="PLAN A">60分（カウンセリング込み）</td>
+            <td data-h="PLAN B">60分</td>
+            <td data-h="PLAN C">60分</td></tr>
+          <tr><th scope="row">食事アドバイス</th>
+            <td data-h="PLAN A">なし</td>
+            <td data-h="PLAN B">あり（考え方まで）</td>
+            <td data-h="PLAN C">あり（考え方まで）</td></tr>
+          <tr><th scope="row">記録の管理</th>
+            <td data-h="PLAN A">当日の測定のみ</td>
+            <td data-h="PLAN B">あり</td>
+            <td data-h="PLAN C">あり</td></tr>
+          <tr><th scope="row">LINE相談</th>
+            <td data-h="PLAN A">なし</td>
+            <td data-h="PLAN B">なし</td>
+            <td data-h="PLAN C">あり</td></tr>
+          <tr><th scope="row">シャワー・ウェア</th>
+            <td data-h="PLAN A">無料</td>
+            <td data-h="PLAN B">無料</td>
+            <td data-h="PLAN C">無料</td></tr>
+          <tr><th scope="row">こんな方に</th>
+            <td data-h="PLAN A">まず一度試したい方</td>
+            <td data-h="PLAN B">週1回のペースで続けたい方</td>
+            <td data-h="PLAN C">週2回のペースで取り組みたい方</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <dl class="dl rv" style="margin-top:clamp(28px,3.6vw,44px)">
+      <div><dt>JOINING FEE</dt><dd>入会金・初期費用はいただきません。再入会のときも費用はかかりません。</dd></div>
+      <div><dt>SWITCH</dt><dd>プラン変更はいつでも可能です。<b>当月20日までのご連絡で、翌月から</b>変わります。<small>PLAN B ↔ PLAN C のどちらの向きでも同じ扱いです。</small></dd></div>
+      <div><dt>PAYMENT</dt><dd>クレジットカード決済／口座振替／店頭での現金・電子マネー。</dd></div>
+      <div><dt>CARRY OVER</dt><dd>月の回数の繰り越しはできません。<small>行けない月があらかじめ分かっているときは休会（07-04）を、まとめて通いたいときは回数券（07-03）をご利用ください。</small></dd></div>
+      <div><dt>MEMBERS ONLY</dt><dd>会員以外の方がご利用いただけるのは、体験セッション（PLAN A）と回数券です。ジムだけを使うフリー利用はお受けしていません。</dd></div>
+    </dl>
+
+    <p class="note rv">※ 表示はすべて税抜価格です。入会金・初期費用はいただいておりません。<br>※ トレーニングの効果や感じ方には<b>個人差</b>があります。体調・既往症により内容を調整、またはご案内を控える場合があります。</p>
+  </div>
+</section>
+
+<!-- ============ 07-03 TICKETS ============ -->
+<section class="sec sec--dark" id="tickets" aria-labelledby="tickets-t">
+  <div class="wrap">
+    <div class="shead rise r1 rv">
+      <p class="shead__row"><span class="shead__no">07-03</span><span class="shead__en">TICKETS / 04 &#183; 08 &#183; 12</span></p>
+      <h2 id="tickets-t">回数券は、期限つきです。</h2>
+      <p class="shead__note">月額プランに入らずに、必要なぶんだけ通いたい方向けです。券面に大きく書いてあるのは金額ではなく有効期限です。ここがいちばん誤解の起きやすいところなので、下に決めごとを6つ並べました。</p>
+    </div>
+
+    <div class="tickets rise r1 rv">
       <div class="ticket">
         <span class="ticket__id">TICKET 04</span>
         <span class="ticket__n">4回券 &yen;30,000</span>
@@ -1212,121 +1098,257 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
         <span class="ticket__id">TICKET 08</span>
         <span class="ticket__n">8回券 &yen;56,000</span>
         <span class="ticket__lim">6<i>ヶ月</i></span>
-        <span class="ticket__p">有効期限。休会を申請した期間は止まります。</span>
+        <span class="ticket__p">有効期限。購入日の翌日から数えます。</span>
       </div>
       <div class="ticket">
         <span class="ticket__id">TICKET 12</span>
         <span class="ticket__n">12回券 &yen;81,000</span>
         <span class="ticket__lim">9<i>ヶ月</i></span>
-        <span class="ticket__p">有効期限。月額プランとの併用もできます。</span>
+        <span class="ticket__p">有効期限。購入日の翌日から数えます。</span>
       </div>
     </div>
 
-    <div class="rise r5 rv" style="margin-top:clamp(26px,3.4vw,40px)">
+    <div class="rise r1 rv" style="margin-top:clamp(28px,3.6vw,44px)">
       <table class="tbl">
         <caption>TICKETS &#8212; 回数券（税抜）</caption>
         <thead>
-          <tr><th scope="col">券種</th><th scope="col">料金</th><th scope="col">有効期限</th><th scope="col">払い戻し</th></tr>
+          <tr>
+            <th scope="col">券種</th>
+            <th scope="col">料金</th>
+            <th scope="col">有効期限</th>
+            <th scope="col">払い戻し</th>
+          </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">4回券</th>
+          <tr><th scope="row">TICKET 04 ／ 4回券</th>
             <td data-h="料金" class="num">&yen;30,000</td>
             <td data-h="有効期限">購入日の翌日から3ヶ月</td>
-            <td data-h="払い戻し">未使用分の払い戻しはありません</td>
-          </tr>
-          <tr>
-            <th scope="row">8回券</th>
+            <td data-h="払い戻し">未使用分の払い戻しはありません</td></tr>
+          <tr><th scope="row">TICKET 08 ／ 8回券</th>
             <td data-h="料金" class="num">&yen;56,000</td>
             <td data-h="有効期限">購入日の翌日から6ヶ月</td>
-            <td data-h="払い戻し">未使用分の払い戻しはありません</td>
-          </tr>
-          <tr>
-            <th scope="row">12回券</th>
+            <td data-h="払い戻し">未使用分の払い戻しはありません</td></tr>
+          <tr><th scope="row">TICKET 12 ／ 12回券</th>
             <td data-h="料金" class="num">&yen;81,000</td>
             <td data-h="有効期限">購入日の翌日から9ヶ月</td>
-            <td data-h="払い戻し">未使用分の払い戻しはありません</td>
-          </tr>
+            <td data-h="払い戻し">未使用分の払い戻しはありません</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3 class="vh">続けるための3つの決まり</h3>
-    <div class="keeps rise r5 rv">
-      <div class="keep">
-        <span class="keep__k">CHANGE / 変更・振替</span>
-        <span class="keep__v">前日 20<i>:00 まで</i></span>
-        <p>この時刻までのご連絡なら、空いている枠へ何度でも振り替えられます。過ぎた場合は1回分を消化します。発熱・けが・警報・交通機関の運休のときは、当日でも消化しません。</p>
-      </div>
-      <div class="keep">
-        <span class="keep__k">PAUSE / 休会</span>
-        <span class="keep__v">3<i>ヶ月まで</i></span>
-        <p>前月20日までのご連絡で、1ヶ月単位・連続3ヶ月まで。<b>休会中の月会費はいただきません。</b>手数料もありません。理由は伺いません。</p>
-      </div>
-      <div class="keep">
-        <span class="keep__k">LEAVE / 退会</span>
-        <span class="keep__v">&yen;0<i> 違約金</i></span>
-        <p>前月20日までのご連絡で退会できます。違約金・解約手数料はいただきません。残っている回数は、退会月の末日まで消化できます。</p>
-      </div>
-    </div>
+    <ul class="olist rise r1 rv" style="margin-top:clamp(28px,3.6vw,44px)">
+      <li><em>01</em><div><b>起算日は、購入日の翌日</b><p>購入日当日は数えません。翌日を1日目として、券種ごとの期間（3ヶ月／6ヶ月／9ヶ月）を数えます。</p></div></li>
+      <li><em>02</em><div><b>期限を過ぎた回数は使えません</b><p>未使用分の払い戻しはありません。期限が近づいたら、セッションのときにお声がけします。</p></div></li>
+      <li><em>03</em><div><b>休会を申請した期間は、期限を止めます</b><p>再開したときに、残りの期間から数え直します。止められるのは通算3ヶ月までです。</p></div></li>
+      <li><em>04</em><div><b>譲渡・貸し出しはできません</b><p>他の方への譲渡や貸し出しはお受けしていません。ご家族の場合も同じです。</p></div></li>
+      <li><em>05</em><div><b>月額プランとの併用はできます</b><p>その月の回数を使い切ったあとに回数券を使う、という組み方ができます。併用のための追加費用はありません。</p></div></li>
+      <li><em>06</em><div><b>当店の都合で営業できない期間ができたとき</b><p>その日数ぶん、有効期限を延ばします。ご連絡はメールまたはLINEでお送りします。</p></div></li>
+    </ul>
 
-    <a class="morelink rise r5 rv" href="gym-advance-price.html" data-step="07" data-name="料金と続け方"
-       style="background:var(--ink-2)">
-      <b>料金・回数券・休会・キャンセル・退会のすべてを読む</b>
-      <span>STEP 07 &nbsp;/&nbsp; 料金と続け方 &#8594;</span>
-    </a>
-
-    <p class="note note--strong rise r5 rv">※ 表示はすべて税抜価格です。入会金・初期費用はいただいておりません。プラン変更はいつでも可能です（当月20日までのご連絡で翌月から）。<br>※ 記載は要点です。細かい条件はSTEP 07でご確認ください。</p>
+    <p class="note rise r1 rv">※ 表示はすべて税抜価格です。回数券のみのご利用でも、セッションの中身とシャワー・ウェアの扱いは月額プランと変わりません。</p>
   </div>
 </section>
 
-<!-- ============ 01-08 PLACE ============ -->
-<section class="sec sec--paper" id="place" aria-labelledby="place-t">
+<!-- ============ 07-04 SUSPENSION ============ -->
+<section class="sec sec--paper" id="rest" aria-labelledby="rest-t">
   <div class="wrap">
-    <div class="shead rise r6 rv">
-      <p class="shead__row"><span class="shead__no">01-08</span><span class="shead__en">PLACE &amp; PEOPLE</span></p>
-      <h2 id="place-t">人と、場所。</h2>
-      <p class="shead__note">天神フォージビルの3階、約90㎡。完全予約制なので、営業中の1枠を1組で使っていただきます。トレーナーは3名。得意が違うので、目的と体の状態に合わせて担当をご相談ください。</p>
+    <div class="shead rise r2 rv">
+      <p class="shead__row"><span class="shead__no">07-04</span><span class="shead__en">SUSPENSION</span></p>
+      <h2 id="rest-t">行けない月は、休めます。</h2>
+      <p class="shead__note">月額プラン（PLAN B / PLAN C）が対象です。休会中の月会費はいただきません。在籍維持費も手数料もありません。退会してから入り直すより、こちらのほうが手間が少ないと思います。</p>
     </div>
 
-    <div class="duo rise r6 rv">
-      <figure class="figfr">
-        <img src="images/gym/gym_facility_2.webp" alt="ミラーとラックが並ぶトレーニングフロア全景" loading="lazy" decoding="async">
-        <figcaption><span>トレーニングフロア（約60㎡）</span><span>FLOOR</span></figcaption>
-      </figure>
-      <figure class="figfr">
-        <img src="images/gym/gym_misc_2.webp" alt="夜のビル1階にあるFORGEの入口外観" loading="lazy" decoding="async">
-        <figcaption><span>天神4丁目2-10 の入口</span><span>ENTRANCE</span></figcaption>
-      </figure>
+    <div class="rise r2 rv">
+      <table class="tbl">
+        <caption>SUSPENSION &#8212; 休会の決まり</caption>
+        <thead>
+          <tr>
+            <th scope="col">項目</th>
+            <th scope="col">内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">申請</th><td data-h="内容">休会したい月の<b>前月20日まで</b>に、フォーム・メール・LINEのいずれかでご連絡ください。</td></tr>
+          <tr><th scope="row">単位</th><td data-h="内容">1ヶ月単位です。半月だけ、という区切りはできません。</td></tr>
+          <tr><th scope="row">期間の上限</th><td data-h="内容">連続<b>3ヶ月</b>まで。</td></tr>
+          <tr><th scope="row">年間の回数</th><td data-h="内容">1年に2回までです。</td></tr>
+          <tr><th scope="row">費用</th><td data-h="内容"><b>休会中の月会費はいただきません。</b>在籍維持費・手数料もありません。</td></tr>
+          <tr><th scope="row">再開</th><td data-h="内容">申請した月数が終わると、翌月から自動的に元のプランで再開します。再開の手続きは要りません。</td></tr>
+          <tr><th scope="row">延長</th><td data-h="内容">休会の最終月の<b>20日まで</b>にご連絡ください（上限の3ヶ月までの範囲で）。</td></tr>
+          <tr><th scope="row">3ヶ月を超えるとき</th><td data-h="内容">いったん退会していただき、再開のときにあらためて手続きします。入会金がないため、<b>再入会の費用はかかりません。</b></td></tr>
+          <tr><th scope="row">回数券をお持ちの場合</th><td data-h="内容">休会中は有効期限を止めます。再開したときに、残りの期間から数え直します（止められるのは通算3ヶ月まで）。</td></tr>
+          <tr><th scope="row">理由</th><td data-h="内容"><b>伺いません。</b>「しばらく行けなくなった」の一行で結構です。</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <dl class="dl rise r6 rv" style="margin-top:clamp(24px,3.2vw,38px)">
-      <div>
-        <dt>ADDRESS</dt>
-        <dd>〒810-0001 福岡県福岡市中央区天神4丁目2-10 天神フォージビル3F<small>駐車場はありません。近隣のコインパーキングをご利用ください。</small></dd>
+    <div class="pull rise r2 rv" style="margin-top:clamp(32px,4.4vw,56px)">
+      <b>「しばらく行けなくなった」の<br>一行で結構です。</b>
+      <span>理由を伺うことはしません。仕事が立て込んだ、家のことがあった、単に気が乗らない。どれでも同じ扱いです。休むために説明を用意していただくのは、こちらがされて嫌なことなので。</span>
+    </div>
+
+    <p class="note rise r2 rv">※ 休会の申請は、休会したい月の前月20日が締切です。21日以降のご連絡は、その翌月からの休会になります。<br>※ 体験セッション（PLAN A）と回数券には、月会費がないため休会の手続きはありません。回数券は有効期限の停止のみお受けします。</p>
+  </div>
+</section>
+
+<!-- ============ 07-05 CHANGE & CANCEL ============ -->
+<section class="sec sec--dark" id="cancel" aria-labelledby="cancel-t">
+  <div class="wrap">
+    <div class="shead rise r3 rv">
+      <p class="shead__row"><span class="shead__no">07-05</span><span class="shead__en">CHANGE &amp; CANCEL</span></p>
+      <h2 id="cancel-t">締切は、前日の20時。</h2>
+      <p class="shead__note">このページでいちばん覚えて帰っていただきたい一行です。ここまでにご連絡いただければ、空いている枠へ振り替えます。振替の回数に制限はありません。</p>
+    </div>
+
+    <div class="dline rise r3 rv">
+      <span class="dline__k">DEADLINE / 変更・振替の締切</span>
+      <span class="dline__v">予約の前日</span>
+      <span class="dline__n">20:00<i>まで</i></span>
+      <p class="dline__p">ここまでにフォーム・メール・LINEのいずれかでご連絡いただければ、空いている枠へ振り替えます。回数の制限はありません。回数も消化しません。振替はその月のうちにお願いしています。月をまたぐ振替は、空き枠があるときのみお受けします。</p>
+    </div>
+
+    <div class="rise r3 rv" style="margin-top:clamp(28px,3.6vw,44px)">
+      <table class="tbl">
+        <caption>CANCEL &#8212; ご連絡のタイミングと扱い</caption>
+        <thead>
+          <tr>
+            <th scope="col">ご連絡のタイミング</th>
+            <th scope="col">振替</th>
+            <th scope="col">回数の扱い</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">予約日の前日 20:00 まで</th>
+            <td data-h="振替">空いている枠へ振替できます（回数の制限なし）</td>
+            <td data-h="回数の扱い">消化しません</td></tr>
+          <tr><th scope="row">前日 20:00 を過ぎてから</th>
+            <td data-h="振替">できません</td>
+            <td data-h="回数の扱い"><b>1回分を消化します</b></td></tr>
+          <tr><th scope="row">ご連絡のない欠席</th>
+            <td data-h="振替">できません</td>
+            <td data-h="回数の扱い"><b>1回分を消化します</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note note--strong rise r3 rv"><b>「1回分を消化します」の意味：</b>月額プランならその月の回数から1回、回数券なら1回ぶん減る、ということです。<b>別途の現金のお支払いは発生しません。</b>キャンセル料という名目で追加のご請求をすることはありません。</p>
+
+    <div class="shead rise r3 rv" style="margin-top:clamp(40px,5.4vw,72px)">
+      <p class="shead__row"><span class="shead__no">07-05b</span><span class="shead__en">EXCEPTIONS</span></p>
+      <h2>当日でも、回数を消化しない場合。</h2>
+      <p class="shead__note">下の5つに当てはまるときは、前日20時を過ぎていても回数を消化しません。振替のご相談も同じようにお受けします。遠慮なくご連絡ください。無理に来ていただくほうが困ります。</p>
+    </div>
+
+    <ul class="exc rise r3 rv">
+      <li><em>EX-01</em><b>発熱・体調不良・けが</b><p>ご本人の体調です。当日の朝でも構いません。ご連絡だけいただければ大丈夫です。</p></li>
+      <li><em>EX-02</em><b>ご家族の急な事情</b><p>ご家族の体調や、急な予定が入った場合も同じ扱いです。</p></li>
+      <li><em>EX-03</em><b>気象警報が発表されているとき</b><p>福岡市に警報が出ているときは、こちらからもご連絡を差し上げる場合があります。</p></li>
+      <li><em>EX-04</em><b>公共交通機関の運休・大幅な遅延</b><p>通っている路線が止まっているときは、無理に別の手段でお越しいただかなくて大丈夫です。</p></li>
+      <li><em>EX-05</em><b>こちらの都合でお受けできない場合</b><p>トレーナーの体調不良などです。当店の都合で営業できない期間ができた場合は、回数券の有効期限もその日数ぶん延ばします。</p></li>
+    </ul>
+
+    <div class="keeps rise r3 rv">
+      <div class="keep">
+        <span class="keep__k">CHANGE / 変更・振替</span>
+        <span class="keep__v">前日 20<i>:00 まで</i></span>
+        <p>この時刻までのご連絡なら、空き枠へ振り替えます。回数の制限はありません。</p>
       </div>
-      <div>
-        <dt>HOURS</dt>
-        <dd>平日 7:00〜22:00 ／ 土日 9:00〜20:00<small>定休日：水曜日</small></dd>
+      <div class="keep">
+        <span class="keep__k">REST / 休会</span>
+        <span class="keep__v">3<i>ヶ月まで</i></span>
+        <p>連続3ヶ月、1年に2回まで。休会中の月会費はいただきません。</p>
       </div>
-      <div>
-        <dt>TRAINER</dt>
-        <dd>佐藤 健太郎（代表／ヘッドトレーナー）・田中 りな・山本 剛 の3名<small>担当は初回のカウンセリングでご相談します。途中の変更もできます。</small></dd>
+      <div class="keep">
+        <span class="keep__k">PENALTY / 違約金</span>
+        <span class="keep__v">&yen;0</span>
+        <p>違約金・解約手数料はありません。退会の申請は前月20日までにご連絡ください。</p>
       </div>
-      <div>
-        <dt>RENTAL</dt>
-        <dd>ウェア上下・シューズ・タオル・シャワーアメニティ（すべて無料）<small>持ち物は特にありません。手ぶらでお越しいただけます。</small></dd>
-      </div>
-      <div>
-        <dt>BOOKING</dt>
-        <dd>完全予約制（フォーム・メール・LINE）<small>3日前までのご連絡がスムーズです。空きがあれば当日もご案内できます。</small></dd>
-      </div>
+    </div>
+
+    <p class="note rise r3 rv">※ ご連絡はフォーム・メール（info@example.com）・LINEの3つでお受けしています。<br>※ トレーニングの効果や感じ方には<b>個人差</b>があります。体調・既往症により内容を調整、またはご案内を控える場合があります。</p>
+  </div>
+</section>
+
+<!-- ============ 07-06 LEAVING ============ -->
+<section class="sec" id="quit" aria-labelledby="quit-t">
+  <div class="wrap">
+    <div class="shead rise r4 rv">
+      <p class="shead__row"><span class="shead__no">07-06</span><span class="shead__en">LEAVING</span></p>
+      <h2 id="quit-t">やめるときの、決まり。</h2>
+      <p class="shead__note">続けられるかどうかを考えるとき、やめ方が見えていないと決めにくいと思います。先に全部書いておきます。違約金・解約手数料はありません。引き留めもしません。</p>
+    </div>
+
+    <dl class="dl rise r4 rv">
+      <div><dt>APPLY</dt><dd>退会したい月の<b>前月20日まで</b>にご連絡ください。フォーム・メール・LINEのいずれかで結構です。<small>理由は伺いません。</small></dd></div>
+      <div><dt>AFTER THE 20TH</dt><dd>20日を過ぎた場合は、<b>翌々月末での退会</b>になります（翌月分の月会費はいただきます）。<small>例：4月25日にご連絡いただいた場合、5月分の月会費をいただき、6月末での退会になります。</small></dd></div>
+      <div><dt>PENALTY</dt><dd>違約金・解約手数料は<b>ありません。</b>期間の縛りもありません。</dd></div>
+      <div><dt>REFUND</dt><dd>月単位のため、月の途中で退会されても<b>日割りの返金はありません。</b></dd></div>
+      <div><dt>REMAINING</dt><dd>残った回数は、<b>退会月の末日まで消化できます。</b>末日を過ぎた回数の繰り越しや返金はありません。</dd></div>
+      <div><dt>TICKETS</dt><dd>回数券は、購入後の払い戻しはできません（未使用分を含む）。<small>ただし当店の都合で営業できない場合は、期限の延長か未使用分の返金でご相談します。</small></dd></div>
+      <div><dt>TRIAL</dt><dd>体験セッション（PLAN A）に継続の義務はありません。当日のご契約も不要です。</dd></div>
+      <div><dt>REJOIN</dt><dd>再入会に費用はかかりません（入会金がないため）。以前の記録が残っていれば、そこから続けられます。</dd></div>
     </dl>
 
-    <a class="morelink morelink--ghost rise r6 rv" href="gym-advance-company.html" data-step="08" data-name="トレーナー・施設案内">
-      <b>トレーナー3名と、施設の中身を見る</b>
-      <span>STEP 08 &nbsp;/&nbsp; トレーナー・施設案内 &#8594;</span>
+    <p class="note note--strong rise r4 rv">※ 退会と休会は別の手続きです。しばらく行けないだけであれば、休会（07-04）のほうが手間も費用もかかりません。<br>※ 表示はすべて税抜価格です。</p>
+  </div>
+</section>
+
+<!-- ============ 07-07 NOTES ============ -->
+<section class="sec sec--paper" id="notes" aria-labelledby="notes-t">
+  <div class="wrap">
+    <div class="shead rise r5 rv">
+      <p class="shead__row"><span class="shead__no">07-07</span><span class="shead__en">THE 20TH / NOTES</span></p>
+      <h2 id="notes-t">締切は、だいたい20日です。</h2>
+      <p class="shead__note">プラン変更・休会・退会の3つは、どれも20日が締切です。まとめて1つの表にしました。迷ったら、まずご連絡ください。締切を過ぎていても、次にできることをご案内します。</p>
+    </div>
+
+    <div class="rise r5 rv">
+      <table class="tbl">
+        <caption>DEADLINES &#8212; 20日締切の手続き</caption>
+        <thead>
+          <tr>
+            <th scope="col">手続き</th>
+            <th scope="col">締切</th>
+            <th scope="col">いつから反映されるか</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">プラン変更（B ↔ C）</th>
+            <td data-h="締切">当月20日まで</td>
+            <td data-h="いつから反映されるか">翌月から</td></tr>
+          <tr><th scope="row">休会の申請</th>
+            <td data-h="締切">休会したい月の前月20日まで</td>
+            <td data-h="いつから反映されるか">申請した月から（1ヶ月単位・連続3ヶ月まで）</td></tr>
+          <tr><th scope="row">休会の延長</th>
+            <td data-h="締切">休会の最終月の20日まで</td>
+            <td data-h="いつから反映されるか">翌月から（上限3ヶ月までの範囲で）</td></tr>
+          <tr><th scope="row">退会</th>
+            <td data-h="締切">退会したい月の前月20日まで</td>
+            <td data-h="いつから反映されるか">その月の末日で退会</td></tr>
+          <tr><th scope="row">退会（20日を過ぎた場合）</th>
+            <td data-h="締切">&#8212;</td>
+            <td data-h="いつから反映されるか">翌々月末で退会（翌月分の月会費はいただきます）</td></tr>
+          <tr><th scope="row">予約の変更・振替</th>
+            <td data-h="締切">予約日の前日 20:00 まで</td>
+            <td data-h="いつから反映されるか">その場で空き枠をご案内します</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="olist rise r5 rv" style="margin-top:clamp(28px,3.6vw,44px)">
+      <li><em>01</em><div><b>表示はすべて税抜です</b><p>月額・体験・回数券のいずれも税抜価格で表示しています。</p></div></li>
+      <li><em>02</em><div><b>入会金・初期費用はいただいておりません</b><p>再入会のときも同じです。</p></div></li>
+      <li><em>03</em><div><b>効果や感じ方には個人差があります</b><p>期間や数値をお約束するものではありません。進み方は体力・生活リズム・体調によって変わります。</p></div></li>
+      <li><em>04</em><div><b>体調・既往症により内容を調整します</b><p>ご案内を控える場合もあります。通院中・服薬中の方には、主治医にご相談のうえでのご参加をお願いする場合があります。</p></div></li>
+      <li><em>05</em><div><b>気になる症状があるときは、まず医療機関へ</b><p>痛みやしびれがあるときは、まず医療機関にご相談ください。FORGEでは症状の診断や治療は行いません。</p></div></li>
+    </ul>
+
+    <a class="morelink morelink--ghost rise r5 rv" href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ">
+      <b>申し込みから2回目までの流れを見る</b>
+      <span>STEP 06 &nbsp;/&nbsp; JOINING &#8594;</span>
     </a>
+
+    <p class="note note--strong rise r5 rv">※ 表示はすべて税抜価格です。入会金・初期費用はいただいておりません。<br>※ トレーニングの効果や感じ方には<b>個人差</b>があります。数値や期間をお約束するものではありません。</p>
   </div>
 </section>
 
@@ -1335,12 +1357,12 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
   <div class="wrap">
     <p class="nextstep__k">NEXT STEP</p>
     <div class="nextstep__grid">
-      <p class="nextstep__n"><span>0</span>2</p>
+      <p class="nextstep__n"><span>0</span>8</p>
       <div>
-        <h2 id="next-t">一段上がって、<br>60分の中身へ。</h2>
-        <p>2段目は、セッションそのものの話です。4つのブロックに何分使って、何を見て、何を決めているのか。前回の記録をどう次に渡すのかまで書いてあります。</p>
-        <a class="nextstep__go" href="gym-advance-service.html" data-step="02" data-name="セッションの中身">
-          STEP 02 に進む <em>&#8594;</em>
+        <h2 id="next-t">一段上がって、<br>人と場所へ。</h2>
+        <p>8段目からは「人と場所」の群です。担当するトレーナー3名、実際の器具の一覧、無料で貸すもの、フロアの写真まで。誰が見て、どこでやるのかの話になります。</p>
+        <a class="nextstep__go" href="gym-advance-company.html" data-step="08" data-name="トレーナー・施設案内">
+          STEP 08 に進む <em>&#8594;</em>
         </a>
       </div>
     </div>
@@ -1351,18 +1373,20 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
 <section class="cta" id="contact" aria-labelledby="cta-t">
   <div class="wrap">
     <span class="cta__en">CONTACT / TRIAL</span>
-    <h2 id="cta-t">まずは体験セッションから。</h2>
-    <p>完全予約制のため、事前のご予約をお願いしています。ご希望の曜日・時間帯をお知らせください。体験は60分、着替えとシャワーを含めて90分ほど見ておいていただくと余裕があります。その場でのご契約は不要です。</p>
+    <h2 id="cta-t">決める前に、一度だけ試せます。</h2>
+    <p>体験セッション（PLAN A）は¥5,000（税抜）、おひとり1回までです。当日にご入会いただいた場合、この¥5,000は初回の月会費から差し引きます。完全予約制のため、ご希望の曜日・時間帯をお知らせください。その場でのご契約は不要です。</p>
     <div class="cta__btns">
       <a class="btn btn--solid" href="gym-advance-contact.html#trial" data-step="10" data-name="アクセス・体験申込">体験セッションを申し込む <em>FORM</em></a>
       <a class="btn btn--ghost" href="mailto:info@example.com">メールで問い合わせる <em>MAIL</em></a>
       <a class="btn btn--ghost" href="https://lin.ee/z3rP0hO">LINEで問い合わせる <em>LINE</em></a>
     </div>
-    <p class="cta__note">※ 体験セッションは¥5,000（税抜）／おひとり1回まで。体験当日にご入会いただいた場合、この¥5,000は初回の月会費から差し引きます。<br>※ 体調・既往症によっては内容を調整、またはご案内を控える場合があります。効果や感じ方には個人差があります。</p>
+    <p class="cta__note">※ 表示はすべて税抜価格です。入会金・初期費用はいただいておりません。<br>※ 体調・既往症によっては内容を調整、またはご案内を控える場合があります。効果や感じ方には個人差があります。</p>
   </div>
 </section>
 
+
 </main>
+
 
 <footer class="foot">
   <div class="wrap">
@@ -1378,7 +1402,7 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
       <nav class="foot__nav" aria-label="フッター">
         <div>
           <h2>GROUND / 土台</h2>
-          <a href="gym-advance.html" data-step="01" data-name="トップ" aria-current="page"><em>01</em><span>トップ</span></a>
+          <a href="gym-advance.html" data-step="01" data-name="トップ"><em>01</em><span>トップ</span></a>
           <a href="gym-advance-service.html" data-step="02" data-name="セッションの中身"><em>02</em><span>セッションの中身</span></a>
         </div>
         <div>
@@ -1390,7 +1414,7 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
         <div>
           <h2>KEEP / 続ける</h2>
           <a href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ"><em>06</em><span>入会からの流れ</span></a>
-          <a href="gym-advance-price.html" data-step="07" data-name="料金と続け方"><em>07</em><span>料金と続け方</span></a>
+          <a href="gym-advance-price.html" data-step="07" data-name="料金と続け方" aria-current="page"><em>07</em><span>料金と続け方</span></a>
         </div>
         <div>
           <h2>PLACE / 人と場所</h2>
@@ -1420,13 +1444,15 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
   </div>
 </div>
 
+
 <script>
 (function(){
+
   "use strict";
 
   /* ==== このページの識別子。ページごとに直すのはこの2行だけ ==== */
-  var CURRENT  = '01';
-  var PAGENAME = 'トップ';
+  var CURRENT  = '07';
+  var PAGENAME = '料金と続け方';
   /* ============================================================ */
 
   var html   = document.documentElement;

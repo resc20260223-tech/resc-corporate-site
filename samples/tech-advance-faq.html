@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>株式会社NextGrid｜IT・オフィス（v1.0 トップ）</title>
-<meta name="description" content="株式会社NextGridは福岡のITパートナーです。業務システムの新規開発、Webサイト・Webアプリの制作、既存システムの改善から、リリース後の運用・保守まで。相談・設計・実装・運用・次の版という循環で進めます。">
+<title>よくある質問｜株式会社NextGrid（v3.1）</title>
+<meta name="description" content="株式会社NextGridへの相談の前によくいただく質問を、費用と契約・進め方と期間・技術と運用・会社のことの4群に分けて12問まとめた版です。費用は規模と内容によって変わるため、個別にお見積りします。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -559,6 +559,38 @@ a.cl-i:hover h4{color:var(--acc)}
 }
 @media(max-width:340px){.cur .nm{display:none}}
 </style>
+<style>
+/* ---------- v3.1 ページ固有：問答（details は既定で開いた状態。JSがある環境でだけ畳む） ---------- */
+.qas{border-top:1px solid var(--ink)}
+.qa{border-bottom:1px solid var(--line)}
+.qah{display:flex;align-items:flex-start;gap:12px;padding:16px 4px;cursor:pointer;list-style:none;
+  font-size:14px;font-weight:700;line-height:1.75;transition:color .2s}
+.qah::-webkit-details-marker{display:none}
+.qah::marker{content:""}
+.qah:hover{color:var(--acc)}
+.qan{flex:none;width:3.6em;font-size:10px;color:var(--acc);letter-spacing:.1em;padding-top:.55em}
+.qat{flex:1 1 auto;min-width:0}
+.qamk{flex:none;position:relative;width:16px;height:16px;margin-top:.42em}
+.qamk::before,.qamk::after{content:"";position:absolute;background:var(--ink-3);transition:transform .3s var(--ease-io),background .2s}
+.qamk::before{left:0;top:7.25px;width:16px;height:1.5px}
+.qamk::after{left:7.25px;top:0;width:1.5px;height:16px}
+.qa[open]>.qah{color:var(--acc)}
+.qa[open]>.qah .qamk::before{background:var(--acc)}
+.qa[open]>.qah .qamk::after{transform:scaleY(0);background:var(--acc)}
+.qab{padding:0 4px 22px 4px;margin-left:calc(3.6em + 12px)}
+.qab p{font-size:13px;color:var(--ink-2);line-height:2.05;max-width:44em}
+.qab p+p{margin-top:1em}
+.qab p a{color:var(--acc)}
+.qab .qtag{display:inline-block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);
+  border:1px solid var(--line-2);background:var(--paper-2);padding:2px 8px;border-radius:var(--r);margin-top:12px}
+@media(max-width:560px){
+  .qah{gap:9px}
+  .qan{width:3.2em;font-size:9.5px}
+  .qab{margin-left:0}
+}
+.rv.qa-jump{transition:none}
+@media(prefers-reduced-motion:reduce){.qamk::before,.qamk::after{transition:none}}
+</style>
 </head>
 <body id="top">
 <a class="skip" href="#main">本文へスキップ</a>
@@ -568,8 +600,8 @@ a.cl-i:hover h4{color:var(--acc)}
   <div class="pt-lines" id="ptLines"></div>
   <div class="pt-card">
     <p class="pt-act mono">APPLYING DIFF</p>
-    <p class="pt-ver lat"><span id="ptFrom">v1.0</span><i aria-hidden="true">&#8594;</i><span class="to" id="ptTo">v1.1</span></p>
-    <p class="pt-name" id="ptName">サービス詳細</p>
+    <p class="pt-ver lat"><span id="ptFrom">v1.0</span><i aria-hidden="true">&#8594;</i><span class="to" id="ptTo">v3.1</span></p>
+    <p class="pt-name" id="ptName">よくある質問</p>
     <p class="pt-br mono">NEXTGRID &#8212; 10 REVISIONS</p>
   </div>
 </div>
@@ -595,11 +627,11 @@ a.cl-i:hover h4{color:var(--acc)}
       </a>
 
       <nav class="gnav" aria-label="版グループナビゲーション">
-        <a href="tech-advance.html" data-ver="v1.0" data-name="トップ" aria-current="page">
+        <a href="tech-advance.html" data-ver="v1.0" data-name="トップ">
           <span class="gv">v1</span><span class="gt">総論</span></a>
         <a href="tech-advance-works.html" data-ver="v2.0" data-name="導入事例 一覧">
           <span class="gv">v2</span><span class="gt">記録</span></a>
-        <a href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制">
+        <a href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制" aria-current="true">
           <span class="gv">v3</span><span class="gt">土台</span></a>
         <a href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内">
           <span class="gv">v4</span><span class="gt">会社</span></a>
@@ -616,12 +648,11 @@ a.cl-i:hover h4{color:var(--acc)}
           <div class="chggrp">
             <p class="mono">v1 &#8212; GENERAL / 総論</p>
             <ol>
-              <li><span class="now"><span class="v">v1.0</span><span class="n">トップ</span></span></li>
+              <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ"><span class="v">v1.0</span><span class="n">トップ</span></a></li>
               <li><a href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細"><span class="v">v1.1</span><span class="n">サービス詳細</span></a></li>
               <li><a href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方"><span class="v">v1.2</span><span class="n">進め方</span></a></li>
             </ol>
           </div>
-
           <div class="chggrp">
             <p class="mono">v2 &#8212; RECORD / 記録</p>
             <ol>
@@ -629,15 +660,13 @@ a.cl-i:hover h4{color:var(--acc)}
               <li class="sub"><a href="tech-advance-work-detail.html" data-ver="v2.1" data-name="導入事例 詳細 CASE-02"><span class="v">v2.1</span><span class="n">導入事例 詳細（CASE-02）</span></a></li>
             </ol>
           </div>
-
           <div class="chggrp">
             <p class="mono">v3 &#8212; PLATFORM / 土台</p>
             <ol>
               <li><a href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制"><span class="v">v3.0</span><span class="n">技術と開発体制</span></a></li>
-              <li><a href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問"><span class="v">v3.1</span><span class="n">よくある質問</span></a></li>
+              <li><span class="now"><span class="v">v3.1</span><span class="n">よくある質問</span></span></li>
             </ol>
           </div>
-
           <div class="chggrp">
             <p class="mono">v4 &#8212; COMPANY / 会社</p>
             <ol>
@@ -656,58 +685,121 @@ a.cl-i:hover h4{color:var(--acc)}
   <div class="hd-ver">
     <div class="wrap">
       <p class="cur mono">
-        <span class="no">v1.0</span>
-        <span class="gp">GENERAL &#8212; 総論</span>
-        <span class="nm">トップ</span>
+        <span class="no">v3.1</span>
+        <span class="gp">PLATFORM &#8212; 土台</span>
+        <span class="nm">よくある質問</span>
       </p>
       <p class="pn mono">
-        <span class="dis">&#9664; PREV</span>
-        <a href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細">NEXT &nbsp;v1.1 &#9654;</a>
+        <a href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制">&#9664; PREV &nbsp;v3.0</a>
+        <a href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内">NEXT &nbsp;v4.0 &#9654;</a>
       </p>
     </div>
   </div>
 </header>
 
-<main id="main">
+<nav class="crumb" aria-label="パンくず">
+  <div class="wrap">
+    <ol>
+      <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ">v1.0 トップ</a></li>
+      <li><span class="mono">v3 PLATFORM / 土台</span></li>
+      <li><span aria-current="page">v3.1 よくある質問</span></li>
+    </ol>
+  </div>
+</nav>
 
-<!-- ===== v1.0 マストヘッド ===== -->
-<section class="mast" aria-labelledby="h1">
+<main id="main">
+<script>
+/* v3.1 固有：問答の開閉
+   HTMLは <details open> で出力しているので、JavaScript が無効な環境では全文が読める。
+   JS が動く環境でだけ畳む。各 .qas の直後で呼ぶので、開いた状態がちらつかない。
+   ハッシュで指定された問答は開いたままにする。 */
+(function(){
+  "use strict";
+  function hashId(){
+    var h = location.hash || '';
+    return h.length > 1 ? decodeURIComponent(h.slice(1)) : '';
+  }
+  function keptDetails(){
+    var id = hashId();
+    if(!id) return null;
+    var el = document.getElementById(id);
+    if(!el) return null;
+    return el.closest ? el.closest('details.qa') : null;
+  }
+  function sync(d){
+    var s = d.querySelector('summary');
+    if(s) s.setAttribute('aria-expanded', d.open ? 'true' : 'false');
+  }
+  window.__qaFold = function(){
+    var keep = keptDetails();
+    [].slice.call(document.querySelectorAll('details.qa')).forEach(function(d){
+      if(d.getAttribute('data-fold') === '1') return;
+      d.setAttribute('data-fold', '1');
+      if(d !== keep) d.open = false;
+      d.addEventListener('toggle', function(){ sync(d); });
+      sync(d);
+    });
+  };
+  window.__qaOpenByHash = function(scroll){
+    var d = keptDetails();
+    if(!d) return false;
+    if(!d.open){ d.open = true; sync(d); }
+    if(scroll){
+      /* 出現アニメーションの途中だと 18px ずれて着地するので、
+         祖先の .rv を先に確定させてから頭出しする */
+      var anc = [], a = d;
+      while(a && a !== document.body){
+        if(a.classList && a.classList.contains('rv')){ a.classList.add('in', 'qa-jump'); anc.push(a); }
+        a = a.parentElement;
+      }
+      void document.body.offsetHeight;
+      try{ d.scrollIntoView({block:'start'}); }catch(e){ d.scrollIntoView(); }
+      requestAnimationFrame(function(){
+        anc.forEach(function(e){ e.classList.remove('qa-jump'); });
+      });
+    }
+    return true;
+  };
+})();
+</script>
+
+<!-- ===== v3.1 マストヘッド ===== -->
+<section class="mast sub" aria-labelledby="h1">
   <svg class="mast-bg" viewBox="0 0 1440 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
     <path class="mb-l" d="M700,70 H1440 M700,150 H1440 M700,230 H1440 M700,310 H1440 M700,390 H1440"/>
-    <path class="mb-l mb-a" d="M980,70 H1440 M1060,150 H1440 M900,230 H1440 M1140,310 H1440 M1020,390 H1440"/>
-    <circle class="mb-d" cx="980" cy="70" r="4"/><circle class="mb-d" cx="1060" cy="150" r="4"/>
-    <circle class="mb-d" cx="900" cy="230" r="4"/><circle class="mb-d" cx="1140" cy="310" r="4"/>
-    <circle class="mb-d" cx="1020" cy="390" r="4"/>
+    <path class="mb-l mb-a" d="M1020,70 H1440 M920,150 H1440 M1160,230 H1440 M860,310 H1440 M1080,390 H1440"/>
+    <circle class="mb-d" cx="1020" cy="70" r="4"/><circle class="mb-d" cx="920" cy="150" r="4"/>
+    <circle class="mb-d" cx="1160" cy="230" r="4"/><circle class="mb-d" cx="860" cy="310" r="4"/>
+    <circle class="mb-d" cx="1080" cy="390" r="4"/>
   </svg>
   <div class="wrap">
     <div class="mast-head">
       <div class="mast-main">
-        <p class="eyebrow mono"><i></i>REVISION v1.0 &#8212; GENERAL<i></i>IT・オフィス / FUKUOKA</p>
+        <p class="eyebrow mono"><i></i>REVISION v3.1 &#8212; PLATFORM<i></i>COST / FLOW / TECH / COMPANY</p>
         <h1 id="h1">
-          <span class="h1-jp mono">株式会社</span>
-          <span class="h1-en">NextGrid</span>
+          <span class="h1-jp mono">よくある質問</span>
+          <span class="h1-en">Questions</span>
         </h1>
-        <p class="mast-catch">つくって終わりにしない。<br>版を重ねて、育てる。</p>
-        <p class="mast-lead">業務システムの開発から運用まで、伴走するITパートナーです。このサイトは10の版でできています。相談・設計・実装・運用、そして次の版へ。ソフトウェアと同じ順番で並べました。いま見ているのは起点の v1.0 です。</p>
+        <p class="mast-catch">答えを出せないことは、<br>出せないと書いています。</p>
+        <p class="mast-lead">相談の前によくいただく質問を12問、4つの群に分けてまとめました。費用と納期については、条件によって変わるものを無理に数字にせず、決め方のほうを書いています。ここに無いことは、そのまま聞いてください。</p>
         <div class="mast-acts">
-          <a class="btn btn--fill mono" href="#cycle">開発の循環を見る <i>&#8595;</i></a>
-          <a class="btn btn--line mono" href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細">サービスを見る <i>&#8594;</i></a>
+          <a class="btn btn--fill mono" href="#index">12問の索引を見る <i>&#8595;</i></a>
+          <a class="btn btn--line mono" href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ">そのまま聞いてみる <i>&#8594;</i></a>
         </div>
         <p class="mast-meta mono">
-          <span>開発</span><span>改善</span><span>運用・保守</span><span>DX</span>
+          <span>12問 / 4群</span><span>費用は個別にお見積り</span><span>相談から最初のリリースまで4〜7ヶ月が目安</span>
         </p>
       </div>
-
       <div class="vlad" aria-hidden="true">
         <p class="vlad-h mono"><span>REVISIONS</span><span>10</span></p>
         <ol class="mono">
-          <li class="on"><span>v1.0</span><i style="--w:1"></i></li>
+          <li><span>v1.0</span><i style="--w:1"></i></li>
           <li><span>v1.1</span><i style="--w:.86"></i></li>
           <li><span>v1.2</span><i style="--w:.72"></i></li>
           <li class="hd2"><span>v2.0</span><i style="--w:.92"></i></li>
           <li><span>v2.1</span><i style="--w:.55"></i></li>
           <li class="hd2"><span>v3.0</span><i style="--w:.80"></i></li>
-          <li><span>v3.1</span><i style="--w:.62"></i></li>
+          <li class="on"><span>v3.1</span><i style="--w:.62"></i></li>
           <li class="hd2"><span>v4.0</span><i style="--w:.88"></i></li>
           <li><span>v4.1</span><i style="--w:.70"></i></li>
           <li><span>v4.2</span><i style="--w:.58"></i></li>
@@ -717,498 +809,379 @@ a.cl-i:hover h4{color:var(--acc)}
   </div>
 </section>
 
-<div class="band">
-  <img src="images/tech/tech_hero.png" alt="NextGridのオフィス。窓に面したデスクにモニターとノートパソコンが並んでいる" fetchpriority="high" decoding="async">
-  <p class="band-cap mono">NEXTGRID OFFICE &#8212; FUKUOKA</p>
-</div>
-
-<!-- ===== v1.0-01 ABOUT ===== -->
-<section class="sec" id="about">
+<!-- ===== v3.1-01 索引 ===== -->
+<section class="sec" id="index">
   <div class="wrap">
     <div class="shead rv">
-      <span class="idx mono">v1.0-01</span>
-      <h2>一度で完成させない、と決めています</h2>
-      <span class="en mono">ABOUT</span>
+      <span class="idx mono">v3.1-01</span>
+      <h2>12問の索引</h2>
+      <span class="en mono">QUESTION INDEX</span>
     </div>
     <div class="rule"></div>
-    <div class="sg2 wide rv">
-      <div>
-        <p class="body-t">少人数精鋭のチームだからこそ、意思決定はスピーディーに、要件のすり合わせはきめ細かく。無駄な工程を省き、本当に必要な機能に集中して開発を進めます。</p>
-        <p class="body-t">業務システムの新規開発からWebサイト・Webアプリの制作、既存システムの改善まで、企業の&quot;ちょうどいいIT&quot;を一緒に形にしていきます。</p>
-        <p class="body-t">そのうえで、最初にお伝えしていることがひとつあります。ソフトウェアは、つくった日がいちばん良い状態ではありません。使ってはじめて分かることがあり、業務のほうも変わっていきます。だから私たちは、はじめから版を重ねる前提で設計します。</p>
-      </div>
-      <div>
-        <div class="pull" style="margin-top:0">
-          <q>最初の版は、<b>いちばん小さく</b>つくる。</q>
-          <p>全部入りをつくってから直すより、要るものだけを先に動かして、使いながら足したほうが早く着きます。つくらないものを決めるのが、設計のいちばん大事な仕事です。</p>
-        </div>
-        <p class="note-s">この考え方は、既存のライト版・スタンダード版でお伝えしている「納品して終わりにしない」をそのまま引き継いだものです。</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <p class="lead rv">4つの群に3問ずつ入れています。読みたいところから飛べます。答えの中で別の版に触れているものは、その版へのリンクを添えました。</p>
 
-<!-- ===== v1.0-02 開発の循環 ===== -->
-<section class="sec sec--alt" id="cycle">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-02</span>
-      <h2>相談から、次の版まで</h2>
-      <span class="en mono">RELEASE CYCLE</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">相談・設計・実装・リリース・運用。ここまでで一周です。運用で見えてきたことは要望として溜まり、次の版の設計に戻ります。このサイトの10ページも、この順番のまま並べてあります。</p>
-
-    <p class="vh">開発の循環は5つの段階でできています。01 相談、02 設計、03 実装、04 リリース、05 運用の順に進み、05 運用で見えてきたことが 01 相談に戻って、次の版がはじまります。</p>
-
-    <div class="dwbox rv mt6">
-      <svg class="dw dw--wide" viewBox="0 0 1000 300" role="img" aria-label="相談・設計・実装・リリース・運用の5段階が左から右へ並び、運用から折り返す線が相談に戻って次の版がはじまることを示した図">
-        <path class="thin" d="M23,58 H978"/>
-        <text class="ta" x="23" y="46">v1.0</text>
-        <text class="ta" x="978" y="46" text-anchor="end">v1.1</text>
-
-        <rect class="fp" x="23"  y="76" width="167" height="96"/>
-        <rect class="fp" x="220" y="76" width="167" height="96"/>
-        <rect class="fp" x="417" y="76" width="167" height="96"/>
-        <rect class="fp" x="614" y="76" width="167" height="96"/>
-        <rect class="ft" x="811" y="76" width="167" height="96"/>
-
-        <text class="ta" x="37"  y="108">01</text><text class="tb" x="37"  y="140">SCOPE</text>
-        <text class="ta" x="234" y="108">02</text><text class="tb" x="234" y="140">DESIGN</text>
-        <text class="ta" x="431" y="108">03</text><text class="tb" x="431" y="140">BUILD</text>
-        <text class="ta" x="628" y="108">04</text><text class="tb" x="628" y="140">RELEASE</text>
-        <text class="ta" x="825" y="108">05</text><text class="tb" x="825" y="140">OPERATE</text>
-
-        <path class="l" d="M196,124 H213"/><path class="bold" d="M209,119 L217,124 L209,129"/>
-        <path class="l" d="M393,124 H410"/><path class="bold" d="M406,119 L414,124 L406,129"/>
-        <path class="l" d="M590,124 H607"/><path class="bold" d="M603,119 L611,124 L603,129"/>
-        <path class="l" d="M787,124 H804"/><path class="bold" d="M800,119 L808,124 L800,129"/>
-
-        <path class="acc ray" style="--len:1120" d="M894,172 V244 Q894,258 880,258 H120 Q106,258 106,244 V184"/>
-        <path class="acc" d="M99,192 L106,178 L113,192"/>
-        <rect class="fp" x="410" y="240" width="180" height="36"/>
-        <text class="ta" x="500" y="264" text-anchor="middle">NEXT REV</text>
-      </svg>
-
-      <svg class="dw dw--tall" viewBox="0 0 480 740" role="img" aria-label="相談・設計・実装・リリース・運用の5段階が上から下へ並び、運用から折り返す線が相談に戻って次の版がはじまることを示した図">
-        <path class="thin" d="M16,30 H464"/>
-        <text class="ta" x="16" y="20">v1.0</text>
-        <text class="ta" x="464" y="20" text-anchor="end">v1.1</text>
-
-        <rect class="fp" x="16" y="52"  width="280" height="96"/>
-        <rect class="fp" x="16" y="184" width="280" height="96"/>
-        <rect class="fp" x="16" y="316" width="280" height="96"/>
-        <rect class="fp" x="16" y="448" width="280" height="96"/>
-        <rect class="ft" x="16" y="580" width="280" height="96"/>
-
-        <text class="ta" x="34" y="92">01</text><text class="tb" x="34" y="124">SCOPE</text>
-        <text class="ta" x="34" y="224">02</text><text class="tb" x="34" y="256">DESIGN</text>
-        <text class="ta" x="34" y="356">03</text><text class="tb" x="34" y="388">BUILD</text>
-        <text class="ta" x="34" y="488">04</text><text class="tb" x="34" y="520">RELEASE</text>
-        <text class="ta" x="34" y="620">05</text><text class="tb" x="34" y="652">OPERATE</text>
-
-        <path class="l" d="M156,152 V175"/><path class="bold" d="M151,171 L156,179 L161,171"/>
-        <path class="l" d="M156,284 V307"/><path class="bold" d="M151,303 L156,311 L161,303"/>
-        <path class="l" d="M156,416 V439"/><path class="bold" d="M151,435 L156,443 L161,435"/>
-        <path class="l" d="M156,548 V571"/><path class="bold" d="M151,567 L156,575 L161,567"/>
-
-        <path class="acc ray" style="--len:800" d="M296,628 H416 Q430,628 430,614 V114 Q430,100 416,100 H314"/>
-        <path class="acc" d="M322,93 L308,100 L322,107"/>
-        <rect class="fp" x="330" y="350" width="140" height="36"/>
-        <text class="ta" x="400" y="374" text-anchor="middle">NEXT REV</text>
-      </svg>
-      <p class="dwcap mono"><span>FIG.v1.0-01 &#8212; RELEASE CYCLE</span><span>図は進め方をイメージで表したものです</span></p>
-      <ul class="dwlegend">
-        <li class="i">この版のなかで進む向き</li>
-        <li class="a">運用で見えたことを、次の版に戻す線</li>
-      </ul>
-    </div>
-
-    <div class="cards c5 rv mt6">
-      <div class="card st">
-        <span class="top mono"><span class="no">01</span><span>SCOPE</span></span>
-        <h3>相談</h3>
-        <p>困っていることを、そのまま聞かせてください。資料をつくっていただく必要はありません。</p>
-        <span class="go mono">目安 1〜2週間<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">02</span><span>DESIGN</span></span>
-        <h3>設計</h3>
-        <p>つくるものと、つくらないものを分けます。お見積りはこの段階で出します。</p>
-        <span class="go mono">目安 2〜4週間<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">03</span><span>BUILD</span></span>
-        <h3>実装</h3>
-        <p>2週間をひと区切りにして、区切りごとに動くものをお見せしながらつくります。</p>
-        <span class="go mono">目安 2〜4ヶ月<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">04</span><span>RELEASE</span></span>
-        <h3>リリース</h3>
-        <p>検証環境で確認してから本番へ。使い方の説明と、切り戻しの手順の共有もここで。</p>
-        <span class="go mono">目安 2〜3週間<i></i></span>
-      </div>
-      <div class="card st">
-        <span class="top mono"><span class="no">05</span><span>OPERATE</span></span>
-        <h3>運用（次の版へ）</h3>
-        <p>直す・足す・整える。月次で状況を見て、次の版に入れるものを一緒に決めます。</p>
-        <span class="go mono">継続<i></i></span>
-      </div>
-    </div>
-
-    <p class="note-s rv">相談から最初のリリースまでは4〜7ヶ月が目安です。規模とご要望の量によって前後します。期間を先に決めたい場合は、入れる機能の範囲のほうを先に決める進め方もご提案できます。</p>
-
-    <div class="mores mt6 rv">
-      <a class="morelink" href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方">
-        <b>各段階でやることを、もっと細かく見る</b>
-        <span>v1.2 &nbsp;進め方 &nbsp;&#8594;</span>
+    <div class="cards c2 rv mt6">
+      <a class="card" href="#cost">
+        <span class="top mono"><span class="no">GROUP 01</span><span>Q-01 &#8212; Q-03</span></span>
+        <h3>費用と契約</h3>
+        <p>見積りの出し方、出すタイミング、契約と保守の形。</p>
+        <span class="go mono">3問<i></i>&#8595;</span>
+      </a>
+      <a class="card" href="#flow">
+        <span class="top mono"><span class="no">GROUP 02</span><span>Q-04 &#8212; Q-06</span></span>
+        <h3>進め方と期間</h3>
+        <p>要件が固まっていない状態からの相談、期間の目安、途中の変更。</p>
+        <span class="go mono">3問<i></i>&#8595;</span>
+      </a>
+      <a class="card" href="#tech">
+        <span class="top mono"><span class="no">GROUP 03</span><span>Q-07 &#8212; Q-09</span></span>
+        <h3>技術と運用</h3>
+        <p>使っている技術、セキュリティで行っている対策、リリース後の運用。</p>
+        <span class="go mono">3問<i></i>&#8595;</span>
+      </a>
+      <a class="card" href="#company">
+        <span class="top mono"><span class="no">GROUP 04</span><span>Q-10 &#8212; Q-12</span></span>
+        <h3>会社のこと</h3>
+        <p>所在地と打ち合わせの形、会社の規模と体制、連絡の手段。</p>
+        <span class="go mono">3問<i></i>&#8595;</span>
       </a>
     </div>
-  </div>
-</section>
-
-<!-- ===== v1.0-03 サービス ===== -->
-<section class="sec" id="service">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-03</span>
-      <h2>6つのサービス</h2>
-      <span class="en mono">SERVICE</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">つくる（BUILD）が3つ、ととのえる（TUNE）が3つ。ここでは名前と一行だけです。それぞれが何をどこまでやるのかは v1.1 にまとめました。費用はすべて要相談です。</p>
-
-    <div class="cards rv mt6">
-      <a class="card" href="tech-advance-service.html#s-01" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_web.webp" loading="lazy" decoding="async" alt="Webサイト制作の打ち合わせ。デザイン画面を表示した大きなモニターに向かうスタッフ"></span>
-        <span class="top mono"><span class="no">S-01</span><span>つくる / BUILD</span></span>
-        <h3>Webサイト制作</h3>
-        <p>会社の&quot;顔&quot;となる、伝わるWebサイトを。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-02" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_app.webp" loading="lazy" decoding="async" alt="Webアプリ開発の作業風景。コードと管理画面を並べた複数モニター"></span>
-        <span class="top mono"><span class="no">S-02</span><span>つくる / BUILD</span></span>
-        <h3>Webアプリ開発</h3>
-        <p>業務にフィットする、使われ続けるアプリを。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-03" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_system.webp" loading="lazy" decoding="async" alt="システム開発の画面。構成図とダッシュボードを表示したモニター"></span>
-        <span class="top mono"><span class="no">S-03</span><span>つくる / BUILD</span></span>
-        <h3>システム開発</h3>
-        <p>自社の業務に合わせた、オーダーメイドの仕組みを。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-04" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_dx.webp" loading="lazy" decoding="async" alt="DXコンサルティングの様子。ホワイトボードに業務フローを描いて説明するスタッフ"></span>
-        <span class="top mono"><span class="no">S-04</span><span>ととのえる / TUNE</span></span>
-        <h3>DXコンサルティング</h3>
-        <p>何から始めるか、から一緒に整理します。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-05" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_improve.webp" loading="lazy" decoding="async" alt="業務システム改善の打ち合わせ。画面を指しながら課題を洗い出すチーム"></span>
-        <span class="top mono"><span class="no">S-05</span><span>ととのえる / TUNE</span></span>
-        <h3>業務システム改善</h3>
-        <p>使いにくさの原因を見つけ、丁寧に直す。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-      <a class="card" href="tech-advance-service.html#s-06" data-ver="v1.1" data-name="サービス詳細">
-        <span class="im"><img src="images/tech/tech_menu_support.webp" loading="lazy" decoding="async" alt="保守・運用サポートの現場。サーバールームと監視画面"></span>
-        <span class="top mono"><span class="no">S-06</span><span>ととのえる / TUNE</span></span>
-        <h3>保守・運用サポート</h3>
-        <p>リリース後も、安心して任せられる体制を。</p>
-        <span class="go mono">費用：要相談<i></i>&#8594;</span>
-      </a>
-    </div>
-
-    <p class="note-s rv">費用はすべて要相談です。規模と内容によって変わるため、個別にお見積りします。お見積りは「02 設計」の段階で、機能の単位に分解した形でお出しします。</p>
-  </div>
-</section>
-
-<!-- ===== v1.0-04 導入事例（差分） ===== -->
-<section class="sec sec--alt" id="record">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-04</span>
-      <h2>つくったものを、差分で書く</h2>
-      <span class="en mono">RECORD</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">「何をつくったか」より、「何がどう変わったか」のほうが伝わると思っています。6件の事例を、<b>−（前の状態）</b>と <b>＋（次の版でやったこと）</b>の2行だけで並べました。</p>
 
     <ul class="dfl rv mt6">
       <li>
         <div class="df-h">
-          <p class="code mono">CASE-01</p>
-          <h3>製造業A社</h3>
-          <p class="meta mono">従業員50名規模 / S-02</p>
+          <p class="code mono">FAQ-DIFF</p>
+          <h3>このページで変わること</h3>
+          <p class="meta mono">v3.1 &#8212; QUESTIONS</p>
         </div>
         <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>生産日報が紙とExcelに分かれていて、同じ内容を二度書いていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>入力画面をひとつにまとめた社内Webアプリ。現場のタブレットからそのまま入力できるようにした</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-02</p>
-          <h3>卸売業B社</h3>
-          <p class="meta mono">従業員120名規模 / S-03</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>受注をFAXとメールと電話で受けていて、在庫の数がその場で分からなかった</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>受注入力と在庫参照をひとつにまとめた業務システム。既存の販売管理とはデータ連携でつないだ</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-03</p>
-          <h3>建設業C社</h3>
-          <p class="meta mono">従業員30名規模 / S-02</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>現場写真の整理と報告書づくりを、事務所に戻ってから手作業でやっていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>スマートフォンから写真と報告を送れる仕組み。報告書の形に組むところまで用意した</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-04</p>
-          <h3>医療法人D</h3>
-          <p class="meta mono">職員80名規模 / S-01・S-02</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>予約と問い合わせが電話に集中し、受付が別の作業に取りかかれなかった</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>Webからの予約受付と、お知らせの配信をまとめた画面をつくった</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-05</p>
-          <h3>教育事業E社</h3>
-          <p class="meta mono">従業員20名規模 / S-01</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>案内サイトを自社で更新できず、内容が古いまま止まっていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>載せる情報の順番から組み直し、自社で更新できるWebサイトにつくり直した</span></li>
-        </ul>
-      </li>
-      <li>
-        <div class="df-h">
-          <p class="code mono">CASE-06</p>
-          <h3>物流業F社</h3>
-          <p class="meta mono">従業員200名規模 / S-06</p>
-        </div>
-        <ul class="dlines">
-          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>リリース済みのシステムに手が入らず、現場からの要望が溜まっていた</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">やったこと：</span>保守運用を引き継ぎ、月次で直すもの・足すものを決めて版を重ねる形にした</span></li>
+          <li><span class="sg" aria-hidden="true">&#8722;</span><span><span class="vh">前の状態：</span>費用と納期が分からないまま、問い合わせるかどうかを決めないといけない</span></li>
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">読めること：</span>金額そのものは出せませんが、見積りの出し方・出すタイミング・内訳の分け方が読めます</span></li>
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">読めること：</span>相談から最初のリリースまでの期間の目安と、その内訳が読めます</span></li>
+          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span><span class="vh">読めること：</span>要件が固まっていない状態で相談してよいこと、そのときに何を持っていけばよいかが読めます</span></li>
         </ul>
       </li>
     </ul>
+    <p class="note-s rv">答えの中で数字を出しているのは、ここまでの版で書いてきた期間の目安と会社の規模だけです。金額は、規模と内容によって変わるため個別にお見積りします。</p>
+  </div>
+</section>
 
-    <p class="note-s rv">掲載しているのは、サンプルとして作成した導入事例です。実在の企業・案件を示すものではありません。企業名は伏せ、成果を数値で示すことはしていません。</p>
+<!-- ===== v3.1-02 費用と契約 ===== -->
+<section class="sec sec--alt" id="cost">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="idx mono">v3.1-02</span>
+      <h2>費用と契約</h2>
+      <span class="en mono">GROUP 01 / COST</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rv">既存のサイトでお伝えしているとおり、6つのサービスはすべて「費用：要相談」です。金額の目安をこのページに書かない代わりに、どうやって見積りを出すのかを書きました。</p>
+
+    <div class="qas rv mt6">
+      <details class="qa" id="q-01" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-01</span>
+          <span class="qat">費用はどのくらいかかりますか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>規模と内容によって変わるため、個別にお見積りします。このページに金額の目安を書いていないのは、条件によって外れてしまい、あとで説明の食い違いになるからです。</p>
+        <p>お見積りは、要件を機能の単位に分解して、それぞれの想定工数を積み上げて出します。分解したものはそのままお渡しするので、どこにいくらかかっているかが見えます。</p>
+        <p class="qtag mono">COST</p>
+        </div>
+      </details>
+      <details class="qa" id="q-02" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-02</span>
+          <span class="qat">見積りはいつ出ますか。相談の段階で概算だけでも聞けますか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>お見積りは「02 設計」の段階で出します。相談だけの段階では、概算もお出ししていません。要件が固まる前の概算は外れることが多いためです。</p>
+        <p>代わりに相談の段階では、決めるべきことの一覧と、決める順番をお渡しします。内訳は 設計／実装／テスト／リリース作業／運用開始後の初期サポート の5つに分けています。</p>
+        <p class="qtag mono">COST</p>
+        </div>
+      </details>
+      <details class="qa" id="q-03" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-03</span>
+          <span class="qat">契約の形は選べますか。保守はどういう扱いになりますか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>準委任・請負のいずれもお受けしています。案件の性質に合わせて、相談して決めます。</p>
+        <p>保守は、月額の定額（監視・障害の一次対応・軽微な修正）と、追加の開発は都度お見積り、という形が基本です。どこまでを私たちが受け持つかは、契約の前に書面で分けたうえで進めています。</p>
+        <p class="qtag mono">CONTRACT</p>
+        </div>
+      </details>
+    </div>
+    <script>__qaFold();</script>
+
+    <div class="pull rv">
+      <q>規模と内容によって変わるため、<br><b>個別にお見積り</b>します。</q>
+      <p>これは費用の質問への答えを避けているのではなく、機能の単位まで分解しないと出せない、という意味です。分解したものはそのままお渡しします。</p>
+    </div>
 
     <div class="mores mt6 rv">
-      <a class="morelink" href="tech-advance-works.html" data-ver="v2.0" data-name="導入事例 一覧">
-        <b>6件の事例を、背景から読む</b>
-        <span>v2.0 &nbsp;導入事例 一覧 &nbsp;&#8594;</span>
-      </a>
-      <a class="morelink ghost" href="tech-advance-work-detail.html" data-ver="v2.1" data-name="導入事例 詳細 CASE-02">
-        <b>CASE-02 卸売業B社を、1件だけ深く見る</b>
-        <span>v2.1 &nbsp;導入事例 詳細 &nbsp;&#8594;</span>
+      <a class="morelink ghost" href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細">
+        <b>6つのサービスが、どこからどこまでをやるか</b>
+        <span>v1.1 &nbsp;サービス詳細 &nbsp;&#8594;</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ===== v1.0-05 技術と開発体制 ===== -->
-<section class="sec" id="platform">
+<!-- ===== v3.1-03 進め方と期間 ===== -->
+<section class="sec" id="flow">
   <div class="wrap">
     <div class="shead rv">
-      <span class="idx mono">v1.0-05</span>
-      <h2>この版に入っているもの</h2>
-      <span class="en mono">PLATFORM</span>
+      <span class="idx mono">v3.1-03</span>
+      <h2>進め方と期間</h2>
+      <span class="en mono">GROUP 02 / FLOW</span>
     </div>
     <div class="rule"></div>
-    <p class="lead rv">使っている技術を、5つの区分でそのまま並べます。案件ごとに選ぶものは変わるので、ここにあるものを全部使うわけではありません。相談の段階で、どれを使うかも一緒に決めます。</p>
 
-    <div class="sg2 wide rv mt6">
-      <div class="mnf">
-        <p class="mnf-h mono"><span>MANIFEST &#8212; <b>NEXTGRID v1.0</b></span><span>5 GROUPS</span></p>
-        <div class="mnf-row">
-          <p class="mnf-k mono">front <em>フロント</em></p>
-          <p class="mnf-v"><span>TypeScript</span><span>React</span><span>Next.js</span><span>Vue.js</span><span>HTML / CSS</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">back <em>バックエンド</em></p>
-          <p class="mnf-v"><span>Node.js</span><span>PHP / Laravel</span><span>Python</span><span>REST API</span><span>GraphQL</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">infra <em>インフラ</em></p>
-          <p class="mnf-v"><span>AWS</span><span>Docker</span><span>Terraform</span><span>Linux</span><span>CDN</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">data <em>データ</em></p>
-          <p class="mnf-v"><span>PostgreSQL</span><span>MySQL</span><span>Redis</span><span>Object Storage</span></p>
-        </div>
-        <div class="mnf-row">
-          <p class="mnf-k mono">devops <em>開発基盤</em></p>
-          <p class="mnf-v"><span>Git / GitHub</span><span>GitHub Actions</span><span>Jest</span><span>Playwright</span><span>エラー監視</span></p>
-        </div>
-      </div>
-
-      <div>
-        <figure class="figfr r169">
-          <span class="im"><img src="images/tech/tech_gallery1.webp" loading="lazy" decoding="async" alt="窓際に並ぶ開発デスクと、ガラスの奥に見えるサーバーラック"></span>
-          <figcaption class="mono"><b>PLT-01</b><span>開発フロア。手前がワークスペース、奥が機材室です</span></figcaption>
-        </figure>
-
-        <ul class="dlines mt4">
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>1案件あたり3〜4名。窓口は1人に固定します</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>2週間をひと区切りに、区切りごとに動くものを見せます</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>変更はすべてプルリクエストにして、別のメンバーが読んでからマージします</span></li>
-          <li class="plus"><span class="sg" aria-hidden="true">&#43;</span><span>自動テストとリリース前の手動確認を組み合わせています</span></li>
-        </ul>
-
-        <p class="note-s">セキュリティは、アクセス管理・データの取り扱い・バックアップ・脆弱性への対応の4つで対策を行っています。リスクをゼロにはできない前提で、起きたときに気づける・戻せる形にしています。詳しくは v3.0 に書きました。</p>
-      </div>
-    </div>
-
-    <div class="mores mt6 rv">
-      <a class="morelink" href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制">
-        <b>技術・開発体制・セキュリティを詳しく見る</b>
-        <span>v3.0 &nbsp;技術と開発体制 &nbsp;&#8594;</span>
-      </a>
-      <a class="morelink ghost" href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問">
-        <b>費用・納期・契約のことは、よくある質問へ</b>
-        <span>v3.1 &nbsp;よくある質問 &nbsp;&#8594;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== v1.0-06 会社 ===== -->
-<section class="sec sec--alt" id="company">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-06</span>
-      <h2>つくっている人と、会社のこと</h2>
-      <span class="en mono">COMPANY</span>
-    </div>
-    <div class="rule"></div>
     <div class="sg2 narrow rv">
       <div>
         <figure class="figfr r169">
-          <span class="im"><img src="images/tech/tech_facility1.webp" loading="lazy" decoding="async" alt="窓に面したオフィスのデスク。モニターとキーボードが並び、奥にホワイトボードがある"></span>
-          <figcaption class="mono"><b>CMP-01</b><span>打ち合わせも開発も同じフロア。声をかければすぐ相談できる距離です</span></figcaption>
+          <span class="im"><img src="images/tech/tech_flow4.webp" loading="lazy" decoding="async" alt="ノートパソコンを開いたテーブルで向かい合って話す2人"></span>
+          <figcaption class="mono"><b>FAQ-01</b><span>決まったこと・決まっていないことは、その場で書き出して共有します</span></figcaption>
         </figure>
-        <p class="note-s">※写真はイメージです。これはRESCが作成したサンプルサイトのため、実在の担当者・拠点を示すものではありません。</p>
+        <p class="note-s">※写真はイメージです。これはRESCが作成したサンプルサイトのため、実在の打ち合わせを示すものではありません。</p>
       </div>
       <div>
-        <dl class="spec">
-          <div><dt class="mono">社名</dt><dd>株式会社NextGrid</dd></div>
-          <div><dt class="mono">設立</dt><dd>2016年4月</dd></div>
-          <div><dt class="mono">代表者</dt><dd>代表取締役 桑野 拓真</dd></div>
+        <p class="lead">段階は5つです。01 相談／02 設計／03 実装／04 リリース／05 運用。既存のサイトでお伝えしている PHASE 01〜04（要件・開発・リリース・運用）と同じ流れで、その手前にある「相談」を1段階として分けています。</p>
+        <p class="body-t mt4">下の表は期間の目安です。規模とご要望の量によって前後します。期日が決まっている場合は、その日から逆算して、最初の版に入れるものを絞るところからご相談します。</p>
+      </div>
+    </div>
+
+    <div class="rv mt6">
+      <table class="tbl">
+        <caption class="mono">SCHEDULE</caption>
+        <thead>
+          <tr><th scope="col">段階</th><th scope="col">期間の目安</th><th scope="col">既存のフェーズとの対応</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">01 相談</th><td class="num" data-l="期間の目安">1〜2週間</td><td data-l="既存のフェーズとの対応">PHASE 01 要件の手前</td></tr>
+          <tr><th scope="row">02 設計</th><td class="num" data-l="期間の目安">2〜4週間</td><td data-l="既存のフェーズとの対応">PHASE 01 要件</td></tr>
+          <tr><th scope="row">03 実装</th><td class="num" data-l="期間の目安">2〜4ヶ月</td><td data-l="既存のフェーズとの対応">PHASE 02 開発</td></tr>
+          <tr><th scope="row">04 リリース</th><td class="num" data-l="期間の目安">2〜3週間</td><td data-l="既存のフェーズとの対応">PHASE 03 リリース</td></tr>
+          <tr><th scope="row">05 運用</th><td class="num" data-l="期間の目安">継続</td><td data-l="既存のフェーズとの対応">PHASE 04 運用</td></tr>
+        </tbody>
+      </table>
+      <p class="note-s">相談から最初のリリースまでは4〜7ヶ月が目安です。上の表の期間は、それぞれの段階に着手してからかかる時間の目安で、案件によって前後します。</p>
+    </div>
+
+    <div class="qas rv mt6">
+      <details class="qa" id="q-04" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-04</span>
+          <span class="qat">要件が固まっていません。この状態でも相談できますか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>まだ要件が固まっていなくても、大丈夫です。何から手をつけるか、の整理からご一緒します。</p>
+        <p>資料をつくっていただく必要はありません。いま使っているファイルや画面を、そのまま見せてください。決めきれないところは、決めないまま次の段階に進んでも構いません。進め方の詳しい話は <a href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方">v1.2 進め方</a> にあります。</p>
+        <p class="qtag mono">FLOW</p>
+        </div>
+      </details>
+      <details class="qa" id="q-05" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-05</span>
+          <span class="qat">相談から使えるようになるまで、どのくらいかかりますか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>相談から最初のリリースまでは、4〜7ヶ月が目安です。内訳は 01 相談 1〜2週間／02 設計 2〜4週間／03 実装 2〜4ヶ月／04 リリース 2〜3週間 です。</p>
+        <p>規模とご要望の量によって前後します。期日が決まっている場合は、その日から逆算して、最初の版に入れるもの・次の版に回すものを分けるところからご相談します。</p>
+        <p class="qtag mono">FLOW</p>
+        </div>
+      </details>
+      <details class="qa" id="q-06" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-06</span>
+          <span class="qat">途中で仕様を変えたくなったときは、どうなりますか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>2週間を1区切りにして、区切りごとに動くものをお見せしています。変更は、その区切りの切れ目で入れるのがいちばん手戻りが少ないです。</p>
+        <p>工数が増える変更は、増える分をお見積りしてから着手します。定例は週1回で、決まったこと・決まっていないことを、その場で書き出して共有します。オンラインでの打ち合わせにも対応しています。</p>
+        <p class="qtag mono">FLOW</p>
+        </div>
+      </details>
+    </div>
+    <script>__qaFold();</script>
+  </div>
+</section>
+
+<!-- ===== v3.1-04 技術と運用 ===== -->
+<section class="sec sec--alt" id="tech">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="idx mono">v3.1-04</span>
+      <h2>技術と運用</h2>
+      <span class="en mono">GROUP 03 / TECH</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rv">使っている技術と、それを回している手順の話です。詳しくは v3.0 の技術と開発体制にまとめてあるので、ここではよく聞かれるところだけを抜き出しています。</p>
+
+    <div class="qas rv mt6">
+      <details class="qa" id="q-07" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-07</span>
+          <span class="qat">どんな技術を使いますか。指定があれば合わせてもらえますか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>フロントエンド／バックエンド／インフラ／データ／開発基盤の5区分で持っています。TypeScript、React、Node.js、PHP（Laravel）、Python、AWS、Docker、PostgreSQL などを扱っています。</p>
+        <p>案件ごとに使うものは変わります。すでに動いている仕組み、運用する方、引き継ぎのしやすさを見て、相談の段階で一緒に決めます。ご指定のものがある場合は、それに合わせます。</p>
+        <p class="qtag mono">TECH</p>
+        </div>
+      </details>
+      <details class="qa" id="q-08" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-08</span>
+          <span class="qat">セキュリティはどうなっていますか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>権限は担当する範囲に限り、管理画面には多要素認証を設定しています。通信と保管するデータは暗号化しています。本番のデータをそのまま開発環境に持ち出さない手順も決めていて、必要なときは値を伏せて使います。</p>
+        <p>リスクをゼロにはできない前提で、起きたときに気づける仕組み（監視・記録）と、戻せる手順（バックアップ・切り戻し）を先に用意しています。対策の範囲はお預かりするデータの種類とご要望によって変わるため、契約の前に受け持つ範囲を書面で分けます。</p>
+        <p class="qtag mono">SECURITY</p>
+        </div>
+      </details>
+      <details class="qa" id="q-09" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-09</span>
+          <span class="qat">リリースしたあとの運用はどうなりますか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>納品して終わりにしません。月次で状況を見て、直すもの・足すものを次の版に入れます。窓口は1案件1人のまま、リリース後も変わりません。</p>
+        <p>すでに動いているシステムの保守運用を、途中から引き継ぐご相談もお受けしています。その場合は、いまの状態を読むところから始めます。</p>
+        <p class="qtag mono">OPS</p>
+        </div>
+      </details>
+    </div>
+    <script>__qaFold();</script>
+
+    <div class="mores mt6 rv">
+      <a class="morelink ghost" href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制">
+        <b>5区分のマニフェストと、変更が本番に届くまでの手順</b>
+        <span>v3.0 &nbsp;技術と開発体制 &nbsp;&#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== v3.1-05 会社のこと ===== -->
+<section class="sec" id="company">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="idx mono">v3.1-05</span>
+      <h2>会社のこと</h2>
+      <span class="en mono">GROUP 04 / COMPANY</span>
+    </div>
+    <div class="rule"></div>
+
+    <div class="sg2 wide rv">
+      <div>
+        <div class="qas">
+      <details class="qa" id="q-10" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-10</span>
+          <span class="qat">事務所はどこですか。打ち合わせは訪問とオンラインのどちらですか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>福岡県福岡市〇〇区〇〇8-6-2 です。営業時間は9:30〜18:30、土曜・日曜・祝日はお休みです。</p>
+        <p>オンラインでの打ち合わせにも対応しています。ご来社の前にご連絡いただけると、打ち合わせスペースを空けてお待ちできます。所在地の略図は <a href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ">v4.2 アクセス・お問い合わせ</a> にあります。</p>
+        <p class="qtag mono">COMPANY</p>
+        </div>
+      </details>
+      <details class="qa" id="q-11" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-11</span>
+          <span class="qat">何人の会社ですか。1案件には何人つきますか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>従業員9名です（エンジニア5／デザイナー1／ディレクター2／管理1）。2016年4月に設立しました。</p>
+        <p>1案件あたりは3〜4名（テックリード1／実装1〜2／ディレクション1）で組みます。窓口は1人に固定していて、相談から運用まで同じ人が見続けます。</p>
+        <p class="qtag mono">COMPANY</p>
+        </div>
+      </details>
+      <details class="qa" id="q-12" open>
+        <summary class="qah" aria-expanded="true">
+          <span class="qan mono">Q-12</span>
+          <span class="qat">連絡はどこにすればいいですか。返事はいつごろ来ますか。</span>
+          <span class="qamk" aria-hidden="true"></span>
+        </summary>
+        <div class="qab">
+        <p>メール（info@example.com）、LINE、このサイトのお問い合わせフォームの3つで承っています。どれでも同じ窓口に届きます。</p>
+        <p>受付は9:30〜18:30、土曜・日曜・祝日はお休みです。お休みの日にいただいたご連絡は、翌営業日以降のご返信になります。</p>
+        <p class="qtag mono">CONTACT</p>
+        </div>
+      </details>
+        </div>
+        <script>__qaFold();</script>
+      </div>
+      <div>
+        <figure class="figfr r43">
+          <span class="im"><img src="images/tech/tech_facility1.webp" loading="lazy" decoding="async" alt="窓に面したオフィスのデスク。モニターとキーボードが並び、奥にホワイトボードがある"></span>
+          <figcaption class="mono"><b>FAQ-02</b><span>打ち合わせも開発も同じフロアです</span></figcaption>
+        </figure>
+        <p class="note-s">※写真はイメージです。これはRESCが作成したサンプルサイトのため、実在の拠点を示すものではありません。</p>
+        <dl class="spec mt4">
           <div><dt class="mono">所在地</dt><dd>福岡県福岡市〇〇区〇〇8-6-2</dd></div>
-          <div><dt class="mono">従業員数</dt><dd>9名<small>エンジニア5／デザイナー1／ディレクター2／管理1</small></dd></div>
           <div><dt class="mono">営業時間</dt><dd>9:30〜18:30<small>土曜・日曜・祝日はお休みです</small></dd></div>
-          <div><dt class="mono">事業内容</dt><dd>Webサイト制作／Webアプリ開発／システム開発／DXコンサルティング／業務システム改善／保守・運用サポート</dd></div>
-          <div><dt class="mono">費用</dt><dd>要相談<small>内容によって異なるため、個別にご相談を承っています。</small></dd></div>
+          <div><dt class="mono">連絡</dt><dd>info@example.com ／ LINE ／ お問い合わせフォーム</dd></div>
         </dl>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== v3.1-06 次の版へ ===== -->
+<section class="sec sec--deep" id="next">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="idx mono">v3.1-06</span>
+      <h2>この版の次に読むもの</h2>
+      <span class="en mono">NEXT REVISION</span>
+    </div>
+    <div class="rule"></div>
+    <p class="lead rv">ここまでが土台の版です。この先は会社の版が3つ続きます。誰がやっているのかは v4.0、実際に連絡をとるための情報は v4.2 にあります。ここに無い質問は、そのまま聞いてください。</p>
 
     <div class="mores mt6 rv">
       <a class="morelink" href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内">
-        <b>メンバー3名と、会社のことを見る</b>
+        <b>答えている人たちを見る</b>
         <span>v4.0 &nbsp;メンバー・会社案内 &nbsp;&#8594;</span>
       </a>
-      <a class="morelink ghost" href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報">
-        <b>いま2職種で仲間を探しています</b>
-        <span>v4.1 &nbsp;採用情報 &nbsp;&#8594;</span>
+      <a class="morelink ghost" href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ">
+        <b>ここに無いことを、そのまま聞いてみる</b>
+        <span>v4.2 &nbsp;アクセス・お問い合わせ &nbsp;&#8594;</span>
       </a>
     </div>
+
+    <p class="note-s rv">掲載している内容は、サンプルとして作成したものです。実在の企業・案件・契約条件を示すものではありません。</p>
   </div>
 </section>
 
-<!-- ===== v1.0-07 このサイトの全10版 ===== -->
-<section class="sec sec--deep" id="changelog">
-  <div class="wrap">
-    <div class="shead rv">
-      <span class="idx mono">v1.0-07</span>
-      <h2>このサイトの全10版</h2>
-      <span class="en mono">CHANGELOG</span>
-    </div>
-    <div class="rule"></div>
-    <p class="lead rv">10ページを、4つの版グループに分けています。番号の左が群、右がその中の順番です。いま見ているのは v1.0、いちばん最初の版です。</p>
-
-    <div class="cl rv mt6">
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v1</span><h3>総論</h3><span class="gd mono">GENERAL &#8212; 何をして、どう進めるか</span>
-        </div>
-        <ul class="cl-l">
-          <li><span class="cl-i now"><span class="v mono">v1.0</span><span><h4>トップ</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>版を重ねるという考え方と、開発の循環</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>6つのサービスと導入事例の差分</span></li></ul></span></span></li>
-          <li><a class="cl-i" href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細"><span class="v mono">v1.1</span><span><h4>サービス詳細</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>S-01〜S-06 が何をどこまでやるか</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>お見積りの出し方と保守契約の考え方</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方"><span class="v mono">v1.2</span><span><h4>進め方</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>相談から運用までの5段階と期間の目安</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>各段階で決まること・お願いすること</span></li></ul></span></a></li>
-        </ul>
-      </div>
-
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v2</span><h3>記録</h3><span class="gd mono">RECORD &#8212; つくったもの</span>
-        </div>
-        <ul class="cl-l">
-          <li><a class="cl-i" href="tech-advance-works.html" data-ver="v2.0" data-name="導入事例 一覧"><span class="v mono">v2.0</span><span><h4>導入事例 一覧</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>CASE-01〜CASE-06 の背景とやったこと</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>業種・規模・関わったサービスの一覧表</span></li></ul></span></a></li>
-          <li><a class="cl-i sub" href="tech-advance-work-detail.html" data-ver="v2.1" data-name="導入事例 詳細 CASE-02"><span class="v mono">v2.1</span><span><h4>導入事例 詳細（CASE-02）</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>卸売業B社の1件を、版ごとに分解</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>決めたこと・決めなかったことの記録</span></li></ul></span></a></li>
-        </ul>
-      </div>
-
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v3</span><h3>土台</h3><span class="gd mono">PLATFORM &#8212; 技術と土台</span>
-        </div>
-        <ul class="cl-l">
-          <li><a class="cl-i" href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制"><span class="v mono">v3.0</span><span><h4>技術と開発体制</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>5区分の技術スタックと、選び方の考え方</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>チーム構成・レビュー・テスト・リリース</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>セキュリティで行っている対策</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問"><span class="v mono">v3.1</span><span><h4>よくある質問</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>費用・納期・契約・引き継ぎのこと</span></li></ul></span></a></li>
-        </ul>
-      </div>
-
-      <div class="cl-g">
-        <div class="cl-gh">
-          <span class="gv">v4</span><h3>会社</h3><span class="gd mono">COMPANY &#8212; 人と窓口</span>
-        </div>
-        <ul class="cl-l">
-          <li><a class="cl-i" href="tech-advance-company.html" data-ver="v4.0" data-name="メンバー・会社案内"><span class="v mono">v4.0</span><span><h4>メンバー・会社案内</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>メンバー3名の役割と担当領域</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>会社概要と、チームの働き方</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-recruit.html" data-ver="v4.1" data-name="採用情報"><span class="v mono">v4.1</span><span><h4>採用情報</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>2職種の募集要項（労働条件をすべて明示）</span></li>
-            <li><span class="sg" aria-hidden="true">&#43;</span><span>選考の流れと応募方法</span></li></ul></span></a></li>
-          <li><a class="cl-i" href="tech-advance-contact.html" data-ver="v4.2" data-name="アクセス・お問い合わせ"><span class="v mono">v4.2</span><span><h4>アクセス・お問い合わせ</h4>
-            <ul class="adds"><li><span class="sg" aria-hidden="true">&#43;</span><span>所在地・営業時間・お問い合わせフォーム</span></li></ul></span></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
+<script>
+/* v3.1 固有：問答の開閉（その2）
+   ハッシュが変わったときに、その問答を開いて頭出しする。 */
+(function(){
+  "use strict";
+  function jump(){ if(window.__qaOpenByHash) window.__qaOpenByHash(true); }
+  window.addEventListener('hashchange', jump);
+  /* 直接 #q-05 のような形で開かれたときも、畳んだあとの位置に合わせて頭出しする */
+  if(location.hash.length > 1){
+    jump();
+    window.addEventListener('load', function(){ setTimeout(jump, 60); });
+  }
+})();
+</script>
 </main>
 
 <footer class="ft">
@@ -1231,7 +1204,7 @@ a.cl-i:hover h4{color:var(--acc)}
       <nav aria-label="v1 総論">
         <h3>v1 &#8212; GENERAL / 総論</h3>
         <ul>
-          <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ" aria-current="page"><span class="v">v1.0</span><span>トップ</span></a></li>
+          <li><a href="tech-advance.html" data-ver="v1.0" data-name="トップ"><span class="v">v1.0</span><span>トップ</span></a></li>
           <li><a href="tech-advance-service.html" data-ver="v1.1" data-name="サービス詳細"><span class="v">v1.1</span><span>サービス詳細</span></a></li>
           <li><a href="tech-advance-flow.html" data-ver="v1.2" data-name="進め方"><span class="v">v1.2</span><span>進め方</span></a></li>
         </ul>
@@ -1247,7 +1220,7 @@ a.cl-i:hover h4{color:var(--acc)}
         <h3>v3 &#8212; PLATFORM / 土台</h3>
         <ul>
           <li><a href="tech-advance-stack.html" data-ver="v3.0" data-name="技術と開発体制"><span class="v">v3.0</span><span>技術と開発体制</span></a></li>
-          <li><a href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問"><span class="v">v3.1</span><span>よくある質問</span></a></li>
+          <li><a href="tech-advance-faq.html" data-ver="v3.1" data-name="よくある質問" aria-current="page"><span class="v">v3.1</span><span>よくある質問</span></a></li>
         </ul>
       </nav>
       <nav aria-label="v4 会社">
@@ -1289,8 +1262,8 @@ a.cl-i:hover h4{color:var(--acc)}
    NextGrid ADVANCE 共通JS（全10ページ同一）
    ページごとに変えるのは、下の CURRENT と PAGENAME の2行だけ。
    ========================================================== */
-var CURRENT  = 'v1.0';
-var PAGENAME = 'トップ';
+var CURRENT  = 'v3.1';
+var PAGENAME = 'よくある質問';
 
 (function(){
   "use strict";

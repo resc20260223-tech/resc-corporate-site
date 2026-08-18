@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>炭火焼鳥 とりや｜焼き鳥｜福岡</title>
-<meta name="description" content="福岡の炭火焼鳥 とりや。仕入れ・仕込み・火入れ・焼き・お見送りまで、一本の串ができる一日の順に店のことをまとめました。営業時間17:00〜23:00（定休日:日曜日）。ご予約はフォーム・LINEから。">
+<title>よくある質問｜炭火焼鳥 とりや｜焼き鳥｜福岡</title>
+<meta name="description" content="福岡の炭火焼鳥 とりや。ご予約の受け方、当日のご予約、キャンセル、お子さま連れ、喫煙、お支払い、飲み放題の条件まで、先に聞かれることをまとめました。">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 <script>
 /* js クラス：JS無効時は .rv を隠さない／遷移オーバーレイも出さない。
@@ -22,7 +22,7 @@
 /* ==========================================================
    炭火焼鳥 とりや — ADVANCE（全10ページ共通スタイル）
    骨格：一本の串の一日。仕入 → 仕込 → 焼 → 供 → 締。
-   工程 00 火入れ（このページ）／ 01〜09 が続く。
+   このページは 工程 08 よくある質問。全10ページ共通のスタイルです。
    ページ遷移：煙が横に流れて画面を払う。
    ========================================================== */
 :root{
@@ -592,6 +592,54 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
   .js .rv{opacity:1!important;transform:none!important}
 }
 </style>
+<style>
+/* ==========================================================
+   工程 08 よくある質問だけで使う組み（共通CSSには足しません）
+   問答は <details>。HTMLでは open のまま出力し、JSが動く環境でだけ畳みます。
+   ========================================================== */
+.qidx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:900px){.qidx{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.qidx{grid-template-columns:1fr}}
+.qidx a{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;align-items:baseline;
+  padding:12px 14px;border:1px solid var(--line-hair);border-radius:2px;background:var(--sumi-2);
+  transition:border-color .3s,background .3s,transform .3s}
+.qidx a:hover{border-color:rgba(255,138,61,.6);background:var(--sumi-3);transform:translateY(-2px)}
+.qidx .n{font-family:var(--num);font-size:11.5px;letter-spacing:.14em;color:var(--hi);font-weight:600}
+.qidx b{font-size:13.2px;font-weight:700;line-height:1.7;color:var(--kinari)}
+
+.qtools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:16px}
+.qall{background:var(--sumi-2);border:1px solid var(--line);color:var(--kinari);border-radius:2px;
+  padding:9px 16px;font-family:var(--gothic);font-size:12px;font-weight:700;letter-spacing:.12em;cursor:pointer;
+  transition:border-color .3s,background .3s}
+.qall:hover{border-color:rgba(255,138,61,.7);background:var(--sumi-3)}
+.qtools .qcount{font-size:12px;color:var(--kinari-3);letter-spacing:.08em}
+
+.qlist{display:grid;gap:12px}
+.qa{background:var(--sumi-2);border:1px solid var(--line-soft);border-radius:3px;overflow:hidden}
+.qa>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:66px minmax(0,1fr) 16px;
+  gap:12px;align-items:start;padding:17px 18px}
+.qa>summary::-webkit-details-marker{display:none}
+.qa>summary:hover{background:var(--sumi-3)}
+.qa[open]>summary{background:var(--sumi-3)}
+.qa .qn{font-family:var(--num);font-size:12px;letter-spacing:.13em;color:var(--hi);font-weight:600;padding-top:5px}
+.qa .qt{font-size:15.5px;font-weight:900;line-height:1.75;letter-spacing:.03em;color:var(--kinari)}
+.qa .qc{width:11px;height:11px;margin-top:8px;justify-self:end;flex:none;
+  border-right:1.4px solid var(--kinari-3);border-bottom:1.4px solid var(--kinari-3);
+  transform:rotate(45deg) translate(-1px,-1px);transition:transform .25s}
+.qa[open]>summary .qc{transform:rotate(-135deg) translate(-2px,-2px)}
+.qa .qb{border-top:1px solid var(--line-hair);padding:18px 18px 20px;display:grid;gap:13px}
+.qa .qb p{font-size:13.8px;line-height:2.15;color:var(--kinari-2);max-width:44em;letter-spacing:.02em}
+.qa .qb a{color:var(--hi-2);font-weight:700;border-bottom:1px solid rgba(255,178,92,.45)}
+.qa .qb a:hover{border-bottom-color:var(--hi-2)}
+.qa .qb .qtag{display:flex;flex-wrap:wrap;gap:8px}
+.qa .qb .qtag span{border:1px solid var(--line);color:var(--kinari-3);font-size:11px;letter-spacing:.1em;
+  font-weight:700;padding:4px 10px;border-radius:1px}
+@media (max-width:560px){
+  .qa>summary{grid-template-columns:minmax(0,1fr) 16px;gap:8px 12px;padding:15px 15px}
+  .qa .qn{grid-column:1/-1;padding-top:0}
+  .qa .qb{padding:16px 15px 18px}
+}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
@@ -645,7 +693,7 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
 <header class="hd">
   <div class="hd-main">
     <div class="wrap">
-      <a class="brand" href="yakitori-advance.html" aria-current="page">
+      <a class="brand" href="yakitori-advance.html" data-ko="00" data-nm="火入れ">
         <svg class="mk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="10.6" y="1.5" width="2.8" height="21" rx="1.4" fill="url(#gBamboo)"/><rect x="4.6" y="5" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/><rect x="4.6" y="12.4" width="14.8" height="5.4" rx="2.7" fill="url(#gCooked)"/></svg>
         <span>炭火焼鳥 とりや<em>TORIYA</em></span>
       </a>
@@ -691,13 +739,13 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
           </div>
         </details>
 
-        <details class="gr" data-gr="4">
+        <details class="gr cur" data-gr="4">
           <summary aria-expanded="false"><span class="kz">08&#8211;09</span>締<span class="cv" aria-hidden="true"></span></summary>
           <div class="grp">
             <div class="wrap">
               <p class="gh">四 ／ 締　CLOSE<span>のれんを下ろすまで</span></p>
               <div class="grl">
-                <a href="yakitori-advance-faq.html" data-ko="08" data-nm="よくある質問"><span class="kn">08</span><span><b>よくある質問</b><small>先に聞かれることを、先に。</small></span></a>
+                <a href="yakitori-advance-faq.html" data-ko="08" data-nm="よくある質問" aria-current="page"><span class="kn">08</span><span><b>よくある質問</b><small>先に聞かれることを、先に。</small></span></a>
                 <a href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約"><span class="kn">09</span><span><b>アクセス・ご予約</b><small>フォーム・LINE・メールから。</small></span></a>
               </div>
             </div>
@@ -711,622 +759,314 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
 
   <div class="hd-now">
     <div class="wrap">
-      <p class="cur"><span class="kn">工程 00</span><span class="gp">序 ／ 火入れ</span><span class="nm">トップ</span></p>
+      <p class="cur"><span class="kn">工程 08</span><span class="gp">四 ／ 締</span><span class="nm">よくある質問</span></p>
       <p class="pn">
-        <span class="dis">&#9664; PREV</span>
-        <a href="yakitori-advance-company.html" data-ko="01" data-nm="店主・店の案内">NEXT 　工程 01<span class="pw">店主・店の案内</span> &#9654;</a>
+        <a href="yakitori-advance-private.html" data-ko="07" data-nm="貸切・宴会">&#9664; PREV　工程 07<span class="pw">貸切・宴会</span></a>
+        <a href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約">NEXT　工程 09<span class="pw">アクセス・ご予約</span> &#9654;</a>
       </p>
     </div>
   </div>
 </header>
 
+<nav class="crumb" aria-label="パンくず">
+  <div class="wrap">
+    <ol>
+      <li><a href="yakitori-advance.html" data-ko="00" data-nm="火入れ">工程 00 トップ</a></li>
+      <li><span>四 ／ 締</span></li>
+      <li><span aria-current="page">工程 08 よくある質問</span></li>
+    </ol>
+  </div>
+</nav>
+
 <main id="main">
 
-<!-- ============ 00-a ヒーロー ============ -->
-<section class="hero" aria-labelledby="h1">
-  <img class="hero-img" src="images/yakitori/yakitori_hero.webp" alt="炭火の焼き場が見えるカウンター席。串が炭の上に並び、提灯の灯りがともる夜の店内" fetchpriority="high" decoding="async">
-  <div class="hero-scrim"></div>
-  <div class="hero-smoke" aria-hidden="true">
-    <i style="--y:18%;--h:24vh;--sp:30s;--d:0s"></i>
-    <i style="--y:44%;--h:20vh;--sp:38s;--d:-9s"></i>
-    <i style="--y:66%;--h:26vh;--sp:34s;--d:-18s"></i>
-  </div>
-  <div class="hero-in">
+<!-- ============ 08-a ページ見出し（写真なし・地色だけで立てる） ============ -->
+<section class="phd" aria-labelledby="h1">
+  <div class="phd-in">
     <div class="wrap">
-      <p class="koutei"><span class="k1">工程 00</span><span class="k2">火入れ</span><span class="k3">FIRE UP ／ 一本の串の一日</span></p>
-      <h1 id="h1"><span>一本の串は、</span><span>一日をかけて</span><span class="hot">出てきます。</span></h1>
-      <p class="hero-lead">備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。仕入れて、さばいて、串を打って、炭に火を入れて、お出しして、のれんを下ろす。その一日の順番のまま、店のことを10のページに並べました。</p>
-      <p class="hero-meta"><span>炭火焼鳥 とりや</span><span>福岡</span><span>営業 <span class="num">17:00</span> 〜 <span class="num">23:00</span></span><span>定休日 <b>日曜日</b></span><span>全 <span class="num">24</span> 席</span></p>
-      <p class="hero-cta">
-        <a class="pri" href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約">ご予約・お問い合わせ<svg class="ar" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg></a>
-        <a href="yakitori-advance-service.html" data-ko="04" data-nm="お品書き">お品書きを見る<svg class="ar" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg></a>
-      </p>
+      <p class="koutei"><span class="k1">工程 08</span><span class="k2">締める</span><span class="k3">CLOSE ／ よくある質問</span></p>
+      <h1 id="h1">よくある質問<em>FAQ</em></h1>
+      <p class="phd-lead">ご予約の受け方、キャンセル、お子さま連れ、喫煙、お支払い。先に聞かれることを、先に書いておきました。<span class="num">12</span> 問を三つに分けています。</p>
     </div>
-  </div>
-  <svg class="hero-bed" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <rect class="hb-glow" x="0" y="14" width="1200" height="76"/>
-    <path class="hb-dark" d="M0,52 L58,40 L126,49 L196,36 L268,47 L338,33 L410,45 L482,34 L556,48 L628,37 L700,50 L772,35 L846,46 L918,33 L990,47 L1062,38 L1132,50 L1200,41 L1200,90 L0,90 Z"/>
-  </svg>
-</section>
-
-<!-- ============ 00-b 一日の帳 ============ -->
-<section class="sec" id="day" aria-labelledby="dayH">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <p class="no"><i></i>00-b ／ THE DAY</p>
-      <h2 id="dayH">一日の帳（ちょう）。</h2>
-      <p class="sub">10のページは、店の一日と同じ順に並んでいます。</p>
-      <div class="rule"></div>
-    </div>
-    <p class="lede rv" style="margin-bottom:var(--blk)">14時に荷が届いて、23時にのれんを下ろすまで。<br>読みたいところから、どうぞ。</p>
-
-    <ol class="day">
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">14:00</span><span class="tl">仕入れ</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 01</span><span class="gp">一 ／ 仕込</span></p>
-          <h3>その日の鶏が、届く。</h3>
-          <p>福岡県産と宮崎県産を、その日の入荷で使い分けています。届いたものを見てから、今日の品書きを決めます。焼き場に立つ人のことも、ここに書きました。</p>
-          <a class="dgo" href="yakitori-advance-company.html" data-ko="01" data-nm="店主・店の案内">店主・店の案内へ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <path class="gl-p" d="M14,34 h92 l-10,42 h-72 Z"/>
-          <rect class="gl-c" x="8" y="26" width="104" height="10" rx="5"/>
-          <ellipse class="gl-n" cx="44" cy="30" rx="17" ry="9"/>
-          <ellipse class="gl-n" cx="76" cy="31" rx="15" ry="8"/>
-          <rect class="gl-k" x="30" y="44" width="60" height="4" rx="2"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">15:00</span><span class="tl">仕込み</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 02</span><span class="ko">工程 03</span><span class="gp">一 ／ 仕込</span></p>
-          <h3>さばいて、串を打つ。</h3>
-          <p>串一本ごとに肉の厚みや脂の乗り方を見極めて、火からの距離と時間を決めていきます。部位は9種類。つくねの一本は、刻むところから別のページにまとめました。</p>
-          <a class="dgo" href="yakitori-advance-works.html" data-ko="02" data-nm="串の一覧">串の一覧へ<span aria-hidden="true">&#8594;</span></a>
-          <a class="dgo" href="yakitori-advance-work-detail.html" data-ko="03" data-nm="つくねの一本">つくねの一本へ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <rect class="gl-p" x="10" y="46" width="100" height="12" rx="3"/>
-          <rect class="gl-w" x="16" y="24" width="88" height="4" rx="2"/>
-          <rect class="gl-w" x="16" y="34" width="88" height="4" rx="2"/>
-          <rect class="gl-n" x="40" y="20" width="20" height="12" rx="6"/>
-          <rect class="gl-n" x="64" y="20" width="18" height="12" rx="6"/>
-          <rect class="gl-n" x="40" y="30" width="19" height="12" rx="6"/>
-          <rect class="gl-n" x="63" y="30" width="21" height="12" rx="6"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">16:30</span><span class="tl">火入れ</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 00</span><span class="gp">序 ／ 火入れ</span></p>
-          <h3>備長炭に、火を入れる。</h3>
-          <p>炭が落ち着くのを待ってから、はじめの一本を置きます。急いで置いても、いい焼き上がりにはなりません。いま読んでいるこのページが、その工程にあたります。</p>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <rect class="gl-p" x="8" y="40" width="104" height="30" rx="4"/>
-          <ellipse class="gl-e" cx="60" cy="48" rx="46" ry="12"/>
-          <ellipse class="gl-c" cx="34" cy="48" rx="16" ry="7"/>
-          <ellipse class="gl-c" cx="66" cy="50" rx="18" ry="7"/>
-          <ellipse class="gl-c" cx="94" cy="47" rx="13" ry="6"/>
-          <rect class="gl-w" x="14" y="30" width="92" height="4" rx="2"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">17:00</span><span class="tl">開店</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 04</span><span class="ko">工程 05</span><span class="gp">二 ／ 焼</span></p>
-          <h3>のれんを出して、焼きはじめる。</h3>
-          <p>ご注文をいただいてから焼きはじめます。串は一本から、コースは3種類から。飲みものと飲み放題の条件も、こちらにまとめています。</p>
-          <a class="dgo" href="yakitori-advance-service.html" data-ko="04" data-nm="お品書き">お品書きへ<span aria-hidden="true">&#8594;</span></a>
-          <a class="dgo" href="yakitori-advance-course.html" data-ko="05" data-nm="コースと飲みもの">コースと飲みものへ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <rect class="gl-c" x="10" y="14" width="100" height="8" rx="3"/>
-          <path class="gl-n" d="M14,22 h30 v34 q-15,8 -30,0 Z"/>
-          <path class="gl-n" d="M46,22 h28 v34 q-14,8 -28,0 Z" opacity=".82"/>
-          <path class="gl-n" d="M76,22 h30 v34 q-15,8 -30,0 Z" opacity=".64"/>
-          <rect class="gl-k" x="10" y="66" width="100" height="4" rx="2"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">18:00</span><span class="tl">お出しする</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 06</span><span class="ko">工程 07</span><span class="gp">三 ／ 供</span></p>
-          <h3>焼き上がった順に、出す。</h3>
-          <p>カウンター10席、テーブル8席、お座敷6席。席のこと、注文からお会計までの流れ、貸切のご相談は、それぞれのページに分けました。</p>
-          <a class="dgo" href="yakitori-advance-flow.html" data-ko="06" data-nm="店での過ごし方">店での過ごし方へ<span aria-hidden="true">&#8594;</span></a>
-          <a class="dgo" href="yakitori-advance-private.html" data-ko="07" data-nm="貸切・宴会">貸切・宴会へ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <ellipse class="gl-p" cx="60" cy="52" rx="48" ry="16"/>
-          <ellipse class="gl-c" cx="60" cy="49" rx="38" ry="11"/>
-          <rect class="gl-w" x="24" y="30" width="72" height="3.4" rx="1.7"/>
-          <rect class="gl-w" x="24" y="38" width="72" height="3.4" rx="1.7"/>
-          <rect class="gl-n" x="46" y="27" width="17" height="10" rx="5"/>
-          <rect class="gl-n" x="48" y="35" width="18" height="10" rx="5"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">22:30</span><span class="tl">ラストオーダー</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 08</span><span class="gp">四 ／ 締</span></p>
-          <h3>最後の一本を、受ける。</h3>
-          <p>お食事・お飲みものとも <span class="num">22:30</span> がラストオーダーです。ご予約のこと、お子さま連れのこと、お支払いのこと。先に聞かれることを、先に書いておきました。</p>
-          <a class="dgo" href="yakitori-advance-faq.html" data-ko="08" data-nm="よくある質問">よくある質問へ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <rect class="gl-p" x="18" y="18" width="84" height="52" rx="4"/>
-          <rect class="gl-c" x="28" y="30" width="64" height="6" rx="3"/>
-          <rect class="gl-c" x="28" y="42" width="46" height="6" rx="3"/>
-          <rect class="gl-e" x="28" y="54" width="26" height="6" rx="3"/>
-        </svg>
-      </li>
-
-      <li class="dayrow rv">
-        <p class="t"><span class="hh num">23:00</span><span class="tl">締め</span></p>
-        <div>
-          <p class="dno"><span class="ko">工程 09</span><span class="gp">四 ／ 締</span></p>
-          <h3>のれんを下ろして、片づける。</h3>
-          <p>炭を落として、明日の仕込みの下ごしらえまでが一日です。ご予約とお問い合わせは、フォーム・LINE・メールから。<span class="num">14:00</span>〜<span class="num">17:00</span> のあいだにまとめてお返しします。</p>
-          <a class="dgo" href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約">アクセス・ご予約へ<span aria-hidden="true">&#8594;</span></a>
-        </div>
-        <svg class="dm" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
-          <rect class="gl-c" x="10" y="16" width="100" height="6" rx="3"/>
-          <path class="gl-n" d="M14,22 h92 v34 h-92 Z" opacity=".75"/>
-          <rect class="gl-p" x="52" y="22" width="6" height="34"/>
-          <rect class="gl-p" x="74" y="22" width="6" height="34"/>
-          <rect class="gl-k" x="10" y="62" width="100" height="4" rx="2"/>
-        </svg>
-      </li>
-    </ol>
-    <p class="note rv">※ 時刻は仕込みの流れをお伝えするためのサンプルの目安です。実際はその日の入荷と仕込みの量によって前後します。</p>
   </div>
 </section>
 
-<!-- ============ 00-c 一本の串 ============ -->
-<section class="sec sec--alt" id="skewer" aria-labelledby="skwH">
+<!-- ============ 08-b 目次 ============ -->
+<section class="sec" id="index" aria-labelledby="indexH">
   <div class="wrap">
     <div class="sec-h rv">
-      <p class="no"><i></i>00-c ／ ONE SKEWER</p>
-      <h2 id="skwH">同じ串でも、その日で変わる。</h2>
-      <p class="sub">元・中・先。一本の中でも、火の当たり方は同じではありません。</p>
+      <p class="no"><i></i>08-b ／ INDEX</p>
+      <h2 id="indexH">先に、目次。</h2>
+      <p class="sub">押すと、その問答が開きます。</p>
       <div class="rule"></div>
     </div>
 
-    <div class="grid2 wide">
-      <div class="skwbox rv">
-        <svg class="skw" viewBox="0 0 940 330" role="img" aria-label="一本の串を横から見た図。竹串の持ち手側から順に、元・中・先の三点にねたが並び、中の一点だけが炭のいちばん強いところにあたる位置に描かれている。">
-          <rect x="0" y="0" width="940" height="330" fill="none"/>
-          <!-- 炭床 -->
-          <rect x="0" y="216" width="940" height="114" fill="#0D0907"/>
-          <g opacity=".95">
-            <ellipse fill="url(#gOki)" cx="200" cy="262" rx="72" ry="17"/>
-            <ellipse fill="url(#gOki)" cx="342" cy="268" rx="64" ry="15"/>
-            <ellipse fill="url(#gOki)" cx="482" cy="260" rx="78" ry="18"/>
-            <ellipse fill="url(#gOki)" cx="622" cy="268" rx="66" ry="15"/>
-            <ellipse fill="url(#gOki)" cx="752" cy="263" rx="58" ry="14"/>
-          </g>
-          <g>
-            <ellipse class="gl-c" cx="168" cy="254" rx="54" ry="14"/>
-            <ellipse class="gl-c" cx="268" cy="261" rx="44" ry="11"/>
-            <ellipse class="gl-c" cx="372" cy="253" rx="50" ry="13"/>
-            <ellipse class="gl-c" cx="470" cy="263" rx="46" ry="11"/>
-            <ellipse class="gl-c" cx="566" cy="254" rx="54" ry="14"/>
-            <ellipse class="gl-c" cx="668" cy="262" rx="44" ry="11"/>
-            <ellipse class="gl-c" cx="766" cy="253" rx="48" ry="12"/>
-          </g>
-          <ellipse cx="470" cy="232" rx="368" ry="62" fill="url(#gEmber)" opacity=".42"/>
-          <!-- 串 -->
-          <rect class="gl-w" x="80" y="158" width="792" height="13" rx="6.5"/>
-          <rect class="gl-k" x="80" y="158" width="196" height="13" rx="6.5" opacity=".5"/>
-          <!-- ねた -->
-          <rect class="gl-n" x="330" y="128" width="150" height="74" rx="34"/>
-          <rect class="gl-n" x="496" y="120" width="156" height="88" rx="40"/>
-          <rect class="gl-n" x="668" y="130" width="140" height="70" rx="32"/>
-          <!-- 位置の印 -->
-          <rect x="401" y="94" width="8" height="34" fill="#AFA495" opacity=".45"/>
-          <rect x="570" y="82" width="8" height="38" fill="#FFB25C" opacity=".55"/>
-          <rect x="734" y="96" width="8" height="34" fill="#AFA495" opacity=".45"/>
-          <circle cx="405" cy="94" r="9" fill="#AFA495"/>
-          <circle cx="574" cy="82" r="11" fill="#FFB25C"/>
-          <circle cx="738" cy="96" r="9" fill="#AFA495"/>
-          <text class="lb" x="405" y="64" text-anchor="middle">元</text>
-          <text class="lb on" x="574" y="52" text-anchor="middle">中</text>
-          <text class="lb" x="738" y="66" text-anchor="middle">先</text>
-        </svg>
-        <ul class="skwleg">
-          <li><span class="k">元（もと）</span><p>持ち手に近いところ。火から少し外れやすいので、返す向きでつり合いを取ります。</p></li>
-          <li><span class="k">中（なか）</span><p>炭のいちばん強いところにあたります。ここを基準に、一本ぜんぶの火の入り方を見ます。</p></li>
-          <li><span class="k">先（さき）</span><p>先端は火が回りやすい。焦がさないように、置く時間を短くします。</p></li>
-        </ul>
-        <p class="note">※ 上の図は火の当たり方の考え方を示したものです。実際の寸法や配置を表すものではありません。</p>
-      </div>
-
-      <div class="stack">
-        <div class="rv">
-          <h3 class="lh">仕込みで決めて、<br>焼き場で直す。</h3>
-          <p class="lead-p" style="margin-top:14px">仕込みでは串一本ごとに肉の厚みや脂の乗り方を見極め、火からの距離と時間を細かく調整します。同じ串でも、その日の素材の状態によって焼き加減は変わります。</p>
-          <p class="lead-p">だから、焼きはじめてからも見ています。決めたとおりに焼くのではなく、その一本の様子を見て、置く高さと返す回数を変えます。</p>
-        </div>
-        <figure class="figfr r43 rv rv-d1">
-          <img src="images/yakitori/yakitori_gallery3.webp" alt="まな板の上で、手作業で串を打っている仕込みの様子" loading="lazy" decoding="async">
-          <figcaption><span class="pl">PHOTO 01</span><span>仕込み ／ 串を打つ</span></figcaption>
-        </figure>
-        <figure class="figfr r43 rv rv-d2">
-          <img src="images/yakitori/yakitori_flow3.webp" alt="炭の上に並べた串を、手で返している焼き場の手元" loading="lazy" decoding="async">
-          <figcaption><span class="pl">PHOTO 02</span><span>焼き場 ／ 返しながら見る</span></figcaption>
-        </figure>
-      </div>
+    <div class="qidx rv">
+      <a href="#q01"><span class="n">Q-01</span><b>ご予約は、どこから？</b></a>
+      <a href="#q02"><span class="n">Q-02</span><b>当日でも入れますか？</b></a>
+      <a href="#q03"><span class="n">Q-03</span><b>お席の指定はできますか？</b></a>
+      <a href="#q04"><span class="n">Q-04</span><b>キャンセルはどうすれば？</b></a>
+      <a href="#q05"><span class="n">Q-05</span><b>コースは当日でも頼めますか？</b></a>
+      <a href="#q06"><span class="n">Q-06</span><b>飲み放題の条件は？</b></a>
+      <a href="#q07"><span class="n">Q-07</span><b>アレルギーや苦手なものがあります。</b></a>
+      <a href="#q08"><span class="n">Q-08</span><b>お支払いはどうなりますか？</b></a>
+      <a href="#q09"><span class="n">Q-09</span><b>お子さま連れでも大丈夫ですか？</b></a>
+      <a href="#q10"><span class="n">Q-10</span><b>ひとりでも入れますか？</b></a>
+      <a href="#q11"><span class="n">Q-11</span><b>たばこは吸えますか？</b></a>
+      <a href="#q12"><span class="n">Q-12</span><b>貸切はできますか？</b></a>
     </div>
-
-    <div class="morelist rv" style="margin-top:var(--blk)">
-      <a class="morelink" href="yakitori-advance-works.html" data-ko="02" data-nm="串の一覧">
-        <b><em>工程 02 ／ 一 仕込</em>串の一覧を見る（K-01 〜 K-09）</b>
-        <span class="go">9 KINDS &nbsp;&#8594;</span>
-      </a>
-      <a class="morelink ghost" href="yakitori-advance-work-detail.html" data-ko="03" data-nm="つくねの一本">
-        <b><em>工程 03 ／ 一 仕込</em>つくねの一本を、刻むところから</b>
-        <span class="go">K-03 &nbsp;&#8594;</span>
-      </a>
-    </div>
+    <p class="note rv">※ 答えはこのページに書いてあります。もっと詳しいところは、それぞれの工程のページへ送っています。ここに無いことは、フォーム・LINE・メールからお尋ねください。</p>
   </div>
 </section>
 
-<!-- ============ 00-d 品書きから ============ -->
+<!-- ============ 08-c 席とご予約 ============ -->
+<section class="sec sec--alt" id="reserve" aria-labelledby="reserveH">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <p class="no"><i></i>08-c ／ SEATS &amp; RESERVATION</p>
+      <h2 id="reserveH">席とご予約のこと。</h2>
+      <p class="sub">Q-01 から Q-04 まで。</p>
+      <div class="rule"></div>
+    </div>
+
+    <div class="qtools rv">
+      <button class="qall" id="qAll" type="button" aria-expanded="false" data-state="closed" hidden>すべて開く</button>
+      <span class="qcount">全 <span class="num">12</span> 問</span>
+    </div>
+
+    <div class="qlist">
+      <details class="qa" id="q01" open>
+        <summary aria-expanded="true"><span class="qn">Q-01</span><span class="qt">ご予約は、どこから？</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>ご予約フォーム・LINE・メール（info@example.com）の三つから承っています。お電話は受けておりません。</p>
+          <p>お返事は <span class="num">14:00</span>〜<span class="num">17:00</span> のあいだにまとめてお返しします。営業時間内は焼き場に立っているため、返信が遅くなることがあります。</p>
+          <p>日曜日は定休日のため、ご予約を承っておりません。</p>
+          <p class="qtag"><span>ご予約フォーム</span><span>LINE</span><span>メール</span></p>
+          <p><a href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約">工程 09 アクセス・ご予約でフォームを開く</a></p>
+        </div>
+      </details>
+
+      <details class="qa" id="q02" open>
+        <summary aria-expanded="true"><span class="qn">Q-02</span><span class="qt">当日でも入れますか？</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>当日のご予約は LINE からどうぞ。お席の状況によってはお受けできないことがあります。</p>
+          <p>ご予約なしでも、お席が空いていればご案内します。赤提灯が目印です。</p>
+          <p>お食事・お飲みものとも、ラストオーダーは <span class="num">22:30</span>。閉店は <span class="num">23:00</span> です。</p>
+          <p><a href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a></p>
+        </div>
+      </details>
+
+      <details class="qa" id="q03" open>
+        <summary aria-expanded="true"><span class="qn">Q-03</span><span class="qt">お席の指定はできますか？</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>ご予約のときにお知らせください。お席の状況によってはご希望に添えないことがあります。</p>
+          <p>お席は全 <span class="num">24</span> 席です。カウンター <span class="num">10</span> 席（焼き場の目の前・一枚板）、テーブル <span class="num">8</span> 席（4名卓が2つ）、お座敷 <span class="num">6</span> 席（奥の畳の席）。お座敷は暖簾で仕切る半個室で、完全な個室ではありません。掘りごたつでもありません。</p>
+          <p>お席のお取り置きは、ご予約のお時間から <span class="num">20</span> 分までです。それを過ぎるとご連絡することがあります。遅れそうなときは LINE でお知らせいただけると助かります。</p>
+          <p><a href="yakitori-advance-flow.html" data-ko="06" data-nm="店での過ごし方">工程 06 どのお席が、どんなときに向くか</a></p>
+        </div>
+      </details>
+
+      <details class="qa" id="q04" open>
+        <summary aria-expanded="true"><span class="qn">Q-04</span><span class="qt">キャンセルはどうすれば？</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>通常のご予約は、キャンセル料をいただきません。ご連絡だけお願いします。フォーム・LINE・メールのどれからでも構いません。</p>
+          <p>コースと貸切は、扱いが変わります。下の表のとおりです。</p>
+          <p><a href="yakitori-advance-private.html" data-ko="07" data-nm="貸切・宴会">工程 07 貸切のお申し込みとキャンセル</a></p>
+        </div>
+      </details>
+    </div>
+
+    <div class="tblwrap rv" style="margin-top:var(--blk)">
+      <table class="tbl">
+        <caption>CANCEL &#8212; キャンセルの扱い</caption>
+        <thead><tr><th scope="col">ご予約の種類</th><th scope="col">扱い</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">通常のご予約</th><td>キャンセル料はいただきません。ご連絡だけお願いします</td></tr>
+          <tr><th scope="row">コースのご予約</th><td>前日まで無料 ／ 当日はコース代金の 50%</td></tr>
+          <tr><th scope="row">貸切</th><td>3日前まで無料 ／ 前々日 50% ／ 前日・当日 100%。人数の変更は3日前まで</td></tr>
+          <tr><th scope="row">日曜日</th><td>定休日のため、ご予約を承っておりません</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure class="figfr r169 rv" style="margin-top:var(--blk)">
+      <img src="images/yakitori/yakitori_flow2.webp" alt="カウンター越しに、品書きを手にしたお客とスタッフが話している様子" loading="lazy" decoding="async">
+      <figcaption><span class="pl">PHOTO 01</span><span>カウンター越しに ／ 分からないことは、その場で</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 08-d お品書きとお酒 ============ -->
 <section class="sec" id="menu" aria-labelledby="menuH">
   <div class="wrap">
     <div class="sec-h rv">
-      <p class="no"><i></i>00-d ／ MENU</p>
-      <h2 id="menuH">お品書きから、三品。</h2>
-      <p class="sub">数は多くありません。その分、一本ずつ。価格はすべて税込です。</p>
+      <p class="no"><i></i>08-d ／ MENU &amp; DRINKS</p>
+      <h2 id="menuH">お品書きと、お酒のこと。</h2>
+      <p class="sub">Q-05 から Q-08 まで。価格はすべて税込です。</p>
       <div class="rule"></div>
     </div>
 
-    <div class="mcards">
-      <article class="mcard rv">
-        <span class="im"><img src="images/yakitori/yakitori_menu_moriawase.webp" alt="おまかせ盛り合わせ（6本）。一枚の器に串を並べて盛り付けた様子" loading="lazy" decoding="async"></span>
-        <div class="bd">
-          <p class="kn">MORIAWASE</p>
-          <h3>おまかせ盛り合わせ（6本）</h3>
-          <p>まずはこの一皿から、店の味を。六本それぞれ、炭からの高さを変えて焼いています。</p>
-          <p class="pr"><span class="y">¥1,380</span><span class="hv">串ごとに変える</span></p>
+    <p class="note--law rv" style="margin-bottom:var(--blk)"><b>お酒について</b>20歳未満の方の飲酒は法律で禁止されています。20歳未満の方への酒類の提供はいたしません。お車でお越しの方へのお酒の提供もいたしません。</p>
+
+    <div class="qlist">
+      <details class="qa" id="q05" open>
+        <summary aria-expanded="true"><span class="qn">Q-05</span><span class="qt">コースは当日でも頼めますか？</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>コースはご予約制です。前日までにお申し込みください。C-03 おまかせ は3日前までにお願いしています。当日のコースのご用意はできません。</p>
+          <p>コースは2名様からです。串の内容はその日の入荷で変わります。苦手なもの・お召し上がりにならないものは、ご予約のときにお知らせください。</p>
+          <p>コースをお取りにならない日も、串は一本からご注文いただけます。</p>
+          <p class="qtag"><span>C-01 五本 ¥3,300</span><span>C-02 八本 ¥4,800</span><span>C-03 おまかせ ¥6,500</span></p>
+          <p><a href="yakitori-advance-course.html" data-ko="05" data-nm="コースと飲みもの">工程 05 コース3種の献立を見る</a></p>
         </div>
-      </article>
-      <article class="mcard rv rv-d1">
-        <span class="im"><img src="images/yakitori/yakitori_menu_momo.webp" alt="もも串。焼き上がった串を器に盛り付けた様子" loading="lazy" decoding="async"></span>
-        <div class="bd">
-          <p class="kn">K-01 &nbsp;MOMO</p>
-          <h3>もも串</h3>
-          <p>旨みそのままの、ジューシーな一本。表面を先に焼き固めてから、中まで火を入れます。</p>
-          <p class="pr"><span class="y">¥260</span><span class="hv">強火</span></p>
+      </details>
+
+      <details class="qa" id="q06" open>
+        <summary aria-expanded="true"><span class="qn">Q-06</span><span class="qt">飲み放題の条件は？</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>単品では <span class="num">90</span> 分 ¥1,800（税込）、ラストオーダーは開始から <span class="num">80</span> 分です。コースに付ける場合は +¥1,500（税込）で、コースの所要時間に合わせて最長 <span class="num">120</span> 分。このときのラストオーダーは終了 <span class="num">30</span> 分前です。</p>
+          <p>延長は <span class="num">30</span> 分ごとに +¥700（税込）。<span class="num">22:30</span> を超える延長はできません。</p>
+          <p>ご注文は、同じお席の20歳以上の方全員でのご注文をお願いしています。おひとりだけのご注文は承っていません。20歳未満の方には、ソフトドリンクのみの飲み放題 ¥800（<span class="num">90</span> 分）をご用意しています。</p>
+          <p>対象と対象外は、下の表のとおりです。</p>
+          <p><a href="yakitori-advance-course.html" data-ko="05" data-nm="コースと飲みもの">工程 05 飲み放題の条件をぜんぶ見る</a></p>
         </div>
-      </article>
-      <article class="mcard rv rv-d2">
-        <span class="im"><img src="images/yakitori/yakitori_menu_tsukune.webp" alt="つくねの串を器に盛り、卵黄を添えた様子" loading="lazy" decoding="async"></span>
-        <div class="bd">
-          <p class="kn">K-03 &nbsp;TSUKUNE</p>
-          <h3>つくね</h3>
-          <p>刻んで、練って、丁寧に一本。卵黄は別皿でお出しします。お好みでどうぞ。</p>
-          <p class="pr"><span class="y">¥280</span><span class="hv">中火</span></p>
+      </details>
+
+      <details class="qa" id="q07" open>
+        <summary aria-expanded="true"><span class="qn">Q-07</span><span class="qt">アレルギーや苦手なものがあります。</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>アレルギーやお召し上がりになれないものがあれば、ご注文のときにお気軽にお尋ねください。</p>
+          <p>コースは串の内容がその日の入荷で変わりますので、ご予約のときにお知らせいただけると、組み替えてご用意できることがあります。ご予約フォームにも記入欄をご用意しています。</p>
+          <p><a href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約">工程 09 ご予約フォームで伝える</a></p>
         </div>
-      </article>
+      </details>
+
+      <details class="qa" id="q08" open>
+        <summary aria-expanded="true"><span class="qn">Q-08</span><span class="qt">お支払いはどうなりますか？</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>現金、クレジットカード（VISA ／ Mastercard ／ JCB ／ American Express）、交通系IC、QRコード決済がお使いいただけます。QRコード決済は数種類に対応しています。店頭でご確認ください。</p>
+          <p>お会計はお席で承ります。別々のお会計は8名様までは承ります。9名様以上はまとめてお願いしています。</p>
+          <p>お通しは ¥400（税込）で、おひとりにつき一品お出しします。サービス料はいただきません。品書きの価格はすべて税込です。</p>
+          <p><a href="yakitori-advance-flow.html" data-ko="06" data-nm="店での過ごし方">工程 06 お会計のこと</a></p>
+        </div>
+      </details>
     </div>
 
-    <p class="note rv" style="margin-top:22px">※ 鶏は福岡県産と宮崎県産を、その日の入荷で使い分けています。<br>※ アレルギーやお召し上がりになれないものがあれば、ご注文のときにお気軽にお尋ねください。</p>
-
-    <div class="morelist rv" style="margin-top:var(--blk)">
-      <a class="morelink" href="yakitori-advance-service.html" data-ko="04" data-nm="お品書き">
-        <b><em>工程 04 ／ 二 焼</em>お品書きをぜんぶ見る</b>
-        <span class="go">MENU &nbsp;&#8594;</span>
-      </a>
+    <div class="tblwrap rv" style="margin-top:var(--blk)">
+      <table class="tbl">
+        <caption>ALL YOU CAN DRINK &#8212; 飲み放題の条件（税込）</caption>
+        <thead><tr><th scope="col">項目</th><th scope="col">内容</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">時間と価格</th><td>単品 <span class="num">90</span> 分 ¥1,800 ／ コースに付ける場合 +¥1,500（最長 <span class="num">120</span> 分）</td></tr>
+          <tr><th scope="row">ラストオーダー</th><td>開始から <span class="num">80</span> 分（90分のとき）／ 終了 <span class="num">30</span> 分前（120分のとき）</td></tr>
+          <tr><th scope="row">延長</th><td><span class="num">30</span> 分ごと +¥700。<span class="num">22:30</span> を超える延長はできません</td></tr>
+          <tr><th scope="row">対象</th><td>生ビール（中）／ ハイボール ／ 焼酎（麦・芋・米・蕎麦）の水割り・お湯割り・ロック ／ 日本酒は「小灯（純米）」の1種のみ ／ 梅酒（ロック・ソーダ割り）／ サワー各種 ／ ソフトドリンク全種</td></tr>
+          <tr><th scope="row">対象外</th><td>日本酒の「今月の一本」、季節の生酒、ボトルのご注文。別料金でご案内します</td></tr>
+          <tr><th scope="row">ご注文の単位</th><td>同じお席の20歳以上の方全員でのご注文をお願いしています</td></tr>
+          <tr><th scope="row">20歳未満の方</th><td>ソフトドリンクのみの飲み放題 ¥800（<span class="num">90</span> 分）。お酒は提供しません</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p class="note rv">※ 日本酒・焼酎の銘柄名は、このサンプルサイトのために作った架空の名前です。</p>
   </div>
 </section>
 
-<!-- ============ 00-e コースと飲みもの ============ -->
-<section class="sec sec--alt" id="course" aria-labelledby="courseH">
+<!-- ============ 08-e ご一緒される方 ============ -->
+<section class="sec sec--deep" id="guest" aria-labelledby="guestH">
   <div class="wrap">
     <div class="sec-h rv">
-      <p class="no"><i></i>00-e ／ COURSE &amp; DRINK</p>
-      <h2 id="courseH">献立を組む。</h2>
-      <p class="sub">コースは3種類。ご予約制で、前日までにお申し込みください。</p>
+      <p class="no"><i></i>08-e ／ WITH YOU</p>
+      <h2 id="guestH">ご一緒される方のこと。</h2>
+      <p class="sub">Q-09 から Q-12 まで。</p>
       <div class="rule"></div>
     </div>
 
-    <div class="grid2 wide">
-      <div class="stack">
-        <div class="tblwrap rv">
-          <table class="tbl">
-            <caption>COURSE &#8212; コース 3種（税込）</caption>
-            <thead><tr><th scope="col">コース</th><th scope="col">品数</th><th scope="col">価格</th><th scope="col">所要時間の目安</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">C-01 五本</th><td data-l="品数">全7品（串5本）</td><td class="y" data-l="価格">¥3,300</td><td data-l="所要時間の目安">約90分</td></tr>
-              <tr><th scope="row">C-02 八本</th><td data-l="品数">全10品（串8本）</td><td class="y" data-l="価格">¥4,800</td><td data-l="所要時間の目安">約120分</td></tr>
-              <tr><th scope="row">C-03 おまかせ</th><td data-l="品数">全12品（串おまかせ）</td><td class="y" data-l="価格">¥6,500</td><td data-l="所要時間の目安">約150分</td></tr>
-            </tbody>
-          </table>
+    <div class="qlist">
+      <details class="qa" id="q09" open>
+        <summary aria-expanded="true"><span class="qn">Q-09</span><span class="qt">お子さま連れでも大丈夫ですか？</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>お座敷のみご案内しています。カウンターは背の高い椅子のため、お子さま連れではご案内していません。</p>
+          <p>お子さま用の取り皿・スプーン・フォークをご用意しています。ベビーカーは入口でお預かりします。お子さま用の椅子はありません。</p>
+          <p>20歳未満の方への酒類の提供はいたしません。</p>
+          <p><a href="yakitori-advance-flow.html" data-ko="06" data-nm="店での過ごし方">工程 06 お子さま連れのこと</a></p>
         </div>
-        <div class="tblwrap rv rv-d1">
-          <table class="tbl">
-            <caption>FREE DRINK &#8212; 飲み放題の条件</caption>
-            <thead><tr><th scope="col">項目</th><th scope="col">内容</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">時間</th><td>単品でのご注文は90分／コースに付ける場合は最長120分</td></tr>
-              <tr><th scope="row">料金</th><td>単品 ¥1,800 ／ コースに付ける場合 +¥1,500（いずれも税込）</td></tr>
-              <tr><th scope="row">ラストオーダー</th><td>90分のときは開始から80分／120分のときは終了30分前</td></tr>
-              <tr><th scope="row">対象</th><td>生ビール（中）／ハイボール／焼酎（麦・芋・米・蕎麦）／日本酒は「小灯（純米）」の1種／梅酒／サワー各種／ソフトドリンク全種</td></tr>
-              <tr><th scope="row">対象外</th><td>日本酒の「今月の一本」、季節の生酒、ボトルのご注文。別料金でご案内します</td></tr>
-              <tr><th scope="row">延長</th><td>30分ごと +¥700（税込）。<span class="num">22:30</span> を超える延長はできません</td></tr>
-              <tr><th scope="row">ご注文の単位</th><td>同じお席の20歳以上の方全員でのご注文をお願いしています</td></tr>
-              <tr><th scope="row">20歳未満の方</th><td>ソフトドリンクのみの飲み放題 ¥800（90分）。お酒は提供しません</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="note--law rv rv-d2"><b>お酒について</b>20歳未満の方の飲酒は法律で禁止されています。20歳未満の方への酒類の提供はいたしません。お車でお越しの方へのお酒の提供もいたしません。</p>
-      </div>
+      </details>
 
-      <div class="stack">
-        <figure class="figfr r43 rv">
-          <img src="images/yakitori/yakitori_voice1.webp" alt="提灯の灯るカウンター席で、ビールのグラスを手にしている男性のお客" loading="lazy" decoding="async">
-          <figcaption><span class="pl">PHOTO 03</span><span>カウンター ／ 一杯目</span></figcaption>
-        </figure>
-        <div class="rv rv-d1">
-          <h3 class="lh">飲みものは、<br>銘柄まで書きました。</h3>
-          <p class="lead-p" style="margin-top:14px">日本酒4種、焼酎4種、ビールとサワー、ソフトドリンク。産地と価格まで工程05のページに出しています。飲み放題の対象かどうかも、そこに書いてあります。</p>
-          <p class="note">※ 日本酒・焼酎の銘柄名は、このサンプルサイトのために作った架空の名前です。</p>
+      <details class="qa" id="q10" open>
+        <summary aria-expanded="true"><span class="qn">Q-10</span><span class="qt">ひとりでも入れますか？</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>カウンターは焼き場の目の前の <span class="num">10</span> 席です。おひとりでもどうぞ。</p>
+          <p>串は一本からご注文いただけます。ご注文をいただいてから焼きはじめますので、焼き上がった順にお出しします。熱いうちにどうぞ。</p>
+          <p><a href="yakitori-advance-service.html" data-ko="04" data-nm="お品書き">工程 04 串を一本ずつ見る</a></p>
         </div>
-        <a class="morelink rv rv-d2" href="yakitori-advance-course.html" data-ko="05" data-nm="コースと飲みもの">
-          <b><em>工程 05 ／ 二 焼</em>コースと飲みものを見る</b>
-          <span class="go">DRINK &nbsp;&#8594;</span>
-        </a>
-      </div>
+      </details>
+
+      <details class="qa" id="q11" open>
+        <summary aria-expanded="true"><span class="qn">Q-11</span><span class="qt">たばこは吸えますか？</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>全席禁煙です。加熱式たばこも店内ではご遠慮いただいています。</p>
+          <p>店の外に灰皿があります（<span class="num">21:00</span> まで）。</p>
+        </div>
+      </details>
+
+      <details class="qa" id="q12" open>
+        <summary aria-expanded="true"><span class="qn">Q-12</span><span class="qt">貸切はできますか？</span><span class="qc" aria-hidden="true"></span></summary>
+        <div class="qb">
+          <p>店全体の貸切は <span class="num">14</span> 名様から <span class="num">24</span> 名様まで。お座敷だけの貸切は <span class="num">6</span> 名様から <span class="num">10</span> 名様までです。お座敷は暖簾で仕切りますので、完全な個室ではありません。</p>
+          <p>時間帯は 前半 <span class="num">17:00</span>〜<span class="num">19:30</span> ／ 後半 <span class="num">20:00</span>〜<span class="num">23:00</span> ／ 通し <span class="num">17:00</span>〜<span class="num">23:00</span> の三つ。貸切料そのものはいただきません。「お一人あたりのご利用金額 × ご人数」でお願いしています。</p>
+          <p>お申し込みはご希望日の <span class="num">2</span> 週間前まで。仮のお押さえは <span class="num">1</span> 週間お預かりします。</p>
+          <p><a href="yakitori-advance-private.html" data-ko="07" data-nm="貸切・宴会">工程 07 貸切・宴会の条件をぜんぶ見る</a></p>
+        </div>
+      </details>
     </div>
+
+    <figure class="figfr r169 rv" style="margin-top:var(--blk)">
+      <img src="images/yakitori/yakitori_voice2.webp" alt="カウンター席で笑いながら話している2人のお客" loading="lazy" decoding="async">
+      <figcaption><span class="pl">PHOTO 02</span><span>カウンター ／ 焼き場の前の席</span></figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- ============ 00-f 席のこと ============ -->
-<section class="sec" id="seat" aria-labelledby="seatH">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <p class="no"><i></i>00-f ／ SEATS</p>
-      <h2 id="seatH">全24席。焼き場の前と、奥の畳。</h2>
-      <p class="sub">カウンター10席 ／ テーブル8席（4名卓×2） ／ お座敷6席</p>
-      <div class="rule"></div>
-    </div>
-
-    <div class="grid2 wide">
-      <div class="skwbox rv">
-        <svg class="plan" viewBox="0 0 960 470" role="img" aria-label="店内の席の配置を上から見た図。左上に焼き場、その手前に一枚板のカウンター10席。右側に4名掛けのテーブルが2卓。左下に暖簾で仕切ったお座敷6席。右下が入口。">
-          <rect x="0" y="0" width="960" height="470" fill="#0C0908"/>
-          <!-- 焼き場 -->
-          <rect class="gl-p" x="52" y="42" width="528" height="52" rx="6"/>
-          <rect x="66" y="56" width="500" height="24" rx="12" fill="url(#gOki)" opacity=".8"/>
-          <text x="52" y="30">焼き場</text>
-          <!-- カウンター -->
-          <rect class="gl-w" x="44" y="116" width="544" height="40" rx="6"/>
-          <circle class="gl-k" cx="76" cy="196" r="18"/>
-          <circle class="gl-k" cx="132" cy="196" r="18"/>
-          <circle class="gl-k" cx="188" cy="196" r="18"/>
-          <circle class="gl-k" cx="244" cy="196" r="18"/>
-          <circle class="gl-k" cx="300" cy="196" r="18"/>
-          <circle class="gl-k" cx="356" cy="196" r="18"/>
-          <circle class="gl-k" cx="412" cy="196" r="18"/>
-          <circle class="gl-k" cx="468" cy="196" r="18"/>
-          <circle class="gl-k" cx="524" cy="196" r="18"/>
-          <circle class="gl-k" cx="580" cy="196" r="18"/>
-          <text x="44" y="248">カウンター</text>
-          <text class="pn" x="204" y="249">10</text>
-          <!-- テーブル -->
-          <rect class="gl-p" x="706" y="66" width="196" height="84" rx="5"/>
-          <circle class="gl-k" cx="742" cy="44" r="16"/><circle class="gl-k" cx="866" cy="44" r="16"/>
-          <circle class="gl-k" cx="742" cy="172" r="16"/><circle class="gl-k" cx="866" cy="172" r="16"/>
-          <rect class="gl-p" x="706" y="248" width="196" height="84" rx="5"/>
-          <circle class="gl-k" cx="742" cy="226" r="16"/><circle class="gl-k" cx="866" cy="226" r="16"/>
-          <circle class="gl-k" cx="742" cy="354" r="16"/><circle class="gl-k" cx="866" cy="354" r="16"/>
-          <text x="706" y="400">テーブル</text>
-          <text class="pn" x="846" y="401">8</text>
-          <!-- お座敷 -->
-          <text x="44" y="300">お座敷</text>
-          <text class="pn" x="164" y="301">6</text>
-          <rect x="44" y="316" width="440" height="130" rx="4" fill="url(#gTatami)"/>
-          <rect class="gl-w" x="150" y="344" width="230" height="72" rx="4"/>
-          <rect class="gl-k" x="152" y="322" width="54" height="18" rx="6"/>
-          <rect class="gl-k" x="238" y="322" width="54" height="18" rx="6"/>
-          <rect class="gl-k" x="324" y="322" width="54" height="18" rx="6"/>
-          <rect class="gl-k" x="152" y="420" width="54" height="18" rx="6"/>
-          <rect class="gl-k" x="238" y="420" width="54" height="18" rx="6"/>
-          <rect class="gl-k" x="324" y="420" width="54" height="18" rx="6"/>
-          <!-- 暖簾（仕切り） -->
-          <rect class="gl-n" x="500" y="316" width="13" height="34" rx="4"/>
-          <rect class="gl-n" x="500" y="356" width="13" height="34" rx="4"/>
-          <rect class="gl-n" x="500" y="396" width="13" height="34" rx="4"/>
-          <!-- 入口 -->
-          <text x="600" y="404">入口</text>
-          <rect class="gl-n" x="600" y="418" width="96" height="14" rx="5"/>
-        </svg>
-        <p class="planleg">
-          <span><i style="background:#8C8073"></i>お席</span>
-          <span><i style="background:#4A4038"></i>焼き場・卓</span>
-          <span><i style="background:#D9B683"></i>一枚板・座卓</span>
-          <span><i style="background:#A85718"></i>暖簾</span>
-        </p>
-        <p class="note">※ 上の図は席の配置をお伝えするためのイメージです。実際の間取りを示すものではありません。</p>
-      </div>
-
-      <div class="stack">
-        <div class="rv">
-          <h3 class="lh">おひとりならカウンター、<br>ゆっくりならお座敷。</h3>
-          <p class="lead-p" style="margin-top:14px">カウンターは焼き場の目の前です。炭火の音と香りを感じながら、焼き上がりをそのままお出しします。おひとりでも、ふらりと。</p>
-          <p class="lead-p">奥のお座敷は暖簾で仕切る半個室です。完全な個室ではありませんが、腰を落ち着けたいときに。お子さま連れのご案内は、こちらのお席のみとなります。</p>
-        </div>
-        <div class="figduo">
-          <figure class="figfr r11 rv rv-d1">
-            <img src="images/yakitori/yakitori_facility1.webp" alt="提灯の下に続く一枚板のカウンター席" loading="lazy" decoding="async">
-            <figcaption><span class="pl">PHOTO 04</span><span>カウンター</span></figcaption>
-          </figure>
-          <figure class="figfr r11 rv rv-d2">
-            <img src="images/yakitori/yakitori_facility2.webp" alt="畳のお座敷。低い座卓と座布団が置かれている" loading="lazy" decoding="async">
-            <figcaption><span class="pl">PHOTO 05</span><span>お座敷</span></figcaption>
-          </figure>
-        </div>
-        <a class="morelink rv rv-d3" href="yakitori-advance-flow.html" data-ko="06" data-nm="店での過ごし方">
-          <b><em>工程 06 ／ 三 供</em>店での過ごし方を見る</b>
-          <span class="go">SEAT &amp; ORDER &nbsp;&#8594;</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 00-g 貸切・宴会 ============ -->
-<section class="sec sec--deep" id="private" aria-labelledby="privH">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <p class="no"><i></i>00-g ／ PRIVATE</p>
-      <h2 id="privH">店ごと、貸し切れます。</h2>
-      <p class="sub">14名様から24名様まで。貸切料はいただいていません。</p>
-      <div class="rule"></div>
-    </div>
-
-    <div class="grid2">
-      <div class="stack">
-        <div class="tblwrap rv">
-          <table class="tbl">
-            <caption>PRIVATE &#8212; 貸切の条件（税込）</caption>
-            <thead><tr><th scope="col">時間帯</th><th scope="col">時間</th><th scope="col">お一人あたりの目安</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">前半</th><td data-l="時間"><span class="num">17:00</span>〜<span class="num">19:30</span></td><td class="y" data-l="お一人あたりの目安">¥4,800</td></tr>
-              <tr><th scope="row">後半</th><td data-l="時間"><span class="num">20:00</span>〜<span class="num">23:00</span></td><td class="y" data-l="お一人あたりの目安">¥5,500</td></tr>
-              <tr><th scope="row">通し</th><td data-l="時間"><span class="num">17:00</span>〜<span class="num">23:00</span></td><td class="y" data-l="お一人あたりの目安">¥6,500</td></tr>
-              <tr><th scope="row">お座敷のみ</th><td data-l="時間">時間帯は問いません（6〜10名様）</td><td class="y" data-l="お一人あたりの目安">¥4,800</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <ul class="nlist rv rv-d1">
-          <li><span class="id">P-01</span><div><h4>「お一人あたり × ご人数」で見ます</h4><p>貸切料そのものはいただきません。ご利用金額の合計が目安に届かなかった場合だけ、差額をご精算いただきます。C-02 八本（¥4,800）に飲み放題（+¥1,500）を付けると、後半の目安に届きます。</p></div></li>
-          <li><span class="id">P-02</span><div><h4>お申し込みは2週間前まで</h4><p>仮のお押さえは1週間お預かりします。人数の変更は3日前まで。キャンセルは3日前まで無料、前々日50%、前日・当日100%です。</p></div></li>
-          <li><span class="id">P-03</span><div><h4>持ち込みと飾りつけ</h4><p>お飲みものの持ち込みはできません。ケーキはホールのみ、事前にご相談いただければお預かりします（持ち込み料 ¥550・1台）。紙の飾りつけは大丈夫ですが、火を使うものはお断りしています。炭を扱う店のためです。</p></div></li>
-        </ul>
-      </div>
-
-      <div class="stack">
-        <figure class="figfr r43 rv">
-          <img src="images/yakitori/yakitori_voice3.webp" alt="畳のお座敷で、串の皿と徳利を囲んで座っているお客" loading="lazy" decoding="async">
-          <figcaption><span class="pl">PHOTO 06</span><span>お座敷 ／ 腰を落ち着けて</span></figcaption>
-        </figure>
-        <p class="note--law rv rv-d1"><b>お酒について</b>20歳未満の方の飲酒は法律で禁止されています。20歳未満の方への酒類の提供はいたしません。お車でお越しの方へのお酒の提供もいたしません。</p>
-        <a class="morelink rv rv-d2" href="yakitori-advance-private.html" data-ko="07" data-nm="貸切・宴会">
-          <b><em>工程 07 ／ 三 供</em>貸切・宴会のご案内を見る</b>
-          <span class="go">14 &#8211; 24 &nbsp;&#8594;</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 00-h 焼き場に立つ人 ============ -->
-<section class="sec" id="people" aria-labelledby="peoH">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <p class="no"><i></i>00-h ／ PEOPLE</p>
-      <h2 id="peoH">炭の前に立つ人。</h2>
-      <p class="sub">2016年10月から、この場所で焼いています。</p>
-      <div class="rule"></div>
-    </div>
-
-    <div class="grid2">
-      <figure class="figfr r43 rv">
-        <img src="images/yakitori/yakitori_staff1.webp" alt="焼き場の前に立つ店主。手ぬぐいを巻き、腕を組んでいる" loading="lazy" decoding="async">
-        <figcaption><span class="pl">PHOTO 07</span><span>店主 ／ 鳥居 誠</span></figcaption>
-      </figure>
-      <div class="stack">
-        <div class="rv rv-d1">
-          <p class="fuda">店主 ／ 鳥居 誠（とりい まこと）</p>
-          <h3 class="lh" style="margin-top:14px">見ているのは、<br>炭の火加減だけ。</h3>
-          <p class="lead-p" style="margin-top:14px">備長炭の火加減だけを見ながら、一本ずつ丁寧に焼き上げています。強すぎず、弱すぎず。炭が落ち着くのを待ってから、はじめの一本を置きます。</p>
-          <p class="lead-p">串と向き合う時間を、いちばん大切にしています。</p>
-        </div>
-        <dl class="dl rv rv-d2">
-          <dt>OPEN</dt><dd>2016年<span class="num">10</span>月<small>この場所で焼きはじめました</small></dd>
-          <dt>WORK</dt><dd>仕込み <span class="num">14:00</span> ／ 火入れ <span class="num">16:30</span> ／ 開店 <span class="num">17:00</span><small>ラストオーダー 22:30、閉店 23:00</small></dd>
-        </dl>
-        <a class="morelink rv rv-d3" href="yakitori-advance-company.html" data-ko="01" data-nm="店主・店の案内">
-          <b><em>工程 01 ／ 一 仕込</em>店主・店の案内を見る</b>
-          <span class="go">ABOUT &nbsp;&#8594;</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 00-i 店のこと ============ -->
-<section class="sec sec--alt" id="info" aria-labelledby="infoH">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <p class="no"><i></i>00-i ／ INFORMATION</p>
-      <h2 id="infoH">お店について。</h2>
-      <p class="sub">ご予約・お問い合わせは、フォーム・LINE・メールから。</p>
-      <div class="rule"></div>
-    </div>
-
-    <div class="grid2">
-      <dl class="dl rv">
-        <dt>店名</dt><dd>炭火焼鳥 とりや</dd>
-        <dt>住所</dt><dd>福岡県福岡市〇〇区〇〇9-3-7</dd>
-        <dt>営業時間</dt><dd><span class="num">17:00</span> 〜 <span class="num">23:00</span><small>ラストオーダー 22:30（お食事・お飲みものとも）／ 定休日:日曜日</small></dd>
-        <dt>席</dt><dd>全<span class="num">24</span>席<small>カウンター10席 ／ テーブル8席（4名卓×2） ／ お座敷6席（暖簾で仕切る半個室）</small></dd>
-        <dt>お支払い</dt><dd>現金 ／ クレジットカード ／ 交通系IC ／ QRコード決済<small>VISA・Mastercard・JCB・American Express に対応しています。お通しは ¥400（税込）、サービス料はいただきません</small></dd>
-        <dt>喫煙</dt><dd>全席禁煙<small>加熱式たばこも店内ではご遠慮いただいています。店の外に灰皿があります（21:00まで）</small></dd>
-        <dt>お子さま連れ</dt><dd>お座敷のみご案内しています<small>カウンターは背の高い椅子のため、お子さま連れではご案内していません。取り皿・スプーン・フォークはご用意しています</small></dd>
-      </dl>
-
-      <div class="stack">
-        <div class="cta rv rv-d1">
-          <a class="btn btn--hi" href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約">
-            <span>ご予約フォームへ<small>工程 09 ／ アクセス・ご予約</small></span>
-            <svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg>
-          </a>
-          <a class="btn" href="https://lin.ee/z3rP0hO">
-            <span>LINEで問い合わせる<small>当日のご予約もこちらから</small></span>
-            <svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg>
-          </a>
-          <a class="btn" href="mailto:info@example.com">
-            <span>メールで問い合わせる<small>info@example.com</small></span>
-            <svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg>
-          </a>
-          <p class="cta-note">営業時間内は焼き場に立っているため、返信が遅くなることがあります。<span class="num">14:00</span>〜<span class="num">17:00</span> のあいだにまとめてお返しします。日曜日は定休日のため、ご予約を承っておりません。</p>
-        </div>
-        <p class="note--box rv rv-d2">ご予約なしでもお席が空いていればご案内します。赤提灯が目印です。ご希望のお席がある場合は、ご予約のときにお知らせください。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 00-j 次の工程へ ============ -->
+<!-- ============ 08-f ここに無いこと ============ -->
 <section class="sec" id="next" aria-labelledby="nextH">
   <div class="wrap">
     <div class="sec-h rv">
-      <p class="no"><i></i>00-j ／ NEXT</p>
-      <h2 id="nextH">続きは、この順で。</h2>
-      <p class="sub">工程 01 から 09 まで。どこから読んでも構いません。</p>
+      <p class="no"><i></i>08-f ／ NEXT</p>
+      <h2 id="nextH">ここに無いことは、直接どうぞ。</h2>
+      <p class="sub">次が最後の工程です。アクセスとご予約フォーム。</p>
       <div class="rule"></div>
     </div>
-    <div class="kcards rv">
-      <a class="kcard" href="yakitori-advance-company.html" data-ko="01" data-nm="店主・店の案内"><span class="kn">01</span><b>店主・店の案内</b><p>仕入れと、焼き場に立つ人のこと。</p><span class="gp">一 ／ 仕込</span></a>
-      <a class="kcard" href="yakitori-advance-works.html" data-ko="02" data-nm="串の一覧"><span class="kn">02</span><b>串の一覧</b><p>K-01 から K-09 まで、部位ごとに。</p><span class="gp">一 ／ 仕込</span></a>
-      <a class="kcard" href="yakitori-advance-work-detail.html" data-ko="03" data-nm="つくねの一本"><span class="kn">03</span><b>つくねの一本</b><p>K-03 を、刻むところから焼き上がりまで。</p><span class="gp">一 ／ 仕込</span></a>
-      <a class="kcard" href="yakitori-advance-service.html" data-ko="04" data-nm="お品書き"><span class="kn">04</span><b>お品書き</b><p>串と一品。価格はすべて税込です。</p><span class="gp">二 ／ 焼</span></a>
-      <a class="kcard" href="yakitori-advance-course.html" data-ko="05" data-nm="コースと飲みもの"><span class="kn">05</span><b>コースと飲みもの</b><p>3コースと、飲み放題の条件。</p><span class="gp">二 ／ 焼</span></a>
-      <a class="kcard" href="yakitori-advance-flow.html" data-ko="06" data-nm="店での過ごし方"><span class="kn">06</span><b>店での過ごし方</b><p>席・注文・お会計のこと。</p><span class="gp">三 ／ 供</span></a>
-      <a class="kcard" href="yakitori-advance-private.html" data-ko="07" data-nm="貸切・宴会"><span class="kn">07</span><b>貸切・宴会</b><p>14〜24名。条件をぜんぶ書きました。</p><span class="gp">三 ／ 供</span></a>
-      <a class="kcard" href="yakitori-advance-faq.html" data-ko="08" data-nm="よくある質問"><span class="kn">08</span><b>よくある質問</b><p>先に聞かれることを、先に。</p><span class="gp">四 ／ 締</span></a>
-      <a class="kcard" href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約"><span class="kn">09</span><b>アクセス・ご予約</b><p>フォーム・LINE・メールから。</p><span class="gp">四 ／ 締</span></a>
+
+    <div class="grid2">
+      <div class="cta rv">
+        <a class="btn btn--hi" href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約">
+          <span>ご予約フォームへ<small>工程 09 ／ アクセス・ご予約</small></span>
+          <svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg>
+        </a>
+        <a class="btn" href="https://lin.ee/z3rP0hO">
+          <span>LINEで問い合わせる<small>当日のご予約もこちらから</small></span>
+          <svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg>
+        </a>
+        <a class="btn" href="mailto:info@example.com">
+          <span>メールで問い合わせる<small>info@example.com</small></span>
+          <svg class="arw" viewBox="0 0 22 10" aria-hidden="true" focusable="false"><path d="M0,5 H20 M15,1 L20,5 L15,9"/></svg>
+        </a>
+        <p class="cta-note">営業時間内は焼き場に立っているため、返信が遅くなることがあります。<span class="num">14:00</span>〜<span class="num">17:00</span> のあいだにまとめてお返しします。</p>
+      </div>
+
+      <div class="morelist rv rv-d1">
+        <a class="morelink" href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約">
+          <b><em>工程 09 ／ 四 締</em>アクセス・ご予約を見る</b>
+          <span class="go">ACCESS &nbsp;&#8594;</span>
+        </a>
+        <a class="morelink ghost" href="yakitori-advance-flow.html" data-ko="06" data-nm="店での過ごし方">
+          <b><em>工程 06 ／ 三 供</em>店での過ごし方に戻る</b>
+          <span class="go">FLOW &nbsp;&#8594;</span>
+        </a>
+        <a class="morelink ghost" href="yakitori-advance.html" data-ko="00" data-nm="火入れ">
+          <b><em>工程 00 ／ 序 火入れ</em>トップに戻る</b>
+          <span class="go">TOP &nbsp;&#8594;</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1344,7 +1084,7 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
       <div>
         <h3>序 ／ 火入れ<span>PROLOGUE</span></h3>
         <ul>
-          <li><a href="yakitori-advance.html" aria-current="page"><span class="kn">00</span>トップ</a></li>
+          <li><a href="yakitori-advance.html" data-ko="00" data-nm="火入れ"><span class="kn">00</span>トップ</a></li>
         </ul>
       </div>
       <div>
@@ -1370,7 +1110,7 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
       <div>
         <h3>四 ／ 締<span>CLOSE</span></h3>
         <ul>
-          <li><a href="yakitori-advance-faq.html" data-ko="08" data-nm="よくある質問"><span class="kn">08</span>よくある質問</a></li>
+          <li><a href="yakitori-advance-faq.html" data-ko="08" data-nm="よくある質問" aria-current="page"><span class="kn">08</span>よくある質問</a></li>
           <li><a href="yakitori-advance-contact.html" data-ko="09" data-nm="アクセス・ご予約"><span class="kn">09</span>アクセス・ご予約</a></li>
         </ul>
         <h3 style="margin-top:20px">お問い合わせ<span>CONTACT</span></h3>
@@ -1408,8 +1148,8 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
 "use strict";
 
 /* ====== このページの識別（差し替えるのはこの2行だけ） ====== */
-var CURRENT  = "00";
-var PAGENAME = "火入れ";
+var CURRENT  = "08";
+var PAGENAME = "よくある質問";
 /* ========================================================= */
 
 var root = document.documentElement;
@@ -1553,5 +1293,66 @@ if(reduce || !("IntersectionObserver" in window)){
 }
 })();
 </script>
+
+<script>
+/* ==========================================================
+   工程 08 だけの補助：問答の開閉
+   HTML では <details open> のまま出力しています（JS無効でも全文が読めます）。
+   JS が動く環境でだけ畳み、ハッシュで指定された問答は開いた状態にします。
+   ========================================================== */
+(function(){
+"use strict";
+var list = [].slice.call(document.querySelectorAll(".qa"));
+if(!list.length) return;
+
+function sync(d){
+  var s = d.querySelector("summary");
+  if(s) s.setAttribute("aria-expanded", d.open ? "true" : "false");
+}
+function openOne(d){ if(d && !d.open){ d.open = true; } if(d) sync(d); }
+
+/* JS が動くので、いったん畳む */
+list.forEach(function(d){
+  d.open = false;
+  sync(d);
+  d.addEventListener("toggle", function(){ sync(d); });
+});
+
+/* すべて開く／閉じる */
+var all = document.getElementById("qAll");
+if(all){
+  all.hidden = false;
+  all.addEventListener("click", function(){
+    var opening = all.getAttribute("data-state") !== "open";
+    list.forEach(function(d){ d.open = opening; sync(d); });
+    all.setAttribute("data-state", opening ? "open" : "closed");
+    all.setAttribute("aria-expanded", opening ? "true" : "false");
+    all.textContent = opening ? "すべて閉じる" : "すべて開く";
+  });
+}
+
+/* ハッシュで指定された問答は開く（直リンク・目次・戻る のどれでも） */
+function fromHash(){
+  var h = location.hash ? location.hash.replace(/^#/, "") : "";
+  if(!h) return;
+  var el = document.getElementById(h);
+  if(!el) return;
+  var d = (el.className && el.className.indexOf("qa") >= 0) ? el
+        : (el.closest ? el.closest(".qa") : null);
+  if(d) openOne(d);
+}
+fromHash();
+window.addEventListener("hashchange", fromHash);
+
+/* 目次を押したときは、飛ぶ前に開いておく */
+document.addEventListener("click", function(e){
+  var a = e.target && e.target.closest ? e.target.closest('a[href^="#q"]') : null;
+  if(!a) return;
+  var d = document.getElementById(a.getAttribute("href").slice(1));
+  if(d && d.className && d.className.indexOf("qa") >= 0) openOne(d);
+}, false);
+})();
+</script>
+
 </body>
 </html>

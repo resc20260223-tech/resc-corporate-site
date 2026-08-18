@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FORGE｜パーソナルジム（福岡市中央区・天神）｜STEP 01 トップ</title>
-<meta name="description" content="福岡市中央区・天神の完全予約制パーソナルジム FORGE。10段の構成で、セッションの中身・10種目・目的別プログラム・料金と続け方・トレーナー・アクセスまでご案内します。">
+<title>セッションの中身｜FORGE（福岡・天神のパーソナルジム）｜STEP 02</title>
+<meta name="description" content="FORGEの1回60分のセッションの中身。体調と記録の確認・ウォームアップ・メインのセット・クールダウンの4つのブロックに何分使い、何を見て何を決めているかをまとめています。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -600,6 +600,141 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
   .xover{display:none !important}
 }
 
+
+/* ============================================================
+   23. ページ拡張（STEP 02 / 03 / 04 で使う共通の追加パーツ）
+   既存トークンだけで組む。新しい色・余白は増やさない。
+   ============================================================ */
+
+/* 23-1. 段内インデックス（同一ページ内のアンカー） */
+.inpage{background:var(--ink-2);color:var(--on-dark);border-top:1px solid var(--dark-rule)}
+.inpage .wrap{display:flex;flex-wrap:wrap;gap:9px 10px;align-items:center;padding-block:14px}
+.inpage__k{font-family:var(--num);font-weight:600;font-size:11px;letter-spacing:.24em;
+  color:var(--on-dark-mute);margin-right:4px}
+.inpage a{display:inline-flex;align-items:baseline;gap:9px;text-decoration:none;color:var(--on-dark);
+  border:1px solid var(--dark-rule);padding:7px 13px;font-size:12.5px;line-height:1.5;
+  transition:background .22s,border-color .22s}
+.inpage a em{font-style:normal;font-family:var(--num);font-weight:700;font-size:11.5px;
+  letter-spacing:.14em;color:var(--lime)}
+.inpage a:hover{background:#ffffff12;border-color:var(--on-dark-mute)}
+
+/* 23-2. 引用ブロック */
+.pull{border-left:5px solid var(--acc,var(--ink));padding-left:clamp(16px,2.6vw,30px)}
+.pull b{display:block;font-weight:900;font-size:clamp(19px,3.2vw,36px);line-height:1.45;letter-spacing:.01em;max-width:15em}
+.pull span{display:block;margin-top:14px;font-size:13.5px;line-height:2;color:var(--muted);max-width:38em}
+.sec--dark .pull span,.sec--dark2 .pull span{color:var(--on-dark-mute)}
+
+/* 23-3. 60分のマス目（1マス＝1分。STEP 02） */
+.mmap{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:clamp(2px,.45vw,5px)}
+.mmap i{display:block;aspect-ratio:1;background:var(--dark-rule-2)}
+.mmap i.m1{background:var(--on-dark-mute)}
+.mmap i.m2{background:var(--lime-deep)}
+.mmap i.m3{background:var(--lime)}
+.mmap i.m4{background:transparent;box-shadow:inset 0 0 0 2px var(--on-dark-mute)}
+.mkey{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.6vw,24px);
+  margin-top:clamp(18px,2.4vw,28px);border-top:1px solid var(--dark-rule);padding-top:16px}
+.mkey li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:11px;align-items:start;
+  font-size:12px;line-height:1.75;color:var(--on-dark-mute)}
+.mkey i{display:block;width:20px;height:20px;margin-top:3px;background:var(--dark-rule-2)}
+.mkey i.m1{background:var(--on-dark-mute)}
+.mkey i.m2{background:var(--lime-deep)}
+.mkey i.m3{background:var(--lime)}
+.mkey i.m4{background:transparent;box-shadow:inset 0 0 0 2px var(--on-dark-mute)}
+.mkey b{display:block;color:var(--on-dark);font-size:12.5px;font-weight:900}
+.mkey em{font-style:normal;font-family:var(--num);font-weight:700;font-size:16px;
+  letter-spacing:.06em;color:var(--lime);margin-right:5px}
+
+/* 23-4. 時間軸に沿った4ブロック（STEP 02） */
+.tstep{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(12px,3vw,46px);
+  border-top:1px solid var(--rule);padding:clamp(20px,3vw,36px) 0}
+.tsteps>.tstep:first-child{border-top:2px solid var(--rule-strong)}
+.tstep__no{font-family:var(--num);font-weight:700;font-size:clamp(50px,7.6vw,100px);line-height:.82;
+  letter-spacing:.02em}
+.tstep__no span{color:#6F6E68}
+.tstep__min{display:inline-block;font-family:var(--num);font-weight:700;font-size:13px;letter-spacing:.12em;
+  background:var(--ink);color:var(--lime);padding:2px 10px 1px;margin-top:12px}
+.tstep h3{font-weight:900;font-size:clamp(18px,2.4vw,26px);line-height:1.45}
+.tstep__p{font-size:13.5px;line-height:2;color:var(--muted);margin-top:10px;max-width:44em}
+.tstep__qa{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,26px);
+  margin-top:clamp(14px,2vw,22px)}
+.tstep__qa>div{border-top:2px solid var(--rule-strong);padding-top:10px}
+.tstep__qa dt{font-family:var(--num);font-weight:700;font-size:11.5px;letter-spacing:.16em;color:var(--muted)}
+.tstep__qa dd{font-size:13px;line-height:1.95;margin-top:5px}
+.tstep .figfr{margin-top:clamp(16px,2.2vw,24px)}
+
+/* 23-5. 種目一覧（拡大版・STEP 03） */
+.moves--lg{grid-template-columns:repeat(3,minmax(0,1fr))}
+.moves--lg .move{padding:clamp(16px,2vw,24px) clamp(14px,1.6vw,20px) clamp(18px,2.2vw,26px)}
+.moves--lg .move__fig{max-width:112px;margin:12px 0 14px}
+.moves--lg .move h3{font-size:clamp(15px,1.8vw,19px)}
+.moves--lg .move__p{font-size:12.5px}
+.move__tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.move__tag{font-family:var(--num);font-weight:700;font-size:10.5px;letter-spacing:.1em;
+  border:1px solid var(--rule);color:var(--muted);padding:2px 8px 1px}
+.move--pick .move__tag{border-color:var(--lime-deep);color:var(--on-dark)}
+.move__cau{display:block;font-size:12px;line-height:1.85;color:var(--muted);margin-top:12px;
+  border-top:1px solid var(--rule);padding-top:10px}
+.move--pick .move__cau{color:var(--on-dark-mute);border-top-color:var(--dark-rule)}
+.move__cau b{display:block;font-family:var(--num);font-weight:700;font-size:10.5px;letter-spacing:.16em;
+  color:var(--muted);margin-bottom:2px}
+.move--pick .move__cau b{color:var(--lime)}
+
+/* 群の見出し（STEP 03） */
+.gtitle{display:flex;align-items:baseline;gap:8px 16px;flex-wrap:wrap;
+  border-top:2px solid var(--rule-strong);padding-top:12px;
+  margin:clamp(30px,4.4vw,52px) 0 clamp(14px,2vw,22px)}
+.gtitle--first{margin-top:0}
+.gtitle b{font-family:var(--num);font-weight:700;font-size:clamp(24px,3.2vw,38px);line-height:1;letter-spacing:.04em}
+.gtitle h3{font-weight:900;font-size:clamp(16px,2vw,21px);line-height:1.4}
+.gtitle span{font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.2em;
+  color:var(--muted);margin-left:auto}
+.sec--dark .gtitle span,.sec--dark2 .gtitle span{color:var(--on-dark-mute)}
+
+/* 大きい凡例（STEP 03 の記号の読み方） */
+.lmkey--lg{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.6vw,32px)}
+.lmkey--lg li{grid-template-columns:64px minmax(0,1fr);align-items:start;font-size:13px;line-height:1.95}
+.lmkey--lg svg{width:64px;height:64px}
+.lmkey--lg b{display:block;font-size:14.5px;font-weight:900;margin-bottom:2px}
+.sec--dark .lmkey,.sec--dark2 .lmkey{border-top-color:var(--dark-rule)}
+.sec--dark .lmkey li,.sec--dark2 .lmkey li{color:var(--on-dark-mute)}
+.sec--dark .lmkey b,.sec--dark2 .lmkey b{color:var(--on-dark)}
+
+/* 23-6. M-01 の分解（STEP 04） */
+.decomp{display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:clamp(24px,4.5vw,64px);
+  align-items:center}
+.decomp__fig{margin:0;width:100%;max-width:520px}
+.decomp__fig figcaption{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-between;
+  font-family:var(--num);font-weight:600;font-size:11.5px;letter-spacing:.18em;color:var(--on-dark-mute);
+  border-top:1px solid var(--dark-rule);padding-top:10px;margin-top:16px}
+.dl--lm dt{display:flex;align-items:center;gap:9px;letter-spacing:.1em}
+.dl--lm dt svg{width:26px;height:26px;flex:0 0 auto}
+
+/* 23-7. 帯の中の数字 */
+.strip__v em{font-style:normal;font-family:var(--num);font-weight:700;font-size:1.5em;
+  letter-spacing:.02em;margin-right:3px}
+
+/* 23-8. 拡張分のレスポンシブ（既存の指定より後ろに置いて上書きする） */
+@media (max-width:1080px){
+  .moves--lg{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:960px){
+  .decomp{grid-template-columns:1fr}
+  .decomp__fig{margin-inline:auto}
+}
+@media (max-width:760px){
+  .tstep{grid-template-columns:1fr;gap:10px}
+  .tstep__qa{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .moves--lg{grid-template-columns:1fr}
+  .lmkey--lg{grid-template-columns:1fr}
+  .mkey{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gtitle span{margin-left:0}
+}
+@media (max-width:430px){
+  .moves--lg .move__fig{max-width:96px}
+}
+
 </style>
 </head>
 <body>
@@ -625,7 +760,7 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
 
       <nav class="tiernav" aria-label="メインナビゲーション">
         <ol>
-          <li><a href="gym-advance.html" data-step="01" data-name="トップ" aria-current="page">
+          <li><a href="gym-advance.html" data-step="01" data-name="トップ" aria-current="true">
             <span class="t">土台</span><span class="r">01&#8212;02</span></a></li>
           <li><a href="gym-advance-works.html" data-step="03" data-name="種目一覧">
             <span class="t">動き</span><span class="r">03&#8212;05</span></a></li>
@@ -647,8 +782,8 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
             <div class="idx__grid">
               <div class="idx__g">
                 <h2>GROUND / 土台</h2>
-                <a href="gym-advance.html" data-step="01" data-name="トップ" aria-current="page"><em>01</em><span>トップ</span></a>
-                <a href="gym-advance-service.html" data-step="02" data-name="セッションの中身"><em>02</em><span>セッションの中身</span></a>
+                <a href="gym-advance.html" data-step="01" data-name="トップ"><em>01</em><span>トップ</span></a>
+                <a href="gym-advance-service.html" data-step="02" data-name="セッションの中身" aria-current="page"><em>02</em><span>セッションの中身</span></a>
               </div>
               <div class="idx__g">
                 <h2>MOVE / 動き</h2>
@@ -680,653 +815,360 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
     <div class="wrap">
       <p class="rz">
         <span class="rz__k">STEP</span>
-        <span class="rz__n">01</span>
+        <span class="rz__n">02</span>
         <span class="rz__of">/ 10</span>
-        <span class="rz__nm">トップ</span>
+        <span class="rz__nm">セッションの中身</span>
       </p>
       <ol class="rz__bar" aria-hidden="true">
-        <li class="on"></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+        <li class="done"></li><li class="on"></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
       </ol>
       <p class="rz__pn">
-        <span class="dis"><span class="lb">&#9664; PREV</span></span>
-        <a href="gym-advance-service.html" data-step="02" data-name="セッションの中身"><span class="lb">NEXT STEP&nbsp;&nbsp;</span>02 &#9654;</a>
+        <a href="gym-advance.html" data-step="01" data-name="トップ">&#9664; 01<span class="lb">&nbsp;&nbsp;PREV STEP</span></a>
+        <a href="gym-advance-works.html" data-step="03" data-name="種目一覧"><span class="lb">NEXT STEP&nbsp;&nbsp;</span>03 &#9654;</a>
       </p>
     </div>
   </div>
 </header>
 
+<nav class="crumb" aria-label="パンくず">
+  <div class="wrap">
+    <ol>
+      <li><a href="gym-advance.html" data-step="01" data-name="トップ">STEP 01 トップ</a></li>
+      <li><span>GROUND 土台</span></li>
+      <li><span aria-current="page">STEP 02 セッションの中身</span></li>
+    </ol>
+  </div>
+</nav>
+
 <main id="main">
 
-<!-- ============ 01-01 HERO ============ -->
-<section class="hero" aria-labelledby="h1">
-  <div class="hero__media">
-    <img src="images/gym/gym_hero.webp" alt="FORGEのトレーニングフロア。窓際に並んだダンベルラック" fetchpriority="high" decoding="async">
-    <span class="hero__veil" aria-hidden="true"></span>
+<!-- ============ 02-01 PAGE HEAD ============ -->
+<section class="phead" aria-labelledby="h1">
+  <div class="phead__media">
+    <img src="images/gym/gym_training_4.webp" alt="バーベルのシャフトを握る手元。フォームを確認しているところ" fetchpriority="high" decoding="async">
+    <span class="phead__veil" aria-hidden="true"></span>
   </div>
-  <div class="wrap hero__inner">
-    <p class="hero__eye">FUKUOKA CHUO-KU TENJIN / 完全予約制</p>
-    <h1 id="h1">
-      <span class="h1-brand">FORGE</span>
-      <span class="h1-catch">一段ずつしか、上がらない。<br><em>だから、上がる。</em></span>
-    </h1>
-    <p class="hero__lead">福岡市中央区・天神の完全予約制パーソナルジム。マンツーマンで、トレーニング経験がない方も無理なく。シャワー・ウェアは無料でご用意しています。</p>
-    <div class="hero__foot">
-      <b>STEP 01 / 10</b>
-      <span>いちばん下の段です。ここでFORGEの全体像と、10段ぶんの地図をお見せします。</span>
-    </div>
+  <div class="wrap phead__inner">
+    <p class="phead__tag"><b>STEP 02</b>GROUND / 土台<span>ONE SESSION</span></p>
+    <h1 id="h1">60分を、<em>4つに割る。</em></h1>
+    <span class="phead__en">ONE SESSION / 60 MIN</span>
+    <p class="phead__lead">どのプランも1回60分です。中でやることは大きく4つ。それぞれに何分使って、何を見て、何を決めているのかを、そのまま書き出しました。時間の配分は、その日の体調に合わせて調整します。</p>
   </div>
 </section>
 
-<section class="strip" aria-label="FORGEの基本方針">
+<section class="strip" aria-label="セッションの基本">
   <div class="wrap">
     <div class="strip__grid">
-      <div class="strip__cell"><span class="strip__k">01 / SYSTEM</span><span class="strip__v">完全予約制のマンツーマン</span></div>
-      <div class="strip__cell"><span class="strip__k">02 / LEVEL</span><span class="strip__v">初心者歓迎</span></div>
-      <div class="strip__cell"><span class="strip__k">03 / AMENITY</span><span class="strip__v">シャワー・ウェア無料</span></div>
+      <div class="strip__cell"><span class="strip__k">01 / TIME</span><span class="strip__v"><em>60</em>分／1回（全プラン共通）</span></div>
+      <div class="strip__cell"><span class="strip__k">02 / BLOCKS</span><span class="strip__v"><em>4</em>つのブロックに分けます</span></div>
+      <div class="strip__cell"><span class="strip__k">03 / BOOKING</span><span class="strip__v"><em>1</em>枠を1組で使います</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ 01-02 THE STAIR ============ -->
-<section class="sec sec--paper" id="stair" aria-labelledby="stair-t">
+<nav class="inpage" aria-label="このページの目次">
+  <div class="wrap">
+    <span class="inpage__k">IN THIS STEP</span>
+    <a href="#minutes"><em>02-02</em><span>60分の割り付け</span></a>
+    <a href="#blocks"><em>02-03</em><span>4つのブロック</span></a>
+    <a href="#record"><em>02-04</em><span>記録の渡し方</span></a>
+    <a href="#stop"><em>02-05</em><span>止める基準</span></a>
+    <a href="#day"><em>02-06</em><span>当日のこと</span></a>
+  </div>
+</nav>
+
+<!-- ============ 02-02 MINUTE MAP ============ -->
+<section class="sec sec--dark2" id="minutes" aria-labelledby="minutes-t">
   <div class="wrap">
     <div class="shead rv">
-      <p class="shead__row"><span class="shead__no">01-02</span><span class="shead__en">THE STAIR</span></p>
-      <h2 id="stair-t">10ページを、10段にしました。</h2>
-      <p class="shead__note">トレーニングは、扱える重さが少しずつ上がっていく階段です。このサイトも同じ組み方にしました。左の段ほど基礎、右へ一段ずつ進むほど具体的になります。どこから読んでも構いませんが、迷ったら01から順に踏んでいってください。</p>
+      <p class="shead__row"><span class="shead__no">02-02</span><span class="shead__en">MINUTE MAP</span></p>
+      <h2 id="minutes-t">60分を、1分ずつ置いてみる。</h2>
+      <p class="shead__note">1マスが1分です。60マスのうち、実際にセットを重ねているのは35マス。残りの25マスは、その日の体を確かめる時間と、次回に渡す時間に使っています。ここを削ると、次のセッションで決められることが減ります。</p>
     </div>
 
-    <ol class="stair rv">
-      <li class="stair__i stair__i--here" style="--n:1">
-        <a class="stair__a" href="gym-advance.html" data-step="01" data-name="トップ" aria-current="page">
-          <span class="stair__no"><span>0</span>1</span>
-          <span><span class="stair__t">トップ</span><span class="stair__d">FORGEの全体像と、10段ぶんの地図。</span><span class="stair__here">YOU ARE HERE</span></span>
-          <span class="stair__tier">GROUND</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:2">
-        <a class="stair__a" href="gym-advance-service.html" data-step="02" data-name="セッションの中身">
-          <span class="stair__no"><span>0</span>2</span>
-          <span><span class="stair__t">セッションの中身</span><span class="stair__d">60分をどう使うか。4つのブロックの中身を、分単位で。</span></span>
-          <span class="stair__tier">GROUND</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:3">
-        <a class="stair__a" href="gym-advance-works.html" data-step="03" data-name="種目一覧">
-          <span class="stair__no"><span>0</span>3</span>
-          <span><span class="stair__t">種目一覧</span><span class="stair__d">M-01からM-10まで。どこを使う種目なのかで並べた索引。</span></span>
-          <span class="stair__tier">MOVE</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:4">
-        <a class="stair__a" href="gym-advance-work-detail.html" data-step="04" data-name="種目詳細 M-01 バーベルスクワット">
-          <span class="stair__no"><span>0</span>4</span>
-          <span><span class="stair__t">種目詳細 M-01 バーベルスクワット</span><span class="stair__d">1種目だけを、支点と荷重まで分解して。</span></span>
-          <span class="stair__tier">MOVE</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:5">
-        <a class="stair__a" href="gym-advance-program.html" data-step="05" data-name="目的別プログラム">
-          <span class="stair__no"><span>0</span>5</span>
-          <span><span class="stair__t">目的別プログラム</span><span class="stair__d">絞る・上げる・整える・保つ。4つの進み方と期間の目安。</span></span>
-          <span class="stair__tier">MOVE</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:6">
-        <a class="stair__a" href="gym-advance-flow.html" data-step="06" data-name="入会からの流れ">
-          <span class="stair__no"><span>0</span>6</span>
-          <span><span class="stair__t">入会からの流れ</span><span class="stair__d">申し込みから、通いはじめて習慣になるまで。</span></span>
-          <span class="stair__tier">KEEP</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:7">
-        <a class="stair__a" href="gym-advance-price.html" data-step="07" data-name="料金と続け方">
-          <span class="stair__no"><span>0</span>7</span>
-          <span><span class="stair__t">料金と続け方</span><span class="stair__d">回数券の有効期限、休会、キャンセル、退会まで全部。</span></span>
-          <span class="stair__tier">KEEP</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:8">
-        <a class="stair__a" href="gym-advance-company.html" data-step="08" data-name="トレーナー・施設案内">
-          <span class="stair__no"><span>0</span>8</span>
-          <span><span class="stair__t">トレーナー・施設案内</span><span class="stair__d">3名の担当と、約90㎡に置いてあるもの。</span></span>
-          <span class="stair__tier">PLACE</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:9">
-        <a class="stair__a" href="gym-advance-faq.html" data-step="09" data-name="よくある質問">
-          <span class="stair__no"><span>0</span>9</span>
-          <span><span class="stair__t">よくある質問</span><span class="stair__d">体験・トレーニング・料金と手続き・体のこと。</span></span>
-          <span class="stair__tier">PLACE</span>
-        </a>
-      </li>
-      <li class="stair__i" style="--n:10">
-        <a class="stair__a" href="gym-advance-contact.html" data-step="10" data-name="アクセス・体験申込">
-          <span class="stair__no">10</span>
-          <span><span class="stair__t">アクセス・体験申込</span><span class="stair__d">天神4-2-10。いちばん上の段が、申し込みです。</span></span>
-          <span class="stair__tier">PLACE</span>
-        </a>
-      </li>
-    </ol>
+    <div class="rv">
+      <div class="mmap" role="img" aria-label="60分の内訳。体調と記録の確認に約5分、ウォームアップに約10分、メインのセットに約35分、クールダウンと次回の設計に約10分">
+        <i class="m1"></i><i class="m1"></i><i class="m1"></i><i class="m1"></i><i class="m1"></i>
+        <i class="m2"></i><i class="m2"></i><i class="m2"></i><i class="m2"></i><i class="m2"></i>
+        <i class="m2"></i><i class="m2"></i><i class="m2"></i><i class="m2"></i><i class="m2"></i>
+        <i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i>
+        <i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i>
+        <i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i>
+        <i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i>
+        <i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i>
+        <i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i>
+        <i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i><i class="m3"></i>
+        <i class="m4"></i><i class="m4"></i><i class="m4"></i><i class="m4"></i><i class="m4"></i>
+        <i class="m4"></i><i class="m4"></i><i class="m4"></i><i class="m4"></i><i class="m4"></i>
+      </div>
 
-    <p class="stairfoot rv">
-      <b>4 TIERS</b>
-      <span>GROUND 土台（01&#8211;02）／ MOVE 動き（03&#8211;05）／ KEEP 続ける（06&#8211;07）／ PLACE 人と場所（08&#8211;10）</span>
-    </p>
+      <ul class="mkey">
+        <li><i class="m1"></i><span><b><em>05</em>体調と記録の確認</b>前回の記録と見比べて、その日のメニューを決めます。</span></li>
+        <li><i class="m2"></i><span><b><em>10</em>ウォームアップ</b>関節を動かして可動域を出し、軽い負荷で動きを確認します。</span></li>
+        <li><i class="m3"></i><span><b><em>35</em>メインのセット</b>種目ごとにセットを重ねます。ここがいちばん長い時間です。</span></li>
+        <li><i class="m4"></i><span><b><em>10</em>クールダウンと次回の設計</b>整理運動のあと、記録をまとめて次回を決めます。</span></li>
+      </ul>
+    </div>
+
+    <p class="note rv">※ 図は時間の配分を表したイメージです。実際の配分は、その日の体調・目的・種目の組み合わせによって前後します。効果や感じ方には個人差があります。</p>
   </div>
 </section>
 
-<!-- ============ 01-03 REASON ============ -->
-<section class="sec" id="reason" aria-labelledby="reason-t">
+<!-- ============ 02-03 FOUR BLOCKS ============ -->
+<section class="sec sec--paper" id="blocks" aria-labelledby="blocks-t">
   <div class="wrap">
     <div class="shead rise r1 rv">
-      <p class="shead__row"><span class="shead__no">01-03</span><span class="shead__en">REASON</span></p>
-      <h2 id="reason-t">選ばれる理由</h2>
-      <p class="shead__note">この3つは、ライト版・スタンダード版から変えていません。FORGEの土台にあたる部分です。</p>
+      <p class="shead__row"><span class="shead__no">02-03</span><span class="shead__en">FOUR BLOCKS</span></p>
+      <h2 id="blocks-t">4つのブロックで、<br>何を見て、何を決めているか。</h2>
+      <p class="shead__note">トップページでは4つの名前だけをお見せしました。ここでは、それぞれのブロックでトレーナーが「何を見ているか」と「何を決めているか」を分けて書いています。決めごとが次のブロックの入り口になる、という順番です。</p>
     </div>
 
-    <div class="rcards rise r1 rv">
-      <div class="rcard">
-        <p class="rcard__hd"><span class="rcard__no"><span>0</span>1</span><span class="rcard__en">SYSTEM</span></p>
-        <figure class="rcard__fig">
-          <img src="images/gym/gym_trainer_1.webp" alt="フロアで一人だけがトレーニングに向かう様子" loading="lazy" decoding="async">
-        </figure>
-        <h3>完全予約制のマンツーマン</h3>
-        <p>他のお客様と時間が重なることはありません。専属トレーナーが、あなたの体だけを見て指導します。</p>
+    <div class="tsteps rise r1 rv">
+
+      <div class="tstep">
+        <div>
+          <p class="tstep__no"><span>0</span>1</p>
+          <span class="tstep__min">約5分</span>
+        </div>
+        <div>
+          <h3>体調と記録の確認</h3>
+          <p class="tstep__p">睡眠・食事・筋肉痛の残り方を聞き取ります。そのうえで前回の記録を開いて、同じ内容で進めるか、落とすかをここで決めてしまいます。着替えが終わってすぐの5分です。</p>
+          <dl class="tstep__qa">
+            <div><dt>WATCH / 何を見るか</dt><dd>睡眠・食事・筋肉痛の残り方。前回の重さと回数、フォームの所見。</dd></div>
+            <div><dt>DECIDE / 何を決めるか</dt><dd>その日のメニュー。そのまま進むか、内容を落とすか。</dd></div>
+          </dl>
+        </div>
       </div>
-      <div class="rcard">
-        <p class="rcard__hd"><span class="rcard__no"><span>0</span>2</span><span class="rcard__en">LEVEL</span></p>
-        <h3>初心者歓迎</h3>
-        <p>運動経験がなくても大丈夫。フォームの作り方から、無理のないペース配分まで丁寧にお伝えします。シャフトだけの1セットから始めて、フォームが安定したぶんだけプレートを足していきます。</p>
+
+      <div class="tstep">
+        <div>
+          <p class="tstep__no"><span>0</span>2</p>
+          <span class="tstep__min">約10分</span>
+        </div>
+        <div>
+          <h3>ウォームアップ</h3>
+          <p class="tstep__p">関節を動かして可動域を出してから、シャフトなど軽い負荷で動きを確認します。ここで動きの形が出ていなければ、メインで扱う重さを下げます。重さを決めるのは、この10分です。</p>
+          <dl class="tstep__qa">
+            <div><dt>WATCH / 何を見るか</dt><dd>関節の動く範囲と、軽い負荷での動きの形。左右の差。</dd></div>
+            <div><dt>DECIDE / 何を決めるか</dt><dd>メインで入る重さの入り口。シャフトだけで確認してから足します。</dd></div>
+          </dl>
+        </div>
       </div>
-      <div class="rcard">
-        <p class="rcard__hd"><span class="rcard__no"><span>0</span>3</span><span class="rcard__en">AMENITY</span></p>
-        <h3>シャワー・ウェア無料</h3>
-        <p>お仕事帰りでも手ぶらで通えます。ウェア（上下）・シューズ・タオル・シャワーアメニティは、すべて無料でご用意しています。</p>
+
+      <div class="tstep">
+        <div>
+          <p class="tstep__no"><span>0</span>3</p>
+          <span class="tstep__min">約35分</span>
+        </div>
+        <div>
+          <h3>メインのセット</h3>
+          <p class="tstep__p">種目ごとにセットを重ねます。回数を数えながら見ているのは、回数そのものではなくフォームです。<b>フォームが崩れた時点でセットを止めます。</b>無理に回数を追いません。止めた回数も記録に残します。</p>
+          <dl class="tstep__qa">
+            <div><dt>WATCH / 何を見るか</dt><dd>セットごとのフォーム。崩れはじめる手前がどこか。</dd></div>
+            <div><dt>DECIDE / 何を決めるか</dt><dd>次のセットの重さと回数。崩れたらその場で止めるか、重さを戻すか。</dd></div>
+          </dl>
+          <figure class="figfr figfr--r169">
+            <img src="images/gym/gym_training_3.webp" alt="バーベルを床から引き上げる動作のシルエット" loading="lazy" decoding="async">
+            <figcaption><span>メインのセット（約35分）</span><span>MAIN SETS</span></figcaption>
+          </figure>
+        </div>
       </div>
+
+      <div class="tstep">
+        <div>
+          <p class="tstep__no"><span>0</span>4</p>
+          <span class="tstep__min">約10分</span>
+        </div>
+        <div>
+          <h3>クールダウンと次回の設計</h3>
+          <p class="tstep__p">整理運動のあと、記録をまとめます。次回の重さと回数をこの場で決めて、帰っていただきます。食事のご相談もここで。ラウンジで水をご用意しています。</p>
+          <dl class="tstep__qa">
+            <div><dt>WATCH / 何を見るか</dt><dd>整理運動での可動域の戻り方と、その日の記録。</dd></div>
+            <div><dt>DECIDE / 何を決めるか</dt><dd>次回の重さと回数。次に先に確認しておく動き。</dd></div>
+          </dl>
+          <figure class="figfr figfr--r169">
+            <img src="images/gym/gym_misc_1.webp" alt="ベンチに置かれたタオルとドリンクボトル" loading="lazy" decoding="async">
+            <figcaption><span>クールダウンと次回の設計（約10分）</span><span>COOL DOWN</span></figcaption>
+          </figure>
+        </div>
+      </div>
+
     </div>
 
-    <p class="note rise r1 rv">※ トレーニングの効果や感じ方には個人差があります。体調・既往症により内容を調整します。</p>
+    <p class="note rise r1 rv">※ 4つの区切りと時間は目安です。セッションの内容は目的・体力・当日の体調に応じて組み替えます。効果や感じ方には個人差があります。</p>
   </div>
 </section>
 
-<!-- ============ 01-04 ONE SESSION ============ -->
-<section class="sec sec--dark2" id="session" aria-labelledby="session-t">
+<!-- ============ 02-04 RECORD ============ -->
+<section class="sec sec--dark" id="record" aria-labelledby="record-t">
   <div class="wrap">
     <div class="shead rise r2 rv">
-      <p class="shead__row"><span class="shead__no">01-04</span><span class="shead__en">ONE SESSION / 60 MIN</span></p>
-      <h2 id="session-t">1回60分の、中身。</h2>
-      <p class="shead__note">どのプランも1回60分です。中でやることは大きく4つ。時間の配分は、その日の体調に合わせて調整します。</p>
+      <p class="shead__row"><span class="shead__no">02-04</span><span class="shead__en">RECORD</span></p>
+      <h2 id="record-t">前回の記録を、<br>次にどう渡すか。</h2>
+      <p class="shead__note">セッションは1回で完結しません。60分の終わりに残した記録が、次の60分の最初の5分で開かれます。この受け渡しがあるから、毎回ゼロから決め直さずに済みます。</p>
     </div>
 
-    <div class="blocks rise r2 rv">
-      <div class="block">
-        <p class="block__no"><span>0</span>1</p>
-        <span class="block__min">約5分</span>
-        <h3>体調と記録の確認</h3>
-        <p>睡眠・食事・筋肉痛の残り方を聞き取り、前回の記録と見比べて、その日のメニューを決めます。</p>
-      </div>
-      <div class="block">
-        <p class="block__no"><span>0</span>2</p>
-        <span class="block__min">約10分</span>
-        <h3>ウォームアップ</h3>
-        <p>関節を動かして可動域を出してから、シャフトなど軽い負荷で動きを確認します。</p>
-      </div>
-      <div class="block">
-        <p class="block__no"><span>0</span>3</p>
-        <span class="block__min">約35分</span>
-        <h3>メインのセット</h3>
-        <p>種目ごとにセットを重ねます。フォームが崩れた時点で止め、無理に回数を追いません。</p>
-      </div>
-      <div class="block">
-        <p class="block__no"><span>0</span>4</p>
-        <span class="block__min">約10分</span>
-        <h3>クールダウンと次回の設計</h3>
-        <p>整理運動のあと、記録をまとめて次回の重さと回数を決めます。食事のご相談もここで。</p>
-      </div>
+    <div class="pull rise r2 rv">
+      <b>「今日は何キロ持てたか」より、<br>「同じフォームで何回積めたか」。</b>
+      <span>数字が動かない日があっても、フォームが整えばそれは前進です。記録には、扱った重さと同じ重みでフォームの所見を残しています。</span>
     </div>
 
-    <a class="morelink rise r2 rv" href="gym-advance-service.html" data-step="02" data-name="セッションの中身">
-      <b>60分の中身を、もっと細かく見る</b>
-      <span>STEP 02 &nbsp;/&nbsp; セッションの中身 &#8594;</span>
-    </a>
-
-    <p class="note rise r2 rv">※ セッションの内容は目的・体力・当日の体調に応じて組み替えます。効果や感じ方には個人差があります。</p>
-  </div>
-</section>
-
-<!-- ============ 01-05 MOVES ============ -->
-<section class="sec sec--paper" id="moves" aria-labelledby="moves-t">
-  <div class="wrap">
-    <div class="shead rise r3 rv">
-      <p class="shead__row"><span class="shead__no">01-05</span><span class="shead__en">MOVES / M-01 &#8212; M-10</span></p>
-      <h2 id="moves-t">10種目を、記号で。</h2>
-      <p class="shead__note">種目の図に人の絵は使っていません。<b>どこが支点になり（&#9679;）、どこへ動き（&#8594;）、どこに荷重がかかるか（&#9660;）</b>の3つだけを書いた記号です。写真より、この3つのほうが伝わると思ったからです。種目の詳しい説明はSTEP 03に、M-01の分解はSTEP 04にあります。</p>
-    </div>
-
-    <div class="moves rise r3 rv">
-
-      <div class="move move--pick">
-        <span class="move__no">M-01</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="バーベルスクワットの記号。肩に荷重、股関節と膝が支点、上下に動く">
-            <line class="lm-ax" x1="60" y1="32" x2="60" y2="104"/>
-            <path class="lm-ld" d="M60,28 L70,10 L50,10 Z"/>
-            <circle class="lm-fx" cx="60" cy="62" r="5.5"/>
-            <circle class="lm-fx" cx="60" cy="86" r="5.5"/>
-            <line class="lm-mv" x1="96" y1="48" x2="96" y2="76"/>
-            <path class="lm-hd" d="M96,38 L101,50 L91,50 Z"/>
-            <path class="lm-hd" d="M96,86 L101,74 L91,74 Z"/>
-            <line class="lm-gd" x1="26" y1="104" x2="94" y2="104"/>
-          </svg>
-        </figure>
-        <h3>バーベルスクワット</h3>
-        <span class="move__p">大腿四頭筋・臀筋・脊柱起立筋</span>
-        <span class="move__pick">STEP 04 で分解</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-02</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="デッドリフトの記号。股関節が支点、上体が前に倒れ、床の位置に荷重">
-            <line class="lm-ax" x1="24" y1="42" x2="84" y2="60"/>
-            <line class="lm-ax" x1="84" y1="60" x2="84" y2="104"/>
-            <circle class="lm-fx" cx="84" cy="60" r="5.5"/>
-            <line class="lm-gd" x1="34" y1="46" x2="34" y2="82"/>
-            <path class="lm-ld" d="M34,98 L44,82 L24,82 Z"/>
-            <path class="lm-mv" d="M56,22 A34,34 0 0 1 82,40"/>
-            <path class="lm-hd" d="M86,46 L74,42 L80,32 Z"/>
-          </svg>
-        </figure>
-        <h3>デッドリフト</h3>
-        <span class="move__p">ハムストリングス・臀筋・広背筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-03</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ベンチプレスの記号。台に置いた体が支点、胸の上で荷重が上下する">
-            <line class="lm-ax" x1="18" y1="88" x2="102" y2="88"/>
-            <circle class="lm-fx" cx="34" cy="88" r="5.5"/>
-            <circle class="lm-fx" cx="86" cy="88" r="5.5"/>
-            <path class="lm-ld" d="M60,42 L70,24 L50,24 Z"/>
-            <line class="lm-mv" x1="60" y1="52" x2="60" y2="72"/>
-            <path class="lm-hd" d="M60,46 L65,58 L55,58 Z"/>
-            <path class="lm-hd" d="M60,80 L65,68 L55,68 Z"/>
-            <line class="lm-gd" x1="18" y1="98" x2="102" y2="98"/>
-          </svg>
-        </figure>
-        <h3>ベンチプレス</h3>
-        <span class="move__p">大胸筋・三角筋前部・上腕三頭筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-04</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ラットプルダウンの記号。肩が支点、上から下へ引く">
-            <line class="lm-ax" x1="60" y1="46" x2="60" y2="104"/>
-            <circle class="lm-fx" cx="60" cy="52" r="5.5"/>
-            <path class="lm-ld" d="M60,20 L70,38 L50,38 Z"/>
-            <line class="lm-mv" x1="94" y1="30" x2="94" y2="72"/>
-            <path class="lm-hd" d="M94,82 L99,68 L89,68 Z"/>
-            <line class="lm-gd" x1="30" y1="24" x2="90" y2="24"/>
-          </svg>
-        </figure>
-        <h3>ラットプルダウン</h3>
-        <span class="move__p">広背筋・僧帽筋下部</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-05</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ショルダープレスの記号。体幹が支点、頭上へ押し上げる">
-            <line class="lm-ax" x1="60" y1="44" x2="60" y2="104"/>
-            <circle class="lm-fx" cx="60" cy="70" r="5.5"/>
-            <path class="lm-ld" d="M60,40 L70,22 L50,22 Z"/>
-            <line class="lm-mv" x1="94" y1="38" x2="94" y2="76"/>
-            <path class="lm-hd" d="M94,28 L99,42 L89,42 Z"/>
-            <line class="lm-gd" x1="30" y1="104" x2="90" y2="104"/>
-          </svg>
-        </figure>
-        <h3>ショルダープレス</h3>
-        <span class="move__p">三角筋・上腕三頭筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-06</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ルーマニアンデッドリフトの記号。股関節だけを支点に上体を折る">
-            <line class="lm-ax" x1="26" y1="52" x2="80" y2="64"/>
-            <line class="lm-ax" x1="80" y1="64" x2="80" y2="102"/>
-            <circle class="lm-fx" cx="80" cy="64" r="6.5"/>
-            <line class="lm-gd" x1="38" y1="56" x2="38" y2="76"/>
-            <path class="lm-ld" d="M38,92 L48,76 L28,76 Z"/>
-            <path class="lm-mv" d="M52,30 A32,32 0 0 1 76,46"/>
-            <path class="lm-hd" d="M80,52 L68,48 L74,38 Z"/>
-          </svg>
-        </figure>
-        <h3>ルーマニアンデッドリフト</h3>
-        <span class="move__p">ハムストリングス・臀筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-07</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ブルガリアンスクワットの記号。前脚だけが支点、片脚で上下する">
-            <line class="lm-ax" x1="44" y1="40" x2="44" y2="104"/>
-            <line class="lm-ax" x1="82" y1="66" x2="82" y2="88"/>
-            <circle class="lm-fx" cx="44" cy="76" r="6.5"/>
-            <path class="lm-ld" d="M44,36 L54,18 L34,18 Z"/>
-            <line class="lm-mv" x1="18" y1="54" x2="18" y2="80"/>
-            <path class="lm-hd" d="M18,46 L23,58 L13,58 Z"/>
-            <path class="lm-hd" d="M18,88 L23,76 L13,76 Z"/>
-            <line class="lm-gd" x1="70" y1="88" x2="98" y2="88"/>
-          </svg>
-        </figure>
-        <h3>ブルガリアンスクワット</h3>
-        <span class="move__p">臀筋・大腿四頭筋（片脚）</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-08</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ワンハンドロウの記号。肩が支点、荷重を手前に引く">
-            <line class="lm-ax" x1="20" y1="56" x2="96" y2="56"/>
-            <circle class="lm-fx" cx="76" cy="56" r="5.5"/>
-            <line class="lm-gd" x1="44" y1="56" x2="44" y2="88"/>
-            <path class="lm-ld" d="M44,104 L54,88 L34,88 Z"/>
-            <line class="lm-mv" x1="44" y1="76" x2="44" y2="66"/>
-            <path class="lm-hd" d="M44,58 L49,72 L39,72 Z"/>
-            <line class="lm-gd" x1="20" y1="104" x2="96" y2="104"/>
-          </svg>
-        </figure>
-        <h3>ワンハンドロウ</h3>
-        <span class="move__p">広背筋・菱形筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-09</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="プランクとデッドバグの記号。両端が支点、動かさずにまっすぐ保つ">
-            <line class="lm-ax" x1="20" y1="62" x2="100" y2="62"/>
-            <circle class="lm-fx" cx="24" cy="62" r="5.5"/>
-            <circle class="lm-fx" cx="96" cy="62" r="5.5"/>
-            <line class="lm-gd" x1="20" y1="62" x2="100" y2="62"/>
-            <path class="lm-mv" d="M32,86 L32,94 L88,94 L88,86"/>
-            <path class="lm-ld" d="M60,80 L70,62 L50,62 Z" opacity=".22"/>
-            <line class="lm-mv" x1="52" y1="94" x2="68" y2="94"/>
-          </svg>
-        </figure>
-        <h3>プランク／デッドバグ</h3>
-        <span class="move__p">腹横筋・腹斜筋・多裂筋</span>
-      </div>
-
-      <div class="move">
-        <span class="move__no">M-10</span>
-        <figure class="move__fig">
-          <svg class="lm" viewBox="0 0 120 120" role="img" aria-label="ケトルベルスイングの記号。股関節を支点に、荷重が弧を描いて振れる">
-            <circle class="lm-fx" cx="60" cy="34" r="6.5"/>
-            <line class="lm-ax" x1="60" y1="40" x2="60" y2="104"/>
-            <path class="lm-gd" d="M60,34 L34,96"/>
-            <path class="lm-mv" d="M34,96 A64,64 0 0 1 24,44"/>
-            <path class="lm-hd" d="M20,34 L30,46 L16,48 Z"/>
-            <path class="lm-ld" d="M34,96 L44,80 L24,80 Z"/>
-          </svg>
-        </figure>
-        <h3>ケトルベルスイング</h3>
-        <span class="move__p">臀筋・ハムストリングス・心肺</span>
-      </div>
-
-    </div>
-
-    <ul class="lmkey rise r3 rv">
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="lm-fx" cx="16" cy="16" r="6"/></svg>
-        <span><b>支点</b>：動かさずに支えるところ</span>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><line class="lm-mv" x1="16" y1="26" x2="16" y2="12"/><path class="lm-hd" d="M16,4 L22,16 L10,16 Z"/></svg>
-        <span><b>動き</b>：力を出す方向</span>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="lm-ld" d="M16,28 L26,8 L6,8 Z"/></svg>
-        <span><b>荷重</b>：重さがかかるところ</span>
-      </li>
-      <li>
-        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><line class="lm-gd" x1="4" y1="16" x2="28" y2="16"/></svg>
-        <span><b>補助線</b>：床・器具・腕の位置</span>
-      </li>
-    </ul>
-
-    <a class="morelink morelink--ghost rise r3 rv" href="gym-advance-works.html" data-step="03" data-name="種目一覧">
-      <b>10種目の一覧を見る</b>
-      <span>STEP 03 &nbsp;/&nbsp; M-01 &#8212; M-10 &#8594;</span>
-    </a>
-
-    <p class="note rise r3 rv">※ 種目の選び方・順番・重さは、目的・体力・当日の体調に合わせてトレーナーが組みます。フォームが崩れた時点でセットを止めます。</p>
-  </div>
-</section>
-
-<!-- ============ 01-06 AIM ============ -->
-<section class="sec" id="aim" aria-labelledby="aim-t">
-  <div class="wrap">
-    <div class="shead rise r4 rv">
-      <p class="shead__row"><span class="shead__no">01-06</span><span class="shead__en">AIM / P-01 &#8212; P-04</span></p>
-      <h2 id="aim-t">目的が違えば、段の上がり方も違う。</h2>
-      <p class="shead__note">同じ種目でも、何のためにやるかで頻度も期間も変わります。FORGEは4つの型を用意しています。どれに当てはまるかは、初回のカウンセリングで一緒に決めます。途中で変えても構いません。</p>
-    </div>
-
-    <div class="aims rise r4 rv">
-      <a class="aim" href="gym-advance-program.html" data-step="05" data-name="目的別プログラム">
-        <span class="aim__id">P-01</span>
-        <h3>体を絞る</h3>
-        <span class="aim__en">BODY MAKE</span>
-        <span class="aim__nums">
-          <span class="aim__num"><b>2<i>回/週</i></b><span>頻度</span></span>
-          <span class="aim__num"><b>12<i>週</i></b><span>期間の目安</span></span>
-        </span>
-        <span class="aim__d">大きい種目を一巡してから、セット数を増やして休憩を少し短くします。食事は考え方までお伝えします。</span>
-        <span class="aim__go">STEP 05 &#8594;</span>
-      </a>
-      <a class="aim" href="gym-advance-program.html" data-step="05" data-name="目的別プログラム">
-        <span class="aim__id">P-02</span>
-        <h3>重さを上げる</h3>
-        <span class="aim__en">STRENGTH</span>
-        <span class="aim__nums">
-          <span class="aim__num"><b>2<i>回/週</i></b><span>頻度</span></span>
-          <span class="aim__num"><b>16<i>週</i></b><span>期間の目安</span></span>
-        </span>
-        <span class="aim__d">スクワット・デッドリフト・ベンチプレスの3種目が軸。休憩を長めに取って、記録の差だけを見ます。</span>
-        <span class="aim__go">STEP 05 &#8594;</span>
-      </a>
-      <a class="aim" href="gym-advance-program.html" data-step="05" data-name="目的別プログラム">
-        <span class="aim__id">P-03</span>
-        <h3>姿勢を整える</h3>
-        <span class="aim__en">POSTURE</span>
-        <span class="aim__nums">
-          <span class="aim__num"><b>1<i>&#8211;2回/週</i></b><span>頻度</span></span>
-          <span class="aim__num"><b>8<i>週</i></b><span>期間の目安</span></span>
-        </span>
-        <span class="aim__d">いま動かせる範囲を測ってから、背中と体幹の種目で支える力をつけていきます。</span>
-        <span class="aim__go">STEP 05 &#8594;</span>
-      </a>
-      <a class="aim" href="gym-advance-program.html" data-step="05" data-name="目的別プログラム">
-        <span class="aim__id">P-04</span>
-        <h3>体力を保つ</h3>
-        <span class="aim__en">KEEP</span>
-        <span class="aim__nums">
-          <span class="aim__num"><b>1<i>回/週</i></b><span>頻度</span></span>
-          <span class="aim__num"><b>&#8212;</b><span>期限は決めない</span></span>
-        </span>
-        <span class="aim__d">毎回、全身を軽く一巡します。疲れている日は迷わずメニューを落とします。続けることが目的です。</span>
-        <span class="aim__go">STEP 05 &#8594;</span>
-      </a>
-    </div>
-
-    <p class="note note--strong rise r4 rv">※ 期間はあくまで目安です。進み方・体の変わり方には<b>個人差</b>があり、期間や数値をお約束するものではありません。<br>※ 痛みやしびれなど気になる症状があるときは、まず医療機関にご相談ください。FORGEでは症状の診断や治療は行いません。</p>
-  </div>
-</section>
-
-<!-- ============ 01-07 PRICE ============ -->
-<section class="sec sec--dark" id="price" aria-labelledby="price-t">
-  <div class="wrap">
-    <div class="shead rise r5 rv">
-      <p class="shead__row"><span class="shead__no">01-07</span><span class="shead__en">PRICE &amp; KEEPING</span></p>
-      <h2 id="price-t">料金と、続け方。</h2>
-      <p class="shead__note">月額プランは3つ。それとは別に、必要なぶんだけ通える回数券があります。休会・キャンセル・退会の決まりまで含めた全部は、STEP 07にまとめました。</p>
-    </div>
-
-    <div class="pdig rise r5 rv">
-      <div class="pdig__i">
-        <span class="pdig__en">PLAN A</span>
-        <span class="pdig__n">体験セッション</span>
-        <span class="pdig__y">&yen;5,000</span>
-        <span class="pdig__u">／回（1回のみ）</span>
-        <span class="pdig__d">カウンセリング込み60分。まず試してみたい方へ。</span>
-      </div>
-      <div class="pdig__i pdig__i--mark">
-        <span class="pdig__en">PLAN B</span>
-        <span class="pdig__n">スタンダード</span>
-        <span class="pdig__y">&yen;28,000</span>
-        <span class="pdig__u">／月4回（週1回）</span>
-        <span class="pdig__d">無理なく継続したい方の標準プラン。食事アドバイス付き。</span>
-      </div>
-      <div class="pdig__i">
-        <span class="pdig__en">PLAN C</span>
-        <span class="pdig__n">プレミアム</span>
-        <span class="pdig__y">&yen;52,000</span>
-        <span class="pdig__u">／月8回（週2回）</span>
-        <span class="pdig__d">週2回でしっかり取り組みたい方へ。LINE相談付き。</span>
-      </div>
-    </div>
-
-    <h3 class="vh">回数券</h3>
-    <div class="tickets rise r5 rv" style="margin-top:clamp(22px,3vw,34px)">
-      <div class="ticket">
-        <span class="ticket__id">TICKET 04</span>
-        <span class="ticket__n">4回券 &yen;30,000</span>
-        <span class="ticket__lim">3<i>ヶ月</i></span>
-        <span class="ticket__p">有効期限。購入日の翌日から数えます。</span>
-      </div>
-      <div class="ticket">
-        <span class="ticket__id">TICKET 08</span>
-        <span class="ticket__n">8回券 &yen;56,000</span>
-        <span class="ticket__lim">6<i>ヶ月</i></span>
-        <span class="ticket__p">有効期限。休会を申請した期間は止まります。</span>
-      </div>
-      <div class="ticket">
-        <span class="ticket__id">TICKET 12</span>
-        <span class="ticket__n">12回券 &yen;81,000</span>
-        <span class="ticket__lim">9<i>ヶ月</i></span>
-        <span class="ticket__p">有効期限。月額プランとの併用もできます。</span>
-      </div>
-    </div>
-
-    <div class="rise r5 rv" style="margin-top:clamp(26px,3.4vw,40px)">
+    <div class="rise r2 rv" style="margin-top:clamp(28px,4vw,46px)">
       <table class="tbl">
-        <caption>TICKETS &#8212; 回数券（税抜）</caption>
+        <caption>RECORD SHEET &#8212; 毎回のセッションで残していること</caption>
         <thead>
-          <tr><th scope="col">券種</th><th scope="col">料金</th><th scope="col">有効期限</th><th scope="col">払い戻し</th></tr>
+          <tr><th scope="col">記録すること</th><th scope="col">何を書くか</th><th scope="col">次にどう使うか</th></tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">4回券</th>
-            <td data-h="料金" class="num">&yen;30,000</td>
-            <td data-h="有効期限">購入日の翌日から3ヶ月</td>
-            <td data-h="払い戻し">未使用分の払い戻しはありません</td>
+            <th scope="row">種目</th>
+            <td data-h="何を書くか">その日に行った種目を M-01 &#8212; M-10 の番号で。</td>
+            <td data-h="次にどう使うか">同じ順番で組むか、順番を入れ替えるかの判断に使います。</td>
           </tr>
           <tr>
-            <th scope="row">8回券</th>
-            <td data-h="料金" class="num">&yen;56,000</td>
-            <td data-h="有効期限">購入日の翌日から6ヶ月</td>
-            <td data-h="払い戻し">未使用分の払い戻しはありません</td>
+            <th scope="row">重さ</th>
+            <td data-h="何を書くか">シャフトだけか、左右に何枚ずつ足したか。</td>
+            <td data-h="次にどう使うか">次に1枚足すか、据え置くかを決める材料にします。</td>
           </tr>
           <tr>
-            <th scope="row">12回券</th>
-            <td data-h="料金" class="num">&yen;81,000</td>
-            <td data-h="有効期限">購入日の翌日から9ヶ月</td>
-            <td data-h="払い戻し">未使用分の払い戻しはありません</td>
+            <th scope="row">回数×セット</th>
+            <td data-h="何を書くか">何回を何セット積めたか。止めた回数もそのまま。</td>
+            <td data-h="次にどう使うか">前回との差だけを見ます。増えていなくても構いません。</td>
+          </tr>
+          <tr>
+            <th scope="row">フォームの所見</th>
+            <td data-h="何を書くか">崩れはじめた回数と、その手前で止められたかどうか。</td>
+            <td data-h="次にどう使うか">次回のウォームアップで先に確認する動きを決めます。</td>
+          </tr>
+          <tr>
+            <th scope="row">体調</th>
+            <td data-h="何を書くか">睡眠・食事・筋肉痛の残り方。当日の申告のまま。</td>
+            <td data-h="次にどう使うか">落とす日と、そのまま進む日の線引きに使います。</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <h3 class="vh">続けるための3つの決まり</h3>
-    <div class="keeps rise r5 rv">
-      <div class="keep">
-        <span class="keep__k">CHANGE / 変更・振替</span>
-        <span class="keep__v">前日 20<i>:00 まで</i></span>
-        <p>この時刻までのご連絡なら、空いている枠へ何度でも振り替えられます。過ぎた場合は1回分を消化します。発熱・けが・警報・交通機関の運休のときは、当日でも消化しません。</p>
-      </div>
-      <div class="keep">
-        <span class="keep__k">PAUSE / 休会</span>
-        <span class="keep__v">3<i>ヶ月まで</i></span>
-        <p>前月20日までのご連絡で、1ヶ月単位・連続3ヶ月まで。<b>休会中の月会費はいただきません。</b>手数料もありません。理由は伺いません。</p>
-      </div>
-      <div class="keep">
-        <span class="keep__k">LEAVE / 退会</span>
-        <span class="keep__v">&yen;0<i> 違約金</i></span>
-        <p>前月20日までのご連絡で退会できます。違約金・解約手数料はいただきません。残っている回数は、退会月の末日まで消化できます。</p>
-      </div>
-    </div>
-
-    <a class="morelink rise r5 rv" href="gym-advance-price.html" data-step="07" data-name="料金と続け方"
+    <a class="morelink rise r2 rv" href="gym-advance-work-detail.html" data-step="04" data-name="種目詳細 M-01 バーベルスクワット"
        style="background:var(--ink-2)">
-      <b>料金・回数券・休会・キャンセル・退会のすべてを読む</b>
-      <span>STEP 07 &nbsp;/&nbsp; 料金と続け方 &#8594;</span>
+      <b>記録が動きやすい種目を、1つだけ分解してみる</b>
+      <span>STEP 04 &nbsp;/&nbsp; M-01 バーベルスクワット &#8594;</span>
     </a>
 
-    <p class="note note--strong rise r5 rv">※ 表示はすべて税抜価格です。入会金・初期費用はいただいておりません。プラン変更はいつでも可能です（当月20日までのご連絡で翌月から）。<br>※ 記載は要点です。細かい条件はSTEP 07でご確認ください。</p>
+    <p class="note rise r2 rv">※ 記録はトレーニングの内容を残すためのもので、体の状態を判断するものではありません。進み方や感じ方には個人差があります。</p>
   </div>
 </section>
 
-<!-- ============ 01-08 PLACE ============ -->
-<section class="sec sec--paper" id="place" aria-labelledby="place-t">
+<!-- ============ 02-05 STOP RULE ============ -->
+<section class="sec" id="stop" aria-labelledby="stop-t">
   <div class="wrap">
-    <div class="shead rise r6 rv">
-      <p class="shead__row"><span class="shead__no">01-08</span><span class="shead__en">PLACE &amp; PEOPLE</span></p>
-      <h2 id="place-t">人と、場所。</h2>
-      <p class="shead__note">天神フォージビルの3階、約90㎡。完全予約制なので、営業中の1枠を1組で使っていただきます。トレーナーは3名。得意が違うので、目的と体の状態に合わせて担当をご相談ください。</p>
+    <div class="shead rise r3 rv">
+      <p class="shead__row"><span class="shead__no">02-05</span><span class="shead__en">STOP &amp; LOAD</span></p>
+      <h2 id="stop-t">止める基準を、先に決めてあります。</h2>
+      <p class="shead__note">セッション中に迷わないように、止める基準と重さの足し方は先に決めています。トレーナーが替わっても、この3つは変わりません。</p>
     </div>
 
-    <div class="duo rise r6 rv">
-      <figure class="figfr">
-        <img src="images/gym/gym_facility_2.webp" alt="ミラーとラックが並ぶトレーニングフロア全景" loading="lazy" decoding="async">
-        <figcaption><span>トレーニングフロア（約60㎡）</span><span>FLOOR</span></figcaption>
-      </figure>
-      <figure class="figfr">
-        <img src="images/gym/gym_misc_2.webp" alt="夜のビル1階にあるFORGEの入口外観" loading="lazy" decoding="async">
-        <figcaption><span>天神4丁目2-10 の入口</span><span>ENTRANCE</span></figcaption>
-      </figure>
+    <div class="rcards rise r3 rv">
+      <div class="rcard">
+        <p class="rcard__hd"><span class="rcard__no"><span>0</span>1</span><span class="rcard__en">STOP</span></p>
+        <h3>フォームが崩れた時点で止める</h3>
+        <p>あと2回、を積みません。崩れた形で重ねた回数は記録にも残らないので、意味がないからです。止めたことは記録に残して、次回の入り口にします。</p>
+      </div>
+      <div class="rcard">
+        <p class="rcard__hd"><span class="rcard__no"><span>0</span>2</span><span class="rcard__en">LOAD</span></p>
+        <h3>重さは3段階で足す</h3>
+        <p>シャフトだけ → 左右に1枚ずつ → 安定したら次の1枚。この順番だけです。飛ばしません。足し方の実際は、STEP 04でM-01を例に書いています。</p>
+      </div>
+      <div class="rcard">
+        <p class="rcard__hd"><span class="rcard__no"><span>0</span>3</span><span class="rcard__en">ADJUST</span></p>
+        <h3>疲れている日は落とす</h3>
+        <p>眠れていない日、体調が戻っていない日は、迷わずメニューを落とします。来週も来られる状態で帰っていただくほうを優先しています。</p>
+      </div>
     </div>
 
-    <dl class="dl rise r6 rv" style="margin-top:clamp(24px,3.2vw,38px)">
+    <p class="note note--strong rise r3 rv">※ 体調・既往症により内容を調整、またはご案内を控える場合があります。トレーニングの効果や感じ方には個人差があります。<br>※ 痛みやしびれなど気になる症状があるときは、まず医療機関にご相談ください。FORGEでは症状の診断や治療は行いません。</p>
+  </div>
+</section>
+
+<!-- ============ 02-06 ON THE DAY ============ -->
+<section class="sec sec--paper" id="day" aria-labelledby="day-t">
+  <div class="wrap">
+    <div class="shead rise r4 rv">
+      <p class="shead__row"><span class="shead__no">02-06</span><span class="shead__en">ON THE DAY</span></p>
+      <h2 id="day-t">当日は、手ぶらで。</h2>
+      <p class="shead__note">60分のセッションのために持ってきていただくものはありません。ウェア・シューズ・タオル・シャワーアメニティは無料でご用意しています。着替えとシャワーを含めると、90分ほど見ておいていただくと余裕があります。</p>
+    </div>
+
+    <dl class="dl rise r4 rv">
       <div>
-        <dt>ADDRESS</dt>
-        <dd>〒810-0001 福岡県福岡市中央区天神4丁目2-10 天神フォージビル3F<small>駐車場はありません。近隣のコインパーキングをご利用ください。</small></dd>
+        <dt>BRING</dt>
+        <dd>特にありません。手ぶらでお越しいただけます。<small>ご自身のウェア・シューズを持ち込んでいただいても構いません。</small></dd>
       </div>
       <div>
-        <dt>HOURS</dt>
-        <dd>平日 7:00〜22:00 ／ 土日 9:00〜20:00<small>定休日：水曜日</small></dd>
+        <dt>WEAR</dt>
+        <dd>ウェア上下（S / M / L / LL）を無料でお貸しします。<small>動きやすい服装で。ジーンズなど硬い素材は動きが制限されます。</small></dd>
       </div>
       <div>
-        <dt>TRAINER</dt>
-        <dd>佐藤 健太郎（代表／ヘッドトレーナー）・田中 りな・山本 剛 の3名<small>担当は初回のカウンセリングでご相談します。途中の変更もできます。</small></dd>
+        <dt>SHOES</dt>
+        <dd>23.0〜29.0cm（0.5cm刻み）を無料でお貸しします。<small>屋外用の靴のままフロアには入れません。</small></dd>
       </div>
       <div>
-        <dt>RENTAL</dt>
-        <dd>ウェア上下・シューズ・タオル・シャワーアメニティ（すべて無料）<small>持ち物は特にありません。手ぶらでお越しいただけます。</small></dd>
+        <dt>TOWEL</dt>
+        <dd>バスタオル・フェイスタオルとも無料です。<small>シャンプー・トリートメント・ボディソープ・ドライヤーもご用意しています。</small></dd>
       </div>
       <div>
-        <dt>BOOKING</dt>
-        <dd>完全予約制（フォーム・メール・LINE）<small>3日前までのご連絡がスムーズです。空きがあれば当日もご案内できます。</small></dd>
+        <dt>DRINK</dt>
+        <dd>水をご用意しています（無料）。<small>ラウンジで給水できます。</small></dd>
+      </div>
+      <div>
+        <dt>MEAL</dt>
+        <dd>セッションの1〜2時間前までに軽く済ませておくと動きやすい方が多いです。<small>感じ方には個人差があります。無理に食べる・抜くといった調整はしないでください。</small></dd>
+      </div>
+      <div>
+        <dt>TIME</dt>
+        <dd>セッション60分。着替えとシャワーを含めて90分ほど。<small>完全予約制のため、その1枠は1組で使っていただきます。</small></dd>
       </div>
     </dl>
 
-    <a class="morelink morelink--ghost rise r6 rv" href="gym-advance-company.html" data-step="08" data-name="トレーナー・施設案内">
-      <b>トレーナー3名と、施設の中身を見る</b>
-      <span>STEP 08 &nbsp;/&nbsp; トレーナー・施設案内 &#8594;</span>
+    <div class="duo rise r4 rv" style="margin-top:clamp(26px,3.4vw,40px)">
+      <div>
+        <h3 style="font-weight:900;font-size:clamp(16px,2vw,21px);line-height:1.5">セッションの前後に、できること。</h3>
+        <p style="font-size:13.5px;line-height:2;color:var(--muted);margin-top:10px">前後の10分は入れ替えの時間です。早めに着かれた場合はラウンジでお待ちいただけます。シャワーは1室なので、続けてご予約が入っている時間帯はお声かけします。食事の相談は、クールダウンのブロックかラウンジで伺います。</p>
+        <p style="font-size:13.5px;line-height:2;color:var(--muted);margin-top:10px">食事についてお伝えするのは考え方までです。欠食しない、たんぱく質を毎食に分ける、寝る前の量を減らす。献立を指定したり、特定の食品を避けるようにお願いすることはありません。</p>
+      </div>
+      <div>
+        <table class="tbl">
+          <caption>SLOTS &#8212; 1日の枠</caption>
+          <thead>
+            <tr><th scope="col">曜日</th><th scope="col">開始時刻</th><th scope="col">枠数</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">平日</th>
+              <td data-h="開始時刻">7:00 / 8:30 / 10:00 / 11:30 / 13:00 / 14:30 / 16:00 / 17:30 / 19:00 / 20:30</td>
+              <td data-h="枠数" class="num">10</td>
+            </tr>
+            <tr>
+              <th scope="row">土日</th>
+              <td data-h="開始時刻">9:00 から 18:30 まで</td>
+              <td data-h="枠数" class="num">7</td>
+            </tr>
+            <tr>
+              <th scope="row">水曜</th>
+              <td data-h="開始時刻">定休日です</td>
+              <td data-h="枠数" class="num">&#8212;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <a class="morelink morelink--ghost rise r4 rv" href="gym-advance-works.html" data-step="03" data-name="種目一覧">
+      <b>メインのセットで組む10種目を見る</b>
+      <span>STEP 03 &nbsp;/&nbsp; M-01 &#8212; M-10 &#8594;</span>
     </a>
+
+    <p class="note rise r4 rv">※ 予約は3日前までのご連絡がスムーズです。空きがあれば当日もご案内できます。前日20:00までのご連絡なら、空いている枠へ振り替えられます。</p>
   </div>
 </section>
 
@@ -1335,12 +1177,12 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
   <div class="wrap">
     <p class="nextstep__k">NEXT STEP</p>
     <div class="nextstep__grid">
-      <p class="nextstep__n"><span>0</span>2</p>
+      <p class="nextstep__n"><span>0</span>3</p>
       <div>
-        <h2 id="next-t">一段上がって、<br>60分の中身へ。</h2>
-        <p>2段目は、セッションそのものの話です。4つのブロックに何分使って、何を見て、何を決めているのか。前回の記録をどう次に渡すのかまで書いてあります。</p>
-        <a class="nextstep__go" href="gym-advance-service.html" data-step="02" data-name="セッションの中身">
-          STEP 02 に進む <em>&#8594;</em>
+        <h2 id="next-t">一段上がって、<br>10種目の索引へ。</h2>
+        <p>3段目は、メインのセットで扱う種目そのものです。M-01からM-10まで、どこを使う種目なのか、何に気をつけるのかを、人の絵を使わない記号と一緒に並べています。</p>
+        <a class="nextstep__go" href="gym-advance-works.html" data-step="03" data-name="種目一覧">
+          STEP 03 に進む <em>&#8594;</em>
         </a>
       </div>
     </div>
@@ -1351,8 +1193,8 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
 <section class="cta" id="contact" aria-labelledby="cta-t">
   <div class="wrap">
     <span class="cta__en">CONTACT / TRIAL</span>
-    <h2 id="cta-t">まずは体験セッションから。</h2>
-    <p>完全予約制のため、事前のご予約をお願いしています。ご希望の曜日・時間帯をお知らせください。体験は60分、着替えとシャワーを含めて90分ほど見ておいていただくと余裕があります。その場でのご契約は不要です。</p>
+    <h2 id="cta-t">60分を、一度そのまま体験する。</h2>
+    <p>体験セッション（PLAN A）でも、この60分の組み方は変わりません。カウンセリングと体組成測定を含めて、実際のセッションをそのままお試しいただけます。完全予約制のため、ご希望の曜日・時間帯をお知らせください。その場でのご契約は不要です。</p>
     <div class="cta__btns">
       <a class="btn btn--solid" href="gym-advance-contact.html#trial" data-step="10" data-name="アクセス・体験申込">体験セッションを申し込む <em>FORM</em></a>
       <a class="btn btn--ghost" href="mailto:info@example.com">メールで問い合わせる <em>MAIL</em></a>
@@ -1361,6 +1203,7 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
     <p class="cta__note">※ 体験セッションは¥5,000（税抜）／おひとり1回まで。体験当日にご入会いただいた場合、この¥5,000は初回の月会費から差し引きます。<br>※ 体調・既往症によっては内容を調整、またはご案内を控える場合があります。効果や感じ方には個人差があります。</p>
   </div>
 </section>
+
 
 </main>
 
@@ -1378,8 +1221,8 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
       <nav class="foot__nav" aria-label="フッター">
         <div>
           <h2>GROUND / 土台</h2>
-          <a href="gym-advance.html" data-step="01" data-name="トップ" aria-current="page"><em>01</em><span>トップ</span></a>
-          <a href="gym-advance-service.html" data-step="02" data-name="セッションの中身"><em>02</em><span>セッションの中身</span></a>
+          <a href="gym-advance.html" data-step="01" data-name="トップ"><em>01</em><span>トップ</span></a>
+          <a href="gym-advance-service.html" data-step="02" data-name="セッションの中身" aria-current="page"><em>02</em><span>セッションの中身</span></a>
         </div>
         <div>
           <h2>MOVE / 動き</h2>
@@ -1422,11 +1265,12 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
 
 <script>
 (function(){
+
   "use strict";
 
   /* ==== このページの識別子。ページごとに直すのはこの2行だけ ==== */
-  var CURRENT  = '01';
-  var PAGENAME = 'トップ';
+  var CURRENT  = '02';
+  var PAGENAME = 'セッションの中身';
   /* ============================================================ */
 
   var html   = document.documentElement;
