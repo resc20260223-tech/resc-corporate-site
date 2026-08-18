@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>田中司法書士事務所｜相続・不動産登記｜福岡</title>
-<meta name="description" content="福岡の田中司法書士事務所。相続・不動産登記を専門に15年。相続放棄3ヶ月、相続登記3年など、手続きの期限から必要なことを整理してご案内します。初回のご相談は無料です。">
+<title>アクセス・お問い合わせ｜田中司法書士事務所｜相続・不動産登記</title>
+<meta name="description" content="田中司法書士事務所へのお問い合わせとアクセス。メール・LINE・お問い合わせフォームで承ります。所在地の略図、面談の方法、受付時間をご案内します。初回のご相談は無料です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -638,6 +638,111 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .5s ease-out,transfor
   .pt{display:none!important}
   .cover-fr > .fr{transform:none!important}
 }
+
+/* ============================================================
+   21. 票06 / 07 / 08 で使う追加分
+   色・余白は既存トークンのみ。新しい色は増やしていません。
+   ============================================================ */
+[hidden]{display:none!important}
+
+/* --- 人物（票06） --- */
+.prof{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(14px,2.4vw,22px)}
+.prof-c{border:1px solid var(--rule);background:var(--paper-hi);padding:7px}
+.prof-c img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.prof-b{padding:14px 4px 6px}
+.prof-no{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--navy-soft)}
+.prof-nm{font-family:var(--gothic);font-weight:700;font-size:18px;letter-spacing:.1em;line-height:1.6;margin-top:6px}
+.prof-nm span{display:block;font-family:var(--body);font-weight:400;font-size:11.5px;letter-spacing:.14em;color:var(--navy-soft);margin-top:2px}
+.prof-r{margin-top:11px;padding-top:9px;border-top:1px solid var(--rule-2);font-size:12.5px;line-height:1.85;color:var(--navy-soft)}
+.prof-w{margin-top:10px;font-size:13.5px;line-height:1.9}
+.prof-w::before{content:"";display:block;width:22px;height:1px;background:var(--shu);margin-bottom:7px}
+@media (min-width:600px){.prof{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:900px){.prof{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* --- 問答（票07） --- */
+.qidx{border-top:1px solid var(--rule)}
+.qidx li{border-bottom:1px solid var(--rule-2)}
+.qidx a{display:flex;gap:12px;align-items:baseline;text-decoration:none;padding:9px 2px;font-size:13.5px;line-height:1.8;color:var(--navy-mid);transition:color .18s}
+.qidx a:hover{color:var(--shu)}
+.qidx .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--shu);flex:none;width:3.6em}
+@media (min-width:760px){.qidx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(20px,3vw,40px)}}
+.qa-ctl{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--rule-strong);background:var(--paper-hi);color:var(--navy);font-family:var(--gothic);font-weight:700;font-size:11.5px;letter-spacing:.18em;padding:7px 15px;margin-bottom:12px;cursor:pointer}
+.qa-ctl:hover{background:var(--paper-dim);border-color:var(--navy)}
+.qa-ctl .qc-sq{width:7px;height:7px;background:var(--shu-bright);flex:none}
+.qa{border-top:2px solid var(--navy)}
+.qa details{border-bottom:1px solid var(--rule);scroll-margin-top:var(--sm)}
+.qa summary{display:flex;gap:clamp(10px,2vw,16px);align-items:baseline;padding:16px 46px 16px 2px;position:relative;cursor:pointer;list-style:none}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::marker{content:""}
+.qa summary:hover .qt{color:var(--shu)}
+.qa .qn{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--shu);flex:none;width:3.8em;padding-top:.3em}
+.qa .qt{font-family:var(--gothic);font-weight:700;font-size:15px;letter-spacing:.06em;line-height:1.75;min-width:0;transition:color .18s}
+.qa .qmk{position:absolute;right:6px;top:50%;width:15px;height:15px;margin-top:-7px}
+.qa .qmk::before,.qa .qmk::after{content:"";position:absolute;background:var(--navy)}
+.qa .qmk::before{left:0;right:0;top:7px;height:1px}
+.qa .qmk::after{top:0;bottom:0;left:7px;width:1px}
+html.js .qa .qmk::after{transition:transform .22s var(--ease)}
+.qa details[open] .qmk::after{transform:scaleY(0)}
+.qa .qb{display:flex;gap:clamp(10px,2vw,16px);padding:0 2px 22px}
+.qa .qab{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--navy-soft);flex:none;width:3.8em;padding-top:.25em}
+.qa .qbody{min-width:0;font-size:13.5px;line-height:1.95;color:var(--navy-soft);max-width:44em}
+.qa .qbody p + p{margin-top:10px}
+.qa .qbody strong{color:var(--navy);font-weight:700}
+.qa .qbody .kigen{margin-top:14px}
+.qa .qbody .inline-leaf{margin-top:14px}
+
+/* --- フォーム（票08） --- */
+.form{border:1px solid var(--navy);background:var(--paper-hi);padding:clamp(16px,3vw,28px)}
+.f-h{display:flex;align-items:baseline;gap:12px;padding-bottom:11px;border-bottom:2px solid var(--navy)}
+.f-h b{font-family:var(--gothic);font-weight:700;font-size:15.5px;letter-spacing:.12em}
+.f-h em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--navy-soft)}
+.f-row{padding:16px 0;border-bottom:1px solid var(--rule-2)}
+.f-row:last-of-type{border-bottom:0}
+.f-lab{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-family:var(--gothic);font-weight:700;font-size:13.5px;letter-spacing:.08em;line-height:1.7}
+.f-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;padding:2px 7px;flex:none;line-height:1.6}
+.f-tag.req{color:var(--shu);border:1px solid var(--shu)}
+.f-tag.opt{color:var(--navy-soft);border:1px solid var(--rule)}
+.f-hint{font-size:12px;line-height:1.85;color:var(--navy-soft);margin-top:7px;max-width:44em}
+.f-hint strong{color:var(--navy);font-weight:700}
+.f-in{display:block;width:100%;font-family:var(--body);font-size:14.5px;line-height:1.8;color:var(--navy);background:var(--paper);border:1px solid var(--rule-strong);padding:10px 12px;margin-top:9px;border-radius:0}
+input.f-in,textarea.f-in{-webkit-appearance:none;appearance:none}
+textarea.f-in{min-height:9.5em;resize:vertical}
+.f-in:hover{border-color:var(--navy-soft)}
+.f-in:focus{border-color:var(--navy);background:#fff;outline:2px solid var(--shu-bright);outline-offset:1px}
+.f-in[aria-invalid="true"]{border-color:var(--shu);background:var(--shu-pale)}
+.f-err{display:block;margin-top:8px;font-size:12.5px;line-height:1.8;font-weight:700;color:var(--shu);letter-spacing:.03em}
+.f-set{border:0;margin:0;padding:0;min-width:0}
+.f-set legend{padding:0}
+.f-opts{display:flex;flex-wrap:wrap;gap:9px 10px;margin-top:9px}
+.f-opts label{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--rule);background:var(--paper);padding:8px 14px;font-size:13.5px;line-height:1.6;cursor:pointer;transition:border-color .18s,background .18s}
+.f-opts label:hover{border-color:var(--navy);background:#fff}
+.f-opts input{accent-color:var(--navy);flex:none;margin:0;width:15px;height:15px}
+.f-chk{display:flex;align-items:flex-start;gap:11px;margin-top:9px;font-size:13px;line-height:1.9;cursor:pointer}
+.f-chk input{accent-color:var(--navy);margin:.42em 0 0;flex:none;width:15px;height:15px}
+.f-alert{border:1px solid var(--shu);background:var(--shu-pale);padding:14px 16px;margin-bottom:18px}
+.f-alert .fa-h{display:flex;align-items:baseline;gap:9px;font-family:var(--gothic);font-weight:700;font-size:13.5px;letter-spacing:.06em;color:var(--shu)}
+.f-alert ul{margin-top:7px}
+.f-alert li{margin-top:3px;display:flex;gap:8px}
+.f-alert li::before{content:"";flex:none;width:6px;height:1px;background:var(--shu);margin-top:1.05em}
+.f-alert button{background:none;border:0;padding:0;font-family:var(--body);font-size:12.5px;line-height:1.85;color:var(--navy);text-align:left;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.f-alert button:hover{color:var(--shu)}
+.f-send{margin-top:clamp(16px,2.4vw,24px);display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center}
+.btn-send{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:var(--ink-on);border:1px solid var(--navy);font-family:var(--gothic);font-weight:700;font-size:14px;letter-spacing:.1em;line-height:1.6;padding:14px 30px;cursor:pointer;text-decoration:none;transition:background .2s}
+.btn-send:hover{background:var(--navy-2)}
+.btn-send.ghost{background:var(--paper-hi);color:var(--navy);border-color:var(--rule-strong)}
+.btn-send.ghost:hover{background:var(--paper-dim);border-color:var(--navy)}
+.f-cau{font-size:12px;line-height:1.85;color:var(--navy-soft);max-width:34em}
+.f-done{border:1px solid var(--navy);background:var(--paper-hi);padding:clamp(18px,3vw,32px)}
+.f-done h3{font-family:var(--gothic);font-weight:700;font-size:clamp(16px,2.4vw,20px);letter-spacing:.1em;line-height:1.6}
+.f-done .fd-no{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--shu);display:block;margin-bottom:10px}
+.f-done p{margin-top:12px;font-size:13.5px;line-height:1.95;color:var(--navy-soft);max-width:42em}
+@media (min-width:760px){
+  .f-row{display:grid;grid-template-columns:minmax(0,13.5em) minmax(0,1fr);gap:4px clamp(18px,3vw,30px);align-items:start}
+  .f-row.wide{display:block}
+  .f-row .f-fld{min-width:0}
+  .f-row .f-fld > *:first-child{margin-top:0}
+  .f-row > .f-lab{padding-top:9px}
+}
 </style>
 </head>
 <body>
@@ -674,37 +779,47 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .5s ease-out,transfor
         <b>田中司法書士事務所</b><span class="mono">TANAKA SHIHO-SHOSHI OFFICE</span>
       </a>
       <nav class="pnav" aria-label="部">
-        <a href="professional-advance.html" aria-current="page" data-p="01" data-n="トップ">
+        <a href="professional-advance.html" data-p="01" data-n="トップ">
           <span class="j">総則</span><span class="e mono">01 / 07</span></a>
         <a href="professional-advance-service.html" data-p="02" data-n="取扱業務">
           <span class="j">手続き</span><span class="e mono">02 &#8212; 04 / 09</span></a>
         <a href="professional-advance-flow.html" data-p="05" data-n="ご相談から完了までの流れ">
           <span class="j">期日</span><span class="e mono">05 / 10</span></a>
-        <a href="professional-advance-company.html" data-p="06" data-n="司法書士紹介・事務所案内">
+        <a href="professional-advance-company.html" aria-current="true" data-p="06" data-n="司法書士紹介・事務所案内">
           <span class="j">事務所</span><span class="e mono">06 / 08</span></a>
       </nav>
-      <a class="hcta" href="professional-advance-contact.html" data-p="08" data-n="アクセス・お問い合わせ">お問い合わせ</a>
+      <a class="hcta" href="professional-advance-contact.html" aria-current="page" data-p="08" data-n="アクセス・お問い合わせ">お問い合わせ</a>
     </div>
   </div>
   <div class="hd-2">
     <div class="wrap">
-      <p class="here"><span class="no">票 01</span><span class="bu">第一部　総則</span></p>
-      <nav class="subnav" aria-label="第一部の中のページ">
-        <a href="professional-advance.html" aria-current="page" data-p="01" data-n="トップ">01 トップ</a>
-        <a href="professional-advance-faq.html" data-p="07" data-n="よくある質問">07 よくある質問</a>
+      <p class="here"><span class="no">票 08</span><span class="bu">第四部　事務所</span></p>
+      <nav class="subnav" aria-label="第四部の中のページ">
+        <a href="professional-advance-company.html" data-p="06" data-n="司法書士紹介・事務所案内">06 司法書士紹介・事務所案内</a>
+        <a href="professional-advance-contact.html" aria-current="page" data-p="08" data-n="アクセス・お問い合わせ">08 アクセス・お問い合わせ</a>
       </nav>
       <p class="nx mono">
-        <span class="dis">&#9664; 前の票</span>
-        <a href="professional-advance-service.html" data-p="02" data-n="取扱業務">次の票 02 取扱業務 &#9654;</a>
+        <a href="professional-advance-faq.html" data-p="07" data-n="よくある質問">&#9664; 前の票 07</a>
+        <a href="professional-advance-fee.html" data-p="09" data-n="手続き別の費用一覧">次の票 09 手続き別の費用一覧 &#9654;</a>
       </p>
     </div>
   </div>
 </header>
 
+<nav class="crumb" aria-label="パンくず">
+  <div class="wrap">
+    <ol>
+      <li><a href="professional-advance.html" data-p="01" data-n="トップ">01 トップ</a></li>
+      <li><span>第四部　事務所</span></li>
+      <li><span aria-current="page">08 アクセス・お問い合わせ</span></li>
+    </ol>
+  </div>
+</nav>
+
 <main id="main">
 
 <!-- ===== 標題部 ===== -->
-<section class="cover" aria-labelledby="h1">
+<section class="cover sub" aria-labelledby="h1">
   <svg class="ruled" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 400">
     <g stroke="#3C4C72" stroke-width="1">
       <line x1="0" y1="32" x2="100" y2="32"/><line x1="0" y1="64" x2="100" y2="64"/>
@@ -721,16 +836,16 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .5s ease-out,transfor
       <span class="fr l" aria-hidden="true"></span><span class="fr r" aria-hidden="true"></span>
       <span class="cover-cnr c1" aria-hidden="true"></span><span class="cover-cnr c2" aria-hidden="true"></span>
 
-      <p class="cover-label"><span class="tag-sq" aria-hidden="true"></span>票 01　総則</p>
-      <h1 class="cover-title" id="h1">田中司法書士事務所<span class="l2">TANAKA SHIHO-SHOSHI OFFICE &#8212; SHEET 01 / 10</span></h1>
+      <p class="cover-label"><span class="tag-sq" aria-hidden="true"></span>票 08　事務所</p>
+      <h1 class="cover-title" id="h1">アクセス・お問い合わせ<span class="l2">ACCESS &amp; CONTACT &#8212; SHEET 08 / 10</span></h1>
       <div class="cover-rule" aria-hidden="true"></div>
-      <p class="catch">一生に一度の手続きを、<br>不安なく。<em>期日から逆算して。</em></p>
-      <p class="cover-lede">相続・不動産登記を専門に15年、専門用語を使わないわかりやすい説明を心がけています。相続の手続きには、法律で決められた期限があるものがあります。このサイトは「いつまでに、何をするか」から順に並べました。初回のご相談は無料です。</p>
+      <p class="catch">「いつのことか」を、<br>教えてください。</p>
+      <p class="cover-lede">メール・LINE・お問い合わせフォームで承ります。初回のご相談は無料です。お問い合わせのときに<em>いつ気づいたか</em>をあわせて教えていただけると、期限がどこにあるかを先にお調べできます。</p>
       <dl class="cover-meta">
         <div><dt>所在地</dt><dd>福岡県福岡市〇〇区〇〇4-5-2</dd></div>
         <div><dt>受付時間</dt><dd><span class="mono">9:00</span>〜<span class="mono">18:00</span><br>土日祝は要予約</dd></div>
-        <div><dt>初回相談</dt><dd>登記相談（初回）<span class="mono">¥0</span>〜</dd></div>
-        <div><dt>面談の方法</dt><dd>事務所／ご訪問／オンライン</dd></div>
+        <div><dt>連絡の方法</dt><dd>メール／LINE／フォーム</dd></div>
+        <div><dt>初回相談</dt><dd>無料　<span class="mono">30</span>〜<span class="mono">60</span>分程度</dd></div>
       </dl>
     </div>
   </div>
@@ -740,537 +855,25 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .5s ease-out,transfor
 <div class="plate">
   <figure>
     <div class="plate-img">
-      <img src="images/professional/professional_hero.webp" alt="書棚と執務机が並ぶ田中司法書士事務所の執務室" fetchpriority="high" decoding="async">
+      <img src="images/professional/professional_facility2.webp" alt="通りに面した田中司法書士事務所の外観" fetchpriority="high" decoding="async">
     </div>
-    <figcaption><b>口絵</b>執務室</figcaption>
+    <figcaption><b>口絵</b>事務所の外観</figcaption>
   </figure>
 </div>
 
-<!-- ===== 01-A 期日から探す ===== -->
-<section class="sec" id="s-clock" aria-labelledby="h-clock">
+<!-- ===== 08-A お問い合わせの方法 ===== -->
+<section class="sec" id="s-ways" aria-labelledby="h-ways">
   <div class="wrap">
     <div class="sec-h rv">
-      <span class="sec-no mono">01-A</span>
-      <h2 id="h-clock">期日から探す</h2>
-      <span class="en mono">Deadlines</span>
-      <div class="dbl" aria-hidden="true"></div>
-    </div>
-    <p class="lede rv">相続の手続きには、法律で期限が決められているものがあります。下の目盛は、その期限を早い順に並べたものです。<strong>期限は「いつから数えるか」で変わります。</strong>数字だけでなく、起算点もあわせてご覧ください。</p>
-
-    <ol class="axis rv" style="margin-top:clamp(22px,3vw,34px)">
-      <li class="ax">
-        <a href="professional-advance-inheritance.html" data-p="10" data-n="相続の進め方">
-          <span class="ax-w mono">市区町村</span>
-          <b class="ax-t mono">7<i>日</i><em>以内</em></b>
-          <span class="ax-k">死亡届</span>
-          <span class="ax-d">亡くなったことを知った日から。ご家族や葬儀社が出されることが多い届出です。</span>
-          <span class="ax-go mono">票10 &#8594;</span>
-        </a>
-      </li>
-      <li class="ax">
-        <a href="professional-advance-inheritance.html" data-p="10" data-n="相続の進め方">
-          <span class="ax-w mono">家庭裁判所</span>
-          <b class="ax-t mono">3<i>ヶ月</i><em>以内</em></b>
-          <span class="ax-k">相続放棄・限定承認の申述</span>
-          <span class="ax-d">自己のために相続の開始があったことを知った時から。書類の作成をお手伝いします。</span>
-          <span class="ax-go mono">票10 &#8594;</span>
-        </a>
-      </li>
-      <li class="ax">
-        <a href="professional-advance-inheritance.html" data-p="10" data-n="相続の進め方">
-          <span class="ax-w mono tax">税務署</span>
-          <b class="ax-t mono">4<i>ヶ月</i><em>以内</em></b>
-          <span class="ax-k">所得税の準確定申告</span>
-          <span class="ax-d">相続の開始を知った日の翌日から。申告は税理士の業務です。提携の税理士をご紹介します。</span>
-          <span class="ax-go mono">票10 &#8594;</span>
-        </a>
-      </li>
-      <li class="ax">
-        <a href="professional-advance-inheritance.html" data-p="10" data-n="相続の進め方">
-          <span class="ax-w mono tax">税務署</span>
-          <b class="ax-t mono">10<i>ヶ月</i><em>以内</em></b>
-          <span class="ax-k">相続税の申告と納付</span>
-          <span class="ax-d">相続の開始を知った日の翌日から。こちらも税理士の業務です。期限のご案内までを承ります。</span>
-          <span class="ax-go mono">票10 &#8594;</span>
-        </a>
-      </li>
-      <li class="ax">
-        <a href="professional-advance-service.html" data-p="02" data-n="取扱業務">
-          <span class="ax-w mono">法務局</span>
-          <b class="ax-t mono">2<i>年</i><em>以内</em></b>
-          <span class="ax-k">住所・氏名の変更登記</span>
-          <span class="ax-d">変更があった日から。2026年4月1日から申請が義務になりました。</span>
-          <span class="ax-go mono">票02 &#8594;</span>
-        </a>
-      </li>
-      <li class="ax">
-        <a href="professional-advance-inheritance.html" data-p="10" data-n="相続の進め方">
-          <span class="ax-w mono">法務局</span>
-          <b class="ax-t mono">3<i>年</i><em>以内</em></b>
-          <span class="ax-k">相続登記の申請義務</span>
-          <span class="ax-d">不動産を取得したことを知った日から。2024年4月1日から義務になりました。当事務所の中心の業務です。</span>
-          <span class="ax-go mono">票10 &#8594;</span>
-        </a>
-      </li>
-    </ol>
-
-    <p class="from-note rv"><b>附記</b>ここに書いた期限は制度の一般的な内容です。ご事情によって扱いが変わることがあります。個別の期限は、お話をうかがったうえでご案内します。</p>
-    <p class="note rv" style="margin-top:12px">※ 税務署に出すもの（準確定申告・相続税の申告）は税理士の業務です。当事務所では期限のご案内までを承り、申告そのものは提携の税理士をご紹介します。<br>※ 間に合わないおそれがあるときは、相続放棄について家庭裁判所に期間の伸長を申し立てられる制度があります。まず状況をうかがわせてください。</p>
-
-    <a class="inline-leaf rv" href="professional-advance-inheritance.html" data-p="10" data-n="相続の進め方">
-      <span class="lf-no mono">票10</span>相続の進め方を最初から見る
-      <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- ===== 01-B 事務所について ===== -->
-<section class="sec tint" id="s-about" aria-labelledby="h-about">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <span class="sec-no mono">01-B</span>
-      <h2 id="h-about">事務所について</h2>
-      <span class="en mono">About</span>
+      <span class="sec-no mono">08-A</span>
+      <h2 id="h-ways">お問い合わせの方法</h2>
+      <span class="en mono">Three Ways</span>
       <div class="dbl" aria-hidden="true"></div>
     </div>
     <div class="two wide-l">
       <div>
-        <p class="lede rv">相続・不動産登記を専門に15年、専門用語を使わないわかりやすい説明を心がけています。初回のご相談は無料です。まずはお気軽にお問い合わせください。</p>
-        <ol class="clauses rv" style="margin-top:clamp(20px,3vw,30px)">
-          <li>
-            <span class="cl-no">一、</span>
-            <div class="cl-body">
-              <h3>相続・不動産登記を専門に15年</h3>
-              <p>相続と不動産登記を中心に、手続きの内容にあわせてお話をうかがいます。</p>
-            </div>
-          </li>
-          <li>
-            <span class="cl-no">二、</span>
-            <div class="cl-body">
-              <h3>専門用語を使わないわかりやすい説明</h3>
-              <p>書類の意味や進み方を、そのつど言葉をかみくだいてご説明します。</p>
-            </div>
-          </li>
-          <li>
-            <span class="cl-no">三、</span>
-            <div class="cl-body">
-              <h3>初回のご相談は無料</h3>
-              <p>「これは手続きが必要なのか」という段階のご相談から承ります。</p>
-            </div>
-          </li>
-          <li>
-            <span class="cl-no">四、</span>
-            <div class="cl-body">
-              <h3>できることと、できないことを先にお伝えします</h3>
-              <p>司法書士がお引き受けできるのは、登記と、裁判所・法務局に出す書類の作成が中心です。税や交渉が関わる場面では、提携の税理士・弁護士をご紹介します。</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-      <div>
-        <aside class="kigen rv" aria-label="ご相談の前に知っておいていただきたい期限">
-          <p class="kg-h"><span class="kg-sq" aria-hidden="true"></span>まず気にしていただきたい期限</p>
-          <dl>
-            <div class="kg-row">
-              <dt class="mono">3ヶ月</dt>
-              <dd><b>相続放棄・限定承認</b><span>自己のために相続の開始があったことを知った時から。財産より借入が多いかもしれない、という段階でご相談ください。</span></dd>
-            </div>
-            <div class="kg-row">
-              <dt class="mono">3年</dt>
-              <dd><b>相続登記の申請義務</b><span>不動産を取得したことを知った日から。2024年4月1日より前に起きた相続は、2027年3月31日までが期限です。</span></dd>
-            </div>
-            <div class="kg-row">
-              <dt class="mono">2週間</dt>
-              <dd><b>会社の役員変更などの登記</b><span>変更が生じた日から。決議の前後にご連絡いただけると、日程を組みやすくなります。</span></dd>
-            </div>
-          </dl>
-          <p class="kg-n">※ 制度の一般的な内容です。ご事情によって扱いが変わることがあります。</p>
-        </aside>
-        <p class="note rv" style="margin-top:14px">司法書士2名・事務2名の小さな事務所です。ご相談を受けた者が最後までお付き合いします。</p>
-        <a class="inline-leaf rv" href="professional-advance-company.html" data-p="06" data-n="司法書士紹介・事務所案内">
-          <span class="lf-no mono">票06</span>司法書士紹介・事務所案内
-          <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 01-C 取扱業務 ===== -->
-<section class="sec" id="s-service" aria-labelledby="h-service">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <span class="sec-no mono">01-C</span>
-      <h2 id="h-service">取扱業務</h2>
-      <span class="en mono">Services</span>
-      <div class="dbl" aria-hidden="true"></div>
-    </div>
-    <p class="lede rv">お取り扱いする業務は、次の六つです。表示は税別・目安の金額で、手続きの内容によって変わります。金額のご確認だけのお問い合わせでも構いません。</p>
-
-    <div class="cards c3 rv" style="margin-top:clamp(20px,3vw,32px)">
-      <a class="card" href="professional-advance-service.html" data-p="02" data-n="取扱業務">
-        <span class="cd-im"><img src="images/professional/professional_menu_consultation.webp" alt="打ち合わせテーブルで書類を広げ、ご夫婦に説明する司法書士" loading="lazy" decoding="async"></span>
-        <span class="cd-b">
-          <span class="cd-no"><b>一</b><span>CONSULTATION</span></span>
-          <h3>登記相談（初回）</h3>
-          <p>手続きが必要かどうかの確認から承ります。</p>
-          <span class="cd-fee"><em>報酬（目安・税別）</em><span class="amt">¥0<span class="tail">〜</span></span></span>
-        </span>
-      </a>
-      <a class="card" href="professional-advance-service.html" data-p="02" data-n="取扱業務">
-        <span class="cd-im"><img src="images/professional/professional_menu_realestate.webp" alt="執務机で登記書類に記入する司法書士" loading="lazy" decoding="async"></span>
-        <span class="cd-b">
-          <span class="cd-no"><b>二</b><span>REAL ESTATE</span></span>
-          <h3>不動産登記手続き</h3>
-          <p>売買・贈与・抵当権抹消などの登記申請を承ります。</p>
-          <span class="cd-fee"><em>報酬（目安・税別）</em><span class="amt">¥30,000<span class="tail">〜</span></span></span>
-        </span>
-      </a>
-      <a class="card" href="professional-advance-service.html" data-p="02" data-n="取扱業務">
-        <span class="cd-im"><img src="images/professional/professional_menu_corporate.webp" alt="打ち合わせテーブルで来客に資料を示しながら話す司法書士" loading="lazy" decoding="async"></span>
-        <span class="cd-b">
-          <span class="cd-no"><b>三</b><span>CORPORATE</span></span>
-          <h3>商業・法人登記手続き</h3>
-          <p>会社設立や役員変更など、法人の登記を承ります。</p>
-          <span class="cd-fee"><em>報酬（目安・税別）</em><span class="amt">¥40,000<span class="tail">〜</span></span></span>
-        </span>
-      </a>
-      <a class="card" href="professional-advance-service.html" data-p="02" data-n="取扱業務">
-        <span class="cd-im"><img src="images/professional/professional_menu_inheritance.webp" alt="相談室で年配のご夫婦に書類を広げて説明する司法書士" loading="lazy" decoding="async"></span>
-        <span class="cd-b">
-          <span class="cd-no"><b>四</b><span>INHERITANCE</span></span>
-          <h3>相続手続きサポート</h3>
-          <p>相続に関する一連の手続きをまとめてお手伝いします。</p>
-          <span class="cd-fee"><em>報酬（目安・税別）</em><span class="amt">¥50,000<span class="tail">〜</span></span></span>
-        </span>
-      </a>
-      <a class="card" href="professional-advance-service.html" data-p="02" data-n="取扱業務">
-        <span class="cd-im"><img src="images/professional/professional_menu_will.webp" alt="机の上の書類を確認しながら年配のご夫婦と話す司法書士" loading="lazy" decoding="async"></span>
-        <span class="cd-b">
-          <span class="cd-no"><b>五</b><span>WILL</span></span>
-          <h3>遺言書作成サポート</h3>
-          <p>遺言書の形式や書き方についてご一緒に整理します。</p>
-          <span class="cd-fee"><em>報酬（目安・税別）</em><span class="amt">¥40,000<span class="tail">〜</span></span></span>
-        </span>
-      </a>
-      <a class="card" href="professional-advance-service.html" data-p="02" data-n="取扱業務">
-        <span class="cd-im"><img src="images/professional/professional_menu_guardianship.webp" alt="相談室でご家族と向かい合い、書類を見ながら話す司法書士" loading="lazy" decoding="async"></span>
-        <span class="cd-b">
-          <span class="cd-no"><b>六</b><span>GUARDIANSHIP</span></span>
-          <h3>成年後見サポート</h3>
-          <p>ご本人の状況をうかがったうえでご案内します。</p>
-          <span class="cd-fee"><em>報酬（目安・税別）</em><span class="amt"><span class="ask">要相談</span></span></span>
-        </span>
-      </a>
-    </div>
-
-    <p class="note rv" style="margin-top:16px">※ 表示は目安です。登記に必要な登録免許税や実費は別途かかります。詳しい費用は、内容をうかがったうえでお見積りをお出しします。</p>
-
-    <div class="two rv" style="margin-top:clamp(22px,3vw,34px)">
-      <a class="nextlink" href="professional-advance-service.html" data-p="02" data-n="取扱業務">
-        <span class="lf-no mono">票02</span>
-        <span class="lf-b"><span class="lf-t">取扱業務を詳しく見る</span><span class="lf-d">六つの業務それぞれの中身・必要書類・関わる期限。</span></span>
-        <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
-      </a>
-      <a class="nextlink" href="professional-advance-fee.html" data-p="09" data-n="手続き別の費用一覧">
-        <span class="lf-no mono">票09</span>
-        <span class="lf-b"><span class="lf-t">手続き別の費用一覧</span><span class="lf-d">報酬と実費を分けて、手続きごとに並べています。</span></span>
-        <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 01-D ご相談例 ===== -->
-<section class="sec tint" id="s-works" aria-labelledby="h-works">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <span class="sec-no mono">01-D</span>
-      <h2 id="h-works">ご相談例</h2>
-      <span class="en mono">Cases</span>
-      <div class="dbl" aria-hidden="true"></div>
-    </div>
-    <p class="lede rv">よくある形をもとにした例です。実際のご相談ではありません。どの例も「気づいた時点から、何ヶ月あるか」を最初に確かめるところから始まります。</p>
-
-    <div class="two wide-r" style="margin-top:clamp(20px,3vw,32px)">
-      <figure class="figfr rv">
-        <div class="frame"><img src="images/professional/professional_voice1.webp" alt="和室の居間でソファに座り、書類のファイルを一緒に開いて見る年配のご夫婦" loading="lazy" decoding="async"></div>
-        <figcaption><b>図一</b>ご自宅でのご相談</figcaption>
-      </figure>
-      <div>
-        <div class="tbl-cap rv"><b>例一覧</b><span>よくある形をもとにした例</span></div>
-        <div class="tbl-wrap rv">
-          <table class="tbl">
-            <caption class="mono">CASES &#8212; 3 EXAMPLES</caption>
-            <thead>
-              <tr><th scope="col">ご相談</th><th scope="col">関わる期限</th><th scope="col">主な手続き</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">親の家の名義がそのままだった<span class="sub">何年か前の相続で、登記をしていなかった。</span></th>
-                <td class="lim" data-l="関わる期限">3年</td>
-                <td data-l="主な手続き">戸籍の収集／遺産分割協議書の作成／相続登記</td>
-              </tr>
-              <tr>
-                <th scope="row">借入があるかもしれない<span class="sub">財産より借入のほうが多いかもしれない、という段階。</span></th>
-                <td class="lim" data-l="関わる期限">3ヶ月</td>
-                <td data-l="主な手続き">相続放棄の申述書の作成／家庭裁判所への提出</td>
-              </tr>
-              <tr>
-                <th scope="row">住宅ローンを返し終えた<span class="sub">金融機関から書類が届いたが、何をすればよいかわからない。</span></th>
-                <td class="lim" data-l="関わる期限">定めなし</td>
-                <td data-l="主な手続き">抵当権抹消の登記</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="tbl-foot rv">※ 「定めなし」は法律上の期限が定められていないものです。ただし、放っておくと書類の有効期間が切れる、相続が重なって関係者が増えるなど、あとで手間が増えることがあります。</p>
-        <a class="inline-leaf rv" href="professional-advance-works.html" data-p="03" data-n="ご相談例の一覧">
-          <span class="lf-no mono">票03</span>ご相談例の一覧を見る
-          <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 01-E ご相談から完了までの流れ ===== -->
-<section class="sec" id="s-flow" aria-labelledby="h-flow">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <span class="sec-no mono">01-E</span>
-      <h2 id="h-flow">ご相談から完了までの流れ</h2>
-      <span class="en mono">Process</span>
-      <div class="dbl" aria-hidden="true"></div>
-    </div>
-    <p class="lede rv">お問い合わせから完了のご報告まで、次の四段でお手伝いします。段ごとに、いま何をしているのかをお伝えします。</p>
-
-    <ol class="steps nofig rv" style="margin-top:clamp(20px,3vw,30px)">
-      <li>
-        <div class="step-in">
-          <div>
-            <p class="step-no"><b>第一</b><i>01</i></p>
-            <h3>ご相談</h3>
-            <p>お困りごとと、いまの状況をうかがいます。初回のご相談は無料です。手続きが必要かどうかの確認だけでも構いません。</p>
-            <p class="step-when"><span>この段でまず確かめること</span><b>期限まで、あと何ヶ月あるか</b></p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="step-in">
-          <div>
-            <p class="step-no"><b>第二</b><i>02</i></p>
-            <h3>書類の確認とお見積り</h3>
-            <p>必要な書類を一つずつ確認し、手続きの範囲と費用をお見積りとしてお出しします。ご納得いただいてから先に進みます。</p>
-            <p class="step-when"><span>お見積り</span><b>報酬と実費を分けてお出しします</b></p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="step-in">
-          <div>
-            <p class="step-no"><b>第三</b><i>03</i></p>
-            <h3>書類の作成と申請</h3>
-            <p>書類を作成し、法務局への申請まで進めます。手続きの進み具合は、そのつどご連絡します。</p>
-            <p class="step-when"><span>相続登記の場合の目安</span><b>全体で 1〜3ヶ月</b></p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="step-in">
-          <div>
-            <p class="step-no"><b>第四</b><i>04</i></p>
-            <h3>完了のご報告と書類のお渡し</h3>
-            <p>手続きが終わりましたら内容をご報告し、書類をお渡しします。あとから見返せるよう、保管のしかたもお伝えします。</p>
-            <p class="step-when"><span>お渡しするもの</span><b>登記完了証・登記識別情報通知など</b></p>
-          </div>
-        </div>
-      </li>
-    </ol>
-
-    <p class="note rv" style="margin-top:16px">※ 期間は目安です。法務局・家庭裁判所の混み具合、書類の集まり具合によって前後します。</p>
-
-    <a class="inline-leaf rv" href="professional-advance-flow.html" data-p="05" data-n="ご相談から完了までの流れ">
-      <span class="lf-no mono">票05</span>流れを写真つきで詳しく見る
-      <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- ===== 01-F 費用の考え方 ===== -->
-<section class="sec deep" id="s-fee" aria-labelledby="h-fee">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <span class="sec-no mono">01-F</span>
-      <h2 id="h-fee">費用の考え方</h2>
-      <span class="en mono">Fees</span>
-      <div class="dbl" aria-hidden="true"></div>
-    </div>
-    <p class="lede rv">費用は<strong>「報酬」と「実費」の二つ</strong>に分かれます。報酬は事務所にお支払いいただく分、実費は事務所を通り抜けて法務局や市区町村に納める分です。お見積りでも、この二つを分けてお出しします。</p>
-
-    <div class="brk rv" style="margin-top:clamp(20px,3vw,32px)">
-      <div class="brk-col">
-        <p class="brk-h"><b>報酬</b><em class="mono">OUR FEE</em></p>
-        <ul class="brk-l">
-          <li>お話をうかがい、手続きの見通しを立てる</li>
-          <li>必要書類の案内と、戸籍などの取り寄せ</li>
-          <li>登記申請書・遺産分割協議書などの作成</li>
-          <li>法務局・家庭裁判所への提出と、その後のやりとり</li>
-          <li>完了のご報告と、書類のお渡し</li>
-        </ul>
-        <p class="brk-p">表示は税別・目安の金額です。手続きの内容によって変わります。</p>
-      </div>
-      <p class="plus" aria-hidden="true">＋</p>
-      <div class="brk-col b2">
-        <p class="brk-h"><b>実費</b><em class="mono">DISBURSEMENTS</em></p>
-        <ul class="brk-l">
-          <li>登録免許税（不動産の価額や登記の種類で変わります）</li>
-          <li>登記事項証明書・登記情報の取得手数料</li>
-          <li>戸籍・住民票・評価証明書などの取得費</li>
-          <li>収入印紙・郵送費・交通費</li>
-        </ul>
-        <p class="brk-p">実費は市区町村や登記の内容によって変わるため、このページでは金額を出していません。お見積りで具体的な金額をお示しします。</p>
-      </div>
-    </div>
-
-    <p class="note rv" style="margin-top:16px">※ 表示は目安です。登記に必要な登録免許税や実費は別途かかります。詳しい費用は、内容をうかがったうえでお見積りをお出しします。<br>※ お見積りは無料です。お見積りのあとで金額が変わる場合は、変わる理由と金額を先にお伝えします。</p>
-
-    <a class="inline-leaf rv" href="professional-advance-fee.html" data-p="09" data-n="手続き別の費用一覧">
-      <span class="lf-no mono">票09</span>手続き別の費用一覧を見る
-      <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- ===== 01-G 相続の進め方 ===== -->
-<section class="sec" id="s-inherit" aria-labelledby="h-inherit">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <span class="sec-no mono">01-G</span>
-      <h2 id="h-inherit">相続の進め方</h2>
-      <span class="en mono">Inheritance</span>
-      <div class="dbl" aria-hidden="true"></div>
-    </div>
-    <p class="lede rv">相続の手続きは、<strong>遺言があるかどうか</strong>で進む道が分かれます。下の図は、その分かれ道と、どこで期限が関わるかを一枚にしたものです。</p>
-
-    <div class="dwbox rv" style="margin-top:clamp(20px,3vw,32px)">
-      <p class="dw-scroll">&#9664; 図は横に送れます &#9654;</p>
-      <svg class="dw" viewBox="0 0 1000 470" role="img" aria-label="相続の開始から相続登記までの分かれ道を示した図。遺言がある場合は、法務局に保管されていれば検認は不要、保管されていなければ家庭裁判所の検認へ進みます。遺言がない場合は相続人と財産の調査を経て遺産分割協議へ進みます。どちらの道も相続登記に合流し、その申請には3年以内という期限があります。また、相続の開始から3ヶ月以内に相続放棄・限定承認を判断する分岐があります。">
-        <!-- 起点 -->
-        <rect class="fill-p" x="24" y="200" width="176" height="70"/>
-        <text class="t-m" x="112" y="232" text-anchor="middle">相続の開始</text>
-        <text class="t-s" x="112" y="256" text-anchor="middle">起算点</text>
-
-        <!-- 3ヶ月の分岐（下） -->
-        <path class="accent" d="M112 270 V 400 H 300"/>
-        <rect class="fill-s" x="300" y="366" width="266" height="68"/>
-        <text class="t-m" x="433" y="396" text-anchor="middle">相続放棄・限定承認</text>
-        <text class="t-s" x="433" y="420" text-anchor="middle">3ヶ月以内 / 家庭裁判所</text>
-
-        <!-- 上下の分岐 -->
-        <path class="bold" d="M200 235 H 246"/>
-        <path class="bold" d="M246 235 V 84 H 300"/>
-        <path class="bold" d="M246 235 V 300 H 300"/>
-
-        <!-- 遺言がある -->
-        <rect class="fill-p" x="300" y="50" width="196" height="68"/>
-        <text class="t-m" x="398" y="80" text-anchor="middle">遺言がある</text>
-        <text class="t-s" x="398" y="104" text-anchor="middle">自筆 / 公正証書</text>
-
-        <path class="bold" d="M496 84 H 540"/>
-        <path class="bold" d="M540 84 V 34 H 578"/>
-        <path class="bold" d="M540 84 V 140 H 578"/>
-        <rect class="fill-p" x="578" y="4" width="230" height="60"/>
-        <text class="t-m" x="693" y="30" text-anchor="middle">法務局に保管</text>
-        <text class="t-s" x="693" y="52" text-anchor="middle">検認は不要</text>
-        <rect class="fill-p" x="578" y="110" width="230" height="60"/>
-        <text class="t-m" x="693" y="136" text-anchor="middle">保管していない</text>
-        <text class="t-s" x="693" y="158" text-anchor="middle">家庭裁判所の検認</text>
-
-        <!-- 遺言がない -->
-        <rect class="fill-p" x="300" y="266" width="196" height="68"/>
-        <text class="t-m" x="398" y="296" text-anchor="middle">遺言がない</text>
-        <text class="t-s" x="398" y="320" text-anchor="middle">相続人 / 財産の調査</text>
-        <path class="bold" d="M496 300 H 578"/>
-        <rect class="fill-p" x="578" y="266" width="230" height="68"/>
-        <text class="t-m" x="693" y="296" text-anchor="middle">遺産分割協議</text>
-        <text class="t-s" x="693" y="320" text-anchor="middle">相続人全員で</text>
-
-        <!-- 合流 -->
-        <path class="bold" d="M808 34 H 866 V 200"/>
-        <path class="bold" d="M808 140 H 866"/>
-        <path class="bold" d="M808 300 H 866 V 270"/>
-        <rect class="fill-s" x="806" y="200" width="176" height="70"/>
-        <text class="t-m" x="894" y="230" text-anchor="middle">相続登記</text>
-        <text class="t-s" x="894" y="254" text-anchor="middle">3年以内 / 法務局</text>
-        <path class="thin" d="M866 200 H 806"/>
-      </svg>
-      <p class="dw-cap"><span>FIG. 01 &#8212; ROUTE OF INHERITANCE</span><span>上の図は進み方の考え方を示すものです</span></p>
-    </div>
-
-    <ul class="dwlegend rv">
-      <li><span class="k">3ヶ月</span><span>自己のために相続の開始があったことを知った時から。相続放棄・限定承認をするかどうかを決める期限です（家庭裁判所へ申述）。</span></li>
-      <li><span class="k">検認</span><span>法務局に保管していない自筆証書遺言は、家庭裁判所の検認が必要です。「遅滞なく」とされていて、何日以内という定めはありません。</span></li>
-      <li><span class="k">10年</span><span>遺産分割そのものに期限はありませんが、相続の開始から10年を過ぎると、原則として法定相続分による分割になります。</span></li>
-      <li><span class="k">3年</span><span>不動産を取得したことを知った日から。2024年4月1日より前に起きた相続は、2027年3月31日までが期限です。</span></li>
-    </ul>
-
-    <a class="inline-leaf rv" href="professional-advance-inheritance.html" data-p="10" data-n="相続の進め方">
-      <span class="lf-no mono">票10</span>相続の進め方を詳しく見る
-      <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- ===== 01-H 事務所のご案内 ===== -->
-<section class="sec tint" id="s-office" aria-labelledby="h-office">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <span class="sec-no mono">01-H</span>
-      <h2 id="h-office">事務所のご案内</h2>
-      <span class="en mono">Office</span>
-      <div class="dbl" aria-hidden="true"></div>
-    </div>
-    <div class="two">
-      <figure class="figfr rv">
-        <div class="frame"><img src="images/professional/professional_facility2.webp" alt="通りに面した田中司法書士事務所の外観" loading="lazy" decoding="async"></div>
-        <figcaption><b>図二</b>事務所の外観</figcaption>
-      </figure>
-      <div>
-        <p class="lede rv">ご相談は、書類を広げてゆっくりお話しできる部屋でうかがいます。ご来所が難しい場合は、ご自宅・病院・施設へうかがうか、オンラインでも承ります。</p>
-        <div class="tbl-wrap rv" style="margin-top:clamp(16px,2.4vw,22px)">
-          <table class="tbl">
-            <caption class="mono">OFFICE &#8212; SUMMARY</caption>
-            <thead><tr><th scope="col">項目</th><th scope="col">内容</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">名称</th><td data-l="内容">田中司法書士事務所</td></tr>
-              <tr><th scope="row">所在地</th><td data-l="内容">福岡県福岡市〇〇区〇〇4-5-2</td></tr>
-              <tr><th scope="row">受付時間</th><td data-l="内容"><span class="mono">9:00</span>〜<span class="mono">18:00</span>／土日祝は要予約</td></tr>
-              <tr><th scope="row">面談の方法</th><td data-l="内容">事務所での面談／ご自宅・病院・施設へのご訪問（福岡市内および近郊）／オンライン面談</td></tr>
-              <tr><th scope="row">連絡先</th><td data-l="内容"><a href="mailto:info@example.com">info@example.com</a>／LINEでもお問い合わせいただけます</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="note rv" style="margin-top:14px">※ 受付時間外のご相談をご希望の場合は、あらかじめご連絡ください。土日祝日は予約制で承ります。</p>
-        <a class="inline-leaf rv" href="professional-advance-contact.html" data-p="08" data-n="アクセス・お問い合わせ">
-          <span class="lf-no mono">票08</span>アクセス・お問い合わせ
-          <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 01-I お問い合わせ ===== -->
-<section class="sec" id="s-contact" aria-labelledby="h-contact">
-  <div class="wrap">
-    <div class="sec-h rv">
-      <span class="sec-no mono">01-I</span>
-      <h2 id="h-contact">お問い合わせ</h2>
-      <span class="en mono">Contact</span>
-      <div class="dbl" aria-hidden="true"></div>
-    </div>
-    <div class="contact-box rv">
+        <p class="lede rv">メール・LINE・お問い合わせフォームの三つで承ります。どれでも構いません。<strong>「これは手続きが必要なのか」という段階のご相談でも結構です。</strong>初回のご相談は無料です。</p>
+        <div class="contact-box rv" style="margin-top:clamp(18px,2.6vw,26px)">
       <svg class="ruled" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 200">
         <g stroke="#3C4C72" stroke-width="1">
           <line x1="0" y1="30" x2="100" y2="30"/><line x1="0" y1="60" x2="100" y2="60"/>
@@ -1278,26 +881,352 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .5s ease-out,transfor
           <line x1="0" y1="150" x2="100" y2="150"/><line x1="0" y1="180" x2="100" y2="180"/>
         </g>
       </svg>
-      <div class="contact-in">
-        <h3>初回のご相談は無料です</h3>
-        <p>「これは手続きが必要なのか」という段階でも構いません。期限が近いかもしれない、というご相談も、まずは状況をうかがわせてください。メール・LINE・フォームからお問い合わせいただけます。受付は <span class="mono">9:00</span>〜<span class="mono">18:00</span>、土日祝は要予約です。</p>
-        <div class="cta-row">
-          <a class="cta-btn cta-mail" href="mailto:info@example.com">
+          <div class="contact-in">
+            <h3>初回のご相談は無料です</h3>
+            <p>期限が近いかもしれない、というご相談も、まずは状況をうかがわせてください。受付は <span class="mono">9:00</span>〜<span class="mono">18:00</span>、土日祝は要予約です。受付時間外も、あらかじめご連絡いただければ調整します。</p>
+            <div class="cta-row">
+              <a class="cta-btn cta-mail" href="mailto:info@example.com">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="M3 6l9 6.5L21 6"/></svg>
+                メールで問い合わせる
+              </a>
+              <a class="cta-btn cta-line" href="https://lin.ee/z3rP0hO">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 11c0 4.2-4 7.6-9 7.6-.9 0-1.8-.1-2.6-.3L4 21l1.3-3.6C3.8 16 3 13.6 3 11c0-4.2 4-7.6 9-7.6s9 3.4 9 7.6z"/></svg>
+                LINEで問い合わせる
+              </a>
+              <a class="cta-btn cta-form" href="#s-form">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="4.5" y="3" width="15" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+                フォームへ移動する
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="note rv" style="margin-top:14px">※ 当事務所ではお電話でのご相談は承っていません。メール・LINE・フォームからお願いします。<br>※ お返事は受付時間内に差し上げます。土日祝をはさむ場合は、お待たせすることがあります。</p>
+      </div>
+      <div>
+        <aside class="kigen rv" aria-label="お早めにご連絡いただきたい期限">
+          <p class="kg-h"><span class="kg-sq" aria-hidden="true"></span>お早めにご連絡ください</p>
+          <dl>
+            <div class="kg-row">
+              <dt class="mono">3ヶ月</dt>
+              <dd><b>相続放棄・限定承認の申述</b><span>自己のために相続の開始があったことを知った時から。間に合わないおそれがあるときは、家庭裁判所に期間の伸長を申し立てられる制度があります。</span></dd>
+            </div>
+            <div class="kg-row">
+              <dt class="mono">2週間</dt>
+              <dd><b>役員の変更・本店移転などの登記</b><span>変更が生じた日から。決議の前後にご連絡いただけると、日程を組みやすくなります。</span></dd>
+            </div>
+            <div class="kg-row">
+              <dt class="mono">3年</dt>
+              <dd><b>相続登記の申請義務</b><span>不動産を取得したことを知った日から。2024年4月1日より前に起きた相続は、2027年3月31日までが期限です。</span></dd>
+            </div>
+          </dl>
+          <p class="kg-n">※ 制度の一般的な内容です。ご事情によって扱いが変わることがあります。</p>
+        </aside>
+        <p class="from-note rv"><b>附記</b>お問い合わせのときに「いつのことか」を教えていただけると、期限がどこにあるかを先にお調べしてからお返事できます。</p>
+        <a class="inline-leaf rv" href="professional-advance-faq.html" data-p="07" data-n="よくある質問">
+      <span class="lf-no mono">票07</span>よくある質問を見る
+      <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
+    </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 08-B お問い合わせフォーム ===== -->
+<section class="sec tint" id="s-form" aria-labelledby="h-form">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="sec-no mono">08-B</span>
+      <h2 id="h-form">お問い合わせフォーム</h2>
+      <span class="en mono">Form</span>
+      <div class="dbl" aria-hidden="true"></div>
+    </div>
+    <p class="lede rv">下の欄にご記入ください。<strong>必須はお名前・メールアドレス・ご相談の種類・ご相談の内容の四つ</strong>です。わかる範囲で構いません。</p>
+
+    <div class="form rv">
+      <p class="f-h"><b>お問い合わせフォーム</b><em class="mono">SAMPLE FORM</em></p>
+      <p class="note" style="margin-top:12px">※ <strong>サンプルのため実際には送信されません。</strong>入力いただいた内容はどこにも届かず、保存もされません。送信ボタンを押すと、この場に確認の表示が出ます。</p>
+      <p class="note" style="margin-top:6px">※ ご相談の内容には、<strong>具体的な氏名・住所・財産の内容などをこの段階では書かないでください。</strong>詳しいことは面談のときに直接うかがいます。</p>
+
+      <div id="fAlert" role="alert" aria-live="assertive"></div>
+      <p id="fLive" class="skip" role="status" aria-live="polite"></p>
+
+      <form id="cform" action="#s-form" method="post">
+
+        <div class="f-row">
+          <label class="f-lab" for="f-name">お名前<span class="f-tag req">必須</span></label>
+          <div class="f-fld">
+            <input class="f-in" type="text" id="f-name" name="name" autocomplete="name" required aria-describedby="f-name-err">
+            <span class="f-err" id="f-name-err" hidden></span>
+          </div>
+        </div>
+
+        <div class="f-row">
+          <label class="f-lab" for="f-mail">メールアドレス<span class="f-tag req">必須</span></label>
+          <div class="f-fld">
+            <input class="f-in" type="email" id="f-mail" name="mail" autocomplete="email" required aria-describedby="f-mail-hint f-mail-err">
+            <p class="f-hint" id="f-mail-hint">こちらへお返事します。LINEでのやりとりをご希望の場合は、ご相談の内容にその旨をお書きください。</p>
+            <span class="f-err" id="f-mail-err" hidden></span>
+          </div>
+        </div>
+
+        <div class="f-row">
+          <label class="f-lab" for="f-kind">ご相談の種類<span class="f-tag req">必須</span></label>
+          <div class="f-fld">
+            <select class="f-in" id="f-kind" name="kind" required aria-describedby="f-kind-hint f-kind-err">
+              <option value="">選んでください</option>
+              <option value="souzoku">相続の手続き（相続登記・遺産分割協議書など）</option>
+              <option value="houki">相続放棄・限定承認</option>
+              <option value="fudousan">不動産の登記（売買・贈与・抵当権抹消など）</option>
+              <option value="houjin">会社・法人の登記（設立・役員変更など）</option>
+              <option value="yuigon">遺言書の作成</option>
+              <option value="kouken">成年後見</option>
+              <option value="wakaranai">どれにあたるかわからない</option>
+            </select>
+            <p class="f-hint" id="f-kind-hint">迷われたら「どれにあたるかわからない」で構いません。お話をうかがって、こちらで整理します。</p>
+            <span class="f-err" id="f-kind-err" hidden></span>
+          </div>
+        </div>
+
+        <div class="f-row">
+          <label class="f-lab" for="f-when">いつのことか<span class="f-tag opt">任意</span></label>
+          <div class="f-fld">
+            <input class="f-in" type="text" id="f-when" name="when" aria-describedby="f-when-hint" placeholder="例：先月／去年の秋ごろ">
+            <p class="f-hint" id="f-when-hint">相続が始まった日、金融機関から書類が届いた日、名義がそのままだと気づいた日など、<strong>きっかけになった出来事の時期</strong>をお書きください。期限は「その日から何ヶ月」「その日から何年」と数えるため、いちばん大事な手がかりになります。はっきりしなくても構いません。</p>
+          </div>
+        </div>
+
+        <div class="f-row wide">
+          <fieldset class="f-set">
+            <legend class="f-lab">ご希望の面談方法<span class="f-tag opt">任意</span></legend>
+            <div class="f-opts">
+              <label for="f-meet1"><input type="radio" id="f-meet1" name="meet" value="office">事務所での面談</label>
+              <label for="f-meet2"><input type="radio" id="f-meet2" name="meet" value="visit">ご訪問</label>
+              <label for="f-meet3"><input type="radio" id="f-meet3" name="meet" value="online">オンライン面談</label>
+              <label for="f-meet4"><input type="radio" id="f-meet4" name="meet" value="undecided" checked>まだ決めていない</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="f-row">
+          <label class="f-lab" for="f-body">ご相談の内容<span class="f-tag req">必須</span></label>
+          <div class="f-fld">
+            <p class="f-hint" id="f-body-hint">どんなことでお困りかを、わかる範囲でお書きください。<strong>具体的な氏名・住所・財産の内容などは、この段階では書かないでください。</strong>「親の家の名義がそのままになっている」「金融機関から書類が届いたが、何をすればよいかわからない」といった書き方で十分です。</p>
+            <textarea class="f-in" id="f-body" name="body" required aria-describedby="f-body-hint f-body-err"></textarea>
+            <span class="f-err" id="f-body-err" hidden></span>
+          </div>
+        </div>
+
+        <div class="f-row wide">
+          <label class="f-chk" for="f-agree">
+            <input type="checkbox" id="f-agree" name="agree" required aria-describedby="f-agree-err">
+            <span>これはRESCが作成したサンプルサイトで、送信ボタンを押しても内容はどこにも送られないことを確認しました。</span>
+          </label>
+          <span class="f-err" id="f-agree-err" hidden></span>
+        </div>
+
+        <div class="f-send">
+          <button type="submit" class="btn-send">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="4.5" y="3" width="15" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+            送信する
+          </button>
+          <p class="f-cau">サンプルのため実際には送信されません。押すと、この場に確認の表示が出ます。</p>
+        </div>
+      </form>
+
+      <div class="f-done" id="fDone" tabindex="-1" hidden>
+        <span class="fd-no mono">SAMPLE &#8212; NOT SENT</span>
+        <h3>送信の確認（サンプルの表示です）</h3>
+        <p>入力ありがとうございます。ただし<strong>これはRESCが作成したサンプルサイトのため、内容は送信されていません。</strong>どこにも保存されていません。</p>
+        <p>実際のサイトでは、この位置に受付のご案内と、お返事までの目安を表示します。お急ぎの場合は、メールまたはLINEからご連絡ください。受付は <span class="mono">9:00</span>〜<span class="mono">18:00</span>、土日祝は要予約です。</p>
+        <div class="f-send">
+          <a class="btn-send" href="mailto:info@example.com">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="M3 6l9 6.5L21 6"/></svg>
             メールで問い合わせる
           </a>
-          <a class="cta-btn cta-line" href="https://lin.ee/z3rP0hO">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 11c0 4.2-4 7.6-9 7.6-.9 0-1.8-.1-2.6-.3L4 21l1.3-3.6C3.8 16 3 13.6 3 11c0-4.2 4-7.6 9-7.6s9 3.4 9 7.6z"/></svg>
-            LINEで問い合わせる
-          </a>
-          <a class="cta-btn cta-form" href="professional-advance-contact.html" data-p="08" data-n="アクセス・お問い合わせ">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="4.5" y="3" width="15" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-            フォームから問い合わせる
-          </a>
+          <button type="button" class="btn-send ghost" id="fBack">入力欄に戻る</button>
         </div>
       </div>
     </div>
-    <p class="note rv" style="margin-top:14px">※ 当事務所ではお電話でのご相談は承っていません。メール・LINE・フォームからお願いします。</p>
+
+  </div>
+</section>
+
+<!-- ===== 08-C 面談の方法 ===== -->
+<section class="sec" id="s-meet" aria-labelledby="h-meet">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="sec-no mono">08-C</span>
+      <h2 id="h-meet">面談の方法</h2>
+      <span class="en mono">How We Meet</span>
+      <div class="dbl" aria-hidden="true"></div>
+    </div>
+    <p class="lede rv">ご来所のほか、うかがう方法とオンラインでの面談があります。ご移動が難しい場合や、ご家族が遠方にいらっしゃる場合にお使いください。</p>
+
+    <div class="cards c3 rv" style="margin-top:clamp(20px,3vw,32px)">
+      <div class="card">
+        <span class="cd-b">
+          <span class="cd-no"><b>一</b><span>AT OUR OFFICE</span></span>
+          <h3>事務所での面談</h3>
+          <p>福岡県福岡市〇〇区〇〇4-5-2。書類を広げてお話しできる相談室でうかがいます。受付は <span class="mono">9:00</span>〜<span class="mono">18:00</span> です。</p>
+          <span class="cd-fee"><em>ご予約</em><span class="amt"><span class="ask">おすすめ</span></span></span>
+        </span>
+      </div>
+      <div class="card">
+        <span class="cd-b">
+          <span class="cd-no"><b>二</b><span>WE VISIT YOU</span></span>
+          <h3>ご訪問</h3>
+          <p>ご自宅・病院・施設へうかがいます（福岡市内および近郊）。ご移動が難しい場合にご利用ください。</p>
+          <span class="cd-fee"><em>ご予約</em><span class="amt"><span class="ask">要予約</span></span></span>
+        </span>
+      </div>
+      <div class="card">
+        <span class="cd-b">
+          <span class="cd-no"><b>三</b><span>ONLINE</span></span>
+          <h3>オンライン面談</h3>
+          <p>ビデオ通話で承ります。ご予約のときに、つなぐためのURLをお送りします。ご家族と一緒にご覧いただけます。</p>
+          <span class="cd-fee"><em>ご予約</em><span class="amt"><span class="ask">要予約</span></span></span>
+        </span>
+      </div>
+    </div>
+
+    <p class="note rv" style="margin-top:16px">※ 初回のご相談は無料です（30〜60分程度）。お手元に書類があればそのままお持ちください。無くても構いません。<br>※ ご本人がお越しになれない場合、ご家族だけのご相談も承ります（相続・成年後見とも）。</p>
+    <a class="inline-leaf rv" href="professional-advance-company.html" data-p="06" data-n="司法書士紹介・事務所案内">
+      <span class="lf-no mono">票06</span>司法書士紹介・事務所案内を見る
+      <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ===== 08-D 所在地と道順 ===== -->
+<section class="sec deep" id="s-access" aria-labelledby="h-access">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="sec-no mono">08-D</span>
+      <h2 id="h-access">所在地と道順</h2>
+      <span class="en mono">Access</span>
+      <div class="dbl" aria-hidden="true"></div>
+    </div>
+    <p class="lede rv">下の図は、通りと事務所の位置関係を描いたものです。<strong>実際の地図ではありません。</strong>道路の形・幅・本数は、実際とは異なります。</p>
+
+    <div class="dwbox rv" style="margin-top:clamp(20px,3vw,32px)">
+      <p class="dw-scroll">&#9664; 図は横に送れます &#9654;</p>
+      <svg class="dw" viewBox="0 0 1000 440" role="img" aria-label="事務所の位置関係を示した略図。横に走る通りと、それに交わる小路があり、交差点の西側、通りの北側に田中司法書士事務所があります。入口は通りに面していて、入ってすぐが受付です。周囲の四角は近隣の建物を表しています。この図は位置関係のイメージで、実際の道路とは異なります。">
+        <!-- 通り（横） -->
+        <path class="thin" d="M0 250 H 600"/><path class="thin" d="M700 250 H 1000"/>
+        <path class="thin" d="M0 316 H 600"/><path class="thin" d="M700 316 H 1000"/>
+        <text class="t-s" x="150" y="292" text-anchor="middle">通り</text>
+        <!-- 小路（縦） -->
+        <path class="thin" d="M600 0 V 250"/><path class="thin" d="M600 316 V 440"/>
+        <path class="thin" d="M700 0 V 250"/><path class="thin" d="M700 316 V 440"/>
+        <text class="t-s" x="650" y="120" text-anchor="middle">小路</text>
+        <text class="t-s" x="650" y="292" text-anchor="middle">交差点</text>
+
+        <!-- 事務所 -->
+        <rect class="fill-s" x="250" y="100" width="300" height="140"/>
+        <text class="t-m" x="400" y="150" text-anchor="middle">田中司法書士事務所</text>
+        <text class="t-s" x="400" y="184" text-anchor="middle">〇〇4-5-2</text>
+        <text class="t-s" x="400" y="214" text-anchor="middle">入口は通りに面しています</text>
+        <path class="accent" d="M400 240 V 262"/>
+        <rect class="fill-s" x="393" y="256" width="14" height="14"/>
+        <text class="t-s" x="418" y="272">入口</text>
+
+        <!-- 近隣の建物 -->
+        <rect class="thin" x="40" y="100" width="180" height="140"/>
+        <text class="t-s" x="130" y="178" text-anchor="middle">近隣の建物</text>
+        <rect class="thin" x="730" y="100" width="230" height="140"/>
+        <text class="t-s" x="845" y="178" text-anchor="middle">近隣の建物</text>
+        <rect class="thin" x="40" y="340" width="230" height="64"/>
+        <text class="t-s" x="155" y="378" text-anchor="middle">近隣の建物</text>
+        <rect class="thin" x="730" y="340" width="230" height="64"/>
+        <text class="t-s" x="845" y="378" text-anchor="middle">近隣の建物</text>
+
+        <text class="t-s" x="300" y="428" text-anchor="middle">この図は位置関係のイメージです。実際の道路とは異なります。</text>
+      </svg>
+      <p class="dw-cap"><span>FIG. 01 &#8212; SITE DIAGRAM</span><span>上の図は位置関係のイメージで、実際の地図ではありません</span></p>
+    </div>
+
+    <ul class="dwlegend rv">
+      <li><span class="k">朱の枠</span><span>事務所です。通りに面した入口からお入りください。入ってすぐが受付です。</span></li>
+      <li><span class="k">通り・小路</span><span>図の道路は位置関係を示すために引いた線です。実際の道路の形・幅・本数とは異なります。</span></li>
+      <li><span class="k">ご来所の前に</span><span>事前にご連絡いただけると、相談室を空けてお待ちします。受付は <span class="mono">9:00</span>〜<span class="mono">18:00</span>、土日祝は要予約です。</span></li>
+    </ul>
+
+    <div class="two rv" style="margin-top:clamp(24px,3.4vw,38px)">
+      <figure class="figfr">
+        <div class="frame"><img src="images/professional/professional_gallery5.webp" alt="受付カウンターと待合のソファが並ぶ事務所の入口" loading="lazy" decoding="async"></div>
+        <figcaption><b>図一</b>入口を入ってすぐの受付</figcaption>
+      </figure>
+      <div>
+        <div class="tbl-cap"><b>表一</b><span>所在地と受付</span></div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <caption class="mono">ACCESS &#8212; SUMMARY</caption>
+            <thead><tr><th scope="col">項目</th><th scope="col">内容</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">名称</th><td data-l="内容">田中司法書士事務所</td></tr>
+              <tr><th scope="row">所在地</th><td data-l="内容">福岡県福岡市〇〇区〇〇4-5-2</td></tr>
+              <tr><th scope="row">受付時間</th><td data-l="内容"><span class="mono">9:00</span>〜<span class="mono">18:00</span>／土日祝は要予約</td></tr>
+              <tr><th scope="row">連絡先</th><td data-l="内容"><a href="mailto:info@example.com">info@example.com</a>／<a href="https://lin.ee/z3rP0hO">LINE</a>／<a href="#s-form">お問い合わせフォーム</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tbl-foot">※ 所在地はサンプルです。実在の事務所ではありません。<br>※ お電話でのご相談は承っていません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 08-E お越しになる前に ===== -->
+<section class="sec tint" id="s-before" aria-labelledby="h-before">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="sec-no mono">08-E</span>
+      <h2 id="h-before">お越しになる前に</h2>
+      <span class="en mono">Before You Come</span>
+      <div class="dbl" aria-hidden="true"></div>
+    </div>
+    <div class="two wide-l">
+      <div>
+        <ol class="clauses rv">
+          <li>
+            <span class="cl-no">一、</span>
+            <div class="cl-body">
+              <h3>お持ちいただくもの</h3>
+              <p>お手元に書類があれば、そのままお持ちください。何が必要かわからない場合は、無理に揃えていただかなくて構いません。足りないものは、うかがってからご案内します。</p>
+            </div>
+          </li>
+          <li>
+            <span class="cl-no">二、</span>
+            <div class="cl-body">
+              <h3>ご予約</h3>
+              <p>事前にご連絡いただけると、相談室を空けてお待ちします。土日祝と受付時間外は要予約です。あらかじめご連絡ください。</p>
+            </div>
+          </li>
+          <li>
+            <span class="cl-no">三、</span>
+            <div class="cl-body">
+              <h3>ご相談の時間</h3>
+              <p>初回のご相談は無料で、30〜60分程度いただいています。途中で決めきれないところは、決めないまま次に進めても構いません。</p>
+            </div>
+          </li>
+          <li>
+            <span class="cl-no">四、</span>
+            <div class="cl-body">
+              <h3>ご家族だけでのご相談</h3>
+              <p>ご本人がお越しになれない場合も、ご家族だけでお話をうかがえます。手続きの内容によってはご本人の確認が必要になることがありますので、その場合は方法をご一緒に考えます。</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div>
+        <p class="lede rv">お話をうかがったら、いちばん先に「いつまでに何をするか」をご一緒に確かめます。急ぐものと、急がなくてよいものを分けるところからです。</p>
+        <p class="note rv" style="margin-top:14px">※ 期限は制度の一般的な内容です。ご事情によって扱いが変わることがあります。個別の期限は、お話をうかがったうえでご案内します。<br>※ 税に関する期限のご案内はできますが、申告の内容や税額のご相談はお受けできません。提携の税理士をご紹介します。</p>
+        <a class="inline-leaf rv" href="professional-advance-flow.html" data-p="05" data-n="ご相談から完了までの流れ">
+      <span class="lf-no mono">票05</span>ご相談から完了までの流れを見る
+      <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
+    </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1307,14 +1236,14 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .5s ease-out,transfor
 <nav class="nextnav" aria-label="次の票へ">
   <p class="nextnav-h">次の票へ</p>
   <ul class="two-up">
-    <li><a class="nextlink solid" href="professional-advance-service.html" data-p="02" data-n="取扱業務">
-      <span class="lf-no mono">票02</span>
-      <span class="lf-b"><span class="lf-t">取扱業務</span><span class="lf-d">六つの業務の中身と、必要書類、関わる期限。</span></span>
+    <li><a class="nextlink solid" href="professional-advance-fee.html" data-p="09" data-n="手続き別の費用一覧">
+      <span class="lf-no mono">票09</span>
+      <span class="lf-b"><span class="lf-t">手続き別の費用一覧</span><span class="lf-d">報酬と実費を分けて、手続きごとに並べています。</span></span>
       <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
     </a></li>
-    <li><a class="nextlink" href="professional-advance-inheritance.html" data-p="10" data-n="相続の進め方">
-      <span class="lf-no mono">票10</span>
-      <span class="lf-b"><span class="lf-t">相続の進め方</span><span class="lf-d">期限から逆算した、相続手続きの順番。</span></span>
+    <li><a class="nextlink" href="professional-advance-company.html" data-p="06" data-n="司法書士紹介・事務所案内">
+      <span class="lf-no mono">票06</span>
+      <span class="lf-b"><span class="lf-t">司法書士紹介・事務所案内</span><span class="lf-d">司法書士2名・事務2名の紹介と、事務所の概要。</span></span>
       <svg class="lf-arw" width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="0" y1="6" x2="24" y2="6"/><polyline points="18,1 24,6 18,11"/></svg>
     </a></li>
   </ul>
@@ -1328,7 +1257,7 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .5s ease-out,transfor
       <div class="ft-col">
         <p>第一部　総則</p>
         <ul>
-          <li><a href="professional-advance.html" aria-current="page" data-p="01" data-n="トップ"><span class="n">01</span>トップ</a></li>
+          <li><a href="professional-advance.html" data-p="01" data-n="トップ"><span class="n">01</span>トップ</a></li>
           <li><a href="professional-advance-faq.html" data-p="07" data-n="よくある質問"><span class="n">07</span>よくある質問</a></li>
         </ul>
       </div>
@@ -1352,7 +1281,7 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .5s ease-out,transfor
         <p>第四部　事務所</p>
         <ul>
           <li><a href="professional-advance-company.html" data-p="06" data-n="司法書士紹介・事務所案内"><span class="n">06</span>司法書士紹介・事務所案内</a></li>
-          <li><a href="professional-advance-contact.html" data-p="08" data-n="アクセス・お問い合わせ"><span class="n">08</span>アクセス・お問い合わせ</a></li>
+          <li><a href="professional-advance-contact.html" aria-current="page" data-p="08" data-n="アクセス・お問い合わせ"><span class="n">08</span>アクセス・お問い合わせ</a></li>
         </ul>
       </div>
     </div>
@@ -1366,7 +1295,7 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .5s ease-out,transfor
       <div class="ft-links">
         <a href="mailto:info@example.com">info@example.com</a>
         <a href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a>
-        <a href="professional-advance-contact.html" data-p="08" data-n="アクセス・お問い合わせ">お問い合わせフォーム</a>
+        <a href="professional-advance-contact.html" aria-current="page" data-p="08" data-n="アクセス・お問い合わせ">お問い合わせフォーム</a>
       </div>
     </div>
   </div>
@@ -1383,8 +1312,8 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .5s ease-out,transfor
   "use strict";
 
   /* ==== このページの識別子。ページごとに直すのはこの2行だけ ==== */
-  var CURRENT  = '01';
-  var PAGENAME = 'トップ';
+  var CURRENT  = '08';
+  var PAGENAME = 'アクセス・お問い合わせ';
   /* ============================================================ */
 
   var docEl  = document.documentElement;
@@ -1507,6 +1436,127 @@ html.js .rv.in{opacity:1;transform:none;transition:opacity .5s ease-out,transfor
   window.addEventListener('resize', setHd, { passive: true });
   window.addEventListener('load', setHd);
 })();
+</script>
+<script>
+
+/* ===== 票08 お問い合わせフォーム（サンプル。実際には送信しません） ===== */
+(function(){
+  "use strict";
+  var f = document.getElementById('cform');
+  if(!f) return;
+  var alertBox = document.getElementById('fAlert');
+  var live     = document.getElementById('fLive');
+  var done     = document.getElementById('fDone');
+  var back     = document.getElementById('fBack');
+
+  /* JSが動くときだけ、こちらの日本語メッセージで確認する */
+  f.noValidate = true;
+
+  var RULES = [
+    { id:'f-name',  label:'お名前',           empty:'お名前を入力してください。' },
+    { id:'f-mail',  label:'メールアドレス',   empty:'ご連絡先のメールアドレスを入力してください。',
+      re:/^[^\s@]+@[^\s@]+\.[^\s@]+$/, bad:'メールアドレスの形式をご確認ください。（例：info@example.com）' },
+    { id:'f-kind',  label:'ご相談の種類',     empty:'ご相談の種類をお選びください。' },
+    { id:'f-body',  label:'ご相談の内容',     empty:'ご相談の内容を入力してください。' },
+    { id:'f-agree', label:'確認のチェック',   empty:'確認のチェックを入れてください。', check:true }
+  ];
+
+  function show(el, on){ if(el){ if(on){ el.removeAttribute('hidden'); } else { el.setAttribute('hidden',''); } } }
+
+  function check(){
+    var bad = [];
+    RULES.forEach(function(r){
+      var el  = document.getElementById(r.id);
+      var box = document.getElementById(r.id + '-err');
+      if(!el) return;
+      var msg = '';
+      if(r.check){
+        if(!el.checked) msg = r.empty;
+      } else {
+        var v = (el.value || '').replace(/^\s+|\s+$/g, '');
+        if(!v) msg = r.empty;
+        else if(r.re && !r.re.test(v)) msg = r.bad;
+      }
+      if(msg){
+        el.setAttribute('aria-invalid', 'true');
+        if(box){ box.textContent = msg; show(box, true); }
+        bad.push({ el:el, label:r.label, msg:msg });
+      } else {
+        el.removeAttribute('aria-invalid');
+        if(box){ box.textContent = ''; show(box, false); }
+      }
+    });
+    return bad;
+  }
+
+  function drawAlert(bad){
+    while(alertBox.firstChild) alertBox.removeChild(alertBox.firstChild);
+    if(!bad.length) return;
+    var box = document.createElement('div');
+    box.className = 'f-alert';
+    var h = document.createElement('p');
+    h.className = 'fa-h';
+    h.appendChild(document.createTextNode('入力を確認してください（' + bad.length + '件）'));
+    box.appendChild(h);
+    var ul = document.createElement('ul');
+    bad.forEach(function(b){
+      var li = document.createElement('li');
+      var bt = document.createElement('button');
+      bt.type = 'button';
+      bt.textContent = b.label + '：' + b.msg;
+      bt.addEventListener('click', function(){ b.el.focus(); });
+      li.appendChild(bt);
+      ul.appendChild(li);
+    });
+    box.appendChild(ul);
+    alertBox.appendChild(box);
+  }
+
+  f.addEventListener('submit', function(e){
+    /* サンプルのため送信しない。URLも変えない。 */
+    e.preventDefault();
+    var bad = check();
+    drawAlert(bad);
+    if(bad.length){
+      if(live) live.textContent = '';
+      bad[0].el.focus();
+      return;
+    }
+    show(f, false);
+    show(done, true);
+    if(live) live.textContent = 'サンプルのため送信はされていません。確認の表示に切り替えました。';
+    if(done) done.focus();
+  });
+
+  /* 一度エラーが出た欄は、入力し直したその場で消す */
+  RULES.forEach(function(r){
+    var el = document.getElementById(r.id);
+    if(!el) return;
+    var ev = (el.tagName.toLowerCase() === 'select' || r.check) ? 'change' : 'input';
+    el.addEventListener(ev, function(){
+      if(el.getAttribute('aria-invalid') !== 'true') return;
+      var box = document.getElementById(r.id + '-err');
+      var ok  = r.check ? el.checked
+                        : ((el.value || '').replace(/^\s+|\s+$/g, '') !== ''
+                           && (!r.re || r.re.test((el.value || '').replace(/^\s+|\s+$/g, ''))));
+      if(ok){
+        el.removeAttribute('aria-invalid');
+        if(box){ box.textContent = ''; show(box, false); }
+      }
+    });
+  });
+
+  if(back){
+    back.addEventListener('click', function(){
+      show(done, false);
+      show(f, true);
+      if(live) live.textContent = '入力欄に戻りました。';
+      var first = document.getElementById('f-name');
+      if(first) first.focus();
+    });
+  }
+})();
+
 </script>
 </body>
 </html>

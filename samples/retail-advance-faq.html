@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>手仕事雑貨店 つむぎ｜暮らしの道具｜福岡</title>
-<meta name="description" content="福岡の手仕事雑貨店「つむぎ」。工房をたずね、つくり手と話し、実際に使ってみた道具だけを置いています。つくって、ならべて、つかって、手当てをして、また使う。もののたどる道にそって店のことをご案内します。">
+<title>よくある質問｜手仕事雑貨店 つむぎ｜福岡</title>
+<meta name="description" content="手仕事雑貨店つむぎによくいただくご質問と、その答え。お取り置き、贈りものの包み、手当て（修理）のこと、ご来店のことを十四のお答えにまとめました。">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -739,6 +739,33 @@ html:not(.js) .phero-figure img{clip-path:none;transform:none}
   .pwide img{transform:none!important}
 }
 </style>
+<style>
+/* ===== MG-08 でだけ使うもの（色・余白は :root のトークンだけ） ===== */
+/* 問答のアコーディオン。HTMLでは open のまま出力し、JSが動く環境でだけ畳む */
+.qacc{display:flex;flex-direction:column}
+.qacc > details{border-top:1px solid var(--line-soft)}
+.qacc > details:last-of-type{border-bottom:1px solid var(--line-soft)}
+.qacc summary{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:4px 14px;
+  padding-block:clamp(17px,2.3vw,25px);cursor:pointer;list-style:none;
+  font-family:var(--f-round);font-weight:700;font-size:var(--t-h4);line-height:1.6;letter-spacing:.06em;
+  color:var(--ink);transition:color .35s var(--ease);
+}
+.qacc summary::-webkit-details-marker{display:none}
+.qacc summary::marker{content:""}
+.qacc summary:hover{color:var(--gold-ink)}
+.qacc .qn{font-family:var(--f-base);font-weight:400;font-size:11.5px;letter-spacing:.2em;color:var(--hemp);white-space:nowrap}
+.qacc .qmk{position:relative;display:block;width:14px;height:14px;align-self:center}
+.qacc .qmk::before,.qacc .qmk::after{content:"";position:absolute;left:0;top:6px;width:14px;height:1.5px;background:var(--wood);transition:transform .4s var(--ease)}
+.qacc .qmk::after{transform:rotate(90deg)}
+.qacc > details[open] .qmk::after{transform:rotate(0deg)}
+.qa-a{padding-left:calc(3.4em + 14px);padding-bottom:clamp(18px,2.4vw,26px);max-width:47em}
+.qa-a p{color:var(--ink-2);font-size:var(--t-body);line-height:var(--lh-read)}
+.qa-a p + p{margin-top:12px}
+.qa-a .more{margin-top:clamp(13px,2vw,20px)}
+.qa-a .more-link{font-size:clamp(13.5px,1.4vw,15.5px)}
+@media (max-width:760px){.qa-a{padding-left:0}}
+</style>
 </head>
 <body>
 
@@ -789,7 +816,7 @@ html:not(.js) .phero-figure img{clip-path:none;transform:none}
             <span class="g">つかう</span><span class="r">MG-05</span></a>
           <a href="retail-advance-repair.html" data-mg="MG-06" data-name="修理とお手入れ">
             <span class="g">てあてする</span><span class="r">MG-06</span></a>
-          <a href="retail-advance-company.html" data-mg="MG-07" data-name="店主・店の案内">
+          <a href="retail-advance-company.html" aria-current="true" data-mg="MG-07" data-name="店主・店の案内">
             <span class="g">店のこと</span><span class="r">MG-07—09</span></a>
         </nav>
 
@@ -805,7 +832,7 @@ html:not(.js) .phero-figure img{clip-path:none;transform:none}
                 <section>
                   <h2>序<span>THE SHOP</span></h2>
                   <ul class="mgl">
-                    <li><a href="retail-advance.html" aria-current="page" data-mg="MG-00" data-name="トップ"><span class="no">MG-00</span><span class="nm">トップ</span></a></li>
+                    <li><a href="retail-advance.html" data-mg="MG-00" data-name="トップ"><span class="no">MG-00</span><span class="nm">トップ</span></a></li>
                   </ul>
                 </section>
                 <section>
@@ -833,7 +860,7 @@ html:not(.js) .phero-figure img{clip-path:none;transform:none}
                   <h2>店のこと<span>INFORMATION</span></h2>
                   <ul class="mgl">
                     <li><a href="retail-advance-company.html" data-mg="MG-07" data-name="店主・店の案内"><span class="no">MG-07</span><span class="nm">店主・店の案内</span></a></li>
-                    <li><a href="retail-advance-faq.html" data-mg="MG-08" data-name="よくある質問"><span class="no">MG-08</span><span class="nm">よくある質問</span></a></li>
+                    <li><a href="retail-advance-faq.html" aria-current="page" data-mg="MG-08" data-name="よくある質問"><span class="no">MG-08</span><span class="nm">よくある質問</span></a></li>
                     <li><a href="retail-advance-contact.html" data-mg="MG-09" data-name="アクセス・お問い合わせ"><span class="no">MG-09</span><span class="nm">アクセス・お問い合わせ</span></a></li>
                   </ul>
                 </section>
@@ -853,546 +880,250 @@ html:not(.js) .phero-figure img{clip-path:none;transform:none}
     <nav class="hd-bar" aria-label="いまの札">
       <div class="wrap">
         <p class="cur">
-          <span class="no">MG-00</span>
-          <span class="gp">序 &#8212; THE SHOP</span>
-          <span class="nm">トップ</span>
+          <span class="no">MG-08</span>
+          <span class="gp">店のこと &#8212; INFORMATION</span>
+          <span class="nm">よくある質問</span>
         </p>
         <p class="pn">
-          <span class="dis"><span class="lb">&#9664; まえの札</span></span>
-          <a href="retail-advance-makers.html" data-mg="MG-01" data-name="作り手を訪ねる"><span class="lb">つぎの札 </span>MG-01 &#9654;</a>
+          <a href="retail-advance-company.html" data-mg="MG-07" data-name="店主・店の案内">&#9664; <span class="lb">まえの札 </span>MG-07</a>
+          <a href="retail-advance-contact.html" data-mg="MG-09" data-name="アクセス・お問い合わせ"><span class="lb">つぎの札 </span>MG-09 &#9654;</a>
         </p>
+      </div>
+    </nav>
+
+    <nav class="crumb" aria-label="パンくず">
+      <div class="wrap">
+        <ol>
+          <li><a href="retail-advance.html" data-mg="MG-00" data-name="トップ">MG-00 トップ</a></li>
+          <li><span>店のこと</span></li>
+          <li><span aria-current="page">MG-08 よくある質問</span></li>
+        </ol>
       </div>
     </nav>
 
   <main id="main">
 
-    <!-- ===== 00-1 ヒーロー ===== -->
-    <section class="mast wrap" data-hero>
-      <p class="eyebrow">FUKUOKA ／ CRAFT &amp; DAILY TOOLS ／ MEGURI</p>
-      <h1>
-        <span class="h1-catch">
-          <span class="ln"><span style="--d:.14s">つくり手の手から、</span></span>
-          <span class="ln"><span style="--d:.30s">暮らしへ。</span></span>
-          <span class="ln"><span style="--d:.46s">そしてまた、手のなかへ。</span></span>
-        </span>
-        <span class="h1-name">手仕事雑貨店 つむぎ</span>
-      </h1>
-      <p class="mast-lead">つくって、ならべて、つかって、手当てをして、また使う。ものがたどるこの道を、店では「めぐり」と呼んでいます。このサイトは、その円にそって十の札に分けました。どこから読んでいただいても構いません。</p>
+    <!-- ===== 08-1 ページ見出し ===== -->
+    <section class="phero wrap" data-hero>
+      <p class="eyebrow">MG-08 ／ 店のこと ／ QUESTIONS</p>
+      <h1><span class="ln"><span style="--d:.12s">よくある質問。</span></span></h1>
+      <p class="phero-lead">店頭でよくうかがうことを、十四にまとめました。答えは、店でお答えしているとおりです。分からないことは、分かりませんとお答えします。ここに無いことは、メールかLINEでおたずねください。</p>
 
-      <div class="mast-shelf rv">
-        <figure class="mast-figure">
-          <img src="images/retail/retail_hero.webp" alt="やわらかな光が差し込む店内。板張りの棚に器や道具が並んでいる" fetchpriority="high" decoding="async">
+      <nav class="chips" aria-label="このページの目次">
+        <a href="#buy">買い方とお渡し</a><a href="#mend">手当てのこと</a><a href="#shop">ご来店のこと</a><a href="#ask">ここに無いことは</a>
+      </nav>
+
+      <div class="phero-shelf rv">
+        <figure class="phero-figure">
+          <img src="images/retail/retail_gallery6.webp" alt="両側の壁一面に器が並ぶ店内。中央に木の台がある" fetchpriority="high" decoding="async">
         </figure>
         <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
         <div class="mast-cap">
-          <span>店の棚</span>
-          <span>11:00 — 18:00 ／ 定休日 月曜日</span>
+          <span>売り場 ／ 壁づけの棚</span>
+          <span>十四の問答</span>
         </div>
       </div>
     </section>
 
-    <!-- ===== 00-2 めぐり図 ===== -->
-    <section class="sec paperbg" id="meguri">
+    <!-- ===== 08-2 買い方とお渡し ===== -->
+    <section class="sec" id="buy">
       <div class="wrap">
         <div class="sec-head rv">
-          <p class="sec-no"><span class="mono">00-2</span><i aria-hidden="true"></i><span class="mono">MEGURI</span></p>
-          <h2 class="sec-title">もののたどる道。</h2>
+          <p class="sec-no"><span class="mono">08-2</span><i aria-hidden="true"></i><span class="mono">BUYING</span></p>
+          <h2 class="sec-title">買い方と、お渡しのこと。</h2>
           <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-          <p class="lede">棚に並ぶまでに、ものは長い道を通ってきます。買っていただいたあとも、道は終わりません。欠けたら継ぎ、擦れたら磨いて、また使う。五つの位置に札を下げて、そこに十のページを結びました。</p>
+          <p class="lede">お渡しは店頭のみです。そのぶん、手にとって重さと口あたりを確かめてからお決めいただけます。</p>
         </div>
 
-        <div class="mgfig rv">
-          <div class="dwbox">
-            <svg viewBox="0 0 1000 560" role="img" aria-label="紙の帯が五つの折り目でつながり、ひと回りする図。折り目には一 つくる、二 ならべる、三 つかう、四 てあてする、五 また、つかう の札が下がっている">
-              <!-- 折られた紙の帯（五つの角で折れて一周する） -->
-              <path class="band" d="M170,170 L500,104 L852,224 L716,468 L286,432 Z"/>
-              <path class="band-e ray" style="--len:1750" d="M170,170 L500,104 L852,224 L716,468 L286,432 Z"/>
-              <!-- 折り目 -->
-              <g class="crease" aria-hidden="true">
-                <path d="M158,158 L182,182"/>
-                <path d="M488,92 L512,116"/>
-                <path d="M840,212 L864,236"/>
-                <path d="M704,456 L728,480"/>
-                <path d="M274,420 L298,444"/>
-              </g>
-              <!-- 進む向き -->
-              <g class="arrowhead" aria-hidden="true">
-                <path d="M330,146 L318,133 L316,153 Z"/>
-                <path d="M690,178 L676,180 L688,194 Z"/>
-                <path d="M786,352 L774,340 L772,360 Z"/>
-                <path d="M500,452 L512,441 L513,461 Z"/>
-                <path d="M226,300 L240,304 L228,290 Z"/>
-              </g>
-              <!-- 五つの札 -->
-              <g class="fuda" style="--k:0">
-                <rect class="fudabox" x="106" y="118" width="76" height="58" rx="2" transform="rotate(-6 144 147)"/>
-                <circle class="fudahole" cx="144" cy="132" r="4.5"/>
-                <text class="fudanum" x="144" y="166" text-anchor="middle">一</text>
-              </g>
-              <g class="fuda" style="--k:1">
-                <rect class="fudabox" x="462" y="46" width="76" height="58" rx="2" transform="rotate(4 500 75)"/>
-                <circle class="fudahole" cx="500" cy="60" r="4.5"/>
-                <text class="fudanum" x="500" y="94" text-anchor="middle">二</text>
-              </g>
-              <g class="fuda" style="--k:2">
-                <rect class="fudabox" x="858" y="192" width="76" height="58" rx="2" transform="rotate(7 896 221)"/>
-                <circle class="fudahole" cx="896" cy="206" r="4.5"/>
-                <text class="fudanum" x="896" y="240" text-anchor="middle">三</text>
-              </g>
-              <g class="fuda" style="--k:3">
-                <rect class="fudabox" x="716" y="472" width="76" height="58" rx="2" transform="rotate(-5 754 501)"/>
-                <circle class="fudahole" cx="754" cy="486" r="4.5"/>
-                <text class="fudanum" x="754" y="520" text-anchor="middle">四</text>
-              </g>
-              <g class="fuda" style="--k:4">
-                <rect class="fudabox" x="212" y="446" width="76" height="58" rx="2" transform="rotate(5 250 475)"/>
-                <circle class="fudahole" cx="250" cy="460" r="4.5"/>
-                <text class="fudanum" x="250" y="494" text-anchor="middle">五</text>
-              </g>
-              <!-- 中心の言葉 -->
-              <text x="500" y="278" text-anchor="middle" fill="#6E6555" font-family="Zen Kaku Gothic New, sans-serif" font-size="17" letter-spacing="10">MEGURI</text>
-              <text x="500" y="312" text-anchor="middle" fill="#2A2620" font-family="Zen Maru Gothic, sans-serif" font-size="26" letter-spacing="6">めぐり</text>
-            </svg>
-            <p class="cap"><span>FIVE FOLDS &#8212; ONE BAND</span><span>一枚の紙が、五つの折り目で一周します</span></p>
-          </div>
+        <div class="qacc rv">
 
-          <ul class="mglist">
-            <li><a href="retail-advance-makers.html" data-mg="MG-01" data-name="作り手を訪ねる">
-              <span class="k">一</span><span class="t">つくる<small>MG-01 ／ 作り手を訪ねる</small></span><span class="ar" aria-hidden="true">&#8594;</span></a></li>
-            <li><a href="retail-advance-service.html" data-mg="MG-02" data-name="扱っているもの">
-              <span class="k">二</span><span class="t">ならべる<small>MG-02 ／ 扱っているもの</small></span><span class="ar" aria-hidden="true">&#8594;</span></a></li>
-            <li><a href="retail-advance-flow.html" data-mg="MG-05" data-name="店での買い方・贈りもの">
-              <span class="k">三</span><span class="t">つかう<small>MG-05 ／ 店での買い方・贈りもの</small></span><span class="ar" aria-hidden="true">&#8594;</span></a></li>
-            <li><a href="retail-advance-repair.html" data-mg="MG-06" data-name="修理とお手入れ">
-              <span class="k">四</span><span class="t">てあてする<small>MG-06 ／ 修理とお手入れ</small></span><span class="ar" aria-hidden="true">&#8594;</span></a></li>
-            <li><a href="retail-advance-makers.html" data-mg="MG-01" data-name="作り手を訪ねる">
-              <span class="k">五</span><span class="t">また、つかう<small>一へ戻る ／ 円が閉じます</small></span><span class="ar" aria-hidden="true">&#8594;</span></a></li>
-          </ul>
+          <details id="q-01" open>
+            <summary><span class="qn">Q-01</span><span class="qt">通販はありますか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>行っていません。店頭でのお渡しのみです。器やガラス、かごは一点ずつ表情がちがうので、手にとって選んでいただくのがいちばん確かだと思っています。重さと口あたりは、持たないと分かりません。</p>
+              <div class="more"><a class="more-link" href="retail-advance-flow.html" data-mg="MG-05" data-name="店での買い方・贈りもの">店での買い方を見る<span class="ar" aria-hidden="true">&#8594;</span><small>MG-05</small></a></div>
+            </div>
+          </details>
+
+          <details id="q-02" open>
+            <summary><span class="qn">Q-02</span><span class="qt">お取り置きはできますか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>3日間まで承ります。店頭のほか、メールとLINEでもお受けしています。3日を過ぎたら棚に戻しますので、ご都合が変わったときはひと言いただけると助かります。</p>
+            </div>
+          </details>
+
+          <details id="q-03" open>
+            <summary><span class="qn">Q-03</span><span class="qt">同じものを、もう一つほしいのですが。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>同じ札の品物でも、色・かたち・重さに振れがあります。窯の場所や織り上がりで表情が変わるためで、まったく同じものは二つと出ません。</p>
+              <p>入荷は不定期です。作り手のつくれる数に合わせているので、次にいつ入るかはお約束できません。「こういうものはできますか」と作り手に聞くことはできます。できる・できないの返事も含めて、お時間をいただきます。</p>
+            </div>
+          </details>
+
+          <details id="q-04" open>
+            <summary><span class="qn">Q-04</span><span class="qt">贈りものの包みはお願いできますか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>無料で承ります。10分ほどお時間をいただきます。紙の色は生成り・藍・薄柿の3種、紐もお選びいただけます。掛け紙は御祝・内祝・御礼・御見舞の4種で、名入れも承ります。割れやすいものには化粧箱（+¥300・税込）もご用意しています。</p>
+              <p>弔事の表書きは承っていません。慶事と、お見舞い・お礼までとしています。</p>
+              <div class="more"><a class="more-link" href="retail-advance-flow.html" data-mg="MG-05" data-name="店での買い方・贈りもの">贈りものの包みを見る<span class="ar" aria-hidden="true">&#8594;</span><small>MG-05</small></a></div>
+            </div>
+          </details>
+
+          <details id="q-05" open>
+            <summary><span class="qn">Q-05</span><span class="qt">買ったものを届けてもらえますか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>承っていません。店頭でのお渡しのみです。その日に持ち帰れないときは、店頭で3日間までお預かりします。</p>
+            </div>
+          </details>
+
+          <details id="q-06" open>
+            <summary><span class="qn">Q-06</span><span class="qt">支払い方法は何が使えますか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>現金、クレジットカード、QRコード決済がお使いいただけます。表示価格はすべて税込です。</p>
+            </div>
+          </details>
+
         </div>
-        <p class="note-s rv">上の図は考え方を示したものです。実際の道のりや距離とは異なります。</p>
       </div>
     </section>
 
-    <!-- ===== 00-3 めぐりの五つ ===== -->
-    <section class="sec" id="five">
+    <!-- ===== 08-3 手当てのこと ===== -->
+    <section class="sec paperbg" id="mend">
       <div class="wrap">
         <div class="sec-head rv">
-          <p class="sec-no"><span class="mono">00-3</span><i aria-hidden="true"></i><span class="mono">FIVE PLACES</span></p>
-          <h2 class="sec-title">めぐりの、五つの位置。</h2>
+          <p class="sec-no"><span class="mono">08-3</span><i aria-hidden="true"></i><span class="mono">MENDING</span></p>
+          <h2 class="sec-title">手当てのこと。</h2>
           <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
+          <p class="lede">欠けたら継ぐ、擦れたら磨く、ほつれたら繕う。期間と費用は目安です。見てからのお見積りになります。</p>
         </div>
 
-        <div class="stations">
+        <div class="qacc rv">
 
-          <article class="st rv">
-            <figure class="st-fig" style="--ar:4/3">
-              <img src="images/retail/retail_gallery3.webp" loading="lazy" decoding="async" alt="ろくろを回して器のかたちを整えている、つくり手の手元">
-            </figure>
-            <div class="st-b">
-              <p class="st-k"><b>一</b><span>MAKING</span></p>
-              <h3 class="st-t">工房をたずねて、話して、使ってみる。</h3>
-              <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-              <p class="st-p">年に一度か二度、店を閉めて作り手をたずねます。器、木、布、ガラス、かご、包みの紙。いま棚にあるものは、この六組の手から来ています。話して、使ってみて、それから置くかどうかを決めます。その場で決めないこともあります。</p>
-              <div class="more"><a class="more-link" href="retail-advance-makers.html" data-mg="MG-01" data-name="作り手を訪ねる">作り手を訪ねる<span class="ar" aria-hidden="true">&#8594;</span><small>MG-01</small></a></div>
+          <details id="q-07" open>
+            <summary><span class="qn">Q-07</span><span class="qt">買ったうつわが欠けました。直せますか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>継ぎ直しを承ります。欠けや割れを、線として残しながら継ぎます。期間は2〜3ヶ月、費用は¥3,000〜が目安です。作り手の手の空き具合で前後しますので、急ぎのご都合があれば先にお伝えください。間に合わないときは、間に合わないとお答えします。</p>
+              <p>お預かりは店頭のみです。見てからお見積りをお伝えして、そこからお決めいただきます。預かってから勝手に進めることはしません。</p>
+              <div class="more"><a class="more-link" href="retail-advance-repair.html" data-mg="MG-06" data-name="修理とお手入れ">手当ての帳面を見る<span class="ar" aria-hidden="true">&#8594;</span><small>MG-06</small></a></div>
             </div>
-          </article>
+          </details>
 
-          <article class="st st--r rv">
-            <figure class="st-fig" style="--ar:4/3">
-              <img src="images/retail/retail_gallery1.webp" loading="lazy" decoding="async" alt="窓からの光が入る店内。板の棚に器や木の道具、たたんだ布が並ぶ">
-            </figure>
-            <div class="st-b">
-              <p class="st-k"><b>二</b><span>ON THE SHELF</span></p>
-              <h3 class="st-t">棚は、六つに分かれています。</h3>
-              <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-              <p class="st-p">陶器、木の道具、手織りの布、ガラス、かご、季節のギフト。素材も産地もばらばらですが、選ぶ基準はひとつ、「長く使えるか」だけです。一点ずつ表情がちがうので、棚のものはどれも手にとってご覧いただけます。</p>
-              <div class="more"><a class="more-link" href="retail-advance-service.html" data-mg="MG-02" data-name="扱っているもの">扱っているものを見る<span class="ar" aria-hidden="true">&#8594;</span><small>MG-02</small></a></div>
+          <details id="q-08" open>
+            <summary><span class="qn">Q-08</span><span class="qt">よそで買ったものでも見てもらえますか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>ご相談は承ります。ただし直せないものもあります。その場合ははっきりお伝えします。ガラスは割れると直せません。欠けの角を落とす程度なら相談にのれることもありますが、多くはお断りしています。</p>
+              <p>使い方や手入れの仕方をお伝えするだけなら、その場で、無料でお受けしています。</p>
             </div>
-          </article>
+          </details>
 
-          <article class="st rv">
-            <figure class="st-fig" style="--ar:4/3">
-              <img src="images/retail/retail_voice1.webp" loading="lazy" decoding="async" alt="窓辺の食卓に、いくつもの飯碗を並べているところ">
-            </figure>
-            <div class="st-b">
-              <p class="st-k"><b>三</b><span>USING</span></p>
-              <h3 class="st-t">その日決めなくて、構いません。</h3>
-              <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-              <p class="st-p">重さと口あたりは、持たないと分かりません。誰がどこでつくったか、どう手入れするかは、その場でお答えします。分からないことは、分かりませんとお答えします。三日間のお取り置きも承っています。贈りものの包みは、十分ほどお時間をいただきます。</p>
-              <div class="more"><a class="more-link" href="retail-advance-flow.html" data-mg="MG-05" data-name="店での買い方・贈りもの">店での買い方・贈りもの<span class="ar" aria-hidden="true">&#8594;</span><small>MG-05</small></a></div>
+          <details id="q-09" open>
+            <summary><span class="qn">Q-09</span><span class="qt">食器洗い機や電子レンジは使えますか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>品によります。器は電子レンジをお使いいただけるものが多く、食器洗い機はおすすめしていません。木のものは食器洗い機と漂白剤を避けて、洗ってすぐ拭き、立てて乾かしてください。ガラスは急な温度差を避けて、熱湯を注がないように。</p>
+              <p>棚の品はひとつずつ条件がちがいますので、お求めのときに確かめてお伝えします。使いはじめの手当てを書いた紙も、品物に添えてお渡ししています。</p>
+              <div class="more"><a class="more-link" href="retail-advance-repair.html" data-mg="MG-06" data-name="修理とお手入れ">家でできる手入れを見る<span class="ar" aria-hidden="true">&#8594;</span><small>MG-06</small></a></div>
             </div>
-          </article>
-
-          <article class="st st--r rv">
-            <figure class="st-fig" style="--ar:4/3">
-              <img src="images/retail/retail_flow2.webp" loading="lazy" decoding="async" alt="窓辺の作業台の上で、両手にうつわを持って確かめている手元">
-            </figure>
-            <div class="st-b">
-              <p class="st-k"><b>四</b><span>MENDING</span></p>
-              <h3 class="st-t">直せるものと、直せないものがあります。</h3>
-              <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-              <p class="st-p">欠けたら継ぐ、擦れたら磨く、ほつれたら繕う。店頭でお預かりして、見てからお見積りをお伝えします。預かってから勝手に進めることはしません。ガラスは割れると直せません。そこははっきりお伝えします。</p>
-              <div class="more"><a class="more-link" href="retail-advance-repair.html" data-mg="MG-06" data-name="修理とお手入れ">修理とお手入れ<span class="ar" aria-hidden="true">&#8594;</span><small>MG-06</small></a></div>
-            </div>
-          </article>
-
-          <article class="st st--wide rv">
-            <figure class="st-fig" style="--ar:66/24">
-              <img src="images/retail/retail_voice3.webp" loading="lazy" decoding="async" alt="障子から光の入る和室で、湯呑を手にして向かい合う年配のふたり">
-            </figure>
-            <div class="st-b">
-              <div>
-                <p class="st-k"><b>五</b><span>AGAIN</span></p>
-                <h3 class="st-t">道具は、使われている間だけ道具です。</h3>
-              </div>
-              <p class="st-p">手当てをして戻ったものは、直した場所と、これからの使い方を添えてお渡しします。そこからまた使っていただければ、めぐりはひと回りして、はじめの位置に戻ります。次はまた、作り手の手のところから。<a href="retail-advance-makers.html" data-mg="MG-01" data-name="作り手を訪ねる">一へ戻る</a>。</p>
-            </div>
-          </article>
+          </details>
 
         </div>
       </div>
     </section>
 
-    <!-- ===== 00-4 棚の六つ ===== -->
-    <section class="sec paperbg" id="tana">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <p class="sec-no"><span class="mono">00-4</span><i aria-hidden="true"></i><span class="mono">SIX SHELVES</span></p>
-          <h2 class="sec-title">棚の、六つ。</h2>
-          <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-          <p class="lede">品目ごとに、作り手はひと組ずつ。誰がどこでつくったものかを、札に書いて棚に下げています。価格はすべて税込、そこからのお値段です。</p>
-        </div>
-
-        <div class="tana">
-
-          <article class="tn rv">
-            <div class="tn-in">
-              <figure class="tn-media">
-                <img src="images/retail/retail_menu_ceramic.webp" loading="lazy" decoding="async" alt="作業台に並ぶ、色も形もちがう陶器のうつわ。粉引の白から鉄釉の黒まで">
-              </figure>
-              <div class="tn-b">
-                <p class="tn-top"><span class="tn-no">札 01</span></p>
-                <h3 class="tn-nm">陶器・うつわ</h3>
-                <p class="tn-ct">土の表情が、料理を引き立てる。窯の場所によって色が振れるので、同じものは二つと出ません。</p>
-                <dl class="tn-d">
-                  <div><dt>作り手</dt><dd>谷 陽一 ／ 谷陶房</dd></div>
-                  <div><dt>産地</dt><dd>福岡県の東、山あい</dd></div>
-                  <div><dt>価格</dt><dd>¥2,800〜</dd></div>
-                </dl>
-              </div>
-            </div>
-            <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-          </article>
-
-          <article class="tn tn--r rv">
-            <div class="tn-in">
-              <figure class="tn-media tn-tex">
-                <svg viewBox="0 0 400 300" role="img" aria-label="木目の地紋" focusable="false">
-                  <rect class="tex-f" x="0" y="0" width="400" height="300"/>
-                  <g class="tex">
-                    <path d="M40,26 C96,86 96,214 40,274"/>
-                    <path d="M96,20 C158,84 158,216 96,280"/>
-                    <path d="M154,16 C222,82 222,218 154,284"/>
-                    <path d="M214,20 C280,84 280,216 214,280"/>
-                    <path d="M272,26 C334,86 334,214 272,274"/>
-                    <path d="M330,34 C380,88 380,212 330,266"/>
-                  </g>
-                  <g class="tex-2">
-                    <path d="M0,150 H400"/>
-                    <ellipse cx="188" cy="150" rx="16" ry="9"/>
-                  </g>
-                </svg>
-                <figcaption>地紋 ／ 木目</figcaption>
-              </figure>
-              <div class="tn-b">
-                <p class="tn-top"><span class="tn-no">札 02</span></p>
-                <h3 class="tn-nm">木の道具</h3>
-                <p class="tn-ct">使うほど、手になじむ。塗膜をつくらない仕上げなので、痩せてきたら削り直せます。</p>
-                <dl class="tn-d">
-                  <div><dt>作り手</dt><dd>森下 くるみ ／ もりした木工</dd></div>
-                  <div><dt>産地</dt><dd>大分県の山側</dd></div>
-                  <div><dt>価格</dt><dd>¥1,800〜</dd></div>
-                </dl>
-              </div>
-            </div>
-            <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-          </article>
-
-          <article class="tn rv">
-            <div class="tn-in">
-              <figure class="tn-media">
-                <img src="images/retail/retail_menu_textile.webp" loading="lazy" decoding="async" alt="窓辺の台に重ねられた手織りの布。若草色、藍、生成りの三枚">
-              </figure>
-              <div class="tn-b">
-                <p class="tn-top"><span class="tn-no">札 03</span></p>
-                <h3 class="tn-nm">手織りの布</h3>
-                <p class="tn-ct">一枚ずつ、織り目がちがう。糸を染めるところから、ひとりの仕事です。</p>
-                <dl class="tn-d">
-                  <div><dt>作り手</dt><dd>宮野 千代 ／ 千代織</dd></div>
-                  <div><dt>産地</dt><dd>佐賀県の平野部</dd></div>
-                  <div><dt>価格</dt><dd>¥3,500〜</dd></div>
-                </dl>
-              </div>
-            </div>
-            <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-          </article>
-
-          <article class="tn tn--r rv">
-            <div class="tn-in">
-              <figure class="tn-media tn-tex">
-                <svg viewBox="0 0 400 300" role="img" aria-label="吹きガラスの気泡の地紋" focusable="false">
-                  <rect class="tex-f" x="0" y="0" width="400" height="300"/>
-                  <g class="tex">
-                    <path d="M60,110 C60,72 340,72 340,110"/>
-                    <path d="M52,150 C52,108 348,108 348,150"/>
-                    <path d="M60,190 C60,148 340,148 340,190"/>
-                    <path d="M74,228 C74,190 326,190 326,228"/>
-                  </g>
-                  <g class="tex-2">
-                    <circle cx="132" cy="128" r="7"/>
-                    <circle cx="205" cy="168" r="10"/>
-                    <circle cx="268" cy="120" r="5"/>
-                    <circle cx="164" cy="206" r="6"/>
-                    <circle cx="292" cy="196" r="8"/>
-                  </g>
-                </svg>
-                <figcaption>地紋 ／ 気泡</figcaption>
-              </figure>
-              <div class="tn-b">
-                <p class="tn-top"><span class="tn-no">札 04</span></p>
-                <h3 class="tn-nm">ガラス</h3>
-                <p class="tn-ct">光を通して、食卓が涼しくなる。厚みを残した宙吹きで、細かい気泡はそのまま残しています。</p>
-                <dl class="tn-d">
-                  <div><dt>作り手</dt><dd>岸 智之 ／ 岸硝子</dd></div>
-                  <div><dt>産地</dt><dd>長崎県の海沿い</dd></div>
-                  <div><dt>価格</dt><dd>¥2,400〜</dd></div>
-                </dl>
-              </div>
-            </div>
-            <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-          </article>
-
-          <article class="tn rv">
-            <div class="tn-in">
-              <figure class="tn-media">
-                <img src="images/retail/retail_menu_basket.webp" loading="lazy" decoding="async" alt="窓辺の台に置かれた、編み目のちがう二つの竹かごと、ほうきとちりとり">
-              </figure>
-              <div class="tn-b">
-                <p class="tn-top"><span class="tn-no">札 05</span></p>
-                <h3 class="tn-nm">かご・ほうき</h3>
-                <p class="tn-ct">編み目の仕事を、暮らしの隅々に。持ち手のあたりだけ堅く編み、胴は少しゆるめてあります。</p>
-                <dl class="tn-d">
-                  <div><dt>作り手</dt><dd>山根 スミ子 ／ 山根竹細工</dd></div>
-                  <div><dt>産地</dt><dd>熊本県の山あい</dd></div>
-                  <div><dt>価格</dt><dd>¥4,200〜</dd></div>
-                </dl>
-              </div>
-            </div>
-            <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-          </article>
-
-          <article class="tn tn--r rv">
-            <div class="tn-in">
-              <figure class="tn-media tn-tex">
-                <svg viewBox="0 0 400 300" role="img" aria-label="手漉きの紙の簀の目と繊維の地紋" focusable="false">
-                  <rect class="tex-f" x="0" y="0" width="400" height="300"/>
-                  <g class="tex-2">
-                    <path d="M30,44 H370 M30,86 H370 M30,128 H370 M30,170 H370 M30,212 H370 M30,254 H370"/>
-                    <path d="M62,20 V280 M104,20 V280 M146,20 V280 M188,20 V280 M230,20 V280 M272,20 V280 M314,20 V280 M356,20 V280"/>
-                  </g>
-                  <g class="tex">
-                    <path d="M40,70 C120,58 150,120 236,96 C300,78 340,110 366,96"/>
-                    <path d="M36,168 C110,152 160,206 244,182 C304,164 344,196 368,180"/>
-                    <path d="M44,240 C118,228 156,262 240,246"/>
-                  </g>
-                </svg>
-                <figcaption>地紋 ／ 簀の目</figcaption>
-              </figure>
-              <div class="tn-b">
-                <p class="tn-top"><span class="tn-no">札 06</span></p>
-                <h3 class="tn-nm">季節のギフト</h3>
-                <p class="tn-ct">贈る人を思って、包みます。包み紙も掛け紙も、手で漉いた楮の紙です。</p>
-                <dl class="tn-d">
-                  <div><dt>作り手</dt><dd>柴田 ゆき ／ 柴田紙工房</dd></div>
-                  <div><dt>産地</dt><dd>福岡県の南、川沿い</dd></div>
-                  <div><dt>価格</dt><dd>¥3,000〜</dd></div>
-                </dl>
-              </div>
-            </div>
-            <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-          </article>
-
-        </div>
-
-        <div class="more rv">
-          <a class="more-link" href="retail-advance-works.html" data-mg="MG-03" data-name="商品一覧">棚にあるものを、一覧で見る<span class="ar" aria-hidden="true">&#8594;</span><small>MG-03</small></a>
-        </div>
-        <p class="note-s rv">写真の無い札は、その素材の地紋をあてています。撮り下ろしのカットは順次入れ替えていきます。</p>
-      </div>
-    </section>
-
-    <!-- ===== 00-5 直しの帳面 ===== -->
-    <section class="sec" id="cho">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <p class="sec-no"><span class="mono">00-5</span><i aria-hidden="true"></i><span class="mono">MENDING &#8212; THE LEDGER</span></p>
-          <h2 class="sec-title">直しの帳面。</h2>
-          <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
-          <p class="lede">欠けたら直す、へたったら手入れする。売って終わりではなく、道具として使い続けていただくところまでがお店の仕事だと思っています。お預かりしているものは、この帳面に書きつけています。</p>
-        </div>
-
-        <div class="rv">
-          <table class="cho">
-            <caption>手当ての種類 ／ 期間と費用は目安です</caption>
-            <thead>
-              <tr><th scope="col">手当て</th><th scope="col">すること</th><th scope="col">期間の目安</th><th scope="col">費用の目安</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">継ぐ</th>
-                <td class="dsc" data-h="すること">器の欠けや割れを、線として残しながら継ぎ直します</td>
-                <td class="num" data-h="期間の目安">2〜3ヶ月</td>
-                <td class="num" data-h="費用の目安">¥3,000〜</td>
-              </tr>
-              <tr>
-                <th scope="row">削り直す</th>
-                <td class="dsc" data-h="すること">木肌をならして、荏油を入れ直します</td>
-                <td class="num" data-h="期間の目安">2〜4週間</td>
-                <td class="num" data-h="費用の目安">¥1,500〜</td>
-              </tr>
-              <tr>
-                <th scope="row">繕う</th>
-                <td class="dsc" data-h="すること">布のほつれや穴に、糸目を足して繕います</td>
-                <td class="num" data-h="期間の目安">2〜3週間</td>
-                <td class="num" data-h="費用の目安">¥1,000〜</td>
-              </tr>
-              <tr>
-                <th scope="row">編み直す</th>
-                <td class="dsc" data-h="すること">かごの持ち手の巻き直し、縁の補修をします</td>
-                <td class="num" data-h="期間の目安">1〜2ヶ月</td>
-                <td class="num" data-h="費用の目安">¥2,000〜</td>
-              </tr>
-              <tr>
-                <th scope="row">見るだけ</th>
-                <td class="dsc" data-h="すること">使い方と手入れの仕方をお伝えします</td>
-                <td class="num" data-h="期間の目安">その場で</td>
-                <td class="num" data-h="費用の目安">無料</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <ul class="cho-notes">
-            <li>店頭でのお預かりのみです。郵送での受付は行っていません。</li>
-            <li>見てからのお見積りです。金額をお伝えしてから、お決めいただきます。</li>
-            <li>ガラスは割れると直せません。多くはお断りしていますが、まずご相談ください。</li>
-            <li>つむぎで買ったものでなくても、ご相談は承ります。直せないこともあります。</li>
-            <li>期間は作り手の手の空き具合で前後します。急ぎのご都合は、先にお伝えください。</li>
-          </ul>
-
-          <div class="more">
-            <a class="more-link" href="retail-advance-repair.html" data-mg="MG-06" data-name="修理とお手入れ">修理とお手入れのこと<span class="ar" aria-hidden="true">&#8594;</span><small>MG-06</small></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== 00-6 店のこと ===== -->
+    <!-- ===== 08-4 ご来店のこと ===== -->
     <section class="sec hempbg" id="shop">
       <div class="wrap">
         <div class="sec-head rv">
-          <p class="sec-no"><span class="mono">00-6</span><i aria-hidden="true"></i><span class="mono">THE SHOP</span></p>
-          <h2 class="sec-title">店のこと。</h2>
+          <p class="sec-no"><span class="mono">08-4</span><i aria-hidden="true"></i><span class="mono">VISITING</span></p>
+          <h2 class="sec-title">ご来店のこと。</h2>
           <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
+          <p class="lede">通りに面した木の引き戸が目印です。軒下に小さな木の看板、足元に鉢植えがあります。</p>
         </div>
 
-        <figure class="rv">
-          <div class="pwide">
-            <img src="images/retail/retail_gallery5.webp" loading="lazy" decoding="async" alt="夕暮れの通りに面した、暖簾のかかる店構え。窓に灯りがともる" data-para data-amt="4">
+        <div class="grid2 rv">
+          <figure class="figfr">
+            <span class="im"><img src="images/retail/retail_facility2.webp" loading="lazy" decoding="async" alt="通りに面した引き戸の外観。軒下に木の看板があり、足元に鉢植えが置かれている"></span>
+            <figcaption><span>入口 ／ 木の引き戸</span><span>THE SLIDING DOOR</span></figcaption>
+          </figure>
+          <div>
+            <h3 class="lead-h">ご予約は要りません。</h3>
+            <p class="lead-p">営業は11:00〜18:00、定休日は月曜日です。ほかに年末年始と、作り手を訪ねるための臨時休業が年に数回あります。休みは店頭の貼り紙とLINEでお知らせしています。</p>
+            <div class="more">
+              <a class="more-link" href="retail-advance-contact.html" data-mg="MG-09" data-name="アクセス・お問い合わせ">道順を見る<span class="ar" aria-hidden="true">&#8594;</span><small>MG-09</small></a>
+            </div>
           </div>
-          <figcaption class="pcap"><span>通りに面した店先 ／ 11:00 — 18:00</span><span>福岡県福岡市〇〇区〇〇6-2-9</span></figcaption>
-        </figure>
+        </div>
 
-        <div class="cards rv" style="margin-top:clamp(34px,4.5vw,64px)">
-          <a class="card" href="retail-advance-company.html" data-mg="MG-07" data-name="店主・店の案内">
-            <span class="top"><span>MG-07</span><span>ABOUT US</span></span>
-            <svg class="mi" viewBox="0 0 320 96" aria-hidden="true" focusable="false">
-              <path class="hair" d="M14,86 H306"/>
-              <path class="bold" d="M22,78 V26 H298 V78"/>
-              <path class="accent" d="M30,40 H128 M30,56 H128 M192,40 H290 M192,56 H290"/>
-              <rect class="sol" x="140" y="46" width="40" height="26"/>
-              <path class="bold" d="M140,46 H180 V72 H140 Z"/>
-            </svg>
-            <h3>店主・店の案内</h3>
-            <p>2014年に開いた、売り場十二坪ほどの店です。棚は壁づけが三面と、中央の台がひとつ。店の人は三人。</p>
-            <span class="go">この札を見る<i aria-hidden="true"></i><span aria-hidden="true">&#8594;</span></span>
-          </a>
+        <div class="qacc rv" style="margin-top:clamp(34px,5vw,68px)">
 
-          <a class="card" href="retail-advance-faq.html" data-mg="MG-08" data-name="よくある質問">
-            <span class="top"><span>MG-08</span><span>QUESTIONS</span></span>
-            <svg class="mi" viewBox="0 0 320 96" aria-hidden="true" focusable="false">
-              <rect class="sol" x="26" y="20" width="120" height="60"/>
-              <path class="bold" d="M26,20 H146 V80 H26 Z"/>
-              <path class="bold" d="M174,16 H294 V76 H174 Z"/>
-              <circle class="accent" cx="40" cy="32" r="4"/>
-              <circle class="accent" cx="188" cy="28" r="4"/>
-              <path class="hair" d="M52,44 H132 M52,60 H112 M186,40 H278 M186,56 H258"/>
-            </svg>
-            <h3>よくある質問</h3>
-            <p>通販のこと、お取り置きのこと、贈りものの包みのこと。店頭でよくうかがうことを、まとめてあります。</p>
-            <span class="go">この札を見る<i aria-hidden="true"></i><span aria-hidden="true">&#8594;</span></span>
-          </a>
+          <details id="q-10" open>
+            <summary><span class="qn">Q-10</span><span class="qt">駐車場はありますか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>ありません。近くのコインパーキングをご利用ください。自転車でしたら、店先に2台まで停められます。</p>
+              <div class="more"><a class="more-link" href="retail-advance-contact.html" data-mg="MG-09" data-name="アクセス・お問い合わせ">アクセスを見る<span class="ar" aria-hidden="true">&#8594;</span><small>MG-09</small></a></div>
+            </div>
+          </details>
 
-          <a class="card" href="retail-advance-contact.html" data-mg="MG-09" data-name="アクセス・お問い合わせ">
-            <span class="top"><span>MG-09</span><span>ACCESS</span></span>
-            <svg class="mi" viewBox="0 0 320 96" aria-hidden="true" focusable="false">
-              <path class="hair" d="M0,62 H320 M96,0 V96"/>
-              <rect class="sol" x="150" y="24" width="106" height="34"/>
-              <path class="bold" d="M150,58 V24 H256 V58"/>
-              <path class="bold" d="M150,58 H256"/>
-              <path class="accent" d="M188,58 V40 H218 V58"/>
-              <path class="accent" d="M120,80 h18 M120,88 h34"/>
-            </svg>
-            <h3>アクセス・お問い合わせ</h3>
-            <p>地下鉄〇〇駅から徒歩七分。通りに面した木の引き戸が目印です。駐車場はありません。</p>
-            <span class="go">この札を見る<i aria-hidden="true"></i><span aria-hidden="true">&#8594;</span></span>
-          </a>
+          <details id="q-11" open>
+            <summary><span class="qn">Q-11</span><span class="qt">子ども連れでも大丈夫ですか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>大丈夫です。ただ、割れものが低い棚にもありますので、一言お声がけください。売り場は一度に見渡せる広さです。</p>
+            </div>
+          </details>
+
+          <details id="q-12" open>
+            <summary><span class="qn">Q-12</span><span class="qt">写真を撮ってもいいですか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>商品だけならお撮りいただけます。他のお客さまが写るものはご遠慮ください。</p>
+            </div>
+          </details>
+
+          <details id="q-13" open>
+            <summary><span class="qn">Q-13</span><span class="qt">作り手に会えますか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>店ではお会いいただけません。年に数回、工房を訪ねているのは店の人間だけです。どこで、どんな道具で、どうつくられたものかは、店でお答えできます。</p>
+              <div class="more"><a class="more-link" href="retail-advance-makers.html" data-mg="MG-01" data-name="作り手を訪ねる">作り手を訪ねる<span class="ar" aria-hidden="true">&#8594;</span><small>MG-01</small></a></div>
+            </div>
+          </details>
+
+          <details id="q-14" open>
+            <summary><span class="qn">Q-14</span><span class="qt">予約は要りますか。</span><span class="qmk" aria-hidden="true"></span></summary>
+            <div class="qa-a">
+              <p>要りません。そのままお越しください。手当てのご相談だけは、先にご連絡いただけると、うかがった内容をもとに用意してお待ちできます。</p>
+            </div>
+          </details>
+
         </div>
       </div>
     </section>
 
-    <!-- ===== 00-7 ご案内 ===== -->
-    <section class="sec" id="info">
+    <!-- ===== 08-5 ここに無いことは ===== -->
+    <section class="sec" id="ask">
       <div class="wrap">
         <div class="sec-head rv">
-          <p class="sec-no"><span class="mono">00-7</span><i aria-hidden="true"></i><span class="mono">INFORMATION</span></p>
-          <h2 class="sec-title">ご案内。</h2>
+          <p class="sec-no"><span class="mono">08-5</span><i aria-hidden="true"></i><span class="mono">ASK US</span></p>
+          <h2 class="sec-title">ここに無いことは、おたずねください。</h2>
           <div class="plank" aria-hidden="true"><i></i><b class="l"></b><b class="r"></b></div>
+          <p class="lede">在庫やお取り置き、お直しのご相談もお受けしています。分からないことは、分かりませんとお答えします。</p>
         </div>
 
         <div class="info-grid rv">
-          <dl class="dl">
-            <div class="dl-row"><dt>店名</dt><dd>手仕事雑貨店 つむぎ<span class="sm">暮らしの道具</span></dd></div>
-            <div class="dl-row"><dt>住所</dt><dd>福岡県福岡市〇〇区〇〇6-2-9<span class="sm">地下鉄〇〇駅から徒歩7分／駐車場はありません</span></dd></div>
-            <div class="dl-row"><dt>営業時間</dt><dd>11:00〜18:00<span class="sm">定休日：月曜日（ほか年末年始、作り手を訪ねるための臨時休業があります）</span></dd></div>
-            <div class="dl-row"><dt>店主</dt><dd>古賀 志乃<span class="sm">2014年4月に開きました</span></dd></div>
-            <div class="dl-row"><dt>お渡し</dt><dd>店頭でのお渡しのみ<span class="sm">通販・お取り寄せ・配送は行っていません</span></dd></div>
-            <div class="dl-row"><dt>お問い合わせ</dt><dd><a href="mailto:info@example.com">info@example.com</a></dd></div>
-          </dl>
-
+          <div class="acts">
+            <a class="btn btn--fill" href="mailto:info@example.com">
+              <span>メールで問い合わせる<span class="sb">info@example.com</span></span>
+              <span class="ar" aria-hidden="true">&#8594;</span>
+            </a>
+            <a class="btn btn--line" href="https://lin.ee/z3rP0hO">
+              <span>LINEで問い合わせる<span class="sb">在庫・お取り置きのご相談も</span></span>
+              <span class="ar" aria-hidden="true">&#8594;</span>
+            </a>
+          </div>
           <div>
-            <div class="acts">
-              <a class="btn btn--fill" href="mailto:info@example.com">
-                <span>メールで問い合わせる<span class="sb">info@example.com</span></span>
-                <span class="ar" aria-hidden="true">&#8594;</span>
-              </a>
-              <a class="btn btn--line" href="https://lin.ee/z3rP0hO">
-                <span>LINEで問い合わせる<span class="sb">在庫・お取り置きのご相談も</span></span>
-                <span class="ar" aria-hidden="true">&#8594;</span>
-              </a>
-            </div>
-            <p class="info-note">在庫やお取り置き、お直しのご相談もお受けしています。手当てのご相談は、先にご連絡いただけると、うかがった内容をもとに用意してお待ちできます。</p>
+            <p class="info-note">お問い合わせフォームもご用意しています。手当てのご相談は、先にご連絡いただけると、うかがった内容をもとに用意してお待ちできます。</p>
             <div class="more">
-              <a class="more-link" href="retail-advance-contact.html" data-mg="MG-09" data-name="アクセス・お問い合わせ">アクセスと道順を見る<span class="ar" aria-hidden="true">&#8594;</span><small>MG-09</small></a>
+              <a class="more-link" href="retail-advance-contact.html" data-mg="MG-09" data-name="アクセス・お問い合わせ">アクセス・お問い合わせ<span class="ar" aria-hidden="true">&#8594;</span><small>MG-09</small></a>
+            </div>
+            <div class="more" style="margin-top:clamp(16px,2.4vw,26px)">
+              <a class="more-link" href="retail-advance-company.html" data-mg="MG-07" data-name="店主・店の案内">店主・店の案内へ戻る<span class="ar" aria-hidden="true">&#8594;</span><small>MG-07</small></a>
             </div>
           </div>
         </div>
@@ -1428,7 +1159,7 @@ html:not(.js) .phero-figure img{clip-path:none;transform:none}
         <section>
           <h3>序</h3>
           <ul>
-            <li><a href="retail-advance.html" aria-current="page" data-mg="MG-00" data-name="トップ"><span class="no">MG-00</span><span class="nm">トップ</span></a></li>
+            <li><a href="retail-advance.html" data-mg="MG-00" data-name="トップ"><span class="no">MG-00</span><span class="nm">トップ</span></a></li>
           </ul>
         </section>
         <section>
@@ -1456,7 +1187,7 @@ html:not(.js) .phero-figure img{clip-path:none;transform:none}
           <h3>店のこと</h3>
           <ul>
             <li><a href="retail-advance-company.html" data-mg="MG-07" data-name="店主・店の案内"><span class="no">MG-07</span><span class="nm">店主・店の案内</span></a></li>
-            <li><a href="retail-advance-faq.html" data-mg="MG-08" data-name="よくある質問"><span class="no">MG-08</span><span class="nm">よくある質問</span></a></li>
+            <li><a href="retail-advance-faq.html" aria-current="page" data-mg="MG-08" data-name="よくある質問"><span class="no">MG-08</span><span class="nm">よくある質問</span></a></li>
             <li><a href="retail-advance-contact.html" data-mg="MG-09" data-name="アクセス・お問い合わせ"><span class="no">MG-09</span><span class="nm">アクセス・お問い合わせ</span></a></li>
           </ul>
         </section>
@@ -1488,8 +1219,8 @@ html:not(.js) .phero-figure img{clip-path:none;transform:none}
 <script>
 (function(){
   /* ===== このページの札。ページごとに変えるのはこの2行だけ ===== */
-  var CURRENT  = 'MG-00';
-  var PAGENAME = 'トップ';
+  var CURRENT  = 'MG-08';
+  var PAGENAME = 'よくある質問';
 
   var docEl  = document.documentElement;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1650,6 +1381,48 @@ html:not(.js) .phero-figure img{clip-path:none;transform:none}
     }
     requestAnimationFrame(tick);
   }
+})();
+</script>
+<script>
+/* ===== MG-08 だけの動き：問答のアコーディオン ===== */
+/* HTMLでは <details open> のまま出力している。JSが動く環境でだけ畳むので、
+   JavaScript無効でも十四の問答が全文読める。ハッシュで指定された問答は開く。 */
+(function(){
+  var accs = Array.prototype.slice.call(document.querySelectorAll('.qacc > details'));
+  if (!accs.length) return;
+
+  function sync(d){
+    var s = d.querySelector('summary');
+    if (s) s.setAttribute('aria-expanded', d.open ? 'true' : 'false');
+  }
+  accs.forEach(function(d){
+    d.open = false;
+    sync(d);
+    d.addEventListener('toggle', function(){ sync(d); });
+  });
+
+  function targetDetails(){
+    var h = window.location.hash;
+    if (!h || h.length < 2) return null;
+    var id = h.slice(1), el = null;
+    try { el = document.getElementById(decodeURIComponent(id)); } catch(e){}
+    if (!el) el = document.getElementById(id);
+    if (!el) return null;
+    var d = el.closest ? el.closest('details') : null;
+    return (d && accs.indexOf(d) > -1) ? d : null;
+  }
+
+  function openFromHash(scroll){
+    var d = targetDetails();
+    if (!d) return;
+    if (!d.open){ d.open = true; sync(d); }
+    if (scroll && d.scrollIntoView){
+      window.requestAnimationFrame(function(){ d.scrollIntoView(true); });
+    }
+  }
+
+  openFromHash(true);
+  window.addEventListener('hashchange', function(){ openFromHash(false); });
 })();
 </script>
 

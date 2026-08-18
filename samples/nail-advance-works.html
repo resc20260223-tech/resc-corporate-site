@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nail Salon Fleur｜O-01 トップ｜かたちと長さから選ぶネイルサロン</title>
-<meta name="description" content="福岡のネイルサロン Nail Salon Fleur（RESC制作サンプル）。爪のかたち5種と長さ4段階の早見表を索引に、メニュー・料金、デザイン8種、ご来店の流れ、もちとケア、ネイリスト、ご予約までをまとめた全10ページのサンプルサイトです。">
+<title>Nail Salon Fleur｜C-02 デザイン一覧｜DS-01〜08 をかたちと長さで</title>
+<meta name="description" content="Nail Salon Fleur（RESC制作サンプル）のデザイン一覧。DS-01〜DS-08 を、ふだんと仕事・おでかけと旅・特別な一日の3つに分けて、かたち（SH-1〜5）・長さ（L0〜L3）・季節・シーン・色の方向とともに並べています。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
@@ -682,9 +682,116 @@ html.pt-hold .pt,.pt.leave{visibility:visible}
   .mx .ch-j{font-size:10px}
   .mx .rh-j{font-size:11.5px}
 }
+
+/* ==========================================================
+   C 群（C-01 / C-02 / C-03）固有
+   既存の :root トークンだけを使う。新しい色・余白は足さない。
+   ========================================================== */
+/* 節内アンカー索引：.slbar の作りを列数だけ変えて使う */
+.sl-list.n6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.sl-list.n8{grid-template-columns:repeat(8,minmax(0,1fr))}
+.sl-list.n3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.sl-list.n8{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:640px){.sl-list.n6{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:430px){.sl-list.n8{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* 色の方向（静的な帯。選ぶUIではない） */
+.cbar{display:flex;flex-wrap:wrap;gap:9px 18px;align-items:center}
+.cbar li{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:300;
+  letter-spacing:.06em;color:var(--muted);line-height:1.7}
+.cbar .sw{width:19px;height:19px;border-radius:50%;background:var(--c,#E9CFC4);
+  border:1px solid var(--line);flex:none}
+
+/* C-01：メニューのカード */
+.mcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r-md);overflow:hidden}
+.mcard>.im{display:block;overflow:hidden;background:var(--bg2)}
+.mcard>.im img{width:100%;object-fit:cover;aspect-ratio:16/10;transition:transform .9s var(--ease)}
+.mcard:hover>.im img{transform:scale(1.04)}
+.mcard-in{padding:clamp(18px,2.6vw,26px);display:flex;flex-direction:column;gap:11px;flex:1}
+.mcard-cap{display:flex;align-items:baseline;gap:11px;font-size:12px;color:var(--muted);
+  font-weight:300;letter-spacing:.08em;line-height:1.8}
+.mcard-cap .fn{font-family:var(--en);font-size:10.5px;letter-spacing:.24em;color:var(--key-ink);flex:none}
+.mcard-hd{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;justify-content:space-between}
+.mcard h3{font-weight:400;font-size:clamp(16px,2.1vw,19px);letter-spacing:.09em;line-height:1.6}
+.mcard h3 .men{display:block;font-family:var(--en);font-weight:300;font-size:10.5px;
+  letter-spacing:.26em;color:var(--muted);text-transform:uppercase;margin-top:3px}
+.mcard-pr{text-align:right;white-space:nowrap}
+.mcard-pr b{display:block;font-family:var(--en);font-weight:300;font-size:clamp(17px,2.2vw,21px);letter-spacing:.04em}
+.mcard-pr span{display:block;font-size:11px;color:var(--muted);font-weight:300;letter-spacing:.08em}
+.mcard-lead{font-size:13px;font-weight:300;line-height:1.95;color:var(--key-ink);letter-spacing:.04em}
+.mcard-body{font-size:13px;font-weight:300;line-height:2;color:var(--muted)}
+.mcard-sl{margin-top:auto;padding-top:13px;border-top:1px solid var(--line-soft);
+  display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.mcard-sl .nl{width:19px;flex:none;color:var(--key-ink)}
+.mcard-sl .nl svg{fill:var(--key-tint)}
+.mcard-sl .k{font-family:var(--en);font-size:10.5px;letter-spacing:.2em;color:var(--key-ink)}
+.mcard-sl .v{font-size:11.5px;color:var(--muted);font-weight:300;letter-spacing:.06em}
+
+/* C-01：メニュー × かたち・長さ の対応表 */
+.mtx{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+.mtx caption{caption-side:top;text-align:left;font-size:12px;color:var(--muted);font-weight:300;
+  letter-spacing:.1em;padding-bottom:10px;line-height:1.8}
+.mtx th,.mtx td{border-bottom:1px solid var(--line-soft);text-align:left;vertical-align:middle;
+  font-weight:300;font-size:13px;line-height:1.8;padding:clamp(10px,1.5vw,14px) clamp(8px,1.3vw,16px)}
+.mtx thead th{background:var(--bg2);font-weight:400;font-size:11.5px;letter-spacing:.12em}
+.mtx tbody th{font-weight:400;color:var(--ink);font-size:13.5px}
+.mtx tbody th .men{display:block;font-family:var(--en);font-size:10px;letter-spacing:.2em;
+  color:var(--muted);margin-top:2px}
+.mtx tbody tr:last-child th,.mtx tbody tr:last-child td{border-bottom:0}
+.mtx tbody tr:hover{background:var(--key-tint)}
+.mtx .gc{display:flex;align-items:center;gap:9px}
+.mtx .gc .nl{width:19px;flex:none;color:var(--key-ink)}
+.mtx .gc .nl svg{fill:var(--key-tint)}
+.mtx .gc b{font-weight:400;font-family:var(--en);font-size:10.5px;letter-spacing:.18em;color:var(--key-ink)}
+.mtx .gc i{font-style:normal;font-size:11.5px;color:var(--muted);display:block;margin-top:1px}
+.mtx .num{font-family:var(--en);text-align:right;white-space:nowrap;font-size:14px}
+@media (max-width:640px){
+  .mtx thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .mtx tbody tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;
+    padding:14px clamp(12px,3.4vw,18px);border-bottom:1px solid var(--line-soft)}
+  .mtx tbody tr:last-child{border-bottom:0}
+  .mtx tbody th,.mtx tbody td{border:0;padding:0}
+  .mtx tbody th{grid-column:1/2}
+  .mtx tbody .num{grid-column:2/3;grid-row:1;text-align:right;align-self:start}
+  .mtx tbody td.c{grid-column:1/3;display:grid;grid-template-columns:62px minmax(0,1fr);
+    gap:10px;align-items:center;padding:4px 0 0}
+  .mtx tbody td.c::before{content:attr(data-l);font-family:var(--en);font-size:10px;
+    letter-spacing:.18em;color:var(--muted)}
+}
+
+/* C-02：デザインの節 */
+.dsx{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
+  padding:clamp(18px,2.6vw,30px);display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(16px,2.6vw,30px);align-items:start}
+.dsx+.dsx{margin-top:clamp(14px,2.2vw,20px)}
+.dsx-rail{width:clamp(60px,7vw,82px);text-align:center;flex:none}
+.dsx-rail .nl{width:100%;color:var(--key-ink)}
+.dsx-rail .nl svg{fill:var(--key-tint)}
+.dsx-rail .sl{display:block;font-family:var(--en);font-size:10.5px;letter-spacing:.16em;
+  color:var(--key-ink);margin-top:11px;line-height:1.6}
+.dsx-hd{display:flex;flex-wrap:wrap;gap:7px 14px;align-items:baseline}
+.dsx-no{font-family:var(--en);font-size:11px;letter-spacing:.24em;color:var(--key-ink)}
+.dsx h3{font-weight:400;font-size:clamp(17px,2.3vw,22px);letter-spacing:.09em;line-height:1.55}
+.dsx-sc{font-size:11.5px;color:var(--muted);font-weight:300;letter-spacing:.06em}
+.dsx-body{font-size:13.5px;font-weight:300;line-height:2.05;color:var(--muted);margin-top:12px;max-width:44em}
+.dsx-fig{margin-top:16px;max-width:560px}
+.dsx-meta{margin-top:15px;padding-top:14px;border-top:1px solid var(--line-soft)}
+@media (max-width:560px){
+  .dsx{grid-template-columns:1fr}
+  .dsx-rail{display:flex;align-items:center;gap:14px;width:auto;text-align:left}
+  .dsx-rail .nl{width:40px;flex:none}
+  .dsx-rail .sl{margin-top:0}
+}
+
+/* C-03：段階の見出し */
+.stg{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;margin-bottom:6px}
+.stg .sn{font-family:var(--en);font-size:11px;letter-spacing:.26em;color:var(--key-ink);
+  border:1px solid var(--line);border-radius:999px;padding:3px 12px;background:#fff}
+.stg .se{font-family:var(--en);font-size:10.5px;letter-spacing:.26em;color:var(--muted)}
 </style>
 </head>
-<body class="g-o">
+<body class="g-c">
 <a class="skip" href="#main">本文へスキップ</a>
 
 <!-- ========== 爪グリフのスプライト（かたち5種 × 長さ4段階＝20通り） ========== -->
@@ -745,8 +852,8 @@ html.pt-hold .pt,.pt.leave{visibility:visible}
     </a>
 
     <nav class="gnav" aria-label="メインナビゲーション">
-      <a href="nail-advance.html" data-p="O-01" aria-current="page"><span class="g">総則</span><span class="r">O</span></a>
-      <a href="nail-advance-service.html" data-p="C-01"><span class="g">選ぶ</span><span class="r">C</span></a>
+      <a href="nail-advance.html" data-p="O-01"><span class="g">総則</span><span class="r">O</span></a>
+      <a href="nail-advance-service.html" data-p="C-01" aria-current="true"><span class="g">選ぶ</span><span class="r">C</span></a>
       <a href="nail-advance-flow.html" data-p="K-01"><span class="g">整える</span><span class="r">K</span></a>
       <a href="nail-advance-company.html" data-p="S-01"><span class="g">サロン</span><span class="r">S</span></a>
     </nav>
@@ -758,7 +865,7 @@ html.pt-hold .pt,.pt.leave{visibility:visible}
         <div class="idxgrid">
           <div class="idxgroup">
             <p>O &#8212; OUTLINE<small>総則</small></p>
-            <a href="nail-advance.html" data-p="O-01" aria-current="page">
+            <a href="nail-advance.html" data-p="O-01">
               <span class="nl ig sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r1"></use></svg></span>
               <span><span class="in">O-01</span><span class="it">トップ</span></span></a>
           </div>
@@ -767,7 +874,7 @@ html.pt-hold .pt,.pt.leave{visibility:visible}
             <a href="nail-advance-service.html" data-p="C-01">
               <span class="nl ig sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r1"></use></svg></span>
               <span><span class="in">C-01</span><span class="it">メニュー・料金</span></span></a>
-            <a href="nail-advance-works.html" data-p="C-02">
+            <a href="nail-advance-works.html" data-p="C-02" aria-current="page">
               <span class="nl ig sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o2"></use></svg></span>
               <span><span class="in">C-02</span><span class="it">デザイン一覧</span></span></a>
             <a href="nail-advance-work-detail.html" data-p="C-03">
@@ -809,582 +916,440 @@ html.pt-hold .pt,.pt.leave{visibility:visible}
 <!-- ========== ページ番号バー ========== -->
 <nav class="sb" aria-label="ページ番号と前後のページ">
   <div class="sb-in">
-    <p class="cur"><span class="no">O-01</span><span class="gp">OUTLINE &#8212; 総則</span><span class="nm">トップ</span></p>
+    <p class="cur"><span class="no">C-02</span><span class="gp">CHOOSE &#8212; 選ぶ</span><span class="nm">デザイン一覧</span></p>
     <p class="pn">
-      <span class="dis">&#9664; PREV</span>
-      <a href="nail-advance-service.html" data-p="C-01">NEXT &nbsp;C-01 メニュー・料金 &#9654;</a>
+      <a href="nail-advance-service.html" data-p="C-01">&#9664; PREV &nbsp;C-01 メニュー・料金</a>
+      <a href="nail-advance-work-detail.html" data-p="C-03">NEXT &nbsp;C-03 デザイン詳細 &#9654;</a>
     </p>
   </div>
 </nav>
 
+<nav class="crumb" aria-label="パンくず">
+  <ol>
+    <li><a href="nail-advance.html" data-p="O-01">O-01 トップ</a></li>
+    <li><span>C &#8212; 選ぶ</span></li>
+    <li><span aria-current="page">C-02 デザイン一覧</span></li>
+  </ol>
+</nav>
+
 <main id="main">
 
-  <!-- ============ O-01 ヒーロー ============ -->
-  <section class="hero" aria-labelledby="h1">
-    <div class="hero-deco" aria-hidden="true">
-      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="blob b4"></span>
-    </div>
-    <div class="wrap hero-in">
-      <h1 class="hero-h1" id="h1">
-        <span class="ph-en">Nail Salon Fleur</span>
-        <span class="ph-jp"><span class="ln">色より先に、</span><span class="ln">かたちと長さ。</span></span>
+  <!-- ============ C-02 ページ見出し ============ -->
+  <section class="ph" aria-labelledby="h1">
+    <svg class="ph-arc" viewBox="0 0 520 200" aria-hidden="true" fill="none">
+      <path d="M4 198C4 92 120 6 260 6s256 86 256 192" stroke="currentColor" stroke-width="1.1"/>
+    </svg>
+    <div class="wrap ph-in">
+      <p class="ph-badge">
+        <span class="nl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o2"></use></svg></span>
+        <span class="b-n">C-02</span><span class="b-l">DESIGN</span>
+      </p>
+      <h1 id="h1">
+        <span class="ph-en">Design Index</span>
+        <span class="ph-jp">デザイン一覧</span>
       </h1>
-      <p class="hero-sub">福岡のネイルサロン ／ 完全予約制 ／ ネイリスト3名</p>
-      <svg class="hero-arc" viewBox="0 0 320 30" aria-hidden="true" fill="none">
-        <path d="M1 29C1 14 72 3 160 3s159 11 159 26" stroke="currentColor" stroke-width="1.1"/>
-      </svg>
-    </div>
-    <figure class="hero-fig">
-      <img src="images/nail/nail_hero.webp" alt="やわらかな光が入るNail Salon Fleurの店内。ピンクのチェアとネイルカラーの並んだ棚" fetchpriority="high" decoding="async">
-      <figcaption class="hero-cap">爪のかたちと長さが決まると、似合う色はぐっと絞れます。</figcaption>
-    </figure>
-  </section>
-
-  <!-- ============ O-02 かたちと長さの早見表 ============ -->
-  <section class="sec sec-tint" id="shape-length" aria-labelledby="sl-h">
-    <div class="wrap">
-      <div class="rv" style="max-width:680px">
-        <p class="eyebrow">Shape &amp; Length</p>
-        <h2 class="h-sec" id="sl-h">かたちと長さの、<br>早見表。</h2>
-        <p class="lead" style="margin-top:16px">ネイルは、色を決める前にかたちと長さでほとんどの印象が決まります。このサイトは <span class="strong">5つのかたち</span> と <span class="strong">4段階の長さ</span> を索引にして組み立てました。どのページを開いても、いま話しているのがどのかたち・どの長さなのかが分かるようにしています。</p>
-      </div>
-
-      <div class="rv rv-d1 mx-wrap">
-        <div class="mx-box">
-        <table class="mx">
-          <caption>行が5つのかたち、列が4段階の長さ。この20通りが、このサイト全体の索引です。</caption>
-          <thead>
-            <tr>
-              <th scope="col"><span class="ch-l">SHAPE</span><span class="ch-j">かたち＼長さ</span></th>
-              <th scope="col"><span class="ch-l">L0</span><span class="ch-j">ショート</span></th>
-              <th scope="col"><span class="ch-l">L1</span><span class="ch-j">ベーシック</span></th>
-              <th scope="col"><span class="ch-l">L2</span><span class="ch-j">ミディアム</span></th>
-              <th scope="col"><span class="ch-l">L3</span><span class="ch-j">ロング</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row"><a href="nail-advance-catalog.html#sh-1" data-p="C-04"><span class="rh-n">SH-1</span><span class="rh-j">ラウンド</span><span class="rh-e">ROUND</span></a></th>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="ラウンドのショート"><use href="#n-r0"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="ラウンドのベーシック"><use href="#n-r1"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="ラウンドのミディアム"><use href="#n-r2"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="ラウンドのロング"><use href="#n-r3"></use></svg></span></td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="nail-advance-catalog.html#sh-2" data-p="C-04"><span class="rh-n">SH-2</span><span class="rh-j">オーバル</span><span class="rh-e">OVAL</span></a></th>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="オーバルのショート"><use href="#n-o0"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="オーバルのベーシック"><use href="#n-o1"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="オーバルのミディアム"><use href="#n-o2"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="オーバルのロング"><use href="#n-o3"></use></svg></span></td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="nail-advance-catalog.html#sh-3" data-p="C-04"><span class="rh-n">SH-3</span><span class="rh-j">スクエア</span><span class="rh-e">SQUARE</span></a></th>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="スクエアのショート"><use href="#n-q0"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="スクエアのベーシック"><use href="#n-q1"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="スクエアのミディアム"><use href="#n-q2"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="スクエアのロング"><use href="#n-q3"></use></svg></span></td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="nail-advance-catalog.html#sh-4" data-p="C-04"><span class="rh-n">SH-4</span><span class="rh-j">スクエアオフ</span><span class="rh-e">SQUARE OFF</span></a></th>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="スクエアオフのショート"><use href="#n-f0"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="スクエアオフのベーシック"><use href="#n-f1"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="スクエアオフのミディアム"><use href="#n-f2"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="スクエアオフのロング"><use href="#n-f3"></use></svg></span></td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="nail-advance-catalog.html#sh-5" data-p="C-04"><span class="rh-n">SH-5</span><span class="rh-j">アーモンド</span><span class="rh-e">ALMOND</span></a></th>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="アーモンドのショート"><use href="#n-a0"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="アーモンドのベーシック"><use href="#n-a1"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="アーモンドのミディアム"><use href="#n-a2"></use></svg></span></td>
-              <td><span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="アーモンドのロング"><use href="#n-a3"></use></svg></span></td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        <p class="note-s" style="margin-top:12px">※ 図は考え方を示すためのものです。実際の爪の大きさや比率とは異なります。</p>
-      </div>
-
-      <ul class="mx-legend rv rv-d2">
-        <li><b>SH-1 ラウンド</b><span>先端を指の丸みに沿わせたかたち。短めでもなじみます。</span></li>
-        <li><b>L0 ショート</b><span>指の腹から爪先が出ない長さ。ひっかかりが少なめです。</span></li>
-        <li><b>SH-2 オーバル</b><span>卵形。角がないぶん、やわらかい印象になります。</span></li>
-        <li><b>L1 ベーシック</b><span>指の腹と同じくらい。このサイトでの基準の長さです。</span></li>
-        <li><b>SH-3 スクエア</b><span>先端をまっすぐに。角が立つぶん、はっきりした印象に。</span></li>
-        <li><b>L2 ミディアム</b><span>指の腹から2〜3mmほど。アートを載せる面が少し広がります。</span></li>
-        <li><b>SH-4 スクエアオフ</b><span>スクエアの角だけを落としたかたち。スクエアとラウンドの中間です。</span></li>
-        <li><b>L3 ロング</b><span>指の腹から5mmほど。先端に向けて細くするかたちと相性がよいです。</span></li>
-        <li><b>SH-5 アーモンド</b><span>先端に向けて細くするかたち。ある程度の長さが必要になります。</span></li>
-        <li><b>読み方</b><span>「SH-2 の L1」のように、かたちと長さの組み合わせで呼びます。</span></li>
-      </ul>
-
-      <div class="rv rv-d3" style="display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;margin-top:clamp(24px,3.6vw,36px)">
-        <a class="tlink" href="nail-advance-catalog.html#shape" data-p="C-04">かたち5種の詳しい説明を見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></a>
-        <a class="tlink" href="nail-advance-care.html#length" data-p="K-02">長さの決め方を見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></a>
-      </div>
+      <p class="ph-lead">サンプルとしてご用意しているデザインは8つです。<span class="strong">ふだんと仕事 ／ おでかけと旅 ／ 特別な一日</span> の3つの節に分けて、順に並べています。上から読んでも、索引から気になるものへ飛んでもかまいません。このページの代表は SH-2 オーバルの L2 ミディアムです。</p>
     </div>
   </section>
 
-  <!-- ============ O-03 サロンについて ============ -->
-  <section class="sec" id="about" aria-labelledby="about-h">
-    <div class="wrap two wide-l">
-      <div class="rv">
-        <p class="eyebrow">About</p>
-        <h2 class="h-sec" id="about-h">手の数だけ、<br>似合う指先があります。</h2>
-        <p class="lead" style="margin-top:18px">一人ひとりの手の形や普段のライフスタイルに合わせたデザインをご提案します。丁寧なケアと心地よい時間で、指先からリフレッシュしていただけます。「どんな色が似合うかわからない」というところからで大丈夫です。まず、かたちと長さを一緒に決めるところから始めます。</p>
-        <p class="lead" style="margin-top:14px">仕事で長くできない方、鍵盤や楽器を触る方、小さなお子さんがいる方。どれも長さの決め方が変わります。ご予約のときに一言いただければ、その前提で考えます。</p>
-        <ul class="tags" style="margin-top:24px">
-          <li class="tag"><span class="nl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r1"></use></svg></span>ハンド</li>
-          <li class="tag"><span class="nl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o1"></use></svg></span>フット</li>
-          <li class="tag"><span class="nl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-q0"></use></svg></span>ケア</li>
-          <li class="tag"><span class="nl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o2"></use></svg></span>ブライダル</li>
-          <li class="tag"><span class="nl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-f1"></use></svg></span>ジェルオフ</li>
-        </ul>
-        <p style="margin-top:26px"><a class="tlink" href="nail-advance-company.html" data-p="S-01">S-01 サロンとネイリストのことを見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></a></p>
-      </div>
-      <figure class="fig r43 rv rv-d1">
-        <span class="im"><img src="images/nail/nail_gallery2.webp" alt="ピンクを基調とした施術デスクとチェアが並ぶサロンの内観" loading="lazy" decoding="async"></span>
-        <figcaption><span class="fn">PHOTO 01</span>施術チェアは3席。同じ時間にご案内するのは3名までです。</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ O-04 デザインの索引 ============ -->
-  <section class="sec sec-white" id="design" aria-labelledby="ds-h">
+  <!-- ============ C-02a 索引 ============ -->
+  <section class="sec sec-tint" id="index" aria-labelledby="ix-h">
     <div class="wrap">
       <div class="sec-head rv">
-        <div style="max-width:600px">
-          <p class="eyebrow">Design Index</p>
-          <h2 class="h-sec" id="ds-h">8つのデザインを、<br>季節とシーンで。</h2>
-          <p class="lead" style="margin-top:16px">サンプルとしてご用意しているデザインは8つ。それぞれに、想定しているかたちと長さを添えています。同じデザインでも、かたちが変わると印象は別ものになります。</p>
+        <div style="max-width:620px">
+          <p class="eyebrow">Index</p>
+          <h2 class="h-sec" id="ix-h">8つのデザインと、<br>そのかたち。</h2>
+          <p class="lead" style="margin-top:16px">デザインの名前より先に、爪のかたちが並びます。同じ色を使っても、かたちと長さが変われば別のデザインになります。まず爪の絵を見て、近いものから読んでみてください。</p>
         </div>
         <p class="note-s">DS-01 &#8212; DS-08</p>
       </div>
 
-      <div class="two rv rv-d1" style="margin-bottom:clamp(28px,4vw,46px)">
+  <div class="slbar rv">
+    <div class="slbar-h">
+      <p class="t">8つのデザイン（このページの中で移動します）</p><p class="e">DESIGN &#8212; DS-01 / DS-08</p>
+    </div>
+    <div class="sl-list n8">
+      <a class="sl-item" href="#ds-01">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r0"></use></svg></span>
+        <b>ミルクベール</b><span>DS-01</span></a>
+      <a class="sl-item" href="#ds-02">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o1"></use></svg></span>
+        <b>春のにじみ</b><span>DS-02</span></a>
+      <a class="sl-item" href="#ds-03">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-f1"></use></svg></span>
+        <b>夏の透け</b><span>DS-03</span></a>
+      <a class="sl-item" href="#ds-04">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-a2"></use></svg></span>
+        <b>秋のくすみ</b><span>DS-04</span></a>
+      <a class="sl-item" href="#ds-05">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o2"></use></svg></span>
+        <b>白のブライダル</b><span>DS-05</span></a>
+      <a class="sl-item" href="#ds-06">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-a3"></use></svg></span>
+        <b>冬のきらめき</b><span>DS-06</span></a>
+      <a class="sl-item" href="#ds-07">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-q0"></use></svg></span>
+        <b>素の指先</b><span>DS-07</span></a>
+      <a class="sl-item" href="#ds-08">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r1"></use></svg></span>
+        <b>足元のいろ</b><span>DS-08</span></a>
+    </div>
+  </div>
+
+      <div class="two rv rv-d1" style="margin-top:clamp(20px,3vw,28px)">
         <figure class="fig r168">
           <span class="im"><img src="images/nail/nail_gallery4.webp" alt="壁一面に飾られたネイルデザインのサンプルボード" loading="lazy" decoding="async"></span>
-          <figcaption><span class="fn">PHOTO 02</span>サンプルは店内の壁でも、そのまま手に取ってご覧いただけます。</figcaption>
+          <figcaption><span class="fn">PHOTO 01</span>店内の壁のサンプル。手に取ってご覧いただけます。</figcaption>
         </figure>
         <figure class="fig r168">
-          <span class="im"><img src="images/nail/nail_menu_art.webp" alt="色とりどりのアートを施したネイルの指先" loading="lazy" decoding="async"></span>
-          <figcaption><span class="fn">PHOTO 03</span>アートを載せるときは、先に面の広さ（＝長さ）から相談します。</figcaption>
+          <span class="im"><img src="images/nail/nail_gallery1.webp" alt="木のトレーに並ぶパステルのネイルチップ" loading="lazy" decoding="async"></span>
+          <figcaption><span class="fn">PHOTO 02</span>チップの色見本。指に当てて濃さを確かめられます。</figcaption>
         </figure>
       </div>
 
-      <div class="dslist rv rv-d2">
-        <a class="dsrow" href="nail-advance-works.html#ds-01" data-p="C-02">
-          <span class="nl ds-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r0"></use></svg></span>
-          <span><span class="ds-no">DS-01</span><span class="ds-nm">ミルクベール</span></span>
-          <span class="ds-me"><span class="badge se-all">通年</span><span class="ds-sc">オフィス・ふだん</span></span>
-          <span class="ds-sl">SH-1 / L0</span>
-        </a>
-        <a class="dsrow" href="nail-advance-works.html#ds-02" data-p="C-02">
-          <span class="nl ds-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o1"></use></svg></span>
-          <span><span class="ds-no">DS-02</span><span class="ds-nm">春のにじみ</span></span>
-          <span class="ds-me"><span class="badge se-spring">春</span><span class="ds-sc">休日・おでかけ</span></span>
-          <span class="ds-sl">SH-2 / L1</span>
-        </a>
-        <a class="dsrow" href="nail-advance-works.html#ds-03" data-p="C-02">
-          <span class="nl ds-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-f1"></use></svg></span>
-          <span><span class="ds-no">DS-03</span><span class="ds-nm">夏の透け</span></span>
-          <span class="ds-me"><span class="badge se-summer">夏</span><span class="ds-sc">旅行・海</span></span>
-          <span class="ds-sl">SH-4 / L1</span>
-        </a>
-        <a class="dsrow" href="nail-advance-works.html#ds-04" data-p="C-02">
-          <span class="nl ds-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-a2"></use></svg></span>
-          <span><span class="ds-no">DS-04</span><span class="ds-nm">秋のくすみ</span></span>
-          <span class="ds-me"><span class="badge se-autumn">秋</span><span class="ds-sc">ふだん</span></span>
-          <span class="ds-sl">SH-5 / L2</span>
-        </a>
-        <a class="dsrow" href="nail-advance-work-detail.html" data-p="C-03">
-          <span class="nl ds-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o2"></use></svg></span>
-          <span><span class="ds-no">DS-05</span><span class="ds-nm">白のブライダル<small class="note-s" style="display:block">C-03 で詳しく取り上げています</small></span></span>
-          <span class="ds-me"><span class="badge se-all">通年</span><span class="ds-sc">ブライダル・前撮り</span></span>
-          <span class="ds-sl">SH-2 / L2</span>
-        </a>
-        <a class="dsrow" href="nail-advance-works.html#ds-06" data-p="C-02">
-          <span class="nl ds-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-a3"></use></svg></span>
-          <span><span class="ds-no">DS-06</span><span class="ds-nm">冬のきらめき</span></span>
-          <span class="ds-me"><span class="badge se-winter">冬</span><span class="ds-sc">パーティ・年末年始</span></span>
-          <span class="ds-sl">SH-5 / L3</span>
-        </a>
-        <a class="dsrow" href="nail-advance-works.html#ds-07" data-p="C-02">
-          <span class="nl ds-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-q0"></use></svg></span>
-          <span><span class="ds-no">DS-07</span><span class="ds-nm">素の指先</span></span>
-          <span class="ds-me"><span class="badge se-all">通年</span><span class="ds-sc">仕事・制服</span></span>
-          <span class="ds-sl">SH-3 / L0</span>
-        </a>
-        <a class="dsrow" href="nail-advance-works.html#ds-08" data-p="C-02">
-          <span class="nl ds-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r1"></use></svg></span>
-          <span><span class="ds-no">DS-08</span><span class="ds-nm">足元のいろ</span></span>
-          <span class="ds-me"><span class="badge se-summer">夏</span><span class="ds-sc">サンダル・旅行（フット）</span></span>
-          <span class="ds-sl">SH-1 / L1</span>
-        </a>
-      </div>
-
-      <div class="rv rv-d3" style="display:grid;gap:12px;margin-top:clamp(26px,4vw,40px)">
-        <a class="morelink" href="nail-advance-works.html" data-p="C-02"><b>デザイン一覧を見る</b><span>C-02 &nbsp;/&nbsp; DS-01 &#8212; DS-08 &nbsp;&#8594;</span></a>
-        <a class="morelink ghost" href="nail-advance-catalog.html" data-p="C-04"><b>季節とシーンのカタログを見る</b><span>C-04 &nbsp;/&nbsp; CATALOG &nbsp;&#8594;</span></a>
+      <div class="rv rv-d2" style="margin-top:clamp(20px,3vw,28px)">
+  <div class="slbar">
+    <div class="slbar-h">
+      <p class="t">このページで取り上げるかたち</p><p class="e">SHAPE &#8212; 5 TYPES</p>
+    </div>
+    <div class="sl-list">
+      <a class="sl-item" href="nail-advance-catalog.html#sh-1" data-p="C-04">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r2"></use></svg></span>
+        <b>ラウンド</b><span>SH-1</span></a>
+      <a class="sl-item on" href="nail-advance-catalog.html#sh-2" data-p="C-04">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o2"></use></svg></span>
+        <b>オーバル</b><span>SH-2</span></a>
+      <a class="sl-item" href="nail-advance-catalog.html#sh-3" data-p="C-04">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-q2"></use></svg></span>
+        <b>スクエア</b><span>SH-3</span></a>
+      <a class="sl-item" href="nail-advance-catalog.html#sh-4" data-p="C-04">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-f2"></use></svg></span>
+        <b>スクエアオフ</b><span>SH-4</span></a>
+      <a class="sl-item" href="nail-advance-catalog.html#sh-5" data-p="C-04">
+        <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-a2"></use></svg></span>
+        <b>アーモンド</b><span>SH-5</span></a>
+    </div>
+  </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ O-05 メニューと料金 ============ -->
-  <section class="sec" id="menu" aria-labelledby="menu-h">
-    <div class="wrap two wide-r top">
-      <figure class="fig r45 rv">
-        <span class="im"><img src="images/nail/nail_menu_hand.webp" alt="ワンカラーで淡く仕上げたハンドネイルの指先" loading="lazy" decoding="async"></span>
-        <figcaption><span class="fn">PHOTO 04</span>ハンドネイル（ワンカラー）。SH-1 ラウンドの L1。</figcaption>
-      </figure>
-      <div class="rv rv-d1">
-        <div class="sec-head" style="margin-bottom:18px">
-          <div>
-            <p class="eyebrow">Menu</p>
-            <h2 class="h-sec" id="menu-h">メニューと料金</h2>
-          </div>
-          <p class="note-s">表示価格はすべて税込です</p>
-        </div>
-        <ul class="mlist">
-          <li class="mrow">
-            <span class="nl m-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r1"></use></svg></span>
-            <h3 class="mname">ハンドネイル<span class="men">One Color</span></h3>
-            <p class="mtime">約90分</p>
-            <p class="mprice">¥6,600</p>
-          </li>
-          <li class="mrow">
-            <span class="nl m-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o2"></use></svg></span>
-            <h3 class="mname">アートネイル<span class="men">Art</span></h3>
-            <p class="mtime">約120分</p>
-            <p class="mprice">¥8,800</p>
-          </li>
-          <li class="mrow">
-            <span class="nl m-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o2"></use></svg></span>
-            <h3 class="mname">ブライダルネイル<span class="men">Bridal</span></h3>
-            <p class="mtime">約120分</p>
-            <p class="mprice">¥13,200</p>
-          </li>
-          <li class="mrow">
-            <span class="nl m-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r1"></use></svg></span>
-            <h3 class="mname">フットネイル<span class="men">Foot</span></h3>
-            <p class="mtime">約90分</p>
-            <p class="mprice">¥7,700</p>
-          </li>
-          <li class="mrow">
-            <span class="nl m-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-q0"></use></svg></span>
-            <h3 class="mname">ネイルケア<span class="men">Care</span></h3>
-            <p class="mtime">約60分</p>
-            <p class="mprice">¥3,300</p>
-          </li>
-          <li class="mrow">
-            <span class="nl m-gl md"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-f1"></use></svg></span>
-            <h3 class="mname">ジェルオフ<span class="men">Gel Off</span></h3>
-            <p class="mtime">約30分</p>
-            <p class="mprice">¥2,200</p>
-          </li>
+  <!-- ============ C-02b かたちと長さの分布 ============ -->
+  <section class="sec" id="dist" aria-labelledby="dist-h">
+    <div class="wrap two top">
+      <div class="rv">
+        <p class="eyebrow">Distribution</p>
+        <h2 class="h-sec" id="dist-h">8つを、<br>升目に置くと。</h2>
+        <p class="lead" style="margin-top:16px">O-01 の早見表は、かたち5種 &#215; 長さ4段階の20通りでした。その升目の上に、8つのデザインを置いたのが右の図です。空いている升目があるのは、そこが選べないという意味ではありません。8つはあくまでサンプルで、出発点として置いてあるだけです。</p>
+        <p class="lead" style="margin-top:14px">左下に寄っているものほど短く、右上に行くほど長さが要ります。ふだん短くしている方が右上のデザインを選ぶときは、伸ばす期間から逆算してご相談します。</p>
+        <ul class="mx-legend rv rv-d1" style="margin-top:24px;grid-template-columns:1fr">
+          <li><b>短いほう</b><span>DS-01 / DS-07 は L0 ショート。指先を使う時間が長い方が選ばれることが多い並びです。</span></li>
+          <li><b>まんなか</b><span>DS-02 / DS-03 / DS-08 は L1 ベーシック。このサイトでの基準の長さです。</span></li>
+          <li><b>長いほう</b><span>DS-04 / DS-05 は L2、DS-06 は L3。アートを載せる面が広がります。</span></li>
         </ul>
-        <p class="note-box" style="margin-top:20px">当店で付けたジェルの付け替えは、オフの料金を施術料金に含みます。よそで付けられたものの付け替えは ¥1,100 を加算します。時間はいずれも目安で、爪の状態によって前後します。</p>
-        <p style="margin-top:22px"><a class="tlink" href="nail-advance-service.html" data-p="C-01">C-01 メニューと料金を詳しく見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></a></p>
+      </div>
+      <div>
+      <div class="dwbox rv rv-d1">
+        <svg viewBox="0 0 480 272" role="img" aria-label="8つのデザインを、縦がかたち5種、横が長さ4段階の升目の上に置いた分布図。SH-1 の L0 に DS-01、SH-1 の L1 に DS-08、SH-2 の L1 に DS-02、SH-2 の L2 に DS-05、SH-3 の L0 に DS-07、SH-4 の L1 に DS-03、SH-5 の L2 に DS-04、SH-5 の L3 に DS-06 がある">
+          <text class="dw-t" x="188" y="26" text-anchor="middle">L0</text>
+          <line class="dw-line" x1="188" y1="36" x2="188" y2="256"></line>
+          <text class="dw-t" x="268" y="26" text-anchor="middle">L1</text>
+          <line class="dw-line" x1="268" y1="36" x2="268" y2="256"></line>
+          <text class="dw-t" x="348" y="26" text-anchor="middle">L2</text>
+          <line class="dw-line" x1="348" y1="36" x2="348" y2="256"></line>
+          <text class="dw-t" x="428" y="26" text-anchor="middle">L3</text>
+          <line class="dw-line" x1="428" y1="36" x2="428" y2="256"></line>
+          <line class="dw-line" x1="112" y1="78" x2="466" y2="78"></line>
+          <use href="#n-r1" class="dw-bold" transform="translate(83.4,29.9) scale(.42)"></use>
+          <text class="dw-t" x="122" y="66">SH-1</text>
+          <circle class="dw-fill" cx="188" cy="62" r="13"></circle>
+          <circle class="dw-key" cx="188" cy="62" r="13"></circle>
+          <text class="dw-t" x="188" y="66" text-anchor="middle" style="letter-spacing:0">01</text>
+          <circle class="dw-fill" cx="268" cy="62" r="13"></circle>
+          <circle class="dw-key" cx="268" cy="62" r="13"></circle>
+          <text class="dw-t" x="268" y="66" text-anchor="middle" style="letter-spacing:0">08</text>
+          <line class="dw-line" x1="112" y1="120" x2="466" y2="120"></line>
+          <use href="#n-o1" class="dw-bold" transform="translate(83.4,71.9) scale(.42)"></use>
+          <text class="dw-t" x="122" y="108">SH-2</text>
+          <circle class="dw-fill" cx="268" cy="104" r="13"></circle>
+          <circle class="dw-key" cx="268" cy="104" r="13"></circle>
+          <text class="dw-t" x="268" y="108" text-anchor="middle" style="letter-spacing:0">02</text>
+          <circle class="dw-fill" cx="348" cy="104" r="13"></circle>
+          <circle class="dw-key" cx="348" cy="104" r="13"></circle>
+          <text class="dw-t" x="348" y="108" text-anchor="middle" style="letter-spacing:0">05</text>
+          <line class="dw-line" x1="112" y1="162" x2="466" y2="162"></line>
+          <use href="#n-q1" class="dw-bold" transform="translate(83.4,113.9) scale(.42)"></use>
+          <text class="dw-t" x="122" y="150">SH-3</text>
+          <circle class="dw-fill" cx="188" cy="146" r="13"></circle>
+          <circle class="dw-key" cx="188" cy="146" r="13"></circle>
+          <text class="dw-t" x="188" y="150" text-anchor="middle" style="letter-spacing:0">07</text>
+          <line class="dw-line" x1="112" y1="204" x2="466" y2="204"></line>
+          <use href="#n-f1" class="dw-bold" transform="translate(83.4,155.9) scale(.42)"></use>
+          <text class="dw-t" x="122" y="192">SH-4</text>
+          <circle class="dw-fill" cx="268" cy="188" r="13"></circle>
+          <circle class="dw-key" cx="268" cy="188" r="13"></circle>
+          <text class="dw-t" x="268" y="192" text-anchor="middle" style="letter-spacing:0">03</text>
+          <line class="dw-line" x1="112" y1="246" x2="466" y2="246"></line>
+          <use href="#n-a1" class="dw-bold" transform="translate(83.4,197.9) scale(.42)"></use>
+          <text class="dw-t" x="122" y="234">SH-5</text>
+          <circle class="dw-fill" cx="348" cy="230" r="13"></circle>
+          <circle class="dw-key" cx="348" cy="230" r="13"></circle>
+          <text class="dw-t" x="348" y="234" text-anchor="middle" style="letter-spacing:0">04</text>
+          <circle class="dw-fill" cx="428" cy="230" r="13"></circle>
+          <circle class="dw-key" cx="428" cy="230" r="13"></circle>
+          <text class="dw-t" x="428" y="234" text-anchor="middle" style="letter-spacing:0">06</text>
+        </svg>
+        <p class="cap">※ 升目の中の数字は DS-01〜DS-08 の下2桁です。図は考え方を示すためのもので、ここに置いていない組み合わせでも、ご相談のうえでお受けしています。</p>
+      </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ O-06 ご来店の流れ ============ -->
-  <section class="sec sec-tint" id="flow" aria-labelledby="flow-h">
+  <!-- ============ g-daily ============ -->
+  <section class="sec sec-white" id="g-daily" aria-labelledby="g-daily-h">
     <div class="wrap">
       <div class="sec-head rv">
-        <div style="max-width:600px">
-          <p class="eyebrow">Flow</p>
-          <h2 class="h-sec" id="flow-h">かたちを決めてから、<br>仕上がるまで。</h2>
-          <p class="lead" style="margin-top:16px">はじめての方でも、決めきらないままお越しいただいて大丈夫です。かたちと長さを見てから、色とデザインに進みます。</p>
+        <div style="max-width:620px">
+          <p class="eyebrow">Everyday</p>
+          <h2 class="h-sec" id="g-daily-h">ふだんと、仕事の日。</h2>
+          <p class="lead" style="margin-top:16px">一日のうちで指先をいちばん長く見るのは、たぶん自分です。仕事や家のことに合わせて、無理のないかたちと長さから決めていく3つです。</p>
         </div>
-        <p class="note-s">STEP 01 &#8212; 04</p>
+        <p class="note-s">3件</p>
       </div>
-      <ol class="steps rv rv-d1">
-        <li class="step">
-          <p class="st-n">STEP 01</p>
-          <h3>かたちと長さを決める</h3>
-          <p>いまの爪の状態と、普段の過ごし方を伺います。仕事や家のことで長さに条件があれば、先に教えてください。</p>
-          <svg class="st-arc" viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true" fill="none"><path d="M0 13C0 6 27 1 60 1s60 5 60 12" stroke="currentColor" stroke-width="1.1" vector-effect="non-scaling-stroke"/></svg>
-        </li>
-        <li class="step">
-          <p class="st-n">STEP 02</p>
-          <h3>ケア・オフ</h3>
-          <p>爪のまわりを整えます。ジェルがついている場合は、削りすぎないよう時間をかけて落とします。</p>
-          <svg class="st-arc" viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true" fill="none"><path d="M0 13C0 6 27 1 60 1s60 5 60 12" stroke="currentColor" stroke-width="1.1" vector-effect="non-scaling-stroke"/></svg>
-        </li>
-        <li class="step">
-          <p class="st-n">STEP 03</p>
-          <h3>カラー・アート</h3>
-          <p>選んだ色を重ねます。アートを加える場合は、決めた長さの中でどこまで描くかを相談しながら進めます。</p>
-          <svg class="st-arc" viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true" fill="none"><path d="M0 13C0 6 27 1 60 1s60 5 60 12" stroke="currentColor" stroke-width="1.1" vector-effect="non-scaling-stroke"/></svg>
-        </li>
-        <li class="step">
-          <p class="st-n">STEP 04</p>
-          <h3>仕上がりの確認</h3>
-          <p>手を動かしていただいて、ひっかかりがないかを一緒に確かめます。気になるところはその場でお伝えください。</p>
-          <svg class="st-arc" viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true" fill="none"><path d="M0 13C0 6 27 1 60 1s60 5 60 12" stroke="currentColor" stroke-width="1.1" vector-effect="non-scaling-stroke"/></svg>
-        </li>
-      </ol>
-      <div class="two rv rv-d2" style="margin-top:clamp(28px,4vw,46px);align-items:center">
-        <figure class="fig r168">
-          <span class="im"><img src="images/nail/nail_flow4.webp" alt="仕上がったネイルを両手で見ているお客さま。手前の台に筆やパーツが並ぶ" loading="lazy" decoding="async"></span>
-          <figcaption><span class="fn">PHOTO 05</span>最後に、両手を開いて全体の見え方を確かめます。</figcaption>
-        </figure>
+      <article class="dsx anc rv" id="ds-01">
+        <p class="dsx-rail">
+          <span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="ラウンドのショート"><use href="#n-r0"></use></svg></span>
+          <span class="sl">SH-1<br>L0</span>
+        </p>
         <div>
-          <h3 class="h-sub">お帰りのときに、次の目安をお伝えします</h3>
-          <p class="lead" style="margin-top:12px">根元の隙間が2〜3mmくらい気になってきたら、というのがひとつの目安です。爪が伸びる速さには個人差があるので、その日の状態を見てからご案内します。3〜4週間を目安に付け替えていただく方が多いです。</p>
-          <p style="margin-top:20px"><a class="tlink" href="nail-advance-flow.html" data-p="K-01">K-01 ご来店の流れを詳しく見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ O-07 もちとケア ============ -->
-  <section class="sec" id="care" aria-labelledby="care-h">
-    <div class="wrap two top">
-      <div class="rv">
-        <p class="eyebrow">Keep &amp; Care</p>
-        <h2 class="h-sec" id="care-h">長さは、<br>暮らしから決めます。</h2>
-        <p class="lead" style="margin-top:16px">どの長さが正解、というものはありません。キーボードを打つ時間が長い方は L0〜L1、指先を使う仕事が少ない方は L2 まで、というように、暮らし方から決めていきます。右の図は、同じラウンドで長さだけを変えたものです。</p>
-        <ul class="nlist" style="margin-top:24px">
-          <li>
-            <span class="id">K-a</span>
-            <div><h4>オフのこと</h4><p>当店で付けたものの付け替えは、オフの料金を施術に含みます。よそで付けられたものは、状態を見てから外し方を決めます。ジェル以外のものは、拝見してからご案内します。</p></div>
-          </li>
-          <li>
-            <span class="id">K-b</span>
-            <div><h4>自爪の状態</h4><p>薄さ・二枚爪・乾燥は、その日の状態を一緒に見ながらご説明します。爪そのものに気になる状態があるときは、皮膚科の受診をおすすめしています。</p></div>
-          </li>
-          <li>
-            <span class="id">K-c</span>
-            <div><h4>お直し</h4><p>施術から1週間以内に欠けや浮きが出た場合は、無料でお直しします。気づいた時点でご連絡ください。</p></div>
-          </li>
-        </ul>
-        <p style="margin-top:24px"><a class="tlink" href="nail-advance-care.html" data-p="K-02">K-02 もちとケアを詳しく見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></a></p>
-      </div>
-
-      <div class="rv rv-d1">
-        <div class="lenfig">
-          <svg viewBox="0 0 460 262" role="img" aria-label="同じラウンドのかたちで、L0 ショートから L3 ロングまで長さを4段階に変えた比較図。指の腹の高さを示す破線が横に引かれている">
-            <line class="fr-d" x1="16" y1="114" x2="444" y2="114"></line>
-            <text class="lft" x="16" y="106">FINGER TIP</text>
-            <use href="#n-r0" class="fo" transform="translate(28,67) scale(1.55)"></use>
-            <use href="#n-r1" class="fo" transform="translate(136,67) scale(1.55)"></use>
-            <use href="#n-r2" class="fo" transform="translate(244,67) scale(1.55)"></use>
-            <use href="#n-r3" class="fo" transform="translate(352,67) scale(1.55)"></use>
-            <line class="fr" x1="16" y1="214" x2="444" y2="214"></line>
-            <text class="lft" x="74.5" y="234" text-anchor="middle">L0</text>
-            <text class="lft-j" x="74.5" y="253" text-anchor="middle">ショート</text>
-            <text class="lft" x="182.5" y="234" text-anchor="middle">L1</text>
-            <text class="lft-j" x="182.5" y="253" text-anchor="middle">ベーシック</text>
-            <text class="lft" x="290.5" y="234" text-anchor="middle">L2</text>
-            <text class="lft-j" x="290.5" y="253" text-anchor="middle">ミディアム</text>
-            <text class="lft" x="398.5" y="234" text-anchor="middle">L3</text>
-            <text class="lft-j" x="398.5" y="253" text-anchor="middle">ロング</text>
-          </svg>
-          <p class="note-s" style="margin-top:14px">※ かたちは SH-1 ラウンドで揃えています。長さだけを変えた比較図で、実際の寸法ではありません。</p>
-        </div>
-        <div class="slbar" style="margin-top:clamp(16px,2.4vw,22px)">
-          <div class="slbar-h">
-            <p class="t">長さの段階</p><p class="e">LENGTH &#8212; 4 STEPS</p>
+          <div class="dsx-hd">
+            <span class="dsx-no">DS-01</span>
+            <h3>ミルクベール</h3>
+            <span class="badge se-all">通年</span>
+            <span class="dsx-sc">オフィス・ふだん</span>
           </div>
-          <div class="sl-list len4">
-            <a class="sl-item" href="nail-advance-care.html#length" data-p="K-02">
-              <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r0"></use></svg></span>
-              <b>ショート</b><span>L0</span></a>
-            <a class="sl-item on" href="nail-advance-care.html#length" data-p="K-02">
-              <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r1"></use></svg></span>
-              <b>ベーシック</b><span>L1</span></a>
-            <a class="sl-item" href="nail-advance-care.html#length" data-p="K-02">
-              <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r2"></use></svg></span>
-              <b>ミディアム</b><span>L2</span></a>
-            <a class="sl-item" href="nail-advance-care.html#length" data-p="K-02">
-              <span class="nl"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r3"></use></svg></span>
-              <b>ロング</b><span>L3</span></a>
+          <p class="dsx-body">白に近いミルクホワイトを、爪の先まで同じ濃さで一色のせます。境目を作らない入れ方なので、根元が伸びてきたときの見え方がゆるやかです。L0 ショートに合わせると、キーボードや書きものの多い日でも指先が気になりにくくなります。ハンドネイル（¥6,600／約90分）の範囲です。</p>
+          <div class="dsx-meta">
+            <p class="note-s" style="margin-bottom:9px">色の方向</p>
+            <ul class="cbar"><li><span class="sw" style="--c:#F1E6DE" aria-hidden="true"></span>ミルクホワイト</li></ul>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ O-08 ネイリスト ============ -->
-  <section class="sec sec-white" id="nailist" aria-labelledby="nl-h">
-    <div class="wrap">
-      <div class="two wide-r top" style="margin-bottom:clamp(26px,4vw,44px)">
-        <div class="rv">
-          <p class="eyebrow">Nailist</p>
-          <h2 class="h-sec" id="nl-h">3人で、<br>お迎えしています。</h2>
-          <p class="lead" style="margin-top:16px">得意なところが少しずつ違います。ご指名がなければ、ご希望の内容に合わせてこちらで担当を決めます。ご指名の追加料金はいただいていません。</p>
-        </div>
-        <figure class="fig r168 rv rv-d1">
-          <span class="im"><img src="images/nail/nail_gallery3.webp" alt="花と観葉植物が置かれた明るいサロンの待合スペース" loading="lazy" decoding="async"></span>
-          <figcaption><span class="fn">PHOTO 06</span>お待ちいただくところ。予約の間隔をあけています。</figcaption>
-        </figure>
-      </div>
-
-      <div class="people rv rv-d2">
-        <article class="person">
-          <p class="pn-r">NAILIST 01</p>
-          <h3>森 ひなた<small>MORI HINATA</small></h3>
-          <dl>
-            <div><dt>担当</dt><dd>代表ネイリスト／カウンセリング</dd></div>
-            <div><dt>経験</dt><dd>10年</dd></div>
-            <div><dt>得意</dt><dd>ワンカラーとケア。かたちの相談</dd></div>
-          </dl>
-          <p class="pn-sl"><span class="nl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r1"></use></svg></span><span>よく提案するかたち：SH-1 ラウンド</span></p>
-        </article>
-        <article class="person">
-          <p class="pn-r">NAILIST 02</p>
-          <h3>江口 遥<small>EGUCHI HARUKA</small></h3>
-          <dl>
-            <div><dt>担当</dt><dd>アート・デザイン設計</dd></div>
-            <div><dt>経験</dt><dd>6年</dd></div>
-            <div><dt>得意</dt><dd>季節のアート。持ち込み画像からの設計</dd></div>
-          </dl>
-          <p class="pn-sl"><span class="nl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o2"></use></svg></span><span>よく提案するかたち：SH-2 オーバル</span></p>
-        </article>
-        <article class="person">
-          <p class="pn-r">NAILIST 03</p>
-          <h3>高木 千尋<small>TAKAGI CHIHIRO</small></h3>
-          <dl>
-            <div><dt>担当</dt><dd>フット・ブライダル</dd></div>
-            <div><dt>経験</dt><dd>4年</dd></div>
-            <div><dt>得意</dt><dd>フットのかたち作り。式に合わせた進め方</dd></div>
-          </dl>
-          <p class="pn-sl"><span class="nl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-f1"></use></svg></span><span>よく提案するかたち：SH-4 スクエアオフ</span></p>
-        </article>
-      </div>
-      <p style="margin-top:clamp(22px,3.4vw,32px)" class="rv rv-d3"><a class="tlink" href="nail-advance-company.html" data-p="S-01">S-01 ネイリストとサロンの案内を見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></a></p>
-    </div>
-  </section>
-
-  <!-- ============ O-09 店舗情報・ご予約 ============ -->
-  <section class="sec" id="visit" aria-labelledby="visit-h">
-    <div class="wrap two top">
-      <div class="rv">
-        <p class="eyebrow">Information</p>
-        <h2 class="h-sec" id="visit-h">店舗情報</h2>
-        <dl class="dl-info" style="margin-top:8px">
-          <div><dt>住所</dt><dd>福岡県福岡市〇〇区〇〇7-1-4</dd></div>
-          <div><dt>営業時間</dt><dd>10:00〜19:00</dd></div>
-          <div><dt>定休日</dt><dd>不定休</dd></div>
-          <div><dt>ご予約</dt><dd>完全予約制（LINE・メール・フォーム）</dd></div>
-          <div><dt>席数</dt><dd>施術チェア3席</dd></div>
-          <div><dt>開店</dt><dd>2018年4月</dd></div>
-        </dl>
-        <p class="note-s" style="margin-top:16px">ご予約はLINE・メール・フォームのいずれかから承っています。</p>
-      </div>
-      <div class="rv rv-d1">
-        <figure class="fig r43" style="margin-bottom:clamp(18px,2.6vw,24px)">
-          <span class="im"><img src="images/nail/nail_staff1.webp" alt="カラーボトルの棚の前に立つスタッフ" loading="lazy" decoding="async"></span>
-          <figcaption><span class="fn">PHOTO 07</span>ご予約のときに、気になっていることを一言そえてください。</figcaption>
-        </figure>
-        <div class="card" style="padding:clamp(20px,3vw,32px)">
-          <h3 class="h-sub">ご予約・ご相談</h3>
-          <p class="lead" style="margin-top:12px">「どんなデザインが似合うかわからない」でも大丈夫です。手の形やお仕事のことを伺いながら、かたち・長さ・色の順に決めていきます。ご予約の変更やキャンセルは、前日までにご連絡いただけると助かります。当日になってしまってもかまいませんので、ご一報だけお願いします。</p>
-          <div class="ctas">
-            <a class="cta cta-1" href="https://lin.ee/z3rP0hO"><svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 1.4c3.9 0 7 2.5 7 5.6 0 1.2-.5 2.4-1.4 3.4-1.3 1.5-4.2 3.4-4.9 3.7-.6.3-.6-.2-.5-.5l.2-1c0-.2 0-.5-.1-.6-.2-.1-.4-.2-.7-.2C3.5 11.4.9 9.2 1 6.9 1.1 3.9 4.1 1.4 8 1.4Z"/></svg>LINEで問い合わせる</a>
-            <a class="cta cta-2" href="mailto:info@example.com"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1.2" y="3" width="13.6" height="10" rx="2"/><path d="M1.8 4.2 8 8.6l6.2-4.4"/></svg>メールで問い合わせる</a>
+      </article>
+      <article class="dsx anc rv" id="ds-07">
+        <p class="dsx-rail">
+          <span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="スクエアのショート"><use href="#n-q0"></use></svg></span>
+          <span class="sl">SH-3<br>L0</span>
+        </p>
+        <div>
+          <div class="dsx-hd">
+            <span class="dsx-no">DS-07</span>
+            <h3>素の指先</h3>
+            <span class="badge se-all">通年</span>
+            <span class="dsx-sc">仕事・制服</span>
           </div>
-          <p style="margin-top:20px"><a class="tlink" href="nail-advance-contact.html" data-p="S-02">S-02 アクセス・ご予約フォームへ<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></a></p>
+          <p class="dsx-body">色をのせず、かたちと爪の表面だけを整えます。制服や身だしなみの決まりで色が難しい方に向けたご提案です。ネイルケア（¥3,300／約60分）だけでお受けいただけます。次にデザインを入れる日の下準備としてもお使いいただけます。</p>
+          <div class="dsx-meta">
+            <p class="note-s" style="margin-bottom:9px">色の方向</p>
+            <p class="note-s">色をのせません。かたちと表面を整えるところまでです。</p>
+          </div>
         </div>
-      </div>
+      </article>
+      <article class="dsx anc rv" id="ds-04">
+        <p class="dsx-rail">
+          <span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="アーモンドのミディアム"><use href="#n-a2"></use></svg></span>
+          <span class="sl">SH-5<br>L2</span>
+        </p>
+        <div>
+          <div class="dsx-hd">
+            <span class="dsx-no">DS-04</span>
+            <h3>秋のくすみ</h3>
+            <span class="badge se-autumn">秋</span>
+            <span class="dsx-sc">ふだん</span>
+          </div>
+          <p class="dsx-body">くすんだテラコッタとグレージュを、指ごとに振り分けてのせます。SH-5 アーモンドは先端に向けて細くするかたちなので、L2 ミディアム以上の長さが前提になります。ふだん L0〜L1 で過ごされている方は、まず L2 まで伸ばすところからのご相談になります。</p>
+          <div class="dsx-meta">
+            <p class="note-s" style="margin-bottom:9px">色の方向</p>
+            <ul class="cbar"><li><span class="sw" style="--c:#C58A78" aria-hidden="true"></span>テラコッタ</li><li><span class="sw" style="--c:#C8B6A6" aria-hidden="true"></span>グレージュ</li></ul>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- ============ O-10 全ページの索引 ============ -->
-  <section class="sec sec-tint" id="index" aria-labelledby="ix-h">
+  <!-- ============ g-out ============ -->
+  <section class="sec sec" id="g-out" aria-labelledby="g-out-h">
     <div class="wrap">
       <div class="sec-head rv">
-        <div style="max-width:600px">
-          <p class="eyebrow">Site Index</p>
-          <h2 class="h-sec" id="ix-h">このサイトの、<br>10ページ。</h2>
-          <p class="lead" style="margin-top:16px">それぞれのページに、代表となるかたちと長さを割り当てています。番号の頭文字が、内容のまとまりです。</p>
+        <div style="max-width:620px">
+          <p class="eyebrow">Days out</p>
+          <h2 class="h-sec" id="g-out-h">おでかけと、旅。</h2>
+          <p class="lead" style="margin-top:16px">出かける日のために組んだ3つです。荷物を持つ、砂や水に触れる、靴を履きかえる。当日の動きから長さを逆算しています。</p>
         </div>
-        <p class="note-s">O / C / K / S &#8212; 10 PAGES</p>
+        <p class="note-s">3件</p>
       </div>
-      <div class="sitemap rv rv-d1">
-        <a class="pcard" href="nail-advance-service.html" data-p="C-01" style="--pc:#C0765F;--pci:#9A5340">
-          <span class="pc-arc" aria-hidden="true"></span>
-          <span class="pc-top"><span class="nl pc-gl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r1"></use></svg></span><span class="pc-no">C-01 &nbsp;SH-1 / L1</span></span>
-          <h3>メニュー・料金</h3>
-          <p>6つのメニューと、オフ・リペアなどの追加。所要時間の目安つき。</p>
-          <span class="pc-go">VIEW<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
-        </a>
-        <a class="pcard" href="nail-advance-works.html" data-p="C-02" style="--pc:#C0765F;--pci:#9A5340">
-          <span class="pc-arc" aria-hidden="true"></span>
-          <span class="pc-top"><span class="nl pc-gl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o2"></use></svg></span><span class="pc-no">C-02 &nbsp;SH-2 / L2</span></span>
-          <h3>デザイン一覧</h3>
-          <p>DS-01〜08 を、かたち・長さ・季節・シーンで並べた一覧です。</p>
-          <span class="pc-go">VIEW<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
-        </a>
-        <a class="pcard" href="nail-advance-work-detail.html" data-p="C-03" style="--pc:#C0765F;--pci:#9A5340">
-          <span class="pc-arc" aria-hidden="true"></span>
-          <span class="pc-top"><span class="nl pc-gl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o2"></use></svg></span><span class="pc-no">C-03 &nbsp;SH-2 / L2</span></span>
-          <h3>デザイン詳細</h3>
-          <p>DS-05 白のブライダルを、かたちの決め方から仕上げまで一つだけ深く。</p>
-          <span class="pc-go">VIEW<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
-        </a>
-        <a class="pcard" href="nail-advance-catalog.html" data-p="C-04" style="--pc:#C0765F;--pci:#9A5340">
-          <span class="pc-arc" aria-hidden="true"></span>
-          <span class="pc-top"><span class="nl pc-gl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-a3"></use></svg></span><span class="pc-no">C-04 &nbsp;SH-5 / L3</span></span>
-          <h3>デザインカタログ</h3>
-          <p>春夏秋冬とシーン別の見取り図。かたち5種の詳しい説明もこちらです。</p>
-          <span class="pc-go">VIEW<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
-        </a>
-        <a class="pcard" href="nail-advance-flow.html" data-p="K-01" style="--pc:#7E9B85;--pci:#4C6854">
-          <span class="pc-arc" aria-hidden="true"></span>
-          <span class="pc-top"><span class="nl pc-gl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-f1"></use></svg></span><span class="pc-no">K-01 &nbsp;SH-4 / L1</span></span>
-          <h3>ご来店の流れ</h3>
-          <p>ご予約から仕上がりまで。当日どこで何を決めるのかを順番に。</p>
-          <span class="pc-go">VIEW<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
-        </a>
-        <a class="pcard" href="nail-advance-care.html" data-p="K-02" style="--pc:#7E9B85;--pci:#4C6854">
-          <span class="pc-arc" aria-hidden="true"></span>
-          <span class="pc-top"><span class="nl pc-gl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-q0"></use></svg></span><span class="pc-no">K-02 &nbsp;SH-3 / L0</span></span>
-          <h3>もちとケア</h3>
-          <p>オフ、自爪の状態の見方、通う頻度の考え方。長さの決め方もここに。</p>
-          <span class="pc-go">VIEW<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
-        </a>
-        <a class="pcard" href="nail-advance-faq.html" data-p="K-03" style="--pc:#7E9B85;--pci:#4C6854">
-          <span class="pc-arc" aria-hidden="true"></span>
-          <span class="pc-top"><span class="nl pc-gl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-r1"></use></svg></span><span class="pc-no">K-03 &nbsp;SH-1 / L1</span></span>
-          <h3>よくある質問</h3>
-          <p>はじめての方、持ち込み画像、お直し、妊娠中やアレルギーのご相談など。</p>
-          <span class="pc-go">VIEW<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
-        </a>
-        <a class="pcard" href="nail-advance-company.html" data-p="S-01" style="--pc:#8C90AE;--pci:#5A5E7C">
-          <span class="pc-arc" aria-hidden="true"></span>
-          <span class="pc-top"><span class="nl pc-gl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-o1"></use></svg></span><span class="pc-no">S-01 &nbsp;SH-2 / L1</span></span>
-          <h3>ネイリスト・サロン案内</h3>
-          <p>3人のネイリストと、店内のこと。使っている道具と衛生のことも。</p>
-          <span class="pc-go">VIEW<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
-        </a>
-        <a class="pcard" href="nail-advance-contact.html" data-p="S-02" style="--pc:#8C90AE;--pci:#5A5E7C">
-          <span class="pc-arc" aria-hidden="true"></span>
-          <span class="pc-top"><span class="nl pc-gl sm"><svg viewBox="0 0 60 96" aria-hidden="true"><use href="#n-f1"></use></svg></span><span class="pc-no">S-02 &nbsp;SH-4 / L1</span></span>
-          <h3>アクセス・ご予約</h3>
-          <p>行き方の略図と、ご予約フォーム。キャンセルの扱いもこちらに。</p>
-          <span class="pc-go">VIEW<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
-        </a>
+      <article class="dsx anc rv" id="ds-02">
+        <p class="dsx-rail">
+          <span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="オーバルのベーシック"><use href="#n-o1"></use></svg></span>
+          <span class="sl">SH-2<br>L1</span>
+        </p>
+        <div>
+          <div class="dsx-hd">
+            <span class="dsx-no">DS-02</span>
+            <h3>春のにじみ</h3>
+            <span class="badge se-spring">春</span>
+            <span class="dsx-sc">休日・おでかけ</span>
+          </div>
+          <p class="dsx-body">ピンクベージュを下に敷いて、ダスティローズを境目を作らずに重ねます。指ごとに濃さを少しずつ変えて、手を開いたときに流れが出るようにしています。L1 ベーシックの面でも収まる描き方なので、長さを出さずにアートを入れたい方に向きます。アートネイル（¥8,800／約120分）の範囲です。</p>
+          <figure class="fig r168 dsx-fig">
+            <span class="im"><img src="images/nail/nail_menu_art.webp" alt="色とりどりのアートを施した指先" loading="lazy" decoding="async"></span>
+            <figcaption><span class="fn">PHOTO 03</span>アートを載せるとき。SH-2 オーバルの L1 ベーシックです。</figcaption>
+          </figure>
+          <div class="dsx-meta">
+            <p class="note-s" style="margin-bottom:9px">色の方向</p>
+            <ul class="cbar"><li><span class="sw" style="--c:#E4BFB1" aria-hidden="true"></span>ピンクベージュ</li><li><span class="sw" style="--c:#D8A2A6" aria-hidden="true"></span>ダスティローズ</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="dsx anc rv" id="ds-03">
+        <p class="dsx-rail">
+          <span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="スクエアオフのベーシック"><use href="#n-f1"></use></svg></span>
+          <span class="sl">SH-4<br>L1</span>
+        </p>
+        <div>
+          <div class="dsx-hd">
+            <span class="dsx-no">DS-03</span>
+            <h3>夏の透け</h3>
+            <span class="badge se-summer">夏</span>
+            <span class="dsx-sc">旅行・海</span>
+          </div>
+          <p class="dsx-body">ミントとミルクホワイトを薄く重ねて、下の爪の色が少し透ける濃さで止めます。SH-4 スクエアオフは角を落としてあるので、荷物の出し入れが多い日でもひっかかりが少なめです。旅行の前にご相談いただくことが多い組み合わせです。</p>
+          <div class="dsx-meta">
+            <p class="note-s" style="margin-bottom:9px">色の方向</p>
+            <ul class="cbar"><li><span class="sw" style="--c:#A9C7BC" aria-hidden="true"></span>ミント</li><li><span class="sw" style="--c:#F1E6DE" aria-hidden="true"></span>ミルクホワイト</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="dsx anc rv" id="ds-08">
+        <p class="dsx-rail">
+          <span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="ラウンドのベーシック"><use href="#n-r1"></use></svg></span>
+          <span class="sl">SH-1<br>L1</span>
+        </p>
+        <div>
+          <div class="dsx-hd">
+            <span class="dsx-no">DS-08</span>
+            <h3>足元のいろ</h3>
+            <span class="badge se-summer">夏</span>
+            <span class="dsx-sc">サンダル・旅行（フット）</span>
+          </div>
+          <p class="dsx-body">フットネイル（¥7,700／約90分）です。足の爪はかたちを整えるところから始めます。手と色をそろえることも、足だけ別の色にすることもできます。同じ日にハンドとまとめてお受けいただく場合は、料金から ¥1,100 を差し引きます。</p>
+          <figure class="fig r168 dsx-fig">
+            <span class="im"><img src="images/nail/nail_menu_foot.webp" alt="やわらかな色で整えたフットネイルの足元" loading="lazy" decoding="async"></span>
+            <figcaption><span class="fn">PHOTO 04</span>フット。SH-1 ラウンドの L1 ベーシックです。</figcaption>
+          </figure>
+          <div class="dsx-meta">
+            <p class="note-s" style="margin-bottom:9px">色の方向</p>
+            <ul class="cbar"><li><span class="sw" style="--c:#A8BCA6" aria-hidden="true"></span>セージ</li><li><span class="sw" style="--c:#E4BFB1" aria-hidden="true"></span>ピンクベージュ</li></ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ g-special ============ -->
+  <section class="sec sec-tint" id="g-special" aria-labelledby="g-special-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div style="max-width:620px">
+          <p class="eyebrow">Special</p>
+          <h2 class="h-sec" id="g-special-h">特別な、一日。</h2>
+          <p class="lead" style="margin-top:16px">式や行事のための2つです。日取りが決まっているぶん、いつご相談いただくかが大事になります。DS-05 は C-03 でひとつずつ分解しています。</p>
+        </div>
+        <p class="note-s">2件</p>
+      </div>
+      <article class="dsx anc rv" id="ds-05">
+        <p class="dsx-rail">
+          <span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="オーバルのミディアム"><use href="#n-o2"></use></svg></span>
+          <span class="sl">SH-2<br>L2</span>
+        </p>
+        <div>
+          <div class="dsx-hd">
+            <span class="dsx-no">DS-05</span>
+            <h3>白のブライダル</h3>
+            <span class="badge se-all">通年</span>
+            <span class="dsx-sc">ブライダル・前撮り</span>
+          </div>
+          <p class="dsx-body">ベースにミルクホワイトを敷いて、先端にシャンパンを重ねます。ブライダルネイル（¥13,200／約120分）。お式の3〜4週間前に一度ご相談いただき、施術はお式の3〜5日前が目安です。衣装の白がオフホワイトか純白かで、重ねる量が変わります。</p>
+          <div class="dsx-meta">
+            <p class="note-s" style="margin-bottom:9px">色の方向</p>
+            <ul class="cbar"><li><span class="sw" style="--c:#F1E6DE" aria-hidden="true"></span>ミルクホワイト</li><li><span class="sw" style="--c:#DEC79A" aria-hidden="true"></span>シャンパン</li></ul>
+          </div>
+          <a class="morelink" href="nail-advance-work-detail.html" data-p="C-03" style="margin-top:clamp(16px,2.4vw,22px)"><b>DS-05 を詳しく見る</b><span>C-03 &nbsp;/&nbsp; SHAPE &#8594; LENGTH &#8594; COLOR &nbsp;&#8594;</span></a>
+        </div>
+      </article>
+      <article class="dsx anc rv" id="ds-06">
+        <p class="dsx-rail">
+          <span class="nl"><svg viewBox="0 0 60 96" role="img" aria-label="アーモンドのロング"><use href="#n-a3"></use></svg></span>
+          <span class="sl">SH-5<br>L3</span>
+        </p>
+        <div>
+          <div class="dsx-hd">
+            <span class="dsx-no">DS-06</span>
+            <h3>冬のきらめき</h3>
+            <span class="badge se-winter">冬</span>
+            <span class="dsx-sc">パーティ・年末年始</span>
+          </div>
+          <p class="dsx-body">深いボルドーに、先端だけシャンパンを重ねます。L3 ロングは指の腹から5mmほど。ふだん L0〜L1 で過ごされている方が、行事の前だけ長さを出す、という選び方をされることもあります。年明けにオフだけをお受けすることもできます。</p>
+          <div class="dsx-meta">
+            <p class="note-s" style="margin-bottom:9px">色の方向</p>
+            <ul class="cbar"><li><span class="sw" style="--c:#8E5560" aria-hidden="true"></span>ボルドー</li><li><span class="sw" style="--c:#DEC79A" aria-hidden="true"></span>シャンパン</li></ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ C-02c まとめ ============ -->
+  <section class="sec sec-white" id="note" aria-labelledby="note-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div style="max-width:620px">
+          <p class="eyebrow">Before you choose</p>
+          <h2 class="h-sec" id="note-h">選ぶ前に、<br>ふたつだけ。</h2>
+        </div>
+        <p class="note-s">C-02 &#8212; NOTE</p>
+      </div>
+      <ul class="nlist rv rv-d1" style="max-width:52em">
+        <li>
+          <span class="id">C-e</span>
+          <div><h4>持ち込みの画像について</h4><p>歓迎です。ただ、まったく同じ仕上がりをお約束することはできません。爪のかたち・長さ・色の出方が一人ひとり違うためです。画像を見せていただいたら、まず「どこが好きなのか」を伺うところから始めて、近づけ方を一緒に決めていきます。</p></div>
+        </li>
+        <li>
+          <span class="id">C-f</span>
+          <div><h4>画面の色について</h4><p>このページの色帯は目安です。光の当たり方やお使いのモニターによって見え方が変わります。実際の色味はご来店時に、チップを指に当ててお確かめください。</p></div>
+        </li>
+      </ul>
+
+      <div class="rv rv-d2" style="display:grid;gap:12px;margin-top:clamp(26px,4vw,40px)">
+        <a class="morelink" href="nail-advance-catalog.html" data-p="C-04"><b>季節とシーンのカタログを見る</b><span>C-04 &nbsp;/&nbsp; CATALOG &nbsp;&#8594;</span></a>
+        <a class="morelink ghost" href="nail-advance-service.html" data-p="C-01"><b>メニューと料金に戻る</b><span>C-01 &nbsp;/&nbsp; MENU &nbsp;&#8594;</span></a>
       </div>
 
-      <nav class="nextnav" aria-label="次に読むページ">
-        <a class="nx rv" href="nail-advance-service.html" data-p="C-01" style="--pc:#C0765F">
-          <span class="nx-arc" aria-hidden="true"></span>
-          <span class="nx-n">C-01 / MENU</span>
-          <span class="nx-t">メニュー・料金</span>
-          <span class="nx-d">6つのメニューと料金、所要時間の目安。オフや付け替えの扱いもこちらです。</span>
-          <span class="nx-go">このページを見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
-        </a>
-        <a class="nx rv" href="nail-advance-catalog.html" data-p="C-04" style="--pc:#C0765F">
-          <span class="nx-arc" aria-hidden="true"></span>
-          <span class="nx-n">C-04 / CATALOG</span>
-          <span class="nx-t">デザインカタログ</span>
-          <span class="nx-d">季節とシーンから探すページ。かたち5種の詳しい説明もここにあります。</span>
-          <span class="nx-go">このページを見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
-        </a>
-      </nav>
+  <nav class="nextnav" aria-label="次に読むページ">
+    <a class="nx rv" href="nail-advance-work-detail.html" data-p="C-03" style="--pc:#C0765F">
+      <span class="nx-arc" aria-hidden="true"></span>
+      <span class="nx-n">C-03 / DS-05</span>
+      <span class="nx-t">デザイン詳細</span>
+      <span class="nx-d">DS-05 白のブライダルを、かたち → 長さ → 色 → 仕上げ の順に分解しています。</span>
+      <span class="nx-go">このページを見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
+    </a>
+    <a class="nx rv" href="nail-advance-catalog.html" data-p="C-04" style="--pc:#C0765F">
+      <span class="nx-arc" aria-hidden="true"></span>
+      <span class="nx-n">C-04 / CATALOG</span>
+      <span class="nx-t">デザインカタログ</span>
+      <span class="nx-d">季節とシーンの見取り図。かたち5種の詳しい説明もこちらです。</span>
+      <span class="nx-go">このページを見る<svg viewBox="0 0 16 8" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1"><use href="#ar-r"></use></svg></span>
+    </a>
+  </nav>
     </div>
   </section>
 
@@ -1398,12 +1363,12 @@ html.pt-hold .pt,.pt.leave{visibility:visible}
       <nav class="ft-map" aria-label="フッター サイトマップ">
         <div>
           <p>O &#8212; OUTLINE</p>
-          <a href="nail-advance.html" data-p="O-01" aria-current="page">O-01 トップ</a>
+          <a href="nail-advance.html" data-p="O-01">O-01 トップ</a>
         </div>
         <div>
           <p>C &#8212; CHOOSE</p>
           <a href="nail-advance-service.html" data-p="C-01">C-01 メニュー・料金</a>
-          <a href="nail-advance-works.html" data-p="C-02">C-02 デザイン一覧</a>
+          <a href="nail-advance-works.html" data-p="C-02" aria-current="page">C-02 デザイン一覧</a>
           <a href="nail-advance-work-detail.html" data-p="C-03">C-03 デザイン詳細</a>
           <a href="nail-advance-catalog.html" data-p="C-04">C-04 デザインカタログ</a>
         </div>
@@ -1436,8 +1401,8 @@ html.pt-hold .pt,.pt.leave{visibility:visible}
   "use strict";
 
   /* ===== このページの識別子。ページごとに変えるのはこの2行だけ ===== */
-  var CURRENT  = 'O-01';
-  var PAGENAME = 'トップ';
+  var CURRENT  = 'C-02';
+  var PAGENAME = 'デザイン一覧';
 
   /* ===== 全10ページの台帳（全ページ共通。編集しない） ===== */
   var PAGES = {
