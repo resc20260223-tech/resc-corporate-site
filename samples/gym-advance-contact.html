@@ -999,6 +999,53 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
   .svgscroll__hint{display:block}
 }
 
+
+/* ============ SNS ／ ブロックA・B（サービス名はテキスト表記。公式ロゴ・公式カラーは使わない） ============ */
+.snsmk{display:block;width:1em;height:1em;flex:none}
+.snsmk .sk-l{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linejoin:miter}
+.snsmk .sk-s{fill:currentColor;stroke:none}
+
+/* ブロックA：フッターのSNS行 */
+.foot__sns{margin-top:16px;padding-top:14px;border-top:1px solid var(--dark-rule)}
+.foot__snsk{display:block;margin-bottom:9px;font-family:var(--num);font-weight:700;font-size:12px;
+  letter-spacing:.18em;color:var(--on-dark-mute)}
+.foot__snsl{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.foot__snsl a{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;text-decoration:none;
+  border:1px solid var(--dark-rule);color:var(--on-dark);
+  font-family:var(--num);font-weight:600;font-size:13.5px;letter-spacing:.06em;line-height:1}
+.foot__snsl a:hover{border-color:var(--lime);color:var(--lime)}
+.foot__snsn{margin-top:11px;font-size:11.5px;line-height:1.85;color:var(--on-dark-mute)}
+
+/* ブロックB：フィード風ブロック（写真グリッド型・4枠） */
+.feed{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.4vw,18px);
+  margin-top:clamp(22px,3vw,34px)}
+.feed__i{margin:0;min-width:0}
+.feed__ph{display:block;position:relative;aspect-ratio:1/1;overflow:hidden;
+  background:var(--ink-3);border:1px solid var(--rule)}
+.feed__ph img{display:block;width:100%;height:100%;object-fit:cover}
+.feed__ph--mk{display:grid;place-content:center;justify-items:center;gap:10px;padding:12px;
+  background:var(--ink);border-color:var(--ink)}
+.feedlm{display:block;width:min(62%,116px);height:auto;color:var(--on-dark)}
+.feedlm .fm-ax{fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round}
+.feedlm .fm-fx{fill:currentColor}
+.feedlm .fm-mv{fill:none;stroke:var(--lime);stroke-width:2;stroke-linecap:round}
+.feedlm .fm-hd,.feedlm .fm-ld{fill:var(--lime)}
+.feedlm .fm-gd{fill:none;stroke:currentColor;stroke-width:1;stroke-dasharray:3 5;opacity:.45}
+.feed__big{display:flex;align-items:baseline;gap:7px;font-family:var(--num);font-weight:700;
+  font-size:clamp(28px,4.4vw,44px);line-height:.86;letter-spacing:.02em;color:var(--lime)}
+.feed__big i{font-style:normal;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--on-dark-mute)}
+.feed__cap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 9px;margin-top:10px}
+.feed__cap b{grid-row:1/3;padding-top:2px;font-family:var(--num);font-weight:700;font-size:13px;
+  letter-spacing:.1em;color:var(--muted)}
+.feed__cap span{font-size:12.5px;line-height:1.7}
+.feed__cap em{font-style:normal;font-family:var(--num);font-weight:600;font-size:10.5px;
+  letter-spacing:.18em;color:var(--muted)}
+.sec--dark .feed__cap span,.sec--dark2 .feed__cap span{color:var(--on-dark)}
+.sec--dark .feed__cap b,.sec--dark2 .feed__cap b,
+.sec--dark .feed__cap em,.sec--dark2 .feed__cap em{color:var(--on-dark-mute)}
+.feed__go{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:clamp(20px,2.6vw,30px)}
+@media (max-width:640px){.feed{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.feed__go .btn{width:100%;justify-content:space-between}}
 </style>
 </head>
 <body>
@@ -1401,6 +1448,45 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
   </div>
 </section>
 
+<!-- ============ 10-07 SNS / FEED ============ -->
+<section class="sec" id="sns" aria-labelledby="sns-t">
+  <div class="wrap">
+    <div class="shead rise r5 rv">
+      <p class="shead__row"><span class="shead__no">10-07</span><span class="shead__en">INSTAGRAM / FEED</span></p>
+      <h2 id="sns-t">器具と、場の様子。</h2>
+      <p class="shead__note">更新はInstagramが中心です。載せているのは器具とフロアの様子だけで、体つきの変化を並べることはしていません。X と Facebook では、休館日やメニューの入れ替えといったお知らせをお伝えしています。</p>
+    </div>
+
+    <div class="feed rise r5 rv">
+      <figure class="feed__i">
+        <span class="feed__ph"><img src="images/gym/gym_training_2.webp" alt="床に置かれたバーベルとプレート" loading="lazy" decoding="async"></span>
+        <figcaption class="feed__cap"><b>01</b><span>バーベルとプレート</span><em>BARBELL</em></figcaption>
+      </figure>
+      <figure class="feed__i">
+        <span class="feed__ph"><img src="images/gym/gym_training_1.webp" alt="重さ順に並んだダンベルラック" loading="lazy" decoding="async"></span>
+        <figcaption class="feed__cap"><b>02</b><span>重さ順のダンベル</span><em>DUMBBELL</em></figcaption>
+      </figure>
+      <figure class="feed__i">
+        <span class="feed__ph"><img src="images/gym/gym_training_5.webp" alt="ケトルベルとトレーニングバンドを並べた床面" loading="lazy" decoding="async"></span>
+        <figcaption class="feed__cap"><b>03</b><span>ケトルベルとバンド</span><em>FLOOR</em></figcaption>
+      </figure>
+      <figure class="feed__i">
+        <span class="feed__ph feed__ph--mk">
+          <svg class="feedlm" viewBox="0 0 120 120" role="img" aria-label="バーベルスクワットの記号。肩に荷重、股関節と膝が支点、上下に動く"><line class="fm-ax" x1="60" y1="32" x2="60" y2="104"/><path class="fm-ld" d="M60,28 L70,10 L50,10 Z"/><circle class="fm-fx" cx="60" cy="62" r="5.5"/><circle class="fm-fx" cx="60" cy="86" r="5.5"/><line class="fm-mv" x1="96" y1="48" x2="96" y2="76"/><path class="fm-hd" d="M96,38 L101,50 L91,50 Z"/><path class="fm-hd" d="M96,86 L101,74 L91,74 Z"/><line class="fm-gd" x1="26" y1="104" x2="94" y2="104"/></svg>
+          <span class="feed__big">10<i>MOVES</i></span>
+        </span>
+        <figcaption class="feed__cap"><b>04</b><span>写真のない日は記号で種目を紹介</span><em>LOAD MARK</em></figcaption>
+      </figure>
+    </div>
+
+    <div class="feed__go rise r5 rv">
+      <a class="btn btn--solid" href="#"><svg class="snsmk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="sk-l" x="3.4" y="3.4" width="7.4" height="7.4"/><rect class="sk-l" x="13.2" y="3.4" width="7.4" height="7.4"/><rect class="sk-l" x="3.4" y="13.2" width="7.4" height="7.4"/><rect class="sk-s" x="13.2" y="13.2" width="7.4" height="7.4"/></svg>Instagram で見る <em>SAMPLE</em></a>
+    </div>
+
+    <p class="note rise r5 rv">※ SNSのリンク先はサンプルです。実在のアカウントではありません。<br>※ 載せているのは器具と場の様子です。トレーニングの効果や感じ方には個人差があります。</p>
+  </div>
+</section>
+
 <!-- ============ NEXT STEP ============ -->
 <section class="nextstep" aria-labelledby="next-t">
   <div class="wrap">
@@ -1445,6 +1531,15 @@ html.x-land .xplate{transform:translateY(0) scale(.985);opacity:0;
           <a href="mailto:info@example.com">info@example.com</a>
           <a href="https://lin.ee/z3rP0hO">LINEで問い合わせる</a>
         </p>
+        <div class="foot__sns">
+          <span class="foot__snsk">SNS</span>
+          <ul class="foot__snsl">
+            <li><a href="#"><svg class="snsmk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="sk-l" x="3.4" y="3.4" width="7.4" height="7.4"/><rect class="sk-l" x="13.2" y="3.4" width="7.4" height="7.4"/><rect class="sk-l" x="3.4" y="13.2" width="7.4" height="7.4"/><rect class="sk-s" x="13.2" y="13.2" width="7.4" height="7.4"/></svg>Instagram</a></li>
+            <li><a href="#"><svg class="snsmk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="sk-s" x="3" y="4.2" width="18" height="2.6"/><rect class="sk-s" x="3" y="10.7" width="12" height="2.6"/><rect class="sk-s" x="3" y="17.2" width="6.4" height="2.6"/></svg>X</a></li>
+            <li><a href="#"><svg class="snsmk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect class="sk-l" x="3.4" y="3.4" width="17.2" height="17.2"/><rect class="sk-s" x="7.3" y="7.4" width="9.4" height="3.4"/><rect class="sk-s" x="7.3" y="13.2" width="5.6" height="3.4"/></svg>Facebook</a></li>
+          </ul>
+          <p class="foot__snsn">※ SNSのリンク先はサンプルです。実在のアカウントではありません。</p>
+        </div>
       </div>
       <nav class="foot__nav" aria-label="フッター">
         <div>

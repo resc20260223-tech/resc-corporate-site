@@ -430,6 +430,36 @@ table.info tr:first-child th,table.info tr:first-child td{border-top:1px solid v
 .ft-nav a{color:var(--ink2);text-decoration:none}
 .ft-nav a:hover{color:var(--accent-d);text-decoration:underline}
 
+/* ============ SNS（ブロックA：フッター行／ブロックB：お知らせ） ============ */
+.sns-i{width:22px;height:22px;flex:none}
+.snsl{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:700;
+  font-size:.86rem;line-height:1.7;color:var(--ink);background:#fff;
+  border:1px solid var(--line);border-radius:3px;padding:9px 14px;
+  transition:border-color .2s,background .2s,color .2s}
+.snsl:hover{border-color:var(--accent);color:var(--accent-d);background:var(--pale2)}
+.snsl .sns-i{width:20px;height:20px;color:var(--accent)}
+.ft-sns{flex-basis:100%;border-bottom:1px solid var(--line-soft);padding-bottom:22px;margin-bottom:2px}
+.ft-sns>b{display:block;font-family:var(--disp);font-size:.76rem;letter-spacing:.14em;
+  color:var(--ink2);margin-bottom:12px}
+.ft-sns ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.sns-fine{font-size:.86rem;color:var(--ink2);line-height:1.9;margin:12px 0 0}
+.snsb{border:1px solid var(--line);border-radius:3px;background:#fff;padding:clamp(16px,2.2vw,28px)}
+.snsb-hd{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;
+  padding-bottom:16px;border-bottom:1px solid var(--line)}
+.snsb-hd .sns-i{width:27px;height:27px;color:var(--accent)}
+.snsb-hd b{font-family:var(--disp);font-weight:700;font-size:1.06rem;letter-spacing:.06em;color:var(--ink)}
+.snsb-sub{font-size:.86rem;color:var(--ink2)}
+.snsb-go{margin-left:auto}
+.snsb-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}
+.snsc{background:var(--pale2);border:1px solid var(--line-soft);border-radius:3px;padding:16px 16px 18px;min-width:0}
+.snsc .n{display:inline-block;font-family:var(--disp);font-weight:700;font-size:.74rem;letter-spacing:.14em;
+  color:var(--accent);background:#fff;border:1px solid var(--line);border-radius:2px;padding:2px 9px;line-height:1.7}
+.snsc h3{margin-top:12px;font-size:1rem;line-height:1.6}
+.snsc p{margin:9px 0 0;font-size:.87rem;color:var(--ink2);line-height:1.9}
+.snsb .sns-fine{margin-top:16px}
+@media(max-width:1100px){.snsb-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.snsb-grid{grid-template-columns:1fr}.snsb-go{margin-left:0;flex-basis:100%}}
+
 /* ============ 出現アニメーション ============ */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
@@ -441,6 +471,7 @@ table.info tr:first-child th,table.info tr:first-child td{border-top:1px solid v
   body{opacity:1!important}
 }
 </style>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
 
@@ -696,7 +727,7 @@ table.info tr:first-child th,table.info tr:first-child td{border-top:1px solid v
         <div class="tags"><span>ケア</span><span>自費</span></div>
       </article>
     </div>
-    <p class="note">症状に応じた施術内容の目安です。施術の効果や結果を保証するものではありません。気になる症状がある場合は、受付・カウンセリング時にお知らせください。</p>
+    <p class="note">症状に応じた施術内容の目安です。施術の内容や結果をお約束するものではありません。痛みの感じ方や経過には個人差があります。気になる症状がある場合は、受付・カウンセリング時にお知らせください。</p>
     <p style="margin-top:26px"><a class="btn btn-p" href="clinic-standard-detail.html">6つのメニューを詳しく見る（料金表つき）</a></p>
   </div>
 </section>
@@ -830,6 +861,48 @@ table.info tr:first-child th,table.info tr:first-child td{border-top:1px solid v
   </div>
 </section>
 
+<!-- ============ 06 SNSでのお知らせ（ブロックB） ============ -->
+<section class="sec" id="sns" aria-labelledby="sn-h">
+  <div class="wrap">
+    <div class="shead">
+      <span class="snum">06</span>
+      <h2 id="sn-h">Instagramでのお知らせ</h2>
+      <p>休診日のお知らせや、院内の様子をInstagramでお伝えしています。施術中の写真や、お身体の状態についての投稿は行っていません。</p>
+    </div>
+    <div class="snsb rv">
+      <div class="snsb-hd">
+        <svg class="sns-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="2.6"/><path d="M12 3.6v16.8M3.6 12h16.8"/></svg>
+        <b>Instagram</b>
+        <span class="snsb-sub">院からのお知らせ</span>
+        <a class="btn btn-o btn-sm snsb-go" href="#">Instagramで見る</a>
+      </div>
+      <div class="snsb-grid">
+        <article class="snsc">
+          <span class="n">01</span>
+          <h3>休診日のご案内</h3>
+          <p>日曜・祝日は休診です。受付時間は9:00〜19:00、最終受付は18:30となります。休診の予定が変わるときは、こちらでお知らせします。</p>
+        </article>
+        <article class="snsc">
+          <span class="n">02</span>
+          <h3>受付・待合スペースのこと</h3>
+          <p>待合スペースはソファ4席です。入口から受付まで段差はありません。ベビーカー・車いすのままお入りいただけます。</p>
+        </article>
+        <article class="snsc">
+          <span class="n">03</span>
+          <h3>院内の備品について</h3>
+          <p>施術ベッドは4床、カーテンで仕切っています。タオルとリネンは、ご来院ごとに新しいものを用意しています。</p>
+        </article>
+        <article class="snsc">
+          <span class="n">04</span>
+          <h3>ご予約の受け方</h3>
+          <p>ご予約はLINEまたはメールで承ります。予約優先ですが、当日の受付もできます（お待ちいただく場合があります）。</p>
+        </article>
+      </div>
+      <p class="sns-fine">SNSのリンク先はサンプルです。実在のアカウントではありません。</p>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <nav class="nextnav" aria-label="ほかのページ">
@@ -843,6 +916,14 @@ table.info tr:first-child th,table.info tr:first-child td{border-top:1px solid v
 </nav>
 <footer class="ft">
   <div class="wrap">
+    <div class="ft-sns">
+      <b>SNS ・ LINE</b>
+      <ul>
+        <li><a class="snsl" href="#"><svg class="sns-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="2.6"/><path d="M12 3.6v16.8M3.6 12h16.8"/></svg><span>Instagram</span></a></li>
+        <li><a class="snsl" href="https://lin.ee/z3rP0hO"><svg class="sns-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 6.2v8.2a2.6 2.6 0 0 1-2.6 2.6h-5.3l-3.7 3.3V17H6.2a2.6 2.6 0 0 1-2.6-2.6V6.2A2.6 2.6 0 0 1 6.2 3.6h11.6a2.6 2.6 0 0 1 2.6 2.6Z"/><path d="M7.7 8.7h8.6M7.7 12h5.6"/></svg><span>LINEで問い合わせる</span></a></li>
+      </ul>
+      <p class="sns-fine">SNSのリンク先はサンプルです。実在のアカウントではありません。</p>
+    </div>
     <span class="fb">みなと接骨院</span>
     <ul class="ft-nav">
         <li><a href="clinic-standard.html">ホーム</a></li>

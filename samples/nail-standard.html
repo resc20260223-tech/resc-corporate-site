@@ -360,6 +360,41 @@ button,input,select,textarea{font:inherit;color:inherit}
   .mprice{grid-column:1/3;text-align:right}
   .chips{grid-template-columns:repeat(auto-fill,minmax(108px,1fr))}
 }
+
+/* ---------- SNS連携（A:フッターの行 ／ B:Instagramフィード風） ----------
+   公式ロゴ・公式カラーは使わない。円と弧だけの自作記号＋サービス名のテキスト表記。 */
+.sns-i{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;
+  border:1px solid currentColor;border-radius:999px;flex:none}
+.sns-i svg{width:13px;height:13px;display:block}
+
+.ft-sns{margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15)}
+.ft-sns-h{font-family:var(--en);font-size:10.5px;letter-spacing:.24em;color:#E7C9CE;
+  font-weight:400;margin-bottom:12px}
+.ft-sns-list{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center}
+.ft-sns-list a{display:inline-flex;align-items:center;gap:9px;font-family:var(--en);
+  font-size:12.5px;letter-spacing:.12em;font-weight:300;color:#F0DDDD;text-decoration:none;padding:3px 0}
+.ft-sns-list a:hover{color:#fff}
+.ft-sns-note{font-size:11.5px;letter-spacing:.06em;color:#DCC5C9;font-weight:300;
+  margin-top:12px;line-height:1.9}
+
+.sns-head{display:flex;flex-wrap:wrap;gap:12px 30px;align-items:flex-end;justify-content:space-between}
+.sns-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.8vw,20px)}
+.sns-grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.sns-cell .im{display:block;overflow:hidden;border-radius:clamp(12px,2vw,20px);background:var(--bg2)}
+.sns-cell .im img{width:100%;object-fit:cover;aspect-ratio:1/1;
+  transition:transform .9s cubic-bezier(.22,.7,.2,1)}
+.sns-cell:hover .im img{transform:scale(1.04)}
+.sns-cap{display:block;margin-top:9px;font-size:12px;line-height:1.75;letter-spacing:.04em}
+.sns-cap b{display:block;font-weight:400;color:var(--ink)}
+.sns-cap span{display:block;font-family:var(--en);font-size:10px;letter-spacing:.2em;color:var(--key-ink)}
+.sns-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--key-ink);
+  color:var(--key-ink);border-radius:999px;padding:11px 24px;font-size:13px;letter-spacing:.1em;
+  text-decoration:none;transition:background-color .3s}
+.sns-btn:hover{background:var(--key-tint)}
+.sns-btn .ar{width:16px;height:8px;flex:none}
+@media (max-width:860px){
+  .sns-grid,.sns-grid.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 </style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -614,6 +649,50 @@ button,input,select,textarea{font:inherit;color:inherit}
     </div>
   </section>
 
+
+  <!-- ============ SNS ／ Instagram（フィード風・写真は既存の再利用） ============ -->
+  <section class="sec" id="sns" aria-labelledby="sns-h">
+    <div class="wrap">
+      <div class="sns-head rv">
+        <div style="max-width:600px">
+          <p class="eyebrow">Instagram</p>
+          <h2 class="h-sec" id="sns-h">お作りした指先を、<br>そのまま並べています。</h2>
+          <p class="lead" style="margin-top:16px">お作りしたデザインを、かたちと長さを添えて載せています。気になるものがあれば、ご来店のときに見せてください。そこから一緒に調整していきます。</p>
+        </div>
+      </div>
+      <ul class="sns-grid rv rv-d1" style="margin-top:clamp(22px,3.2vw,36px)">
+        <li class="sns-cell">
+          <span class="im"><img src="images/nail/nail_menu_hand.webp" alt="ワンカラーで淡く仕上げたハンドの指先" loading="lazy" decoding="async"></span>
+          <span class="sns-cap"><b>DS-01 ミルクベール</b><span>SH-1 / L0</span></span>
+        </li>
+        <li class="sns-cell">
+          <span class="im"><img src="images/nail/nail_menu_art.webp" alt="色とりどりのアートを施した指先" loading="lazy" decoding="async"></span>
+          <span class="sns-cap"><b>DS-02 春のにじみ</b><span>SH-2 / L1</span></span>
+        </li>
+        <li class="sns-cell">
+          <span class="im"><img src="images/nail/nail_menu_bridal.webp" alt="白とラメで上品に仕上げたブライダルの指先" loading="lazy" decoding="async"></span>
+          <span class="sns-cap"><b>DS-05 白のブライダル</b><span>SH-2 / L2</span></span>
+        </li>
+        <li class="sns-cell">
+          <span class="im"><img src="images/nail/nail_menu_foot.webp" alt="やわらかな色で整えたフットの足元" loading="lazy" decoding="async"></span>
+          <span class="sns-cap"><b>DS-08 足元のいろ</b><span>SH-1 / L1</span></span>
+        </li>
+        <li class="sns-cell">
+          <span class="im"><img src="images/nail/nail_menu_care.webp" alt="ケアで整えられた自爪の手元" loading="lazy" decoding="async"></span>
+          <span class="sns-cap"><b>DS-07 素の指先</b><span>SH-3 / L0</span></span>
+        </li>
+        <li class="sns-cell">
+          <span class="im"><img src="images/nail/nail_gallery1.webp" alt="木のトレーに並ぶパステルのネイルチップ" loading="lazy" decoding="async"></span>
+          <span class="sns-cap"><b>COLOR チップの色見本</b><span>12 COLORS</span></span>
+        </li>
+      </ul>
+      <p class="rv rv-d2" style="margin-top:clamp(22px,3vw,32px)">
+        <a class="sns-btn" href="#"><span class="sns-i" aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="7" cy="7" r="1.85"/><circle cx="13" cy="7" r="1.85"/><circle cx="7" cy="13" r="1.85"/><circle cx="13" cy="13" r="1.85"/></svg></span>Instagram で見る<svg class="ar" viewBox="0 0 16 8" aria-hidden="true" fill="none"><path d="M0 4h13.6M10.2.8 14 4l-3.8 3.2" stroke="currentColor" stroke-width="1"/></svg></a>
+      </p>
+      <p class="note-s" style="margin-top:14px">SNSのリンク先はサンプルです。実在のアカウントではありません。</p>
+    </div>
+  </section>
+
   <!-- ============ ご案内 ============ -->
   <section class="sec" id="visit" aria-labelledby="visit-h">
     <div class="wrap visit">
@@ -671,6 +750,13 @@ button,input,select,textarea{font:inherit;color:inherit}
       <a href="nail-standard-detail.html" style="--c:#C0765F"><span class="f-dot" aria-hidden="true"></span>02 MENU／メニュー・料金</a>
       <a href="nail-standard-info.html" style="--c:#7E9B85"><span class="f-dot" aria-hidden="true"></span>03 SALON／サロン・ご予約</a>
       </nav>
+    </div>
+    <div class="ft-sns">
+      <p class="ft-sns-h">Social</p>
+      <ul class="ft-sns-list">
+        <li><a href="#"><span class="sns-i" aria-hidden="true"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="7" cy="7" r="1.85"/><circle cx="13" cy="7" r="1.85"/><circle cx="7" cy="13" r="1.85"/><circle cx="13" cy="13" r="1.85"/></svg></span>Instagram</a></li>
+      </ul>
+      <p class="ft-sns-note">SNSのリンク先はサンプルです。実在のアカウントではありません。</p>
     </div>
     <p class="ft-note">これはRESCが作成したサンプルサイトです。実店舗ではありません。／ Nail Salon Fleur（RESC制作サンプル）／ <a href="../hp-service/index.html">RESCのサイトに戻る</a></p>
   </div>

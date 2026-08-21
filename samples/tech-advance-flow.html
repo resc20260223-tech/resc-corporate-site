@@ -533,6 +533,31 @@ a.cl-i:hover h4{color:var(--acc)}
 .cr p{font-size:10.5px;color:rgba(238,242,247,.66);line-height:1.85;max-width:64em}
 .cr a{font-size:10.5px;border-bottom:1px solid rgba(255,255,255,.45);white-space:nowrap}
 .cr a:hover{border-bottom-color:#fff;color:#fff}
+/* ---------- SNS：フッターのSNS行（ブロックA） ---------- */
+.ft-sns{border-bottom:1px solid rgba(255,255,255,.14)}
+.ft-sns .wrap{padding-block:clamp(18px,2.4vw,26px);display:flex;flex-wrap:wrap;gap:12px clamp(14px,2.4vw,26px);align-items:center}
+.ft-sns h3{font-family:var(--f-mono);font-weight:500;font-size:10px;color:var(--acc-lite);letter-spacing:.14em}
+.ft-sns ul{display:flex;flex-wrap:wrap;gap:10px 12px}
+.ft-sns li a{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.42);padding:9px 15px;font-size:12.5px;color:rgba(238,242,247,.92);transition:background .25s,border-color .25s,color .25s}
+.ft-sns li a:hover{background:#fff;color:var(--ink);border-color:#fff}
+.ft-sns .tg{font-family:var(--f-mono);font-size:9px;letter-spacing:.12em;color:var(--acc-lite)}
+.ft-sns li a:hover .tg{color:var(--acc)}
+.ft-sns .snote{flex:1 1 100%;font-size:10.5px;color:rgba(238,242,247,.72);line-height:1.85}
+.sgi{width:17px;height:17px;flex:none;display:block;fill:none;stroke:currentColor;stroke-width:1.5}
+
+/* ---------- SNS：短信フィード（ブロックB） ---------- */
+.snsf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,18px)}
+.snsf li{border:1px solid var(--line-2);border-radius:var(--r);background:var(--paper);padding:clamp(15px,1.9vw,21px);display:flex;flex-direction:column;gap:10px}
+.snsf-h{display:flex;align-items:center;gap:8px;font-size:10px;color:var(--ink-3);letter-spacing:.1em}
+.snsf-h .sgi{width:15px;height:15px;color:var(--acc)}
+.snsf-h .sn{color:var(--ink);letter-spacing:.14em}
+.snsf-h time{margin-left:auto;color:var(--ink-3)}
+.snsf-t{font-size:12.5px;line-height:1.98;color:var(--ink-2)}
+.snsf-g{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.snsf-g span{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.06em;color:var(--acc);background:var(--acc-soft);padding:4px 8px;border-radius:var(--r)}
+.snsf-act{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:clamp(18px,2.4vw,26px)}
+@media(max-width:900px){.snsf{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.snsf{grid-template-columns:minmax(0,1fr)}.snsf-act .btn{width:100%;justify-content:space-between}}
 
 /* ---------- 20. ブレークポイント調整 ---------- */
 @media(max-width:1000px){
@@ -1087,6 +1112,18 @@ a.cl-i:hover h4{color:var(--acc)}
         <a class="mono" href="mailto:info@example.com">info@example.com <span aria-hidden="true">&#8594;</span></a>
         <a class="mono" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINEで相談する <span aria-hidden="true">&#8594;</span></a>
       </div>
+    </div>
+  </div>
+
+  <div class="ft-sns">
+    <div class="wrap">
+      <h3 class="mono">SOCIAL &#8212; 更新のお知らせ</h3>
+      <ul>
+        <li><a href="#"><svg class="sgi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16"/><path d="M8 9.4h8M8 12h8M8 14.6h4.6"/></svg><span class="lb">X</span><span class="tg mono">FIELD NOTES</span></a></li>
+        <li><a href="#"><svg class="sgi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16"/><rect x="9" y="9" width="6" height="6"/></svg><span class="lb">Instagram</span><span class="tg mono">OFFICE</span></a></li>
+        <li><a href="#"><svg class="sgi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16"/><path d="M9.4 4.6v14.8M12.8 9.4h3.8M12.8 14.6h3.8"/></svg><span class="lb">Facebook</span><span class="tg mono">NOTICE</span></a></li>
+      </ul>
+      <p class="snote">SNSのリンク先はサンプルです。実在のアカウントではありません。LINEでのご相談は、上のボタンから承っています。</p>
     </div>
   </div>
 
