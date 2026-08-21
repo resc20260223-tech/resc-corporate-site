@@ -198,6 +198,8 @@ ul{margin:0;padding:0;list-style:none}
 
 .nav{display:flex;align-items:center;gap:38px}
 .nav__list{display:flex;align-items:center;gap:34px}
+@media (max-width:1180px){.nav__list{gap:22px}}
+@media (max-width:1024px){.nav__list{gap:16px;font-size:13px}}
 .nav__link{
   position:relative;font-size:13.5px;letter-spacing:.16em;color:rgba(255,255,255,.9);
   font-weight:500;padding:8px 0;transition:color .3s var(--ease);white-space:nowrap;
@@ -637,7 +639,7 @@ html.opening .header{padding-right:var(--sbw,0px)}
 .footer__addr{margin-top:26px;font-size:13px;line-height:2.1;color:rgba(255,255,255,.66);letter-spacing:.04em;word-break:break-word}
 .footer__bottom{margin-top:56px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .footer__bottom small{font-family:var(--en);font-size:12.5px;letter-spacing:.14em;color:rgba(255,255,255,.7)}
-.totop{display:flex;align-items:center;gap:12px;font-family:var(--en);font-size:11px;letter-spacing:.26em;color:var(--gold)}
+.totop{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:4px 2px;font-family:var(--en);font-size:11px;letter-spacing:.26em;color:var(--gold)}
 .totop svg{width:14px;height:14px}
 
 /* ============ Responsive ============ */
@@ -702,6 +704,15 @@ html.opening .header{padding-right:var(--sbw,0px)}
   .hero__lead,.hero__scroll{opacity:1;transform:none}
   .hero__rule{width:min(560px,80%)}
 }
+
+/* ============ B-5 タップ領域（スマホのみ・44px確保） ============ */
+@media (max-width:768px){
+  .footer__nav a,
+  .dl__row dd a,
+  .mailbox a{
+    display:inline-flex;align-items:center;min-height:44px;
+  }
+}
 </style>
 <noscript><style>
 /* JS無効時：スクロール連動で出る要素が消えたままにならないようにする
@@ -736,6 +747,7 @@ html.opening .header{padding-right:var(--sbw,0px)}
       <ul class="nav__list">
         <li><a class="nav__link" href="#hero" data-spy="hero">HOME</a></li>
         <li><a class="nav__link" href="#business" data-spy="business">事業内容</a></li>
+        <li><a class="nav__link" href="/hp-service/">ホームページ制作</a></li>
         <li><a class="nav__link" href="#company" data-spy="company">会社概要</a></li>
         <li><a class="nav__link" href="#contact" data-spy="contact">お問い合わせ</a></li>
       </ul>
@@ -1084,6 +1096,7 @@ html.opening .header{padding-right:var(--sbw,0px)}
             <label for="f-gotcha">この欄は入力しないでください</label>
             <input id="f-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
           </div>
+          <input type="hidden" name="_subject" value="【コーポレート】お問い合わせ">
 
           <div class="submit">
             <p class="consent">送信をもって<a href="#privacy">プライバシーポリシー</a>に同意したものとみなします。</p>
@@ -1532,6 +1545,26 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mykrwgke"; // 設定済み（
         '通信エラーにより送信できませんでした。お手数ですが <a href="mailto:resc.inquiry@resc-inc.com">resc.inquiry@resc-inc.com</a> までご連絡ください。');
     });
   });
+})();
+</script>
+
+<!-- ============ アクセス解析：Cloudflare Web Analytics ============
+     Cookieを使わず、個人を追跡しない解析です。
+     【設定手順】dash.cloudflare.com → Web Analytics → Add a site →
+     resc-inc.com を登録すると token が発行されます。
+     その文字列を下の CF_TOKEN の "" の中に貼ってください（2ファイルとも）。
+     貼るまでは何も読み込まれません（＝計測もされません）。
+     ※ トークンを入れたら、プライバシーポリシーの「7. Cookie・アクセス解析について」も
+        あわせて差し替えてください。差し替え文はクロちゃんが用意しています。 -->
+<script>
+(function(){
+  var CF_TOKEN = "";            /* ← ここにトークンを貼る */
+  if (!CF_TOKEN) return;
+  var s = document.createElement("script");
+  s.defer = true;
+  s.src = "https://static.cloudflareinsights.com/beacon.min.js";
+  s.setAttribute("data-cf-beacon", '{"token":"' + CF_TOKEN + '"}');
+  document.head.appendChild(s);
 })();
 </script>
 </body>
