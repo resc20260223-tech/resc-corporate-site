@@ -72,7 +72,7 @@
   "description": "株式会社RESCは、ホームページ制作のサブスクリプションとセールスプロモーション、2つの事業で企業の「伝わる」を支えます。",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://resc-inc.com/apple-touch-icon.png",
+    "url": "https://resc-inc.com/assets/apple-touch-icon.png",
     "width": 180,
     "height": 180
   },
@@ -1329,6 +1329,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mykrwgke"; // 設定済み（
       window.addEventListener("pointerdown", skip, true);
       window.addEventListener("touchstart", skip, true);
       window.addEventListener("keydown", skip, true);
+      window.addEventListener("wheel", skip, {capture:true, passive:true});   /* PCでホイールを回したら即スキップ */
 
       timers.push(setTimeout(play, T_PLAY));
       timers.push(setTimeout(end,  T_END));
