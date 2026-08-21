@@ -761,29 +761,6 @@ ul{list-style:none}
   .gt-in{transform:none!important}
   .steam{display:none!important}
 }
-
-/* ---------- SNS ブロックA：フッターのSNS行 ---------- */
-.snsi{flex:0 0 auto;width:17px;height:17px}
-.foot-sns{
-  max-width:1240px;margin:clamp(22px,2.8vw,32px) auto 0;
-  padding-top:clamp(20px,2.6vw,28px);border-top:1px solid rgba(233,219,200,.2);
-  display:grid;gap:12px;
-}
-@media (min-width:768px){
-  .foot-sns{grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:clamp(18px,2.4vw,30px)}
-  .foot-sns-n{grid-column:1/-1}
-}
-.foot-sns-h{display:flex;align-items:baseline;gap:9px;font-size:10.5px;letter-spacing:.18em;color:#bda98d}
-.foot-sns-h .en{font-family:var(--serif);font-style:italic;font-size:14px;letter-spacing:.04em;color:#e8c79a}
-.foot-sns-l{display:flex;flex-wrap:wrap;gap:10px}
-.foot-sns-l a{
-  display:inline-flex;align-items:center;gap:8px;text-decoration:none;
-  font-size:13px;color:#e5d5bd;border:1px solid rgba(233,219,200,.32);
-  border-radius:999px;padding:8px 16px;
-  transition:border-color .25s ease,background-color .25s ease,color .25s ease;
-}
-.foot-sns-l a:hover{border-color:#f5d9b4;background:rgba(233,219,200,.09);color:#fff}
-.foot-sns-n{font-size:11.5px;line-height:1.9;color:#bda98d}
 </style>
 </head>
 <body>
@@ -970,14 +947,6 @@ ul{list-style:none}
       <a href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener">LINE</a>
       <a href="mailto:info@example.com">メール</a>
     </nav>
-  </div>
-
-  <div class="foot-sns">
-    <p class="foot-sns-h" id="foot-sns-h">SNS<span class="en" aria-hidden="true">Follow</span></p>
-    <nav class="foot-sns-l" aria-labelledby="foot-sns-h">
-      <a href="#"><svg class="snsi" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="15.2" height="15.2" rx="4.4" fill="none" stroke="currentColor" stroke-width="1" opacity=".55"/><rect x="6.5" y="6.5" width="7" height="7" rx="1.1" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M10 6.5v7M6.5 10h7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Instagram</a>
-    </nav>
-    <p class="foot-sns-n">SNSのリンク先はサンプルです。実在のアカウントではありません。</p>
   </div>
   <div class="foot-c">
     <span>Cafe Hana（RESC制作サンプル）</span>

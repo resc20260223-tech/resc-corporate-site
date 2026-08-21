@@ -463,43 +463,6 @@ html.leaving .pt i{transform:scaleY(1);transition-duration:.42s;transition-delay
   .pnext-a{font-size:clamp(18px,5.6vw,23px)}
 }
 
-/* ============ SNS連携（ブロックA：フッター行／ブロックB：フィード風グリッド） ============ */
-/* アイコンは公式ロゴを使わない。1pxのヘアラインで引いた正方の「面」を割った自作の幾何記号。 */
-.sns-ic{
-  width:15px;height:15px;flex:0 0 auto;display:block;overflow:visible;
-  fill:none;stroke:currentColor;stroke-width:1;vector-effect:non-scaling-stroke;
-  stroke-linecap:square;
-}
-.sns-lk{
-  display:inline-flex;align-items:center;gap:9px;padding:5px 2px;
-  text-decoration:none;color:var(--sumi-2);font-size:12px;letter-spacing:.14em;
-  border-bottom:1px solid transparent;transition:color .3s ease,border-color .3s ease;
-}
-.sns-lk:hover{color:var(--sumi);border-bottom-color:var(--line)}
-.sns-note{font-size:11.5px;line-height:1.95;letter-spacing:.06em;color:var(--sumi-3)}
-.foot-sns{
-  flex:0 0 100%;order:-1;display:flex;flex-wrap:wrap;align-items:center;
-  gap:6px clamp(14px,2.4vw,26px);
-  padding-bottom:22px;margin-bottom:24px;border-bottom:1px solid var(--line-soft);
-}
-.foot-sns .lb{font-size:10px;letter-spacing:.3em;color:var(--sumi-3)}
-.foot-sns .sns-note{margin-left:auto;font-size:10.5px;letter-spacing:.1em}
-@media (max-width:560px){.foot-sns .sns-note{margin-left:0;flex-basis:100%}}
-
-.sns-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.8vw,38px);grid-auto-rows:1fr}
-.sns-cell{display:flex;flex-direction:column}
-.sns-im{display:block;position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--paper-2)}
-.sns-im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.22,.61,.36,1)}
-.sns-cell:hover .sns-im img{transform:scale(1.045)}
-.sns-bar{display:flex;flex-direction:column;flex:1 1 auto;margin-top:13px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.sns-nm{display:block;font-family:var(--mincho);font-weight:500;font-size:13.5px;letter-spacing:.12em;line-height:1.75}
-.sns-en{margin-top:auto;padding-top:7px;font-size:9.5px;letter-spacing:.3em;color:var(--sumi-3)}
-.sns-feed .sns-note{margin-top:clamp(20px,3vw,28px)}
-@media (max-width:768px){.sns-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (prefers-reduced-motion:reduce){
-  .sns-im img{transform:none!important;transition:none!important}
-}
-
 /* ============ reduced motion ============ */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -745,11 +708,6 @@ html.leaving .pt i{transform:scaleY(1);transition-duration:.42s;transition-delay
 </main>
 
 <footer class="foot">
-  <div class="foot-sns">
-    <span class="lb">FOLLOW</span>
-    <a class="sns-lk" href="#"><svg class="sns-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>Instagram</a>
-    <small class="sns-note">SNSのリンク先はサンプルです。実在のアカウントではありません。</small>
-  </div>
   <span class="fb">Salon Ren</span>
   <nav class="foot-nav" aria-label="フッターメニュー">
     <a href="salon-standard.html">ホーム</a>

@@ -592,41 +592,6 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
   .js .rv{opacity:1!important;transform:none!important}
 }
 </style>
-
-<style>
-/* ==========================================================
-   SNS連携（A：フッターのSNS行 ／ B：フィード風の写真グリッド）
-   記号は公式ロゴを使わない自作の中立幾何形。塗り＝面のみ。
-   色は既存トークンだけ。:root は増やさない。
-   ========================================================== */
-.snsi{width:15px;height:15px;flex:none;fill:currentColor}
-.snsi .snsi-a{fill:var(--hi)}
-/* --- ブロックA：フッターのSNS行 --- */
-.fsns{margin-top:18px}
-.fsns-h{font-family:var(--num);font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--hi);margin-bottom:9px}
-.fsns-l{display:flex;flex-wrap:wrap;gap:8px}
-.fsns-l a{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid var(--line-soft);
-  border-radius:3px;background:var(--sumi-2);color:var(--kinari-2);font-size:12.5px;font-weight:700;
-  letter-spacing:.06em;transition:border-color .3s,background .3s,color .3s}
-.fsns-l a:hover{border-color:rgba(255,138,61,.7);background:var(--sumi-3);color:var(--hi-2)}
-.fsns-l a:hover .snsi-a{fill:var(--hi-2)}
-.fsns-n{margin-top:10px}
-/* --- ブロックB：フィード風（写真グリッド型） --- */
-.snsgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.5vw,16px)}
-@media (max-width:560px){.snsgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.snscell figure{margin:0}
-.snscell img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:3px;
-  border:1px solid var(--line-hair)}
-.snscell figcaption{margin-top:9px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;
-  font-size:12px;font-weight:700;color:var(--kinari-2);letter-spacing:.06em;line-height:1.7}
-.snstag{font-family:var(--num);font-size:10.5px;font-weight:600;letter-spacing:.14em;color:var(--hi);
-  border:1px solid rgba(255,138,61,.38);border-radius:2px;padding:2px 7px}
-.snsfoot{margin-top:clamp(22px,3.4vw,40px);display:grid;gap:13px;max-width:620px}
-.snsfoot .note,.snsfoot .cta-note{margin-top:0}
-.snsbtn span{display:inline-flex;align-items:center;gap:10px}
-.snsbtn .snsi{width:17px;height:17px}
-@media (max-width:560px){.snscell figcaption{flex-direction:column;align-items:flex-start;gap:5px}}
-</style>
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
@@ -1094,12 +1059,6 @@ h4.lh4{font-size:var(--t-h4);font-weight:700;line-height:1.7;letter-spacing:.06e
         <p class="foot-sub">RESC制作サンプル ／ これはサンプルサイトです。実店舗ではありません。</p>
         <p class="foot-sub">福岡県福岡市〇〇区〇〇9-3-7 ／ 営業 <span class="num">17:00</span>〜<span class="num">23:00</span>（定休日:日曜日）</p>
         <p class="foot-sub">20歳未満の方の飲酒は法律で禁止されています。20歳未満の方への酒類の提供はいたしません。</p>
-      
-        <div class="fsns">
-          <p class="fsns-h">SNS</p>
-          <ul class="fsns-l"><li><a href="#"><svg class="snsi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.6" y="2.6" width="8.5" height="8.5" rx="2.2"/><rect class="snsi-a" x="12.9" y="2.6" width="8.5" height="8.5" rx="2.2"/><rect x="2.6" y="12.9" width="8.5" height="8.5" rx="2.2"/><rect x="12.9" y="12.9" width="8.5" height="8.5" rx="2.2"/></svg><span>Instagram</span></a></li><li><a href="#"><svg class="snsi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.6" y="4.4" width="18.8" height="4.4" rx="2.2"/><rect class="snsi-a" x="2.6" y="11.2" width="12.6" height="4.4" rx="2.2"/><rect x="2.6" y="18" width="7.4" height="4.4" rx="2.2"/></svg><span>X</span></a></li><li><a href="#"><svg class="snsi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.4" y="2.4" width="14.4" height="14.4" rx="2.6"/><rect class="snsi-a" x="12.4" y="12.4" width="9.2" height="9.2" rx="2.4"/></svg><span>Facebook</span></a></li></ul>
-          <p class="foot-sub fsns-n">SNSのリンク先はサンプルです。実在のアカウントではありません。</p>
-        </div>
       </div>
       <nav class="foot-links" aria-label="フッター">
         <a href="yakitori-advance-service.html" data-ko="04" data-nm="お品書き">お品書き</a>

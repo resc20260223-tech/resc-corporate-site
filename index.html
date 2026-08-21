@@ -30,6 +30,30 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 
+<!-- ============ Opening (ロゴアニメーション用) ============ -->
+<link rel="preload" as="image" href="images/logo-mark.webp" type="image/webp">
+<link rel="preload" as="image" href="images/logo-word.webp" type="image/webp">
+<script>
+/* ローダーは「JSが動いたときだけ」表示する。
+   CSSの既定は display:none なので、JS無効・エラー時は本文がそのまま読める。 */
+(function(){
+  var d = document.documentElement;
+  var show = true;
+  try{ if (sessionStorage.getItem("resc-opening") === "1") show = false; }catch(e){}
+  try{ if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) show = false; }catch(e){}
+  if (!show) return;
+  try{ sessionStorage.setItem("resc-opening","1"); }catch(e){}
+  d.classList.add("opening");
+  /* 保険：6秒で必ずローダーを外す（下部スクリプトが動かなくても本文は読める） */
+  setTimeout(function(){
+    if (!d.classList.contains("opening")) return;
+    d.classList.remove("opening");
+    if (document.body) document.body.style.paddingRight = "";
+    var el = document.getElementById("loader");
+    if (el && el.parentNode) el.parentNode.removeChild(el);
+  }, 6000);
+})();
+</script>
 <!-- ============ Fonts ============ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -236,22 +260,72 @@ ul{margin:0;padding:0;list-style:none}
   justify-content:center;border:1px solid var(--gold);color:var(--gold);font-size:15px;padding:20px;
 }
 
-/* ============ Loader ============ */
+/* ============ Loader / Opening ============
+   円が育ってロゴになり、そのままヒーローの同心円へ溶ける。
+   既定は display:none。JSが .opening を付けたときだけ表示する。
+   --lk … 再生速度係数（1.62 ＝ 全体4.46秒）
+   --ringD/--tx/--ty/--sc … JSがヒーロー同心円を実測して入れる  */
 .loader{
   position:fixed;inset:0;z-index:300;background:var(--navy-deep);
-  display:flex;align-items:center;justify-content:center;
-  transition:opacity .9s var(--ease),visibility .9s var(--ease);
+  display:none;align-items:center;justify-content:center;
+  --lk:1.62;--ringD:250px;--tx:0px;--ty:0px;--sc:2.33;
 }
-.loader.done{opacity:0;visibility:hidden}
-.loader__mark{font-family:var(--en);font-size:26px;letter-spacing:.5em;padding-left:.5em;color:var(--gold);position:relative}
-.loader__mark::after{
-  content:"";position:absolute;left:0;right:0;bottom:-18px;height:1px;background:rgba(185,155,95,.3);
+html.opening .loader{
+  display:flex;
+  animation:rescLoaderOut calc(var(--lk)*620ms) ease-out calc(var(--lk)*1880ms) forwards;
 }
-.loader__mark::before{
-  content:"";position:absolute;left:0;bottom:-18px;height:1px;width:0;background:var(--gold);z-index:1;
-  animation:loadbar 1.15s var(--ease) forwards;
+html.opening{overflow:hidden}                          /* 再生中はスクロールを止める */
+html.opening body{padding-right:var(--sbw,0px)}        /* スクロールバー消失分を相殺 */
+html.opening .header{padding-right:var(--sbw,0px)}
+@keyframes rescLoaderOut{to{opacity:0;visibility:hidden}}
+
+.loader__core{position:relative;display:grid;place-items:center}
+
+.loader__ring{
+  position:absolute;top:50%;left:50%;
+  width:var(--ringD);height:var(--ringD);max-width:none;
+  margin:calc(var(--ringD) / -2) 0 0 calc(var(--ringD) / -2);
+  overflow:visible;
+  transform:scale(.04) rotate(-120deg);opacity:0;
+  animation:rescGrow calc(var(--lk)*900ms) cubic-bezier(.22,.85,.3,1) calc(var(--lk)*130ms) forwards,
+            rescExpand calc(var(--lk)*760ms) cubic-bezier(.6,0,.35,1) calc(var(--lk)*1620ms) forwards;
 }
-@keyframes loadbar{to{width:100%}}
+.loader__ring circle{stroke:var(--gold);vector-effect:non-scaling-stroke}
+@keyframes rescGrow{
+  0%{transform:scale(.04) rotate(-120deg);opacity:0}
+  22%{opacity:1}
+  100%{transform:scale(.965) rotate(0deg);opacity:1}
+}
+@keyframes rescExpand{
+  0%{transform:translate(0px,0px) scale(.965) rotate(0deg);opacity:1}
+  100%{transform:translate(var(--tx),var(--ty)) scale(var(--sc)) rotate(0deg);opacity:.34}
+}
+
+.loader__logo{
+  position:relative;width:var(--ringD);aspect-ratio:328/329;opacity:0;
+  animation:rescLogoIn calc(var(--lk)*620ms) cubic-bezier(.2,.8,.3,1) calc(var(--lk)*830ms) forwards,
+            rescLogoOut calc(var(--lk)*520ms) ease-in calc(var(--lk)*1600ms) forwards;
+}
+.loader__logo img{width:100%}
+@keyframes rescLogoIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+@keyframes rescLogoOut{to{opacity:0;transform:scale(1.12)}}
+
+.loader__word{
+  position:absolute;left:50%;top:calc(50% + var(--ringD) * .608);
+  width:calc(var(--ringD) * .784);transform:translateX(-50%);opacity:0;
+  animation:rescWordIn calc(var(--lk)*240ms) cubic-bezier(.16,1,.3,1) calc(var(--lk)*1320ms) forwards,
+            rescWordOut calc(var(--lk)*380ms) ease-in calc(var(--lk)*1600ms) forwards;
+}
+.loader__word img{width:100%}
+@keyframes rescWordIn{
+  from{opacity:0;transform:translateX(-50%) scale(.92);filter:blur(3px)}
+  to{opacity:1;transform:translateX(-50%);filter:none}
+}
+@keyframes rescWordOut{to{opacity:0}}
+
+/* スキップ時：アニメーションを止めて0.3秒でフェード */
+.loader.is-skip *{animation-play-state:paused!important}   /* 見た目を止めて */
+.loader.is-skip{animation:none!important;transition:opacity .3s ease-out}
 
 /* ============ Hero ============ */
 .hero{
@@ -619,6 +693,9 @@ ul{margin:0;padding:0;list-style:none}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  html.opening{overflow:visible}
+  html.opening .loader{display:none}
+  html.opening body,html.opening .header{padding-right:0}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .reveal{opacity:1;transform:none}
   .hero__title .ch{opacity:1;transform:none;filter:none}
@@ -626,11 +703,27 @@ ul{margin:0;padding:0;list-style:none}
   .hero__rule{width:min(560px,80%)}
 }
 </style>
+<noscript><style>
+/* JS無効時：スクロール連動で出る要素が消えたままにならないようにする
+   （ローダーはCSS既定の display:none のまま出ない） */
+.reveal{opacity:1;transform:none}
+.hero__title .ch{opacity:1;transform:none;filter:none}
+.hero__lead,.hero__scroll{opacity:1;transform:none}
+.hero__rule{width:min(560px,80%)}
+</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
 
-<div class="loader" id="loader" aria-hidden="true"><div class="loader__mark">RESC</div></div>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__core">
+    <svg class="loader__ring" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false">
+      <circle cx="50" cy="50" r="50" stroke-width="1"/>
+    </svg>
+    <div class="loader__logo"><img src="images/logo-mark.webp" alt="" decoding="async"></div>
+    <div class="loader__word"><img src="images/logo-word.webp" alt="" decoding="async"></div>
+  </div>
+</div>
 
 <!-- ============ HEADER ============ -->
 <header class="header" id="header">
@@ -1154,18 +1247,93 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mykrwgke"; // 設定済み（
     title.appendChild(frag);
   }
 
-  /* ---- loader → hero play ---- */
+  /* ---- opening（C案：円が育ってヒーローの同心円に溶ける） ---- */
   var loader = document.getElementById("loader");
-  var hero = document.getElementById("hero");
+  var hero   = document.getElementById("hero");
+  var root   = document.documentElement;
   function play(){
-    if (loader) loader.classList.add("done");
-    if (hero) hero.classList.add("play");
+    if (hero)  hero.classList.add("play");
     if (title) title.classList.add("play");
   }
-  if (reduce){ play(); }
-  else {
-    window.addEventListener("load", function(){ setTimeout(play, 900); });
-    setTimeout(play, 2600); // safety
+
+  if (!loader || !root.classList.contains("opening")){
+    /* 2回目以降 / reduced motion：ローダーは出さず、すぐヒーローを見せる */
+    root.classList.remove("opening");
+    if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+    play();
+  } else {
+    (function(){
+      var K = 1.62;                     /* 再生速度係数（全体4.46秒） */
+      var T_PLAY = Math.round(1880*K);  /* 3046ms：ローダーのフェード開始と同時にヒーローを動かす */
+      var T_END  = Math.round(2500*K);  /* 4050ms：ローダー消滅 */
+      var arcs   = document.querySelector(".hero__arcs");
+      var timers = [], ended = false;
+
+      /* ヒーロー同心円（最外 r=292 / viewBox 600）を実測し、
+         ローダーの円がそこへ「移動＋拡大」して重なるようCSS変数を更新する */
+      function fit(){
+        if (!arcs) return;
+        var b = arcs.getBoundingClientRect();
+        if (!b.width) return;
+        var vw = root.clientWidth, vh = root.clientHeight;
+        var tR = b.width * 292 / 600;                                      /* 目標半径 */
+        var d  = Math.max(150, Math.min(340, tR*0.829, vw*0.62, vh*0.5));  /* 円の停止直径＝ロゴの大きさ */
+        loader.style.setProperty("--ringD", d.toFixed(2) + "px");
+        loader.style.setProperty("--sc", (tR / (d/2)).toFixed(4));         /* 線の中心同士を合わせる */
+        loader.style.setProperty("--tx", (b.left + b.width/2  - vw/2).toFixed(2) + "px");
+        loader.style.setProperty("--ty", (b.top  + b.height/2 - vh/2).toFixed(2) + "px");
+      }
+
+      function detach(){
+        window.removeEventListener("resize", fit);
+        window.removeEventListener("pointerdown", skip, true);
+        window.removeEventListener("touchstart", skip, true);
+        window.removeEventListener("keydown", skip, true);
+      }
+
+      function end(){
+        if (ended) return;
+        ended = true;
+        for (var i=0;i<timers.length;i++) clearTimeout(timers[i]);
+        detach();
+        play();
+        root.classList.remove("opening");        /* overflow:hidden を解除 */
+        root.style.removeProperty("--sbw");
+        if (loader.parentNode) loader.parentNode.removeChild(loader);
+      }
+
+      /* クリック・タップ・キー操作で即スキップ（0.3秒フェード） */
+      function skip(){
+        if (ended || loader.classList.contains("is-skip")) return;
+        loader.style.opacity = window.getComputedStyle(loader).opacity; /* 今の見た目で固定 */
+        loader.classList.add("is-skip");
+        play();
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){ loader.style.opacity = "0"; });
+        });
+        timers.push(setTimeout(end, 340));
+      }
+
+      /* スクロールバーが消える分の横ズレを相殺しておく */
+      var probe = document.createElement("div");
+      probe.style.cssText = "position:absolute;top:-9999px;left:-9999px;width:100px;height:100px;overflow:scroll";
+      document.body.appendChild(probe);
+      var sbw = probe.offsetWidth - probe.clientWidth;
+      document.body.removeChild(probe);
+      if (sbw > 0 && document.body.scrollHeight > window.innerHeight){
+        root.style.setProperty("--sbw", sbw + "px");
+      }
+
+      fit();
+      window.addEventListener("resize", fit, {passive:true});
+      window.addEventListener("pointerdown", skip, true);
+      window.addEventListener("touchstart", skip, true);
+      window.addEventListener("keydown", skip, true);
+
+      timers.push(setTimeout(play, T_PLAY));
+      timers.push(setTimeout(end,  T_END));
+      timers.push(setTimeout(end,  6000));   /* 保険：必ず外す */
+    })();
   }
 
   /* ---- header state (rAF throttled) ---- */

@@ -600,37 +600,6 @@ html.entering .pt{opacity:1}
   .st-i b{min-width:21px;height:21px}
 }
 
-/* ---- 21b. SNS連携（ブロックA：フッター行／ブロックB：フィード風グリッド） ---- */
-/* アイコンは公式ロゴを使わない。1pxのヘアラインで引いた正方の「面」の中を割った自作の幾何記号。 */
-.sns-ic{
-  width:15px;height:15px;flex:0 0 auto;display:block;overflow:visible;
-  fill:none;stroke:currentColor;stroke-width:1;vector-effect:non-scaling-stroke;
-  stroke-linecap:square;
-}
-.ft-sns{margin:clamp(26px,3.4vw,36px) auto 0;padding-top:clamp(20px,2.6vw,26px);border-top:1px solid var(--line-hair);max-width:38em}
-.ft-sns .lb{font-size:var(--t-lb);letter-spacing:.34em;color:var(--sumi-3);text-indent:.34em}
-.sns-row{margin-top:12px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px clamp(16px,2.6vw,30px)}
-.sns-lk{
-  display:inline-flex;align-items:center;gap:9px;padding:6px 2px;
-  text-decoration:none;color:var(--sumi-2);font-size:12px;letter-spacing:.14em;
-  border-bottom:1px solid transparent;transition:color .3s ease,border-color .3s ease;
-}
-.sns-lk:hover{color:var(--sumi);border-bottom-color:var(--line)}
-.sns-note{margin-top:11px;font-size:10.5px;line-height:1.9;letter-spacing:.08em;color:var(--sumi-3)}
-
-.sns-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.8vw,38px);grid-auto-rows:1fr}
-.sns-cell{display:flex;flex-direction:column}
-.sns-im{display:block;position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--paper-2)}
-.sns-im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.sns-cell:hover .sns-im img{transform:scale(1.045)}
-.sns-bar{display:flex;flex-direction:column;flex:1 1 auto;margin-top:13px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.sns-nm{display:block;font-family:var(--mincho);font-weight:500;font-size:13px;letter-spacing:.12em;text-indent:.12em;line-height:1.75}
-.sns-en{margin-top:auto;padding-top:7px;font-size:9px;letter-spacing:.3em;text-indent:.3em;color:var(--sumi-3)}
-@media (max-width:768px){.sns-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (prefers-reduced-motion:reduce){
-  .sns-im img{transform:none!important;transition:none!important}
-}
-
 /* ---- 22. 動きを減らす設定 ---- */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -1182,52 +1151,6 @@ html.entering .pt{opacity:1}
   </div>
 </section>
 
-<!-- ===== 10f SNS（Instagram） ===== -->
-<section class="sec" id="sns" aria-labelledby="sns-h">
-  <div class="wrap">
-    <div class="shead">
-      <span class="no">10f</span>
-      <h2 class="jp" id="sns-h" data-split>日々</h2>
-      <span class="en rv-l">INSTAGRAM</span>
-      <span class="ln rv-ln"></span>
-    </div>
-    <p class="lede rv-l">仕上がったスタイルは、Instagram に一枚ずつ並べています。ここに出しているのは、このサイトに載せている六つの型です。</p>
-    <ul class="sns-grid rv" style="margin-top:clamp(28px,4vw,44px)">
-      <li class="sns-cell">
-        <span class="sns-im"><img src="images/salon/salon_menu_cut.webp" alt="大きな丸鏡の前でカットを受けるお客さま" loading="lazy" decoding="async"></span>
-        <span class="sns-bar"><span class="sns-nm">肩でおさまるレイヤー</span><span class="sns-en">CUT</span></span>
-      </li>
-      <li class="sns-cell">
-        <span class="sns-im"><img src="images/salon/salon_menu_color.webp" alt="ホイルを使ってカラー剤を塗り分けている施術中の様子" loading="lazy" decoding="async"></span>
-        <span class="sns-bar"><span class="sns-nm">透けるアッシュのグラデーション</span><span class="sns-en">COLOR</span></span>
-      </li>
-      <li class="sns-cell">
-        <span class="sns-im"><img src="images/salon/salon_menu_perm.webp" alt="丸鏡の前で、ゆるやかなウェーブの仕上がりを確認するお客さまとスタイリスト" loading="lazy" decoding="async"></span>
-        <span class="sns-bar"><span class="sns-nm">ゆるやかなウェーブ</span><span class="sns-en">DIGITAL PERM</span></span>
-      </li>
-      <li class="sns-cell">
-        <span class="sns-im"><img src="images/salon/salon_gallery6.webp" alt="鏡の前で仕上がった、結い上げのアップスタイルのうしろ姿" loading="lazy" decoding="async"></span>
-        <span class="sns-bar"><span class="sns-nm">結い上げのアップスタイル</span><span class="sns-en">CUT &amp; SET</span></span>
-      </li>
-      <li class="sns-cell">
-        <span class="sns-im"><img src="images/salon/salon_menu_bridal.webp" alt="鏡の前でアップスタイルのヘアセットを仕上げている様子" loading="lazy" decoding="async"></span>
-        <span class="sns-bar"><span class="sns-nm">式の日のヘア&amp;メイク</span><span class="sns-en">BRIDAL</span></span>
-      </li>
-      <li class="sns-cell">
-        <span class="sns-im"><img src="images/salon/salon_menu_treatment.webp" alt="シャンプー台で横になり、トリートメントを受けているお客さま" loading="lazy" decoding="async"></span>
-        <span class="sns-bar"><span class="sns-nm">素髪に近いつや</span><span class="sns-en">TREATMENT</span></span>
-      </li>
-    </ul>
-    <div class="btns">
-      <a class="btn ghost" href="#">Instagram で見る<i aria-hidden="true"></i></a>
-    </div>
-    <div class="note rv-l">
-      <b>SNSについて</b>
-      SNSのリンク先はサンプルです。実在のアカウントではありません。
-    </div>
-  </div>
-</section>
-
 <!-- ===== 次のページ ===== -->
 <section class="sec sec-s pnext" aria-label="次のページ">
   <div class="pnext-in">
@@ -1247,15 +1170,6 @@ html.entering .pt{opacity:1}
     <div class="btns mid">
       <a class="btn" href="mailto:info@example.com">メールで問い合わせる<i aria-hidden="true"></i></a>
       <a class="btn line" href="https://lin.ee/z3rP0hO" target="_blank" rel="noopener noreferrer">LINEで問い合わせる<i aria-hidden="true"></i></a>
-    </div>
-    <div class="ft-sns">
-      <p class="lb">FOLLOW</p>
-      <ul class="sns-row">
-        <li><a class="sns-lk" href="#"><svg class="sns-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>Instagram</a></li>
-        <li><a class="sns-lk" href="#"><svg class="sns-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18"/><path d="M7.4 7.4l9.2 9.2M16.6 7.4l-9.2 9.2"/></svg>X</a></li>
-        <li><a class="sns-lk" href="#"><svg class="sns-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18"/><path d="M3 8.25h18M3 12h18M3 15.75h18"/></svg>Facebook</a></li>
-      </ul>
-      <p class="sns-note">SNSのリンク先はサンプルです。実在のアカウントではありません。</p>
     </div>
   </div>
 
