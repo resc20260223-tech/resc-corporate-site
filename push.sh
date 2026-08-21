@@ -33,7 +33,7 @@ fi
 
 echo "▼ コミットする内容（対象: $TARGET）"
 git add "$TARGET"
-git status --short --cached
+git diff --cached --name-status
 COUNT=$(git diff --cached --name-only | wc -l | tr -d ' ')
 echo
 if [ "$COUNT" -eq 0 ]; then
