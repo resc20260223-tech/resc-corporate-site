@@ -2395,15 +2395,13 @@ table{width:100%;border-collapse:collapse}
 
 <!-- ============ アクセス解析：Cloudflare Web Analytics ============
      Cookieを使わず、個人を追跡しない解析です。
-     【設定手順】dash.cloudflare.com → Web Analytics → Add a site →
-     resc-inc.com を登録すると token が発行されます。
-     その文字列を下の CF_TOKEN の "" の中に貼ってください（2ファイルとも）。
-     貼るまでは何も読み込まれません（＝計測もされません）。
-     ※ トークンを入れたら、プライバシーポリシーの「7. Cookie・アクセス解析について」も
-        あわせて差し替えてください。差し替え文はクロちゃんが用意しています。 -->
+     2026-08-22 に有効化済み（token は resc-inc.com 用）。
+     token は公開したHTMLに埋め込まれる値なので秘密情報ではありません。
+     止めたいときは CF_TOKEN を "" に戻すだけで、読み込み自体が起きなくなります。
+     ※ 止める場合はプライバシーポリシーの「7. Cookie・アクセス解析について」も戻すこと。 -->
 <script>
 (function(){
-  var CF_TOKEN = "";            /* ← ここにトークンを貼る */
+  var CF_TOKEN = "08005d0e40ad47409c268976d8503f3c";   /* Cloudflare Web Analytics（公開値：HTMLに埋まるため秘密ではない） */
   if (!CF_TOKEN) return;
   var s = document.createElement("script");
   s.defer = true;

@@ -1128,7 +1128,7 @@ html.opening .header{padding-right:var(--sbw,0px)}
     <div class="pp-body">
       <div></div>
       <div class="pp-inner reveal d1">
-        <p class="pp-date">制定日：2026年7月18日</p>
+        <p class="pp-date">制定日：2026年7月18日／最終改定日：2026年8月22日</p>
         <p class="pp-intro">株式会社RESC（以下「当社」）は、お客様の個人情報を以下の方針に基づき、適切に取り扱います。</p>
 
         <div class="pp-art">
@@ -1176,7 +1176,7 @@ html.opening .header{padding-right:var(--sbw,0px)}
 
         <div class="pp-art">
           <h3><em aria-hidden="true">07</em>7. Cookie・アクセス解析について</h3>
-          <p>本サイトでは、独自のCookieやアクセス解析ツール（Google Analytics等）は使用していません。</p>
+          <p>本サイトでは、アクセス状況の把握のために「Cloudflare Web Analytics」を利用しています。このツールはCookieを使用せず、閲覧者を個人として識別・追跡することはありません。取得するのは、閲覧されたページ、参照元、おおまかな地域、ブラウザの種類といった統計情報のみで、個人を特定できる情報は取得していません。このほか、本サイトでは独自のCookieや広告目的の追跡ツールは使用していません。</p>
         </div>
       </div>
     </div>
@@ -1550,15 +1550,13 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mykrwgke"; // 設定済み（
 
 <!-- ============ アクセス解析：Cloudflare Web Analytics ============
      Cookieを使わず、個人を追跡しない解析です。
-     【設定手順】dash.cloudflare.com → Web Analytics → Add a site →
-     resc-inc.com を登録すると token が発行されます。
-     その文字列を下の CF_TOKEN の "" の中に貼ってください（2ファイルとも）。
-     貼るまでは何も読み込まれません（＝計測もされません）。
-     ※ トークンを入れたら、プライバシーポリシーの「7. Cookie・アクセス解析について」も
-        あわせて差し替えてください。差し替え文はクロちゃんが用意しています。 -->
+     2026-08-22 に有効化済み（token は resc-inc.com 用）。
+     token は公開したHTMLに埋め込まれる値なので秘密情報ではありません。
+     止めたいときは CF_TOKEN を "" に戻すだけで、読み込み自体が起きなくなります。
+     ※ 止める場合はプライバシーポリシーの「7. Cookie・アクセス解析について」も戻すこと。 -->
 <script>
 (function(){
-  var CF_TOKEN = "";            /* ← ここにトークンを貼る */
+  var CF_TOKEN = "08005d0e40ad47409c268976d8503f3c";   /* Cloudflare Web Analytics（公開値：HTMLに埋まるため秘密ではない） */
   if (!CF_TOKEN) return;
   var s = document.createElement("script");
   s.defer = true;

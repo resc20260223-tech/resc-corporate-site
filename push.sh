@@ -33,8 +33,14 @@ fi
 
 echo "▼ コミットする内容（対象: $TARGET）"
 git add "$TARGET"
-git diff --cached --name-status
-COUNT=$(git diff --cached --name-only | wc -l | tr -d ' ')
+COUNT=$(git --no-pager diff --cached --name-only | wc -l | tr -d ' ')
+# ページャーを通さない（git diff 系は既定で less に流れるため）。多いときは先頭40件だけ出す
+if [ "$COUNT" -gt 40 ]; then
+  git --no-pager diff --cached --name-status | head -40
+  echo "  … 他 $((COUNT - 40)) 件"
+else
+  git --no-pager diff --cached --name-status
+fi
 echo
 if [ "$COUNT" -eq 0 ]; then
   echo "変更がありません。"
